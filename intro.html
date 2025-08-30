@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Quarto – オペレーションズ・リサーチ</title>
+<title>1&nbsp; Introduction – OR</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 /* CSS for citations */
 div.csl-bib-body { }
@@ -85,7 +50,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="prev">
+<link href="./summary.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -95,7 +61,7 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6437d3b8e7436a5f09bef9d8f13bc7c7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-485d01fc63b59abcd3ee1bf1e8e2748d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -123,39 +89,7 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -168,7 +102,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quarto.html">Quarto</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -183,10 +117,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">オペレーションズ・リサーチ</a> 
-        <div class="sidebar-tools-main">
-    <a href="https://github.com/zi-ang-liu/or-book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-</div>
+      <a href="./">OR</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -202,33 +133,22 @@ window.Quarto = {
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">在庫モデル</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inventory/intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">在庫管理とは</span></span></a>
+  <a href="./intro.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  </div>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./quarto.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Quarto</span></a>
   </div>
 </li>
     </ul>
@@ -236,29 +156,15 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#latex" id="toc-latex" class="nav-link active" data-scroll-target="#latex">LaTex</a></li>
-  <li><a href="#theorems-and-proofs" id="toc-theorems-and-proofs" class="nav-link" data-scroll-target="#theorems-and-proofs">Theorems and Proofs</a></li>
-  <li><a href="#sec-equations" id="toc-sec-equations" class="nav-link" data-scroll-target="#sec-equations">Equations</a></li>
-  <li><a href="#tables" id="toc-tables" class="nav-link" data-scroll-target="#tables">Tables</a></li>
-  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python">Python</a></li>
-  <li><a href="#citations" id="toc-citations" class="nav-link" data-scroll-target="#citations">Citations</a></li>
-  <li><a href="#mermaid" id="toc-mermaid" class="nav-link" data-scroll-target="#mermaid">Mermaid</a></li>
-  <li><a href="#callout-blocks" id="toc-callout-blocks" class="nav-link" data-scroll-target="#callout-blocks">Callout Blocks</a></li>
-  <li><a href="#render-on-save" id="toc-render-on-save" class="nav-link" data-scroll-target="#render-on-save">Render on Save</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Quarto</h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
 </div>
 
 
@@ -275,265 +181,15 @@ window.Quarto = {
 </header>
 
 
-<section id="latex" class="level2">
-<h2 class="anchored" data-anchor-id="latex">LaTex</h2>
-
-</section>
-<section id="theorems-and-proofs" class="level2">
-<h2 class="anchored" data-anchor-id="theorems-and-proofs">Theorems and Proofs</h2>
-<div id="thm-line" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1 (Line)</strong></span> The equation of any straight line, called a linear equation, can be written as:</p>
-<p><span class="math display">\[
-y = mx + b
-\]</span></p>
-</div>
-<p>See <a href="#thm-line" class="quarto-xref">Theorem&nbsp;<span>1</span></a>.</p>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>By induction.</p>
-</div>
-<div id="exm-line" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1 (Example of a Line)</strong></span> An example of a linear equation is:</p>
-<p><span class="math display">\[
-y = 2x + 1
-\]</span></p>
-</div>
-<div id="exr-line" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1 (Exercise of a Line)</strong></span> Given the linear equation:</p>
-<p><span class="math display">\[
-y = 3x + 2
-\]</span></p>
-<ol type="1">
-<li>What is the slope of the line?</li>
-<li>What is the y-intercept of the line?</li>
-<li>If <span class="math inline">\(x = 4\)</span>, what is the value of <span class="math inline">\(y\)</span>?</li>
-</ol>
-</div>
-</section>
-<section id="sec-equations" class="level2">
-<h2 class="anchored" data-anchor-id="sec-equations">Equations</h2>
-<p>Equations are discussed in <a href="#sec-equations" class="quarto-xref"><span>Equations</span></a>.</p>
-<p>Let <span class="math inline">\(x\)</span> denote the number of eruptions in a year. Then, <span class="math inline">\(x\)</span> can be modeled by a Poisson distribution</p>
-<p><span id="eq-poisson"><span class="math display">\[
-p(x) = \frac{e^{-\lambda} \lambda^{x}}{x !}
-\tag{1}\]</span></span></p>
-<p>where <span class="math inline">\(\lambda\)</span> is the rate of eruptions per year. Using <a href="#eq-poisson" class="quarto-xref">Equation&nbsp;<span>1</span></a>, the probability of an eruption in the next <span class="math inline">\(t\)</span> years can be calculated.</p>
-</section>
-<section id="tables" class="level2">
-<h2 class="anchored" data-anchor-id="tables">Tables</h2>
-<div id="tbl-history" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-history-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Recent historic eruptions on La Palma
-</figcaption>
-<div aria-describedby="tbl-history-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Year</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Current</td>
-<td>2021</td>
-</tr>
-<tr class="even">
-<td>Teneguía</td>
-<td>1971</td>
-</tr>
-<tr class="odd">
-<td>Nambroque</td>
-<td>1949</td>
-</tr>
-<tr class="even">
-<td>El Charco</td>
-<td>1712</td>
-</tr>
-<tr class="odd">
-<td>Volcán San Antonio</td>
-<td>1677</td>
-</tr>
-<tr class="even">
-<td>Volcán San Martin</td>
-<td>1646</td>
-</tr>
-<tr class="odd">
-<td>Tajuya near El Paso</td>
-<td>1585</td>
-</tr>
-<tr class="even">
-<td>Montaña Quemada</td>
-<td>1492</td>
-</tr>
-</tbody>
-</table>
-</div>
-</figure>
-</div>
-</section>
-<section id="python" class="level2">
-<h2 class="anchored" data-anchor-id="python">Python</h2>
-<p>For a demonstration of a line plot on a polar axis, see <a href="#fig-polar" class="quarto-xref">Figure&nbsp;<span>1</span></a>.</p>
-<div id="cell-fig-polar" class="cell" data-execution_count="1">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">2</span>, <span class="fl">0.01</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> r</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(subplot_kw<span class="op">=</span>{<span class="st">"projection"</span>: <span class="st">"polar"</span>})</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>ax.plot(theta, r)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>ax.set_rticks([<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">1.5</span>, <span class="dv">2</span>])</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div id="fig-polar" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-polar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="quarto_files/figure-html/fig-polar-output-1.png" width="450" height="439" class="figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-polar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: A line plot on a polar axis
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>Code block</p>
-<div id="543021e0" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>plt.plot([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>])</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="quarto_files/figure-html/cell-3-output-1.png" width="571" height="411" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="citations" class="level2">
-<h2 class="anchored" data-anchor-id="citations">Citations</h2>
-<p><span class="citation" data-cites="knuth1984">Knuth (<a href="references.html#ref-knuth1984" role="doc-biblioref">1984</a>)</span> says blah.</p>
-<p><span class="citation" data-cites="knuth1984">Knuth (<a href="references.html#ref-knuth1984" role="doc-biblioref">1984, 33</a>)</span> says blah.</p>
-<p><span class="citation" data-cites="knuth1984">(<a href="references.html#ref-knuth1984" role="doc-biblioref">Knuth 1984, 33–35, 38–39</a>)</span> says blah.</p>
-<p><span class="citation" data-cites="wickham2015 knuth1984">(<a href="references.html#ref-wickham2015" role="doc-biblioref">Wickham 2015</a>; <a href="references.html#ref-knuth1984" role="doc-biblioref">Knuth 1984</a>)</span> says blah.</p>
-<p>Wickham says blah <span class="citation" data-cites="wickham2015">(<a href="references.html#ref-wickham2015" role="doc-biblioref">2015</a>)</span></p>
-</section>
-<section id="mermaid" class="level2">
-<h2 class="anchored" data-anchor-id="mermaid">Mermaid</h2>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
-  A[Hard edge] --&gt; B(Round edge)
-  B --&gt; C{Decision}
-  C --&gt; D[Result one]
-  C --&gt; E[Result two]
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</section>
-<section id="callout-blocks" class="level2">
-<h2 class="anchored" data-anchor-id="callout-blocks">Callout Blocks</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Note that there are five types of callouts, including: <code>note</code>, <code>warning</code>, <code>important</code>, <code>tip</code>, and <code>caution</code>.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip with Title
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This is an example of a callout with a title.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Expand To Learn About Collapse
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>This is an example of a ‘folded’ caution callout that can be expanded by the user. You can use <code>collapse="true"</code> to collapse it by default or <code>collapse="false"</code> to make a collapsible callout that is expanded by default.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Pay Attention without icon
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Using callouts is an effective way to highlight content that your reader give special consideration or attention.</p>
-</div>
-</div>
-<div id="tip-example" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip&nbsp;1: Cross-Referencing a Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Add an ID starting with <code>#tip-</code> to reference a tip.</p>
-</div>
-</div>
-<p>See <a href="#tip-example" class="quarto-xref">Tip&nbsp;<span>1</span></a>…</p>
-</section>
-<section id="render-on-save" class="level2">
-<h2 class="anchored" data-anchor-id="render-on-save">Render on Save</h2>
-<ol type="1">
-<li>Settings</li>
-<li>“quarto: Render”</li>
-<li>Check “Render on Save”</li>
-</ol>
+<p>This is a book created from markdown and executable code.</p>
+<p>See <span class="citation" data-cites="knuth84">Knuth (<a href="references.html#ref-knuth84" role="doc-biblioref">1984</a>)</span> for additional discussion of literate programming.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-knuth1984" class="csl-entry" role="listitem">
+<div id="ref-knuth84" class="csl-entry" role="listitem">
 Knuth, Donald E. 1984. <span>“Literate Programming.”</span> <em>Comput. J.</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>.
 </div>
-<div id="ref-wickham2015" class="csl-entry" role="listitem">
-Wickham, Hadley. 2015. <em>R Packages</em>. 1st ed. Sebastopol, CA, USA: O’Reilly Media, Inc.
 </div>
-</div>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -937,27 +593,17 @@ Wickham, Hadley. 2015. <em>R Packages</em>. 1st ed. Sebastopol, CA, USA: O’Rei
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./references.html" class="pagination-link" aria-label="References">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">References</span>
+      <a href="./index.html" class="pagination-link" aria-label="Preface">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./summary.html" class="pagination-link" aria-label="Summary">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">
-      &nbsp;
-    </div>   
-    <div class="nav-footer-center">
-<p>Copyright 2025, Ziang Liu</p>
-</div>
-    <div class="nav-footer-right">
-      &nbsp;
-    </div>
-  </div>
-</footer>
 
 
 

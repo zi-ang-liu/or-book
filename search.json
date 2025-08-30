@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "オペレーションズ・リサーチ",
+    "title": "OR",
     "section": "",
     "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.",
     "crumbs": [
@@ -10,36 +10,33 @@
     ]
   },
   {
-    "objectID": "inventory/intro.html",
-    "href": "inventory/intro.html",
-    "title": "1  在庫管理とは",
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introduction",
     "section": "",
-    "text": "1.1 在庫モデルの分類\n商店・工場・倉庫などで、原材料・部品・製品などを適切に管理することを在庫管理（Inventory Management）という。一般的に、在庫管理の目的は、顧客の需要を満たしつつ、在庫に関わる費用を最小化することである。\n在庫が多すぎると、保管費用がかかる。逆に、在庫が少なすぎると、欠品が発生し、顧客の需要を満たせなくなる。在庫管理は次の二つの問題を決定する。\n科学的在庫管理（Scientific Inventory Management）では、これらの問題に答えるために、次の手順で在庫管理を行う。\n在庫モデルは、次のような要素で分類される。\n以下の表に、需要と観測に基づく、古典的な在庫モデルを示す。",
+    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
     "crumbs": [
-      "在庫モデル",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>在庫管理とは</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
   },
   {
-    "objectID": "inventory/intro.html#在庫モデルの分類",
-    "href": "inventory/intro.html#在庫モデルの分類",
-    "title": "1  在庫管理とは",
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "2  Summary",
     "section": "",
-    "text": "需要（demand）\n\n需要が決定論的 (Deterministic) か確率的（Stochastic）か。\n\n観測（review）\n\n在庫量を連続観測 (Continuous Review) するか、周期観測 (Periodic Review) するか。連続観測の場合、在庫量が連続的に観測でき、いつでも発注が可能である。周期観測の場合、一定の期間（例えば1週間）ごとに在庫量を観測する。\n\nリードタイム（lead time）\n\n発注から納品までの期間。調達期間とも呼ばれる。リードタイムが決定論的か確率的か。また、リードタイムが0かどうか。在庫モデルを単純化するために、リードタイムを0とし、発注から納品までの期間を無視することもある。\n\nバックオーダー（backorder）\n\nバックオーダーが許容されるかどうか。需要が在庫を上回った場合、バックオーダーが許容されると、欠品が発生しても、後で需要を満たすことができる。バックオーダーが許容されない場合、欠品が発生すると、上回った需要は失われ、機会損失が発生する。\n\n計画期間（planning horizon）\n\n単一期間 (Single Period) か、複数期間 (Multi Period) か、無限 (Infinite) か。\n\n\n\n\n\n\n在庫モデル\n需要\n観測\n\n\n\n\nEOQモデル\n決定論的\n連続観測\n\n\nWagner-Whitin\n決定論的\n周期観測\n\n\n安全在庫\n確率的\n連続観測\n\n\n新聞売り子問題\n確率的\n周期観測",
+    "text": "In summary, this book has no content whatsoever.",
     "crumbs": [
-      "在庫モデル",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>在庫管理とは</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Summary</span>"
     ]
   },
   {
-    "objectID": "inventory/intro.html#在庫の費用",
-    "href": "inventory/intro.html#在庫の費用",
-    "title": "1  在庫管理とは",
-    "section": "1.2 在庫の費用",
-    "text": "1.2 在庫の費用\nここでは、在庫に関わる費用を紹介する。\n\n発注費用（ordering cost）\n\n発注量に関わらず、1回の発注にかかる費用。調達費用、固定費用（fixed cost）などとも呼ばれる。通常、1回の発注にかかる費用を \\(K\\) とする。\n\n購入費用（purchase cost）\n\n商品を購入するためにかかる費用。通常、単位あたりの購入費用を \\(c\\) とする。\n\n欠品費用（stockout cost）\n\n需要が在庫を上回った場合に発生する費用。通常、単位あたりの欠品費用を \\(p\\) とする。\n\n保管費用（holding cost）\n\n在庫を保管するためにかかる倉庫費用、保険費用、税金、機会費用など。通常、単位時間あたりの1単位あたりの保管費用を \\(h\\) とする。\n\n\n例えば、1日あたり1単位の在庫を保管するために、\\(h\\) の費用がかかるとする。30日間、50単位の在庫を保管するための総保管費用は \\(30 \\times 50 \\times h = 1500h\\) となる。下の図を見ると、保管費用は\n\\[\n\\text{面積} \\times h = 1500h\n\\]\nとなることがわかる。\n\n\nCode\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nt = np.linspace(0, 30, 1000)\ninventory = np.full_like(t, 50)\n\n# Plotting the inventory level\nplt.fill_between(t, inventory, color=\"lightgray\", alpha=0.5, label=\"Inventory Level\")\nplt.plot(t, inventory, label=\"Inventory Level\", color=\"black\", linewidth=2)\nplt.xlabel(\"Time\")\nplt.ylabel(\"Inventory Level\")\nplt.axhline(0, color=\"gray\", linewidth=1)\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\n一般的に、在庫量が定数ではなく、時間とともに変化する。例えば、発注量を \\(500\\) とし、6 日間の在庫量を考える。\n\n\nCode\n# Parameters\nd = 250  # Demand rate\nQ = 500  # Order quantity\nT = Q / d  # Cycle length\nt = np.linspace(0, 2.999 * T, 1000)\n\n# Inventory level over time\ninventory = np.maximum(0, Q - (d * t) % Q)\n\n# Plotting the inventory level\nplt.fill_between(t, inventory, color=\"lightgray\", alpha=0.5, label=\"Inventory Level\")\nplt.plot(t, inventory, label=\"Inventory Level\", color=\"black\", linewidth=2)\nplt.xlabel(\"Time\")\nplt.ylabel(\"Inventory Level\")\nplt.axhline(0, color=\"gray\", linewidth=1)\nplt.ylim(bottom=0, top=Q + 200)\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\n保管費用は次のように計算される。\n\\[\n\\frac{2 \\times 500}{2} \\times 3 \\times h\n\\]",
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
     "crumbs": [
-      "在庫モデル",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>在庫管理とは</span>"
+      "References"
     ]
   }
 ]
