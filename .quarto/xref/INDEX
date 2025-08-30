@@ -1,0 +1,44 @@
+{
+  "index.qmd": {
+    "index.html": "06e6e8d7"
+  },
+  "intro.qmd": {
+    "intro.html": "1b1bb661"
+  },
+  "summary.qmd": {
+    "summary.html": "65165b5a"
+  },
+  "references.qmd": {
+    "references.html": "44093847"
+  },
+  "probability.qmd": {
+    "probability.html": "0549718f"
+  },
+  "calculus.qmd": {
+    "calculus.html": "1edf854a"
+  },
+  "inventory/eoq.qmd": {
+    "eoq.html": "61054d6c"
+  },
+  "appendices/calculus.qmd": {
+    "calculus.html": "54d2dbec"
+  },
+  "appendices/probability.qmd": {
+    "probability.html": "08825e08"
+  },
+  "dice.qmd": {
+    "dice.html": "c2c26227"
+  },
+  "inventory/intro.qmd": {
+    "intro.html": "a10c8df7"
+  },
+  "inventory/newsvendor.qmd": {
+    "newsvendor.html": "bc313ddf"
+  },
+  "inventory/safety.qmd": {
+    "safety.html": "7aae14c4"
+  },
+  "inventory/wagner-whitin.qmd": {
+    "wagner-whitin.html": "fcc9e6cb"
+  }
+}
