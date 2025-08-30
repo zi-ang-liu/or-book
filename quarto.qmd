@@ -1,0 +1,186 @@
+---
+bibliography: references.bib
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
+# Quarto {.unnumbered}
+
+## LaTex
+
+\begin{tabular}{|c|c|c|}
+\hline
+Column 1 & Column 2 & Column 3 \\
+\hline
+Data 1 & Data 2 & Data 3 \\
+\hline
+\end{tabular}
+
+## Theorems and Proofs
+
+::: {#thm-line}
+
+## Line
+
+The equation of any straight line, called a linear equation, can be written as:
+
+$$
+y = mx + b
+$$
+:::
+
+See @thm-line.
+
+::: {.proof}
+By induction.
+:::
+
+::: {#exm-line}
+
+## Example of a Line
+
+An example of a linear equation is:
+
+$$
+y = 2x + 1
+$$
+:::
+
+
+::: {#exr-line}
+
+## Exercise of a Line
+
+Given the linear equation:
+
+$$
+y = 3x + 2
+$$
+
+1. What is the slope of the line?
+2. What is the y-intercept of the line?
+3. If $x = 4$, what is the value of $y$?
+:::
+
+## Equations {#sec-equations}
+
+Equations are discussed in @sec-equations.
+
+Let $x$ denote the number of eruptions in a year. Then, $x$ can be modeled by a Poisson distribution
+
+$$
+p(x) = \frac{e^{-\lambda} \lambda^{x}}{x !}
+$$ {#eq-poisson}
+
+where $\lambda$ is the rate of eruptions per year. Using @eq-poisson, the probability of an eruption in the next $t$ years can be calculated.
+
+## Tables
+
+| Name                 | Year   |
+| -------------------- | ------ |
+| Current              | 2021   |
+| Teneguía             | 1971   |
+| Nambroque            | 1949   |
+| El Charco            | 1712   |
+| Volcán San Antonio   | 1677   |
+| Volcán San Martin    | 1646   |
+| Tajuya near El Paso  | 1585   |
+| Montaña Quemada      | 1492   |
+
+: Recent historic eruptions on La Palma {#tbl-history}
+
+## Python
+
+For a demonstration of a line plot on a polar axis, see @fig-polar. 
+
+```{python}
+# | label: fig-polar
+# | fig-cap: "A line plot on a polar axis"
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.arange(0, 2, 0.01)
+theta = 2 * np.pi * r
+fig, ax = plt.subplots(subplot_kw={"projection": "polar"})
+ax.plot(theta, r)
+ax.set_rticks([0.5, 1, 1.5, 2])
+ax.grid(True)
+plt.show()
+```
+
+Code block
+
+```{python}
+# | code-fold: false
+
+import matplotlib.pyplot as plt
+
+plt.plot([1, 2, 3, 4])
+plt.show()
+```
+
+## Citations
+
+@knuth1984 says blah.
+
+@knuth1984 [p. 33] says blah.
+
+[@knuth1984, pp. 33-35, 38-39] says blah.
+
+[@wickham2015; @knuth1984] says blah.
+
+Wickham says blah [-@wickham2015]
+
+## Mermaid
+
+```{mermaid}
+flowchart LR
+  A[Hard edge] --> B(Round edge)
+  B --> C{Decision}
+  C --> D[Result one]
+  C --> E[Result two]
+```
+
+## Callout Blocks
+
+::: {.callout-note}
+Note that there are five types of callouts, including:
+`note`, `warning`, `important`, `tip`, and `caution`.
+:::
+
+::: {.callout-tip}
+## Tip with Title
+
+This is an example of a callout with a title.
+:::
+
+::: {.callout-caution collapse="true"}
+## Expand To Learn About Collapse
+
+This is an example of a 'folded' caution callout that can be expanded by the user. You can use `collapse="true"` to collapse it by default or `collapse="false"` to make a collapsible callout that is expanded by default.
+:::
+
+::: {.callout-note icon=false}
+
+## Pay Attention without icon
+
+Using callouts is an effective way to highlight content that your reader give special consideration or attention.
+
+:::
+
+::: {#tip-example .callout-tip}
+## Cross-Referencing a Tip
+
+Add an ID starting with `#tip-` to reference a tip.
+:::
+
+See @tip-example...
+
+## Render on Save
+
+1. Settings
+2. "quarto: Render"
+3. Check "Render on Save"

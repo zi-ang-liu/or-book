@@ -1,0 +1,41 @@
+project:
+  type: book
+
+book:
+  title: "オペレーションズ・リサーチ"
+  subtitle: "Operations Research: Models, Algorithms, and Implementations"
+  author: 
+    - name: "劉子昂"
+      id: liuziang
+      orcid: 0000-0002-1364-3502
+      url: "https://zi-ang-liu.github.io"
+      affiliation: 
+      - name: 法政大学
+        department: 経営システム工学科
+  date: today
+  page-footer: 
+    border: true
+    center: "Copyright 2025, Ziang Liu"
+  search: true
+  repo-url: https://github.com/zi-ang-liu/or-book
+  chapters:
+    - index.qmd
+    - part: "在庫モデル"
+      chapters:
+        - inventory/intro.qmd
+    - references.qmd
+    - quarto.qmd
+
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    documentclass: scrreprt
+
+
+
