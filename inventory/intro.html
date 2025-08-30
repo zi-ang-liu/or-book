@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="劉子昂">
-<meta name="dcterms.date" content="2025-08-30">
 
-<title>オペレーションズ・リサーチ</title>
+<title>1&nbsp; 在庫管理とは – オペレーションズ・リサーチ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,27 +20,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./inventory/intro.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6437d3b8e7436a5f09bef9d8f13bc7c7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../index.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-6437d3b8e7436a5f09bef9d8f13bc7c7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -71,6 +104,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -83,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../inventory/intro.html">在庫モデル</a></li><li class="breadcrumb-item"><a href="../inventory/intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">在庫管理とは</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -98,7 +160,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">オペレーションズ・リサーチ</a> 
+      <a href="../">オペレーションズ・リサーチ</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/zi-ang-liu/or-book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
@@ -113,7 +175,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -128,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inventory/intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../inventory/intro.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">在庫管理とは</span></span></a>
   </div>
 </li>
@@ -144,43 +206,24 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#在庫モデルの分類" id="toc-在庫モデルの分類" class="nav-link active" data-scroll-target="#在庫モデルの分類"><span class="header-section-number">1.1</span> 在庫モデルの分類</a></li>
+  <li><a href="#在庫の費用" id="toc-在庫の費用" class="nav-link" data-scroll-target="#在庫の費用"><span class="header-section-number">1.2</span> 在庫の費用</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../inventory/intro.html">在庫モデル</a></li><li class="breadcrumb-item"><a href="../inventory/intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">在庫管理とは</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">オペレーションズ・リサーチ</h1>
-<p class="subtitle lead">Operations Research: Models, Algorithms, and Implementations</p>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">在庫管理とは</span></h1>
 </div>
 
 
-<div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Author</div>
-  <div class="quarto-title-meta-heading">Affiliation</div>
-  
-    <div class="quarto-title-meta-contents">
-    <p class="author"><a href="https://zi-ang-liu.github.io">劉子昂</a> <a href="https://orcid.org/0000-0002-1364-3502" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            法政大学
-          </p>
-      </div>
-  </div>
 
 <div class="quarto-title-meta">
 
-      
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">August 30, 2025</p>
-    </div>
-  </div>
+    
   
     
   </div>
@@ -190,10 +233,212 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>This is a Quarto book.</p>
-<p>To learn more about Quarto books visit <a href="https://quarto.org/docs/books" class="uri">https://quarto.org/docs/books</a>.</p>
+<p>商店・工場・倉庫などで、原材料・部品・製品などを適切に管理することを<strong>在庫管理</strong>（Inventory Management）という。一般的に、在庫管理の目的は、顧客の需要を満たしつつ、在庫に関わる費用を最小化することである。</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>豊田自動車が提唱した<strong>ジャストインタイム</strong>（Just In Time, JIT）は、生産方式としてよく知られている。</p>
+<p>JIT とは必要なものを、必要な時に、必要な量だけ生産することである。JIT の目的は、在庫を最小限に抑え、効率的な生産を実現することである。</p>
+<p>アメリカの研究者らは、その生産方式を体系化し、<strong>リーン生産方式</strong>（Lean Manufacturing）という概念を提唱した。</p>
+<ul>
+<li><a href="https://global.toyota/jp/company/vision-and-philosophy/production-system/">トヨタ生産方式</a></li>
+</ul>
+</div>
+</div>
+<p>在庫が多すぎると、保管費用がかかる。逆に、在庫が少なすぎると、欠品が発生し、顧客の需要を満たせなくなる。在庫管理は次の二つの問題を決定する。</p>
+<ol type="1">
+<li>どのくらいの量を発注するか？（発注量）</li>
+<li>いつ発注するか？（発注時期）</li>
+</ol>
+<p>科学的在庫管理（Scientific Inventory Management）では、これらの問題に答えるために、次の手順で在庫管理を行う。</p>
+<ol type="1">
+<li>在庫システムを数学モデルとして定式化する。</li>
+<li>最適な発注量と発注時期を決定する。</li>
+</ol>
+<section id="在庫モデルの分類" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="在庫モデルの分類"><span class="header-section-number">1.1</span> 在庫モデルの分類</h2>
+<p>在庫モデルは、次のような要素で分類される。</p>
+<dl>
+<dt>需要（demand）</dt>
+<dd>
+需要が決定論的 (Deterministic) か確率的（Stochastic）か。
+</dd>
+<dt>観測（review）</dt>
+<dd>
+在庫量を連続観測 (Continuous Review) するか、周期観測 (Periodic Review) するか。連続観測の場合、在庫量が連続的に観測でき、いつでも発注が可能である。周期観測の場合、一定の期間（例えば1週間）ごとに在庫量を観測する。
+</dd>
+<dt>リードタイム（lead time）</dt>
+<dd>
+発注から納品までの期間。調達期間とも呼ばれる。リードタイムが決定論的か確率的か。また、リードタイムが0かどうか。在庫モデルを単純化するために、リードタイムを0とし、発注から納品までの期間を無視することもある。
+</dd>
+<dt>バックオーダー（backorder）</dt>
+<dd>
+バックオーダーが許容されるかどうか。需要が在庫を上回った場合、バックオーダーが許容されると、欠品が発生しても、後で需要を満たすことができる。バックオーダーが許容されない場合、欠品が発生すると、上回った需要は失われ、機会損失が発生する。
+</dd>
+<dt>計画期間（planning horizon）</dt>
+<dd>
+単一期間 (Single Period) か、複数期間 (Multi Period) か、無限 (Infinite) か。
+</dd>
+</dl>
+<p>以下の表に、需要と観測に基づく、古典的な在庫モデルを示す。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>在庫モデル</th>
+<th>需要</th>
+<th>観測</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>EOQモデル</td>
+<td>決定論的</td>
+<td>連続観測</td>
+</tr>
+<tr class="even">
+<td>Wagner-Whitin</td>
+<td>決定論的</td>
+<td>周期観測</td>
+</tr>
+<tr class="odd">
+<td>安全在庫</td>
+<td>確率的</td>
+<td>連続観測</td>
+</tr>
+<tr class="even">
+<td>新聞売り子問題</td>
+<td>確率的</td>
+<td>周期観測</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="在庫の費用" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="在庫の費用"><span class="header-section-number">1.2</span> 在庫の費用</h2>
+<p>ここでは、在庫に関わる費用を紹介する。</p>
+<dl>
+<dt>発注費用（ordering cost）</dt>
+<dd>
+発注量に関わらず、1回の発注にかかる費用。調達費用、固定費用（fixed cost）などとも呼ばれる。通常、1回の発注にかかる費用を <span class="math inline">\(K\)</span> とする。
+</dd>
+<dt>購入費用（purchase cost）</dt>
+<dd>
+商品を購入するためにかかる費用。通常、単位あたりの購入費用を <span class="math inline">\(c\)</span> とする。
+</dd>
+<dt>欠品費用（stockout cost）</dt>
+<dd>
+需要が在庫を上回った場合に発生する費用。通常、単位あたりの欠品費用を <span class="math inline">\(p\)</span> とする。
+</dd>
+<dt>保管費用（holding cost）</dt>
+<dd>
+在庫を保管するためにかかる倉庫費用、保険費用、税金、機会費用など。通常、単位時間あたりの1単位あたりの保管費用を <span class="math inline">\(h\)</span> とする。
+</dd>
+</dl>
+<p>例えば、1日あたり1単位の在庫を保管するために、<span class="math inline">\(h\)</span> の費用がかかるとする。30日間、50単位の在庫を保管するための総保管費用は <span class="math inline">\(30 \times 50 \times h = 1500h\)</span> となる。下の図を見ると、保管費用は</p>
+<p><span class="math display">\[
+\text{面積} \times h = 1500h
+\]</span></p>
+<p>となることがわかる。</p>
+<div id="9449bc83" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">30</span>, <span class="dv">1000</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>inventory <span class="op">=</span> np.full_like(t, <span class="dv">50</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the inventory level</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>plt.fill_between(t, inventory, color<span class="op">=</span><span class="st">"lightgray"</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">"Inventory Level"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>plt.plot(t, inventory, label<span class="op">=</span><span class="st">"Inventory Level"</span>, color<span class="op">=</span><span class="st">"black"</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Time"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Inventory Level"</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"gray"</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="intro_files/figure-html/cell-2-output-1.png" width="662" height="470" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>一般的に、在庫量が定数ではなく、時間とともに変化する。例えば、発注量を <span class="math inline">\(500\)</span> とし、6 日間の在庫量を考える。</p>
+<div id="b6f1b61f" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> <span class="dv">250</span>  <span class="co"># Demand rate</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Q <span class="op">=</span> <span class="dv">500</span>  <span class="co"># Order quantity</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> Q <span class="op">/</span> d  <span class="co"># Cycle length</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="fl">2.999</span> <span class="op">*</span> T, <span class="dv">1000</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Inventory level over time</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>inventory <span class="op">=</span> np.maximum(<span class="dv">0</span>, Q <span class="op">-</span> (d <span class="op">*</span> t) <span class="op">%</span> Q)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the inventory level</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>plt.fill_between(t, inventory, color<span class="op">=</span><span class="st">"lightgray"</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">"Inventory Level"</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>plt.plot(t, inventory, label<span class="op">=</span><span class="st">"Inventory Level"</span>, color<span class="op">=</span><span class="st">"black"</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Time"</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Inventory Level"</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"gray"</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>plt.ylim(bottom<span class="op">=</span><span class="dv">0</span>, top<span class="op">=</span>Q <span class="op">+</span> <span class="dv">200</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="intro_files/figure-html/cell-3-output-1.png" width="662" height="470" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>保管費用は次のように計算される。</p>
+<p><span class="math display">\[
+\frac{2 \times 500}{2} \times 3 \times h
+\]</span> <!-- 
+## Note
+
+- [在庫最適化と安全在庫配置システム MESSA (MEta Safety Stock Allocation system)](https://scmopt.github.io/manual/03inventory.html)
+- [Snyder (2023)](https://doi.org/10.1287/educ.2023.0256)はStockpylという在庫最適化とシミュレーションのためのPythonライブラリを開発した。
+
+https://orsj.org/wp-content/or-archives50/pdf/bul/Vol.30_11_673.pdf
+
+
+### 用語
+
+| 英語                    | 日本語       |
+| ----------------------- | ------------ |
+| Economic Order Quantity | 経済的発注量 |
+| Deterministic           | 決定論的     |
+| Constant                | 一定         |
+| Demand Rate             | 需要率       |
+| Fixed Cost              | 固定費用     |
+| Cycle                   | サイクル     |
+| Inventory Level         | 在庫量       |
+| Order Quantity          | 発注量       |
+
+### 記号
+
+|  記号  | 説明                   |
+| :----: | :--------------------- |
+|  $d$   | 単位時間あたりの需要量 |
+|  $Q$   | 発注量                 |
+|  $K$   | 発注費用               |
+|  $h$   | 保管費用               |
+|  $c$   | 購入単価               |
+|  $T$   | サイクル期間           |
+| $g(Q)$ | 平均コスト             | --></p>
 
 
 </section>
@@ -600,11 +845,11 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../index.html" class="pagination-link" aria-label="Preface">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./inventory/intro.html" class="pagination-link" aria-label="在庫管理とは">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">在庫管理とは</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
