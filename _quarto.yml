@@ -4,6 +4,7 @@ project:
 book:
   title: "オペレーションズ・リサーチ"
   subtitle: "Operations Research: Models, Algorithms, and Implementations"
+  cover-image: cover.png
   author: 
     - name: "劉子昂"
       id: liuziang
