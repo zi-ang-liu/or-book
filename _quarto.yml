@@ -39,6 +39,7 @@ book:
       chapters:
         - inventory/intro.qmd
         - inventory/eoq.qmd
+        - inventory/newsvendor.qmd
     - references.qmd
     # - quarto.qmd
 
