@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; 在庫管理とは – オペレーションズ・リサーチ</title>
+<title>2&nbsp; 経済的発注量 – オペレーションズ・リサーチ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -55,7 +55,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -65,8 +85,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../inventory/eoq.html" rel="next">
-<link href="../index.html" rel="prev">
+<link href="../references.html" rel="next">
+<link href="../inventory/intro.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -146,7 +166,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../inventory/intro.html">在庫モデル</a></li><li class="breadcrumb-item"><a href="../inventory/intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">在庫管理とは</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../inventory/intro.html">在庫モデル</a></li><li class="breadcrumb-item"><a href="../inventory/eoq.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">経済的発注量</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
@@ -191,13 +211,13 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../inventory/intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="../inventory/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">在庫管理とは</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../inventory/eoq.html" class="sidebar-item-text sidebar-link">
+  <a href="../inventory/eoq.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">経済的発注量</span></span></a>
   </div>
 </li>
@@ -219,17 +239,19 @@ window.Quarto = {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#在庫モデルの分類" id="toc-在庫モデルの分類" class="nav-link active" data-scroll-target="#在庫モデルの分類"><span class="header-section-number">1.1</span> 在庫モデルの分類</a></li>
-  <li><a href="#在庫の費用" id="toc-在庫の費用" class="nav-link" data-scroll-target="#在庫の費用"><span class="header-section-number">1.2</span> 在庫の費用</a></li>
+  <li><a href="#コスト関数" id="toc-コスト関数" class="nav-link active" data-scroll-target="#コスト関数"><span class="header-section-number">2.1</span> コスト関数</a></li>
+  <li><a href="#最適発注量" id="toc-最適発注量" class="nav-link" data-scroll-target="#最適発注量"><span class="header-section-number">2.2</span> 最適発注量</a></li>
+  <li><a href="#リードタイム" id="toc-リードタイム" class="nav-link" data-scroll-target="#リードタイム"><span class="header-section-number">2.3</span> リードタイム</a></li>
+  <li><a href="#他のeoqモデル" id="toc-他のeoqモデル" class="nav-link" data-scroll-target="#他のeoqモデル"><span class="header-section-number">2.4</span> 他のEOQモデル</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../inventory/intro.html">在庫モデル</a></li><li class="breadcrumb-item"><a href="../inventory/intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">在庫管理とは</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../inventory/intro.html">在庫モデル</a></li><li class="breadcrumb-item"><a href="../inventory/eoq.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">経済的発注量</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">在庫管理とは</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">経済的発注量</span></h1>
 </div>
 
 
@@ -246,214 +268,234 @@ window.Quarto = {
 </header>
 
 
-<p>商店・工場・倉庫などで、原材料・部品・製品などを適切に管理することを<strong>在庫管理</strong>（Inventory Management）という。一般的に、在庫管理の目的は、顧客の需要を満たしつつ、在庫に関わる費用を最小化することである。</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-ノート
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>豊田自動車が提唱した<strong>ジャストインタイム</strong>（Just In Time, JIT）は、生産方式としてよく知られている。</p>
-<p>JIT とは必要なものを、必要な時に、必要な量だけ生産することである。JIT の目的は、在庫を最小限に抑え、効率的な生産を実現することである。</p>
-<p>アメリカの研究者らは、その生産方式を体系化し、<strong>リーン生産方式</strong>（Lean Manufacturing）という概念を提唱した。</p>
-<ul>
-<li><a href="https://global.toyota/jp/company/vision-and-philosophy/production-system/">トヨタ生産方式</a></li>
-</ul>
-</div>
-</div>
-<p>在庫が多すぎると、保管費用がかかる。逆に、在庫が少なすぎると、欠品が発生し、顧客の需要を満たせなくなる。在庫管理は次の二つの問題を決定する。</p>
+<p><strong>経済的発注量</strong>（EOQ: Economic Order Quantity）モデルは、最も基本的な在庫管理モデルの一つである。<span class="citation" data-cites="Harris1990-gh">Harris (<a href="../references.html#ref-Harris1990-gh" role="doc-biblioref">1990</a>)</span> このモデルを最初に提案した。</p>
+<p>EOQモデルは、単位時間あたりの需要量は決定論的で、一定であると仮定する。すなわち、需要量は事前に分かっており、時間とともに変化しない。単位時間あたりの需要量は需要率（demand rate）と呼ばれ、記号 <span class="math inline">\(d\)</span> で表される。リードタイムは0とし、発注から納品までの時間はないと仮定する。一回の発注量を <span class="math inline">\(Q\)</span> とし、一定であるとする。欠品は許せないとする。全ての需要は満されなければならない。また、EOQモデルでは、在庫量は連続的に観測され、いつでも発注が可能であるとする。</p>
+<p>在庫に関わる費用は、発注費用 <span class="math inline">\(K\)</span>、保管費用 <span class="math inline">\(h\)</span> と、購入費用（購入単価を <span class="math inline">\(c\)</span> と表す）がある。</p>
+<p>EOQモデルの最適解は次の二つの性質を持つ<span class="citation" data-cites="Snyder2019-cy">(<a href="../references.html#ref-Snyder2019-cy" role="doc-biblioref">Snyder と Shen 2019</a>)</span>：</p>
 <ol type="1">
-<li>どのくらいの量を発注するか？（発注量）</li>
-<li>いつ発注するか？（発注時期）</li>
+<li>Zero-inventory ordering (ZIO). 在庫量が0のときに発注を行う。リードタイムは0であるため、在庫量が0でないときに発注すると、保管費用が発生する。</li>
+<li>Constant order sizes. 発注量は一定である。需要率 <span class="math inline">\(d\)</span> が一定であり、在庫量が0のときに発注を行うため、最適発注量も一定である。</li>
 </ol>
-<p>科学的在庫管理（Scientific Inventory Management）では、これらの問題に答えるために、次の手順で在庫管理を行う。</p>
-<ol type="1">
-<li>在庫システムを数学モデルとして定式化する。</li>
-<li>最適な発注量と発注時期を決定する。</li>
-</ol>
-<section id="在庫モデルの分類" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="在庫モデルの分類"><span class="header-section-number">1.1</span> 在庫モデルの分類</h2>
-<p>在庫モデルは、次のような要素で分類される。</p>
-<dl>
-<dt>需要（demand）</dt>
-<dd>
-需要が決定論的 (Deterministic) か確率的（Stochastic）か。
-</dd>
-<dt>観測（review）</dt>
-<dd>
-在庫量を連続観測 (Continuous Review) するか、周期観測 (Periodic Review) するか。連続観測の場合、在庫量が連続的に観測でき、いつでも発注が可能である。周期観測の場合、一定の期間（例えば1週間）ごとに在庫量を観測する。
-</dd>
-<dt>リードタイム（lead time）</dt>
-<dd>
-発注から納品までの期間。調達期間とも呼ばれる。リードタイムが決定論的か確率的か。また、リードタイムが0かどうか。在庫モデルを単純化するために、リードタイムを0とし、発注から納品までの期間を無視することもある。
-</dd>
-<dt>バックオーダー（backorder）</dt>
-<dd>
-バックオーダーが許容されるかどうか。需要が在庫を上回った場合、バックオーダーが許容されると、欠品が発生しても、後で需要を満たすことができる。バックオーダーが許容されない場合、欠品が発生すると、上回った需要は失われ、機会損失が発生する。
-</dd>
-<dt>計画期間（planning horizon）</dt>
-<dd>
-単一期間 (Single Period) か、複数期間 (Multi Period) か、無限 (Infinite) か。
-</dd>
-</dl>
-<p>以下の表に、需要と観測に基づく、古典的な在庫モデルを示す。</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>在庫モデル</th>
-<th>需要</th>
-<th>観測</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>EOQモデル</td>
-<td>決定論的</td>
-<td>連続観測</td>
-</tr>
-<tr class="even">
-<td>Wagner-Whitin</td>
-<td>決定論的</td>
-<td>周期観測</td>
-</tr>
-<tr class="odd">
-<td>安全在庫</td>
-<td>確率的</td>
-<td>連続観測</td>
-</tr>
-<tr class="even">
-<td>新聞売り子問題</td>
-<td>確率的</td>
-<td>周期観測</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="在庫の費用" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="在庫の費用"><span class="header-section-number">1.2</span> 在庫の費用</h2>
-<p>ここでは、在庫に関わる費用を紹介する。</p>
-<dl>
-<dt>発注費用（ordering cost）</dt>
-<dd>
-発注量に関わらず、1回の発注にかかる費用。調達費用、固定費用（fixed cost）などとも呼ばれる。通常、1回の発注にかかる費用を <span class="math inline">\(K\)</span> とする。
-</dd>
-<dt>購入費用（purchase cost）</dt>
-<dd>
-商品を購入するためにかかる費用。通常、単位あたりの購入費用を <span class="math inline">\(c\)</span> とする。
-</dd>
-<dt>欠品費用（stockout cost）</dt>
-<dd>
-需要が在庫を上回った場合に発生する費用。通常、単位あたりの欠品費用を <span class="math inline">\(p\)</span> とする。
-</dd>
-<dt>保管費用（holding cost）</dt>
-<dd>
-在庫を保管するためにかかる倉庫費用、保険費用、税金、機会費用など。通常、単位時間あたりの1単位あたりの保管費用を <span class="math inline">\(h\)</span> とする。
-</dd>
-</dl>
-<p>例えば、1日あたり1単位の在庫を保管するために、<span class="math inline">\(h\)</span> の費用がかかるとする。30日間、50単位の在庫を保管するための総保管費用は <span class="math inline">\(30 \times 50 \times h = 1500h\)</span> となる。下の図を見ると、保管費用は</p>
-<p><span class="math display">\[
-\text{面積} \times h = 1500h
-\]</span></p>
-<p>となることがわかる。</p>
-<div id="1fd6182d" class="cell" data-execution_count="1">
+<p>以上の性質から、在庫量の時間的変化は下図のようになる。</p>
+<div id="99d12df2" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">30</span>, <span class="dv">1000</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>inventory <span class="op">=</span> np.full_like(t, <span class="dv">50</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the inventory level</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>plt.fill_between(t, inventory, color<span class="op">=</span><span class="st">"lightgray"</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">"Inventory Level"</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>plt.plot(t, inventory, label<span class="op">=</span><span class="st">"Inventory Level"</span>, color<span class="op">=</span><span class="st">"black"</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Time"</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Inventory Level"</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"gray"</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> <span class="dv">250</span>  <span class="co"># Demand rate</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>Q <span class="op">=</span> <span class="dv">500</span>  <span class="co"># Order quantity</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> Q <span class="op">/</span> d  <span class="co"># Cycle length</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">3</span> <span class="op">*</span> T, <span class="dv">1000</span>)  <span class="co"># Time from 0 to 3 cycles</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Inventory level over time</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>inventory <span class="op">=</span> np.maximum(<span class="dv">0</span>, Q <span class="op">-</span> (d <span class="op">*</span> t) <span class="op">%</span> Q)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>inventory[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the inventory level</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>plt.plot(t, inventory, label<span class="op">=</span><span class="st">"Inventory Level"</span>, color<span class="op">=</span><span class="st">"black"</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Time"</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Inventory Level"</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"gray"</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>plt.ylim(bottom<span class="op">=</span><span class="dv">0</span>, top<span class="op">=</span>Q <span class="op">+</span> <span class="dv">100</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="intro_files/figure-html/cell-2-output-1.png" width="662" height="470" class="figure-img"></p>
+<p><img src="eoq_files/figure-html/cell-2-output-1.png" width="662" height="470" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>一般的に、在庫量が定数ではなく、時間とともに変化する。例えば、発注量を <span class="math inline">\(500\)</span> とし、6 日間の在庫量を考える。</p>
-<div id="f27b832f" class="cell" data-execution_count="2">
+<p>発注の間隔を<strong>サイクル</strong>(cycle)と呼び、サイクル期間は</p>
+<p><span class="math display">\[
+T = \frac{Q}{d}
+\]</span></p>
+<p>で与えられる。</p>
+<div id="exm-cycle" class="theorem example">
+<p><span class="theorem-title"><strong>例 2.1</strong></span> A社は、毎月250個の需要がある商品を取り扱っている。一回の発注量は500個とし、サイクル期間は</p>
+<p><span class="math display">\[
+T = \frac{500}{250} = 2 \text{ヶ月}
+\]</span></p>
+<p>となる。</p>
+</div>
+<section id="コスト関数" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="コスト関数"><span class="header-section-number">2.1</span> コスト関数</h2>
+<p>ここでは、1サイクルあたりのコストを考える。</p>
+<p><strong>発注費用</strong>：発注は1回だけ行うため、発注費用は <span class="math inline">\(K\)</span> である。</p>
+<p><strong>購入費用</strong>：<span class="math inline">\(Q\)</span> 個の商品を単価 <span class="math inline">\(c\)</span> で購入するため、購入費用は <span class="math inline">\(cQ\)</span> である。</p>
+<p><strong>保管費用</strong>：在庫量はサイクル期間 <span class="math inline">\(T\)</span> の間に <span class="math inline">\(Q\)</span> 個から0個まで減少するため、平均在庫量は <span class="math inline">\(\frac{Q}{2}\)</span> である。したがって、平均保管費用は <span class="math inline">\(\frac{hQ}{2}\)</span> である。サイクル期間 <span class="math inline">\(T\)</span> は <span class="math inline">\(\frac{Q}{d}\)</span> であるため、1サイクルあたりの保管費用は</p>
+<p><span class="math display">\[
+\frac{hQ}{2} \cdot T = \frac{hQ^2}{2d}
+\]</span></p>
+<p>となる。</p>
+<p>以上より、1サイクルあたりのコストは次のように表される。</p>
+<p><span class="math display">\[
+K + cQ + \frac{hQ^2}{2d}
+\]</span></p>
+<p>平均コストは、これをサイクル期間 <span class="math inline">\(T\)</span> で割ったものとして定義される。したがって、平均コスト <span class="math inline">\(g(Q)\)</span> は次のように表される。</p>
+<p><span class="math display">\[\begin{align*}
+g(Q) &amp;= \frac{1}{T} \left( K + cQ + \frac{hQ^2}{2d} \right) \\
+&amp;= \frac{d}{Q} \left( K + cQ + \frac{hQ^2}{2d} \right) \\
+&amp;= \frac{Kd}{Q} + c d + \frac{hQ}{2}
+\end{align*}\]</span></p>
+<p>以上より、平均コストは発注量 <span class="math inline">\(Q\)</span> の関数として次のように表される。</p>
+<p><span class="math display">\[
+g(Q) = \frac{Kd}{Q} + cd + \frac{hQ}{2}
+\]</span></p>
+</section>
+<section id="最適発注量" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="最適発注量"><span class="header-section-number">2.2</span> 最適発注量</h2>
+<p>EOQモデルの目的は、平均コスト <span class="math inline">\(g(Q)\)</span> を最小化する発注量 <span class="math inline">\(Q\)</span> を求めることである。</p>
+<p>平均コストの導関数 <span class="math inline">\(g'(Q)\)</span> が 0 となる点を求めることで、最適発注量 <span class="math inline">\(Q^*\)</span> を求めることができる。</p>
+<p><span class="math display">\[
+g'(Q) = -\frac{Kd}{Q^2} + \frac{h}{2} = 0
+\]</span></p>
+<p>これを解くと、最適発注量</p>
+<p><span class="math display">\[
+Q^* = \sqrt{\frac{2Kd}{h}}
+\]</span></p>
+<p>を得る。これをEOQ公式（EOQ formula）と呼ぶ。<span class="math inline">\(Q^*\)</span> を経済的発注量と呼ぶ（経済的は最適という意味である）。</p>
+<p>二階導関数 <span class="math inline">\(g''(Q)\)</span> を求めて、最適発注量が最小値を与えることを確認する。</p>
+<p><span class="math display">\[
+g''(Q) = \frac{2Kd}{Q^3} &gt; 0
+\]</span></p>
+<p><span class="math inline">\(g''(Q) &gt; 0\)</span> であるため、<span class="math inline">\(Q^*\)</span> は最小値を与える。</p>
+<p>最適発注量 <span class="math inline">\(Q^*\)</span> を次の定理にまとめる。</p>
+<div id="thm-eoq" class="theorem">
+<p><span class="theorem-title"><strong>定理 2.1</strong></span> EOQモデルにおいて、最適発注量 <span class="math inline">\(Q^*\)</span> は <span class="math display">\[
+Q^* = \sqrt{\frac{2Kd}{h}}
+\]</span></p>
+<p>で与えられる。</p>
+</div>
+<p><span class="math inline">\(Q^*\)</span> を用いて、最適なサイクル期間 <span class="math inline">\(T^*\)</span> を求めることができる。</p>
+<p><span class="math display">\[
+T^* = \frac{Q^*}{d} = \sqrt{\frac{2K}{hd}}
+\]</span></p>
+<div id="rem-eoq-properties" class="proof remark">
+<p><span class="proof-title"><em>注釈 2.1</em>. </span>以下の性質がわかる。</p>
+<ol type="1">
+<li><span class="math inline">\(Q^*\)</span> は <span class="math inline">\(c\)</span> には依存しない。</li>
+<li><span class="math inline">\(h\)</span> の増加に伴い、<span class="math inline">\(Q^*\)</span> は減少する。保管費用が高い場合は、少量で高い頻度で発注することが望ましい。</li>
+<li><span class="math inline">\(K\)</span> の増加に伴い、<span class="math inline">\(Q^*\)</span> は増加する。発注費用が高い場合は、多量で低い頻度で発注することが望ましい。</li>
+</ol>
+</div>
+<p>次の図は、発注コスト、保管コスト、平均コストの関係を示している。購入単価を <span class="math inline">\(c = 0\)</span> とする。</p>
+<div id="4cda9854" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> <span class="dv">250</span>  <span class="co"># Demand rate</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Q <span class="op">=</span> <span class="dv">500</span>  <span class="co"># Order quantity</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> Q <span class="op">/</span> d  <span class="co"># Cycle length</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="fl">2.999</span> <span class="op">*</span> T, <span class="dv">1000</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>K <span class="op">=</span> <span class="dv">500</span>  <span class="co"># Order cost</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="dv">15</span>  <span class="co"># Holding cost</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="dv">0</span>  <span class="co"># Purchase cost</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>Q <span class="op">=</span> np.linspace(<span class="dv">1</span>, <span class="dv">50</span>, <span class="dv">50</span>)</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Inventory level over time</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>inventory <span class="op">=</span> np.maximum(<span class="dv">0</span>, Q <span class="op">-</span> (d <span class="op">*</span> t) <span class="op">%</span> Q)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Average cost function</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> (K <span class="op">/</span> Q) <span class="op">+</span> c <span class="op">+</span> (h <span class="op">*</span> Q <span class="op">/</span> <span class="dv">2</span>)</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the inventory level</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>plt.fill_between(t, inventory, color<span class="op">=</span><span class="st">"lightgray"</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">"Inventory Level"</span>)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>plt.plot(t, inventory, label<span class="op">=</span><span class="st">"Inventory Level"</span>, color<span class="op">=</span><span class="st">"black"</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Time"</span>)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Inventory Level"</span>)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"gray"</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>plt.ylim(bottom<span class="op">=</span><span class="dv">0</span>, top<span class="op">=</span>Q <span class="op">+</span> <span class="dv">200</span>)</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the costs vs order quantity</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>plt.plot(Q, K <span class="op">/</span> Q, label<span class="op">=</span><span class="st">"Order Cost"</span>, color<span class="op">=</span><span class="st">"blue"</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>plt.plot(Q, c <span class="op">+</span> (h <span class="op">*</span> Q <span class="op">/</span> <span class="dv">2</span>), label<span class="op">=</span><span class="st">"Holding Cost"</span>, color<span class="op">=</span><span class="st">"orange"</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>plt.plot(Q, g, label<span class="op">=</span><span class="st">"Average Cost"</span>, color<span class="op">=</span><span class="st">"green"</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>plt.axvline(</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>np.sqrt(<span class="dv">2</span> <span class="op">*</span> K <span class="op">/</span> h),</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"red"</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    linestyle<span class="op">=</span><span class="st">"--"</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    label<span class="op">=</span><span class="st">"Optimal Order Quantity"</span>,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    linewidth<span class="op">=</span><span class="dv">2</span>,</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Order Quantity (Q)"</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Cost"</span>)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>plt.show()  </span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="intro_files/figure-html/cell-3-output-1.png" width="662" height="470" class="figure-img"></p>
+<p><img src="eoq_files/figure-html/cell-3-output-1.png" width="662" height="470" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>保管費用は次のように計算される。</p>
+<p>平均コストが最小となる発注量 <span class="math inline">\(Q^*\)</span> は、発注コストと保管コストの交差点である。すなわち、発注コストと保管コストを等しくする発注量は最適な発注量 <span class="math inline">\(Q^*\)</span> である。この性質は以下の式からわかる。</p>
 <p><span class="math display">\[
-\frac{2 \times 500}{2} \times 3 \times h
-\]</span> <!-- 
-## Note
+\frac{Kd}{Q^*} = \frac{hQ^*}{2} \Longrightarrow Q^* = \sqrt{\frac{2Kd}{h}}
+\]</span></p>
+<p>また、この図からもわかるように、<span class="math inline">\(Q\)</span> の増加に伴い、平均発注コストは減少し、平均保管コストは増加する。逆もまた然りである。</p>
+<div id="exm-eoq" class="theorem example">
+<p><span class="theorem-title"><strong>例 2.2</strong></span> ある電気量販店では、毎月250台のPCが販売されている。発注費用は5000円、保管費用は1台あたり月150円、購入単価は10万円とする。このとき、最適発注量 <span class="math inline">\(Q^*\)</span> は次のように求められる。</p>
+<p><span class="math display">\[
+Q^* = \sqrt{\frac{2 \cdot 5000 \cdot 250}{150}}
+\]</span></p>
+<p>最適発注量 <span class="math inline">\(Q^*\)</span> を次で計算する。</p>
+<div id="0741d022" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> eoq(K, d, h):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculate the Economic Order Quantity (EOQ).</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters:</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    K (float): Order cost</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">    d (float): Demand rate</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">    h (float): Holding cost</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">    float: Optimal order quantity Q*</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.sqrt(<span class="dv">2</span> <span class="op">*</span> K <span class="op">*</span> d <span class="op">/</span> h)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    K <span class="op">=</span> <span class="dv">5000</span>  <span class="co"># Order cost</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> <span class="dv">250</span>  <span class="co"># Demand rate (units per month)</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    h <span class="op">=</span> <span class="dv">150</span>  <span class="co"># Holding cost (per unit per month)</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    Q_star <span class="op">=</span> eoq(K, d, h)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Optimal Order Quantity (Q*): </span><span class="sc">{</span>Q_star<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Optimal Order Quantity (Q*): 129.10</code></pre>
+</div>
+</div>
+<p>PCの場合は、注文量が整数である必要があるため、<span class="math inline">\(g(129)\)</span> と <span class="math inline">\(g(130)\)</span> を比較して最適発注量を決定する。</p>
+</div>
+</section>
+<section id="リードタイム" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="リードタイム"><span class="header-section-number">2.3</span> リードタイム</h2>
+<p>EOQ モデルでは、リードタイムは0と仮定している。リードタイムが <span class="math inline">\(L &gt; 0\)</span> の場合も、最適発注量 <span class="math inline">\(Q^*\)</span> も変換せず、<span class="math inline">\(L\)</span> 期間前に <span class="math inline">\(Q^*\)</span> を発注すればよい。</p>
+<p>ここでは、<span class="math inline">\(r\)</span> を発注点（reorder point）とする。在庫量が <span class="math inline">\(r\)</span> になったときに発注を行う。リードタイム <span class="math inline">\(L\)</span> の間に需要が <span class="math inline">\(dL\)</span> 個あるため、発注点は次のように表される。</p>
+<p><span class="math display">\[
+r = dL
+\]</span></p>
+<div id="exm-reorder-point" class="theorem example">
+<p><span class="theorem-title"><strong>例 2.3</strong></span> 上の例で、リードタイムが一週間とし、一か月を4週間とすると、リードタイムは <span class="math inline">\(L = 1/4\)</span> となる。したがって、発注点は次のように求められる。</p>
+<p><span class="math display">\[
+r = dL = 250 \times \frac{1}{4} = 62.5
+\]</span></p>
+<p>PCの在庫量が63台になったときに発注を行う。</p>
+</div>
+</section>
+<section id="他のeoqモデル" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="他のeoqモデル"><span class="header-section-number">2.4</span> 他のEOQモデル</h2>
+<ul>
+<li>バックオーダーを考慮したEOQモデル</li>
+<li>数量割引（quantity discount）を考慮したEOQモデル
+<ul>
+<li>総量割引（all-units discount）</li>
+<li>増分割引（incremental discount）</li>
+</ul></li>
+</ul>
 
-- [在庫最適化と安全在庫配置システム MESSA (MEta Safety Stock Allocation system)](https://scmopt.github.io/manual/03inventory.html)
-- [Snyder (2023)](https://doi.org/10.1287/educ.2023.0256)はStockpylという在庫最適化とシミュレーションのためのPythonライブラリを開発した。
 
-https://orsj.org/wp-content/or-archives50/pdf/bul/Vol.30_11_673.pdf
-
-
-### 用語
-
-| 英語                    | 日本語       |
-| ----------------------- | ------------ |
-| Economic Order Quantity | 経済的発注量 |
-| Deterministic           | 決定論的     |
-| Constant                | 一定         |
-| Demand Rate             | 需要率       |
-| Fixed Cost              | 固定費用     |
-| Cycle                   | サイクル     |
-| Inventory Level         | 在庫量       |
-| Order Quantity          | 発注量       |
-
-### 記号
-
-|  記号  | 説明                   |
-| :----: | :--------------------- |
-|  $d$   | 単位時間あたりの需要量 |
-|  $Q$   | 発注量                 |
-|  $K$   | 発注費用               |
-|  $h$   | 保管費用               |
-|  $c$   | 購入単価               |
-|  $T$   | サイクル期間           |
-| $g(Q)$ | 平均コスト             | --></p>
-
-
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Harris1990-gh" class="csl-entry" role="listitem">
+Harris, Ford W. 1990. <span>「How many parts to make at once」</span>. <em>Oper. Res.</em> 38 (6): 947–50.
+</div>
+<div id="ref-Snyder2019-cy" class="csl-entry" role="listitem">
+Snyder, Lawrence V, と Zuo-Jun Max Shen. 2019. <em>Fundamentals of supply chain theory</em>. 2nd 版. Nashville, TN: John Wiley &amp; Sons.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -858,13 +900,13 @@ https://orsj.org/wp-content/or-archives50/pdf/bul/Vol.30_11_673.pdf
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link" aria-label="Preface">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      <a href="../inventory/intro.html" class="pagination-link" aria-label="在庫管理とは">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">在庫管理とは</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../inventory/eoq.html" class="pagination-link" aria-label="経済的発注量">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">経済的発注量</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
