@@ -87,11 +87,77 @@
     ]
   },
   {
+    "objectID": "inventory/newsvendor.html",
+    "href": "inventory/newsvendor.html",
+    "title": "3  新聞売り子問題",
+    "section": "",
+    "text": "3.1 定式化\n新聞売り子問題（Newsvendor Problem）は、古典的な確率的在庫モデルの一つである。新聞は次の日には売れなくなるため、新聞売り子問題は最も単純な perishable 在庫モデルとして知られている。\n新聞売り子が新聞を仕入れ、販売する問題を考える。新聞 1 部の仕入れ価格を \\(c\\)、販売価格を \\(r\\)、残存価額を \\(v\\)、欠品費用を \\(p\\)、保管費用を \\(h\\) とする。ここで、以下の条件を満たすとする。\nまた、初期在庫は 0 であると仮定する。\n新聞の需要 \\(D\\) は正規分布 \\(N(\\mu, \\sigma^2)\\) に従い、\\(\\mu\\) と \\(\\sigma\\) は既知である。新聞売り子はどれだけの新聞を発注すればよいかという問題である。\nある日、新聞売り子が \\(S\\) 部の新聞を仕入れ、需要 \\(D\\) が \\(d\\) であったとする。このとき、新聞売り子の利益は以下のように表される。\n\\[\n\\pi(S, d) = r \\min\\{d, S\\} - cS + v \\max\\{0, S - d\\} \\\\\n- h \\max\\{0, S - d\\} - p \\max\\{0, d - S\\}\n\\]\n第一項は販売利益、第二項は仕入れコスト、第三項は残存価値、第四項は保管コスト、第五項は欠品コストである。\n以下は、\\(\\max\\{0, x\\} = x^+\\) を用いて書き換えた形である。整理すると、利益は以下のように表される。\n\\[\n\\pi(S, d) = r \\min\\{d, S\\} - cS + (v - h) (S - d)^+ - p (d - S)^+\n\\]\n第一項を以下のように書き換えることができる。\n\\[\nr \\min\\{d, S\\} = r d - r (d - S)^+\n\\]\nしたがって、利益は以下のように書き換えられる。\n\\[\n\\pi(S, d) = r d - cS + (v- h) (S - d)^+ - (p + r) (d - S)^+\n\\]\n利益の最大化は、コストの最小化に帰着される。したがって、コスト関数 \\(g(S, d) = -\\pi(S, d)\\) は以下のように表される。\n\\[\ng(S, d) = cS - rd + (h - v) (S - d)^+ + (p + r) (d - S)^+\n\\]\n\\(D\\) が確率変数であるため、コストの期待値 \\(g(S)\\) は以下のように表される。\n\\[\\begin{align}\ng(S) &= \\mathbb{E}[g(S, D)] \\\\\n&= \\int_{0}^{\\infty} g(S, d) f_D(d) dd \\\\\n&= cS - r\\mathbb{E}[D] + (h - v) \\mathbb{E}[(S - D)^+] + (p + r) \\mathbb{E}[(D - S)^+] \\\\\n&= c S - r \\mu + (h - v)  \\int_{0}^{\\infty}(S - d)^+ f_D(d) dd + (p + r) \\int_{0}^{\\infty} (d - S)^+ f_D(d) dd \\\\\n&= c S - r \\mu + (h - v) \\int_{0}^{S} (S - d) f_D(d) dd + (p + r) \\int_{S}^{\\infty} (d - S) f_D(d) dd\n\\end{align}\\]",
+    "crumbs": [
+      "在庫モデル",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>新聞売り子問題</span>"
+    ]
+  },
+  {
+    "objectID": "inventory/newsvendor.html#定式化",
+    "href": "inventory/newsvendor.html#定式化",
+    "title": "3  新聞売り子問題",
+    "section": "",
+    "text": "ノート\n\n\n\n\\(A\\) は要素の間に順序が定義された集合とし、\\(\\min A\\) は、\\(A\\) の全ての要素の中で最小のものを表す。\n例えば、\\(\\min \\{1, 2, 3\\} = 1\\) である。\n\n\n\n\n\n\n\n\n\n\n\n\nノート\n\n\n\n\n\\(d &lt; S\\) の場合、\\(r \\min\\{d, S\\} = r d\\) となる。\n\\(d &gt;= S\\) の場合、\\(r \\min\\{d, S\\} = r d - r(d - S) = r S\\) となる。",
+    "crumbs": [
+      "在庫モデル",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>新聞売り子問題</span>"
+    ]
+  },
+  {
+    "objectID": "inventory/newsvendor.html#最適化",
+    "href": "inventory/newsvendor.html#最適化",
+    "title": "3  新聞売り子問題",
+    "section": "3.2 最適化",
+    "text": "3.2 最適化\n\\(g(S)\\) の1階微分は以下のように求める。\n\\[\\begin{align}\n\\frac{dg(S)}{dS} &= c + (h - v) F_D(S) - (p + r) (1 - F_D(S)) \\\\\n\\end{align}\\]\nよって、\\(dg(S)/dS = 0\\) から、\n\\[\\begin{align}\nc + (h - v) F_D(S) - (p + r) (1 - F_D(S)) &= 0 \\\\\nF_D(S) &= \\frac{p + r - c}{h + p + r - v}\n\\end{align}\\]\nになる。2 階微分は\n\\[\\begin{align}\n\\frac{d^2g(S)}{dS^2} &= (h - v) f_D(S) + (p + r) f_D(S) \\\\\n&= (h - v + p + r) f_D(S)\n\\end{align}\\]\nである。したがって、コスト関数 \\(g(S)\\) は凸関数であり、1 階微分が 0 になる点は最小値を与える。\nコスト関数 \\(g(S)\\) を最小化するための最適発注量 \\(S^*\\) は\n\\[\nS^* = F_D^{-1}\\left(\\frac{p + r - c}{h + p + r - v}\\right)\n\\] となる。ここで、\\(F_D^{-1}\\) は需要 \\(D\\) の累積分布関数の逆関数である。",
+    "crumbs": [
+      "在庫モデル",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>新聞売り子問題</span>"
+    ]
+  },
+  {
+    "objectID": "inventory/newsvendor.html#臨界率",
+    "href": "inventory/newsvendor.html#臨界率",
+    "title": "3  新聞売り子問題",
+    "section": "3.3 臨界率",
+    "text": "3.3 臨界率\n新聞売り子問題において、より一般的に、在庫超過費用（overage cost）と 在庫不足費用（underage cost）を考慮する。\n\\[\nC_o = h + c - v, \\quad C_u = p + r - c\n\\]\n在庫超過費用 \\(C_o\\) は、在庫が余ったときのコストである。1 部の在庫超過に対し、保管コストと仕入れコストが発生するが、残存価額が得られないため、\\(C_o = h + c - v\\) となる。\n在庫不足費用 \\(C_u\\) は、在庫が不足したときのコストである。1 部の在庫不足に対し、欠品コスト \\(p\\) と失われた販売機会の利益 \\(r - c\\) が発生するため、\\(C_u = p + r - c\\) となる。\n従って、\n\\[\\begin{align*}\nS^* &= F_D^{-1}\\left(\\frac{p + r - c}{h + p + r - v}\\right)\\\\\n&= F_D^{-1}\\left(\\frac{C_u}{C_o + C_u}\\right)\n\\end{align*}\\]\nが得られる。\n\n定理 3.1 新聞売り子問題における最適発注量 \\(S^*\\) は、\n\\[\nS^* = F_D^{-1}\\left(\\frac{C_u}{C_o + C_u}\\right)\n\\]\nで与えられる。\n\n\\(C_u/(C_o + C_u)\\) は臨界率（critical ratio）と呼ばれる。臨界率は、在庫不足費用と在庫超過費用の比率を表す。\nここで、\\(F_D(S) = P(D \\leq S)\\) は欠品が発生しない確率を表す。この確率のことはサービスレベル（service level）と呼ぶ。したがって、最適発注量 \\(S^*\\) を用いることは、サービスレベルを \\(C_u/(C_o + C_u)\\) に等しくすることを意味する。\\(1 - C_u/(C_o + C_u) = C_o/(C_o + C_u)\\) の確率で欠品が発生することが最適である。\n\n注釈 3.1. \n\n在庫不足費用 \\(C_u\\) の増加に伴い、サービスレベルと最適発注量 \\(S^*\\) は増加する。\n在庫超過費用 \\(C_o\\) の増加に伴い、サービスレベルと最適発注量 \\(S^*\\) は減少する。\n\n\n\n例 3.1 需要 \\(D\\) が正規分布 \\(N(100, 25)\\) に従う新聞売り子問題を考える。在庫超過費用が \\(C_o = 10\\)、在庫不足費用が \\(C_u = 40\\) のとき、最適発注量 \\(S^*\\) を求める。\n\\[\nS^* = F_D^{-1}\\left(\\frac{C_u}{C_o + C_u}\\right) = F_D^{-1}\\left(\\frac{40}{10 + 40}\\right) = F_D^{-1}\\left(0.8\\right)\n\\]\nここで、\\(F_D^{-1}\\) は需要 \\(D\\) の累積分布関数の逆関数である。Python では、SciPy ライブラリの ppf() 関数を用いて、逆関数を求めることができる。\n\nfrom scipy.stats import norm\n\n# 正規分布のパラメータ\nmu = 100\nsigma = 5\n\n# 在庫超過費用と在庫不足費用\nC_o = 10\nC_u = 40\n\n# 臨界率\ncritical_ratio = C_u / (C_o + C_u)\n\n# 最適発注量\nS_star = norm.ppf(critical_ratio, loc=mu, scale=sigma)",
+    "crumbs": [
+      "在庫モデル",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>新聞売り子問題</span>"
+    ]
+  },
+  {
+    "objectID": "inventory/newsvendor.html#初期在庫を考慮した新聞売り子問題",
+    "href": "inventory/newsvendor.html#初期在庫を考慮した新聞売り子問題",
+    "title": "3  新聞売り子問題",
+    "section": "3.4 初期在庫を考慮した新聞売り子問題",
+    "text": "3.4 初期在庫を考慮した新聞売り子問題\n新聞売り子の初期在庫を \\(I\\) とする。\\(L \\leq S^*\\)の場合、最適発注量は \\(S^* - I\\) となる。すなわち、在庫量を \\(S^*\\) にすればよい。\nまた、\\(g(S)\\) は凸関数であるため、\\(L &gt; S^*\\) の場合、何も発注しないことが最適である。\nしたがって、最適発注量は\n\\[\nQ =\n\\begin{cases}\nS^* - I, & \\text{if } L \\le S^*, \\\\[6pt]\n0, & \\text{if } L &gt; S^* .\n\\end{cases}\n\\]\nとなる。\nこのような発注方式を Base Stock Policy (BSP) と呼ぶ。BSP は、各期間の在庫量を観測し、在庫量が \\(S^*\\) に引き上げられるように発注する方式である。新聞売り子問題において、BSP は最適な方策であると知られている。",
+    "crumbs": [
+      "在庫モデル",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>新聞売り子問題</span>"
+    ]
+  },
+  {
+    "objectID": "inventory/newsvendor.html#発注費用を考慮した新聞売り子問題",
+    "href": "inventory/newsvendor.html#発注費用を考慮した新聞売り子問題",
+    "title": "3  新聞売り子問題",
+    "section": "3.5 発注費用を考慮した新聞売り子問題",
+    "text": "3.5 発注費用を考慮した新聞売り子問題\nScarf (1959) の論文では、\\((s, S)\\) 方策が発注費用を考慮した複数期間の新聞売り子問題において最適であることを示している。\n\n\n\n\nScarf, Herbert. 1959. 「The optimality of (S, s) policies in the dynamic inventory problem」.",
+    "crumbs": [
+      "在庫モデル",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>新聞売り子問題</span>"
+    ]
+  },
+  {
     "objectID": "references.html",
     "href": "references.html",
     "title": "References",
     "section": "",
-    "text": "Harris, Ford W. 1990. “How Many Parts to Make at Once.”\nOper. Res. 38 (6): 947–50.\n\n\nSnyder, Lawrence V, and Zuo-Jun Max Shen. 2019. Fundamentals of\nSupply Chain Theory. 2nd ed. Nashville, TN: John Wiley & Sons.",
+    "text": "Harris, Ford W. 1990. “How Many Parts to Make at Once.”\nOper. Res. 38 (6): 947–50.\n\n\nScarf, Herbert. 1959. “The Optimality of (S, s)\nPolicies in the Dynamic Inventory Problem.”\n\n\nSnyder, Lawrence V, and Zuo-Jun Max Shen. 2019. Fundamentals of\nSupply Chain Theory. 2nd ed. Nashville, TN: John Wiley & Sons.",
     "crumbs": [
       "References"
     ]

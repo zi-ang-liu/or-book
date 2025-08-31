@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; 在庫管理とは – オペレーションズ・リサーチ</title>
+<title>3&nbsp; 新聞売り子問題 – オペレーションズ・リサーチ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -55,7 +55,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -65,8 +85,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../inventory/eoq.html" rel="next">
-<link href="../index.html" rel="prev">
+<link href="../references.html" rel="next">
+<link href="../inventory/eoq.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -146,7 +166,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../inventory/intro.html">在庫モデル</a></li><li class="breadcrumb-item"><a href="../inventory/intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">在庫管理とは</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../inventory/intro.html">在庫モデル</a></li><li class="breadcrumb-item"><a href="../inventory/newsvendor.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">新聞売り子問題</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
@@ -191,7 +211,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../inventory/intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="../inventory/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">在庫管理とは</span></span></a>
   </div>
 </li>
@@ -203,7 +223,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../inventory/newsvendor.html" class="sidebar-item-text sidebar-link">
+  <a href="../inventory/newsvendor.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">新聞売り子問題</span></span></a>
   </div>
 </li>
@@ -225,17 +245,20 @@ window.Quarto = {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#在庫モデルの分類" id="toc-在庫モデルの分類" class="nav-link active" data-scroll-target="#在庫モデルの分類"><span class="header-section-number">1.1</span> 在庫モデルの分類</a></li>
-  <li><a href="#在庫の費用" id="toc-在庫の費用" class="nav-link" data-scroll-target="#在庫の費用"><span class="header-section-number">1.2</span> 在庫の費用</a></li>
+  <li><a href="#定式化" id="toc-定式化" class="nav-link active" data-scroll-target="#定式化"><span class="header-section-number">3.1</span> 定式化</a></li>
+  <li><a href="#最適化" id="toc-最適化" class="nav-link" data-scroll-target="#最適化"><span class="header-section-number">3.2</span> 最適化</a></li>
+  <li><a href="#臨界率" id="toc-臨界率" class="nav-link" data-scroll-target="#臨界率"><span class="header-section-number">3.3</span> 臨界率</a></li>
+  <li><a href="#初期在庫を考慮した新聞売り子問題" id="toc-初期在庫を考慮した新聞売り子問題" class="nav-link" data-scroll-target="#初期在庫を考慮した新聞売り子問題"><span class="header-section-number">3.4</span> 初期在庫を考慮した新聞売り子問題</a></li>
+  <li><a href="#発注費用を考慮した新聞売り子問題" id="toc-発注費用を考慮した新聞売り子問題" class="nav-link" data-scroll-target="#発注費用を考慮した新聞売り子問題"><span class="header-section-number">3.5</span> 発注費用を考慮した新聞売り子問題</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../inventory/intro.html">在庫モデル</a></li><li class="breadcrumb-item"><a href="../inventory/intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">在庫管理とは</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../inventory/intro.html">在庫モデル</a></li><li class="breadcrumb-item"><a href="../inventory/newsvendor.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">新聞売り子問題</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">在庫管理とは</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">新聞売り子問題</span></h1>
 </div>
 
 
@@ -252,7 +275,22 @@ window.Quarto = {
 </header>
 
 
-<p>商店・工場・倉庫などで、原材料・部品・製品などを適切に管理することを<strong>在庫管理</strong>（Inventory Management）という。一般的に、在庫管理の目的は、顧客の需要を満たしつつ、在庫に関わる費用を最小化することである。</p>
+<p>新聞売り子問題（Newsvendor Problem）は、古典的な確率的在庫モデルの一つである。新聞は次の日には売れなくなるため、新聞売り子問題は最も単純な perishable 在庫モデルとして知られている。</p>
+<p>新聞売り子が新聞を仕入れ、販売する問題を考える。新聞 1 部の仕入れ価格を <span class="math inline">\(c\)</span>、販売価格を <span class="math inline">\(r\)</span>、残存価額を <span class="math inline">\(v\)</span>、欠品費用を <span class="math inline">\(p\)</span>、保管費用を <span class="math inline">\(h\)</span> とする。ここで、以下の条件を満たすとする。</p>
+<ul>
+<li><span class="math inline">\(r &gt; c\)</span>. 販売価格は仕入れ価格より高い。</li>
+<li><span class="math inline">\(r &gt; v\)</span>. 販売価格は残存価値より高い。</li>
+</ul>
+<p>また、初期在庫は 0 であると仮定する。</p>
+<p>新聞の需要 <span class="math inline">\(D\)</span> は正規分布 <span class="math inline">\(N(\mu, \sigma^2)\)</span> に従い、<span class="math inline">\(\mu\)</span> と <span class="math inline">\(\sigma\)</span> は既知である。新聞売り子はどれだけの新聞を発注すればよいかという問題である。</p>
+<section id="定式化" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="定式化"><span class="header-section-number">3.1</span> 定式化</h2>
+<p>ある日、新聞売り子が <span class="math inline">\(S\)</span> 部の新聞を仕入れ、需要 <span class="math inline">\(D\)</span> が <span class="math inline">\(d\)</span> であったとする。このとき、新聞売り子の利益は以下のように表される。</p>
+<p><span class="math display">\[
+\pi(S, d) = r \min\{d, S\} - cS + v \max\{0, S - d\} \\
+- h \max\{0, S - d\} - p \max\{0, d - S\}
+\]</span></p>
+<p>第一項は販売利益、第二項は仕入れコスト、第三項は残存価値、第四項は保管コスト、第五項は欠品コストである。</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -263,203 +301,155 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>豊田自動車が提唱した<strong>ジャストインタイム</strong>（Just In Time, JIT）は、生産方式としてよく知られている。</p>
-<p>JIT とは必要なものを、必要な時に、必要な量だけ生産することである。JIT の目的は、在庫を最小限に抑え、効率的な生産を実現することである。</p>
-<p>アメリカの研究者らは、その生産方式を体系化し、<strong>リーン生産方式</strong>（Lean Manufacturing）という概念を提唱した。</p>
+<p><span class="math inline">\(A\)</span> は要素の間に順序が定義された集合とし、<span class="math inline">\(\min A\)</span> は、<span class="math inline">\(A\)</span> の全ての要素の中で最小のものを表す。</p>
+<p>例えば、<span class="math inline">\(\min \{1, 2, 3\} = 1\)</span> である。</p>
+</div>
+</div>
+<p>以下は、<span class="math inline">\(\max\{0, x\} = x^+\)</span> を用いて書き換えた形である。整理すると、利益は以下のように表される。</p>
+<p><span class="math display">\[
+\pi(S, d) = r \min\{d, S\} - cS + (v - h) (S - d)^+ - p (d - S)^+
+\]</span></p>
+<p>第一項を以下のように書き換えることができる。</p>
+<p><span class="math display">\[
+r \min\{d, S\} = r d - r (d - S)^+
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+ノート
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li><a href="https://global.toyota/jp/company/vision-and-philosophy/production-system/">トヨタ生産方式</a></li>
+<li><span class="math inline">\(d &lt; S\)</span> の場合、<span class="math inline">\(r \min\{d, S\} = r d\)</span> となる。</li>
+<li><span class="math inline">\(d &gt;= S\)</span> の場合、<span class="math inline">\(r \min\{d, S\} = r d - r(d - S) = r S\)</span> となる。</li>
 </ul>
 </div>
 </div>
-<p>在庫が多すぎると、保管費用がかかる。逆に、在庫が少なすぎると、欠品が発生し、顧客の需要を満たせなくなる。在庫管理は次の二つの問題を決定する。</p>
-<ol type="1">
-<li>どのくらいの量を発注するか？（発注量）</li>
-<li>いつ発注するか？（発注時期）</li>
-</ol>
-<p>科学的在庫管理（Scientific Inventory Management）では、これらの問題に答えるために、次の手順で在庫管理を行う。</p>
-<ol type="1">
-<li>在庫システムを数学モデルとして定式化する。</li>
-<li>最適な発注量と発注時期を決定する。</li>
-</ol>
-<section id="在庫モデルの分類" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="在庫モデルの分類"><span class="header-section-number">1.1</span> 在庫モデルの分類</h2>
-<p>在庫モデルは、次のような要素で分類される。</p>
-<dl>
-<dt>需要（demand）</dt>
-<dd>
-需要が決定論的 (Deterministic) か確率的（Stochastic）か。
-</dd>
-<dt>観測（review）</dt>
-<dd>
-在庫量を連続観測 (Continuous Review) するか、周期観測 (Periodic Review) するか。連続観測の場合、在庫量が連続的に観測でき、いつでも発注が可能である。周期観測の場合、一定の期間（例えば1週間）ごとに在庫量を観測する。
-</dd>
-<dt>リードタイム（lead time）</dt>
-<dd>
-発注から納品までの期間。調達期間とも呼ばれる。リードタイムが決定論的か確率的か。また、リードタイムが0かどうか。在庫モデルを単純化するために、リードタイムを0とし、発注から納品までの期間を無視することもある。
-</dd>
-<dt>バックオーダー（backorder）</dt>
-<dd>
-バックオーダーが許容されるかどうか。需要が在庫を上回った場合、バックオーダーが許容されると、欠品が発生しても、後で需要を満たすことができる。バックオーダーが許容されない場合、欠品が発生すると、上回った需要は失われ、機会損失が発生する。
-</dd>
-<dt>計画期間（planning horizon）</dt>
-<dd>
-単一期間 (Single Period) か、複数期間 (Multi Period) か、無限 (Infinite) か。
-</dd>
-</dl>
-<p>以下の表に、需要と観測に基づく、古典的な在庫モデルを示す。</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>在庫モデル</th>
-<th>需要</th>
-<th>観測</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>EOQモデル</td>
-<td>決定論的</td>
-<td>連続観測</td>
-</tr>
-<tr class="even">
-<td>Wagner-Whitin</td>
-<td>決定論的</td>
-<td>周期観測</td>
-</tr>
-<tr class="odd">
-<td>安全在庫</td>
-<td>確率的</td>
-<td>連続観測</td>
-</tr>
-<tr class="even">
-<td>新聞売り子問題</td>
-<td>確率的</td>
-<td>周期観測</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="在庫の費用" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="在庫の費用"><span class="header-section-number">1.2</span> 在庫の費用</h2>
-<p>ここでは、在庫に関わる費用を紹介する。</p>
-<dl>
-<dt>発注費用（ordering cost）</dt>
-<dd>
-発注量に関わらず、1回の発注にかかる費用。調達費用、固定費用（fixed cost）などとも呼ばれる。通常、1回の発注にかかる費用を <span class="math inline">\(K\)</span> とする。
-</dd>
-<dt>購入費用（purchase cost）</dt>
-<dd>
-商品を購入するためにかかる費用。通常、単位あたりの購入費用を <span class="math inline">\(c\)</span> とする。
-</dd>
-<dt>欠品費用（stockout cost）</dt>
-<dd>
-需要が在庫を上回った場合に発生する費用。通常、単位あたりの欠品費用を <span class="math inline">\(p\)</span> とする。
-</dd>
-<dt>保管費用（holding cost）</dt>
-<dd>
-在庫を保管するためにかかる倉庫費用、保険費用、税金、機会費用など。通常、単位時間あたりの1単位あたりの保管費用を <span class="math inline">\(h\)</span> とする。
-</dd>
-</dl>
-<p>例えば、1日あたり1単位の在庫を保管するために、<span class="math inline">\(h\)</span> の費用がかかるとする。30日間、50単位の在庫を保管するための総保管費用は <span class="math inline">\(30 \times 50 \times h = 1500h\)</span> となる。下の図を見ると、保管費用は</p>
+<p>したがって、利益は以下のように書き換えられる。</p>
 <p><span class="math display">\[
-\text{面積} \times h = 1500h
+\pi(S, d) = r d - cS + (v- h) (S - d)^+ - (p + r) (d - S)^+
 \]</span></p>
-<p>となることがわかる。</p>
-<div id="eb9ca15d" class="cell" data-execution_count="1">
-<details class="code-fold">
-<summary>コード</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">30</span>, <span class="dv">1000</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>inventory <span class="op">=</span> np.full_like(t, <span class="dv">50</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the inventory level</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>plt.fill_between(t, inventory, color<span class="op">=</span><span class="st">"lightgray"</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">"Inventory Level"</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>plt.plot(t, inventory, label<span class="op">=</span><span class="st">"Inventory Level"</span>, color<span class="op">=</span><span class="st">"black"</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Time"</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Inventory Level"</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"gray"</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="intro_files/figure-html/cell-2-output-1.png" width="662" height="470" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>一般的に、在庫量が定数ではなく、時間とともに変化する。例えば、発注量を <span class="math inline">\(500\)</span> とし、6 日間の在庫量を考える。</p>
-<div id="e3cd1102" class="cell" data-execution_count="2">
-<details class="code-fold">
-<summary>コード</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> <span class="dv">250</span>  <span class="co"># Demand rate</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Q <span class="op">=</span> <span class="dv">500</span>  <span class="co"># Order quantity</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> Q <span class="op">/</span> d  <span class="co"># Cycle length</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="fl">2.999</span> <span class="op">*</span> T, <span class="dv">1000</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Inventory level over time</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>inventory <span class="op">=</span> np.maximum(<span class="dv">0</span>, Q <span class="op">-</span> (d <span class="op">*</span> t) <span class="op">%</span> Q)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the inventory level</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>plt.fill_between(t, inventory, color<span class="op">=</span><span class="st">"lightgray"</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">"Inventory Level"</span>)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>plt.plot(t, inventory, label<span class="op">=</span><span class="st">"Inventory Level"</span>, color<span class="op">=</span><span class="st">"black"</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Time"</span>)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Inventory Level"</span>)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"gray"</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>plt.ylim(bottom<span class="op">=</span><span class="dv">0</span>, top<span class="op">=</span>Q <span class="op">+</span> <span class="dv">200</span>)</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="intro_files/figure-html/cell-3-output-1.png" width="662" height="470" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>保管費用は次のように計算される。</p>
+<p>利益の最大化は、コストの最小化に帰着される。したがって、コスト関数 <span class="math inline">\(g(S, d) = -\pi(S, d)\)</span> は以下のように表される。</p>
 <p><span class="math display">\[
-\frac{2 \times 500}{2} \times 3 \times h
-\]</span> <!-- 
-## Note
+g(S, d) = cS - rd + (h - v) (S - d)^+ + (p + r) (d - S)^+
+\]</span></p>
+<p><span class="math inline">\(D\)</span> が確率変数であるため、コストの期待値 <span class="math inline">\(g(S)\)</span> は以下のように表される。</p>
+<p><span class="math display">\[\begin{align}
+g(S) &amp;= \mathbb{E}[g(S, D)] \\
+&amp;= \int_{0}^{\infty} g(S, d) f_D(d) dd \\
+&amp;= cS - r\mathbb{E}[D] + (h - v) \mathbb{E}[(S - D)^+] + (p + r) \mathbb{E}[(D - S)^+] \\
+&amp;= c S - r \mu + (h - v)  \int_{0}^{\infty}(S - d)^+ f_D(d) dd + (p + r) \int_{0}^{\infty} (d - S)^+ f_D(d) dd \\
+&amp;= c S - r \mu + (h - v) \int_{0}^{S} (S - d) f_D(d) dd + (p + r) \int_{S}^{\infty} (d - S) f_D(d) dd
+\end{align}\]</span></p>
+</section>
+<section id="最適化" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="最適化"><span class="header-section-number">3.2</span> 最適化</h2>
+<p><span class="math inline">\(g(S)\)</span> の1階微分は以下のように求める。</p>
+<p><span class="math display">\[\begin{align}
+\frac{dg(S)}{dS} &amp;= c + (h - v) F_D(S) - (p + r) (1 - F_D(S)) \\
+\end{align}\]</span></p>
+<p>よって、<span class="math inline">\(dg(S)/dS = 0\)</span> から、</p>
+<p><span class="math display">\[\begin{align}
+c + (h - v) F_D(S) - (p + r) (1 - F_D(S)) &amp;= 0 \\
+F_D(S) &amp;= \frac{p + r - c}{h + p + r - v}
+\end{align}\]</span></p>
+<p>になる。2 階微分は</p>
+<p><span class="math display">\[\begin{align}
+\frac{d^2g(S)}{dS^2} &amp;= (h - v) f_D(S) + (p + r) f_D(S) \\
+&amp;= (h - v + p + r) f_D(S)
+\end{align}\]</span></p>
+<p>である。したがって、コスト関数 <span class="math inline">\(g(S)\)</span> は凸関数であり、1 階微分が 0 になる点は最小値を与える。</p>
+<p>コスト関数 <span class="math inline">\(g(S)\)</span> を最小化するための最適発注量 <span class="math inline">\(S^*\)</span> は</p>
+<p><span class="math display">\[
+S^* = F_D^{-1}\left(\frac{p + r - c}{h + p + r - v}\right)
+\]</span> となる。ここで、<span class="math inline">\(F_D^{-1}\)</span> は需要 <span class="math inline">\(D\)</span> の累積分布関数の逆関数である。</p>
+</section>
+<section id="臨界率" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="臨界率"><span class="header-section-number">3.3</span> 臨界率</h2>
+<p>新聞売り子問題において、より一般的に、在庫超過費用（overage cost）と 在庫不足費用（underage cost）を考慮する。</p>
+<p><span class="math display">\[
+C_o = h + c - v, \quad C_u = p + r - c
+\]</span></p>
+<p>在庫超過費用 <span class="math inline">\(C_o\)</span> は、在庫が余ったときのコストである。1 部の在庫超過に対し、保管コストと仕入れコストが発生するが、残存価額が得られないため、<span class="math inline">\(C_o = h + c - v\)</span> となる。</p>
+<p>在庫不足費用 <span class="math inline">\(C_u\)</span> は、在庫が不足したときのコストである。1 部の在庫不足に対し、欠品コスト <span class="math inline">\(p\)</span> と失われた販売機会の利益 <span class="math inline">\(r - c\)</span> が発生するため、<span class="math inline">\(C_u = p + r - c\)</span> となる。</p>
+<p>従って、</p>
+<p><span class="math display">\[\begin{align*}
+S^* &amp;= F_D^{-1}\left(\frac{p + r - c}{h + p + r - v}\right)\\
+&amp;= F_D^{-1}\left(\frac{C_u}{C_o + C_u}\right)
+\end{align*}\]</span></p>
+<p>が得られる。</p>
+<div id="thm-newsvendor" class="theorem">
+<p><span class="theorem-title"><strong>定理 3.1</strong></span> 新聞売り子問題における最適発注量 <span class="math inline">\(S^*\)</span> は、</p>
+<p><span class="math display">\[
+S^* = F_D^{-1}\left(\frac{C_u}{C_o + C_u}\right)
+\]</span></p>
+<p>で与えられる。</p>
+</div>
+<p><span class="math inline">\(C_u/(C_o + C_u)\)</span> は<strong>臨界率</strong>（critical ratio）と呼ばれる。臨界率は、在庫不足費用と在庫超過費用の比率を表す。</p>
+<p>ここで、<span class="math inline">\(F_D(S) = P(D \leq S)\)</span> は欠品が発生しない確率を表す。この確率のことは<strong>サービスレベル</strong>（service level）と呼ぶ。したがって、最適発注量 <span class="math inline">\(S^*\)</span> を用いることは、サービスレベルを <span class="math inline">\(C_u/(C_o + C_u)\)</span> に等しくすることを意味する。<span class="math inline">\(1 - C_u/(C_o + C_u) = C_o/(C_o + C_u)\)</span> の確率で欠品が発生することが最適である。</p>
+<div id="rem-newsvendor" class="proof remark">
+<p><span class="proof-title"><em>注釈 3.1</em>. </span></p>
+<ul>
+<li>在庫不足費用 <span class="math inline">\(C_u\)</span> の増加に伴い、サービスレベルと最適発注量 <span class="math inline">\(S^*\)</span> は増加する。</li>
+<li>在庫超過費用 <span class="math inline">\(C_o\)</span> の増加に伴い、サービスレベルと最適発注量 <span class="math inline">\(S^*\)</span> は減少する。</li>
+</ul>
+</div>
+<div id="exm-newsvendor" class="theorem example">
+<p><span class="theorem-title"><strong>例 3.1</strong></span> 需要 <span class="math inline">\(D\)</span> が正規分布 <span class="math inline">\(N(100, 25)\)</span> に従う新聞売り子問題を考える。在庫超過費用が <span class="math inline">\(C_o = 10\)</span>、在庫不足費用が <span class="math inline">\(C_u = 40\)</span> のとき、最適発注量 <span class="math inline">\(S^*\)</span> を求める。</p>
+<p><span class="math display">\[
+S^* = F_D^{-1}\left(\frac{C_u}{C_o + C_u}\right) = F_D^{-1}\left(\frac{40}{10 + 40}\right) = F_D^{-1}\left(0.8\right)
+\]</span></p>
+<p>ここで、<span class="math inline">\(F_D^{-1}\)</span> は需要 <span class="math inline">\(D\)</span> の累積分布関数の逆関数である。Python では、SciPy ライブラリの <code>ppf()</code> 関数を用いて、逆関数を求めることができる。</p>
+<div id="e035c6a9" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 正規分布のパラメータ</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>mu <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>sigma <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 在庫超過費用と在庫不足費用</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>C_o <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>C_u <span class="op">=</span> <span class="dv">40</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 臨界率</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>critical_ratio <span class="op">=</span> C_u <span class="op">/</span> (C_o <span class="op">+</span> C_u)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 最適発注量</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>S_star <span class="op">=</span> norm.ppf(critical_ratio, loc<span class="op">=</span>mu, scale<span class="op">=</span>sigma)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="初期在庫を考慮した新聞売り子問題" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="初期在庫を考慮した新聞売り子問題"><span class="header-section-number">3.4</span> 初期在庫を考慮した新聞売り子問題</h2>
+<p>新聞売り子の初期在庫を <span class="math inline">\(I\)</span> とする。<span class="math inline">\(L \leq S^*\)</span>の場合、最適発注量は <span class="math inline">\(S^* - I\)</span> となる。すなわち、在庫量を <span class="math inline">\(S^*\)</span> にすればよい。</p>
+<p>また、<span class="math inline">\(g(S)\)</span> は凸関数であるため、<span class="math inline">\(L &gt; S^*\)</span> の場合、何も発注しないことが最適である。</p>
+<p>したがって、最適発注量は</p>
+<p><span class="math display">\[
+Q =
+\begin{cases}
+S^* - I, &amp; \text{if } L \le S^*, \\[6pt]
+0, &amp; \text{if } L &gt; S^* .
+\end{cases}
+\]</span></p>
+<p>となる。</p>
+<p>このような発注方式を <strong>Base Stock Policy</strong> (BSP) と呼ぶ。BSP は、各期間の在庫量を観測し、在庫量が <span class="math inline">\(S^*\)</span> に引き上げられるように発注する方式である。新聞売り子問題において、BSP は最適な方策であると知られている。</p>
+<!-- [Arrow et al. (1951)](https://doi.org/10.2307/1906813)
+[Chen et al. (2016)](https://doi.org/10.1111/deci.12215) は新聞売り子問題の最新研究をレビューしている。最近では、データ駆動新聞売り子問題（Data-Driven Newsvendor Problem）に関する研究が行われている。 -->
+</section>
+<section id="発注費用を考慮した新聞売り子問題" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="発注費用を考慮した新聞売り子問題"><span class="header-section-number">3.5</span> 発注費用を考慮した新聞売り子問題</h2>
+<p><span class="citation" data-cites="Scarf1959-xl">Scarf (<a href="../references.html#ref-Scarf1959-xl" role="doc-biblioref">1959</a>)</span> の論文では、<span class="math inline">\((s, S)\)</span> 方策が発注費用を考慮した複数期間の新聞売り子問題において最適であることを示している。</p>
 
-- [在庫最適化と安全在庫配置システム MESSA (MEta Safety Stock Allocation system)](https://scmopt.github.io/manual/03inventory.html)
-- [Snyder (2023)](https://doi.org/10.1287/educ.2023.0256)はStockpylという在庫最適化とシミュレーションのためのPythonライブラリを開発した。
 
-https://orsj.org/wp-content/or-archives50/pdf/bul/Vol.30_11_673.pdf
-
-
-### 用語
-
-| 英語                    | 日本語       |
-| ----------------------- | ------------ |
-| Economic Order Quantity | 経済的発注量 |
-| Deterministic           | 決定論的     |
-| Constant                | 一定         |
-| Demand Rate             | 需要率       |
-| Fixed Cost              | 固定費用     |
-| Cycle                   | サイクル     |
-| Inventory Level         | 在庫量       |
-| Order Quantity          | 発注量       |
-
-### 記号
-
-|  記号  | 説明                   |
-| :----: | :--------------------- |
-|  $d$   | 単位時間あたりの需要量 |
-|  $Q$   | 発注量                 |
-|  $K$   | 発注費用               |
-|  $h$   | 保管費用               |
-|  $c$   | 購入単価               |
-|  $T$   | サイクル期間           |
-| $g(Q)$ | 平均コスト             | --></p>
-
-
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Scarf1959-xl" class="csl-entry" role="listitem">
+Scarf, Herbert. 1959. <span>「The optimality of (<span>S</span>, s) policies in the dynamic inventory problem」</span>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -864,13 +854,13 @@ https://orsj.org/wp-content/or-archives50/pdf/bul/Vol.30_11_673.pdf
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link" aria-label="Preface">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      <a href="../inventory/eoq.html" class="pagination-link" aria-label="経済的発注量">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">経済的発注量</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../inventory/eoq.html" class="pagination-link" aria-label="経済的発注量">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">経済的発注量</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
