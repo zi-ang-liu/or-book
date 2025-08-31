@@ -24,6 +24,7 @@ book:
     - part: "在庫モデル"
       chapters:
         - inventory/intro.qmd
+        - inventory/eoq.qmd
     # - references.qmd
     # - quarto.qmd
 
