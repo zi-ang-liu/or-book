@@ -6,13 +6,13 @@ format:
 jupyter: python3
 ---
 
-**経済的発注量**（EOQ: Economic Order Quantity）モデルは、最も基本的な在庫管理モデルの一つである。[Harris](https://doi.org/10.1287/opre.38.6.947)は1913年、このモデルを最初に提案した。
+**経済的発注量**（EOQ: Economic Order Quantity）モデルは、最も基本的な在庫管理モデルの一つである。@Harris1990-gh このモデルを最初に提案した。
 
 EOQモデルは、単位時間あたりの需要量は決定論的で、一定であると仮定する。すなわち、需要量は事前に分かっており、時間とともに変化しない。単位時間あたりの需要量は需要率（demand rate）と呼ばれ、記号 $d$ で表される。リードタイムは0とし、発注から納品までの時間はないと仮定する。一回の発注量を $Q$ とし、一定であるとする。欠品は許せないとする。全ての需要は満されなければならない。また、EOQモデルでは、在庫量は連続的に観測され、いつでも発注が可能であるとする。
 
 在庫に関わる費用は、発注費用 $K$、保管費用 $h$ と、購入費用（購入単価を $c$ と表す）がある。
 
-EOQモデルの最適解は次の二つの性質を持つ[(Snyder & Shen, 2019)](https://doi.org/10.1002/9781119584445)：
+EOQモデルの最適解は次の二つの性質を持つ[@Snyder2019-cy]：
 
 1. Zero-inventory ordering (ZIO). 在庫量が0のときに発注を行う。リードタイムは0であるため、在庫量が0でないときに発注すると、保管費用が発生する。
 2. Constant order sizes. 発注量は一定である。需要率 $d$ が一定であり、在庫量が0のときに発注を行うため、最適発注量も一定である。
@@ -51,8 +51,7 @@ $$
 
 で与えられる。
 
-:::{prf:example}
-:label: example:eoq_cycle
+:::{#exm-cycle}
 
 A社は、毎月250個の需要がある商品を取り扱っている。一回の発注量は500個とし、サイクル期間は
 
@@ -63,7 +62,7 @@ $$
 となる。
 :::
 
-### コスト関数
+## コスト関数
 
 ここでは、1サイクルあたりのコストを考える。
 
@@ -87,13 +86,12 @@ $$
 
 平均コストは、これをサイクル期間 $T$ で割ったものとして定義される。したがって、平均コスト $g(Q)$ は次のように表される。
 
-$$
+
 \begin{align*}
 g(Q) &= \frac{1}{T} \left( K + cQ + \frac{hQ^2}{2d} \right) \\
 &= \frac{d}{Q} \left( K + cQ + \frac{hQ^2}{2d} \right) \\
 &= \frac{Kd}{Q} + c d + \frac{hQ}{2}
 \end{align*}
-$$
 
 以上より、平均コストは発注量 $Q$ の関数として次のように表される。
 
@@ -102,7 +100,7 @@ g(Q) = \frac{Kd}{Q} + cd + \frac{hQ}{2}
 $$
 
 
-### 最適発注量
+## 最適発注量
 
 EOQモデルの目的は、平均コスト $g(Q)$ を最小化する発注量 $Q$ を求めることである。
 
@@ -120,14 +118,6 @@ $$
 
 を得る。これをEOQ公式（EOQ formula）と呼ぶ。$Q^*$ を経済的発注量と呼ぶ（経済的は最適という意味である）。
 
-:::{prf:observation}
-:label: observation:eoq
-
-1. $Q^*$ は $c$ には依存しない。
-2. $h$ の増加に伴い、$Q^*$ は減少する。保管費用が高い場合は、少量で高い頻度で発注することが望ましい。
-3. $K$ の増加に伴い、$Q^*$ は増加する。発注費用が高い場合は、多量で低い頻度で発注することが望ましい。
-:::
-
 二階導関数 $g''(Q)$ を求めて、最適発注量が最小値を与えることを確認する。
 
 $$
@@ -136,39 +126,60 @@ $$
 
 $g''(Q) > 0$ であるため、$Q^*$ は最小値を与える。
 
+最適発注量 $Q^*$ を次の定理にまとめる。
+
+:::{#thm-eoq}
+EOQモデルにおいて、最適発注量 $Q^*$ は
+$$
+Q^* = \sqrt{\frac{2Kd}{h}}
+$$
+
+で与えられる。
+:::
+
 $Q^*$ を用いて、最適なサイクル期間 $T^*$ を求めることができる。
 
 $$
 T^* = \frac{Q^*}{d} = \sqrt{\frac{2K}{hd}}
 $$
 
+:::{#rem-eoq-properties}
+以下の性質がわかる。
+
+1. $Q^*$ は $c$ には依存しない。
+2. $h$ の増加に伴い、$Q^*$ は減少する。保管費用が高い場合は、少量で高い頻度で発注することが望ましい。
+3. $K$ の増加に伴い、$Q^*$ は増加する。発注費用が高い場合は、多量で低い頻度で発注することが望ましい。
+:::
+
+
 次の図は、発注コスト、保管コスト、平均コストの関係を示している。購入単価を $c = 0$ とする。
 
-:::{code-cell} python
-:tags: [remove-input]
+```{python}
 # Parameters
 K = 500  # Order cost
-h = 15     # Holding cost
-c = 0    # Purchase cost
+h = 15  # Holding cost
+c = 0  # Purchase cost
 Q = np.linspace(1, 50, 50)
 
 # Average cost function
 g = (K / Q) + c + (h * Q / 2)
 
 # Plotting the costs vs order quantity
-plt.figure(figsize=(12, 6))
 plt.plot(Q, K / Q, label="Order Cost", color="blue", linewidth=2)
 plt.plot(Q, c + (h * Q / 2), label="Holding Cost", color="orange", linewidth=2)
 plt.plot(Q, g, label="Average Cost", color="green", linewidth=2)
-plt.axvline(x=np.sqrt(2 * K / h), color="red", linestyle="--", label="Optimal Order Quantity", linewidth=2)
-plt.xlabel("Order Quantity (Q)", fontsize=14)
-plt.ylabel("Cost", fontsize=14)
-plt.xticks(fontsize=12)
-plt.yticks(fontsize=12)
-plt.legend(fontsize=12)
+plt.axvline(
+    x=np.sqrt(2 * K / h),
+    color="red",
+    linestyle="--",
+    label="Optimal Order Quantity",
+    linewidth=2,
+)
+plt.xlabel("Order Quantity (Q)")
+plt.ylabel("Cost")
 plt.tight_layout()
 plt.show()  
-:::
+```
 
 平均コストが最小となる発注量 $Q^*$ は、発注コストと保管コストの交差点である。すなわち、発注コストと保管コストを等しくする発注量は最適な発注量 $Q^*$ である。この性質は以下の式からわかる。
 
@@ -176,29 +187,9 @@ $$
 \frac{Kd}{Q^*} = \frac{hQ^*}{2} \Longrightarrow Q^* = \sqrt{\frac{2Kd}{h}}
 $$
 
-:::{prf:observation}
-:label: observation:eoq_cost
+また、この図からもわかるように、$Q$ の増加に伴い、平均発注コストは減少し、平均保管コストは増加する。逆もまた然りである。
 
-$Q$ の増加に伴い、平均発注コストは減少し、平均保管コストは増加する。逆もまた然りである。
-:::
-
-最適発注量 $Q^*$ を次の定理にまとめる。
-
-:::{prf:theorem} Economic Order Quantity
-:label: theorem:eoq
-
-EOQモデルにおいて、最適発注量 $Q^*$ は
-
-$$
-Q^* = \sqrt{\frac{2Kd}{h}}
-$$
-
-で与えられる。
-
-:::
-
-:::{prf:example}
-:label: example:eoq_1
+:::{#exm-eoq}
 
 ある電気量販店では、毎月250台のPCが販売されている。発注費用は5000円、保管費用は1台あたり月150円、購入単価は10万円とする。このとき、最適発注量 $Q^*$ は次のように求められる。
 
@@ -208,33 +199,36 @@ $$
 
 最適発注量 $Q^*$ を次で計算する。
 
-```{code-cell} python
+```{python} 
+# | code-fold: false
+
+
 def eoq(K, d, h):
     """
     Calculate the Economic Order Quantity (EOQ).
-    
+
     Parameters:
     K (float): Order cost
     d (float): Demand rate
     h (float): Holding cost
-    
+
     Returns:
     float: Optimal order quantity Q*
     """
     return np.sqrt(2 * K * d / h)
 
+
 if __name__ == "__main__":
     K = 5000  # Order cost
-    d = 250   # Demand rate (units per month)
-    h = 150   # Holding cost (per unit per month)
-    
+    d = 250  # Demand rate (units per month)
+    h = 150  # Holding cost (per unit per month)
+
     Q_star = eoq(K, d, h)
     print(f"Optimal Order Quantity (Q*): {Q_star:.2f}")
 ```
 
 PCの場合は、注文量が整数である必要があるため、$g(129)$ と $g(130)$ を比較して最適発注量を決定する。
-
-:::
+::: 
 
 ## リードタイム
 
@@ -246,7 +240,7 @@ $$
 r = dL
 $$
 
-:::{prf:example}
+:::{#exm-reorder-point}
 上の例で、リードタイムが一週間とし、一か月を4週間とすると、リードタイムは $L = 1/4$ となる。したがって、発注点は次のように求められる。
 
 $$

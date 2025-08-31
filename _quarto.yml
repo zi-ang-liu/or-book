@@ -1,6 +1,20 @@
 project:
   type: book
 
+lang: ja
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    pdf-engine: lualatex
+    documentclass: ltjbook
+    
+
+bibliography: references.bib
+
 book:
   title: "オペレーションズ・リサーチ"
   subtitle: "Operations Research: Models, Algorithms, and Implementations"
@@ -25,16 +39,9 @@ book:
       chapters:
         - inventory/intro.qmd
         - inventory/eoq.qmd
-    # - references.qmd
+    - references.qmd
     # - quarto.qmd
 
 
-bibliography: references.bib
 
-format:
-  html:
-    theme:
-      - cosmo
-      - brand
-  pdf:
-    documentclass: scrreprt
+
