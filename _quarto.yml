@@ -8,9 +8,9 @@ format:
     theme:
       - cosmo
       - brand
-  pdf:
-    pdf-engine: lualatex
-    documentclass: ltjbook
+  # pdf:
+  #   pdf-engine: lualatex
+  #   documentclass: ltjbook
     
 
 bibliography: references.bib
@@ -39,7 +39,9 @@ book:
       chapters:
         - inventory/intro.qmd
         - inventory/eoq.qmd
+        - inventory/wagner-whitin.qmd
         - inventory/newsvendor.qmd
+        - inventory/safety.qmd
     - references.qmd
     # - quarto.qmd
 

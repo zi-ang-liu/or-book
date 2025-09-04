@@ -1,3 +1,6 @@
 /.quarto/
 /_book/
 .DS_Store
+.vscode/settings.json
+
+**/*.quarto_ipynb
