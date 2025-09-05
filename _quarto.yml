@@ -8,9 +8,9 @@ format:
     theme:
       - cosmo
       - brand
-  # pdf:
-  #   pdf-engine: lualatex
-  #   documentclass: ltjbook
+  pdf:
+    pdf-engine: lualatex
+    documentclass: ltjbook
     
 
 bibliography: references.bib
@@ -42,8 +42,16 @@ book:
         - inventory/wagner-whitin.qmd
         - inventory/newsvendor.qmd
         - inventory/safety.qmd
+    - part: "多基準意思決定分析"
+      chapters:
+        - mcda/ahp.qmd
+    - part: "プロジェクト管理"
+      chapters:
+        - project/pert.qmd
     - references.qmd
-    # - quarto.qmd
+  appendices:
+    - appendices/calculus.qmd
+    - appendices/probability.qmd
 
 
 

@@ -25,7 +25,7 @@ jupyter: python3
 $(r, Q)$ 方策が用いられるとする。在庫量が発注点 $r$ 以下になったときに、発注量 $Q$ を発注する。この場合、発注点 $r$ と発注量 $Q$ を決定変数とし、在庫の**期待コスト**（expected cost）を最小化することを目的とする。
 
 :::{.callout-note}
-この問題の定式化および厳密解法は、ここでは説明しない。[Snyder & Shen (2019)](https://doi.org/10.1002/9781119584445) の「Fundamentals of Supply Chain Theory」などの文献を参照されたい。
+この問題の定式化および厳密解法は、ここでは説明しない。@Snyder2019-cy の「Fundamentals of Supply Chain Theory」などの文献を参照されたい。
 以下は $(r, Q)$ の近似解法を紹介する。
 :::
 

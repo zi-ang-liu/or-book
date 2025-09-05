@@ -1,0 +1,8 @@
+---
+title: 階層分析法
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
