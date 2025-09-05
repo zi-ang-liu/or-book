@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; Wagner-Whitin モデル – オペレーションズ・リサーチ</title>
+<title>付録 B — 確率 – オペレーションズ・リサーチ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +65,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../inventory/newsvendor.html" rel="next">
-<link href="../inventory/eoq.html" rel="prev">
+<link href="../appendices/calculus.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -111,7 +145,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../inventory/intro.html">在庫モデル</a></li><li class="breadcrumb-item"><a href="../inventory/wagner-whitin.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Wagner-Whitin モデル</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendices/calculus.html">付録</a></li><li class="breadcrumb-item"><a href="../appendices/probability.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">確率</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
@@ -168,7 +202,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../inventory/wagner-whitin.html" class="sidebar-item-text sidebar-link active">
+  <a href="../inventory/wagner-whitin.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Wagner-Whitin モデル</span></span></a>
   </div>
 </li>
@@ -209,7 +243,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../appendices/probability.html" class="sidebar-item-text sidebar-link">
+  <a href="../appendices/probability.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">確率</span></span></a>
   </div>
 </li>
@@ -220,15 +254,21 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#正規分布" id="toc-正規分布" class="nav-link active" data-scroll-target="#正規分布"><span class="header-section-number">B.1</span> 正規分布</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../inventory/intro.html">在庫モデル</a></li><li class="breadcrumb-item"><a href="../inventory/wagner-whitin.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Wagner-Whitin モデル</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendices/calculus.html">付録</a></li><li class="breadcrumb-item"><a href="../appendices/probability.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">確率</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Wagner-Whitin モデル</span></h1>
+<h1 class="title">付録 B — 確率</h1>
 </div>
 
 
@@ -245,59 +285,63 @@ window.Quarto = {
 </header>
 
 
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>記号</th>
-<th>意味</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(\mathcal{T}\)</span></td>
-<td>期間の集合、<span class="math inline">\(\mathcal{T} = \{1, 2, \ldots, T\}\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(K\)</span></td>
-<td>1回あたりの発注費用</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(h\)</span></td>
-<td>単位あたりの保管費用</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(d_t\)</span></td>
-<td>第 <span class="math inline">\(t\)</span> 期の需要量</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(q_t\)</span></td>
-<td>第 <span class="math inline">\(t\)</span> 期の発注量</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(x_t\)</span></td>
-<td>第 <span class="math inline">\(t\)</span> 期の在庫量</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(y_t\)</span></td>
-<td>第 <span class="math inline">\(t\)</span> 期に発注する場合は 1、しない場合は 0</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(M\)</span></td>
-<td>非負の大きな数</td>
-</tr>
-</tbody>
-</table>
-<p>Wagner-Whitin モデルは次のように定式化される。</p>
+<p>離散型確率変数 <span class="math inline">\(X\)</span> が特定の値 <span class="math inline">\(x\)</span> をとる確率を</p>
+<p><span class="math display">\[
+P(X = x) = p_X(x)
+\]</span></p>
+<p>と表すとき、<span class="math inline">\(p_X(x)\)</span> を <span class="math inline">\(X\)</span> の<strong>確率質量関数</strong> (PMF) という。</p>
+<p>連続型確率変数 <span class="math inline">\(X\)</span> がある区間 <span class="math inline">\([a, b]\)</span> にある値をとる確率を</p>
+<p><span class="math display">\[
+P(a \leq X \leq b) = \int_a^b f_X(x) dx
+\]</span></p>
+<p>と表す。<span class="math inline">\(f_X(x)\)</span> を <span class="math inline">\(X\)</span> の<strong>確率密度関数</strong> (PDF) という。</p>
+<p>確率変数 <span class="math inline">\(X\)</span> の<strong>累計分布関数</strong>（CDF）は</p>
+<p><span class="math display">\[
+F_X(x) = P(X \leq x) = \begin{cases}
+\sum_{k \leq x} p_X(k) &amp; \text{if } X \text{ is discrete} \\
+\int_{-\infty}^x f_X(t) dt &amp; \text{if } X \text{ is continuous}
+\end{cases}
+\]</span></p>
+<p>と表す。確率密度関数 <span class="math inline">\(f_X(x)\)</span> は累計分布関数 <span class="math inline">\(F_X(x)\)</span> の微分である。</p>
+<p><span class="math display">\[
+f_X(x) = \frac{d}{dx} F_X(x)
+\]</span></p>
+<section id="正規分布" class="level2" data-number="B.1">
+<h2 data-number="B.1" class="anchored" data-anchor-id="正規分布"><span class="header-section-number">B.1</span> 正規分布</h2>
+<p>連続型確率変数 <span class="math inline">\(X\)</span> は<strong>正規分布</strong>（normal distribution）に従うとき、<span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span> と表す。ここで <span class="math inline">\(\mu\)</span> は平均、<span class="math inline">\(\sigma^2\)</span> は分散である。<span class="math inline">\(X\)</span> の確率密度関数は</p>
+<p><span class="math display">\[
+f_X(x) = \frac{1}{\sqrt{2\pi} \sigma} e^{-\frac{(x - \mu)^2}{2\sigma^2}}
+\]</span></p>
+<p>と表す。平均は <span class="math inline">\(E[X] = \mu\)</span>、分散は <span class="math inline">\(\text{Var}(X) = \sigma^2\)</span> である。</p>
+<p><span class="math inline">\(X\)</span> が <span class="math inline">\(N(\mu, \sigma^2)\)</span> に従うとき、<span class="math inline">\(Y = aX + b\)</span> は、<span class="math inline">\(N(a\mu + b, a^2\sigma^2)\)</span> に従う。特に、<span class="math inline">\(Z = \frac{X - \mu}{\sigma}\)</span> は標準正規分布（standard normal distribution）に従う。すなわち、<span class="math inline">\(Z \sim N(0, 1)\)</span> である。</p>
+<p>連続型確率変数 <span class="math inline">\(Y\)</span> が標準正規分布に従うとき、<span class="math inline">\(Y\)</span> の累計分布関数は</p>
+<p><span class="math display">\[
+\Phi(y) = P(Y \leq y) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^y e^{-\frac{t^2}{2}} dt
+\]</span></p>
+<p>と表す。<strong>標準正規分布表</strong>から、<span class="math inline">\(y\)</span> の値に対する <span class="math inline">\(\Phi(y)\)</span> を調べることができる。</p>
+<p>Python では、以下のように <span class="math inline">\(\Phi(y)\)</span> を計算できる。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> phi(y):</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> norm.cdf(y)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>phi(<span class="dv">0</span>)  <span class="co"># 0.5</span></span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>また、<span class="math inline">\(\Phi(y)=0.95\)</span> のときの <span class="math inline">\(y\)</span> の値を求めるには、以下のようにする。</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> phi_inverse(p):</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> norm.ppf(p)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>phi_inverse(<span class="fl">0.95</span>)  <span class="co"># 約1.64485</span></span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>与えられた <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span> の累計分布関数 <span class="math inline">\(F_X(x)\)</span> の値を求めるには、以下のように変換する。</p>
 <p><span class="math display">\[\begin{align}
-\text{minimize} \quad &amp; \sum_{t=1}^{T} (K y_t + h x_t) \\
-\text{subject to} \quad &amp; x_t = x_{t-1} + q_t - d_t \quad &amp; \forall t \in \mathcal{T} \\
-&amp; q_t \geq 0 \quad &amp; \forall t \in \mathcal{T} \\
-&amp; q_t \leq M y_t \quad &amp; \forall t \in \mathcal{T} \\
-&amp; x_t \geq 0 \quad &amp; \forall t \in \mathcal{T} \\
-&amp; y_t \in \{0, 1\} \quad &amp; \forall t \in \mathcal{T}
+P(X \leq x)
+&amp;= P \left( \frac{X - \mu}{\sigma} \leq \frac{x - \mu}{\sigma} \right) \\\\
+&amp;= P\left( Y \leq \frac{x - \mu}{\sigma} \right) \\\\
+&amp;= \Phi \left( \frac{x - \mu}{\sigma} \right)
 \end{align}\]</span></p>
+<p>正規分布は<strong>再生性</strong>（reproductive property）を持つ。すなわち、<span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> が独立に <span class="math inline">\(N(\mu_i, \sigma_i^2)\)</span> に従うとき、<span class="math inline">\(Y = \sum_{i=1}^n a_i X_i\)</span> は <span class="math inline">\(N\left(\sum_{i=1}^n a_i \mu_i, \sum_{i=1}^n a_i^2 \sigma_i^2\right)\)</span> に従う。</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -701,14 +745,11 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../inventory/eoq.html" class="pagination-link" aria-label="経済的発注量">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">経済的発注量</span></span>
+      <a href="../appendices/calculus.html" class="pagination-link" aria-label="微分積分学">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">微分積分学</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../inventory/newsvendor.html" class="pagination-link" aria-label="新聞売り子問題">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">新聞売り子問題</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
