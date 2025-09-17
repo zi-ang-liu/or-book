@@ -35,6 +35,7 @@ book:
   repo-url: https://github.com/zi-ang-liu/or-book
   chapters:
     - index.qmd
+    - course-info.qmd
     - part: "在庫モデル"
       chapters:
         - inventory/intro.qmd
