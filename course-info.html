@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="劉子昂">
 
-<title>オペレーションズ・リサーチ</title>
+<title>講義 – オペレーションズ・リサーチ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./course-info.html" rel="next">
+<link href="./inventory/intro.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -82,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./course-info.html">講義</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
@@ -112,13 +112,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./course-info.html" class="sidebar-item-text sidebar-link">
+  <a href="./course-info.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">講義</span></a>
   </div>
 </li>
@@ -236,7 +236,24 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#講義情報" id="toc-講義情報" class="nav-link active" data-scroll-target="#講義情報">講義情報</a></li>
+  <li><a href="#到達目標" id="toc-到達目標" class="nav-link" data-scroll-target="#到達目標">到達目標</a></li>
+  <li><a href="#orの全体像" id="toc-orの全体像" class="nav-link" data-scroll-target="#orの全体像">ORの全体像</a></li>
+  <li><a href="#orは難しい" id="toc-orは難しい" class="nav-link" data-scroll-target="#orは難しい">ORは難しい？</a>
+  <ul class="collapse">
+  <li><a href="#基礎知識が必要" id="toc-基礎知識が必要" class="nav-link" data-scroll-target="#基礎知識が必要">基礎知識が必要</a></li>
+  <li><a href="#数式が多い" id="toc-数式が多い" class="nav-link" data-scroll-target="#数式が多い">数式が多い</a></li>
+  </ul></li>
+  <li><a href="#何を学ぶ" id="toc-何を学ぶ" class="nav-link" data-scroll-target="#何を学ぶ">何を学ぶ？</a>
+  <ul class="collapse">
+  <li><a href="#モデル" id="toc-モデル" class="nav-link" data-scroll-target="#モデル">モデル</a></li>
+  <li><a href="#アルゴリズム" id="toc-アルゴリズム" class="nav-link" data-scroll-target="#アルゴリズム">アルゴリズム</a></li>
+  <li><a href="#実装" id="toc-実装" class="nav-link" data-scroll-target="#実装">実装</a></li>
+  </ul></li>
+  <li><a href="#授業時間外の学習" id="toc-授業時間外の学習" class="nav-link" data-scroll-target="#授業時間外の学習">授業時間外の学習</a></li>
+  <li><a href="#必要なもの" id="toc-必要なもの" class="nav-link" data-scroll-target="#必要なもの">必要なもの</a></li>
+  <li><a href="#私語" id="toc-私語" class="nav-link" data-scroll-target="#私語">私語</a></li>
+  <li><a href="#成績評価" id="toc-成績評価" class="nav-link" data-scroll-target="#成績評価">成績評価</a></li>
   </ul>
 </nav>
     </div>
@@ -245,34 +262,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">オペレーションズ・リサーチ</h1>
-<p class="subtitle lead">Operations Research: Models, Algorithms, and Implementations</p>
+<h1 class="title">講義</h1>
 </div>
 
 
-<div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">作者</div>
-  <div class="quarto-title-meta-heading">所属</div>
-  
-    <div class="quarto-title-meta-contents">
-    <p class="author"><a href="https://zi-ang-liu.github.io">劉子昂</a> <a href="https://orcid.org/0000-0002-1364-3502" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            法政大学
-          </p>
-      </div>
-  </div>
 
 <div class="quarto-title-meta">
 
-      
-    <div>
-    <div class="quarto-title-meta-heading">公開</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2025年9月17日</p>
-    </div>
-  </div>
+    
   
     
   </div>
@@ -282,10 +279,103 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1><p><img src="cover.png" title="オペレーションズ・リサーチ" class="quarto-cover-image nolightbox img-fluid"></p>
-<p>ORの基礎と応用を学ぶための教科書です．</p>
+<p>本授業では、オペレーションズ・リサーチ（OR）の中の代表的な手法であるPERT、在庫理論、待ち行列理論、動的計画法、階層分析法、及び包絡分析法の数理を理解し、具体的な問題への応用を学ぶ。</p>
+<section id="講義情報" class="level2">
+<h2 class="anchored" data-anchor-id="講義情報">講義情報</h2>
+<ul>
+<li>講義名：オペレーションズ・リサーチB</li>
+<li>曜日：水曜日</li>
+<li>時限：2時限目（10:50～12:30）</li>
+<li>教室：西館 W202</li>
+<li>担当教員：<a href="https://zi-ang-liu.github.io/">劉 子昂</a></li>
+</ul>
+</section>
+<section id="到達目標" class="level2">
+<h2 class="anchored" data-anchor-id="到達目標">到達目標</h2>
+<p>各分野について、下記の事項を目標して講義を行う。</p>
+<ul>
+<li><strong>PERT</strong>の計算と解析方法を理解し、プロジェクトの評価を行うことができる。</li>
+<li><strong>在庫モデル</strong>を理解し、自分で式を構築及び解析することができる。</li>
+<li><strong>待ち行列理論</strong>の重要な式や定理を理論的に導出し、それらを適切に解釈することができる。</li>
+<li><strong>動的計画法</strong>の基本的な考え方を理解し、簡単な問題への適用ができる。</li>
+<li><strong>階層分析法</strong>による意思決定の手法を理解し、一対比較行列からウェイトと整合性を計算することができる。</li>
+<li><strong>包絡分析法</strong>におけるCCRモデルを理解し、得られた結果を解釈することができる。</li>
+</ul>
+<p>さらに、これらの手法を用いて比較的簡単な現象をモデル化し、解析することができる。</p>
+</section>
+<section id="orの全体像" class="level2">
+<h2 class="anchored" data-anchor-id="orの全体像">ORの全体像</h2>
+<ul>
+<li>線形計画法</li>
+<li>整数計画法</li>
+<li>非線形計画法</li>
+<li><strong>動的計画法</strong></li>
+<li>グラフ理論・ネットワーク</li>
+<li>シミュレーション</li>
+<li><strong>在庫モデル</strong></li>
+<li><strong>待ち行列</strong></li>
+<li><strong>多基準意思決定分析</strong></li>
+<li><strong>プロジェクトマネジメント</strong></li>
+<li>…</li>
+</ul>
+</section>
+<section id="orは難しい" class="level2">
+<h2 class="anchored" data-anchor-id="orは難しい">ORは難しい？</h2>
+<section id="基礎知識が必要" class="level3">
+<h3 class="anchored" data-anchor-id="基礎知識が必要">基礎知識が必要</h3>
+<p>微分積分、線形代数、確率、統計の基礎知識が必要です。これらの基礎が不十分な場合、授業についていけないです。基礎知識が不十分な場合、必ず復習してください。</p>
+<p>この講義では、以下の工夫をしています。</p>
+<ul>
+<li>付録に私が書いた基礎知識のまとめがあります。随時更新しますので、参考にしてください。</li>
+<li>講義資料には例題、図、演習問題を多く用意しています。</li>
+<li>プログラミングの実装例も示します。</li>
+</ul>
+</section>
+<section id="数式が多い" class="level3">
+<h3 class="anchored" data-anchor-id="数式が多い">数式が多い</h3>
+<p>ORは、問題を数理的にモデル化し、解析する学問です。数式をたくさん使い、証明も多いです。数式を読むのが苦手な人は、慣れるまで大変かもしれません。</p>
+<p>この講義では、以下の工夫をしています。</p>
+<ul>
+<li>証明は省略なく丁寧に行います。</li>
+<li>私が推測したわかりにくいところをコラムで補足します。</li>
+</ul>
+</section>
+</section>
+<section id="何を学ぶ" class="level2">
+<h2 class="anchored" data-anchor-id="何を学ぶ">何を学ぶ？</h2>
+<section id="モデル" class="level3">
+<h3 class="anchored" data-anchor-id="モデル">モデル</h3>
+</section>
+<section id="アルゴリズム" class="level3">
+<h3 class="anchored" data-anchor-id="アルゴリズム">アルゴリズム</h3>
+</section>
+<section id="実装" class="level3">
+<h3 class="anchored" data-anchor-id="実装">実装</h3>
+</section>
+</section>
+<section id="授業時間外の学習" class="level2">
+<h2 class="anchored" data-anchor-id="授業時間外の学習">授業時間外の学習</h2>
+<p>本授業の準備・復習等の授業時間外学習は、4時間を標準とする</p>
+</section>
+<section id="必要なもの" class="level2">
+<h2 class="anchored" data-anchor-id="必要なもの">必要なもの</h2>
+<ul>
+<li>本講義では，受講者自身のノートPCを用いて演習を行います．毎週必ずノートPCを持参してください．</li>
+</ul>
+</section>
+<section id="私語" class="level2">
+<h2 class="anchored" data-anchor-id="私語">私語</h2>
+<ul>
+<li>講義中の私語は厳禁です．</li>
+<li>注意してもやめない場合は、減点を行います。</li>
+</ul>
+</section>
+<section id="成績評価" class="level2">
+<h2 class="anchored" data-anchor-id="成績評価">成績評価</h2>
+<ul>
+<li>期末試験（100%）</li>
+<li>一回の欠席につき、10点減点。4回以上の欠席は単位取得不可。</li>
+</ul>
 
 
 </section>
@@ -692,10 +782,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Preface">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./course-info.html" class="pagination-link" aria-label="講義">
-        <span class="nav-page-text">講義</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./inventory/intro.html" class="pagination-link" aria-label="在庫管理とは">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">在庫管理とは</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

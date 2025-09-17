@@ -4,9 +4,109 @@
     "href": "index.html",
     "title": "オペレーションズ・リサーチ",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.",
+    "text": "Preface\nORの基礎と応用を学ぶための教科書です．",
     "crumbs": [
       "Preface"
+    ]
+  },
+  {
+    "objectID": "course-info.html",
+    "href": "course-info.html",
+    "title": "講義",
+    "section": "",
+    "text": "講義情報\n本授業では、オペレーションズ・リサーチ（OR）の中の代表的な手法であるPERT、在庫理論、待ち行列理論、動的計画法、階層分析法、及び包絡分析法の数理を理解し、具体的な問題への応用を学ぶ。",
+    "crumbs": [
+      "講義"
+    ]
+  },
+  {
+    "objectID": "course-info.html#講義情報",
+    "href": "course-info.html#講義情報",
+    "title": "講義",
+    "section": "",
+    "text": "講義名：オペレーションズ・リサーチB\n曜日：水曜日\n時限：2時限目（10:50～12:30）\n教室：西館 W202\n担当教員：劉 子昂",
+    "crumbs": [
+      "講義"
+    ]
+  },
+  {
+    "objectID": "course-info.html#到達目標",
+    "href": "course-info.html#到達目標",
+    "title": "講義",
+    "section": "到達目標",
+    "text": "到達目標\n各分野について、下記の事項を目標して講義を行う。\n\nPERTの計算と解析方法を理解し、プロジェクトの評価を行うことができる。\n在庫モデルを理解し、自分で式を構築及び解析することができる。\n待ち行列理論の重要な式や定理を理論的に導出し、それらを適切に解釈することができる。\n動的計画法の基本的な考え方を理解し、簡単な問題への適用ができる。\n階層分析法による意思決定の手法を理解し、一対比較行列からウェイトと整合性を計算することができる。\n包絡分析法におけるCCRモデルを理解し、得られた結果を解釈することができる。\n\nさらに、これらの手法を用いて比較的簡単な現象をモデル化し、解析することができる。",
+    "crumbs": [
+      "講義"
+    ]
+  },
+  {
+    "objectID": "course-info.html#orの全体像",
+    "href": "course-info.html#orの全体像",
+    "title": "講義",
+    "section": "ORの全体像",
+    "text": "ORの全体像\n\n線形計画法\n整数計画法\n非線形計画法\n動的計画法\nグラフ理論・ネットワーク\nシミュレーション\n在庫モデル\n待ち行列\n多基準意思決定分析\nプロジェクトマネジメント\n…",
+    "crumbs": [
+      "講義"
+    ]
+  },
+  {
+    "objectID": "course-info.html#orは難しい",
+    "href": "course-info.html#orは難しい",
+    "title": "講義",
+    "section": "ORは難しい？",
+    "text": "ORは難しい？\n\n基礎知識が必要\n微分積分、線形代数、確率、統計の基礎知識が必要です。これらの基礎が不十分な場合、授業についていけないです。基礎知識が不十分な場合、必ず復習してください。\nこの講義では、以下の工夫をしています。\n\n付録に私が書いた基礎知識のまとめがあります。随時更新しますので、参考にしてください。\n講義資料には例題、図、演習問題を多く用意しています。\nプログラミングの実装例も示します。\n\n\n\n数式が多い\nORは、問題を数理的にモデル化し、解析する学問です。数式をたくさん使い、証明も多いです。数式を読むのが苦手な人は、慣れるまで大変かもしれません。\nこの講義では、以下の工夫をしています。\n\n証明は省略なく丁寧に行います。\n私が推測したわかりにくいところをコラムで補足します。",
+    "crumbs": [
+      "講義"
+    ]
+  },
+  {
+    "objectID": "course-info.html#何を学ぶ",
+    "href": "course-info.html#何を学ぶ",
+    "title": "講義",
+    "section": "何を学ぶ？",
+    "text": "何を学ぶ？\n\nモデル\n\n\nアルゴリズム\n\n\n実装",
+    "crumbs": [
+      "講義"
+    ]
+  },
+  {
+    "objectID": "course-info.html#授業時間外の学習",
+    "href": "course-info.html#授業時間外の学習",
+    "title": "講義",
+    "section": "授業時間外の学習",
+    "text": "授業時間外の学習\n本授業の準備・復習等の授業時間外学習は、4時間を標準とする",
+    "crumbs": [
+      "講義"
+    ]
+  },
+  {
+    "objectID": "course-info.html#必要なもの",
+    "href": "course-info.html#必要なもの",
+    "title": "講義",
+    "section": "必要なもの",
+    "text": "必要なもの\n\n本講義では，受講者自身のノートPCを用いて演習を行います．毎週必ずノートPCを持参してください．",
+    "crumbs": [
+      "講義"
+    ]
+  },
+  {
+    "objectID": "course-info.html#私語",
+    "href": "course-info.html#私語",
+    "title": "講義",
+    "section": "私語",
+    "text": "私語\n\n講義中の私語は厳禁です．\n注意してもやめない場合は、減点を行います。",
+    "crumbs": [
+      "講義"
+    ]
+  },
+  {
+    "objectID": "course-info.html#成績評価",
+    "href": "course-info.html#成績評価",
+    "title": "講義",
+    "section": "成績評価",
+    "text": "成績評価\n\n期末試験（100%）\n一回の欠席につき、10点減点。4回以上の欠席は単位取得不可。",
+    "crumbs": [
+      "講義"
     ]
   },
   {
@@ -208,11 +308,44 @@
     ]
   },
   {
+    "objectID": "project/pert.html",
+    "href": "project/pert.html",
+    "title": "7  PERT/CPM",
+    "section": "",
+    "text": "7.1 プロジェクト・ネットワーク\n:::{code-cell} python :tags: [remove-input, remove-output] !pip install matplotlib numpy networkx !pip install pydot graphviz import numpy as np import matplotlib.pyplot as plt import networkx as nx from networkx.drawing.nx_pydot import graphviz_layout :::\nPERT（Program Evaluation and Review Technique） CPM（Critical Path Method）\nある作業の開始前に完了しなければならない作業を先行作業（Immediate Predecessor）と呼ぶ。\nプロジェクトは、次の要素で構成される。\nプロジェクトを表現するネットワークをプロジェクト・ネットワーク（Project Network）と呼ぶ。プロジェクト・ネットワークには、AOA（Activity on Arrow）や AON（Activity on Node）という 2 種類の表現方法がある。\nAOA では、作業を辺で表現し、先行関係をノードで表現する。AON では、作業を頂点（node）で表現し、先行関係を辺（edge）で表現する。日本の教科書では AOA が一般的であるが、AON のほうが理解と作成が容易であるため、海外の教科書では AON が一般的で、実務でも AON がよく使われる(Camm ほか 2022; Hillier と Lieberman 2025; Eiselt と Sandblom 2022)。これ以降の説明では、AON を用いる。\nグラフ理論において、有向非巡回グラフ（Directed Acyclic Graph, DAG）とは、閉路を含まない有向グラフのことを指す。 プロジェクト・ネットワークは辺の向きがあるため、有向グラフであり、作業の先行関係は循環しないため、閉路を含まない。したがって、プロジェクト・ネットワークは DAG である。\n作業リストに示す作業に加えて、プロジェクト・ネットワークには、開開始点（Start Node）と終了点（Finish Node）が含まれる。開始点は、先行作業を持たない作業から接続される。終了点は、後続作業を持たない作業から接続される。上の例では、先行作業を持たない作業は A であり、後続作業を持たない作業は E であるため、開始点から A に接続され、E から終了点に接続されている。",
+    "crumbs": [
+      "プロジェクト管理",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>PERT/CPM</span>"
+    ]
+  },
+  {
+    "objectID": "project/pert.html#プロジェクトネットワーク",
+    "href": "project/pert.html#プロジェクトネットワーク",
+    "title": "7  PERT/CPM",
+    "section": "",
+    "text": ":label: example:pert-1\n学生の田中さんと佐藤さんが協力し、ある授業のレポートを作成することになった。このレポートを作成するためには、下の表に示すように、いくつかの作業を行う必要がある。\n\n\n\n作業\n作業内容\n先行作業\n時間（日）\n\n\n\n\nA\n課題の理解\n-\n2\n\n\nB\nデータ収集\nA\n3\n\n\nC\nデータ分析\nB\n4\n\n\nD\n文献調査\nA\n2\n\n\nE\nレポート作成\nC, D\n5\n\n\n\nこのプロジェクトを表現するプロジェクト・ネットワークは次の図のようになる。\n:::{code-cell} python :tags: [remove-input]\nclass ProjectNetwork: def init(self, tasks): self.tasks = tasks self.G = nx.DiGraph() self._create_graph()\ndef _create_graph(self):\n    # Add tasks\n    for task_id, task in self.tasks.items():\n        self.G.add_node(\n            task_id, label=f\"{task_id}\\n({task['duration']})\"\n        )\n\n    # Add Start and Finish nodes\n    self.G.add_node(\"Start\", label=\"Start\")\n    self.G.add_node(\"Finish\", label=\"Finish\")\n\n    # Add edges for precedence\n    for task_id, task in self.tasks.items():\n        if not task[\"predecessors\"]:  # no predecessors → connect from Start\n            self.G.add_edge(\"Start\", task_id)\n        else:\n            for pred in task[\"predecessors\"]:\n                self.G.add_edge(pred, task_id)\n\n    # Add Finish connections (tasks with no successors → to Finish)\n    for task_id in self.tasks:\n        if self.G.out_degree(task_id) == 0:  # no outgoing edges\n            self.G.add_edge(task_id, \"Finish\")\n\ndef draw(self):\n    # Graphviz layout (top-to-bottom)\n    pos = graphviz_layout(self.G, prog=\"dot\")\n\n    # Draw the graph\n    plt.figure(figsize=(10, 10))\n    nx.draw(\n        self.G,\n        pos,\n        with_labels=False,\n        node_size=1500,\n        node_color=\"lightyellow\",\n        edgecolors=\"black\",\n        arrows=True,\n        arrowsize=20,\n    )\n    nx.draw_networkx_labels(\n        self.G, pos, labels=nx.get_node_attributes(self.G, \"label\"), font_size=10\n    )\n\n    plt.title(\"Project Network Diagram\")\n    plt.axis(\"off\")\n    plt.show()\ntasks = { “A”: {“name”: “課題の理解”, “predecessors”: [], “duration”: 2}, “B”: {“name”: “データ収集”, “predecessors”: [“A”], “duration”: 3}, “C”: {“name”: “データ分析”, “predecessors”: [“B”], “duration”: 4}, “D”: {“name”: “文献調査”, “predecessors”: [“A”], “duration”: 2}, “E”: {“name”: “レポート作成”, “predecessors”: [“C”, “D”], “duration”: 5}, }\nproject_network = ProjectNetwork(tasks) project_network.draw()\n\n\n\n\n:label: example:pert-2\n以下の作業リストに基づいて、プロジェクト・ネットワークを作成せよ。\n\n\n\n作業\n先行作業\n時間（日）\n\n\n\n\nA\n-\n2\n\n\nB\nA\n4\n\n\nC\nB\n4\n\n\nD\nC\n6\n\n\nE\nC\n5\n\n\nF\nE\n5\n\n\nG\nD\n6\n\n\nH\nE, G\n9\n\n\nI\nC\n8\n\n\nJ\nF, I\n7\n\n\nK\nJ\n4\n\n\nL\nJ\n6\n\n\nM\nH\n2\n\n\nN\nK, L\n6\n\n\n\n先行作業がない作業は A と B であり、後続作業がない作業は M と N であるため、開始点から A と B に接続され、M と N から終了点に接続される。\n:::{code-cell} python :tags: [remove-input]\ntasks = { “A”: {“name”: ““,”predecessors”: [], “duration”: 2}, “B”: {“name”: ““,”predecessors”: [“A”], “duration”: 4}, “C”: {“name”: ““,”predecessors”: [“B”], “duration”: 4}, “D”: {“name”: ““,”predecessors”: [“C”], “duration”: 6}, “E”: {“name”: ““,”predecessors”: [“C”], “duration”: 5}, “F”: {“name”: ““,”predecessors”: [“E”], “duration”: 5}, “G”: {“name”: ““,”predecessors”: [“D”], “duration”: 6}, “H”: {“name”: ““,”predecessors”: [“E”, “G”], “duration”: 9}, “I”: {“name”: ““,”predecessors”: [“C”], “duration”: 8}, “J”: {“name”: ““,”predecessors”: [“F”, “I”], “duration”: 7}, “K”: {“name”: ““,”predecessors”: [“J”], “duration”: 4}, “L”: {“name”: ““,”predecessors”: [“J”], “duration”: 6}, “M”: {“name”: ““,”predecessors”: [“H”], “duration”: 2}, “N”: {“name”: ““,”predecessors”: [“K”, “L”], “duration”: 6}, }\nproject_network = ProjectNetwork(tasks) project_network.draw()",
+    "crumbs": [
+      "プロジェクト管理",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>PERT/CPM</span>"
+    ]
+  },
+  {
+    "objectID": "project/pert.html#クリティカルパス",
+    "href": "project/pert.html#クリティカルパス",
+    "title": "7  PERT/CPM",
+    "section": "7.2 クリティカルパス",
+    "text": "7.2 クリティカルパス\nプロジェクト・ネットワークにおいて、開始点から終了点までの経路をパス（path）と呼ぶ。例えば、 には\n\nStart → A → B → C → D → G → H → M → Finish\nStart → A → B → C → E → H → M → Finish\n\nなど、複数のパスが存在する。\nStart → A → B → C → E → H → M → Finish では、各作業の所要時間を合計すると、2 + 4 + 4 + 5 + 9 + 2 = 26 日となる。しかし、26日間でこれらの作業を完了できるかというと、そうではない。なぜなら、例えば、作業 H の先行作業には作業 G と E の両方が含まれており、作業 H の開始時間は最も時間のかかる先行作業である G の完了時間に依存するからである。\nしたがって、プロジェクトの完了時間は、すべてのパスの中で最も長いパスの長さに依存する。この最も長いパスをクリティカルパス（Critical Path）と呼ぶ。クリティカルパス上の作業は、プロジェクト全体の完了時間に直接影響を与えるため、特に重要である。\n\nクリティカルパスを求める問題は、DAG における最長経路問題に帰着される。\n\n\n\n\n\nCamm, Jeffrey, James Cochran, Michael Fry, Jeffrey Ohlmann, David Anderson, Dennis Sweeney, と Thomas Williams. 2022. An introduction to management science: Quantitative approaches to decision making. 16th 版. Florence, AL: South-Western College Publishing.\n\n\nEiselt, H A, と Carl-Louis Sandblom. 2022. Operations research: A model-based approach. Cham: Springer International Publishing.\n\n\nHillier, Frederick, と Gerald Lieberman. 2025. ISE introduction to operations research. 11th 版. Columbus, OH: McGraw-Hill Education.",
+    "crumbs": [
+      "プロジェクト管理",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>PERT/CPM</span>"
+    ]
+  },
+  {
     "objectID": "references.html",
     "href": "references.html",
     "title": "参考文献",
     "section": "",
-    "text": "Camm, Jeffrey, James Cochran, Michael Fry, Jeffrey Ohlmann, David\nAnderson, Dennis Sweeney, and Thomas Williams. 2022. An Introduction\nto Management Science: Quantitative Approaches to Decision Making.\n16th ed. Florence, AL: South-Western College Publishing.\n\n\nHarris, Ford W. 1990. “How Many Parts to Make at Once.”\nOper. Res. 38 (6): 947–50.\n\n\nHillier, Frederick, and Gerald Lieberman. 2025. ISE\nIntroduction to Operations Research. 11th ed. Columbus, OH:\nMcGraw-Hill Education.\n\n\nScarf, Herbert. 1959. “The Optimality of (S, s)\nPolicies in the Dynamic Inventory Problem.”\n\n\nSnyder, Lawrence V, and Zuo-Jun Max Shen. 2019. Fundamentals of\nSupply Chain Theory. 2nd ed. Nashville, TN: John Wiley & Sons.",
+    "text": "Camm, Jeffrey, James Cochran, Michael Fry, Jeffrey Ohlmann, David\nAnderson, Dennis Sweeney, and Thomas Williams. 2022. An Introduction\nto Management Science: Quantitative Approaches to Decision Making.\n16th ed. Florence, AL: South-Western College Publishing.\n\n\nEiselt, H A, and Carl-Louis Sandblom. 2022. Operations Research: A\nModel-Based Approach. Cham: Springer International Publishing.\n\n\nHarris, Ford W. 1990. “How Many Parts to Make at Once.”\nOper. Res. 38 (6): 947–50.\n\n\nHillier, Frederick, and Gerald Lieberman. 2025. ISE\nIntroduction to Operations Research. 11th ed. Columbus, OH:\nMcGraw-Hill Education.\n\n\nScarf, Herbert. 1959. “The Optimality of (S, s)\nPolicies in the Dynamic Inventory Problem.”\n\n\nSnyder, Lawrence V, and Zuo-Jun Max Shen. 2019. Fundamentals of\nSupply Chain Theory. 2nd ed. Nashville, TN: John Wiley & Sons.",
     "crumbs": [
       "参考文献"
     ]

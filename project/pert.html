@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="劉子昂">
 
-<title>オペレーションズ・リサーチ</title>
+<title>7&nbsp; PERT/CPM – オペレーションズ・リサーチ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,27 +20,48 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./course-info.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6437d3b8e7436a5f09bef9d8f13bc7c7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../references.html" rel="next">
+<link href="../mcda/ahp.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-6437d3b8e7436a5f09bef9d8f13bc7c7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -82,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../project/pert.html">プロジェクト管理</a></li><li class="breadcrumb-item"><a href="../project/pert.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">PERT/CPM</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
@@ -97,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">オペレーションズ・リサーチ</a> 
+      <a href="../">オペレーションズ・リサーチ</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/zi-ang-liu/or-book" title="ソースコード" class="quarto-navigation-tool px-1" aria-label="ソースコード"><i class="bi bi-github"></i></a>
 </div>
@@ -112,13 +132,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./course-info.html" class="sidebar-item-text sidebar-link">
+  <a href="../course-info.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">講義</span></a>
   </div>
 </li>
@@ -133,31 +153,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inventory/intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../inventory/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">在庫管理とは</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inventory/eoq.html" class="sidebar-item-text sidebar-link">
+  <a href="../inventory/eoq.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">経済的発注量</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inventory/wagner-whitin.html" class="sidebar-item-text sidebar-link">
+  <a href="../inventory/wagner-whitin.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Wagner-Whitin モデル</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inventory/newsvendor.html" class="sidebar-item-text sidebar-link">
+  <a href="../inventory/newsvendor.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">新聞売り子問題</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inventory/safety.html" class="sidebar-item-text sidebar-link">
+  <a href="../inventory/safety.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">安全在庫</span></span></a>
   </div>
 </li>
@@ -174,7 +194,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mcda/ahp.html" class="sidebar-item-text sidebar-link">
+  <a href="../mcda/ahp.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">階層分析法</span></span></a>
   </div>
 </li>
@@ -191,7 +211,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./project/pert.html" class="sidebar-item-text sidebar-link">
+  <a href="../project/pert.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">PERT/CPM</span></span></a>
   </div>
 </li>
@@ -199,7 +219,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">参考文献</span></a>
   </div>
 </li>
@@ -214,13 +234,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendices/calculus.html" class="sidebar-item-text sidebar-link">
+  <a href="../appendices/calculus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">微分積分学</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendices/probability.html" class="sidebar-item-text sidebar-link">
+  <a href="../appendices/probability.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">確率</span></span></a>
   </div>
 </li>
@@ -236,43 +256,24 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#プロジェクトネットワーク" id="toc-プロジェクトネットワーク" class="nav-link active" data-scroll-target="#プロジェクトネットワーク"><span class="header-section-number">7.1</span> プロジェクト・ネットワーク</a></li>
+  <li><a href="#クリティカルパス" id="toc-クリティカルパス" class="nav-link" data-scroll-target="#クリティカルパス"><span class="header-section-number">7.2</span> クリティカルパス</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../project/pert.html">プロジェクト管理</a></li><li class="breadcrumb-item"><a href="../project/pert.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">PERT/CPM</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">オペレーションズ・リサーチ</h1>
-<p class="subtitle lead">Operations Research: Models, Algorithms, and Implementations</p>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">PERT/CPM</span></h1>
 </div>
 
 
-<div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">作者</div>
-  <div class="quarto-title-meta-heading">所属</div>
-  
-    <div class="quarto-title-meta-contents">
-    <p class="author"><a href="https://zi-ang-liu.github.io">劉子昂</a> <a href="https://orcid.org/0000-0002-1364-3502" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            法政大学
-          </p>
-      </div>
-  </div>
 
 <div class="quarto-title-meta">
 
-      
-    <div>
-    <div class="quarto-title-meta-heading">公開</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2025年9月17日</p>
-    </div>
-  </div>
+    
   
     
   </div>
@@ -282,12 +283,241 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>:::{code-cell} python :tags: [remove-input, remove-output] !pip install matplotlib numpy networkx !pip install pydot graphviz import numpy as np import matplotlib.pyplot as plt import networkx as nx from networkx.drawing.nx_pydot import graphviz_layout :::</p>
+<ul>
+<li>Camm et al.&nbsp;(2022) Chapter 9</li>
+<li>Taha (2016) Chapter 6</li>
+<li>Hillier and Lieberman (2020) Chapter 22</li>
+<li>Eiselt and Sandblom (2019) Chapter 8</li>
+</ul>
+<p><strong>PERT</strong>（Program Evaluation and Review Technique） <strong>CPM</strong>（Critical Path Method）</p>
+<p>ある作業の開始前に完了しなければならない作業を<strong>先行作業</strong>（Immediate Predecessor）と呼ぶ。</p>
+<p>プロジェクトは、次の要素で構成される。</p>
+<ul>
+<li>作業（Activity）：プロジェクトを構成する仕事。活動、アクティビティとも呼ばれる。</li>
+<li>先行関係（Precedence Relationship）：それぞれの作業の先行作業を定義する関係。</li>
+<li>作業時間：各作業に必要な時間。通常、確率変数として与えられる。</li>
+</ul>
+<section id="プロジェクトネットワーク" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="プロジェクトネットワーク"><span class="header-section-number">7.1</span> プロジェクト・ネットワーク</h2>
+<p>プロジェクトを表現するネットワークを<strong>プロジェクト・ネットワーク</strong>（Project Network）と呼ぶ。プロジェクト・ネットワークには、<strong>AOA</strong>（Activity on Arrow）や <strong>AON</strong>（Activity on Node）という 2 種類の表現方法がある。</p>
+<p>AOA では、作業を辺で表現し、先行関係をノードで表現する。AON では、作業を頂点（node）で表現し、先行関係を辺（edge）で表現する。日本の教科書では AOA が一般的であるが、AON のほうが理解と作成が容易であるため、海外の教科書では AON が一般的で、実務でも AON がよく使われる<span class="citation" data-cites="Camm2022-zv Hillier2025-cb Eiselt2022-qy">(<a href="../references.html#ref-Camm2022-zv" role="doc-biblioref">Camm ほか 2022</a>; <a href="../references.html#ref-Hillier2025-cb" role="doc-biblioref">Hillier と Lieberman 2025</a>; <a href="../references.html#ref-Eiselt2022-qy" role="doc-biblioref">Eiselt と Sandblom 2022</a>)</span>。これ以降の説明では、AON を用いる。</p>
+<div class="{prf:example}">
+<p>:label: example:pert-1</p>
+<p>学生の田中さんと佐藤さんが協力し、ある授業のレポートを作成することになった。このレポートを作成するためには、下の表に示すように、いくつかの作業を行う必要がある。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>作業</th>
+<th>作業内容</th>
+<th>先行作業</th>
+<th>時間（日）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>課題の理解</td>
+<td>-</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>データ収集</td>
+<td>A</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>データ分析</td>
+<td>B</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td>文献調査</td>
+<td>A</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>E</td>
+<td>レポート作成</td>
+<td>C, D</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<p>このプロジェクトを表現するプロジェクト・ネットワークは次の図のようになる。</p>
+<p>:::{code-cell} python :tags: [remove-input]</p>
+<p>class ProjectNetwork: def <strong>init</strong>(self, tasks): self.tasks = tasks self.G = nx.DiGraph() self._create_graph()</p>
+<pre><code>def _create_graph(self):
+    # Add tasks
+    for task_id, task in self.tasks.items():
+        self.G.add_node(
+            task_id, label=f"{task_id}\n({task['duration']})"
+        )
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1><p><img src="cover.png" title="オペレーションズ・リサーチ" class="quarto-cover-image nolightbox img-fluid"></p>
-<p>ORの基礎と応用を学ぶための教科書です．</p>
+    # Add Start and Finish nodes
+    self.G.add_node("Start", label="Start")
+    self.G.add_node("Finish", label="Finish")
+
+    # Add edges for precedence
+    for task_id, task in self.tasks.items():
+        if not task["predecessors"]:  # no predecessors → connect from Start
+            self.G.add_edge("Start", task_id)
+        else:
+            for pred in task["predecessors"]:
+                self.G.add_edge(pred, task_id)
+
+    # Add Finish connections (tasks with no successors → to Finish)
+    for task_id in self.tasks:
+        if self.G.out_degree(task_id) == 0:  # no outgoing edges
+            self.G.add_edge(task_id, "Finish")
+
+def draw(self):
+    # Graphviz layout (top-to-bottom)
+    pos = graphviz_layout(self.G, prog="dot")
+
+    # Draw the graph
+    plt.figure(figsize=(10, 10))
+    nx.draw(
+        self.G,
+        pos,
+        with_labels=False,
+        node_size=1500,
+        node_color="lightyellow",
+        edgecolors="black",
+        arrows=True,
+        arrowsize=20,
+    )
+    nx.draw_networkx_labels(
+        self.G, pos, labels=nx.get_node_attributes(self.G, "label"), font_size=10
+    )
+
+    plt.title("Project Network Diagram")
+    plt.axis("off")
+    plt.show()</code></pre>
+<p>tasks = { “A”: {“name”: “課題の理解”, “predecessors”: [], “duration”: 2}, “B”: {“name”: “データ収集”, “predecessors”: [“A”], “duration”: 3}, “C”: {“name”: “データ分析”, “predecessors”: [“B”], “duration”: 4}, “D”: {“name”: “文献調査”, “predecessors”: [“A”], “duration”: 2}, “E”: {“name”: “レポート作成”, “predecessors”: [“C”, “D”], “duration”: 5}, }</p>
+<p>project_network = ProjectNetwork(tasks) project_network.draw()</p>
+</div>
+<p>グラフ理論において、<strong>有向非巡回グラフ</strong>（Directed Acyclic Graph, DAG）とは、閉路を含まない有向グラフのことを指す。 プロジェクト・ネットワークは辺の向きがあるため、有向グラフであり、作業の先行関係は循環しないため、閉路を含まない。したがって、プロジェクト・ネットワークは DAG である。</p>
+<p>作業リストに示す作業に加えて、プロジェクト・ネットワークには、<strong>開開始点</strong>（Start Node）と<strong>終了点</strong>（Finish Node）が含まれる。開始点は、先行作業を持たない作業から接続される。終了点は、後続作業を持たない作業から接続される。上の例では、先行作業を持たない作業は A であり、後続作業を持たない作業は E であるため、開始点から A に接続され、E から終了点に接続されている。</p>
+<div class="{prf:example}">
+<p>:label: example:pert-2</p>
+<p>以下の作業リストに基づいて、プロジェクト・ネットワークを作成せよ。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>作業</th>
+<th>先行作業</th>
+<th>時間（日）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>-</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>A</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>B</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td>C</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>E</td>
+<td>C</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>E</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>G</td>
+<td>D</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>H</td>
+<td>E, G</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td>I</td>
+<td>C</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>J</td>
+<td>F, I</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>K</td>
+<td>J</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>L</td>
+<td>J</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>M</td>
+<td>H</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>N</td>
+<td>K, L</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<p>先行作業がない作業は A と B であり、後続作業がない作業は M と N であるため、開始点から A と B に接続され、M と N から終了点に接続される。</p>
+<p>:::{code-cell} python :tags: [remove-input]</p>
+<p>tasks = { “A”: {“name”: ““,”predecessors”: [], “duration”: 2}, “B”: {“name”: ““,”predecessors”: [“A”], “duration”: 4}, “C”: {“name”: ““,”predecessors”: [“B”], “duration”: 4}, “D”: {“name”: ““,”predecessors”: [“C”], “duration”: 6}, “E”: {“name”: ““,”predecessors”: [“C”], “duration”: 5}, “F”: {“name”: ““,”predecessors”: [“E”], “duration”: 5}, “G”: {“name”: ““,”predecessors”: [“D”], “duration”: 6}, “H”: {“name”: ““,”predecessors”: [“E”, “G”], “duration”: 9}, “I”: {“name”: ““,”predecessors”: [“C”], “duration”: 8}, “J”: {“name”: ““,”predecessors”: [“F”, “I”], “duration”: 7}, “K”: {“name”: ““,”predecessors”: [“J”], “duration”: 4}, “L”: {“name”: ““,”predecessors”: [“J”], “duration”: 6}, “M”: {“name”: ““,”predecessors”: [“H”], “duration”: 2}, “N”: {“name”: ““,”predecessors”: [“K”, “L”], “duration”: 6}, }</p>
+<p>project_network = ProjectNetwork(tasks) project_network.draw()</p>
+</div>
+</section>
+<section id="クリティカルパス" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="クリティカルパス"><span class="header-section-number">7.2</span> クリティカルパス</h2>
+<p>プロジェクト・ネットワークにおいて、開始点から終了点までの経路を<strong>パス</strong>（path）と呼ぶ。例えば、<a href="#example:pert-2"></a> には</p>
+<ul>
+<li>Start → A → B → C → D → G → H → M → Finish</li>
+<li>Start → A → B → C → E → H → M → Finish</li>
+</ul>
+<p>など、複数のパスが存在する。</p>
+<p>Start → A → B → C → E → H → M → Finish では、各作業の所要時間を合計すると、2 + 4 + 4 + 5 + 9 + 2 = 26 日となる。しかし、26日間でこれらの作業を完了できるかというと、そうではない。なぜなら、例えば、作業 H の先行作業には作業 G と E の両方が含まれており、作業 H の開始時間は最も時間のかかる先行作業である G の完了時間に依存するからである。</p>
+<p>したがって、プロジェクトの完了時間は、すべてのパスの中で最も長いパスの長さに依存する。この最も長いパスを<strong>クリティカルパス</strong>（Critical Path）と呼ぶ。クリティカルパス上の作業は、プロジェクト全体の完了時間に直接影響を与えるため、特に重要である。</p>
+<div class="{note}">
+<p>クリティカルパスを求める問題は、DAG における最長経路問題に帰着される。</p>
+</div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Camm2022-zv" class="csl-entry" role="listitem">
+Camm, Jeffrey, James Cochran, Michael Fry, Jeffrey Ohlmann, David Anderson, Dennis Sweeney, と Thomas Williams. 2022. <em>An introduction to management science: Quantitative approaches to decision making</em>. 16th 版. Florence, AL: South-Western College Publishing.
+</div>
+<div id="ref-Eiselt2022-qy" class="csl-entry" role="listitem">
+Eiselt, H A, と Carl-Louis Sandblom. 2022. <em>Operations research: A model-based approach</em>. Cham: Springer International Publishing.
+</div>
+<div id="ref-Hillier2025-cb" class="csl-entry" role="listitem">
+Hillier, Frederick, と Gerald Lieberman. 2025. <em><span>ISE</span> introduction to operations research</em>. 11th 版. Columbus, OH: McGraw-Hill Education.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -692,10 +922,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../mcda/ahp.html" class="pagination-link" aria-label="階層分析法">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">階層分析法</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./course-info.html" class="pagination-link" aria-label="講義">
-        <span class="nav-page-text">講義</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../references.html" class="pagination-link" aria-label="参考文献">
+        <span class="nav-page-text">参考文献</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
