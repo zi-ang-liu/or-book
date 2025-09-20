@@ -264,6 +264,52 @@ window.Quarto = {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">プロジェクト管理</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/pert.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">PERT/CPM</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">参考文献</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">付録</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/calculus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">微分積分学</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/probability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">確率</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -303,16 +349,16 @@ window.Quarto = {
 </header>
 
 
-<p><strong>経済的発注量</strong>（EOQ: Economic Order Quantity）モデルは、最も基本的な在庫管理モデルの一つである。<span class="citation" data-cites="Harris1990-gh">Harris (<a href="#ref-Harris1990-gh" role="doc-biblioref">1990</a>)</span> このモデルを最初に提案した。</p>
+<p><strong>経済的発注量</strong>（EOQ: Economic Order Quantity）モデルは、最も基本的な在庫管理モデルの一つである。<span class="citation" data-cites="Harris1990-gh">Harris (<a href="../references.html#ref-Harris1990-gh" role="doc-biblioref">1990</a>)</span> このモデルを最初に提案した。</p>
 <p>EOQモデルは、単位時間あたりの需要量は決定論的で、一定であると仮定する。すなわち、需要量は事前に分かっており、時間とともに変化しない。単位時間あたりの需要量は需要率（demand rate）と呼ばれ、記号 <span class="math inline">\(d\)</span> で表される。リードタイムは0とし、発注から納品までの時間はないと仮定する。一回の発注量を <span class="math inline">\(Q\)</span> とし、一定であるとする。欠品は許せないとする。全ての需要は満されなければならない。また、EOQモデルでは、在庫量は連続的に観測され、いつでも発注が可能であるとする。</p>
 <p>在庫に関わる費用は、発注費用 <span class="math inline">\(K\)</span>、保管費用 <span class="math inline">\(h\)</span> と、購入費用（購入単価を <span class="math inline">\(c\)</span> と表す）がある。</p>
-<p>EOQモデルの最適解は次の二つの性質を持つ<span class="citation" data-cites="Snyder2019-cy">(<a href="#ref-Snyder2019-cy" role="doc-biblioref">Snyder と Shen 2019</a>)</span>：</p>
+<p>EOQモデルの最適解は次の二つの性質を持つ<span class="citation" data-cites="Snyder2019-cy">(<a href="../references.html#ref-Snyder2019-cy" role="doc-biblioref">Snyder と Shen 2019</a>)</span>：</p>
 <ol type="1">
 <li>Zero-inventory ordering (ZIO). 在庫量が0のときに発注を行う。リードタイムは0であるため、在庫量が0でないときに発注すると、保管費用が発生する。</li>
 <li>Constant order sizes. 発注量は一定である。需要率 <span class="math inline">\(d\)</span> が一定であり、在庫量が0のときに発注を行うため、最適発注量も一定である。</li>
 </ol>
 <p>以上の性質から、在庫量の時間的変化は下図のようになる。</p>
-<div id="dc01305e" class="cell" data-execution_count="1">
+<div id="fe1f2e67" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -419,7 +465,7 @@ T^* = \frac{Q^*}{d} = \sqrt{\frac{2K}{hd}}
 </ol>
 </div>
 <p>次の図は、発注コスト、保管コスト、平均コストの関係を示している。購入単価を <span class="math inline">\(c = 0\)</span> とする。</p>
-<div id="729b8a1f" class="cell" data-execution_count="2">
+<div id="699230be" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
@@ -466,7 +512,7 @@ T^* = \frac{Q^*}{d} = \sqrt{\frac{2K}{hd}}
 Q^* = \sqrt{\frac{2 \cdot 5000 \cdot 250}{150}}
 \]</span></p>
 <p>最適発注量 <span class="math inline">\(Q^*\)</span> を次で計算する。</p>
-<div id="9ab56eef" class="cell" data-execution_count="3">
+<div id="91829c21" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> eoq(K, d, h):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculate the Economic Order Quantity (EOQ).</span></span>
@@ -523,7 +569,7 @@ r = dL = 250 \times \frac{1}{4} = 62.5
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-Harris1990-gh" class="csl-entry" role="listitem">
 Harris, Ford W. 1990. <span>「How many parts to make at once」</span>. <em>Oper. Res.</em> 38 (6): 947–50.
 </div>
