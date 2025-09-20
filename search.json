@@ -120,47 +120,47 @@
     ]
   },
   {
-    "objectID": "appendices/calculus.html",
-    "href": "appendices/calculus.html",
-    "title": "付録 A — 微分積分学",
+    "objectID": "inventory/intro.html",
+    "href": "inventory/intro.html",
+    "title": "1  在庫管理とは",
     "section": "",
-    "text": "A.1 1変数関数の極値\n関数 \\(f(x)\\) が点 \\(x = a\\) で極値をとるとき、\\(f'(a) = 0\\) が成り立つ。\n\\(f''(a) &gt; 0\\) のとき、\\(f(a)\\) は極小値をとる。\n\\(f''(a) &lt; 0\\) のとき、\\(f(a)\\) は極大値をとる。",
+    "text": "1.1 在庫モデルの分類\n商店・工場・倉庫などで、原材料・部品・製品などを適切に管理することを在庫管理（Inventory Management）という。一般的に、在庫管理の目的は、顧客の需要を満たしつつ、在庫に関わる費用を最小化することである。\n在庫が多すぎると、保管費用がかかる。逆に、在庫が少なすぎると、欠品が発生し、顧客の需要を満たせなくなる。在庫管理は次の二つの問題を決定する。\n科学的在庫管理（Scientific Inventory Management）では、これらの問題に答えるために、次の手順で在庫管理を行う。\n在庫モデルは、次のような要素で分類される。\n以下の表に、需要と観測に基づく、古典的な在庫モデルを示す。",
     "crumbs": [
-      "付録",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>微分積分学</span>"
+      "在庫モデル",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>在庫管理とは</span>"
     ]
   },
   {
-    "objectID": "appendices/calculus.html#凸関数の性質",
-    "href": "appendices/calculus.html#凸関数の性質",
-    "title": "付録 A — 微分積分学",
-    "section": "A.2 凸関数の性質",
-    "text": "A.2 凸関数の性質\n1 変数 2 階微分可能な関数 \\(f(x)\\) が凸関数であることの必要十分条件は、\\(f''(x) \\geq 0\\) が成り立つことである。\n\\(f''(x) &gt; 0\\) のとき、\\(f(x)\\) は狭義凸関数である。\n凸関数 \\(f(x)\\) の極小値は、最小値である。",
+    "objectID": "inventory/intro.html#在庫モデルの分類",
+    "href": "inventory/intro.html#在庫モデルの分類",
+    "title": "1  在庫管理とは",
+    "section": "",
+    "text": "需要（demand）\n\n需要が決定論的 (Deterministic) か確率的（Stochastic）か。\n\n観測（review）\n\n在庫量を連続観測 (Continuous Review) するか、周期観測 (Periodic Review) するか。連続観測の場合、在庫量が連続的に観測でき、いつでも発注が可能である。周期観測の場合、一定の期間（例えば1週間）ごとに在庫量を観測する。\n\nリードタイム（lead time）\n\n発注から納品までの期間。調達期間とも呼ばれる。リードタイムが決定論的か確率的か。また、リードタイムが0かどうか。在庫モデルを単純化するために、リードタイムを0とし、発注から納品までの期間を無視することもある。\n\nバックオーダー（backorder）\n\nバックオーダーが許容されるかどうか。需要が在庫を上回った場合、バックオーダーが許容されると、欠品が発生しても、後で需要を満たすことができる。バックオーダーが許容されない場合、欠品が発生すると、上回った需要は失われ、機会損失が発生する。\n\n計画期間（planning horizon）\n\n単一期間 (Single Period) か、複数期間 (Multi Period) か、無限 (Infinite) か。\n\n\n\n\n\n\n在庫モデル\n需要\n観測\n\n\n\n\nEOQモデル\n決定論的\n連続観測\n\n\nWagner-Whitin\n決定論的\n周期観測\n\n\n安全在庫\n確率的\n連続観測\n\n\n新聞売り子問題\n確率的\n周期観測",
     "crumbs": [
-      "付録",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>微分積分学</span>"
+      "在庫モデル",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>在庫管理とは</span>"
     ]
   },
   {
-    "objectID": "appendices/probability.html",
-    "href": "appendices/probability.html",
-    "title": "付録 B — 確率",
-    "section": "",
-    "text": "B.1 正規分布\n離散型確率変数 \\(X\\) が特定の値 \\(x\\) をとる確率を\n\\[\nP(X = x) = p_X(x)\n\\]\nと表すとき、\\(p_X(x)\\) を \\(X\\) の確率質量関数 (PMF) という。\n連続型確率変数 \\(X\\) がある区間 \\([a, b]\\) にある値をとる確率を\n\\[\nP(a \\leq X \\leq b) = \\int_a^b f_X(x) dx\n\\]\nと表す。\\(f_X(x)\\) を \\(X\\) の確率密度関数 (PDF) という。\n確率変数 \\(X\\) の累計分布関数（CDF）は\n\\[\nF_X(x) = P(X \\leq x) = \\begin{cases}\n\\sum_{k \\leq x} p_X(k) & \\text{if } X \\text{ is discrete} \\\\\n\\int_{-\\infty}^x f_X(t) dt & \\text{if } X \\text{ is continuous}\n\\end{cases}\n\\]\nと表す。確率密度関数 \\(f_X(x)\\) は累計分布関数 \\(F_X(x)\\) の微分である。\n\\[\nf_X(x) = \\frac{d}{dx} F_X(x)\n\\]\n連続型確率変数 \\(X\\) は正規分布（normal distribution）に従うとき、\\(X \\sim N(\\mu, \\sigma^2)\\) と表す。ここで \\(\\mu\\) は平均、\\(\\sigma^2\\) は分散である。\\(X\\) の確率密度関数は\n\\[\nf_X(x) = \\frac{1}{\\sqrt{2\\pi} \\sigma} e^{-\\frac{(x - \\mu)^2}{2\\sigma^2}}\n\\]\nと表す。平均は \\(E[X] = \\mu\\)、分散は \\(\\text{Var}(X) = \\sigma^2\\) である。\n\\(X\\) が \\(N(\\mu, \\sigma^2)\\) に従うとき、\\(Y = aX + b\\) は、\\(N(a\\mu + b, a^2\\sigma^2)\\) に従う。特に、\\(Z = \\frac{X - \\mu}{\\sigma}\\) は標準正規分布（standard normal distribution）に従う。すなわち、\\(Z \\sim N(0, 1)\\) である。\n連続型確率変数 \\(Y\\) が標準正規分布に従うとき、\\(Y\\) の累計分布関数は\n\\[\n\\Phi(y) = P(Y \\leq y) = \\frac{1}{\\sqrt{2\\pi}} \\int_{-\\infty}^y e^{-\\frac{t^2}{2}} dt\n\\]\nと表す。標準正規分布表から、\\(y\\) の値に対する \\(\\Phi(y)\\) を調べることができる。\nPython では、以下のように \\(\\Phi(y)\\) を計算できる。\nまた、\\(\\Phi(y)=0.95\\) のときの \\(y\\) の値を求めるには、以下のようにする。\n与えられた \\(X \\sim N(\\mu, \\sigma^2)\\) の累計分布関数 \\(F_X(x)\\) の値を求めるには、以下のように変換する。\n\\[\\begin{align}\nP(X \\leq x)\n&= P \\left( \\frac{X - \\mu}{\\sigma} \\leq \\frac{x - \\mu}{\\sigma} \\right) \\\\\\\\\n&= P\\left( Y \\leq \\frac{x - \\mu}{\\sigma} \\right) \\\\\\\\\n&= \\Phi \\left( \\frac{x - \\mu}{\\sigma} \\right)\n\\end{align}\\]\n正規分布は再生性（reproductive property）を持つ。すなわち、\\(X_1, X_2, \\ldots, X_n\\) が独立に \\(N(\\mu_i, \\sigma_i^2)\\) に従うとき、\\(Y = \\sum_{i=1}^n a_i X_i\\) は \\(N\\left(\\sum_{i=1}^n a_i \\mu_i, \\sum_{i=1}^n a_i^2 \\sigma_i^2\\right)\\) に従う。",
+    "objectID": "inventory/intro.html#在庫の費用",
+    "href": "inventory/intro.html#在庫の費用",
+    "title": "1  在庫管理とは",
+    "section": "1.2 在庫の費用",
+    "text": "1.2 在庫の費用\nここでは、在庫に関わる費用を紹介する。\n\n発注費用（ordering cost）\n\n発注量に関わらず、1回の発注にかかる費用。調達費用、固定費用（fixed cost）などとも呼ばれる。通常、1回の発注にかかる費用を \\(K\\) とする。\n\n購入費用（purchase cost）\n\n商品を購入するためにかかる費用。通常、単位あたりの購入費用を \\(c\\) とする。\n\n欠品費用（stockout cost）\n\n需要が在庫を上回った場合に発生する費用。通常、単位あたりの欠品費用を \\(p\\) とする。\n\n保管費用（holding cost）\n\n在庫を保管するためにかかる倉庫費用、保険費用、税金、機会費用など。通常、単位時間あたりの1単位あたりの保管費用を \\(h\\) とする。\n\n\n\n\n\n例 1.1 (在庫が一定の保管費用) 1日あたり1単位の在庫を保管するために、\\(h\\) の費用がかかるとする。30日間、50単位の在庫を保管するための総保管費用を計算せよ。\n保管費用は次のように計算される。 \\[\n30 \\times 50 \\times h = 1500h\n\\]\n下の図では、横軸が時間、縦軸が在庫量を表す。\n\n\nコード\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nt = np.linspace(0, 30, 1000)\ninventory = np.full_like(t, 50)\n\n# Plotting the inventory level\nplt.fill_between(t, inventory, color=\"lightgray\", alpha=0.5, label=\"Inventory Level\")\nplt.plot(t, inventory, label=\"Inventory Level\", color=\"black\", linewidth=2)\nplt.xlabel(\"Time\")\nplt.ylabel(\"Inventory Level\")\nplt.axhline(0, color=\"gray\", linewidth=1)\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\n一般的に、保管費用は次の式で計算される。\n\\[\n\\text{保管費用} = \\text{面積} \\times h\n\\]\n\n\n例 1.2 (在庫が時間とともに変化する保管費用) 通常、在庫量が定数ではなく、時間とともに変化する。ここでは、在庫量が時間とともに線形に減少し、0になると在庫が補充される場合を考える。毎回の発注量を \\(500\\) とする。\n下の図に示すように在庫量が時間とともに変化するとする。6 日間の保管費用を計算せよ。\n\n\nコード\n# Parameters\nd = 250  # Demand rate\nQ = 500  # Order quantity\nT = Q / d  # Cycle length\nt = np.linspace(0, 2.999 * T, 1000)\n\n# Inventory level over time\ninventory = np.maximum(0, Q - (d * t) % Q)\n\n# Plotting the inventory level\nplt.fill_between(t, inventory, color=\"lightgray\", alpha=0.5, label=\"Inventory Level\")\nplt.plot(t, inventory, label=\"Inventory Level\", color=\"black\", linewidth=2)\nplt.xlabel(\"Time\")\nplt.ylabel(\"Inventory Level\")\nplt.axhline(0, color=\"gray\", linewidth=1)\nplt.ylim(bottom=0, top=Q + 200)\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\n保管費用は \\(\\text{面積} \\times h\\) で計算される。それぞれの三角形の面積は \\(\\frac{1}{2} \\times 500 \\times 2\\) であるため、6 日間の保管費用は次のように計算される。\n\\[\n\\frac{2 \\times 500}{2} \\times 3 \\times h\n\\]",
     "crumbs": [
-      "付録",
-      "<span class='chapter-number'>B</span>  <span class='chapter-title'>確率</span>"
+      "在庫モデル",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>在庫管理とは</span>"
     ]
   },
   {
-    "objectID": "appendices/probability.html#正規分布",
-    "href": "appendices/probability.html#正規分布",
-    "title": "付録 B — 確率",
+    "objectID": "inventory/intro.html#footnotes",
+    "href": "inventory/intro.html#footnotes",
+    "title": "1  在庫管理とは",
     "section": "",
-    "text": "from scipy.stats import norm\ndef phi(y):\n    return norm.cdf(y)\n\nphi(0)  # 0.5\n\nfrom scipy.stats import norm\ndef phi_inverse(p):\n    return norm.ppf(p)\n\nphi_inverse(0.95)  # 約1.64485",
+    "text": "トヨタ生産方式についてこちらも参照。↩︎",
     "crumbs": [
-      "付録",
-      "<span class='chapter-number'>B</span>  <span class='chapter-title'>確率</span>"
+      "在庫モデル",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>在庫管理とは</span>"
     ]
   }
 ]
