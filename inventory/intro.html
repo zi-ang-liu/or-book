@@ -338,12 +338,9 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>豊田自動車が提唱した<strong>ジャストインタイム</strong>（Just In Time, JIT）は、生産方式としてよく知られている。</p>
+<p>豊田自動車が提唱した<strong>ジャストインタイム</strong>（Just In Time, JIT）は、生産方式としてよく知られている <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。</p>
 <p>JIT とは必要なものを、必要な時に、必要な量だけ生産することである。JIT の目的は、在庫を最小限に抑え、効率的な生産を実現することである。</p>
 <p>アメリカの研究者らは、その生産方式を体系化し、<strong>リーン生産方式</strong>（Lean Manufacturing）という概念を提唱した。</p>
-<ul>
-<li><a href="https://global.toyota/jp/company/vision-and-philosophy/production-system/">トヨタ生産方式</a></li>
-</ul>
 </div>
 </div>
 <p>在庫が多すぎると、保管費用がかかる。逆に、在庫が少なすぎると、欠品が発生し、顧客の需要を満たせなくなる。在庫管理は次の二つの問題を決定する。</p>
@@ -356,6 +353,14 @@ window.Quarto = {
 <li>在庫システムを数学モデルとして定式化する。</li>
 <li>最適な発注量と発注時期を決定する。</li>
 </ol>
+<div id="exr-think" class="theorem exercise">
+<p><span class="theorem-title"><strong>練習 1.1</strong></span> 前回スーパーに行ったときに買った商品（例えば、牛乳、卵など）について考える。需要と在庫の観点から、次の質問に答えよ。</p>
+<ol type="1">
+<li>どのくらいの量を買ったか？</li>
+<li>なぜその量を買ったのか？</li>
+<li>どのタイミング・頻度でその商品を買うか？</li>
+</ol>
+</div>
 <section id="在庫モデルの分類" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="在庫モデルの分類"><span class="header-section-number">1.1</span> 在庫モデルの分類</h2>
 <p>在庫モデルは、次のような要素で分類される。</p>
@@ -435,12 +440,64 @@ window.Quarto = {
 在庫を保管するためにかかる倉庫費用、保険費用、税金、機会費用など。通常、単位時間あたりの1単位あたりの保管費用を <span class="math inline">\(h\)</span> とする。
 </dd>
 </dl>
-<p>例えば、1日あたり1単位の在庫を保管するために、<span class="math inline">\(h\)</span> の費用がかかるとする。30日間、50単位の在庫を保管するための総保管費用は <span class="math inline">\(30 \times 50 \times h = 1500h\)</span> となる。下の図を見ると、保管費用は</p>
+<div id="exm-order-cost" class="theorem example">
+<p><span class="theorem-title"><strong>例 1.1 (発注費用と購入費用)</strong></span> 毎回の発注量を <span class="math inline">\(Q\)</span>、1回の発注にかかる費用を <span class="math inline">\(K\)</span>、単位あたりの購入費用を <span class="math inline">\(c\)</span> とする。1回の発注にかかる総費用は、次のように計算される。</p>
 <p><span class="math display">\[
-\text{面積} \times h = 1500h
+K + cQ
 \]</span></p>
-<p>となることがわかる。</p>
-<div id="02ccfd2d" class="cell" data-execution_count="1">
+<p>となる。</p>
+</div>
+<div id="exm-shortage-cost" class="theorem example">
+<p><span class="theorem-title"><strong>例 1.2 (欠品費用)</strong></span> 在庫を <span class="math inline">\(I\)</span>、需要を <span class="math inline">\(d\)</span>、単位あたりの欠品費用を <span class="math inline">\(p\)</span> とする。欠品費用は次のように計算される。</p>
+<p><span class="math display">\[
+p (d - I)^+
+\]</span></p>
+<p>ここで、<span class="math inline">\((x)^+ = \max(x, 0)\)</span> である。すなわち、<span class="math inline">\(x\)</span> が正のときは <span class="math inline">\(x\)</span>、負のときは <span class="math inline">\(0\)</span> である。例えば、<span class="math inline">\((10)^+ = 10\)</span> であり、<span class="math inline">\((-30)^+ = 0\)</span> である。</p>
+<p><span class="math inline">\(p (d - I)^+\)</span> は、<span class="math inline">\(d - I\)</span> が正のとき、欠品費用が <span class="math inline">\(p (d - I)\)</span> であり、<span class="math inline">\(d - I\)</span> が負のとき、欠品費用が <span class="math inline">\(0\)</span> であることを意味する。</p>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+ノート
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(A\)</span> は要素の間に順序が定義された集合とし、<span class="math inline">\(\max A\)</span> は、<span class="math inline">\(A\)</span> の全ての要素の中で最大のものを表す。</p>
+<p>例えば、<span class="math inline">\(\max \{1, 0\} = 1\)</span> であり、<span class="math inline">\(\max \{-1, 0\} = 0\)</span> である。</p>
+</div>
+</div>
+<!-- 
+
+:::{#exm-total-cost}
+### 1日の総費用
+ある日、A社が100単位の商品を1単位あたり $c$ 円で購入したとする。リードタイムは1日、1回の発注にかかる費用は $K$ 円、1日あたり1単位あたりの保管費用は $h$ 円、1単位あたりの欠品費用は $p$ 円である。A社が 50 単位の商品を保管しているとする。
+
+その日の需要が 40 単位であった場合、在庫は十分であり、欠品は発生しない。このとき、
+A社の在庫の総費用は、次のように計算される。
+
+\begin{align}
+& 100c + K + (50 - 40)h \\
+= & 100c + K + 10h
+\end{align}
+
+需要が 70 単位であった場合、 在庫が不足し、$(70 - 50)$ 単位の欠品が発生し、在庫は 0 になる。
+このとき、A社の在庫の総費用は次のように計算される。
+
+\begin{align}
+& 100c + K + 0 h + (70 - 50)p \\
+= & 100c + K + 20p
+\end{align}
+::: -->
+<div id="exm-cost-1" class="theorem example">
+<p><span class="theorem-title"><strong>例 1.3 (在庫が一定の保管費用)</strong></span> 1日あたり1単位の在庫を保管するために、<span class="math inline">\(h\)</span> の費用がかかるとする。30日間、50単位の在庫を保管するための総保管費用を計算せよ。</p>
+<p>保管費用は次のように計算される。 <span class="math display">\[
+30 \times 50 \times h = 1500h
+\]</span></p>
+<p>下の図では、横軸が時間、縦軸が在庫量を表す。</p>
+<div id="c40420c0" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -466,8 +523,15 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>一般的に、在庫量が定数ではなく、時間とともに変化する。例えば、発注量を <span class="math inline">\(500\)</span> とし、6 日間の在庫量を考える。</p>
-<div id="88afc65f" class="cell" data-execution_count="2">
+<p>一般的に、保管費用は次の式で計算される。</p>
+<p><span class="math display">\[
+\text{保管費用} = \text{面積} \times h
+\]</span></p>
+</div>
+<div id="exm-cost-2" class="theorem example">
+<p><span class="theorem-title"><strong>例 1.4 (在庫が時間とともに変化する保管費用)</strong></span> 通常、在庫量が定数ではなく、時間とともに変化する。ここでは、在庫量が時間とともに線形に減少し、0になると在庫が補充される場合を考える。毎回の発注量を <span class="math inline">\(500\)</span> とする。</p>
+<p>下の図に示すように在庫量が時間とともに変化するとする。6 日間の保管費用を計算せよ。</p>
+<div id="0dc087f4" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
@@ -497,10 +561,17 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>保管費用は次のように計算される。</p>
+<p>保管費用は <span class="math inline">\(\text{面積} \times h\)</span> で計算される。それぞれの三角形の面積は <span class="math inline">\(\frac{1}{2} \times 500 \times 2\)</span> であるため、6 日間の保管費用は次のように計算される。</p>
 <p><span class="math display">\[
 \frac{2 \times 500}{2} \times 3 \times h
-\]</span> <!-- 
+\]</span></p>
+</div>
+<!-- 
+
+
+
+
+
 ## Note
 
 - [在庫最適化と安全在庫配置システム MESSA (MEta Safety Stock Allocation system)](https://scmopt.github.io/manual/03inventory.html)
@@ -532,9 +603,15 @@ https://orsj.org/wp-content/or-archives50/pdf/bul/Vol.30_11_673.pdf
 |  $h$   | 保管費用               |
 |  $c$   | 購入単価               |
 |  $T$   | サイクル期間           |
-| $g(Q)$ | 平均コスト             | --></p>
+| $g(Q)$ | 平均コスト             | -->
 
 
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>トヨタ生産方式について<a href="https://global.toyota/jp/company/vision-and-philosophy/production-system/">こちら</a>も参照。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->

@@ -74,7 +74,7 @@
     "href": "course-info.html#何を学ぶ",
     "title": "講義",
     "section": "何を学ぶ？",
-    "text": "何を学ぶ？\n\nモデル\n\n\nアルゴリズム\n\n\n実装",
+    "text": "何を学ぶ？\n\n\nモデル：現実の問題を数理的に表現したもの\n解：問題の答え\n最適化：最適解を見つけること\nアルゴリズム：問題を解く手順",
     "crumbs": [
       "講義"
     ]
@@ -146,7 +146,18 @@
     "href": "inventory/intro.html#在庫の費用",
     "title": "1  在庫管理とは",
     "section": "1.2 在庫の費用",
-    "text": "1.2 在庫の費用\nここでは、在庫に関わる費用を紹介する。\n\n発注費用（ordering cost）\n\n発注量に関わらず、1回の発注にかかる費用。調達費用、固定費用（fixed cost）などとも呼ばれる。通常、1回の発注にかかる費用を \\(K\\) とする。\n\n購入費用（purchase cost）\n\n商品を購入するためにかかる費用。通常、単位あたりの購入費用を \\(c\\) とする。\n\n欠品費用（stockout cost）\n\n需要が在庫を上回った場合に発生する費用。通常、単位あたりの欠品費用を \\(p\\) とする。\n\n保管費用（holding cost）\n\n在庫を保管するためにかかる倉庫費用、保険費用、税金、機会費用など。通常、単位時間あたりの1単位あたりの保管費用を \\(h\\) とする。\n\n\n例えば、1日あたり1単位の在庫を保管するために、\\(h\\) の費用がかかるとする。30日間、50単位の在庫を保管するための総保管費用は \\(30 \\times 50 \\times h = 1500h\\) となる。下の図を見ると、保管費用は\n\\[\n\\text{面積} \\times h = 1500h\n\\]\nとなることがわかる。\n\n\nコード\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nt = np.linspace(0, 30, 1000)\ninventory = np.full_like(t, 50)\n\n# Plotting the inventory level\nplt.fill_between(t, inventory, color=\"lightgray\", alpha=0.5, label=\"Inventory Level\")\nplt.plot(t, inventory, label=\"Inventory Level\", color=\"black\", linewidth=2)\nplt.xlabel(\"Time\")\nplt.ylabel(\"Inventory Level\")\nplt.axhline(0, color=\"gray\", linewidth=1)\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\n一般的に、在庫量が定数ではなく、時間とともに変化する。例えば、発注量を \\(500\\) とし、6 日間の在庫量を考える。\n\n\nコード\n# Parameters\nd = 250  # Demand rate\nQ = 500  # Order quantity\nT = Q / d  # Cycle length\nt = np.linspace(0, 2.999 * T, 1000)\n\n# Inventory level over time\ninventory = np.maximum(0, Q - (d * t) % Q)\n\n# Plotting the inventory level\nplt.fill_between(t, inventory, color=\"lightgray\", alpha=0.5, label=\"Inventory Level\")\nplt.plot(t, inventory, label=\"Inventory Level\", color=\"black\", linewidth=2)\nplt.xlabel(\"Time\")\nplt.ylabel(\"Inventory Level\")\nplt.axhline(0, color=\"gray\", linewidth=1)\nplt.ylim(bottom=0, top=Q + 200)\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\n保管費用は次のように計算される。\n\\[\n\\frac{2 \\times 500}{2} \\times 3 \\times h\n\\]",
+    "text": "1.2 在庫の費用\nここでは、在庫に関わる費用を紹介する。\n\n発注費用（ordering cost）\n\n発注量に関わらず、1回の発注にかかる費用。調達費用、固定費用（fixed cost）などとも呼ばれる。通常、1回の発注にかかる費用を \\(K\\) とする。\n\n購入費用（purchase cost）\n\n商品を購入するためにかかる費用。通常、単位あたりの購入費用を \\(c\\) とする。\n\n欠品費用（stockout cost）\n\n需要が在庫を上回った場合に発生する費用。通常、単位あたりの欠品費用を \\(p\\) とする。\n\n保管費用（holding cost）\n\n在庫を保管するためにかかる倉庫費用、保険費用、税金、機会費用など。通常、単位時間あたりの1単位あたりの保管費用を \\(h\\) とする。\n\n\n\n例 1.1 (発注費用と購入費用) 毎回の発注量を \\(Q\\)、1回の発注にかかる費用を \\(K\\)、単位あたりの購入費用を \\(c\\) とする。1回の発注にかかる総費用は、次のように計算される。\n\\[\nK + cQ\n\\]\nとなる。\n\n\n例 1.2 (欠品費用) 在庫を \\(I\\)、需要を \\(d\\)、単位あたりの欠品費用を \\(p\\) とする。欠品費用は次のように計算される。\n\\[\np (d - I)^+\n\\]\nここで、\\((x)^+ = \\max(x, 0)\\) である。すなわち、\\(x\\) が正のときは \\(x\\)、負のときは \\(0\\) である。例えば、\\((10)^+ = 10\\) であり、\\((-30)^+ = 0\\) である。\n\\(p (d - I)^+\\) は、\\(d - I\\) が正のとき、欠品費用が \\(p (d - I)\\) であり、\\(d - I\\) が負のとき、欠品費用が \\(0\\) であることを意味する。\n\n\n\n\n\n\n\nノート\n\n\n\n\\(A\\) は要素の間に順序が定義された集合とし、\\(\\max A\\) は、\\(A\\) の全ての要素の中で最大のものを表す。\n例えば、\\(\\max \\{1, 0\\} = 1\\) であり、\\(\\max \\{-1, 0\\} = 0\\) である。\n\n\n\n\n例 1.3 (在庫が一定の保管費用) 1日あたり1単位の在庫を保管するために、\\(h\\) の費用がかかるとする。30日間、50単位の在庫を保管するための総保管費用を計算せよ。\n保管費用は次のように計算される。 \\[\n30 \\times 50 \\times h = 1500h\n\\]\n下の図では、横軸が時間、縦軸が在庫量を表す。\n\n\nコード\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nt = np.linspace(0, 30, 1000)\ninventory = np.full_like(t, 50)\n\n# Plotting the inventory level\nplt.fill_between(t, inventory, color=\"lightgray\", alpha=0.5, label=\"Inventory Level\")\nplt.plot(t, inventory, label=\"Inventory Level\", color=\"black\", linewidth=2)\nplt.xlabel(\"Time\")\nplt.ylabel(\"Inventory Level\")\nplt.axhline(0, color=\"gray\", linewidth=1)\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\n一般的に、保管費用は次の式で計算される。\n\\[\n\\text{保管費用} = \\text{面積} \\times h\n\\]\n\n\n例 1.4 (在庫が時間とともに変化する保管費用) 通常、在庫量が定数ではなく、時間とともに変化する。ここでは、在庫量が時間とともに線形に減少し、0になると在庫が補充される場合を考える。毎回の発注量を \\(500\\) とする。\n下の図に示すように在庫量が時間とともに変化するとする。6 日間の保管費用を計算せよ。\n\n\nコード\n# Parameters\nd = 250  # Demand rate\nQ = 500  # Order quantity\nT = Q / d  # Cycle length\nt = np.linspace(0, 2.999 * T, 1000)\n\n# Inventory level over time\ninventory = np.maximum(0, Q - (d * t) % Q)\n\n# Plotting the inventory level\nplt.fill_between(t, inventory, color=\"lightgray\", alpha=0.5, label=\"Inventory Level\")\nplt.plot(t, inventory, label=\"Inventory Level\", color=\"black\", linewidth=2)\nplt.xlabel(\"Time\")\nplt.ylabel(\"Inventory Level\")\nplt.axhline(0, color=\"gray\", linewidth=1)\nplt.ylim(bottom=0, top=Q + 200)\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\n保管費用は \\(\\text{面積} \\times h\\) で計算される。それぞれの三角形の面積は \\(\\frac{1}{2} \\times 500 \\times 2\\) であるため、6 日間の保管費用は次のように計算される。\n\\[\n\\frac{2 \\times 500}{2} \\times 3 \\times h\n\\]",
+    "crumbs": [
+      "在庫モデル",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>在庫管理とは</span>"
+    ]
+  },
+  {
+    "objectID": "inventory/intro.html#footnotes",
+    "href": "inventory/intro.html#footnotes",
+    "title": "1  在庫管理とは",
+    "section": "",
+    "text": "トヨタ生産方式についてこちらも参照。↩︎",
     "crumbs": [
       "在庫モデル",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>在庫管理とは</span>"
