@@ -36,23 +36,24 @@ book:
   chapters:
     - index.qmd
     - course-info.qmd
+    - notation.qmd
     - part: "在庫モデル"
       chapters:
         - inventory/intro.qmd
-  #       - inventory/eoq.qmd
-  #       - inventory/wagner-whitin.qmd
-  #       - inventory/newsvendor.qmd
-  #       - inventory/safety.qmd
-  #   - part: "多基準意思決定分析"
-  #     chapters:
-  #       - mcda/ahp.qmd
-  #   - part: "プロジェクト管理"
-  #     chapters:
-  #       - project/pert.qmd
-  #   - references.qmd
-  # appendices:
-  #   - appendices/calculus.qmd
-  #   - appendices/probability.qmd
+        - inventory/eoq.qmd
+        - inventory/wagner-whitin.qmd
+        - inventory/newsvendor.qmd
+        - inventory/safety.qmd
+    - part: "多基準意思決定分析"
+      chapters:
+        - mcda/ahp.qmd
+    - part: "プロジェクト管理"
+      chapters:
+        - project/pert.qmd
+    - references.qmd
+  appendices:
+    - appendices/calculus.qmd
+    - appendices/probability.qmd
 
 
 

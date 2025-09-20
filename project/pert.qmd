@@ -6,7 +6,7 @@ format:
 jupyter: python3
 ---
 
-:::{code-cell} python
+<!-- :::{code-cell} python
 :tags: [remove-input, remove-output]
 !pip install matplotlib numpy networkx
 !pip install pydot graphviz
@@ -188,9 +188,8 @@ Start → A → B → C → E → H → M → Finish では、各作業の所要
 
 したがって、プロジェクトの完了時間は、すべてのパスの中で最も長いパスの長さに依存する。この最も長いパスを**クリティカルパス**（Critical Path）と呼ぶ。クリティカルパス上の作業は、プロジェクト全体の完了時間に直接影響を与えるため、特に重要である。
 
-:::{note}
 クリティカルパスを求める問題は、DAG における最長経路問題に帰着される。
-:::
+ -->
 
 
 
