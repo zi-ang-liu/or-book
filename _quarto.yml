@@ -18,7 +18,9 @@ bibliography: references.bib
 book:
   title: "オペレーションズ・リサーチ"
   subtitle: "Operations Research: Models, Algorithms, and Implementations"
-  cover-image: cover.png
+  # cover-image: cover.png
+  # cover-image-alt: |
+  #   Alternative text describing the book cover 
   author: 
     - name: "劉子昂"
       id: liuziang
