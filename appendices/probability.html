@@ -341,14 +341,14 @@ P(X = x) = p_X(x)
 P(a \leq X \leq b) = \int_a^b f_X(x) dx
 \]</span></p>
 <p>と表す。<span class="math inline">\(f_X(x)\)</span> を <span class="math inline">\(X\)</span> の<strong>確率密度関数</strong> (PDF) という。</p>
-<p>確率変数 <span class="math inline">\(X\)</span> の<strong>累計分布関数</strong>（CDF）は</p>
+<p>確率変数 <span class="math inline">\(X\)</span> の<strong>累積分布関数</strong> (CDF) を</p>
 <p><span class="math display">\[
 F_X(x) = P(X \leq x) = \begin{cases}
 \sum_{k \leq x} p_X(k) &amp; \text{if } X \text{ is discrete} \\
 \int_{-\infty}^x f_X(t) dt &amp; \text{if } X \text{ is continuous}
 \end{cases}
 \]</span></p>
-<p>と表す。確率密度関数 <span class="math inline">\(f_X(x)\)</span> は累計分布関数 <span class="math inline">\(F_X(x)\)</span> の微分である。</p>
+<p>と表す。確率密度関数 <span class="math inline">\(f_X(x)\)</span> は累積分布関数 <span class="math inline">\(F_X(x)\)</span> の微分である。</p>
 <p><span class="math display">\[
 f_X(x) = \frac{d}{dx} F_X(x)
 \]</span></p>
@@ -360,7 +360,7 @@ f_X(x) = \frac{1}{\sqrt{2\pi} \sigma} e^{-\frac{(x - \mu)^2}{2\sigma^2}}
 \]</span></p>
 <p>と表す。平均は <span class="math inline">\(E[X] = \mu\)</span>、分散は <span class="math inline">\(\text{Var}(X) = \sigma^2\)</span> である。</p>
 <p><span class="math inline">\(X\)</span> が <span class="math inline">\(N(\mu, \sigma^2)\)</span> に従うとき、<span class="math inline">\(Y = aX + b\)</span> は、<span class="math inline">\(N(a\mu + b, a^2\sigma^2)\)</span> に従う。特に、<span class="math inline">\(Z = \frac{X - \mu}{\sigma}\)</span> は標準正規分布（standard normal distribution）に従う。すなわち、<span class="math inline">\(Z \sim N(0, 1)\)</span> である。</p>
-<p>連続型確率変数 <span class="math inline">\(Y\)</span> が標準正規分布に従うとき、<span class="math inline">\(Y\)</span> の累計分布関数は</p>
+<p>連続型確率変数 <span class="math inline">\(Y\)</span> が標準正規分布に従うとき、<span class="math inline">\(Y\)</span> の累積分布関数は</p>
 <p><span class="math display">\[
 \Phi(y) = P(Y \leq y) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^y e^{-\frac{t^2}{2}} dt
 \]</span></p>
@@ -377,7 +377,7 @@ f_X(x) = \frac{1}{\sqrt{2\pi} \sigma} e^{-\frac{(x - \mu)^2}{2\sigma^2}}
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> norm.ppf(p)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>phi_inverse(<span class="fl">0.95</span>)  <span class="co"># 約1.64485</span></span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>与えられた <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span> の累計分布関数 <span class="math inline">\(F_X(x)\)</span> の値を求めるには、以下のように変換する。</p>
+<p>与えられた <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span> の累積分布関数 <span class="math inline">\(F_X(x)\)</span> の値を求めるには、以下のように変換する。</p>
 <p><span class="math display">\[\begin{align}
 P(X \leq x)
 &amp;= P \left( \frac{X - \mu}{\sigma} \leq \frac{x - \mu}{\sigma} \right) \\\\
