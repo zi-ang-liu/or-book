@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="劉子昂">
 
-<title>オペレーションズ・リサーチ</title>
+<title>記号 – オペレーションズ・リサーチ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./course-info.html" rel="next">
+<link href="./inventory/intro.html" rel="next">
+<link href="./course-info.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -70,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -82,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./notation.html">記号</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
@@ -112,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -124,7 +153,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notation.html" class="sidebar-item-text sidebar-link">
+  <a href="./notation.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">記号</span></a>
   </div>
 </li>
@@ -242,7 +271,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#集合" id="toc-集合" class="nav-link active" data-scroll-target="#集合">集合</a></li>
+  <li><a href="#確率統計" id="toc-確率統計" class="nav-link" data-scroll-target="#確率統計">確率統計</a></li>
+  <li><a href="#関数" id="toc-関数" class="nav-link" data-scroll-target="#関数">関数</a></li>
+  <li><a href="#例題" id="toc-例題" class="nav-link" data-scroll-target="#例題">例題</a></li>
   </ul>
 </nav>
     </div>
@@ -251,34 +283,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">オペレーションズ・リサーチ</h1>
-<p class="subtitle lead">Operations Research: Models, Algorithms, and Implementations</p>
+<h1 class="title">記号</h1>
 </div>
 
 
-<div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">作者</div>
-  <div class="quarto-title-meta-heading">所属</div>
-  
-    <div class="quarto-title-meta-contents">
-    <p class="author"><a href="https://zi-ang-liu.github.io">劉子昂</a> <a href="https://orcid.org/0000-0002-1364-3502" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            法政大学
-          </p>
-      </div>
-  </div>
 
 <div class="quarto-title-meta">
 
-      
-    <div>
-    <div class="quarto-title-meta-heading">公開</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2025年9月24日</p>
-    </div>
-  </div>
+    
   
     
   </div>
@@ -288,9 +300,51 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>ORの基礎と応用を学ぶための教科書です．</p>
+<section id="集合" class="level2">
+<h2 class="anchored" data-anchor-id="集合">集合</h2>
+<dl>
+<dt><span class="math inline">\(A\)</span></dt>
+<dd>
+集合。大文字で表す。
+</dd>
+<dt><span class="math inline">\(A \setminus B\)</span></dt>
+<dd>
+集合 <span class="math inline">\(A\)</span> と集合 <span class="math inline">\(B\)</span> の差集合。
+</dd>
+</dl>
+</section>
+<section id="確率統計" class="level2">
+<h2 class="anchored" data-anchor-id="確率統計">確率統計</h2>
+<p><span class="math inline">\(X\)</span>: 確率変数。大文字で表す。</p>
+<p><span class="math inline">\(P(X = x)\)</span>: 確率変数 <span class="math inline">\(X\)</span> が <span class="math inline">\(x\)</span> をとる確率</p>
+<p><span class="math inline">\(\mathbb{E}[X]\)</span>: 確率変数 <span class="math inline">\(X\)</span> の期待値</p>
+<p><span class="math inline">\(F_X(x)\)</span>: 確率変数 <span class="math inline">\(X\)</span> の累積分布関数</p>
+<p><span class="math inline">\(f_X(x)\)</span>: 確率変数 <span class="math inline">\(X\)</span> の確率密度関数</p>
+<p><span class="math inline">\(p_X(x)\)</span>: 確率変数 <span class="math inline">\(X\)</span> の確率質量関数</p>
+<p><span class="math inline">\(\phi(z)\)</span>: 標準正規分布の確率密度関数</p>
+</section>
+<section id="関数" class="level2">
+<h2 class="anchored" data-anchor-id="関数">関数</h2>
+<p><span class="math inline">\(A\)</span> は要素の間に順序が定義された集合とする。</p>
+<p><span class="math inline">\(\max A\)</span>: 集合 <span class="math inline">\(A\)</span> の最大値。</p>
+<p><span class="math inline">\(\min A\)</span>: 集合 <span class="math inline">\(A\)</span> の最小値。</p>
+<p><span class="math inline">\((x)^+\)</span>: <span class="math inline">\(x\)</span> と <span class="math inline">\(0\)</span> のうち大きい方。すなわち、<span class="math inline">\((x)^+ = \max(x, 0)\)</span>。</p>
+<p><span class="math inline">\((x)^-\)</span>: <span class="math inline">\(x\)</span> と <span class="math inline">\(0\)</span> のうち小さい方の絶対値。すなわち、<span class="math inline">\((x)^- = \max(-x, 0) = -\min(x, 0)\)</span>。</p>
+</section>
+<section id="例題" class="level2">
+<h2 class="anchored" data-anchor-id="例題">例題</h2>
+<div id="exm-setminus" class="theorem example">
+<p><span class="theorem-title"><strong>例 1 (差集合)</strong></span> <span class="math inline">\(A = \{1, 2, 3\}\)</span>、<span class="math inline">\(B = \{2, 3, 4\}\)</span> とする。このとき、<span class="math inline">\(A \setminus B = \{1\}\)</span> である。</p>
+</div>
+<div id="exm-min-max" class="theorem example">
+<p><span class="theorem-title"><strong>例 2 (最大値と最小値)</strong></span> <span class="math inline">\(A = \{1, 0, -1\}\)</span> とする。このとき、<span class="math inline">\(\max A = 1\)</span>、<span class="math inline">\(\min A = -1\)</span> である。</p>
+</div>
+<div id="exm-positive-part" class="theorem example">
+<p><span class="theorem-title"><strong>例 3 (正の部分)</strong></span> <span class="math inline">\((10)^+ = 10\)</span>、<span class="math inline">\((-30)^+ = 0\)</span> である。</p>
+</div>
+<div id="exm-negative-part" class="theorem example">
+<p><span class="theorem-title"><strong>例 4 (負の部分)</strong></span> <span class="math inline">\((10)^- = 0\)</span>、<span class="math inline">\((-30)^- = 30\)</span> である。</p>
+</div>
 
 
 </section>
@@ -697,10 +751,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./course-info.html" class="pagination-link" aria-label="講義">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">講義</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./course-info.html" class="pagination-link" aria-label="講義">
-        <span class="nav-page-text">講義</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./inventory/intro.html" class="pagination-link" aria-label="在庫管理とは">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">在庫管理とは</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

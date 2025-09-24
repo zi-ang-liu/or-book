@@ -206,6 +206,12 @@ window.Quarto = {
  <span class="menu-text">講義</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">記号</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -361,25 +367,11 @@ window.Quarto = {
 <section id="定式化" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="定式化"><span class="header-section-number">4.1</span> 定式化</h2>
 <p>ある日、新聞売り子が <span class="math inline">\(S\)</span> 部の新聞を仕入れ、需要 <span class="math inline">\(D\)</span> が <span class="math inline">\(d\)</span> であったとする。このとき、新聞売り子の利益は以下のように表される。</p>
-<p><span class="math display">\[
-\pi(S, d) = r \min\{d, S\} - cS + v \max\{0, S - d\} \\
-- h \max\{0, S - d\} - p \max\{0, d - S\}
-\]</span></p>
+<p><span class="math display">\[\begin{align}
+\pi(S, d) &amp; = r \min\{d, S\} - cS + v \max\{0, S - d\} \\
+&amp; \quad - h \max\{0, S - d\} - p \max\{0, d - S\}
+\end{align}\]</span></p>
 <p>第一項は販売利益、第二項は仕入れコスト、第三項は残存価値、第四項は保管コスト、第五項は欠品コストである。</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-ノート
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><span class="math inline">\(A\)</span> は要素の間に順序が定義された集合とし、<span class="math inline">\(\min A\)</span> は、<span class="math inline">\(A\)</span> の全ての要素の中で最小のものを表す。</p>
-<p>例えば、<span class="math inline">\(\min \{1, 2, 3\} = 1\)</span> である。</p>
-</div>
-</div>
 <p>以下は、<span class="math inline">\(\max\{0, x\} = x^+\)</span> を用いて書き換えた形である。整理すると、利益は以下のように表される。</p>
 <p><span class="math display">\[
 \pi(S, d) = r \min\{d, S\} - cS + (v - h) (S - d)^+ - p (d - S)^+
@@ -479,7 +471,7 @@ S^* = F_D^{-1}\left(\frac{C_u}{C_o + C_u}\right)
 S^* = F_D^{-1}\left(\frac{C_u}{C_o + C_u}\right) = F_D^{-1}\left(\frac{40}{10 + 40}\right) = F_D^{-1}\left(0.8\right)
 \]</span></p>
 <p>ここで、<span class="math inline">\(F_D^{-1}\)</span> は需要 <span class="math inline">\(D\)</span> の累積分布関数の逆関数である。Python では、SciPy ライブラリの <code>ppf()</code> 関数を用いて、逆関数を求めることができる。</p>
-<div id="2aeb8e0d" class="cell" data-execution_count="1">
+<div id="0351e10a" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 正規分布のパラメータ</span></span>

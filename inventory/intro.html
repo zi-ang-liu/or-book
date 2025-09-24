@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../inventory/eoq.html" rel="next">
-<link href="../course-info.html" rel="prev">
+<link href="../notation.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -186,6 +186,12 @@ window.Quarto = {
  <span class="menu-text">講義</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">記号</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -300,8 +306,9 @@ window.Quarto = {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#在庫モデルの分類" id="toc-在庫モデルの分類" class="nav-link active" data-scroll-target="#在庫モデルの分類"><span class="header-section-number">1.1</span> 在庫モデルの分類</a></li>
-  <li><a href="#在庫の費用" id="toc-在庫の費用" class="nav-link" data-scroll-target="#在庫の費用"><span class="header-section-number">1.2</span> 在庫の費用</a></li>
+  <li><a href="#在庫量" id="toc-在庫量" class="nav-link active" data-scroll-target="#在庫量"><span class="header-section-number">1.1</span> 在庫量</a></li>
+  <li><a href="#在庫モデルの分類" id="toc-在庫モデルの分類" class="nav-link" data-scroll-target="#在庫モデルの分類"><span class="header-section-number">1.2</span> 在庫モデルの分類</a></li>
+  <li><a href="#在庫の費用" id="toc-在庫の費用" class="nav-link" data-scroll-target="#在庫の費用"><span class="header-section-number">1.3</span> 在庫の費用</a></li>
   </ul>
 </nav>
     </div>
@@ -361,8 +368,55 @@ window.Quarto = {
 <li>どのタイミング・頻度でその商品を買うか？</li>
 </ol>
 </div>
-<section id="在庫モデルの分類" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="在庫モデルの分類"><span class="header-section-number">1.1</span> 在庫モデルの分類</h2>
+<section id="在庫量" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="在庫量"><span class="header-section-number">1.1</span> 在庫量</h2>
+<dl>
+<dt>需要（demand）</dt>
+<dd>
+ある期間に顧客が購入したい商品の量。通常、<span class="math inline">\(d\)</span> で表す。
+</dd>
+<dt>手持ち在庫（on-hand inventory）</dt>
+<dd>
+ある時点で、実際に手元にある在庫の量。<span class="math inline">\(OH\)</span> で表す。
+</dd>
+<dt>バックオーダー（backorder）</dt>
+<dd>
+手持ち在庫がなく、満たせない需要。<span class="math inline">\(BO\)</span> で表す。
+</dd>
+<dt>在庫量（inventory level）</dt>
+<dd>
+ある時点での在庫の量。<span class="math inline">\(I\)</span> で表す。
+</dd>
+</dl>
+<p>一般、<span class="math inline">\(BO\)</span> と <span class="math inline">\(OH\)</span> は次のように表される。</p>
+<p><span class="math display">\[
+OH = I^+ = \max(0, I)
+\]</span></p>
+<p><span class="math display">\[
+BO = I^- = \max(0, -I)
+\]</span></p>
+<div id="exm-inventory-level" class="theorem example">
+<p><span class="theorem-title"><strong>例 1.1</strong></span> 手持ち在庫が <span class="math inline">\(OH = 50\)</span>、需要が <span class="math inline">\(d = 30\)</span> のとき、在庫量は次のように計算される。</p>
+<p><span class="math display">\[
+I = 50 - 30 = 20
+\]</span></p>
+<p>手持ち在庫が <span class="math inline">\(OH = 50\)</span>、需要が <span class="math inline">\(d = 70\)</span> のとき、在庫量は次のように計算される。</p>
+<p><span class="math display">\[
+I = 50 - 70 = -20
+\]</span></p>
+<p>このとき、手持ち在庫は</p>
+<p><span class="math display">\[
+OH = I^+ = \max(0, I) = 0
+\]</span></p>
+<p>となる。バックオーダーは</p>
+<p><span class="math display">\[
+BO = I^- = \max(0, -I) = 20
+\]</span></p>
+<p>となる。</p>
+</div>
+</section>
+<section id="在庫モデルの分類" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="在庫モデルの分類"><span class="header-section-number">1.2</span> 在庫モデルの分類</h2>
 <p>在庫モデルは、次のような要素で分類される。</p>
 <dl>
 <dt>需要（demand）</dt>
@@ -419,8 +473,8 @@ window.Quarto = {
 </tbody>
 </table>
 </section>
-<section id="在庫の費用" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="在庫の費用"><span class="header-section-number">1.2</span> 在庫の費用</h2>
+<section id="在庫の費用" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="在庫の費用"><span class="header-section-number">1.3</span> 在庫の費用</h2>
 <p>ここでは、在庫に関わる費用を紹介する。</p>
 <dl>
 <dt>発注費用（ordering cost）</dt>
@@ -440,39 +494,19 @@ window.Quarto = {
 在庫を保管するためにかかる倉庫費用、保険費用、税金、機会費用など。通常、単位時間あたりの1単位あたりの保管費用を <span class="math inline">\(h\)</span> とする。
 </dd>
 </dl>
-<!-- :::{#exm-order-cost}
-
-### 発注費用と購入費用
-
-毎回の発注量を $Q$、1回の発注にかかる費用を $K$、単位あたりの購入費用を $c$ とする。1回の発注にかかる総費用は、次のように計算される。
-
-$$
+<div id="exm-order-cost" class="theorem example">
+<p><span class="theorem-title"><strong>例 1.2 (発注費用と購入費用)</strong></span> 毎回の発注量を <span class="math inline">\(Q\)</span>、1回の発注にかかる費用を <span class="math inline">\(K\)</span>、単位あたりの購入費用を <span class="math inline">\(c\)</span> とする。1回の発注にかかる総費用は、次のように計算される。</p>
+<p><span class="math display">\[
 K + cQ
-$$
-
-となる。
-
-:::
-
-:::{#exm-shortage-cost}
-### 欠品費用
-
-在庫を $I$、需要を $d$、単位あたりの欠品費用を $p$ とする。欠品費用は次のように計算される。
-
-$$
+\]</span></p>
+<p>となる。</p>
+</div>
+<div id="exm-shortage-cost" class="theorem example">
+<p><span class="theorem-title"><strong>例 1.3 (欠品費用)</strong></span> 在庫を <span class="math inline">\(I\)</span>、需要を <span class="math inline">\(d\)</span>、単位あたりの欠品費用を <span class="math inline">\(p\)</span> とする。欠品費用は次のように計算される。</p>
+<p><span class="math display">\[
 p (d - I)^+
-$$
-
-ここで、$(x)^+ = \max(x, 0)$ である。すなわち、$x$ が正のときは $x$、負のときは $0$ である。例えば、$(10)^+ = 10$ であり、$(-30)^+ = 0$ である。
-
-$p (d - I)^+$ は、$d - I$ が正のとき、欠品費用が $p (d - I)$ であり、$d - I$ が負のとき、欠品費用が $0$ であることを意味する。
-:::
-
-:::{.callout-note}
-$A$ は要素の間に順序が定義された集合とし、$\max A$ は、$A$ の全ての要素の中で最大のものを表す。
-
-例えば、$\max \{1, 0\} = 1$ であり、$\max \{-1, 0\} = 0$ である。
-::: -->
+\]</span></p>
+</div>
 <!-- 
 
 :::{#exm-total-cost}
@@ -496,12 +530,12 @@ A社の在庫の総費用は、次のように計算される。
 \end{align}
 ::: -->
 <div id="exm-cost-1" class="theorem example">
-<p><span class="theorem-title"><strong>例 1.1 (在庫が一定の保管費用)</strong></span> 1日あたり1単位の在庫を保管するために、<span class="math inline">\(h\)</span> の費用がかかるとする。30日間、50単位の在庫を保管するための総保管費用を計算せよ。</p>
+<p><span class="theorem-title"><strong>例 1.4 (在庫が一定の保管費用)</strong></span> 1日あたり1単位の在庫を保管するために、<span class="math inline">\(h\)</span> の費用がかかるとする。30日間、50単位の在庫を保管するための総保管費用を計算せよ。</p>
 <p>保管費用は次のように計算される。 <span class="math display">\[
 30 \times 50 \times h = 1500h
 \]</span></p>
 <p>下の図では、横軸が時間、縦軸が在庫量を表す。</p>
-<div id="23d06593" class="cell" data-execution_count="1">
+<div id="e484db57" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -533,9 +567,9 @@ A社の在庫の総費用は、次のように計算される。
 \]</span></p>
 </div>
 <div id="exm-cost-2" class="theorem example">
-<p><span class="theorem-title"><strong>例 1.2 (在庫が時間とともに変化する保管費用)</strong></span> 通常、在庫量が定数ではなく、時間とともに変化する。ここでは、在庫量が時間とともに線形に減少し、0になると在庫が補充される場合を考える。毎回の発注量を <span class="math inline">\(500\)</span> とする。</p>
+<p><span class="theorem-title"><strong>例 1.5 (在庫が時間とともに変化する保管費用)</strong></span> 通常、在庫量が定数ではなく、時間とともに変化する。ここでは、在庫量が時間とともに線形に減少し、0になると在庫が補充される場合を考える。毎回の発注量を <span class="math inline">\(500\)</span> とする。</p>
 <p>下の図に示すように在庫量が時間とともに変化するとする。6 日間の保管費用を計算せよ。</p>
-<div id="79779740" class="cell" data-execution_count="2">
+<div id="d80463f0" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
@@ -1020,8 +1054,8 @@ https://orsj.org/wp-content/or-archives50/pdf/bul/Vol.30_11_673.pdf
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../course-info.html" class="pagination-link" aria-label="講義">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">講義</span>
+      <a href="../notation.html" class="pagination-link" aria-label="記号">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">記号</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
