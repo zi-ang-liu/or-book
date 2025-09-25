@@ -16,7 +16,7 @@ $$
 
 と表す。$f_X(x)$ を $X$ の**確率密度関数** (PDF) という。
 
-確率変数 $X$ の**累計分布関数**（CDF）は
+確率変数 $X$ の**累積分布関数** (CDF) を
 
 $$
 F_X(x) = P(X \leq x) = \begin{cases}
@@ -25,7 +25,7 @@ F_X(x) = P(X \leq x) = \begin{cases}
 \end{cases}
 $$
 
-と表す。確率密度関数 $f_X(x)$ は累計分布関数 $F_X(x)$ の微分である。
+と表す。確率密度関数 $f_X(x)$ は累積分布関数 $F_X(x)$ の微分である。
 
 $$
 f_X(x) = \frac{d}{dx} F_X(x)
@@ -43,7 +43,7 @@ $$
 
 $X$ が $N(\mu, \sigma^2)$ に従うとき、$Y = aX + b$ は、$N(a\mu + b, a^2\sigma^2)$ に従う。特に、$Z = \frac{X - \mu}{\sigma}$ は標準正規分布（standard normal distribution）に従う。すなわち、$Z \sim N(0, 1)$ である。
 
-連続型確率変数 $Y$ が標準正規分布に従うとき、$Y$ の累計分布関数は
+連続型確率変数 $Y$ が標準正規分布に従うとき、$Y$ の累積分布関数は
 
 $$
 \Phi(y) = P(Y \leq y) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^y e^{-\frac{t^2}{2}} dt
@@ -71,7 +71,7 @@ def phi_inverse(p):
 phi_inverse(0.95)  # 約1.64485
 ```
 
-与えられた $X \sim N(\mu, \sigma^2)$ の累計分布関数 $F_X(x)$ の値を求めるには、以下のように変換する。
+与えられた $X \sim N(\mu, \sigma^2)$ の累積分布関数 $F_X(x)$ の値を求めるには、以下のように変換する。
 
 \begin{align}
 P(X \leq x) 
