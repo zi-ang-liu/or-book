@@ -253,7 +253,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">プロジェクト管理</span></a>
+ <span class="menu-text">ネットワーク最適化</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -261,8 +261,25 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../network/graph.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">グラフ理論</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">プロジェクト管理</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../project/pert.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">PERT/CPM</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">PERT/CPM</span></span></a>
   </div>
 </li>
       </ul>
@@ -275,23 +292,29 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
  <span class="menu-text">付録</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/calculus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">微分積分学</span></span></a>
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">微分積分</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/probability.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">確率</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/standard_normal_table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">標準正規分布表</span></span></a>
   </div>
 </li>
       </ul>
@@ -309,6 +332,9 @@ window.Quarto = {
   <li><a href="#在庫量" id="toc-在庫量" class="nav-link active" data-scroll-target="#在庫量"><span class="header-section-number">1.1</span> 在庫量</a></li>
   <li><a href="#在庫モデルの分類" id="toc-在庫モデルの分類" class="nav-link" data-scroll-target="#在庫モデルの分類"><span class="header-section-number">1.2</span> 在庫モデルの分類</a></li>
   <li><a href="#在庫の費用" id="toc-在庫の費用" class="nav-link" data-scroll-target="#在庫の費用"><span class="header-section-number">1.3</span> 在庫の費用</a></li>
+  <li><a href="#在庫方策" id="toc-在庫方策" class="nav-link" data-scroll-target="#在庫方策"><span class="header-section-number">1.4</span> 在庫方策</a></li>
+  <li><a href="#練習問題" id="toc-練習問題" class="nav-link" data-scroll-target="#練習問題"><span class="header-section-number">1.5</span> 練習問題</a></li>
+  <li><a href="#挑戦" id="toc-挑戦" class="nav-link" data-scroll-target="#挑戦"><span class="header-section-number">1.6</span> 挑戦</a></li>
   </ul>
 </nav>
     </div>
@@ -543,7 +569,7 @@ A社の在庫の総費用は、次のように計算される。
 30 \times 50 \times h = 1500h
 \]</span></p>
 <p>下の図では、横軸が時間、縦軸が在庫量を表す。</p>
-<div id="8477fa45" class="cell" data-execution_count="1">
+<div id="cd678412" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -564,7 +590,7 @@ A社の在庫の総費用は、次のように計算される。
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="intro_files/figure-html/cell-2-output-1.png" width="661" height="468" class="figure-img"></p>
+<p><img src="intro_files/figure-html/cell-2-output-1.png" width="662" height="470" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -577,7 +603,7 @@ A社の在庫の総費用は、次のように計算される。
 <div id="exm-cost-2" class="theorem example">
 <p><span class="theorem-title"><strong>例 1.5 (在庫が時間とともに変化する保管費用)</strong></span> 通常、在庫量が定数ではなく、時間とともに変化する。ここでは、在庫量が時間とともに線形に減少し、0になると在庫が補充される場合を考える。毎回の発注量を <span class="math inline">\(500\)</span> とする。</p>
 <p>下の図に示すように在庫量が時間とともに変化するとする。6 日間の保管費用を計算せよ。</p>
-<div id="d4020d32" class="cell" data-execution_count="2">
+<div id="64173a46" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
@@ -602,7 +628,7 @@ A社の在庫の総費用は、次のように計算される。
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="intro_files/figure-html/cell-3-output-1.png" width="661" height="468" class="figure-img"></p>
+<p><img src="intro_files/figure-html/cell-3-output-1.png" width="662" height="470" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -612,11 +638,33 @@ A社の在庫の総費用は、次のように計算される。
 \frac{2 \times 500}{2} \times 3 \times h
 \]</span></p>
 </div>
+</section>
+<section id="在庫方策" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="在庫方策"><span class="header-section-number">1.4</span> 在庫方策</h2>
+<p>確率的在庫モデルにおいて、一つ重要な概念は<strong>在庫方策</strong>（inventory policy）である。在庫方策は、在庫の状況に応じて、在庫管理のルールを定めるものである。代表的な在庫方策を以下に示す。</p>
+<ol type="1">
+<li><span class="math inline">\((r, Q)\)</span> 方策：在庫量を連続的に観測し、在庫量が発注点 <span class="math inline">\(r\)</span> 以下になったときに発注量 <span class="math inline">\(Q\)</span> を発注する方式である。<strong>発注点方式</strong>とも呼ばれる。</li>
+<li>BSP 方策（Base Stock Policy）：在庫量を定期的に観測し、在庫量が基準在庫 <span class="math inline">\(S\)</span> 以下になったときに、在庫量を <span class="math inline">\(S\)</span> まで補充する方式である。<strong>定期発注方式</strong>とも呼ばれる。</li>
+<li><span class="math inline">\((s, S)\)</span> 方策：在庫量を定期的に観測し、在庫量が発注点 <span class="math inline">\(s\)</span> 以下になったときに、在庫量を補充点 <span class="math inline">\(S\)</span> まで補充する方式である。</li>
+</ol>
+<p>一部の確率的在庫モデルにに対し、これらの在庫方策は<strong>最適</strong>であることが知られている。その場合、在庫方策が持つパラメータを最適化することで、在庫の期待コストを最小化することができる。</p>
+</section>
+<section id="練習問題" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="練習問題"><span class="header-section-number">1.5</span> 練習問題</h2>
+<ol type="1">
+<li>在庫管理の目的は、_<strong>を満たしつつ、</strong>_を最小化することである。</li>
+<li>在庫管理の決定すべき二つの問題は、_<strong>と</strong>_である。</li>
+<li>在庫量 <span class="math inline">\(I = -30\)</span>，需要 <span class="math inline">\(d = 10\)</span> のとき、手持ち在庫 <span class="math inline">\(OH\)</span> とバックオーダー <span class="math inline">\(BO\)</span> を計算せよ。</li>
+<li>1回の発注にかかる費用 <span class="math inline">\(K = 1000\)</span>、単位あたりの購入費用 <span class="math inline">\(c = 50\)</span>、発注量 <span class="math inline">\(Q = 200\)</span> のとき、3回の発注にかかる総費用を計算せよ。</li>
+</ol>
+</section>
+<section id="挑戦" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="挑戦"><span class="header-section-number">1.6</span> 挑戦</h2>
+<ol type="1">
+<li>Python に関する入門書やビデオを参考にして、Python の基礎を学び、簡単なプログラムを書けるようにせよ。</li>
+</ol>
+<p>YouTube で “Python 入門” などのキーワードで検索すると、多くの2-3時間入門のビデオが見つかる。</p>
 <!-- 
-
-
-
-
 
 ## Note
 
