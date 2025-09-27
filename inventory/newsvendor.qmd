@@ -98,13 +98,37 @@ $$
 で与えられる。
 :::
 
-<!-- $D \sim N(\mu, \sigma^2)$ のとき、
+$D \sim N(\mu, \sigma^2)$ のとき、
+
+$$
+P(D \leq S) = F_D(S) = \Phi\left(\frac{S - \mu}{\sigma}\right)
+$$
+
+である。したがって、最適発注量 $S^*$ は
+
+$$
+S^* = \mu + \sigma \Phi^{-1}\left(\frac{p}{h + p}\right)
+$$
+
+$z_\alpha = \Phi^{-1}(\alpha)$ とおくと、
 
 $$
 S^* = \mu + \sigma z_{p/(h+p)}
 $$
 
-となる。標準正規分布表から、$z_{p/(h+p)}$ を調べることができる。 -->
+となる。ここで、$z_\alpha$ は計算機、Excel、標準正規分布表から求めることができる。
+
+:::{.callout-note}
+標準正規分布表は、[Appendix C](../appendices/standard_normal_table.qmd) に掲載している。
+
+Excel では、`NORM.S.INV()` 関数を用いて $z_\alpha$ を求めることができる。
+
+例えば、$\alpha = 0.95$ のとき、下記のように計算できる。
+
+```excel
+=NORM.S.INV(0.95)
+```
+:::
 
 ## 臨界率
 
@@ -133,6 +157,18 @@ S^* = F_D^{-1}\left(\frac{p}{h + p}\right) = F_D^{-1}\left(\frac{40}{10 + 40}\ri
 $$
 
 ここで、$F_D^{-1}$ は需要 $D$ の累積分布関数の逆関数である。
+
+標準正規分布表から、$z_{0.8} \approx 0.84$ である。したがって、
+
+$$
+S^* = \mu + \sigma z_{0.8} = 100 + 5 \times 0.84 = 104.2
+$$
+
+Excel では、下記のように計算できる。
+
+```excel
+=100 + 5 * NORM.S.INV(40 / (10 + 40))
+```
 
 Python では、SciPy ライブラリの `ppf()` 関数を用いて、逆関数を求めることができる。
 
