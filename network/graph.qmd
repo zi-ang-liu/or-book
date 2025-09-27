@@ -1,0 +1,8 @@
+---
+title: グラフ理論
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+

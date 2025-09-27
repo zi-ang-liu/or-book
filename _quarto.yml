@@ -49,6 +49,9 @@ book:
     - part: "多基準意思決定分析"
       chapters:
         - mcda/ahp.qmd
+    - part: "ネットワーク最適化"
+      chapters:
+        - network/graph.qmd
     - part: "プロジェクト管理"
       chapters:
         - project/pert.qmd
