@@ -8,11 +8,9 @@ jupyter: python3
 
 新聞売り子問題（Newsvendor Problem）は、古典的な確率的在庫モデルの一つである。新聞は次の日には売れなくなるため、新聞売り子問題は最も単純な perishable 在庫モデルとして知られている。
 
-新聞売り子が新聞を仕入れ、販売する問題を考える。新聞 1 部の欠品費用を $p$、保管費用を $h$ とする。新聞売子問題において、$p$ を在庫不足費用（underage cost）、$h$ を在庫超過費用（overage cost）とも呼ぶ。
+新聞売り子が新聞を仕入れ、販売する問題を考える。新聞 1 部の欠品費用を $p$、保管費用を $h$ とする。新聞売子問題において、$p$ を**在庫不足費用**（underage cost）、$h$ を**在庫超過費用**（overage cost）とも呼ぶ。$p \gt 0$、$h \gt 0$ とし、初期在庫は 0 とする。
 
-また、$p \gt 0$、$h \gt 0$ とし、初期在庫は 0 とする。
-
-新聞の需要 $D$ は正規分布 $N(\mu, \sigma^2)$ に従い、$\mu$ と $\sigma$ は既知である。新聞売り子はどれだけの新聞を発注すればよいかという問題である。
+新聞の需要 $D$ を確率変数とし、確率密度関数を $f_D(d)$、累積分布関数を $F_D(d)$ とする。新聞売り子はどれだけの新聞を発注すればよいかという問題である。
 
 | 記号 | 意味 |
 |:---|:---|
@@ -98,38 +96,6 @@ $$
 で与えられる。
 :::
 
-$D \sim N(\mu, \sigma^2)$ のとき、
-
-$$
-P(D \leq S) = F_D(S) = \Phi\left(\frac{S - \mu}{\sigma}\right)
-$$
-
-である。したがって、最適発注量 $S^*$ は
-
-$$
-S^* = \mu + \sigma \Phi^{-1}\left(\frac{p}{h + p}\right)
-$$
-
-$z_\alpha = \Phi^{-1}(\alpha)$ とおくと、
-
-$$
-S^* = \mu + \sigma z_{p/(h+p)}
-$$
-
-となる。ここで、$z_\alpha$ は計算機、Excel、標準正規分布表から求めることができる。
-
-:::{.callout-note}
-標準正規分布表は、[Appendix C](../appendices/standard_normal_table.qmd) に掲載している。
-
-Excel では、`NORM.S.INV()` 関数を用いて $z_\alpha$ を求めることができる。
-
-例えば、$\alpha = 0.95$ のとき、下記のように計算できる。
-
-```excel
-=NORM.S.INV(0.95)
-```
-:::
-
 ## 臨界率
 
 $p/(h+p)$ は**臨界率**（critical ratio）と呼ばれる。臨界率は、在庫不足費用と在庫超過費用の比率を表す。
@@ -148,27 +114,67 @@ $$
 - 直感的に、在庫不足費用が増加すると、欠品を避けるために発注量が増加し、サービスレベルも上昇する。一方、在庫超過費用が増加すると、過剰在庫を避けるために発注量が減少し、サービスレベルも低下する。
 :::
 
+
+## 例題
+
 :::{#exm-newsvendor}
 
 需要 $D$ が正規分布 $N(100, 25)$ に従う新聞売り子問題を考える。在庫超過費用が $h = 10$、在庫不足費用が $p = 40$ のとき、最適発注量 $S^*$ を求める。
+
+@thm-newsvendor より、$S^*$ は以下の式で与えられる。
 
 $$
 S^* = F_D^{-1}\left(\frac{p}{h + p}\right) = F_D^{-1}\left(\frac{40}{10 + 40}\right) = F_D^{-1}\left(0.8\right)
 $$
 
-ここで、$F_D^{-1}$ は需要 $D$ の累積分布関数の逆関数である。
+言い換えると、$F_D(S^*) = 0.8$ を満たす $S^*$ を求めればよい。これを図で表すと、面積が 0.8 になるような $S^*$ を求めることに相当する。
 
-標準正規分布表から、$z_{0.8} \approx 0.84$ である。したがって、
+```{python}
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.stats import norm
 
-$$
-S^* = \mu + \sigma z_{0.8} = 100 + 5 \times 0.84 = 104.2
-$$
+# 正規分布のパラメータ
+mu = 100
+sigma = 5
 
-Excel では、下記のように計算できる。
+# 需要の範囲
+d = np.linspace(mu - 4 * sigma, mu + 4 * sigma, 1000)
+S_star = norm.ppf(0.8, loc=mu, scale=sigma)
+
+# plot the normal distribution
+plt.plot(d, norm.pdf(d, mu, sigma))
+plt.fill_between(
+    d,
+    0,
+    norm.pdf(d, mu, sigma),
+    where=(d <= S_star),
+    color="skyblue",
+    alpha=0.5,
+    label="F(S*)",
+)
+plt.xlabel("Demand")
+plt.ylabel("Probability Density")
+plt.axvline(mu, color="r", linestyle="--", label="mu")
+plt.axvline(S_star, color="g", linestyle="--", label="S*")
+plt.ylim(0, 0.09)
+plt.legend()
+plt.show()
+```
+
+:::
+
+下では、Excel、Python、標準正規分布表を用いて $S^*$ を求める方法を示す。
+
+### Excel
+
+Excel では、`NORM.INV(確率,平均,標準偏差)` 関数を用いて $F_D^{-1}(0.8)$ を求めることができる。
 
 ```excel
-=100 + 5 * NORM.S.INV(40 / (10 + 40))
+=NORM.INV(0.8, 100, 5)
 ```
+
+### Python
 
 Python では、SciPy ライブラリの `ppf()` 関数を用いて、逆関数を求めることができる。
 
@@ -192,34 +198,33 @@ critical_ratio = p / (h + p)
 S_star = norm.ppf(critical_ratio, loc=mu, scale=sigma)
 print(f"Optimal order quantity S*: {S_star:.2f}")
 ```
-:::
 
-## 初期在庫を考慮した新聞売り子問題
+### 標準正規分布表
 
-新聞売り子の初期在庫を $I$ とする。$I \leq S^*$の場合、最適発注量は $S^* - I$ となる。すなわち、在庫量を $S^*$ にすればよい。
-
-また、$g(S)$ は凸関数であるため、$I > S^*$ の場合、何も発注しないことが最適である。
-
-したがって、最適発注量は
+新聞売り子問題の最適発注量 $S^*$ は、以下の式を満たす。
 
 $$
-Q =
-\begin{cases}
-S^* - I, & \text{if } I \le S^*, \\[6pt]
-0, & \text{if } I > S^* .
-\end{cases}
+F_D(S^*) = \frac{p}{h + p}
 $$
 
-となる。
+ここで、$D$ は正規分布 $N(\mu, \sigma^2)$ に従うため、
 
-このような発注方式を **Base Stock Policy** (BSP) と呼ぶ。BSP は、各期間の在庫量を観測し、在庫量が $S^*$ に引き上げられるように発注する方式である。新聞売り子問題において、BSP は最適な方策であると知られている。
+$$
+F_D(S^*) = P(D \leq S^*) = \Phi\left(\frac{S^* - \mu}{\sigma}\right)
+$$
+である。したがって、$S^*$ は以下の式を満たす。
 
-<!-- [Arrow et al. (1951)](https://doi.org/10.2307/1906813)
-[Chen et al. (2016)](https://doi.org/10.1111/deci.12215) は新聞売り子問題の最新研究をレビューしている。最近では、データ駆動新聞売り子問題（Data-Driven Newsvendor Problem）に関する研究が行われている。 -->
+$$
+\Phi\left(\frac{S^* - 100}{5}\right) = \frac{p}{h + p}
+$$
 
-## 発注費用を考慮した新聞売り子問題
+[標準正規分布表](../appendices/standard_normal_table.qmd) を調べると、$\Phi(z) = 0.8$ のとき、$z$ は約 0.84 である。したがって、$S^*$ は以下の式を満たす。
 
-@Scarf1959-xl の論文では、$(s, S)$ 方策が発注費用を考慮した複数期間の新聞売り子問題において最適であることを示している。
+$$
+\frac{S^* - 100}{5} \approx 0.84
+$$
+
+これを解くと、$S^* \approx 104.2$ となる。
 
 ## 再定式化
 
@@ -330,6 +335,34 @@ S^* &= F_D^{-1}\left(\frac{p + r - c}{h + p + r - v}\right)\\
 
 が得られる。
 
+## 初期在庫を考慮した新聞売り子問題
+
+新聞売り子の初期在庫を $I$ とする。$I \leq S^*$の場合、最適発注量は $S^* - I$ となる。すなわち、在庫量を $S^*$ にすればよい。
+
+また、$g(S)$ は凸関数であるため、$I > S^*$ の場合、何も発注しないことが最適である。
+
+したがって、最適発注量は
+
+$$
+Q =
+\begin{cases}
+S^* - I, & \text{if } I \le S^*, \\[6pt]
+0, & \text{if } I > S^* .
+\end{cases}
+$$
+
+となる。
+
+このような発注方式を **Base Stock Policy** (BSP) と呼ぶ。BSP は、各期間の在庫量を観測し、在庫量が $S^*$ に引き上げられるように発注する方式である。新聞売り子問題において、BSP は最適な方策であると知られている。
+
+<!-- [Arrow et al. (1951)](https://doi.org/10.2307/1906813)
+[Chen et al. (2016)](https://doi.org/10.1111/deci.12215) は新聞売り子問題の最新研究をレビューしている。最近では、データ駆動新聞売り子問題（Data-Driven Newsvendor Problem）に関する研究が行われている。 -->
+
+## 発注費用を考慮した新聞売り子問題
+
+@Scarf1959-xl の論文では、$(s, S)$ 方策が発注費用を考慮した複数期間の新聞売り子問題において最適であることを示している。
+
 ## 練習問題
 
-1. 需要 $D$ が正規分布 $N(150, 36)$ に従う新聞売り子問題を考える。在庫超過費用が $h = 5$、在庫不足費用が $p = 20$ のとき、最適発注量 $S^*$ を求めよ。
+1. 発注量 $S = 100$、需要 $D$ の観測値 $d = 120$、在庫超過費用が $h = 10$、在庫不足費用が $p = 40$ のとき、コスト $g(S, d)$ を求めよ。
+2. 需要 $D$ が正規分布 $N(150, 36)$ に従う新聞売り子問題を考える。在庫超過費用が $h = 5$、在庫不足費用が $p = 20$ のとき、最適発注量 $S^*$ を求めよ。
