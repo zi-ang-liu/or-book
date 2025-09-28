@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; Wagner-Whitin モデル – オペレーションズ・リサーチ</title>
+<title>9&nbsp; PERT/CPM – オペレーションズ・リサーチ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,8 +85,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../inventory/newsvendor.html" rel="next">
-<link href="../inventory/eoq.html" rel="prev">
+<link href="../references.html" rel="next">
+<link href="../network/shortest-path.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -111,7 +166,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../inventory/intro.html">在庫モデル</a></li><li class="breadcrumb-item"><a href="../inventory/wagner-whitin.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Wagner-Whitin モデル</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../network/graph.html">ネットワーク最適化</a></li><li class="breadcrumb-item"><a href="../network/pert.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">PERT/CPM</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
@@ -180,7 +235,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../inventory/wagner-whitin.html" class="sidebar-item-text sidebar-link active">
+  <a href="../inventory/wagner-whitin.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Wagner-Whitin モデル</span></span></a>
   </div>
 </li>
@@ -238,7 +293,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../network/pert.html" class="sidebar-item-text sidebar-link">
+  <a href="../network/pert.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">PERT/CPM</span></span></a>
   </div>
 </li>
@@ -284,15 +339,26 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#プロジェクトネットワーク" id="toc-プロジェクトネットワーク" class="nav-link active" data-scroll-target="#プロジェクトネットワーク"><span class="header-section-number">9.1</span> プロジェクト・ネットワーク</a></li>
+  <li><a href="#クリティカルパス" id="toc-クリティカルパス" class="nav-link" data-scroll-target="#クリティカルパス"><span class="header-section-number">9.2</span> クリティカルパス</a>
+  <ul class="collapse">
+  <li><a href="#最早開始時刻と最早終了時刻" id="toc-最早開始時刻と最早終了時刻" class="nav-link" data-scroll-target="#最早開始時刻と最早終了時刻"><span class="header-section-number">9.2.1</span> 最早開始時刻と最早終了時刻</a></li>
+  <li><a href="#最遅開始時刻と最遅終了時刻" id="toc-最遅開始時刻と最遅終了時刻" class="nav-link" data-scroll-target="#最遅開始時刻と最遅終了時刻"><span class="header-section-number">9.2.2</span> 最遅開始時刻と最遅終了時刻</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../inventory/intro.html">在庫モデル</a></li><li class="breadcrumb-item"><a href="../inventory/wagner-whitin.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Wagner-Whitin モデル</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../network/graph.html">ネットワーク最適化</a></li><li class="breadcrumb-item"><a href="../network/pert.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">PERT/CPM</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Wagner-Whitin モデル</span></h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">PERT/CPM</span></h1>
 </div>
 
 
@@ -309,59 +375,320 @@ window.Quarto = {
 </header>
 
 
+<!-- 
+
+- Camm et al. (2022) Chapter 9
+- Taha (2016) Chapter 6
+- Hillier and Lieberman (2020) Chapter 22
+- Eiselt and Sandblom (2019) Chapter 8
+
+-->
+<p>プロジェクトは、多くの作業からなる。プロジェクトを完遂できるように、作業のスケジュールを作成する必要がある。その方法として、<strong>PERT</strong>（Program Evaluation and Review Technique）と<strong>CPM</strong>（Critical Path Method）がある。現在では、PERTとCPMが統合され、<strong>PERT/CPM</strong>として知られている<span class="citation" data-cites="Camm2022-zv Hillier2025-cb">(<a href="../references.html#ref-Camm2022-zv" role="doc-biblioref">Camm ほか 2022</a>; <a href="../references.html#ref-Hillier2025-cb" role="doc-biblioref">Hillier と Lieberman 2025</a>)</span>。</p>
+<p>ここで、ある作業の開始前に完了しなければならない作業を<strong>先行作業</strong>（Immediate Predecessor）と呼ぶ。また、ある作業の完了後に開始できる作業を<strong>後続作業</strong>（Immediate Successor）と呼ぶ。</p>
+<p>まとめると、プロジェクトは、次の要素で構成される。</p>
+<ul>
+<li>作業：プロジェクトを構成する仕事。活動、アクティビティとも呼ばれる。</li>
+<li>先行関係：それぞれの作業の先行作業を定義する関係。</li>
+<li>作業時間：各作業に必要な時間。</li>
+</ul>
+<div id="exm-pert-report" class="theorem example">
+<p><span class="theorem-title"><strong>例 9.1</strong></span> 学生の田中さんと佐藤さんが協力し、ある授業のレポートを作成することになった。このレポートを作成するためには、下の表に示すように、いくつかの作業を行う必要がある。</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>記号</th>
-<th>意味</th>
+<th>作業</th>
+<th>作業内容</th>
+<th>先行作業</th>
+<th>時間（日）</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math inline">\(\mathcal{T}\)</span></td>
-<td>期間の集合、<span class="math inline">\(\mathcal{T} = \{1, 2, \ldots, T\}\)</span></td>
+<td>A</td>
+<td>課題の理解</td>
+<td>-</td>
+<td>2</td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(K\)</span></td>
-<td>1回あたりの発注費用</td>
+<td>B</td>
+<td>データ収集</td>
+<td>A</td>
+<td>3</td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">\(h\)</span></td>
-<td>単位あたりの保管費用</td>
+<td>C</td>
+<td>データ分析</td>
+<td>B</td>
+<td>4</td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(d_t\)</span></td>
-<td>第 <span class="math inline">\(t\)</span> 期の需要量</td>
+<td>D</td>
+<td>文献調査</td>
+<td>A</td>
+<td>2</td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">\(q_t\)</span></td>
-<td>第 <span class="math inline">\(t\)</span> 期の発注量</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(x_t\)</span></td>
-<td>第 <span class="math inline">\(t\)</span> 期の在庫量</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(y_t\)</span></td>
-<td>第 <span class="math inline">\(t\)</span> 期に発注する場合は 1、しない場合は 0</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(M\)</span></td>
-<td>非負の大きな数</td>
+<td>E</td>
+<td>レポート作成</td>
+<td>C, D</td>
+<td>5</td>
 </tr>
 </tbody>
 </table>
-<p>Wagner-Whitin モデルは次のように定式化される。</p>
-<p><span class="math display">\[\begin{align}
-\text{minimize} \quad &amp; \sum_{t=1}^{T} (K y_t + h x_t) \\
-\text{subject to} \quad &amp; x_t = x_{t-1} + q_t - d_t \quad &amp; \forall t \in \mathcal{T} \\
-&amp; q_t \geq 0 \quad &amp; \forall t \in \mathcal{T} \\
-&amp; q_t \leq M y_t \quad &amp; \forall t \in \mathcal{T} \\
-&amp; x_t \geq 0 \quad &amp; \forall t \in \mathcal{T} \\
-&amp; y_t \in \{0, 1\} \quad &amp; \forall t \in \mathcal{T}
-\end{align}\]</span></p>
+</div>
+<section id="プロジェクトネットワーク" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="プロジェクトネットワーク"><span class="header-section-number">9.1</span> プロジェクト・ネットワーク</h2>
+<p>プロジェクトをネットワークで表現したものを<strong>プロジェクト・ネットワーク</strong>（Project Network）と呼ぶ。プロジェクト・ネットワークには、<strong>AOA</strong>（Activity on Arrow）や <strong>AON</strong>（Activity on Node）という 2 種類の表現方法がある。</p>
+<p>AOA では、作業を辺で表現し、先行関係を点で表現する。AON では、作業を点で表現し、先行関係を辺で表現する。AON のほうが理解と作成が容易で、実務でも AON がよく使われる<span class="citation" data-cites="Camm2022-zv Hillier2025-cb Eiselt2022-qy">(<a href="../references.html#ref-Camm2022-zv" role="doc-biblioref">Camm ほか 2022</a>; <a href="../references.html#ref-Hillier2025-cb" role="doc-biblioref">Hillier と Lieberman 2025</a>; <a href="../references.html#ref-Eiselt2022-qy" role="doc-biblioref">Eiselt と Sandblom 2022</a>)</span>。これは以降、AON に基づいて説明する。</p>
+<p>プロジェクト・ネットワークは <span class="math inline">\(G = (V, E)\)</span> という有向グラフで表される。ここで、<span class="math inline">\(V\)</span> は始点 <span class="math inline">\(s\)</span>、終点 <span class="math inline">\(t\)</span> と各作業を表す点の集合であり、<span class="math inline">\(E\)</span> は先行関係を表す辺の集合である。辺 <span class="math inline">\((v, u) \in E\)</span> では、<span class="math inline">\(v\)</span> が <span class="math inline">\(u\)</span> の先行作業であることを意味する。</p>
+<p>辺 <span class="math inline">\((s, v) \in E\)</span> は、作業 <span class="math inline">\(v\)</span> が先行作業を持たないことを意味し、辺 <span class="math inline">\((v, t) \in E\)</span> は、作業 <span class="math inline">\(v\)</span> が後続作業を持たないことを意味する。作業 <span class="math inline">\(v\)</span> の先行作業の集合を <span class="math inline">\(\mathcal{P}(v)\)</span> と表す。作業 <span class="math inline">\(v\)</span> の後続作業の集合を <span class="math inline">\(\mathcal{S}(v)\)</span> と表す。</p>
+<p>作業点 <span class="math inline">\(v \in V\)</span> には、作業時間 <span class="math inline">\(t(v)\)</span> が与えられている。始点 <span class="math inline">\(s\)</span> と終点 <span class="math inline">\(t\)</span> の作業時間は <span class="math inline">\(t(s) = t(t) = 0\)</span> とする。</p>
+<p><a href="#exm-pert-report" class="quarto-xref">例&nbsp;<span>9.1</span></a> のプロジェクト・ネットワークは次の図のようになる。</p>
+<div id="3e8b93c8" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>コード</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># グラフの作成（頂点を番号で定義）</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.DiGraph()</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>edges <span class="op">=</span> [</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"s"</span>, <span class="st">"A"</span>),</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"A"</span>, <span class="st">"B"</span>),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"A"</span>, <span class="st">"D"</span>),</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"B"</span>, <span class="st">"C"</span>),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"C"</span>, <span class="st">"E"</span>),</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"D"</span>, <span class="st">"E"</span>),</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"E"</span>, <span class="st">"t"</span>),</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>G.add_edges_from(edges)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> layer, nodes <span class="kw">in</span> <span class="bu">enumerate</span>(nx.topological_generations(G)):</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> node <span class="kw">in</span> nodes:</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        G.nodes[node][<span class="st">"layer"</span>] <span class="op">=</span> layer</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> nx.multipartite_layout(G, subset_key<span class="op">=</span><span class="st">"layer"</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>label_pos <span class="op">=</span> {}</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k, (x, y) <span class="kw">in</span> pos.items():</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    r <span class="op">=</span> np.sqrt(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> y<span class="op">**</span><span class="dv">2</span>) <span class="cf">if</span> np.sqrt(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> y<span class="op">**</span><span class="dv">2</span>) <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="dv">1</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    scale <span class="op">=</span> <span class="fl">1.12</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    label_pos[k] <span class="op">=</span> (x <span class="op">*</span> scale, y <span class="op">*</span> scale)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx(</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    G,</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    pos<span class="op">=</span>pos,</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    with_labels<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    node_color<span class="op">=</span><span class="st">"white"</span>,</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    node_size<span class="op">=</span><span class="dv">500</span>,</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    edgecolors<span class="op">=</span><span class="st">"black"</span>,</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pert_files/figure-html/cell-2-output-1.png" width="540" height="389" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="exm-pert-2" class="theorem example">
+<p><span class="theorem-title"><strong>例 9.2</strong></span> 以下の作業リストに基づいて、プロジェクト・ネットワークを作成せよ。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>作業</th>
+<th>先行作業</th>
+<th>時間（日）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>-</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>-</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>A</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td>A</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>E</td>
+<td>B</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>C, D</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td>G</td>
+<td>E</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<div id="3473f420" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>コード</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># グラフの作成（頂点を番号で定義）</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.DiGraph()</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>edges <span class="op">=</span> [</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"s"</span>, <span class="st">"A"</span>),</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"s"</span>, <span class="st">"B"</span>),</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"A"</span>, <span class="st">"C"</span>),</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"A"</span>, <span class="st">"D"</span>),</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"C"</span>, <span class="st">"F"</span>),</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"D"</span>, <span class="st">"F"</span>),</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"B"</span>, <span class="st">"E"</span>),</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"E"</span>, <span class="st">"G"</span>),</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"E"</span>, <span class="st">"F"</span>),</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"G"</span>, <span class="st">"t"</span>),</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"F"</span>, <span class="st">"t"</span>),</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>G.add_edges_from(edges)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> layer, nodes <span class="kw">in</span> <span class="bu">enumerate</span>(nx.topological_generations(G)):</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> node <span class="kw">in</span> nodes:</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        G.nodes[node][<span class="st">"layer"</span>] <span class="op">=</span> layer</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> nx.multipartite_layout(G, subset_key<span class="op">=</span><span class="st">"layer"</span>)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>label_pos <span class="op">=</span> {}</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k, (x, y) <span class="kw">in</span> pos.items():</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    r <span class="op">=</span> np.sqrt(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> y<span class="op">**</span><span class="dv">2</span>) <span class="cf">if</span> np.sqrt(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> y<span class="op">**</span><span class="dv">2</span>) <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="dv">1</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    scale <span class="op">=</span> <span class="fl">1.12</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    label_pos[k] <span class="op">=</span> (x <span class="op">*</span> scale, y <span class="op">*</span> scale)</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx(</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    G,</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    pos<span class="op">=</span>pos,</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    with_labels<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    node_color<span class="op">=</span><span class="st">"white"</span>,</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    node_size<span class="op">=</span><span class="dv">500</span>,</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    edgecolors<span class="op">=</span><span class="st">"black"</span>,</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>)</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pert_files/figure-html/cell-3-output-1.png" width="540" height="389" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="クリティカルパス" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="クリティカルパス"><span class="header-section-number">9.2</span> クリティカルパス</h2>
+<p>プロジェクト・ネットワークにおいて、始点 <span class="math inline">\(s\)</span> から終点 <span class="math inline">\(t\)</span> までの経路を<strong>パス</strong>と呼ぶ。パスの長さは、そのパス上の作業時間の合計である。パス <span class="math inline">\(P = (s, v_{i_1}, v_{i_2}, \ldots, v_{i_k}, t)\)</span> の長さは、</p>
+<p><span class="math display">\[
+\sum_{v \in P} t(v) = t(v_{i_1}) + t(v_{i_2}) + \cdots + t(v_{i_k})
+\]</span></p>
+<p>である。</p>
+<p>最も長いパスを<strong>クリティカルパス</strong>（Critical Path）と呼ぶ。クリティカルパスに含まれる作業を<strong>クリティカル作業</strong>（Critical Activity）と呼ぶ。クリティカル作業が遅延すると、プロジェクト全体の完了が遅延する。</p>
+<p>クリティカルパスを求める問題は、最長路問題に帰着できるが、ここで述べる方法は、プロジェクトにおける様々な有用な情報も提供する。</p>
+<section id="最早開始時刻と最早終了時刻" class="level3" data-number="9.2.1">
+<h3 data-number="9.2.1" class="anchored" data-anchor-id="最早開始時刻と最早終了時刻"><span class="header-section-number">9.2.1</span> 最早開始時刻と最早終了時刻</h3>
+<p>作業点 <span class="math inline">\(v \in V\)</span> の最も早く開始できる時間を<strong>最早開始時刻</strong>（Earliest Start Time）と呼び、<span class="math inline">\(ES(v)\)</span> と表す。<span class="math inline">\(v\)</span> の最も早く終了できる時間を<strong>最早終了時刻</strong>（Earliest Finish Time）と呼び、<span class="math inline">\(EF(v)\)</span> と表す。始点 <span class="math inline">\(s\)</span> の最早開始時刻は <span class="math inline">\(ES(s) = 0\)</span> とする。</p>
+<p>点 <span class="math inline">\(v\)</span> の最早終了時刻は、最早開始時刻に作業時間を加えたものである。</p>
+<p><span class="math display">\[
+EF(v) = ES(v) + t(v)
+\]</span></p>
+<p>辺 <span class="math inline">\((v, u) \in E\)</span> に対して、<span class="math inline">\(u\)</span> の最早開始時刻は、</p>
+<p><span class="math display">\[
+ES(u) = \max_{v \in \mathcal{P}(u)} EF(v)
+\]</span></p>
+<p>で与えられる。つまり、<span class="math inline">\(u\)</span> の最早開始時刻は、<span class="math inline">\(u\)</span> のすべての先行作業の最早終了時刻の中で最大のものである。</p>
+<p><a href="#exm-pert-2" class="quarto-xref">例&nbsp;<span>9.2</span></a> の最早開始時刻と最早終了時刻は、次の表のようになる。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>作業</th>
+<th>最早開始時刻 <span class="math inline">\(ES\)</span></th>
+<th>最早終了時刻 <span class="math inline">\(EF\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>0</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>0</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>2</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>E</td>
+<td>3</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>8</td>
+<td>17</td>
+</tr>
+<tr class="odd">
+<td>G</td>
+<td>8</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<p>作業 F を開始するためには、作業 C、D、E のすべてが完了している必要がある。そのため、作業 F の開始時間は、作業 C、D、E の中で最も遅い完了時間に依存する。作業 C、D、E の完了時間はそれぞれ 6 日、4 日、8 日であるため、作業 F の最も早い開始時間は 8 日となる。</p>
+</section>
+<section id="最遅開始時刻と最遅終了時刻" class="level3" data-number="9.2.2">
+<h3 data-number="9.2.2" class="anchored" data-anchor-id="最遅開始時刻と最遅終了時刻"><span class="header-section-number">9.2.2</span> 最遅開始時刻と最遅終了時刻</h3>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Camm2022-zv" class="csl-entry" role="listitem">
+Camm, Jeffrey, James Cochran, Michael Fry, Jeffrey Ohlmann, David Anderson, Dennis Sweeney, と Thomas Williams. 2022. <em>An introduction to management science: Quantitative approaches to decision making</em>. 16th 版. Florence, AL: South-Western College Publishing.
+</div>
+<div id="ref-Eiselt2022-qy" class="csl-entry" role="listitem">
+Eiselt, H A, と Carl-Louis Sandblom. 2022. <em>Operations research: A model-based approach</em>. Cham: Springer International Publishing.
+</div>
+<div id="ref-Hillier2025-cb" class="csl-entry" role="listitem">
+Hillier, Frederick, と Gerald Lieberman. 2025. <em><span>ISE</span> introduction to operations research</em>. 11th 版. Columbus, OH: McGraw-Hill Education.
+</div>
+</div>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -765,13 +1092,13 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../inventory/eoq.html" class="pagination-link" aria-label="経済的発注量">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">経済的発注量</span></span>
+      <a href="../network/shortest-path.html" class="pagination-link" aria-label="最短路問題">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">最短路問題</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../inventory/newsvendor.html" class="pagination-link" aria-label="新聞売り子問題">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">新聞売り子問題</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../references.html" class="pagination-link" aria-label="参考文献">
+        <span class="nav-page-text">参考文献</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

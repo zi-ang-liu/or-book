@@ -229,21 +229,16 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">グラフ理論</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">プロジェクト管理</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../project/pert.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">PERT/CPM</span></span></a>
+  <a href="../network/shortest-path.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">最短路問題</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../network/pert.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">PERT/CPM</span></span></a>
   </div>
 </li>
       </ul>
@@ -256,13 +251,13 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">付録</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/calculus.html" class="sidebar-item-text sidebar-link">
@@ -325,6 +320,26 @@ window.Quarto = {
 <div id="exm-find-z" class="theorem example">
 <p><span class="theorem-title"><strong>例 C.2</strong></span> <span class="math inline">\(\phi(z) = 0.89065\)</span> のとき、<span class="math inline">\(z\)</span> の値を求めよ。</p>
 <p>表の中から <span class="math inline">\(0.89065\)</span> を探す。行から <span class="math inline">\(1.2\)</span>、列から <span class="math inline">\(+0.03\)</span> を選ぶ。したがって、<span class="math inline">\(z = 1.23\)</span> である。</p>
+</div>
+<div id="exm-find-X" class="theorem example">
+<p><span class="theorem-title"><strong>例 C.3</strong></span> <span class="math inline">\(X \sim N(100, 15^2)\)</span> のとき、<span class="math inline">\(P(X \leq 120)\)</span> の値を求めよ。</p>
+<p><span class="math display">\[\begin{align}
+P(X \leq 120) &amp;= \phi\left(\frac{120 - 100}{15}\right) \\
+&amp;= \phi\left(\frac{20}{15}\right) \\
+&amp;\approx \phi(1.33) \\
+\end{align}\]</span></p>
+</div>
+<p>表から <span class="math inline">\(\phi(1.33) \approx 0.90824\)</span> である。</p>
+<div id="exm-find-z-from-X" class="theorem example">
+<p><span class="theorem-title"><strong>例 C.4</strong></span> <span class="math inline">\(X \sim N(100, 15^2)\)</span> のとき、<span class="math inline">\(P(X \leq x) = 0.9\)</span> のとき、<span class="math inline">\(x\)</span>の値を求めよ。</p>
+<p><span class="math display">\[\begin{align}
+P(X \leq x) &amp;= 0.9 \\
+\phi\left(\frac{x - 100}{15}\right) &amp;= 0.9 \\
+\frac{x - 100}{15} &amp;\approx 1.28 \\
+x - 100 &amp;\approx 19.2 \\
+x &amp;\approx 119.2 \\
+\end{align}\]</span></p>
+<p>したがって、<span class="math inline">\(x \approx 119.2\)</span> である。</p>
 </div>
 <table class="caption-top table">
 <colgroup>

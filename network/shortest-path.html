@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>記号 – オペレーションズ・リサーチ</title>
+<title>8&nbsp; 最短路問題 – オペレーションズ・リサーチ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,28 +20,63 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./inventory/intro.html" rel="next">
-<link href="./course-info.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6437d3b8e7436a5f09bef9d8f13bc7c7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../network/pert.html" rel="next">
+<link href="../network/graph.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-6437d3b8e7436a5f09bef9d8f13bc7c7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -111,7 +146,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./notation.html">記号</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../network/graph.html">ネットワーク最適化</a></li><li class="breadcrumb-item"><a href="../network/shortest-path.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">最短路問題</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
@@ -126,7 +161,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">オペレーションズ・リサーチ</a> 
+      <a href="../">オペレーションズ・リサーチ</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/zi-ang-liu/or-book" title="ソースコード" class="quarto-navigation-tool px-1" aria-label="ソースコード"><i class="bi bi-github"></i></a>
 </div>
@@ -141,19 +176,19 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./course-info.html" class="sidebar-item-text sidebar-link">
+  <a href="../course-info.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">講義</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notation.html" class="sidebar-item-text sidebar-link active">
+  <a href="../notation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">記号</span></a>
   </div>
 </li>
@@ -168,31 +203,31 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inventory/intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../inventory/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">在庫管理とは</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inventory/eoq.html" class="sidebar-item-text sidebar-link">
+  <a href="../inventory/eoq.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">経済的発注量</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inventory/wagner-whitin.html" class="sidebar-item-text sidebar-link">
+  <a href="../inventory/wagner-whitin.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Wagner-Whitin モデル</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inventory/newsvendor.html" class="sidebar-item-text sidebar-link">
+  <a href="../inventory/newsvendor.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">新聞売り子問題</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inventory/safety.html" class="sidebar-item-text sidebar-link">
+  <a href="../inventory/safety.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">安全在庫</span></span></a>
   </div>
 </li>
@@ -209,7 +244,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mcda/ahp.html" class="sidebar-item-text sidebar-link">
+  <a href="../mcda/ahp.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">階層分析法</span></span></a>
   </div>
 </li>
@@ -226,19 +261,19 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./network/graph.html" class="sidebar-item-text sidebar-link">
+  <a href="../network/graph.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">グラフ理論</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./network/shortest-path.html" class="sidebar-item-text sidebar-link">
+  <a href="../network/shortest-path.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">最短路問題</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./network/pert.html" class="sidebar-item-text sidebar-link">
+  <a href="../network/pert.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">PERT/CPM</span></span></a>
   </div>
 </li>
@@ -246,7 +281,7 @@ window.Quarto = {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">参考文献</span></a>
   </div>
 </li>
@@ -261,19 +296,19 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendices/calculus.html" class="sidebar-item-text sidebar-link">
+  <a href="../appendices/calculus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">微分積分</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendices/probability.html" class="sidebar-item-text sidebar-link">
+  <a href="../appendices/probability.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">確率</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendices/standard_normal_table.html" class="sidebar-item-text sidebar-link">
+  <a href="../appendices/standard_normal_table.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">標準正規分布表</span></span></a>
   </div>
 </li>
@@ -284,24 +319,15 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">目次</h2>
-   
-  <ul>
-  <li><a href="#集合" id="toc-集合" class="nav-link active" data-scroll-target="#集合">集合</a></li>
-  <li><a href="#確率統計" id="toc-確率統計" class="nav-link" data-scroll-target="#確率統計">確率統計</a></li>
-  <li><a href="#関数" id="toc-関数" class="nav-link" data-scroll-target="#関数">関数</a></li>
-  <li><a href="#例題" id="toc-例題" class="nav-link" data-scroll-target="#例題">例題</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../network/graph.html">ネットワーク最適化</a></li><li class="breadcrumb-item"><a href="../network/shortest-path.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">最短路問題</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">記号</h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">最短路問題</span></h1>
 </div>
 
 
@@ -318,54 +344,77 @@ window.Quarto = {
 </header>
 
 
-<section id="集合" class="level2">
-<h2 class="anchored" data-anchor-id="集合">集合</h2>
-<dl>
-<dt><span class="math inline">\(A\)</span></dt>
-<dd>
-集合。大文字で表す。
-</dd>
-<dt><span class="math inline">\(A \setminus B\)</span></dt>
-<dd>
-集合 <span class="math inline">\(A\)</span> と集合 <span class="math inline">\(B\)</span> の差集合。
-</dd>
-</dl>
-</section>
-<section id="確率統計" class="level2">
-<h2 class="anchored" data-anchor-id="確率統計">確率統計</h2>
-<p><span class="math inline">\(X\)</span>: 確率変数。大文字で表す。</p>
-<p><span class="math inline">\(P(X = x)\)</span>: 確率変数 <span class="math inline">\(X\)</span> が <span class="math inline">\(x\)</span> をとる確率</p>
-<p><span class="math inline">\(\mathbb{E}[X]\)</span>: 確率変数 <span class="math inline">\(X\)</span> の期待値</p>
-<p><span class="math inline">\(F_X(x)\)</span>: 確率変数 <span class="math inline">\(X\)</span> の累積分布関数</p>
-<p><span class="math inline">\(f_X(x)\)</span>: 確率変数 <span class="math inline">\(X\)</span> の確率密度関数</p>
-<p><span class="math inline">\(p_X(x)\)</span>: 確率変数 <span class="math inline">\(X\)</span> の確率質量関数</p>
-<p><span class="math inline">\(\phi(z)\)</span>: 標準正規分布の確率密度関数</p>
-</section>
-<section id="関数" class="level2">
-<h2 class="anchored" data-anchor-id="関数">関数</h2>
-<p><span class="math inline">\(A\)</span> は要素の間に順序が定義された集合とする。</p>
-<p><span class="math inline">\(\max A\)</span>: 集合 <span class="math inline">\(A\)</span> の最大値。</p>
-<p><span class="math inline">\(\min A\)</span>: 集合 <span class="math inline">\(A\)</span> の最小値。</p>
-<p><span class="math inline">\((x)^+\)</span>: <span class="math inline">\(x\)</span> と <span class="math inline">\(0\)</span> のうち大きい方。すなわち、<span class="math inline">\((x)^+ = \max(x, 0)\)</span>。</p>
-<p><span class="math inline">\((x)^-\)</span>: <span class="math inline">\(x\)</span> と <span class="math inline">\(0\)</span> のうち小さい方の絶対値。すなわち、<span class="math inline">\((x)^- = \max(-x, 0) = -\min(x, 0)\)</span>。</p>
-</section>
-<section id="例題" class="level2">
-<h2 class="anchored" data-anchor-id="例題">例題</h2>
-<div id="exm-setminus" class="theorem example">
-<p><span class="theorem-title"><strong>例 1 (差集合)</strong></span> <span class="math inline">\(A = \{1, 2, 3\}\)</span>、<span class="math inline">\(B = \{2, 3, 4\}\)</span> とする。このとき、<span class="math inline">\(A \setminus B = \{1\}\)</span> である。</p>
+<p>有向グラフ <span class="math inline">\(G = (V, E)\)</span> を考える。各辺 <span class="math inline">\((v, u) \in E\)</span> に非負の重み <span class="math inline">\(w(v, u)\)</span> が与えられているとする。このとき、点 <span class="math inline">\(s \in V\)</span> から点 <span class="math inline">\(t \in V\)</span> への<strong>最短路</strong>（shortest path）とは、<span class="math inline">\(s\)</span> から <span class="math inline">\(t\)</span> へのパスのうち、重みの和が最小となるパスである。 最短路問題とは、<span class="math inline">\(s\)</span> から <span class="math inline">\(t\)</span> への最短路を求める問題である。</p>
+<div id="exm-shortest-path" class="theorem example">
+<p><span class="theorem-title"><strong>例 8.1</strong></span> 次の図は、最短路問題の例を示している。</p>
+<div id="843b6f15" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>コード</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># グラフの作成（頂点を番号で定義）</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.DiGraph()</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>edges <span class="op">=</span> [</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"s"</span>, <span class="st">"v1"</span>, <span class="dv">5</span>),</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"s"</span>, <span class="st">"v2"</span>, <span class="dv">3</span>),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"v1"</span>, <span class="st">"v3"</span>, <span class="dv">17</span>),</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"v2"</span>, <span class="st">"v3"</span>, <span class="dv">1</span>),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"v2"</span>, <span class="st">"v4"</span>, <span class="dv">3</span>),</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"v3"</span>, <span class="st">"t"</span>, <span class="dv">4</span>),</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"v4"</span>, <span class="st">"t"</span>, <span class="dv">2</span>),</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>G.add_weighted_edges_from(edges)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> {</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    node: (<span class="vs">rf"</span><span class="dv">$</span><span class="vs">v_</span><span class="sc">{</span>node[<span class="dv">1</span>:]<span class="sc">}</span><span class="dv">$</span><span class="vs">"</span> <span class="cf">if</span> node.startswith(<span class="st">"v"</span>) <span class="cf">else</span> <span class="vs">rf"</span><span class="dv">$</span><span class="sc">{</span>node<span class="sc">}</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> node <span class="kw">in</span> G.nodes()</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> layer, nodes <span class="kw">in</span> <span class="bu">enumerate</span>(nx.topological_generations(G)):</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> node <span class="kw">in</span> nodes:</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        G.nodes[node][<span class="st">"layer"</span>] <span class="op">=</span> layer</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> nx.multipartite_layout(G, subset_key<span class="op">=</span><span class="st">"layer"</span>)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>label_pos <span class="op">=</span> {}</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k, (x, y) <span class="kw">in</span> pos.items():</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    r <span class="op">=</span> np.sqrt(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> y<span class="op">**</span><span class="dv">2</span>) <span class="cf">if</span> np.sqrt(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> y<span class="op">**</span><span class="dv">2</span>) <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="dv">1</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    scale <span class="op">=</span> <span class="fl">1.1</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    label_pos[k] <span class="op">=</span> (x <span class="op">*</span> scale, y <span class="op">*</span> scale)</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx(</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    G,</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    pos<span class="op">=</span>pos,</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    with_labels<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    node_color<span class="op">=</span><span class="st">"white"</span>,</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    node_size<span class="op">=</span><span class="dv">50</span>,</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    edgecolors<span class="op">=</span><span class="st">"black"</span>,</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx_labels(G, label_pos, labels, font_size<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx_edge_labels(</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    G,</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    pos,</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    edge_labels<span class="op">=</span>{(u, v): d[<span class="st">"weight"</span>] <span class="cf">for</span> u, v, d <span class="kw">in</span> G.edges(data<span class="op">=</span><span class="va">True</span>)},</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    font_color<span class="op">=</span><span class="st">"black"</span>,</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>    font_size<span class="op">=</span><span class="dv">12</span>,</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>)</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="shortest-path_files/figure-html/cell-2-output-1.png" width="540" height="389" class="figure-img"></p>
+</figure>
 </div>
-<div id="exm-min-max" class="theorem example">
-<p><span class="theorem-title"><strong>例 2 (最大値と最小値)</strong></span> <span class="math inline">\(A = \{1, 0, -1\}\)</span> とする。このとき、<span class="math inline">\(\max A = 1\)</span>、<span class="math inline">\(\min A = -1\)</span> である。</p>
 </div>
-<div id="exm-positive-part" class="theorem example">
-<p><span class="theorem-title"><strong>例 3 (正の部分)</strong></span> <span class="math inline">\((10)^+ = 10\)</span>、<span class="math inline">\((-30)^+ = 0\)</span> である。</p>
-</div>
-<div id="exm-negative-part" class="theorem example">
-<p><span class="theorem-title"><strong>例 4 (負の部分)</strong></span> <span class="math inline">\((10)^- = 0\)</span>、<span class="math inline">\((-30)^- = 30\)</span> である。</p>
 </div>
 
 
-</section>
+</div>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -769,13 +818,13 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./course-info.html" class="pagination-link" aria-label="講義">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">講義</span>
+      <a href="../network/graph.html" class="pagination-link" aria-label="グラフ理論">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">グラフ理論</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./inventory/intro.html" class="pagination-link" aria-label="在庫管理とは">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">在庫管理とは</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../network/pert.html" class="pagination-link" aria-label="PERT/CPM">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">PERT/CPM</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

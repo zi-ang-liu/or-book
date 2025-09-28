@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,7 +65,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../project/pert.html" rel="next">
+<link href="../network/shortest-path.html" rel="next">
 <link href="../mcda/ahp.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -70,6 +105,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -201,21 +265,16 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">グラフ理論</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">プロジェクト管理</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../project/pert.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">PERT/CPM</span></span></a>
+  <a href="../network/shortest-path.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">最短路問題</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../network/pert.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">PERT/CPM</span></span></a>
   </div>
 </li>
       </ul>
@@ -228,13 +287,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">付録</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/calculus.html" class="sidebar-item-text sidebar-link">
@@ -260,8 +319,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#無向グラフ" id="toc-無向グラフ" class="nav-link active" data-scroll-target="#無向グラフ"><span class="header-section-number">7.1</span> 無向グラフ</a></li>
+  <li><a href="#有向グラフ" id="toc-有向グラフ" class="nav-link" data-scroll-target="#有向グラフ"><span class="header-section-number">7.2</span> 有向グラフ</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -285,8 +351,131 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p><strong>グラフ</strong>（graph）は、<strong>点</strong>（vertex）の集合<span class="math inline">\(V\)</span>と辺（edge）の集合<span class="math inline">\(E\)</span>から構成され、<span class="math inline">\(G=(V,E)\)</span>で表される。</p>
+<p>グラフは、<strong>有向グラフ</strong>（directed graph）と<strong>無向グラフ</strong>（undirected graph）に分けられる。</p>
+<section id="無向グラフ" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="無向グラフ"><span class="header-section-number">7.1</span> 無向グラフ</h2>
+<p>無向グラフは、辺の方向を持たないグラフである。辺は、2つの点の集合として表される。</p>
+<div id="exm-undirected-graph" class="theorem example">
+<p><span class="theorem-title"><strong>例 7.1 (無向グラフの例)</strong></span> グラフ</p>
+<p><span class="math display">\[
+G = ({v_1, v_2, v_3, v_4}, \{\{v_1,v_2\},\{v_2,v_3\},\{v_3,v_4\},\{v_4,v_1\},\{v_1,v_3\}\})
+\]</span></p>
+<p>は、点の集合<span class="math inline">\(V=\{v_1,v_2,v_3,v_4\}\)</span>と辺の集合<span class="math inline">\(E=\{\{v_1,v_2\},\{v_2,v_3\},\{v_3,v_4\},\{v_4,v_1\},\{v_1,v_3\}\}\)</span>からなる。</p>
+<div id="83ab91bc" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>コード</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># グラフの作成（頂点を番号で定義）</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.Graph()</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>G.add_edges_from([(<span class="dv">1</span>, <span class="dv">2</span>), (<span class="dv">2</span>, <span class="dv">3</span>), (<span class="dv">3</span>, <span class="dv">4</span>), (<span class="dv">4</span>, <span class="dv">1</span>), (<span class="dv">1</span>, <span class="dv">3</span>)])</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 頂点ラベルを LaTeX 形式に変換</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> {i: <span class="vs">rf"</span><span class="dv">$</span><span class="vs">v_</span><span class="sc">{</span>i<span class="sc">}</span><span class="dv">$</span><span class="vs">"</span> <span class="cf">for</span> i <span class="kw">in</span> G.nodes()}</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># レイアウト（円形）</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> nx.circular_layout(G)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># ラベルの位置を少し外側へ移動</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>label_pos <span class="op">=</span> {}</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k, (x, y) <span class="kw">in</span> pos.items():</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    r <span class="op">=</span> np.sqrt(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> y<span class="op">**</span><span class="dv">2</span>)  <span class="co"># 原点からの距離</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    scale <span class="op">=</span> <span class="fl">1.15</span>  <span class="co"># 外側に押し出す係数（調整可）</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    label_pos[k] <span class="op">=</span> (x <span class="op">/</span> r <span class="op">*</span> scale, y <span class="op">/</span> r <span class="op">*</span> scale)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">4</span>))</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># ノード描画</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx_nodes(G, pos, node_color<span class="op">=</span><span class="st">"black"</span>, node_size<span class="op">=</span><span class="dv">120</span>, edgecolors<span class="op">=</span><span class="st">"black"</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># エッジ描画</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx_edges(G, pos, edge_color<span class="op">=</span><span class="st">"black"</span>, width<span class="op">=</span><span class="fl">1.2</span>)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># 外側にラベル描画</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx_labels(G, label_pos, labels, font_size<span class="op">=</span><span class="dv">12</span>, font_weight<span class="op">=</span><span class="st">"regular"</span>)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="graph_files/figure-html/cell-2-output-1.png" width="317" height="315" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>グラフ <span class="math inline">\(G = (V, E)\)</span> において、<span class="math inline">\(e = \{v, u\} \in E\)</span> を満たすとき、点 <span class="math inline">\(v\)</span> と <span class="math inline">\(u\)</span> は<strong>隣接</strong>（adjacent）しているといい、<span class="math inline">\(e\)</span> は <span class="math inline">\(v\)</span> と <span class="math inline">\(u\)</span> を<strong>接続</strong>（incident）しているという。</p>
+<p>点 <span class="math inline">\(v\)</span> に接続している辺の数を、<span class="math inline">\(v\)</span> の<strong>次数</strong>（degree）という。<a href="#exm-undirected-graph" class="quarto-xref">例&nbsp;<span>7.1</span></a> の場合、<span class="math inline">\(v_1\)</span> の次数は 3、<span class="math inline">\(v_2\)</span> の次数は 2 である。</p>
+</section>
+<section id="有向グラフ" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="有向グラフ"><span class="header-section-number">7.2</span> 有向グラフ</h2>
+<p>有向グラフは、辺に方向があるグラフである。辺は、2つの点の順序対として表される。</p>
+<div id="exm-directed-graph" class="theorem example">
+<p><span class="theorem-title"><strong>例 7.2 (有向グラフの例)</strong></span> グラフ</p>
+<p><span class="math display">\[
+G = ({v_1, v_2, v_3, v_4}, \{(v_1,v_2),(v_2,v_3),(v_3,v_4),(v_4,v_1),(v_1,v_3)\})
+\]</span></p>
+<p>は、点の集合<span class="math inline">\(V=\{v_1,v_2,v_3,v_4\}\)</span>と辺の集合<span class="math inline">\(E=\{(v_1,v_2),(v_2,v_3),(v_3,v_4),(v_4,v_1),(v_1,v_3)\}\)</span>からなる。</p>
+<div id="3a55da08" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>コード</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># グラフの作成（頂点を番号で定義）</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.DiGraph()</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>G.add_edges_from([(<span class="dv">1</span>, <span class="dv">2</span>), (<span class="dv">2</span>, <span class="dv">3</span>), (<span class="dv">3</span>, <span class="dv">4</span>), (<span class="dv">4</span>, <span class="dv">1</span>), (<span class="dv">1</span>, <span class="dv">3</span>)])</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 頂点ラベルを LaTeX 形式に変換</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> {i: <span class="vs">rf"</span><span class="dv">$</span><span class="vs">v_</span><span class="sc">{</span>i<span class="sc">}</span><span class="dv">$</span><span class="vs">"</span> <span class="cf">for</span> i <span class="kw">in</span> G.nodes()}</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># レイアウト（円形）</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> nx.circular_layout(G)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># ラベルの位置を少し外側へ移動</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>label_pos <span class="op">=</span> {}</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k, (x, y) <span class="kw">in</span> pos.items():</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    r <span class="op">=</span> np.sqrt(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> y<span class="op">**</span><span class="dv">2</span>)  <span class="co"># 原点からの距離</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    scale <span class="op">=</span> <span class="fl">1.15</span>  <span class="co"># 外側に押し出す係数（調整可）</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    label_pos[k] <span class="op">=</span> (x <span class="op">/</span> r <span class="op">*</span> scale, y <span class="op">/</span> r <span class="op">*</span> scale)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">4</span>))</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co"># ノード描画</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx_nodes(G, pos, node_color<span class="op">=</span><span class="st">"black"</span>, node_size<span class="op">=</span><span class="dv">120</span>, edgecolors<span class="op">=</span><span class="st">"black"</span>)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># エッジ描画</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx_edges(G, pos, edge_color<span class="op">=</span><span class="st">"black"</span>, width<span class="op">=</span><span class="fl">1.2</span>, arrowsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 外側にラベル描画</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx_labels(G, label_pos, labels, font_size<span class="op">=</span><span class="dv">12</span>, font_weight<span class="op">=</span><span class="st">"regular"</span>)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>)</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="graph_files/figure-html/cell-3-output-1.png" width="317" height="315" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>グラフ <span class="math inline">\(G = (V, E)\)</span> において、点 <span class="math inline">\(v\)</span> から出る辺の数を<strong>出次数</strong>（outdegree）といい、点 <span class="math inline">\(v\)</span> に入る辺の数を<strong>入次数</strong>（indegree）という。<a href="#exm-directed-graph" class="quarto-xref">例&nbsp;<span>7.2</span></a> の場合、<span class="math inline">\(v_1\)</span> の出次数は 2、入次数は 1 である。</p>
+<section id="パス" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="パス"><span class="header-section-number">7.3</span> パス</h2>
+<p><span class="math inline">\(G = (V, E)\)</span> において、<strong>パス</strong>（path）<span class="math inline">\(P\)</span> とは、点の組</p>
+<p><span class="math display">\[
+P = (v_{i_1}, v_{i_2}, \ldots, v_{i_k})
+\]</span></p>
+<p>であって、各 <span class="math inline">\(j = 1, 2, \ldots, k-1\)</span> に対して <span class="math inline">\((v_{i_j}, v_{i_{j+1}}) \in E\)</span> を満たすものをいう。パスの<strong>長さ</strong>（length）は、パスに含まれる辺の数である。</p>
 
 
+</section>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -695,8 +884,8 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../project/pert.html" class="pagination-link" aria-label="PERT/CPM">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">PERT/CPM</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../network/shortest-path.html" class="pagination-link" aria-label="最短路問題">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">最短路問題</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
