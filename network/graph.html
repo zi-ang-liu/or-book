@@ -326,6 +326,7 @@ window.Quarto = {
   <ul>
   <li><a href="#無向グラフ" id="toc-無向グラフ" class="nav-link active" data-scroll-target="#無向グラフ"><span class="header-section-number">7.1</span> 無向グラフ</a></li>
   <li><a href="#有向グラフ" id="toc-有向グラフ" class="nav-link" data-scroll-target="#有向グラフ"><span class="header-section-number">7.2</span> 有向グラフ</a></li>
+  <li><a href="#パス" id="toc-パス" class="nav-link" data-scroll-target="#パス"><span class="header-section-number">7.3</span> パス</a></li>
   </ul>
 </nav>
     </div>
@@ -362,7 +363,7 @@ window.Quarto = {
 G = ({v_1, v_2, v_3, v_4}, \{\{v_1,v_2\},\{v_2,v_3\},\{v_3,v_4\},\{v_4,v_1\},\{v_1,v_3\}\})
 \]</span></p>
 <p>は、点の集合<span class="math inline">\(V=\{v_1,v_2,v_3,v_4\}\)</span>と辺の集合<span class="math inline">\(E=\{\{v_1,v_2\},\{v_2,v_3\},\{v_3,v_4\},\{v_4,v_1\},\{v_1,v_3\}\}\)</span>からなる。</p>
-<div id="0e877526" class="cell" data-execution_count="1">
+<div id="8c4c19e7" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
@@ -417,7 +418,7 @@ G = ({v_1, v_2, v_3, v_4}, \{\{v_1,v_2\},\{v_2,v_3\},\{v_3,v_4\},\{v_4,v_1\},\{v
 G = ({v_1, v_2, v_3, v_4}, \{(v_1,v_2),(v_2,v_3),(v_3,v_4),(v_4,v_1),(v_1,v_3)\})
 \]</span></p>
 <p>は、点の集合<span class="math inline">\(V=\{v_1,v_2,v_3,v_4\}\)</span>と辺の集合<span class="math inline">\(E=\{(v_1,v_2),(v_2,v_3),(v_3,v_4),(v_4,v_1),(v_1,v_3)\}\)</span>からなる。</p>
-<div id="34c76399" class="cell" data-execution_count="2">
+<div id="3ed90baa" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
@@ -463,7 +464,9 @@ G = ({v_1, v_2, v_3, v_4}, \{(v_1,v_2),(v_2,v_3),(v_3,v_4),(v_4,v_1),(v_1,v_3)\}
 </div>
 </div>
 </div>
+</div>
 <p>グラフ <span class="math inline">\(G = (V, E)\)</span> において、点 <span class="math inline">\(v\)</span> から出る辺の数を<strong>出次数</strong>（outdegree）といい、点 <span class="math inline">\(v\)</span> に入る辺の数を<strong>入次数</strong>（indegree）という。<a href="#exm-directed-graph" class="quarto-xref">例&nbsp;<span>7.2</span></a> の場合、<span class="math inline">\(v_1\)</span> の出次数は 2、入次数は 1 である。</p>
+</section>
 <section id="パス" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="パス"><span class="header-section-number">7.3</span> パス</h2>
 <p><span class="math inline">\(G = (V, E)\)</span> において、<strong>パス</strong>（path）<span class="math inline">\(P\)</span> とは、点の組</p>
@@ -473,8 +476,6 @@ P = (v_{i_1}, v_{i_2}, \ldots, v_{i_k})
 <p>であって、各 <span class="math inline">\(j = 1, 2, \ldots, k-1\)</span> に対して <span class="math inline">\((v_{i_j}, v_{i_{j+1}}) \in E\)</span> を満たすものをいう。パスの<strong>長さ</strong>（length）は、パスに含まれる辺の数である。</p>
 
 
-</section>
-</div>
 </section>
 
 </main> <!-- /main -->
