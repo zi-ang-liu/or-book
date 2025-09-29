@@ -381,14 +381,14 @@ $$
 
 ### 問題の定式化
 
-- $x_i$: 作業点 $i$ の短縮時間
-- $c_i$: 作業点 $i$ の単位短縮コスト
-- $M_i$: 作業点 $i$ の最大短縮時間
-- $\tau_i$: 作業点 $i$ の元の所要時間
-- $y_i$: 作業点 $i$ の開始時間
-- $T$: プロジェクト全体の所要時間の上限
 
-$$
+- $c_i$: 作業 $i$ の単位時間あたりの短縮コスト
+- $M_i$: 作業 $i$ の最大短縮時間
+- $T$: プロジェクトの完了時間の上限
+- $\tau_i$: 作業 $i$ の標準所要時間
+- $y_i$: 作業 $i$ の開始時間
+- $x_i$: 作業 $i$ の短縮時間
+
 \begin{align*}
 \text{minimize} \quad & \sum_{i} c_i x_i &\\
 \text{subject to} \quad & y_j \geq y_i + \tau_i - x_i, \quad & \forall (i, j) \in E \\
@@ -396,7 +396,22 @@ $$
 & y_t \leq T \\
 & y_s = 0
 \end{align*}
+
+### 例題
+
+プロジェクト・ネットワークはグラフ $G = (V, E)$ で表す。作業の集合は
+
 $$
+V = \{s, t, A, B, C, D, E\}
+$$
+であり、辺の集合は
+
+$$
+E = \{(s, A), (s, C), (A, B), (C, D), (B, E), (D, E), (E, t)\} 
+$$
+である。ここで、$s$ は始点、$t$ は終点である。プロジェクト全体の所要時間の上限を $T = 10$ とする。
+
+作業時間、コスト、最大短縮時間は次の表のように与えられる。
 
 | 作業 | $\tau_i$ | $c_i$ | $M_i$ |
 | ---- | -------- | ----- | ----- |
@@ -406,17 +421,8 @@ $$
 | D    | 3        | 150   | 2     |
 | E    | 2        | 250   | 1     |
 
-$$
-E = \{(s, A), (s, C), (A, B), (C, D), (B, E), (D, E), (E, t)\}
-$$
+この問題を次のように定式化できる。
 
-$$
-V = \{s, t, A, B, C, D, E\}
-$$
-
-$T = 10$ とする。
-
-$$
 \begin{align*}
 \text{minimize} \quad & 100x_A + 150x_B + 200x_C + 150x_D + 250x_E &\\
 \text{subject to} \quad & y_A \geq 0 \\
@@ -434,9 +440,11 @@ $$
 & y_t \leq 10 \\
 & y_s = 0
 \end{align*}
-$$
+
+この線形計画問題は、最適化ソルバーを用いて解くことができる。以下に Gurobi を用いた実装例を示す。
 
 ```python
+!pip install gurobipy
 from gurobipy import Model, GRB
 
 # データ定義
@@ -451,7 +459,7 @@ T = 10
 
 # モデル作成
 m = Model("Project_Crashing")
-m.setParam("OutputFlag", 0)  # 出力を抑制
+m.setParam("OutputFlag", 0) 
 
 # 変数定義
 x = {i: m.addVar(lb=0, ub=M[i], name="x_{}".format(i)) for i in M}
@@ -460,7 +468,7 @@ y = {i: m.addVar(lb=0, name="y_{}".format(i)) for i in V}
 # 目的関数
 m.setObjective(sum(cost[i] * x[i] for i in M), GRB.MINIMIZE)
 
-# 制約: precedence constraints
+# 制約
 for i, j in E:
     if i == "s":
         m.addConstr(y[j] >= 0)
@@ -477,9 +485,27 @@ m.addConstr(y["s"] == 0)
 m.optimize()
 
 # 結果表示
-print("Objective (最小コスト):", m.objVal)
+print("Objective:", m.objVal)
 for i in x:
     print("x_{} =".format(i), x[i].X)
 for i in y:
     print("y_{} =".format(i), y[i].X)
 ```
+
+```plaintext
+Objective: 350.0
+x_A = 1.0
+x_B = 0.0
+x_C = 0.0
+x_D = 0.0
+x_E = 1.0
+y_s = 0.0
+y_t = 10.0
+y_A = 0.0
+y_B = 6.0
+y_C = 0.0
+y_D = 6.0
+y_E = 9.0
+```
+
+この結果から、作業 A を 1 日、作業 E を 1 日短縮することで、最小コスト 350 でプロジェクトを 10 日以内に完了できることがわかる。
