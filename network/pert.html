@@ -332,6 +332,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">標準正規分布表</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/opt_problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Optimization Problems</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -346,13 +352,19 @@ window.Quarto = {
   <ul>
   <li><a href="#プロジェクト" id="toc-プロジェクト" class="nav-link active" data-scroll-target="#プロジェクト"><span class="header-section-number">9.1</span> プロジェクト</a></li>
   <li><a href="#プロジェクトネットワーク" id="toc-プロジェクトネットワーク" class="nav-link" data-scroll-target="#プロジェクトネットワーク"><span class="header-section-number">9.2</span> プロジェクト・ネットワーク</a></li>
-  <li><a href="#クリティカルパス" id="toc-クリティカルパス" class="nav-link" data-scroll-target="#クリティカルパス"><span class="header-section-number">9.3</span> クリティカルパス</a>
+  <li><a href="#sec-critical-path" id="toc-sec-critical-path" class="nav-link" data-scroll-target="#sec-critical-path"><span class="header-section-number">9.3</span> クリティカルパス</a>
   <ul class="collapse">
   <li><a href="#最早開始時刻と最早終了時刻" id="toc-最早開始時刻と最早終了時刻" class="nav-link" data-scroll-target="#最早開始時刻と最早終了時刻"><span class="header-section-number">9.3.1</span> 最早開始時刻と最早終了時刻</a></li>
   <li><a href="#最遅開始時刻と最遅終了時刻" id="toc-最遅開始時刻と最遅終了時刻" class="nav-link" data-scroll-target="#最遅開始時刻と最遅終了時刻"><span class="header-section-number">9.3.2</span> 最遅開始時刻と最遅終了時刻</a></li>
   <li><a href="#スラック" id="toc-スラック" class="nav-link" data-scroll-target="#スラック"><span class="header-section-number">9.3.3</span> スラック</a></li>
   </ul></li>
   <li><a href="#点見積もり" id="toc-点見積もり" class="nav-link" data-scroll-target="#点見積もり"><span class="header-section-number">9.4</span> 3 点見積もり</a></li>
+  <li><a href="#不確実性を考慮したpertcpm" id="toc-不確実性を考慮したpertcpm" class="nav-link" data-scroll-target="#不確実性を考慮したpertcpm"><span class="header-section-number">9.5</span> 不確実性を考慮したPERT/CPM</a></li>
+  <li><a href="#時間とコストのトレードオフ" id="toc-時間とコストのトレードオフ" class="nav-link" data-scroll-target="#時間とコストのトレードオフ"><span class="header-section-number">9.6</span> 時間とコストのトレードオフ</a>
+  <ul class="collapse">
+  <li><a href="#問題の定式化" id="toc-問題の定式化" class="nav-link" data-scroll-target="#問題の定式化"><span class="header-section-number">9.6.1</span> 問題の定式化</a></li>
+  <li><a href="#例題" id="toc-例題" class="nav-link" data-scroll-target="#例題"><span class="header-section-number">9.6.2</span> 例題</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -450,7 +462,7 @@ window.Quarto = {
 <p>辺 <span class="math inline">\((s, v) \in E\)</span> は、作業 <span class="math inline">\(v\)</span> が先行作業を持たないことを意味し、辺 <span class="math inline">\((v, t) \in E\)</span> は、作業 <span class="math inline">\(v\)</span> が後続作業を持たないことを意味する。作業 <span class="math inline">\(v\)</span> の先行作業の集合を <span class="math inline">\(\mathcal{P}(v)\)</span> と表す。作業 <span class="math inline">\(v\)</span> の後続作業の集合を <span class="math inline">\(\mathcal{S}(v)\)</span> と表す。</p>
 <p>作業点 <span class="math inline">\(v \in V\)</span> には、作業時間 <span class="math inline">\(\tau(v)\)</span> が与えられている。始点 <span class="math inline">\(s\)</span> と終点 <span class="math inline">\(t\)</span> の作業時間は <span class="math inline">\(\tau(s) = \tau(t) = 0\)</span> とする。</p>
 <p><a href="#exm-pert-report" class="quarto-xref">例&nbsp;<span>9.1</span></a> のプロジェクト・ネットワークは次の図のようになる。</p>
-<div id="f6994b2a" class="cell" data-execution_count="1">
+<div id="74fb1a58" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -550,7 +562,7 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<div id="84ae82ad" class="cell" data-execution_count="2">
+<div id="2a706e4e" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -608,8 +620,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="クリティカルパス" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="クリティカルパス"><span class="header-section-number">9.3</span> クリティカルパス</h2>
+<section id="sec-critical-path" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="sec-critical-path"><span class="header-section-number">9.3</span> クリティカルパス</h2>
 <p>プロジェクト・ネットワークにおいて、始点 <span class="math inline">\(s\)</span> から終点 <span class="math inline">\(t\)</span> までの経路を<strong>パス</strong>と呼ぶ。パスの長さは、そのパス上の作業時間の合計である。パス <span class="math inline">\(P = (s, v_{i_1}, v_{i_2}, \ldots, v_{i_k}, t)\)</span> の長さは、</p>
 <p><span class="math display">\[
 \sum_{v \in P} \tau(v) = \tau(v_{i_1}) + \tau(v_{i_2}) + \cdots + \tau(v_{i_k})
@@ -919,8 +931,8 @@ SL(v) = LS(v) - ES(v) = LF(v) - EF(v)
 </section>
 <section id="点見積もり" class="level2" data-number="9.4">
 <h2 data-number="9.4" class="anchored" data-anchor-id="点見積もり"><span class="header-section-number">9.4</span> 3 点見積もり</h2>
-<p>以上の方法では、作業の所要時間が確定していることを前提としている。しかし、実際には、所要時間の推定は難しい場合が多い。そこで、作業の所要時間を確率変数として扱い、3 点見積もり（Three-Point Estimation）という方法でその確率分布を推定する。</p>
-<p>3 点見積もりでは、次の 3 つの所要時間を見積もる。</p>
+<p>以上の方法では、作業の所要時間が確定していることを前提としている。しかし、実際には、所要時間の推定は難しい場合が多い。そこで、作業の所要時間を確率変数として扱い、3 点見積もり（Three-Point Estimation）という方法でその作業時間の平均と分散を推定する。</p>
+<p>3 点見積もりでは、次の 3 つの所要時間を事前に与えられたとする。</p>
 <ul>
 <li>楽観値（Optimistic Time, <span class="math inline">\(a\)</span>）：予想される最短の所要時間。</li>
 <li>最頻値（Most Likely Time, <span class="math inline">\(m\)</span>）：最も可能性が高い所要時間。</li>
@@ -931,6 +943,288 @@ SL(v) = LS(v) - ES(v) = LF(v) - EF(v)
 <p><span id="eq-pert-3point"><span class="math display">\[
 \hat{\mu} = \frac{a + 4m + b}{6}, \quad \hat{\sigma}^2 = \left(\frac{b - a}{6}\right)^2
 \tag{9.1}\]</span></span></p>
+<p>そこで、<span class="math inline">\(\mu(v)\)</span> と <span class="math inline">\(\sigma^2(v)\)</span> をそれぞれ作業点 <span class="math inline">\(v\)</span> の所要時間の平均と分散とする。<span class="math inline">\(a(v)\)</span>、<span class="math inline">\(m(v)\)</span>、<span class="math inline">\(b(v)\)</span> をそれぞれ作業点 <span class="math inline">\(v\)</span> の楽観値、最頻値、悲観値とする。このとき、すべての作業点 <span class="math inline">\(v \in V\)</span> に対して、</p>
+<p><span class="math display">\[
+\mu(v) = \frac{a(v) + 4m(v) + b(v)}{6}, \quad \sigma^2(v) = \left(\frac{b(v) - a(v)}{6}\right)^2
+\]</span></p>
+<p>で <span class="math inline">\(\mu(v)\)</span> と <span class="math inline">\(\sigma^2(v)\)</span> を計算する。</p>
+<p><a href="#exm-pert-2" class="quarto-xref">例&nbsp;<span>9.2</span></a> のプロジェクト・ネットワークに対して、各作業点の楽観値、最頻値、悲観値が次のように与えられたとするとき、平均と分散を求めると、次の表のようになる。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(v\)</span></th>
+<th><span class="math inline">\(a\)</span></th>
+<th><span class="math inline">\(m\)</span></th>
+<th><span class="math inline">\(b\)</span></th>
+<th><span class="math inline">\(\mu\)</span></th>
+<th><span class="math inline">\(\sigma^2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>s</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>A</td>
+<td>0.5</td>
+<td>2</td>
+<td>3.5</td>
+<td>2</td>
+<td>0.25</td>
+</tr>
+<tr class="odd">
+<td>B</td>
+<td>1.5</td>
+<td>3</td>
+<td>4.5</td>
+<td>3</td>
+<td>0.25</td>
+</tr>
+<tr class="even">
+<td>C</td>
+<td>1.5</td>
+<td>3</td>
+<td>4.5</td>
+<td>3</td>
+<td>0.25</td>
+</tr>
+<tr class="odd">
+<td>D</td>
+<td>0.5</td>
+<td>2</td>
+<td>3.5</td>
+<td>2</td>
+<td>0.25</td>
+</tr>
+<tr class="even">
+<td>E</td>
+<td>1</td>
+<td>5.5</td>
+<td>7</td>
+<td>5</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>F</td>
+<td>5</td>
+<td>8</td>
+<td>17</td>
+<td>9</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>G</td>
+<td>0.5</td>
+<td>2</td>
+<td>3.5</td>
+<td>2</td>
+<td>0.25</td>
+</tr>
+<tr class="odd">
+<td>t</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="不確実性を考慮したpertcpm" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="不確実性を考慮したpertcpm"><span class="header-section-number">9.5</span> 不確実性を考慮したPERT/CPM</h2>
+<p>3 点見積もりを用いて、各作業点 <span class="math inline">\(v \in V\)</span> の所要時間の平均 <span class="math inline">\(\mu(v)\)</span> と分散 <span class="math inline">\(\sigma^2(v)\)</span> を求めたとする。このとき、与えられた時間までにプロジェクトが完了する確率を求めたい。</p>
+<p>プロジェクト・ネットワークにおけるパス <span class="math inline">\(P = (s, v_{i_1}, v_{i_2}, \ldots, v_{i_k}, t)\)</span> の所要時間の平均 <span class="math inline">\(\mu(P)\)</span> と分散 <span class="math inline">\(\sigma^2(P)\)</span> は、それぞれ次のように推定できる。</p>
+<p><span class="math display">\[
+\mu(P) = \sum_{v \in P} \mu(v), \quad \sigma^2(P) = \sum_{v \in P} \sigma^2(v)
+\]</span></p>
+<p>パス <span class="math inline">\(P\)</span> の所要時間の標準偏差 <span class="math inline">\(\sigma(P)\)</span> は、</p>
+<p><span class="math display">\[
+\sigma(P) = \sqrt{\sigma^2(P)}
+\]</span></p>
+<p>で与えられる。求められたパスの中で、所要時間の平均 <span class="math inline">\(\mu(P)\)</span> が最大のパスをクリティカルパス <span class="math inline">\(P^*\)</span> とする。<a href="#sec-critical-path" class="quarto-xref"><span>セクション 9.3</span></a> で述べた方法でクリティカルパスを求めることができる。</p>
+<p>クリティカルパス <span class="math inline">\(P^*\)</span> の所要時間を <span class="math inline">\(X\)</span> とし、与えられた時間 <span class="math inline">\(d\)</span> までにプロジェクトが完了する確率を <span class="math inline">\(\mathbb{P}(X \leq d)\)</span> と表す <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>。</p>
+<p><span class="math display">\[
+\mathbb{P}(X \leq d) = \phi\left(\frac{d - \mu(P^*)}{\sigma(P^*)}\right)
+\]</span></p>
+<p>ここで、<span class="math inline">\(\phi(z)\)</span> は標準正規分布の確率密度関数である。<span class="math inline">\(z\)</span> は次のように計算し、標準正規分布表を用いて <span class="math inline">\(\phi(z)\)</span> を調べる。</p>
+<p><span class="math display">\[
+z = \frac{d - \mu(P^*)}{\sigma(P^*)}
+\]</span></p>
+<p><a href="#exm-pert-2" class="quarto-xref">例&nbsp;<span>9.2</span></a> では、クリティカルパスは <span class="math inline">\(s \to B \to E \to F \to t\)</span> であり、このパスの所要時間の平均、分散、標準偏差は次のように計算できる。</p>
+<p><span class="math display">\[
+\mu(P^*) = 3 + 5 + 9 = 17
+\]</span></p>
+<p><span class="math display">\[
+\sigma^2(P^*) = 0.25 + 1 + 4 = 5.25
+\]</span></p>
+<p><span class="math display">\[
+\sigma(P^*) = \sqrt{5.25} \approx 2.29
+\]</span></p>
+<p>与えられた時間 <span class="math inline">\(d = 20\)</span> 日までにプロジェクトが完了する確率を求めるには、次のように計算する。</p>
+<p><span class="math inline">\(z\)</span> を計算すると、</p>
+<p><span class="math display">\[
+z = \frac{20 - 17}{2.29} \approx 1.31
+\]</span></p>
+<p>標準正規分布表を用いて、<span class="math inline">\(\phi(1.31) \approx 0.9049\)</span> である。したがって、与えられた時間 <span class="math inline">\(d = 20\)</span> 日までにプロジェクトが完了する確率は約 90.49% である。</p>
+</section>
+<section id="時間とコストのトレードオフ" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="時間とコストのトレードオフ"><span class="header-section-number">9.6</span> 時間とコストのトレードオフ</h2>
+<p>作業時間を短縮するには、コストがかかる。最小のコストでプロジェクトを短縮する問題を考える。</p>
+<section id="問題の定式化" class="level3" data-number="9.6.1">
+<h3 data-number="9.6.1" class="anchored" data-anchor-id="問題の定式化"><span class="header-section-number">9.6.1</span> 問題の定式化</h3>
+<ul>
+<li><span class="math inline">\(c_i\)</span>: 作業 <span class="math inline">\(i\)</span> の単位時間あたりの短縮コスト</li>
+<li><span class="math inline">\(M_i\)</span>: 作業 <span class="math inline">\(i\)</span> の最大短縮時間</li>
+<li><span class="math inline">\(T\)</span>: プロジェクトの完了時間の上限</li>
+<li><span class="math inline">\(\tau_i\)</span>: 作業 <span class="math inline">\(i\)</span> の標準所要時間</li>
+<li><span class="math inline">\(y_i\)</span>: 作業 <span class="math inline">\(i\)</span> の開始時間</li>
+<li><span class="math inline">\(x_i\)</span>: 作業 <span class="math inline">\(i\)</span> の短縮時間</li>
+</ul>
+<p><span class="math display">\[\begin{align*}
+\text{minimize} \quad &amp; \sum_{i} c_i x_i &amp;\\
+\text{subject to} \quad &amp; y_j \geq y_i + \tau_i - x_i, \quad &amp; \forall (i, j) \in E \\
+&amp; 0 \leq x_i \leq M_i, \quad &amp; \forall i \in V \\
+&amp; y_t \leq T \\
+&amp; y_s = 0
+\end{align*}\]</span></p>
+</section>
+<section id="例題" class="level3" data-number="9.6.2">
+<h3 data-number="9.6.2" class="anchored" data-anchor-id="例題"><span class="header-section-number">9.6.2</span> 例題</h3>
+<p>プロジェクト・ネットワークはグラフ <span class="math inline">\(G = (V, E)\)</span> で表す。作業の集合は</p>
+<p><span class="math display">\[
+V = \{s, t, A, B, C, D, E\}
+\]</span> であり、辺の集合は</p>
+<p><span class="math display">\[
+E = \{(s, A), (s, C), (A, B), (C, D), (B, E), (D, E), (E, t)\}
+\]</span> である。ここで、<span class="math inline">\(s\)</span> は始点、<span class="math inline">\(t\)</span> は終点である。プロジェクト全体の所要時間の上限を <span class="math inline">\(T = 10\)</span> とする。</p>
+<p>作業時間、コスト、最大短縮時間は次の表のように与えられる。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>作業</th>
+<th><span class="math inline">\(\tau_i\)</span></th>
+<th><span class="math inline">\(c_i\)</span></th>
+<th><span class="math inline">\(M_i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>7</td>
+<td>100</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>3</td>
+<td>150</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>6</td>
+<td>200</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td>3</td>
+<td>150</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>E</td>
+<td>2</td>
+<td>250</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>この問題を次のように定式化できる。</p>
+<p><span class="math display">\[\begin{align*}
+\text{minimize} \quad &amp; 100x_A + 150x_B + 200x_C + 150x_D + 250x_E &amp;\\
+\text{subject to} \quad &amp; y_A \geq 0 \\
+&amp; y_C \geq 0 \\
+&amp; y_B \geq y_A + 7 - x_A \\
+&amp; y_D \geq y_C + 6 - x_C \\
+&amp; y_E \geq y_B + 3 - x_B \\
+&amp; y_E \geq y_D + 3 - x_D \\
+&amp; y_t \geq y_E + 2 - x_E \\
+&amp; 0 \leq x_A \leq 3 \\
+&amp; 0 \leq x_B \leq 1 \\
+&amp; 0 \leq x_C \leq 2 \\
+&amp; 0 \leq x_D \leq 2 \\
+&amp; 0 \leq x_E \leq 1 \\
+&amp; y_t \leq 10 \\
+&amp; y_s = 0
+\end{align*}\]</span></p>
+<p>この線形計画問題は、最適化ソルバーを用いて解くことができる。以下に Gurobi を用いた実装例を示す。</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install gurobipy</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> gurobipy <span class="im">import</span> Model, GRB</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># データ定義</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>V <span class="op">=</span> [<span class="st">"s"</span>, <span class="st">"t"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>, <span class="st">"E"</span>]</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>E <span class="op">=</span> [(<span class="st">"s"</span>, <span class="st">"A"</span>), (<span class="st">"s"</span>, <span class="st">"C"</span>), (<span class="st">"A"</span>, <span class="st">"B"</span>), (<span class="st">"C"</span>, <span class="st">"D"</span>), (<span class="st">"B"</span>, <span class="st">"E"</span>), (<span class="st">"D"</span>, <span class="st">"E"</span>), (<span class="st">"E"</span>, <span class="st">"t"</span>)]</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>tau <span class="op">=</span> {<span class="st">"A"</span>: <span class="dv">7</span>, <span class="st">"B"</span>: <span class="dv">3</span>, <span class="st">"C"</span>: <span class="dv">6</span>, <span class="st">"D"</span>: <span class="dv">3</span>, <span class="st">"E"</span>: <span class="dv">2</span>}</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>cost <span class="op">=</span> {<span class="st">"A"</span>: <span class="dv">100</span>, <span class="st">"B"</span>: <span class="dv">150</span>, <span class="st">"C"</span>: <span class="dv">200</span>, <span class="st">"D"</span>: <span class="dv">150</span>, <span class="st">"E"</span>: <span class="dv">250</span>}</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> {<span class="st">"A"</span>: <span class="dv">3</span>, <span class="st">"B"</span>: <span class="dv">1</span>, <span class="st">"C"</span>: <span class="dv">2</span>, <span class="st">"D"</span>: <span class="dv">2</span>, <span class="st">"E"</span>: <span class="dv">1</span>}</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># モデル作成</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> Model(<span class="st">"Project_Crashing"</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>m.setParam(<span class="st">"OutputFlag"</span>, <span class="dv">0</span>) </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 変数定義</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> {i: m.addVar(lb<span class="op">=</span><span class="dv">0</span>, ub<span class="op">=</span>M[i], name<span class="op">=</span><span class="st">"x_</span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(i)) <span class="cf">for</span> i <span class="kw">in</span> M}</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> {i: m.addVar(lb<span class="op">=</span><span class="dv">0</span>, name<span class="op">=</span><span class="st">"y_</span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(i)) <span class="cf">for</span> i <span class="kw">in</span> V}</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 目的関数</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>m.setObjective(<span class="bu">sum</span>(cost[i] <span class="op">*</span> x[i] <span class="cf">for</span> i <span class="kw">in</span> M), GRB.MINIMIZE)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 制約</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, j <span class="kw">in</span> E:</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="st">"s"</span>:</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>        m.addConstr(y[j] <span class="op">&gt;=</span> <span class="dv">0</span>)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> i <span class="kw">in</span> tau:</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        m.addConstr(y[j] <span class="op">&gt;=</span> y[i] <span class="op">+</span> tau[i] <span class="op">-</span> x[i])</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="co"># プロジェクト終了制約</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>m.addConstr(y[<span class="st">"t"</span>] <span class="op">&lt;=</span> T)</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="co"># 開始ノード固定</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>m.addConstr(y[<span class="st">"s"</span>] <span class="op">==</span> <span class="dv">0</span>)</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="co"># 最適化</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>m.optimize()</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="co"># 結果表示</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Objective:"</span>, m.objVal)</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> x:</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x_</span><span class="sc">{}</span><span class="st"> ="</span>.<span class="bu">format</span>(i), x[i].X)</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> y:</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"y_</span><span class="sc">{}</span><span class="st"> ="</span>.<span class="bu">format</span>(i), y[i].X)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="plaintext"><code>Objective: 350.0
+x_A = 1.0
+x_B = 0.0
+x_C = 0.0
+x_D = 0.0
+x_E = 1.0
+y_s = 0.0
+y_t = 10.0
+y_A = 0.0
+y_B = 6.0
+y_C = 0.0
+y_D = 6.0
+y_E = 9.0</code></pre>
+<p>この結果から、作業 A を 1 日、作業 E を 1 日短縮することで、最小コスト 350 でプロジェクトを 10 日以内に完了できることがわかる。</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -948,10 +1242,12 @@ Pleguezuelo, Rafael Herrerı́as, José Garcı́a Pérez, と Salvador Cruz Ramb
 </div>
 </div>
 </section>
+</section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
 <li id="fn1"><p>作業の所要時間がベータ分布に従うと仮定した場合は、<a href="#eq-pert-3point" class="quarto-xref">式&nbsp;<span>9.1</span></a> が <span class="math inline">\(\mu\)</span> と <span class="math inline">\(\sigma^2\)</span> の良い推定量となる。これらの式の詳細な導出は省略する。興味のある読者は、<span class="citation" data-cites="Pleguezuelo2003-uf">Pleguezuelo, Pérez, と Rambaud (<a href="../references.html#ref-Pleguezuelo2003-uf" role="doc-biblioref">2003</a>)</span> を参照されたい。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>ここでは、計算を簡単にするために、クリティカルパスが最も時間がかかるパスであると仮定している。実際には、平均値から計算されたクリティカルパスが、最も時間がかかるパスであるとは限らないことに注意されたい。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
