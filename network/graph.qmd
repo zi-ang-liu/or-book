@@ -115,6 +115,7 @@ nx.draw_networkx_labels(G, label_pos, labels, font_size=12, font_weight="regular
 plt.axis("off")
 plt.show()
 ```
+:::
 
 グラフ $G = (V, E)$ において、点 $v$ から出る辺の数を**出次数**（outdegree）といい、点 $v$ に入る辺の数を**入次数**（indegree）という。@exm-directed-graph の場合、$v_1$ の出次数は 2、入次数は 1 である。
 
