@@ -384,7 +384,7 @@ window.Quarto = {
 <li>Constant order sizes. 発注量は一定である。需要率 <span class="math inline">\(d\)</span> が一定であり、在庫量が0のときに発注を行うため、最適発注量も一定である。</li>
 </ol>
 <p>以上の性質から、在庫量の時間的変化は下図のようになる。</p>
-<div id="9af0e8fd" class="cell" data-execution_count="1">
+<div id="24192900" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -473,15 +473,15 @@ g''(Q) = \frac{2Kd}{Q^3} &gt; 0
 <p><span class="math inline">\(g''(Q) &gt; 0\)</span> であるため、<span class="math inline">\(Q^*\)</span> は最小値を与える。</p>
 <p>最適発注量 <span class="math inline">\(Q^*\)</span> を次の定理にまとめる。</p>
 <div id="thm-eoq" class="theorem">
-<p><span class="theorem-title"><strong>定理 2.1</strong></span> EOQモデルにおいて、最適発注量 <span class="math inline">\(Q^*\)</span> は <span class="math display">\[
+<p><span class="theorem-title"><strong>定理 2.1</strong></span> EOQモデルにおいて、最適発注量 <span class="math inline">\(Q^*\)</span> は <span id="eq-eoq"><span class="math display">\[
 Q^* = \sqrt{\frac{2Kd}{h}}
-\]</span></p>
+\tag{2.1}\]</span></span></p>
 <p>で与えられる。</p>
 </div>
 <p><span class="math inline">\(Q^*\)</span> を用いて、最適なサイクル期間 <span class="math inline">\(T^*\)</span> を求めることができる。</p>
-<p><span class="math display">\[
+<p><span id="eq-eoq-cycle"><span class="math display">\[
 T^* = \frac{Q^*}{d} = \sqrt{\frac{2K}{hd}}
-\]</span></p>
+\tag{2.2}\]</span></span></p>
 <div id="rem-eoq-properties" class="proof remark">
 <p><span class="proof-title"><em>注釈 2.1</em>. </span>以下の性質がわかる。</p>
 <ol type="1">
@@ -490,8 +490,16 @@ T^* = \frac{Q^*}{d} = \sqrt{\frac{2K}{hd}}
 <li><span class="math inline">\(K\)</span> の増加に伴い、<span class="math inline">\(Q^*\)</span> は増加する。発注費用が高い場合は、多量で低い頻度で発注することが望ましい。</li>
 </ol>
 </div>
+<div id="alg-eoq">
+<p><strong>Algorithm for EOQ Model</strong></p>
+<ol type="1">
+<li>Input: <span class="math inline">\(K\)</span>, <span class="math inline">\(d\)</span>, <span class="math inline">\(h\)</span>.</li>
+<li>Compute <span class="math inline">\(Q^*\)</span> using <a href="#eq-eoq" class="quarto-xref">式&nbsp;<span>2.1</span></a>.</li>
+<li>Compute <span class="math inline">\(T^*\)</span> using <a href="#eq-eoq-cycle" class="quarto-xref">式&nbsp;<span>2.2</span></a>.</li>
+</ol>
+</div>
 <p>次の図は、発注コスト、保管コスト、平均コストの関係を示している。購入単価を <span class="math inline">\(c = 0\)</span> とする。</p>
-<div id="e295fd1b" class="cell" data-execution_count="2">
+<div id="9454a4be" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
@@ -540,7 +548,7 @@ Q^* = \sqrt{\frac{2 \cdot 5000 \cdot 250}{150}}
 <p>Excel では、下記のように計算できる。</p>
 <pre class="excel"><code>=SQRT(2 * 5000 * 250 / 150)</code></pre>
 <p>Python では、次のように<code>eoq(K, d, h)</code> 関数を定義し、最適発注量を計算できる。</p>
-<div id="49c80d50" class="cell" data-execution_count="3">
+<div id="b5f46ade" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> eoq(K, d, h):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculate the Economic Order Quantity (EOQ).</span></span>
