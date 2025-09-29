@@ -1,0 +1,213 @@
+---
+title: PERT/CPM
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
+<!-- 
+
+- Camm et al. (2022) Chapter 9
+- Taha (2016) Chapter 6
+- Hillier and Lieberman (2020) Chapter 22
+- Eiselt and Sandblom (2019) Chapter 8
+
+-->
+
+プロジェクトは、多くの作業からなる。プロジェクトを完遂できるように、作業のスケジュールを作成する必要がある。その方法として、**PERT**（Program Evaluation and Review Technique）と**CPM**（Critical Path Method）がある。現在では、PERTとCPMが統合され、**PERT/CPM**として知られている[@Camm2022-zv; @Hillier2025-cb]。
+
+ここで、ある作業の開始前に完了しなければならない作業を**先行作業**（Immediate Predecessor）と呼ぶ。また、ある作業の完了後に開始できる作業を**後続作業**（Immediate Successor）と呼ぶ。
+
+まとめると、プロジェクトは、次の要素で構成される。
+
+- 作業：プロジェクトを構成する仕事。活動、アクティビティとも呼ばれる。
+- 先行関係：それぞれの作業の先行作業を定義する関係。
+- 作業時間：各作業に必要な時間。
+
+:::{#exm-pert-report}
+学生の田中さんと佐藤さんが協力し、ある授業のレポートを作成することになった。このレポートを作成するためには、下の表に示すように、いくつかの作業を行う必要がある。
+
+| 作業 | 作業内容     | 先行作業 | 時間（日） |
+| ---- | ------------ | -------- | ---------- |
+| A    | 課題の理解   | -        | 2          |
+| B    | データ収集   | A        | 3          |
+| C    | データ分析   | B        | 4          |
+| D    | 文献調査     | A        | 2          |
+| E    | レポート作成 | C, D     | 5          |
+:::
+
+## プロジェクト・ネットワーク
+
+プロジェクトをネットワークで表現したものを**プロジェクト・ネットワーク**（Project Network）と呼ぶ。プロジェクト・ネットワークには、**AOA**（Activity on Arrow）や **AON**（Activity on Node）という 2 種類の表現方法がある。
+
+AOA では、作業を辺で表現し、先行関係を点で表現する。AON では、作業を点で表現し、先行関係を辺で表現する。AON のほうが理解と作成が容易で、実務でも AON がよく使われる[@Camm2022-zv; @Hillier2025-cb; @Eiselt2022-qy]。これは以降、AON に基づいて説明する。
+
+プロジェクト・ネットワークは $G = (V, E)$ という有向グラフで表される。ここで、$V$ は始点 $s$、終点 $t$ と各作業を表す点の集合であり、$E$ は先行関係を表す辺の集合である。辺 $(v, u) \in E$ では、$v$ が $u$ の先行作業であることを意味する。
+
+辺 $(s, v) \in E$ は、作業 $v$ が先行作業を持たないことを意味し、辺 $(v, t) \in E$ は、作業 $v$ が後続作業を持たないことを意味する。作業 $v$ の先行作業の集合を $\mathcal{P}(v)$ と表す。作業 $v$ の後続作業の集合を $\mathcal{S}(v)$ と表す。
+
+作業点 $v \in V$ には、作業時間 $t(v)$ が与えられている。始点 $s$ と終点 $t$ の作業時間は $t(s) = t(t) = 0$ とする。
+
+@exm-pert-report のプロジェクト・ネットワークは次の図のようになる。
+
+```{python}
+import matplotlib.pyplot as plt
+import networkx as nx
+import numpy as np
+
+# グラフの作成（頂点を番号で定義）
+G = nx.DiGraph()
+edges = [
+    ("s", "A"),
+    ("A", "B"),
+    ("A", "D"),
+    ("B", "C"),
+    ("C", "E"),
+    ("D", "E"),
+    ("E", "t"),
+]
+G.add_edges_from(edges)
+
+for layer, nodes in enumerate(nx.topological_generations(G)):
+    for node in nodes:
+        G.nodes[node]["layer"] = layer
+
+pos = nx.multipartite_layout(G, subset_key="layer")
+
+label_pos = {}
+for k, (x, y) in pos.items():
+    r = np.sqrt(x**2 + y**2) if np.sqrt(x**2 + y**2) > 0 else 1
+    scale = 1.12
+    label_pos[k] = (x * scale, y * scale)
+
+# Plotting
+nx.draw_networkx(
+    G,
+    pos=pos,
+    with_labels=True,
+    node_color="white",
+    node_size=500,
+    edgecolors="black",
+)
+plt.axis("off")
+plt.show()
+```
+
+:::{#exm-pert-2}
+
+以下の作業リストに基づいて、プロジェクト・ネットワークを作成せよ。
+
+| 作業 | 先行作業 | 時間（日） |
+| ---- | -------- | ---------- |
+| A    | -        | 2          |
+| B    | -        | 3          |
+| C    | A        | 4          |
+| D    | A        | 2          |
+| E    | B        | 5          |
+| F    | C, D     | 9          |
+| G    | E        | 2          |
+
+```{python}
+import matplotlib.pyplot as plt
+import networkx as nx
+import numpy as np
+
+# グラフの作成（頂点を番号で定義）
+G = nx.DiGraph()
+edges = [
+    ("s", "A"),
+    ("s", "B"),
+    ("A", "C"),
+    ("A", "D"),
+    ("C", "F"),
+    ("D", "F"),
+    ("B", "E"),
+    ("E", "G"),
+    ("E", "F"),
+    ("G", "t"),
+    ("F", "t"),
+]
+G.add_edges_from(edges)
+
+for layer, nodes in enumerate(nx.topological_generations(G)):
+    for node in nodes:
+        G.nodes[node]["layer"] = layer
+
+pos = nx.multipartite_layout(G, subset_key="layer")
+
+label_pos = {}
+for k, (x, y) in pos.items():
+    r = np.sqrt(x**2 + y**2) if np.sqrt(x**2 + y**2) > 0 else 1
+    scale = 1.12
+    label_pos[k] = (x * scale, y * scale)
+
+# Plotting
+nx.draw_networkx(
+    G,
+    pos=pos,
+    with_labels=True,
+    node_color="white",
+    node_size=500,
+    edgecolors="black",
+)
+plt.axis("off")
+plt.show()
+```
+:::
+
+
+## クリティカルパス
+
+プロジェクト・ネットワークにおいて、始点 $s$ から終点 $t$ までの経路を**パス**と呼ぶ。パスの長さは、そのパス上の作業時間の合計である。パス $P = (s, v_{i_1}, v_{i_2}, \ldots, v_{i_k}, t)$ の長さは、
+
+$$
+\sum_{v \in P} t(v) = t(v_{i_1}) + t(v_{i_2}) + \cdots + t(v_{i_k})
+$$
+
+である。
+
+最も長いパスを**クリティカルパス**（Critical Path）と呼ぶ。クリティカルパスに含まれる作業を**クリティカル作業**（Critical Activity）と呼ぶ。クリティカル作業が遅延すると、プロジェクト全体の完了が遅延する。
+
+クリティカルパスを求める問題は、最長路問題に帰着できるが、ここで述べる方法は、プロジェクトにおける様々な有用な情報も提供する。
+
+### 最早開始時刻と最早終了時刻
+
+作業点 $v \in V$ の最も早く開始できる時間を**最早開始時刻**（Earliest Start Time）と呼び、$ES(v)$ と表す。$v$ の最も早く終了できる時間を**最早終了時刻**（Earliest Finish Time）と呼び、$EF(v)$ と表す。始点 $s$ の最早開始時刻は $ES(s) = 0$ とする。
+
+点 $v$ の最早終了時刻は、最早開始時刻に作業時間を加えたものである。
+
+$$
+EF(v) = ES(v) + t(v)
+$$
+
+辺 $(v, u) \in E$ に対して、$u$ の最早開始時刻は、
+
+$$
+ES(u) = \max_{v \in \mathcal{P}(u)} EF(v)
+$$
+
+で与えられる。つまり、$u$ の最早開始時刻は、$u$ のすべての先行作業の最早終了時刻の中で最大のものである。
+
+@exm-pert-2 の最早開始時刻と最早終了時刻は、次の表のようになる。
+
+| 作業 | 最早開始時刻 $ES$ | 最早終了時刻 $EF$ |
+| ---- |------------------ | ------------------ |
+| A    | 0                | 2                  |
+| B    | 0                | 3                  |
+| C    | 2                | 6                  |
+| D    | 2                | 4                  |
+| E    | 3                | 8                  |
+| F    | 8                | 17                 |
+| G    | 8                | 10                 |
+
+作業 F を開始するためには、作業 C、D、E のすべてが完了している必要がある。そのため、作業 F の開始時間は、作業 C、D、E の中で最も遅い完了時間に依存する。作業 C、D、E の完了時間はそれぞれ 6 日、4 日、8 日であるため、作業 F の最も早い開始時間は 8 日となる。
+
+### 最遅開始時刻と最遅終了時刻
+
+
+
+
+
+
+

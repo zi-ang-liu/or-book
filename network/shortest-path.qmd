@@ -1,0 +1,69 @@
+---
+title: 最短路問題
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
+有向グラフ $G = (V, E)$ を考える。各辺 $(v, u) \in E$ に非負の重み $w(v, u)$ が与えられているとする。このとき、点 $s \in V$ から点 $t \in V$ への**最短路**（shortest path）とは、$s$ から $t$ へのパスのうち、重みの和が最小となるパスである。 最短路問題とは、$s$ から $t$ への最短路を求める問題である。
+
+:::{#exm-shortest-path}
+
+次の図は、最短路問題の例を示している。
+
+```{python}
+import matplotlib.pyplot as plt
+import networkx as nx
+import numpy as np
+
+# グラフの作成（頂点を番号で定義）
+G = nx.DiGraph()
+edges = [
+    ("s", "v1", 5),
+    ("s", "v2", 3),
+    ("v1", "v3", 17),
+    ("v2", "v3", 1),
+    ("v2", "v4", 3),
+    ("v3", "t", 4),
+    ("v4", "t", 2),
+]
+G.add_weighted_edges_from(edges)
+
+labels = {
+    node: (rf"$v_{node[1:]}$" if node.startswith("v") else rf"${node}$")
+    for node in G.nodes()
+}
+
+for layer, nodes in enumerate(nx.topological_generations(G)):
+    for node in nodes:
+        G.nodes[node]["layer"] = layer
+
+pos = nx.multipartite_layout(G, subset_key="layer")
+
+label_pos = {}
+for k, (x, y) in pos.items():
+    r = np.sqrt(x**2 + y**2) if np.sqrt(x**2 + y**2) > 0 else 1
+    scale = 1.1
+    label_pos[k] = (x * scale, y * scale)
+
+# Plotting
+nx.draw_networkx(
+    G,
+    pos=pos,
+    with_labels=False,
+    node_color="white",
+    node_size=50,
+    edgecolors="black",
+)
+nx.draw_networkx_labels(G, label_pos, labels, font_size=12)
+nx.draw_networkx_edge_labels(
+    G,
+    pos,
+    edge_labels={(u, v): d["weight"] for u, v, d in G.edges(data=True)},
+    font_color="black",
+    font_size=12,
+)
+plt.axis("off")
+plt.show()
+```
