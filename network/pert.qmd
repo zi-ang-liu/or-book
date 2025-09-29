@@ -374,3 +374,112 @@ z = \frac{20 - 17}{2.29} \approx 1.31
 $$
 
 標準正規分布表を用いて、$\phi(1.31) \approx 0.9049$ である。したがって、与えられた時間 $d = 20$ 日までにプロジェクトが完了する確率は約 90.49% である。
+
+## 時間とコストのトレードオフ
+
+作業時間を短縮するには、コストがかかる。最小のコストでプロジェクトを短縮する問題を考える。
+
+### 問題の定式化
+
+- $x_i$: 作業点 $i$ の短縮時間
+- $c_i$: 作業点 $i$ の単位短縮コスト
+- $M_i$: 作業点 $i$ の最大短縮時間
+- $\tau_i$: 作業点 $i$ の元の所要時間
+- $y_i$: 作業点 $i$ の開始時間
+- $T$: プロジェクト全体の所要時間の上限
+
+$$
+\begin{align*}
+\text{minimize} \quad & \sum_{i} c_i x_i &\\
+\text{subject to} \quad & y_j \geq y_i + \tau_i - x_i, \quad & \forall (i, j) \in E \\
+& 0 \leq x_i \leq M_i, \quad & \forall i \in V \\
+& y_t \leq T \\
+& y_s = 0
+\end{align*}
+$$
+
+| 作業 | $\tau_i$ | $c_i$ | $M_i$ |
+| ---- | -------- | ----- | ----- |
+| A    | 7        | 100   | 3     |
+| B    | 3        | 150   | 1     |
+| C    | 6        | 200   | 2     |
+| D    | 3        | 150   | 2     |
+| E    | 2        | 250   | 1     |
+
+$$
+E = \{(s, A), (s, C), (A, B), (C, D), (B, E), (D, E), (E, t)\}
+$$
+
+$$
+V = \{s, t, A, B, C, D, E\}
+$$
+
+$T = 10$ とする。
+
+$$
+\begin{align*}
+\text{minimize} \quad & 100x_A + 150x_B + 200x_C + 150x_D + 250x_E &\\
+\text{subject to} \quad & y_A \geq 0 \\
+& y_C \geq 0 \\
+& y_B \geq y_A + 7 - x_A \\
+& y_D \geq y_C + 6 - x_C \\
+& y_E \geq y_B + 3 - x_B \\
+& y_E \geq y_D + 3 - x_D \\
+& y_t \geq y_E + 2 - x_E \\
+& 0 \leq x_A \leq 3 \\
+& 0 \leq x_B \leq 1 \\
+& 0 \leq x_C \leq 2 \\
+& 0 \leq x_D \leq 2 \\
+& 0 \leq x_E \leq 1 \\
+& y_t \leq 10 \\
+& y_s = 0
+\end{align*}
+$$
+
+```python
+from gurobipy import Model, GRB
+
+# データ定義
+V = ["s", "t", "A", "B", "C", "D", "E"]
+E = [("s", "A"), ("s", "C"), ("A", "B"), ("C", "D"), ("B", "E"), ("D", "E"), ("E", "t")]
+
+tau = {"A": 7, "B": 3, "C": 6, "D": 3, "E": 2}
+cost = {"A": 100, "B": 150, "C": 200, "D": 150, "E": 250}
+M = {"A": 3, "B": 1, "C": 2, "D": 2, "E": 1}
+
+T = 10
+
+# モデル作成
+m = Model("Project_Crashing")
+m.setParam("OutputFlag", 0)  # 出力を抑制
+
+# 変数定義
+x = {i: m.addVar(lb=0, ub=M[i], name="x_{}".format(i)) for i in M}
+y = {i: m.addVar(lb=0, name="y_{}".format(i)) for i in V}
+
+# 目的関数
+m.setObjective(sum(cost[i] * x[i] for i in M), GRB.MINIMIZE)
+
+# 制約: precedence constraints
+for i, j in E:
+    if i == "s":
+        m.addConstr(y[j] >= 0)
+    elif i in tau:
+        m.addConstr(y[j] >= y[i] + tau[i] - x[i])
+
+# プロジェクト終了制約
+m.addConstr(y["t"] <= T)
+
+# 開始ノード固定
+m.addConstr(y["s"] == 0)
+
+# 最適化
+m.optimize()
+
+# 結果表示
+print("Objective (最小コスト):", m.objVal)
+for i in x:
+    print("x_{} =".format(i), x[i].X)
+for i in y:
+    print("y_{} =".format(i), y[i].X)
+```
