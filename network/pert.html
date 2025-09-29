@@ -344,12 +344,15 @@ window.Quarto = {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#プロジェクトネットワーク" id="toc-プロジェクトネットワーク" class="nav-link active" data-scroll-target="#プロジェクトネットワーク"><span class="header-section-number">9.1</span> プロジェクト・ネットワーク</a></li>
-  <li><a href="#クリティカルパス" id="toc-クリティカルパス" class="nav-link" data-scroll-target="#クリティカルパス"><span class="header-section-number">9.2</span> クリティカルパス</a>
+  <li><a href="#プロジェクト" id="toc-プロジェクト" class="nav-link active" data-scroll-target="#プロジェクト"><span class="header-section-number">9.1</span> プロジェクト</a></li>
+  <li><a href="#プロジェクトネットワーク" id="toc-プロジェクトネットワーク" class="nav-link" data-scroll-target="#プロジェクトネットワーク"><span class="header-section-number">9.2</span> プロジェクト・ネットワーク</a></li>
+  <li><a href="#クリティカルパス" id="toc-クリティカルパス" class="nav-link" data-scroll-target="#クリティカルパス"><span class="header-section-number">9.3</span> クリティカルパス</a>
   <ul class="collapse">
-  <li><a href="#最早開始時刻と最早終了時刻" id="toc-最早開始時刻と最早終了時刻" class="nav-link" data-scroll-target="#最早開始時刻と最早終了時刻"><span class="header-section-number">9.2.1</span> 最早開始時刻と最早終了時刻</a></li>
-  <li><a href="#最遅開始時刻と最遅終了時刻" id="toc-最遅開始時刻と最遅終了時刻" class="nav-link" data-scroll-target="#最遅開始時刻と最遅終了時刻"><span class="header-section-number">9.2.2</span> 最遅開始時刻と最遅終了時刻</a></li>
+  <li><a href="#最早開始時刻と最早終了時刻" id="toc-最早開始時刻と最早終了時刻" class="nav-link" data-scroll-target="#最早開始時刻と最早終了時刻"><span class="header-section-number">9.3.1</span> 最早開始時刻と最早終了時刻</a></li>
+  <li><a href="#最遅開始時刻と最遅終了時刻" id="toc-最遅開始時刻と最遅終了時刻" class="nav-link" data-scroll-target="#最遅開始時刻と最遅終了時刻"><span class="header-section-number">9.3.2</span> 最遅開始時刻と最遅終了時刻</a></li>
+  <li><a href="#スラック" id="toc-スラック" class="nav-link" data-scroll-target="#スラック"><span class="header-section-number">9.3.3</span> スラック</a></li>
   </ul></li>
+  <li><a href="#点見積もり" id="toc-点見積もり" class="nav-link" data-scroll-target="#点見積もり"><span class="header-section-number">9.4</span> 3 点見積もり</a></li>
   </ul>
 </nav>
     </div>
@@ -384,6 +387,8 @@ window.Quarto = {
 
 -->
 <p>プロジェクトは、多くの作業からなる。プロジェクトを完遂できるように、作業のスケジュールを作成する必要がある。その方法として、<strong>PERT</strong>（Program Evaluation and Review Technique）と<strong>CPM</strong>（Critical Path Method）がある。現在では、PERTとCPMが統合され、<strong>PERT/CPM</strong>として知られている<span class="citation" data-cites="Camm2022-zv Hillier2025-cb">(<a href="../references.html#ref-Camm2022-zv" role="doc-biblioref">Camm ほか 2022</a>; <a href="../references.html#ref-Hillier2025-cb" role="doc-biblioref">Hillier と Lieberman 2025</a>)</span>。</p>
+<section id="プロジェクト" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="プロジェクト"><span class="header-section-number">9.1</span> プロジェクト</h2>
 <p>ここで、ある作業の開始前に完了しなければならない作業を<strong>先行作業</strong>（Immediate Predecessor）と呼ぶ。また、ある作業の完了後に開始できる作業を<strong>後続作業</strong>（Immediate Successor）と呼ぶ。</p>
 <p>まとめると、プロジェクトは、次の要素で構成される。</p>
 <ul>
@@ -436,15 +441,16 @@ window.Quarto = {
 </tbody>
 </table>
 </div>
-<section id="プロジェクトネットワーク" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="プロジェクトネットワーク"><span class="header-section-number">9.1</span> プロジェクト・ネットワーク</h2>
+</section>
+<section id="プロジェクトネットワーク" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="プロジェクトネットワーク"><span class="header-section-number">9.2</span> プロジェクト・ネットワーク</h2>
 <p>プロジェクトをネットワークで表現したものを<strong>プロジェクト・ネットワーク</strong>（Project Network）と呼ぶ。プロジェクト・ネットワークには、<strong>AOA</strong>（Activity on Arrow）や <strong>AON</strong>（Activity on Node）という 2 種類の表現方法がある。</p>
 <p>AOA では、作業を辺で表現し、先行関係を点で表現する。AON では、作業を点で表現し、先行関係を辺で表現する。AON のほうが理解と作成が容易で、実務でも AON がよく使われる<span class="citation" data-cites="Camm2022-zv Hillier2025-cb Eiselt2022-qy">(<a href="../references.html#ref-Camm2022-zv" role="doc-biblioref">Camm ほか 2022</a>; <a href="../references.html#ref-Hillier2025-cb" role="doc-biblioref">Hillier と Lieberman 2025</a>; <a href="../references.html#ref-Eiselt2022-qy" role="doc-biblioref">Eiselt と Sandblom 2022</a>)</span>。これは以降、AON に基づいて説明する。</p>
 <p>プロジェクト・ネットワークは <span class="math inline">\(G = (V, E)\)</span> という有向グラフで表される。ここで、<span class="math inline">\(V\)</span> は始点 <span class="math inline">\(s\)</span>、終点 <span class="math inline">\(t\)</span> と各作業を表す点の集合であり、<span class="math inline">\(E\)</span> は先行関係を表す辺の集合である。辺 <span class="math inline">\((v, u) \in E\)</span> では、<span class="math inline">\(v\)</span> が <span class="math inline">\(u\)</span> の先行作業であることを意味する。</p>
 <p>辺 <span class="math inline">\((s, v) \in E\)</span> は、作業 <span class="math inline">\(v\)</span> が先行作業を持たないことを意味し、辺 <span class="math inline">\((v, t) \in E\)</span> は、作業 <span class="math inline">\(v\)</span> が後続作業を持たないことを意味する。作業 <span class="math inline">\(v\)</span> の先行作業の集合を <span class="math inline">\(\mathcal{P}(v)\)</span> と表す。作業 <span class="math inline">\(v\)</span> の後続作業の集合を <span class="math inline">\(\mathcal{S}(v)\)</span> と表す。</p>
 <p>作業点 <span class="math inline">\(v \in V\)</span> には、作業時間 <span class="math inline">\(\tau(v)\)</span> が与えられている。始点 <span class="math inline">\(s\)</span> と終点 <span class="math inline">\(t\)</span> の作業時間は <span class="math inline">\(\tau(s) = \tau(t) = 0\)</span> とする。</p>
 <p><a href="#exm-pert-report" class="quarto-xref">例&nbsp;<span>9.1</span></a> のプロジェクト・ネットワークは次の図のようになる。</p>
-<div id="587d0697" class="cell" data-execution_count="1">
+<div id="f6994b2a" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -534,7 +540,7 @@ window.Quarto = {
 </tr>
 <tr class="even">
 <td>F</td>
-<td>C, D</td>
+<td>C, D, E</td>
 <td>9</td>
 </tr>
 <tr class="odd">
@@ -544,7 +550,7 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<div id="94ad0b9e" class="cell" data-execution_count="2">
+<div id="84ae82ad" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -602,8 +608,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="クリティカルパス" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="クリティカルパス"><span class="header-section-number">9.2</span> クリティカルパス</h2>
+<section id="クリティカルパス" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="クリティカルパス"><span class="header-section-number">9.3</span> クリティカルパス</h2>
 <p>プロジェクト・ネットワークにおいて、始点 <span class="math inline">\(s\)</span> から終点 <span class="math inline">\(t\)</span> までの経路を<strong>パス</strong>と呼ぶ。パスの長さは、そのパス上の作業時間の合計である。パス <span class="math inline">\(P = (s, v_{i_1}, v_{i_2}, \ldots, v_{i_k}, t)\)</span> の長さは、</p>
 <p><span class="math display">\[
 \sum_{v \in P} \tau(v) = \tau(v_{i_1}) + \tau(v_{i_2}) + \cdots + \tau(v_{i_k})
@@ -611,18 +617,18 @@ window.Quarto = {
 <p>である。</p>
 <p>最も長いパスを<strong>クリティカルパス</strong>（Critical Path）と呼ぶ。クリティカルパスに含まれる作業を<strong>クリティカル作業</strong>（Critical Activity）と呼ぶ。クリティカル作業が遅延すると、プロジェクト全体の完了が遅延する。</p>
 <p>クリティカルパスを求める問題は、最長路問題に帰着できるが、ここで述べる方法は、プロジェクトにおける様々な有用な情報も提供する。</p>
-<section id="最早開始時刻と最早終了時刻" class="level3" data-number="9.2.1">
-<h3 data-number="9.2.1" class="anchored" data-anchor-id="最早開始時刻と最早終了時刻"><span class="header-section-number">9.2.1</span> 最早開始時刻と最早終了時刻</h3>
+<section id="最早開始時刻と最早終了時刻" class="level3" data-number="9.3.1">
+<h3 data-number="9.3.1" class="anchored" data-anchor-id="最早開始時刻と最早終了時刻"><span class="header-section-number">9.3.1</span> 最早開始時刻と最早終了時刻</h3>
 <p>作業点 <span class="math inline">\(v \in V\)</span> の最も早く開始できる時間を<strong>最早開始時刻</strong>（Earliest Start Time）と呼び、<span class="math inline">\(ES(v)\)</span> と表す。<span class="math inline">\(v\)</span> の最も早く終了できる時間を<strong>最早終了時刻</strong>（Earliest Finish Time）と呼び、<span class="math inline">\(EF(v)\)</span> と表す。始点 <span class="math inline">\(s\)</span> の最早開始時刻は <span class="math inline">\(ES(s) = 0\)</span> とする。</p>
 <p><span class="math inline">\(v\)</span> の最早終了時刻は、最早開始時刻に作業時間を加えたものである。</p>
 <p><span class="math display">\[
 EF(v) = ES(v) + \tau(v)
 \]</span></p>
-<p><span class="math inline">\(u\)</span> の最早開始時刻は、</p>
+<p><span class="math inline">\(u\)</span> の最早開始時刻は、<span class="math inline">\(u\)</span> の先行作業 <span class="math inline">\(v \in \mathcal{P}(u)\)</span> の中で最早終了時刻 <span class="math inline">\(EF(v)\)</span> が最大のものである。</p>
 <p><span class="math display">\[
 ES(u) = \max_{v \in \mathcal{P}(u)} EF(v)
 \]</span></p>
-<p>で与えられる。つまり、<span class="math inline">\(u\)</span> の最早開始時刻は、<span class="math inline">\(u\)</span> のすべての先行作業の最早終了時刻の中で最大のものである。</p>
+<p>で与えられる。</p>
 <p>最早開始時刻と最早終了時刻を求めるアルゴリズムは下の通りである。ここで、点をトポロジカルオーダー(topological order)で処理するとは、<span class="math inline">\(v\)</span> のすべての先行作業 <span class="math inline">\(u \in \mathcal{P}(v)\)</span> が <span class="math inline">\(v\)</span> より前に処理されるように点を順序付けることである。</p>
 <div id="alg-forward-pass">
 <p><strong>Forward Pass Algorithm</strong></p>
@@ -635,58 +641,78 @@ ES(u) = \max_{v \in \mathcal{P}(u)} EF(v)
 </ol></li>
 </ol>
 </div>
-<p><a href="#exm-pert-2" class="quarto-xref">例&nbsp;<span>9.2</span></a> の最早開始時刻と最早終了時刻は、次の表のようになる。</p>
+<p><a href="#exm-pert-2" class="quarto-xref">例&nbsp;<span>9.2</span></a> のプロジェクト・ネットワークに対して、最早開始時刻と最早終了時刻を求めると、次の表のようになる。</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>点</th>
-<th>最早開始時刻 <span class="math inline">\(ES\)</span></th>
-<th>最早終了時刻 <span class="math inline">\(EF\)</span></th>
+<th><span class="math inline">\(v\)</span></th>
+<th><span class="math inline">\(\mathcal{P}(v)\)</span></th>
+<th><span class="math inline">\(\tau(v)\)</span></th>
+<th><span class="math inline">\(ES(v)\)</span></th>
+<th><span class="math inline">\(EF(v)\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math inline">\(s\)</span></td>
+<td>s</td>
+<td>-</td>
+<td>0</td>
 <td>0</td>
 <td>0</td>
 </tr>
 <tr class="even">
 <td>A</td>
+<td>s</td>
+<td>2</td>
 <td>0</td>
 <td>2</td>
 </tr>
 <tr class="odd">
 <td>B</td>
+<td>s</td>
+<td>3</td>
 <td>0</td>
 <td>3</td>
 </tr>
 <tr class="even">
 <td>C</td>
+<td>A</td>
+<td>4</td>
 <td>2</td>
 <td>6</td>
 </tr>
 <tr class="odd">
 <td>D</td>
+<td>A</td>
+<td>2</td>
 <td>2</td>
 <td>4</td>
 </tr>
 <tr class="even">
 <td>E</td>
+<td>B</td>
+<td>5</td>
 <td>3</td>
 <td>8</td>
 </tr>
 <tr class="odd">
 <td>F</td>
+<td>C, D, E</td>
+<td>9</td>
 <td>8</td>
 <td>17</td>
 </tr>
 <tr class="even">
 <td>G</td>
+<td>E</td>
+<td>2</td>
 <td>8</td>
 <td>10</td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">\(t\)</span></td>
+<td>t</td>
+<td>F, G</td>
+<td>0</td>
 <td>17</td>
 <td>17</td>
 </tr>
@@ -694,18 +720,217 @@ ES(u) = \max_{v \in \mathcal{P}(u)} EF(v)
 </table>
 <p>作業 F を開始するためには、作業 C、D、E のすべてが完了している必要がある。そのため、作業 F の開始時間は、作業 C、D、E の中で最も遅い完了時間に依存する。作業 C、D、E の完了時間はそれぞれ 6 日、4 日、8 日であるため、作業 F の最も早い開始時間は 8 日となる。</p>
 </section>
-<section id="最遅開始時刻と最遅終了時刻" class="level3" data-number="9.2.2">
-<h3 data-number="9.2.2" class="anchored" data-anchor-id="最遅開始時刻と最遅終了時刻"><span class="header-section-number">9.2.2</span> 最遅開始時刻と最遅終了時刻</h3>
+<section id="最遅開始時刻と最遅終了時刻" class="level3" data-number="9.3.2">
+<h3 data-number="9.3.2" class="anchored" data-anchor-id="最遅開始時刻と最遅終了時刻"><span class="header-section-number">9.3.2</span> 最遅開始時刻と最遅終了時刻</h3>
 <p>作業点 <span class="math inline">\(v\)</span> の遅くとも始めないといけない時間を<strong>最遅開始時刻</strong>（Latest Start Time）と呼び、<span class="math inline">\(LS(v)\)</span> と表す。<span class="math inline">\(v\)</span> の遅くとも終わらせないといけない時間を<strong>最遅終了時刻</strong>（Latest Finish Time）と呼び、<span class="math inline">\(LF(v)\)</span> と表す。</p>
-<p>始点 <span class="math inline">\(t\)</span> の最遅終了時刻は <span class="math inline">\(LF(t) = EF(t)\)</span> とする。</p>
+<p>終点 <span class="math inline">\(t\)</span> の最遅終了時刻は <span class="math inline">\(LF(t) = EF(t)\)</span> とする。</p>
 <p><span class="math inline">\(v\)</span> の最遅開始時刻は、最遅終了時刻から作業時間を引いたものである。</p>
 <p><span class="math display">\[
 LS(v) = LF(v) - \tau(v)
 \]</span></p>
-<p><span class="math inline">\(u\)</span> の最遅終了時刻は、</p>
+<p><span class="math inline">\(u\)</span> の最遅終了時刻は、<span class="math inline">\(u\)</span> の後続作業 <span class="math inline">\(v \in \mathcal{S}(u)\)</span> の中で <span class="math inline">\(LS(v)\)</span> が最小のものである。</p>
 <p><span class="math display">\[
 LF(u) = \min_{v \in \mathcal{S}(u)} LS(v)
 \]</span></p>
+<p><a href="#exm-pert-2" class="quarto-xref">例&nbsp;<span>9.2</span></a> のプロジェクト・ネットワークに対して、最遅開始時刻と最遅終了時刻を求めると、次の表のようになる。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(v\)</span></th>
+<th><span class="math inline">\(\mathcal{S}(v)\)</span></th>
+<th><span class="math inline">\(\tau(v)\)</span></th>
+<th><span class="math inline">\(LS(v)\)</span></th>
+<th><span class="math inline">\(LF(v)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>s</td>
+<td>A, B</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>A</td>
+<td>C, D</td>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>B</td>
+<td>E</td>
+<td>3</td>
+<td>0</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>C</td>
+<td>F</td>
+<td>4</td>
+<td>4</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>D</td>
+<td>F</td>
+<td>2</td>
+<td>6</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>E</td>
+<td>F, G</td>
+<td>5</td>
+<td>3</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>F</td>
+<td>t</td>
+<td>9</td>
+<td>8</td>
+<td>17</td>
+</tr>
+<tr class="even">
+<td>G</td>
+<td>t</td>
+<td>2</td>
+<td>15</td>
+<td>17</td>
+</tr>
+<tr class="odd">
+<td>t</td>
+<td>-</td>
+<td>0</td>
+<td>17</td>
+<td>17</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="スラック" class="level3" data-number="9.3.3">
+<h3 data-number="9.3.3" class="anchored" data-anchor-id="スラック"><span class="header-section-number">9.3.3</span> スラック</h3>
+<p>作業点 <span class="math inline">\(v\)</span> の<strong>スラック</strong>（Slack）を <span class="math inline">\(SL(v)\)</span> と表す。スラックは、</p>
+<p><span class="math display">\[
+SL(v) = LS(v) - ES(v) = LF(v) - EF(v)
+\]</span></p>
+<p>で与えられる。スラックは、作業 <span class="math inline">\(v\)</span> の開始または終了を遅らせることができる時間を示す。スラックが 0 の作業はクリティカル作業である。</p>
+<p><a href="#exm-pert-2" class="quarto-xref">例&nbsp;<span>9.2</span></a> のプロジェクト・ネットワークに対して、スラックを求めると、次の表のようになる。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(v\)</span></th>
+<th><span class="math inline">\(\tau(v)\)</span></th>
+<th><span class="math inline">\(ES(v)\)</span></th>
+<th><span class="math inline">\(EF(v)\)</span></th>
+<th><span class="math inline">\(LS(v)\)</span></th>
+<th><span class="math inline">\(LF(v)\)</span></th>
+<th><span class="math inline">\(SL(v)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>s</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>A</td>
+<td>2</td>
+<td>0</td>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>B</td>
+<td>3</td>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>C</td>
+<td>4</td>
+<td>2</td>
+<td>6</td>
+<td>4</td>
+<td>8</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>D</td>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+<td>6</td>
+<td>8</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>E</td>
+<td>5</td>
+<td>3</td>
+<td>8</td>
+<td>3</td>
+<td>8</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>F</td>
+<td>9</td>
+<td>8</td>
+<td>17</td>
+<td>8</td>
+<td>17</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>G</td>
+<td>2</td>
+<td>8</td>
+<td>10</td>
+<td>15</td>
+<td>17</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>t</td>
+<td>0</td>
+<td>17</td>
+<td>17</td>
+<td>17</td>
+<td>17</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>クリティカルパスは、<span class="math inline">\(s \to B \to E \to F \to t\)</span> であり、このパスの長さは 17 日である。</p>
+</section>
+</section>
+<section id="点見積もり" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="点見積もり"><span class="header-section-number">9.4</span> 3 点見積もり</h2>
+<p>以上の方法では、作業の所要時間が確定していることを前提としている。しかし、実際には、所要時間の推定は難しい場合が多い。そこで、作業の所要時間を確率変数として扱い、3 点見積もり（Three-Point Estimation）という方法でその確率分布を推定する。</p>
+<p>3 点見積もりでは、次の 3 つの所要時間を見積もる。</p>
+<ul>
+<li>楽観値（Optimistic Time, <span class="math inline">\(a\)</span>）：予想される最短の所要時間。</li>
+<li>最頻値（Most Likely Time, <span class="math inline">\(m\)</span>）：最も可能性が高い所要時間。</li>
+<li>悲観値（Pessimistic Time, <span class="math inline">\(b\)</span>）：予想される最長の所要時間。</li>
+</ul>
+<p>一般に、<span class="math inline">\(a \leq m \leq b\)</span> である。</p>
+<p>この <span class="math inline">\(a\)</span>、<span class="math inline">\(m\)</span>、<span class="math inline">\(b\)</span> に基づいて、所要時間の平均 <span class="math inline">\(\hat{\mu}\)</span> と分散 <span class="math inline">\(\hat{\sigma}^2\)</span> を次のように推定する <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。</p>
+<p><span id="eq-pert-3point"><span class="math display">\[
+\hat{\mu} = \frac{a + 4m + b}{6}, \quad \hat{\sigma}^2 = \left(\frac{b - a}{6}\right)^2
+\tag{9.1}\]</span></span></p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -718,8 +943,16 @@ Eiselt, H A, と Carl-Louis Sandblom. 2022. <em>Operations research: A model-bas
 <div id="ref-Hillier2025-cb" class="csl-entry" role="listitem">
 Hillier, Frederick, と Gerald Lieberman. 2025. <em><span>ISE</span> introduction to operations research</em>. 11th 版. Columbus, OH: McGraw-Hill Education.
 </div>
+<div id="ref-Pleguezuelo2003-uf" class="csl-entry" role="listitem">
+Pleguezuelo, Rafael Herrerı́as, José Garcı́a Pérez, と Salvador Cruz Rambaud. 2003. <span>「A note on the reasonableness of <span>PERT</span> hypotheses」</span>. <em>Oper. Res. Lett.</em> 31 (1): 60–62.
+</div>
 </div>
 </section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>作業の所要時間がベータ分布に従うと仮定した場合は、<a href="#eq-pert-3point" class="quarto-xref">式&nbsp;<span>9.1</span></a> が <span class="math inline">\(\mu\)</span> と <span class="math inline">\(\sigma^2\)</span> の良い推定量となる。これらの式の詳細な導出は省略する。興味のある読者は、<span class="citation" data-cites="Pleguezuelo2003-uf">Pleguezuelo, Pérez, と Rambaud (<a href="../references.html#ref-Pleguezuelo2003-uf" role="doc-biblioref">2003</a>)</span> を参照されたい。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
