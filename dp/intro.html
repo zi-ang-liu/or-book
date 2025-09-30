@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>記号 – オペレーションズ・リサーチ</title>
+<title>11&nbsp; 動的計画法 – オペレーションズ・リサーチ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +23,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./inventory/intro.html" rel="next">
-<link href="./course-info.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6437d3b8e7436a5f09bef9d8f13bc7c7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../references.html" rel="next">
+<link href="../lp_app/dea.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-6437d3b8e7436a5f09bef9d8f13bc7c7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -70,35 +70,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -111,7 +82,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./notation.html">記号</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../dp/intro.html">動的計画法</a></li><li class="breadcrumb-item"><a href="../dp/intro.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">動的計画法</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
@@ -126,7 +97,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">オペレーションズ・リサーチ</a> 
+      <a href="../">オペレーションズ・リサーチ</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/zi-ang-liu/or-book" title="ソースコード" class="quarto-navigation-tool px-1" aria-label="ソースコード"><i class="bi bi-github"></i></a>
 </div>
@@ -141,19 +112,19 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./course-info.html" class="sidebar-item-text sidebar-link">
+  <a href="../course-info.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">講義</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notation.html" class="sidebar-item-text sidebar-link active">
+  <a href="../notation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">記号</span></a>
   </div>
 </li>
@@ -168,31 +139,31 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inventory/intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../inventory/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">在庫管理とは</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inventory/eoq.html" class="sidebar-item-text sidebar-link">
+  <a href="../inventory/eoq.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">経済的発注量</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inventory/wagner-whitin.html" class="sidebar-item-text sidebar-link">
+  <a href="../inventory/wagner-whitin.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Wagner-Whitin モデル</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inventory/newsvendor.html" class="sidebar-item-text sidebar-link">
+  <a href="../inventory/newsvendor.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">新聞売り子問題</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inventory/safety.html" class="sidebar-item-text sidebar-link">
+  <a href="../inventory/safety.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">安全在庫</span></span></a>
   </div>
 </li>
@@ -209,7 +180,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mcda/ahp.html" class="sidebar-item-text sidebar-link">
+  <a href="../mcda/ahp.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">階層分析法</span></span></a>
   </div>
 </li>
@@ -226,19 +197,19 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./network/graph.html" class="sidebar-item-text sidebar-link">
+  <a href="../network/graph.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">グラフ理論</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./network/shortest-path.html" class="sidebar-item-text sidebar-link">
+  <a href="../network/shortest-path.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">最短路問題</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./network/pert.html" class="sidebar-item-text sidebar-link">
+  <a href="../network/pert.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">PERT/CPM</span></span></a>
   </div>
 </li>
@@ -255,7 +226,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lp_app/dea.html" class="sidebar-item-text sidebar-link">
+  <a href="../lp_app/dea.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">包絡分析法</span></span></a>
   </div>
 </li>
@@ -272,7 +243,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dp/intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../dp/intro.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">動的計画法</span></span></a>
   </div>
 </li>
@@ -280,7 +251,7 @@ window.Quarto = {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">参考文献</span></a>
   </div>
 </li>
@@ -295,25 +266,25 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendices/calculus.html" class="sidebar-item-text sidebar-link">
+  <a href="../appendices/calculus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">微分積分</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendices/probability.html" class="sidebar-item-text sidebar-link">
+  <a href="../appendices/probability.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">確率</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendices/standard_normal_table.html" class="sidebar-item-text sidebar-link">
+  <a href="../appendices/standard_normal_table.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">標準正規分布表</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendices/opt_problems.html" class="sidebar-item-text sidebar-link">
+  <a href="../appendices/opt_problems.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Optimization Problems</span></span></a>
   </div>
 </li>
@@ -324,24 +295,15 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">目次</h2>
-   
-  <ul>
-  <li><a href="#集合" id="toc-集合" class="nav-link active" data-scroll-target="#集合">集合</a></li>
-  <li><a href="#確率統計" id="toc-確率統計" class="nav-link" data-scroll-target="#確率統計">確率統計</a></li>
-  <li><a href="#関数" id="toc-関数" class="nav-link" data-scroll-target="#関数">関数</a></li>
-  <li><a href="#例題" id="toc-例題" class="nav-link" data-scroll-target="#例題">例題</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../dp/intro.html">動的計画法</a></li><li class="breadcrumb-item"><a href="../dp/intro.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">動的計画法</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">記号</h1>
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">動的計画法</span></h1>
 </div>
 
 
@@ -358,54 +320,9 @@ window.Quarto = {
 </header>
 
 
-<section id="集合" class="level2">
-<h2 class="anchored" data-anchor-id="集合">集合</h2>
-<dl>
-<dt><span class="math inline">\(A\)</span></dt>
-<dd>
-集合。大文字で表す。
-</dd>
-<dt><span class="math inline">\(A \setminus B\)</span></dt>
-<dd>
-集合 <span class="math inline">\(A\)</span> と集合 <span class="math inline">\(B\)</span> の差集合。
-</dd>
-</dl>
-</section>
-<section id="確率統計" class="level2">
-<h2 class="anchored" data-anchor-id="確率統計">確率統計</h2>
-<p><span class="math inline">\(X\)</span>: 確率変数。大文字で表す。</p>
-<p><span class="math inline">\(\mathbb{P}(X = x)\)</span>: 確率変数 <span class="math inline">\(X\)</span> が <span class="math inline">\(x\)</span> をとる確率</p>
-<p><span class="math inline">\(\mathbb{E}[X]\)</span>: 確率変数 <span class="math inline">\(X\)</span> の期待値</p>
-<p><span class="math inline">\(F_X(x)\)</span>: 確率変数 <span class="math inline">\(X\)</span> の累積分布関数</p>
-<p><span class="math inline">\(f_X(x)\)</span>: 確率変数 <span class="math inline">\(X\)</span> の確率密度関数</p>
-<p><span class="math inline">\(p_X(x)\)</span>: 確率変数 <span class="math inline">\(X\)</span> の確率質量関数</p>
-<p><span class="math inline">\(\phi(z)\)</span>: 標準正規分布の確率密度関数</p>
-</section>
-<section id="関数" class="level2">
-<h2 class="anchored" data-anchor-id="関数">関数</h2>
-<p><span class="math inline">\(A\)</span> は要素の間に順序が定義された集合とする。</p>
-<p><span class="math inline">\(\max A\)</span>: 集合 <span class="math inline">\(A\)</span> の最大値。</p>
-<p><span class="math inline">\(\min A\)</span>: 集合 <span class="math inline">\(A\)</span> の最小値。</p>
-<p><span class="math inline">\((x)^+\)</span>: <span class="math inline">\(x\)</span> と <span class="math inline">\(0\)</span> のうち大きい方。すなわち、<span class="math inline">\((x)^+ = \max(x, 0)\)</span>。</p>
-<p><span class="math inline">\((x)^-\)</span>: <span class="math inline">\(x\)</span> と <span class="math inline">\(0\)</span> のうち小さい方の絶対値。すなわち、<span class="math inline">\((x)^- = \max(-x, 0) = -\min(x, 0)\)</span>。</p>
-</section>
-<section id="例題" class="level2">
-<h2 class="anchored" data-anchor-id="例題">例題</h2>
-<div id="exm-setminus" class="theorem example">
-<p><span class="theorem-title"><strong>例 1 (差集合)</strong></span> <span class="math inline">\(A = \{1, 2, 3\}\)</span>、<span class="math inline">\(B = \{2, 3, 4\}\)</span> とする。このとき、<span class="math inline">\(A \setminus B = \{1\}\)</span> である。</p>
-</div>
-<div id="exm-min-max" class="theorem example">
-<p><span class="theorem-title"><strong>例 2 (最大値と最小値)</strong></span> <span class="math inline">\(A = \{1, 0, -1\}\)</span> とする。このとき、<span class="math inline">\(\max A = 1\)</span>、<span class="math inline">\(\min A = -1\)</span> である。</p>
-</div>
-<div id="exm-positive-part" class="theorem example">
-<p><span class="theorem-title"><strong>例 3 (正の部分)</strong></span> <span class="math inline">\((10)^+ = 10\)</span>、<span class="math inline">\((-30)^+ = 0\)</span> である。</p>
-</div>
-<div id="exm-negative-part" class="theorem example">
-<p><span class="theorem-title"><strong>例 4 (負の部分)</strong></span> <span class="math inline">\((10)^- = 0\)</span>、<span class="math inline">\((-30)^- = 30\)</span> である。</p>
-</div>
+<!-- Taha hillier algorithm intro -->
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -809,13 +726,13 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./course-info.html" class="pagination-link" aria-label="講義">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">講義</span>
+      <a href="../lp_app/dea.html" class="pagination-link" aria-label="包絡分析法">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">包絡分析法</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./inventory/intro.html" class="pagination-link" aria-label="在庫管理とは">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">在庫管理とは</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../references.html" class="pagination-link" aria-label="参考文献">
+        <span class="nav-page-text">参考文献</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
