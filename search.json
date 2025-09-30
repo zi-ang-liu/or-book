@@ -24,7 +24,27 @@
     "href": "course-info.html#講義情報",
     "title": "講義",
     "section": "",
-    "text": "講義名：オペレーションズ・リサーチB\n曜日：水曜日\n時限：2時限目（10:50～12:30）\n教室：西館 W202\n担当教員：劉 子昂",
+    "text": "講義名：オペレーションズ・リサーチB\n曜日：水曜日\n時限：2時限目（10:50～12:30）\n教室：西館 W202\n担当教員：劉 子昂\nGoogle Classroom: Link",
+    "crumbs": [
+      "講義"
+    ]
+  },
+  {
+    "objectID": "course-info.html#出席",
+    "href": "course-info.html#出席",
+    "title": "講義",
+    "section": "出席",
+    "text": "出席\n出席人数が多い場合は、出席を取らないことがあります。\nWebClassで出席を取ります。以下の時間に注意してください。\n\n出席扱い : 10:50 - 11:09\n遅刻扱い : 11:10 - 11:29\n欠席扱い : 11:30 -",
+    "crumbs": [
+      "講義"
+    ]
+  },
+  {
+    "objectID": "course-info.html#成績評価",
+    "href": "course-info.html#成績評価",
+    "title": "講義",
+    "section": "成績評価",
+    "text": "成績評価\n\n期末試験（100%）\n4回以上の欠席は単位取得不可。\n講義中の加点問題に正解した場合、試験の点数に加点します。",
     "crumbs": [
       "講義"
     ]
@@ -115,16 +135,6 @@
     "title": "講義",
     "section": "私語",
     "text": "私語\n\n講義中の私語は厳禁です．\n注意してもやめない場合は、減点を行います。",
-    "crumbs": [
-      "講義"
-    ]
-  },
-  {
-    "objectID": "course-info.html#成績評価",
-    "href": "course-info.html#成績評価",
-    "title": "講義",
-    "section": "成績評価",
-    "text": "成績評価\n\n期末試験（100%）\n4回以上の欠席は単位取得不可。\n講義中の加点問題に正解した場合、試験の点数に加点します。",
     "crumbs": [
       "講義"
     ]
