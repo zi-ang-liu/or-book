@@ -6,12 +6,11 @@ lang: ja
 format:
   html:
     theme:
-      - cosmo
-      - brand
+      light: cosmo
+      dark: cyborg
   pdf:
     pdf-engine: lualatex
     documentclass: ltjbook
-    
 
 bibliography: references.bib
 
@@ -34,6 +33,8 @@ book:
     border: true
     center: "Copyright 2025, Ziang Liu"
   search: true
+  twitter-card: true
+  site-url: https://zi-ang-liu.github.io/or-book/
   repo-url: https://github.com/zi-ang-liu/or-book
   chapters:
     - index.qmd
