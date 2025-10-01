@@ -3,6 +3,8 @@ project:
 
 lang: ja
 
+highlight-style: pygments
+
 format:
   html:
     theme:
