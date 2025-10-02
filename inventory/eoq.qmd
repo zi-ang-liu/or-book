@@ -10,7 +10,7 @@ jupyter: python3
 
 EOQモデルは、単位時間あたりの需要量は決定論的で、一定であると仮定する。すなわち、需要量は事前に分かっており、時間とともに変化しない。単位時間あたりの需要量は需要率（demand rate）と呼ばれ、記号 $d$ で表される。リードタイムは0とし、発注から納品までの時間はないと仮定する。一回の発注量を $Q$ とし、一定であるとする。欠品は許せないとする。全ての需要は満されなければならない。また、EOQモデルでは、在庫量は連続的に観測され、いつでも発注が可能であるとする。
 
-在庫に関わる費用は、発注費用 $K$、保管費用 $h$ と、購入費用（購入単価を $c$ と表す）がある。
+在庫に関わる費用は、1回あたりの発注費用 $K$、単位時間あたりの1単位の保管費用 $h$ と、購入単価 $c$ がある。
 
 EOQモデルの最適解は次の二つの性質を持つ[@Snyder2019-cy]：
 
@@ -62,6 +62,16 @@ $$
 となる。
 :::
 
+| 記号 | 意味 |
+|:---|:---|
+| $d$ | 単位時間あたりの需要量 |
+| $K$ | 1回あたりの発注費用 |
+| $h$ | 単位時間あたりの1単位の保管費用 |
+| $c$ | 購入単価 |
+| $Q$ | 発注量 |
+| $T$ | サイクル期間 |
+| $g(Q)$ | 平均コスト |
+
 ## コスト関数
 
 ここでは、1サイクルあたりのコストを考える。
@@ -70,10 +80,10 @@ $$
 
 **購入費用**：$Q$ 個の商品を単価 $c$ で購入するため、購入費用は $cQ$ である。
 
-**保管費用**：在庫量はサイクル期間 $T$ の間に $Q$ 個から0個まで減少するため、平均在庫量は $\frac{Q}{2}$ である。したがって、平均保管費用は $\frac{hQ}{2}$ である。サイクル期間 $T$ は $\frac{Q}{d}$ であるため、1サイクルあたりの保管費用は
+**保管費用**：サイクル期間 $T$ は $\frac{Q}{d}$ であるため、1サイクルあたりの保管費用は
 
 $$
-\frac{hQ}{2} \cdot T = \frac{hQ^2}{2d}
+\frac{TQ}{2} h = \frac{hQ^2}{2d}
 $$
 
 となる。
@@ -84,7 +94,7 @@ $$
 K + cQ + \frac{hQ^2}{2d}
 $$
 
-平均コストは、これをサイクル期間 $T$ で割ったものとして定義される。したがって、平均コスト $g(Q)$ は次のように表される。
+**平均コスト**は、これをサイクル期間 $T$ で割ったものとして定義される。したがって、平均コスト $g(Q)$ は次のように表される。
 
 
 \begin{align*}
@@ -116,7 +126,7 @@ $$
 Q^* = \sqrt{\frac{2Kd}{h}}
 $$
 
-を得る。これをEOQ公式（EOQ formula）と呼ぶ。$Q^*$ を経済的発注量と呼ぶ（経済的は最適という意味である）。
+を得る。これを**EOQ公式**（EOQ formula）と呼ぶ。$Q^*$ を経済的発注量と呼ぶ（経済的は最適という意味である）。
 
 二階導関数 $g''(Q)$ を求めて、最適発注量が最小値を与えることを確認する。
 
@@ -143,58 +153,12 @@ $$
 T^* = \frac{Q^*}{d} = \sqrt{\frac{2K}{hd}}
 $$ {#eq-eoq-cycle}
 
-:::{#rem-eoq-properties}
-以下の性質がわかる。
+@eq-eoq と @eq-eoq-cycle から、以下の性質がわかる。
 
-1. $Q^*$ は $c$ には依存しない。
-2. $h$ の増加に伴い、$Q^*$ は減少する。保管費用が高い場合は、少量で高い頻度で発注することが望ましい。
-3. $K$ の増加に伴い、$Q^*$ は増加する。発注費用が高い場合は、多量で低い頻度で発注することが望ましい。
-:::
-
-:::{#alg-eoq}
-**Algorithm for EOQ Model**
-
-1. Input: $K$, $d$, $h$.
-2. Compute $Q^*$ using @eq-eoq.
-3. Compute $T^*$ using @eq-eoq-cycle.
-:::
-
-次の図は、発注コスト、保管コスト、平均コストの関係を示している。購入単価を $c = 0$ とする。
-
-```{python}
-# Parameters
-K = 500  # Order cost
-h = 15  # Holding cost
-c = 0  # Purchase cost
-Q = np.linspace(1, 50, 50)
-
-# Average cost function
-g = (K / Q) + c + (h * Q / 2)
-
-# Plotting the costs vs order quantity
-plt.plot(Q, K / Q, label="Order Cost", color="blue", linewidth=2)
-plt.plot(Q, c + (h * Q / 2), label="Holding Cost", color="orange", linewidth=2)
-plt.plot(Q, g, label="Average Cost", color="green", linewidth=2)
-plt.axvline(
-    x=np.sqrt(2 * K / h),
-    color="red",
-    linestyle="--",
-    label="Optimal Order Quantity",
-    linewidth=2,
-)
-plt.xlabel("Order Quantity (Q)")
-plt.ylabel("Cost")
-plt.tight_layout()
-plt.show()  
-```
-
-平均コストが最小となる発注量 $Q^*$ は、発注コストと保管コストの交差点である。すなわち、発注コストと保管コストを等しくする発注量は最適な発注量 $Q^*$ である。この性質は以下の式からわかる。
-
-$$
-\frac{Kd}{Q^*} = \frac{hQ^*}{2} \Longrightarrow Q^* = \sqrt{\frac{2Kd}{h}}
-$$
-
-また、この図からもわかるように、$Q$ の増加に伴い、平均発注コストは減少し、平均保管コストは増加する。逆もまた然りである。
+1. $h$ の増加に伴い、$Q^*$ は減少する。保管費用が高い場合は、少量で高い頻度で発注することが望ましい。
+2. $K$ の増加に伴い、$Q^*$ は増加する。発注費用が高い場合は、多量で低い頻度で発注することが望ましい。
+3. $d$ の増加に伴い、$Q^*$ は増加する。
+4. $c$ は $Q^*$ に影響しない。購入単価は最適発注量に影響しない。
 
 :::{#exm-eoq}
 
@@ -243,6 +207,43 @@ if __name__ == "__main__":
 PCの場合は、注文量が整数である必要があるため、$g(129)$ と $g(130)$ を比較して最適発注量を決定する。
 ::: 
 
+次の図は、購入単価を $c = 0$ とするとき、平均コスト $g(Q)$、発注コスト $\frac{Kd}{Q}$、保管コスト $\frac{hQ}{2}$ のグラフを示す。
+
+```{python}
+# Parameters
+K = 40  # Order cost
+h = 10  # Holding cost
+d = 5  # Demand rate
+Q = np.linspace(1, 40, 400)  # Order quantity from 1 to 40
+
+# Cost calculations
+order_cost = K * d / Q
+holding_cost = (h * Q) / 2
+average_cost = order_cost + holding_cost
+optimal_Q = np.sqrt(2 * K * d / h)
+
+# Plotting the costs
+plt.plot(Q, order_cost, label="Kd/Q", color="blue")
+plt.plot(Q, holding_cost, label="hQ/2", color="orange")
+plt.plot(Q, average_cost, label="g(Q)", color="green", linewidth=2)
+plt.axvline(optimal_Q, color="red", linestyle="--", label="Q*")
+plt.xlabel("Order Quantity Q")
+plt.ylabel("Cost")
+plt.ylim(bottom=0)
+plt.legend()
+plt.tight_layout()
+plt.show()
+
+```
+
+平均コストが最小となる発注量 $Q^*$ は、発注コストと保管コストの交差点である。すなわち、発注コストと保管コストを等しくする発注量は最適な発注量 $Q^*$ である。この性質は以下の式からわかる。
+
+$$
+\frac{Kd}{Q^*} = \frac{hQ^*}{2} \Longrightarrow Q^* = \sqrt{\frac{2Kd}{h}}
+$$
+
+また、この図からもわかるように、$Q$ の増加に伴い、平均発注コストは減少し、平均保管コストは増加する。逆もまた然りである。
+
 ## リードタイム
 
 EOQ モデルでは、リードタイムは0と仮定している。リードタイムが $L > 0$ の場合も、最適発注量 $Q^*$ も変換せず、$L$ 期間前に $Q^*$ を発注すればよい。
@@ -276,6 +277,14 @@ PCの在庫量が63台になったときに発注を行う。
 2. 需要率を $d$、発注費用を $K$、保管費用を $h$，購入単価を $c$ とする。EOQモデルにおける平均コスト $g(Q)$ を発注量 $Q$ の関数として導出せよ。
 3. $g(Q)$ を最小化する発注量 $Q^*$ を導出せよ。なぜ $Q^*$ が最小値を与えるのか説明せよ。
 4. 需要率 $d = 300$、発注費用 $K = 4000$、保管費用 $h = 20$ のとき、最適発注量 $Q^*$ とサイクル期間 $T^*$ を計算せよ。
+
+::: {.callout-tip collapse="true"}
+## 解答例
+1. $T = \frac{Q}{d}$ 
+2. 省略
+3. 省略
+4. $Q^* = \sqrt{\frac{2Kd}{h}}$、$T^* = \sqrt{\frac{2K}{hd}}$ である。
+:::
    
 ## 実装
 
