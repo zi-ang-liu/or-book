@@ -25,7 +25,7 @@ jupyter: python3
 
 $$
 g(S, d) = h (S - d)^+ + p (d - S)^+
-$$
+$$  {#eq-newsvendor-cost}
 
 :::{.callout-tip icon=false}
 ## 例題
@@ -38,9 +38,15 @@ $$
 
 需要 $D$ が確率変数であることを思い出そう。ここからは、需要 $D$ が連続型確率変数であると仮定する。需要 $D$ の確率密度関数を $f_D(d)$、累積分布関数を $F_D(d)$ とする。
 
+発注量を $S$ としたとき、需要 $D \leq S$ である確率は、累積分布関数 $F_D(S)$ で与えられる。
+
+$$
+P(D \leq S) = F_D(S) = \int_{0}^{S} f_D(d) dd
+$$ {#eq-newsvendor-S}
+
 :::{.callout-tip icon=false}
 ## 例題
-需要 $D$ が一様分布 $U(100,300)$ に従うとき、確率密度関数 $f_D(d)$ と累積分布関数 $F_D(d)$ は以下のように表される。
+需要 $D$ が一様分布 $U(100,300)$ に従うとき、確率密度関数 $f_D(250)$ と累積分布関数 $F_D(250)$ は以下のように表される。
 
 ```{python}
 # | layout-ncol: 2
@@ -59,15 +65,15 @@ d = np.linspace(a - 50, b + 50, 1000)
 # plot pdf with shaded area
 plt.figure(figsize=(4, 4))
 plt.plot(d, uniform.pdf(d, a, b - a))
-# plt.fill_between(
-#     d,
-#     0,
-#     uniform.pdf(d, a, b - a),
-#     where=(d >= a) & (d <= b),
-#     color="skyblue",
-#     alpha=0.5,
-#     label="f_D(d)",
-# )
+plt.fill_between(
+    d,
+    0,
+    uniform.pdf(d, a, b - a),
+    where=(d <= 250),
+    color="skyblue",
+    alpha=0.5,
+    label="F(250)",
+)
 plt.xlabel(r"$D$")
 plt.ylabel(r"$f_D(d)$")
 plt.xlim(a - 50, b + 50)
@@ -77,6 +83,7 @@ plt.show()
 # plot cdf
 plt.figure(figsize=(4, 4))
 plt.plot(d, uniform.cdf(d, a, b - a))
+plt.axvline(250, color="r", linestyle="--", label="d=250")
 plt.xlabel(r"$D$")
 plt.ylabel(r"$F_D(d)$")
 plt.xlim(a - 50, b + 50)
@@ -84,10 +91,10 @@ plt.ylim(0, 1.1)
 plt.show()
 ```
 
-需要 $D \leq 200$ である確率は、累積分布関数 $F_D(200)$ で与えられる。
+需要 $D \leq 250$ である確率は、累積分布関数 $F_D(250)$ で与えられる。
 
 $$
-P(D \leq 200) = F_D(200) = \int_{100}^{200} f_D(d) dd = 0.5
+P(D \leq 250) = F_D(250) = \int_{100}^{250} f_D(d) dd = 0.75
 $$
 
 需要 $D > 250$ である確率は $1 - F_D(250)$ で与えられる。
@@ -97,38 +104,40 @@ P(D > 250) = 1 - F_D(250) = 1 - \int_{100}^{250} f_D(d) dd = 0.25
 $$
 :::
 
-$D$ が確率変数であるため、コストの期待値 $g(S)$ は以下のように表される。
+$D$ が確率変数であるため、コストも確率変数となる。新聞売り子問題の目的は、コストの期待値を最小化することである。ここで、コストの期待値を $g(S) = \mathbb{E}[g(S, D)]$ とする。$g(S, D)$ は @eq-newsvendor-cost で与えられるため、コストの期待値 $g(S)$ は以下のように表される。
 
 \begin{align}
 g(S) &= \mathbb{E}[g(S, D)] \\
+&= \mathbb{E}[h (S - D)^+ + p (D - S)^+] \\
+&= \mathbb{E}[h (S - D)^+] + \mathbb{E}[p (D - S)^+] \\
 &= h \mathbb{E}[(S - D)^+] + p \mathbb{E}[(D - S)^+] \\
 &= h \int_{0}^{\infty}(S - d)^+ f_D(d) dd + p \int_{0}^{\infty} (d - S)^+ f_D(d) dd \\
 &= h \int_{0}^{S} (S - d) f_D(d) dd + p \int_{S}^{\infty} (d - S) f_D(d) dd
 \end{align}
 
+:::{.callout-tip icon=false}
+## 例題
+需要 $D$ が一様分布 $U(100,300)$ に従う新聞売り子問題を考える。在庫超過費用が $h = 10$、在庫不足費用が $p = 5$ のとき、発注量 $S = 150$ に対するコストの期待値 $g(150)$ は以下のように求められる。
+
+$$
+g(150) = 10 \int_{100}^{150} (150 - d) f_D(d) dd + 5 \int_{150}^{300} (d - 150) f_D(d) dd
+$$
+:::
+
 ## 最適化
 
-$g(S)$ の1階微分は以下のように求める。
+以下の手順で、コストの期待値 $g(S)$ を最小化する発注量 $S^*$ を求める。
+
+1. $g(S)$ の1階微分を求める。
+2. $dg(S)/dS = 0$ を解く。
+3. 2階微分を求め、$g(S)$ が凸関数であることを確認する。
+
+@eq-newsvendor-S を用い、$g(S)$ の1階微分は以下のように求める。
 
 \begin{align}
 \frac{dg(S)}{dS} &= h \int_{0}^{S} f_D(d) dd - p \int_{S}^{\infty} f_D(d) dd \\
 &= h F_D(S) - p (1 - F_D(S)) \\
 \end{align}
-
-::: {.callout-note}
-$D \leq S$ である確率は、需要 $D$ の累積分布関数 $F_D(S)$ で与えられる。
-
-$$
-P(D \leq S) = F_D(S) = \int_{0}^{S} f_D(d) dd
-$$
-
-
-また、$D > S$ である確率は $1 - F_D(S)$ で与えられる。
-
-$$
-P(D > S) = 1 - F_D(S) = \int_{S}^{\infty} f_D(d) dd
-$$
-:::
 
 よって、$dg(S)/dS = 0$ から、
 
@@ -141,7 +150,7 @@ F_D(S) &= \frac{p}{h + p}
 
 \begin{align}
 \frac{d^2g(S)}{dS^2} &= h f_D(S) + p f_D(S) \\
-&= (h + p) f_D(S) 
+&= (h + p) f_D(S) > 0
 \end{align}
 
 である。したがって、コスト関数 $g(S)$ は凸関数であり、1 階微分が 0 になる点は最小値を与える。
@@ -166,6 +175,15 @@ $$
 :::
 
 ## 臨界率
+
+以上の議論から、最適発注量 $S^*$ は以下の式を満たす。
+
+$$
+F_D(S^*) = P(D \leq S^*) = \frac{p}{h + p}
+$$
+
+
+
 
 $p/(h+p)$ は**臨界率**（critical ratio）と呼ばれる。臨界率は、在庫不足費用と在庫超過費用の比率を表す。
 
