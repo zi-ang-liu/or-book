@@ -162,8 +162,8 @@ window.Quarto = {
 <meta name="twitter:title" content="4&nbsp; 新聞売り子問題 – オペレーションズ・リサーチ">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://zi-ang-liu.github.io/or-book/inventory/newsvendor_files/figure-html/cell-2-output-1.png">
-<meta name="twitter:image-height" content="868">
-<meta name="twitter:image-width" content="1194">
+<meta name="twitter:image-height" content="721">
+<meta name="twitter:image-width" content="792">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -560,7 +560,7 @@ window.Quarto = {
   <li><a href="#定式化" id="toc-定式化" class="nav-link active" data-scroll-target="#定式化"><span class="header-section-number">4.1</span> 定式化</a></li>
   <li><a href="#最適化" id="toc-最適化" class="nav-link" data-scroll-target="#最適化"><span class="header-section-number">4.2</span> 最適化</a></li>
   <li><a href="#臨界率" id="toc-臨界率" class="nav-link" data-scroll-target="#臨界率"><span class="header-section-number">4.3</span> 臨界率</a></li>
-  <li><a href="#例題" id="toc-例題" class="nav-link" data-scroll-target="#例題"><span class="header-section-number">4.4</span> 例題</a>
+  <li><a href="#例題-2" id="toc-例題-2" class="nav-link" data-scroll-target="#例題-2"><span class="header-section-number">4.4</span> 例題</a>
   <ul class="collapse">
   <li><a href="#excel" id="toc-excel" class="nav-link" data-scroll-target="#excel"><span class="header-section-number">4.4.1</span> Excel</a></li>
   <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python"><span class="header-section-number">4.4.2</span> Python</a></li>
@@ -603,7 +603,7 @@ window.Quarto = {
 
 <p>新聞売り子問題（Newsvendor Problem）は、古典的な確率的在庫モデルの一つである。新聞は次の日には売れなくなるため、新聞売り子問題は最も単純な perishable 在庫モデルとして知られている。</p>
 <p>新聞売り子が新聞を仕入れ、販売する問題を考える。新聞 1 部の欠品費用を <span class="math inline">\(p\)</span>、保管費用を <span class="math inline">\(h\)</span> とする。新聞売子問題において、<span class="math inline">\(p\)</span> を<strong>在庫不足費用</strong>（underage cost）、<span class="math inline">\(h\)</span> を<strong>在庫超過費用</strong>（overage cost）とも呼ぶ。<span class="math inline">\(p \gt 0\)</span>、<span class="math inline">\(h \gt 0\)</span> とし、初期在庫は 0 とする。</p>
-<p>新聞の需要 <span class="math inline">\(D\)</span> を確率変数とし、確率密度関数を <span class="math inline">\(f_D(d)\)</span>、累積分布関数を <span class="math inline">\(F_D(d)\)</span> とする。新聞売り子はどれだけの新聞を発注すればよいかという問題である。</p>
+<p>新聞の需要 <span class="math inline">\(D\)</span> を確率変数とするとき、新聞売り子はどれだけの新聞を発注すればよいかという問題である。</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -614,11 +614,11 @@ window.Quarto = {
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\(h\)</span></td>
-<td style="text-align: left;">在庫超過費用</td>
+<td style="text-align: left;">1 個当たりの在庫超過費用</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><span class="math inline">\(p\)</span></td>
-<td style="text-align: left;">在庫不足費用</td>
+<td style="text-align: left;">1 個当たりの在庫不足費用</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\(D\)</span></td>
@@ -636,6 +636,102 @@ window.Quarto = {
 <p><span class="math display">\[
 g(S, d) = h (S - d)^+ + p (d - S)^+
 \]</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+例題
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>発注量 <span class="math inline">\(S = 100\)</span>、需要 <span class="math inline">\(D\)</span> の観測値 <span class="math inline">\(d = 120\)</span>、在庫超過費用が <span class="math inline">\(h = 10\)</span>、在庫不足費用が <span class="math inline">\(p = 5\)</span> のとき、コスト <span class="math inline">\(g(S, d)\)</span> は以下のように求められる。</p>
+<p><span class="math display">\[
+g(100, 120) = 10 (100 - 120)^+ + 5 (120 - 100)^+ = 100
+\]</span></p>
+</div>
+</div>
+<p>需要 <span class="math inline">\(D\)</span> が確率変数であることを思い出そう。ここからは、需要 <span class="math inline">\(D\)</span> が連続型確率変数であると仮定する。需要 <span class="math inline">\(D\)</span> の確率密度関数を <span class="math inline">\(f_D(d)\)</span>、累積分布関数を <span class="math inline">\(F_D(d)\)</span> とする。</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+例題
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>需要 <span class="math inline">\(D\)</span> が一様分布 <span class="math inline">\(U(100,300)\)</span> に従うとき、確率密度関数 <span class="math inline">\(f_D(d)\)</span> と累積分布関数 <span class="math inline">\(F_D(d)\)</span> は以下のように表される。</p>
+<details class="code-fold">
+<summary>コード</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> uniform</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 一様分布のパラメータ</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">300</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 需要の範囲</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> np.linspace(a <span class="op">-</span> <span class="dv">50</span>, b <span class="op">+</span> <span class="dv">50</span>, <span class="dv">1000</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># plot pdf with shaded area</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">4</span>))</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.plot(d, uniform.pdf(d, a, b <span class="op">-</span> a))</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.fill_between(</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">#     d,</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">#     0,</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">#     uniform.pdf(d, a, b - a),</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">#     where=(d &gt;= a) &amp; (d &lt;= b),</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">#     color="skyblue",</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">#     alpha=0.5,</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">#     label="f_D(d)",</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="vs">r"</span><span class="dv">$</span><span class="vs">D</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="vs">r"</span><span class="dv">$</span><span class="vs">f_D</span><span class="kw">(</span><span class="vs">d</span><span class="kw">)</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>plt.xlim(a <span class="op">-</span> <span class="dv">50</span>, b <span class="op">+</span> <span class="dv">50</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="fl">0.006</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># plot cdf</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">4</span>))</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>plt.plot(d, uniform.cdf(d, a, b <span class="op">-</span> a))</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="vs">r"</span><span class="dv">$</span><span class="vs">D</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="vs">r"</span><span class="dv">$</span><span class="vs">F_D</span><span class="kw">(</span><span class="vs">d</span><span class="kw">)</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>plt.xlim(a <span class="op">-</span> <span class="dv">50</span>, b <span class="op">+</span> <span class="dv">50</span>)</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="fl">1.1</span>)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div id="25f49ba2" class="cell quarto-layout-panel" data-layout-ncol="2" data-execution_count="1">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="newsvendor_files/figure-html/cell-2-output-1.png" width="396" height="361" class="figure-img"></p>
+<figcaption>確率密度関数 <span class="math inline">\(f_D(d)\)</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="newsvendor_files/figure-html/cell-2-output-2.png" width="380" height="356" class="figure-img"></p>
+<figcaption>累積分布関数 <span class="math inline">\(F_D(d)\)</span></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>需要 <span class="math inline">\(D \leq 200\)</span> である確率は、累積分布関数 <span class="math inline">\(F_D(200)\)</span> で与えられる。</p>
+<p><span class="math display">\[
+P(D \leq 200) = F_D(200) = \int_{100}^{200} f_D(d) dd = 0.5
+\]</span></p>
+<p>需要 <span class="math inline">\(D &gt; 250\)</span> である確率は <span class="math inline">\(1 - F_D(250)\)</span> で与えられる。</p>
+<p><span class="math display">\[
+P(D &gt; 250) = 1 - F_D(250) = 1 - \int_{100}^{250} f_D(d) dd = 0.25
+\]</span></p>
+</div>
+</div>
 <p><span class="math inline">\(D\)</span> が確率変数であるため、コストの期待値 <span class="math inline">\(g(S)\)</span> は以下のように表される。</p>
 <p><span class="math display">\[\begin{align}
 g(S) &amp;= \mathbb{E}[g(S, D)] \\
@@ -712,8 +808,8 @@ S^* = F_D^{-1}\left(\frac{p}{h + p}\right)
 </ul>
 </div>
 </section>
-<section id="例題" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="例題"><span class="header-section-number">4.4</span> 例題</h2>
+<section id="例題-2" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="例題-2"><span class="header-section-number">4.4</span> 例題</h2>
 <div id="exm-newsvendor" class="theorem example">
 <p><span class="theorem-title"><strong>例 4.1</strong></span> 需要 <span class="math inline">\(D\)</span> が正規分布 <span class="math inline">\(N(100, 25)\)</span> に従う新聞売り子問題を考える。在庫超過費用が <span class="math inline">\(h = 10\)</span>、在庫不足費用が <span class="math inline">\(p = 40\)</span> のとき、最適発注量 <span class="math inline">\(S^*\)</span> を求める。</p>
 <p><a href="#thm-newsvendor" class="quarto-xref">定理&nbsp;<span>4.1</span></a> より、<span class="math inline">\(S^*\)</span> は以下の式で与えられる。</p>
@@ -721,44 +817,44 @@ S^* = F_D^{-1}\left(\frac{p}{h + p}\right)
 S^* = F_D^{-1}\left(\frac{p}{h + p}\right) = F_D^{-1}\left(\frac{40}{10 + 40}\right) = F_D^{-1}\left(0.8\right)
 \]</span></p>
 <p>言い換えると、<span class="math inline">\(F_D(S^*) = 0.8\)</span> を満たす <span class="math inline">\(S^*\)</span> を求めればよい。これを図で表すと、面積が 0.8 になるような <span class="math inline">\(S^*\)</span> を求めることに相当する。</p>
-<div id="55be53d9" class="cell" data-execution_count="1">
+<div id="91d53c3d" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 正規分布のパラメータ</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>mu <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>sigma <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 需要の範囲</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> np.linspace(mu <span class="op">-</span> <span class="dv">4</span> <span class="op">*</span> sigma, mu <span class="op">+</span> <span class="dv">4</span> <span class="op">*</span> sigma, <span class="dv">1000</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>S_star <span class="op">=</span> norm.ppf(<span class="fl">0.8</span>, loc<span class="op">=</span>mu, scale<span class="op">=</span>sigma)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># plot the normal distribution</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>plt.plot(d, norm.pdf(d, mu, sigma))</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>plt.fill_between(</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    d,</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    norm.pdf(d, mu, sigma),</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    where<span class="op">=</span>(d <span class="op">&lt;=</span> S_star),</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"skyblue"</span>,</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.5</span>,</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    label<span class="op">=</span><span class="st">"F(S*)"</span>,</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Demand"</span>)</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Probability Density"</span>)</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>plt.axvline(mu, color<span class="op">=</span><span class="st">"r"</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, label<span class="op">=</span><span class="st">"mu"</span>)</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>plt.axvline(S_star, color<span class="op">=</span><span class="st">"g"</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, label<span class="op">=</span><span class="st">"S*"</span>)</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="fl">0.09</span>)</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 正規分布のパラメータ</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>mu <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>sigma <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 需要の範囲</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> np.linspace(mu <span class="op">-</span> <span class="dv">4</span> <span class="op">*</span> sigma, mu <span class="op">+</span> <span class="dv">4</span> <span class="op">*</span> sigma, <span class="dv">1000</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>S_star <span class="op">=</span> norm.ppf(<span class="fl">0.8</span>, loc<span class="op">=</span>mu, scale<span class="op">=</span>sigma)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># plot the normal distribution</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>plt.plot(d, norm.pdf(d, mu, sigma))</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>plt.fill_between(</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    d,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    norm.pdf(d, mu, sigma),</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    where<span class="op">=</span>(d <span class="op">&lt;=</span> S_star),</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"skyblue"</span>,</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    label<span class="op">=</span><span class="st">"F(S*)"</span>,</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Demand"</span>)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Probability Density"</span>)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>plt.axvline(mu, color<span class="op">=</span><span class="st">"r"</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, label<span class="op">=</span><span class="st">"mu"</span>)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>plt.axvline(S_star, color<span class="op">=</span><span class="st">"g"</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, label<span class="op">=</span><span class="st">"S*"</span>)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="fl">0.09</span>)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="newsvendor_files/figure-html/cell-2-output-1.png" width="597" height="434" class="figure-img"></p>
+<p><img src="newsvendor_files/figure-html/cell-3-output-1.png" width="597" height="434" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -773,23 +869,23 @@ S^* = F_D^{-1}\left(\frac{p}{h + p}\right) = F_D^{-1}\left(\frac{40}{10 + 40}\ri
 <section id="python" class="level3" data-number="4.4.2">
 <h3 data-number="4.4.2" class="anchored" data-anchor-id="python"><span class="header-section-number">4.4.2</span> Python</h3>
 <p>Python では、SciPy ライブラリの <code>ppf()</code> 関数を用いて、逆関数を求めることができる。</p>
-<div id="8c405cae" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 正規分布のパラメータ</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>mu <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>sigma <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 在庫超過費用と在庫不足費用</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="dv">40</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 臨界率</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>critical_ratio <span class="op">=</span> p <span class="op">/</span> (h <span class="op">+</span> p)</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 最適発注量</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>S_star <span class="op">=</span> norm.ppf(critical_ratio, loc<span class="op">=</span>mu, scale<span class="op">=</span>sigma)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal order quantity S*: </span><span class="sc">{</span>S_star<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="1d13290c" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 正規分布のパラメータ</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>mu <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>sigma <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 在庫超過費用と在庫不足費用</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="dv">40</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 臨界率</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>critical_ratio <span class="op">=</span> p <span class="op">/</span> (h <span class="op">+</span> p)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 最適発注量</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>S_star <span class="op">=</span> norm.ppf(critical_ratio, loc<span class="op">=</span>mu, scale<span class="op">=</span>sigma)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal order quantity S*: </span><span class="sc">{</span>S_star<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Optimal order quantity S*: 104.21</code></pre>
 </div>
