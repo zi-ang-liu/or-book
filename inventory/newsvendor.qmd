@@ -27,7 +27,8 @@ $$
 g(S, d) = h (S - d)^+ + p (d - S)^+
 $$
 
-:::{#exm-newsvendor-cost}
+:::{.callout-tip icon=false}
+## 例題
 発注量 $S = 100$、需要 $D$ の観測値 $d = 120$、在庫超過費用が $h = 10$、在庫不足費用が $p = 5$ のとき、コスト $g(S, d)$ は以下のように求められる。
 
 $$
@@ -37,10 +38,15 @@ $$
 
 需要 $D$ が確率変数であることを思い出そう。ここからは、需要 $D$ が連続型確率変数であると仮定する。需要 $D$ の確率密度関数を $f_D(d)$、累積分布関数を $F_D(d)$ とする。
 
-:::{#exm-newsvendor-pdfcdf}
+:::{.callout-tip icon=false}
+## 例題
 需要 $D$ が一様分布 $U(100,300)$ に従うとき、確率密度関数 $f_D(d)$ と累積分布関数 $F_D(d)$ は以下のように表される。
 
 ```{python}
+# | layout-ncol: 2
+# | fig-cap:
+# |   - "確率密度関数 $f_D(d)$"
+# |   - "累積分布関数 $F_D(d)$"
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.stats import uniform
@@ -53,39 +59,24 @@ d = np.linspace(a - 50, b + 50, 1000)
 # plot pdf with shaded area
 plt.figure(figsize=(4, 4))
 plt.plot(d, uniform.pdf(d, a, b - a))
-plt.fill_between(
-    d,
-    0,
-    uniform.pdf(d, a, b - a),
-    where=(d >= a) & (d <= b),
-    color="skyblue",
-    alpha=0.5,
-    label="f_D(d)",
-)
+# plt.fill_between(
+#     d,
+#     0,
+#     uniform.pdf(d, a, b - a),
+#     where=(d >= a) & (d <= b),
+#     color="skyblue",
+#     alpha=0.5,
+#     label="f_D(d)",
+# )
 plt.xlabel(r"$D$")
 plt.ylabel(r"$f_D(d)$")
 plt.xlim(a - 50, b + 50)
 plt.ylim(0, 0.006)
 plt.show()
-```
-
-```{python}
-import matplotlib.pyplot as plt
-import numpy as np
-from scipy.stats import uniform
 
 # plot cdf
 plt.figure(figsize=(4, 4))
 plt.plot(d, uniform.cdf(d, a, b - a))
-plt.fill_between(
-    d,
-    0,
-    uniform.cdf(d, a, b - a),
-    where=(d >= a) & (d <= b),
-    color="skyblue",
-    alpha=0.5,
-    label="F_D(d)",
-)
 plt.xlabel(r"$D$")
 plt.ylabel(r"$F_D(d)$")
 plt.xlim(a - 50, b + 50)
@@ -98,11 +89,13 @@ plt.show()
 $$
 P(D \leq 200) = F_D(200) = \int_{100}^{200} f_D(d) dd = 0.5
 $$
+
+需要 $D > 250$ である確率は $1 - F_D(250)$ で与えられる。
+
+$$
+P(D > 250) = 1 - F_D(250) = 1 - \int_{100}^{250} f_D(d) dd = 0.25
+$$
 :::
-
-
-
-
 
 $D$ が確率変数であるため、コストの期待値 $g(S)$ は以下のように表される。
 
