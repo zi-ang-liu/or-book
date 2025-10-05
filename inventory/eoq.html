@@ -599,7 +599,7 @@ window.Quarto = {
 <li>Constant order sizes. 発注量は一定である。需要率 <span class="math inline">\(d\)</span> が一定であり、在庫量が0のときに発注を行うため、最適発注量も一定である。</li>
 </ol>
 <p>以上の性質から、在庫量の時間的変化は下図のようになる。</p>
-<div id="545b2019" class="cell" data-execution_count="1">
+<div id="b0f905ef" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -746,7 +746,7 @@ T^* = \frac{Q^*}{d} = \sqrt{\frac{2K}{hd}}
 <li><span class="math inline">\(c\)</span> は <span class="math inline">\(Q^*\)</span> に影響しない。購入単価は最適発注量に影響しない。</li>
 </ol>
 <p>次の図は、購入単価を <span class="math inline">\(c = 0\)</span> とするとき、平均コスト <span class="math inline">\(g(Q)\)</span>、発注コスト <span class="math inline">\(\frac{Kd}{Q}\)</span>、保管コスト <span class="math inline">\(\frac{hQ}{2}\)</span> のグラフを示す。</p>
-<div id="3b65cd20" class="cell" data-execution_count="2">
+<div id="b86e56f1" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
@@ -794,7 +794,7 @@ Q^* = \sqrt{\frac{2 \cdot 5000 \cdot 250}{150}}
 <p>Excel では、下記のように計算できる。</p>
 <pre class="excel"><code>=SQRT(2 * 5000 * 250 / 150)</code></pre>
 <p>Python では、次のように<code>eoq(K, d, h)</code> 関数を定義し、最適発注量を計算できる。</p>
-<div id="2b8091c3" class="cell" data-execution_count="3">
+<div id="8bc0bae7" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> eoq(K, d, h):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculate the Economic Order Quantity (EOQ).</span></span>
@@ -880,7 +880,7 @@ T = \frac{Q}{d} = \frac{600}{300} = 2 \text{ヶ月}
 </div>
 <div id="sol-eoq-year" class="proof solution">
 <p><span class="proof-title"><em>解答 2.2</em>. </span>需要率は <span class="math inline">\(d = 4000\)</span>、発注費用は <span class="math inline">\(K = 5500\)</span>、保管費用は <span class="math inline">\(h = 275\)</span>、購入単価は <span class="math inline">\(c = 1100\)</span> である。</p>
-<div id="3347feb1" class="cell" data-execution_count="4">
+<div id="f0e3c750" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>K <span class="op">=</span> <span class="dv">5500</span>  <span class="co"># Order cost</span></span>

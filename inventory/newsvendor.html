@@ -603,7 +603,7 @@ window.Quarto = {
 <p>新聞売り子問題（Newsvendor Problem）は、古典的な確率的在庫モデルの一つである。新聞は次の日には売れなくなるため、新聞売り子問題は最も単純な perishable 在庫モデルとして知られている。</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./fig/Buying_a_newspaper.jpg" class="img-fluid figure-img"></p>
+<p><img src="fig/Buying_a_newspaper.jpg" class="img-fluid figure-img"></p>
 <figcaption>Jacob Epstein, Buying a Newspaper. The Spirit of the Ghetto, 1902, public domain, Wikimedia Commons</figcaption>
 </figure>
 </div>
@@ -716,7 +716,7 @@ P(D \leq S) = F_D(S) = \int_{0}^{S} f_D(d) dd
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="fl">1.1</span>)</span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="9b20988c" class="cell quarto-layout-panel" data-layout-ncol="2" data-execution_count="1">
+<div id="f00094b6" class="cell quarto-layout-panel" data-layout-ncol="2" data-execution_count="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
@@ -892,7 +892,7 @@ F_D(S) = P(D \leq S) = \frac{p}{h + p}
 S^* = F_D^{-1}\left(\frac{p}{h + p}\right) = F_D^{-1}\left(\frac{40}{10 + 40}\right) = F_D^{-1}\left(0.8\right)
 \]</span></p>
 <p>言い換えると、<span class="math inline">\(F_D(S^*) = 0.8\)</span> を満たす <span class="math inline">\(S^*\)</span> を求めればよい。これを図で表すと、面積が 0.8 になるような <span class="math inline">\(S^*\)</span> を求めることに相当する。</p>
-<div id="29e105e7" class="cell" data-execution_count="2">
+<div id="f4133692" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -944,7 +944,7 @@ S^* = F_D^{-1}\left(\frac{p}{h + p}\right) = F_D^{-1}\left(\frac{40}{10 + 40}\ri
 <section id="python" class="level3" data-number="4.5.2">
 <h3 data-number="4.5.2" class="anchored" data-anchor-id="python"><span class="header-section-number">4.5.2</span> Python</h3>
 <p>Python では、SciPy ライブラリの <code>ppf()</code> 関数を用いて、逆関数を求めることができる。</p>
-<div id="3efb1576" class="cell" data-execution_count="3">
+<div id="57248b25" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 正規分布のパラメータ</span></span>
@@ -1117,13 +1117,57 @@ S^* - I, &amp; \text{if } I \le S^*, \\[6pt]
 <section id="発注費用を考慮した新聞売り子問題" class="level2" data-number="4.8">
 <h2 data-number="4.8" class="anchored" data-anchor-id="発注費用を考慮した新聞売り子問題"><span class="header-section-number">4.8</span> 発注費用を考慮した新聞売り子問題</h2>
 <p><span class="citation" data-cites="Scarf1959-xl">Scarf (<a href="../references.html#ref-Scarf1959-xl" role="doc-biblioref">1959</a>)</span> の論文では、<span class="math inline">\((s, S)\)</span> 方策が発注費用を考慮した複数期間の新聞売り子問題において最適であることを示している。</p>
+<!-- 1. 発注量 $S = 100$、需要 $D$ の観測値 $d = 120$、在庫超過費用が $h = 10$、在庫不足費用が $p = 40$ のとき、コスト $g(S, d)$ を求めよ。
+2. 需要 $D$ が正規分布 $N(150, 36)$ に従う新聞売り子問題を考える。在庫超過費用が $h = 5$、在庫不足費用が $p = 20$ のとき、最適発注量 $S^*$ を求めよ。 -->
 </section>
 <section id="練習問題" class="level2" data-number="4.9">
 <h2 data-number="4.9" class="anchored" data-anchor-id="練習問題"><span class="header-section-number">4.9</span> 練習問題</h2>
-<ol type="1">
-<li>発注量 <span class="math inline">\(S = 100\)</span>、需要 <span class="math inline">\(D\)</span> の観測値 <span class="math inline">\(d = 120\)</span>、在庫超過費用が <span class="math inline">\(h = 10\)</span>、在庫不足費用が <span class="math inline">\(p = 40\)</span> のとき、コスト <span class="math inline">\(g(S, d)\)</span> を求めよ。</li>
-<li>需要 <span class="math inline">\(D\)</span> が正規分布 <span class="math inline">\(N(150, 36)\)</span> に従う新聞売り子問題を考える。在庫超過費用が <span class="math inline">\(h = 5\)</span>、在庫不足費用が <span class="math inline">\(p = 20\)</span> のとき、最適発注量 <span class="math inline">\(S^*\)</span> を求めよ。</li>
-</ol>
+<div id="exr-newsvendor-basic" class="theorem exercise">
+<p><span class="theorem-title"><strong>練習 4.1</strong></span> ある弁当屋では、1 個 500 円で弁当を仕入れ、1 個 800 円で販売している。売れ残った弁当を廃棄する場合、1 個当たり 10 円の廃棄費用がかかる。 弁当の需要 <span class="math inline">\(D\)</span> は、正規分布 <span class="math inline">\(N(50, 8^2)\)</span> に従うとする。このとき、最適な弁当の発注量を求めよ。</p>
+</div>
+<div id="sol-newsvendor-basic" class="proof solution">
+<p><span class="proof-title"><em>解答 4.1</em>. </span>弁当 1 個当たりの在庫超過費用 <span class="math inline">\(h\)</span>、在庫不足費用 <span class="math inline">\(p\)</span> は以下のように求められる。 <span class="math display">\[
+h = 10 + 500 = 510, \quad p = 800 - 500 = 300
+\]</span></p>
+<p>したがって、<span class="math inline">\(S^*\)</span> は以下のように求められる。</p>
+<p><span class="math display">\[
+S^* = F_D^{-1}\left(\frac{p}{h + p}\right) = F_D^{-1}\left(\frac{300}{510 + 300}\right) \approx F_D^{-1}\left(0.37\right)
+\]</span></p>
+<p>これを満たす <span class="math inline">\(S^*\)</span> を求める。<span class="math inline">\(D\)</span> は正規分布 <span class="math inline">\(N(50, 8^2)\)</span> に従うため、</p>
+<p><span class="math display">\[
+F_D(S^*) = \Phi\left(\frac{S^* - 50}{8}\right) = 0.37
+\]</span></p>
+<p>標準正規分布表を調べると、<span class="math inline">\(\Phi(z) = 0.37\)</span> のとき、<span class="math inline">\(z\)</span> は約 -0.33 である。したがって、<span class="math inline">\(S^*\)</span> は以下の式を満たす。</p>
+<p><span class="math display">\[
+\frac{S^* - 50}{8} \approx -0.33
+\]</span></p>
+<p>これを解くと、</p>
+<p><span class="math display">\[
+S^* \approx 50 - 0.33 \times 8 \approx 46.36
+\]</span></p>
+<p>となり、<span class="math inline">\(S^* \approx 46.36\)</span> である。したがって、最適な弁当の発注量は約 46.36 個である。</p>
+<div id="6578aff2" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>コード</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 正規分布のパラメータ</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>mu <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>sigma <span class="op">=</span> <span class="dv">8</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 在庫超過費用と在庫不足費用</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="dv">510</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="dv">300</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 臨界率</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>critical_ratio <span class="op">=</span> p <span class="op">/</span> (h <span class="op">+</span> p)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 最適発注量</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>S_star <span class="op">=</span> norm.ppf(critical_ratio, loc<span class="op">=</span>mu, scale<span class="op">=</span>sigma)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal order quantity S*: </span><span class="sc">{</span>S_star<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Optimal order quantity S*: 47.3530</code></pre>
+</div>
+</div>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
