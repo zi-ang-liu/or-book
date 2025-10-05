@@ -8,7 +8,7 @@ jupyter: python3
 
 新聞売り子問題（Newsvendor Problem）は、古典的な確率的在庫モデルの一つである。新聞は次の日には売れなくなるため、新聞売り子問題は最も単純な perishable 在庫モデルとして知られている。
 
-![Jacob Epstein, Buying a Newspaper. The Spirit of the Ghetto, 1902, public domain, Wikimedia Commons](./fig/Buying_a_newspaper.jpg)
+![Jacob Epstein, Buying a Newspaper. The Spirit of the Ghetto, 1902, public domain, Wikimedia Commons](fig/Buying_a_newspaper.jpg)
 
 新聞売り子が新聞を仕入れ、販売する問題を考える。新聞 1 部の欠品費用を $p$、保管費用を $h$ とする。新聞売子問題において、$p$ を**在庫不足費用**（underage cost）、$h$ を**在庫超過費用**（overage cost）とも呼ぶ。$p \gt 0$、$h \gt 0$ とし、初期在庫は 0 とする。
 
@@ -517,7 +517,50 @@ $$
 
 @Scarf1959-xl の論文では、$(s, S)$ 方策が発注費用を考慮した複数期間の新聞売り子問題において最適であることを示している。
 
+<!-- 1. 発注量 $S = 100$、需要 $D$ の観測値 $d = 120$、在庫超過費用が $h = 10$、在庫不足費用が $p = 40$ のとき、コスト $g(S, d)$ を求めよ。
+2. 需要 $D$ が正規分布 $N(150, 36)$ に従う新聞売り子問題を考える。在庫超過費用が $h = 5$、在庫不足費用が $p = 20$ のとき、最適発注量 $S^*$ を求めよ。 -->
+
 ## 練習問題
 
-1. 発注量 $S = 100$、需要 $D$ の観測値 $d = 120$、在庫超過費用が $h = 10$、在庫不足費用が $p = 40$ のとき、コスト $g(S, d)$ を求めよ。
-2. 需要 $D$ が正規分布 $N(150, 36)$ に従う新聞売り子問題を考える。在庫超過費用が $h = 5$、在庫不足費用が $p = 20$ のとき、最適発注量 $S^*$ を求めよ。
+:::{#exr-newsvendor-basic}
+ある弁当屋では、1 個 500 円で弁当を仕入れ、1 個 800 円で販売している。売れ残った弁当を廃棄する場合、1 個当たり 10 円の廃棄費用がかかる。
+弁当の需要 $D$ は、正規分布 $N(50, 8^2)$ に従うとする。このとき、最適な弁当の発注量を求めよ。
+:::
+
+:::{#sol-newsvendor-basic}
+弁当 1 個当たりの在庫超過費用 $h$、在庫不足費用 $p$ は以下のように求められる。
+$$
+h = 10 + 500 = 510, \quad p = 800 - 500 = 300
+$$
+
+したがって、$S^*$ は以下のように求められる。
+
+$$
+S^* = F_D^{-1}\left(\frac{p}{h + p}\right) = F_D^{-1}\left(\frac{300}{510 + 300}\right) \approx F_D^{-1}\left(0.37\right)
+$$
+
+標準正規分布表を調べると、$\Phi(z) = 0.37$ のとき、$z$ は約 -0.33 である。したがって、$S^*$ は
+
+$$
+S^* = -0.33 \times \sigma + \mu = -0.33 \times 8 + 50 \approx 47.36
+$$
+
+となる。
+
+```{python}
+from scipy.stats import norm
+
+# 正規分布のパラメータ
+mu = 50
+sigma = 8
+# 在庫超過費用と在庫不足費用
+h = 510
+p = 300
+# 臨界率
+critical_ratio = p / (h + p)
+# 最適発注量
+S_star = norm.ppf(critical_ratio, loc=mu, scale=sigma)
+print(f"Optimal order quantity S*: {S_star:.4f}")
+```
+
+:::
