@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -76,6 +96,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta name="twitter:title" content="6&nbsp; 階層分析法 – オペレーションズ・リサーチ">
+<meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -464,8 +485,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#文献案内" id="toc-文献案内" class="nav-link active" data-scroll-target="#文献案内"><span class="header-section-number">6.1</span> 文献案内</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">6.2</span> </a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -490,8 +518,20 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="文献案内" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="文献案内"><span class="header-section-number">6.1</span> 文献案内</h2>
+<p><span class="citation" data-cites="Brunelli2015-mz">Brunelli (<a href="../references.html#ref-Brunelli2015-mz" role="doc-biblioref">2015</a>)</span> はAHPを丁寧に解説した書籍である。</p>
+</section>
+<section id="section" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="section"><span class="header-section-number">6.2</span> </h2>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Brunelli2015-mz" class="csl-entry" role="listitem">
+Brunelli, Matteo. 2015. <em>Introduction to the Analytic Hierarchy Process</em>. 2015th 版. SpringerBriefs in Operations Research. Cham: Springer International Publishing.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -520,6 +520,28 @@
     ]
   },
   {
+    "objectID": "mcda/ahp.html",
+    "href": "mcda/ahp.html",
+    "title": "6  階層分析法",
+    "section": "",
+    "text": "6.1 文献案内\nBrunelli (2015) はAHPを丁寧に解説した書籍である。",
+    "crumbs": [
+      "多基準意思決定分析",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>階層分析法</span>"
+    ]
+  },
+  {
+    "objectID": "mcda/ahp.html#section",
+    "href": "mcda/ahp.html#section",
+    "title": "6  階層分析法",
+    "section": "6.2 ",
+    "text": "6.2 \n\n\n\n\nBrunelli, Matteo. 2015. Introduction to the Analytic Hierarchy Process. 2015th 版. SpringerBriefs in Operations Research. Cham: Springer International Publishing.",
+    "crumbs": [
+      "多基準意思決定分析",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>階層分析法</span>"
+    ]
+  },
+  {
     "objectID": "network/graph.html",
     "href": "network/graph.html",
     "title": "7  グラフ理論",
@@ -656,7 +678,7 @@
     "href": "references.html",
     "title": "参考文献",
     "section": "",
-    "text": "Arrow, Kenneth J, Theodore Harris, and Jacob Marschak. 1951.\n“Optimal Inventory Policy.” Econometrica 19 (3):\n250.\n\n\nCamm, Jeffrey, James Cochran, Michael Fry, Jeffrey Ohlmann, David\nAnderson, Dennis Sweeney, and Thomas Williams. 2022. An Introduction\nto Management Science: Quantitative Approaches to Decision Making.\n16th ed. Florence, AL: South-Western College Publishing.\n\n\nEiselt, H A, and Carl-Louis Sandblom. 2022. Operations Research: A\nModel-Based Approach. Cham: Springer International Publishing.\n\n\nHarris, Ford W. 1990. “How Many Parts to Make at Once.”\nOper. Res. 38 (6): 947–50.\n\n\nHillier, Frederick, and Gerald Lieberman. 2025. ISE\nIntroduction to Operations Research. 11th ed. Columbus, OH:\nMcGraw-Hill Education.\n\n\nHuber, Jakob, Sebastian Müller, Moritz Fleischmann, and Heiner\nStuckenschmidt. 2019. “A Data-Driven Newsvendor Problem: From Data\nto Decision.” Eur. J. Oper. Res. 278 (3): 904–15.\n\n\nPleguezuelo, Rafael Herrerı́as, José Garcı́a Pérez, and Salvador Cruz\nRambaud. 2003. “A Note on the Reasonableness of PERT\nHypotheses.” Oper. Res. Lett. 31 (1): 60–62.\n\n\nQin, Yan, Ruoxuan Wang, Asoo J Vakharia, Yuwen Chen, and Michelle M H\nSeref. 2011. “The Newsvendor Problem: Review and Directions for\nFuture Research.” Eur. J. Oper. Res. 213 (2): 361–74.\n\n\nScarf, Herbert. 1959. “The Optimality of (S, s)\nPolicies in the Dynamic Inventory Problem.”\n\n\nSnyder, Lawrence V, and Zuo-Jun Max Shen. 2019. Fundamentals of\nSupply Chain Theory. 2nd ed. Nashville, TN: John Wiley & Sons.",
+    "text": "Arrow, Kenneth J, Theodore Harris, and Jacob Marschak. 1951.\n“Optimal Inventory Policy.” Econometrica 19 (3):\n250.\n\n\nBrunelli, Matteo. 2015. Introduction to the Analytic Hierarchy\nProcess. 2015th ed. SpringerBriefs in Operations Research. Cham:\nSpringer International Publishing.\n\n\nCamm, Jeffrey, James Cochran, Michael Fry, Jeffrey Ohlmann, David\nAnderson, Dennis Sweeney, and Thomas Williams. 2022. An Introduction\nto Management Science: Quantitative Approaches to Decision Making.\n16th ed. Florence, AL: South-Western College Publishing.\n\n\nEiselt, H A, and Carl-Louis Sandblom. 2022. Operations Research: A\nModel-Based Approach. Cham: Springer International Publishing.\n\n\nHarris, Ford W. 1990. “How Many Parts to Make at Once.”\nOper. Res. 38 (6): 947–50.\n\n\nHillier, Frederick, and Gerald Lieberman. 2025. ISE\nIntroduction to Operations Research. 11th ed. Columbus, OH:\nMcGraw-Hill Education.\n\n\nHuber, Jakob, Sebastian Müller, Moritz Fleischmann, and Heiner\nStuckenschmidt. 2019. “A Data-Driven Newsvendor Problem: From Data\nto Decision.” Eur. J. Oper. Res. 278 (3): 904–15.\n\n\nPleguezuelo, Rafael Herrerı́as, José Garcı́a Pérez, and Salvador Cruz\nRambaud. 2003. “A Note on the Reasonableness of PERT\nHypotheses.” Oper. Res. Lett. 31 (1): 60–62.\n\n\nQin, Yan, Ruoxuan Wang, Asoo J Vakharia, Yuwen Chen, and Michelle M H\nSeref. 2011. “The Newsvendor Problem: Review and Directions for\nFuture Research.” Eur. J. Oper. Res. 213 (2): 361–74.\n\n\nScarf, Herbert. 1959. “The Optimality of (S, s)\nPolicies in the Dynamic Inventory Problem.”\n\n\nSnyder, Lawrence V, and Zuo-Jun Max Shen. 2019. Fundamentals of\nSupply Chain Theory. 2nd ed. Nashville, TN: John Wiley & Sons.",
     "crumbs": [
       "参考文献"
     ]
