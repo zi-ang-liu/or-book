@@ -562,8 +562,9 @@ window.Quarto = {
   <li><a href="#最適発注量" id="toc-最適発注量" class="nav-link" data-scroll-target="#最適発注量"><span class="header-section-number">2.3</span> 最適発注量</a></li>
   <li><a href="#リードタイム" id="toc-リードタイム" class="nav-link" data-scroll-target="#リードタイム"><span class="header-section-number">2.4</span> リードタイム</a></li>
   <li><a href="#他のeoqモデル" id="toc-他のeoqモデル" class="nav-link" data-scroll-target="#他のeoqモデル"><span class="header-section-number">2.5</span> 他のEOQモデル</a></li>
-  <li><a href="#練習問題" id="toc-練習問題" class="nav-link" data-scroll-target="#練習問題"><span class="header-section-number">2.6</span> 練習問題</a></li>
-  <li><a href="#解答" id="toc-解答" class="nav-link" data-scroll-target="#解答"><span class="header-section-number">2.7</span> 解答</a></li>
+  <li><a href="#文献案内" id="toc-文献案内" class="nav-link" data-scroll-target="#文献案内"><span class="header-section-number">2.6</span> 文献案内</a></li>
+  <li><a href="#練習問題" id="toc-練習問題" class="nav-link" data-scroll-target="#練習問題"><span class="header-section-number">2.7</span> 練習問題</a></li>
+  <li><a href="#解答" id="toc-解答" class="nav-link" data-scroll-target="#解答"><span class="header-section-number">2.8</span> 解答</a></li>
   </ul>
 </nav>
     </div>
@@ -599,7 +600,7 @@ window.Quarto = {
 <li>Constant order sizes. 発注量は一定である。需要率 <span class="math inline">\(d\)</span> が一定であり、在庫量が0のときに発注を行うため、最適発注量も一定である。</li>
 </ol>
 <p>以上の性質から、在庫量の時間的変化は下図のようになる。</p>
-<div id="ef5d89d5" class="cell" data-execution_count="1">
+<div id="efca78ab" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -780,7 +781,7 @@ T^* = \frac{Q^*}{d} = \sqrt{\frac{2K}{hd}}
 <li><span class="math inline">\(c\)</span> は <span class="math inline">\(Q^*\)</span> に影響しない。購入単価は最適発注量に影響しない。</li>
 </ol>
 <p>次の図は、購入単価を <span class="math inline">\(c = 0\)</span> とするとき、平均コスト <span class="math inline">\(g(Q)\)</span>、発注コスト <span class="math inline">\(\frac{Kd}{Q}\)</span>、保管コスト <span class="math inline">\(\frac{hQ}{2}\)</span> のグラフを示す。</p>
-<div id="5caee2ca" class="cell" data-execution_count="2">
+<div id="475121cf" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
@@ -828,7 +829,7 @@ Q^* = \sqrt{\frac{2 \cdot 5000 \cdot 250}{150}}
 <p>Excel では、下記のように計算できる。</p>
 <pre class="excel"><code>=SQRT(2 * 5000 * 250 / 150)</code></pre>
 <p>Python では、次のように<code>eoq(K, d, h)</code> 関数を定義し、最適発注量を計算できる。</p>
-<div id="6c691404" class="cell" data-execution_count="3">
+<div id="3ea4f8c9" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> eoq(K, d, h):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculate the Economic Order Quantity (EOQ).</span></span>
@@ -890,8 +891,15 @@ r = dL = 250 \times \frac{1}{4} = 62.5
 2. 需要率を $d$、発注費用を $K$、保管費用を $h$，購入単価を $c$ とする。EOQモデルにおける平均コスト $g(Q)$ を発注量 $Q$ の関数として導出せよ。
 3. $g(Q)$ を最小化する発注量 $Q^*$ を導出せよ。なぜ $Q^*$ が最小値を与えるのか説明せよ。 -->
 </section>
-<section id="練習問題" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="練習問題"><span class="header-section-number">2.6</span> 練習問題</h2>
+<section id="文献案内" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="文献案内"><span class="header-section-number">2.6</span> 文献案内</h2>
+<p>オペレーションズ・リサーチに関する教科書の多くは、EOQモデルを取り扱っている。モデルの分類から、「deterministic continuous-review inventory models」などの章で説明されていることが多い。</p>
+<p>リードタイムを考慮したEOQモデルについては、<span class="citation" data-cites="Snyder2019-cy">Snyder と Shen (<a href="../references.html#ref-Snyder2019-cy" role="doc-biblioref">2019</a>)</span> で説明されている。</p>
+<p>数量割引を考慮したEOQモデルについては、<span class="citation" data-cites="Snyder2019-cy">Snyder と Shen (<a href="../references.html#ref-Snyder2019-cy" role="doc-biblioref">2019</a>)</span> 、<span class="citation" data-cites="Camm2022-zv">Camm ほか (<a href="../references.html#ref-Camm2022-zv" role="doc-biblioref">2022</a>)</span> で説明されている。</p>
+<p>バックオーダーを考慮したEOQモデルについては、<span class="citation" data-cites="Snyder2019-cy">Snyder と Shen (<a href="../references.html#ref-Snyder2019-cy" role="doc-biblioref">2019</a>)</span> 、<span class="citation" data-cites="Camm2022-zv">Camm ほか (<a href="../references.html#ref-Camm2022-zv" role="doc-biblioref">2022</a>)</span> 、<span class="citation" data-cites="Hillier2025-cb">Hillier と Lieberman (<a href="../references.html#ref-Hillier2025-cb" role="doc-biblioref">2025</a>)</span> で説明されている。</p>
+</section>
+<section id="練習問題" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="練習問題"><span class="header-section-number">2.7</span> 練習問題</h2>
 <div id="exr-eoq-cycle" class="theorem exercise">
 <p><span class="theorem-title"><strong>練習 2.1</strong></span> ある会社は、毎月300個の需要がある商品を取り扱っている。一回の発注量は600個とし、サイクル期間 <span class="math inline">\(T\)</span> を求めよ。</p>
 </div>
@@ -904,8 +912,8 @@ r = dL = 250 \times \frac{1}{4} = 62.5
 </ol>
 </div>
 </section>
-<section id="解答" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="解答"><span class="header-section-number">2.7</span> 解答</h2>
+<section id="解答" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="解答"><span class="header-section-number">2.8</span> 解答</h2>
 <div id="sol-eoq-cycle" class="proof solution">
 <p><span class="proof-title"><em>解答 2.1</em>. </span>需要率は <span class="math inline">\(d = 300\)</span>、発注量は <span class="math inline">\(Q = 600\)</span> である。したがって、サイクル期間 <span class="math inline">\(T\)</span> は以下のように求められる。</p>
 <p><span class="math display">\[
@@ -914,7 +922,7 @@ T = \frac{Q}{d} = \frac{600}{300} = 2 \text{ヶ月}
 </div>
 <div id="sol-eoq-year" class="proof solution">
 <p><span class="proof-title"><em>解答 2.2</em>. </span>需要率は <span class="math inline">\(d = 4000\)</span>、発注費用は <span class="math inline">\(K = 5500\)</span>、保管費用は <span class="math inline">\(h = 275\)</span>、購入単価は <span class="math inline">\(c = 1100\)</span> である。</p>
-<div id="f477ebea" class="cell" data-execution_count="4">
+<div id="59c16044" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>K <span class="op">=</span> <span class="dv">5500</span>  <span class="co"># Order cost</span></span>
@@ -939,8 +947,14 @@ Average Annual Cost (g(Q*)): 4510000.00 dollars</code></pre>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Camm2022-zv" class="csl-entry" role="listitem">
+Camm, Jeffrey, James Cochran, Michael Fry, Jeffrey Ohlmann, David Anderson, Dennis Sweeney, と Thomas Williams. 2022. <em>An introduction to management science: Quantitative approaches to decision making</em>. 16th 版. Florence, AL: South-Western College Publishing.
+</div>
 <div id="ref-Harris1990-gh" class="csl-entry" role="listitem">
 Harris, Ford W. 1990. <span>「How many parts to make at once」</span>. <em>Oper. Res.</em> 38 (6): 947–50.
+</div>
+<div id="ref-Hillier2025-cb" class="csl-entry" role="listitem">
+Hillier, Frederick, と Gerald Lieberman. 2025. <em><span>ISE</span> introduction to operations research</em>. 11th 版. Columbus, OH: McGraw-Hill Education.
 </div>
 <div id="ref-Snyder2019-cy" class="csl-entry" role="listitem">
 Snyder, Lawrence V, と Zuo-Jun Max Shen. 2019. <em>Fundamentals of supply chain theory</em>. 2nd 版. Nashville, TN: John Wiley &amp; Sons.

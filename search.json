@@ -333,11 +333,22 @@
     ]
   },
   {
+    "objectID": "inventory/eoq.html#文献案内",
+    "href": "inventory/eoq.html#文献案内",
+    "title": "2  経済的発注量",
+    "section": "2.6 文献案内",
+    "text": "2.6 文献案内\nオペレーションズ・リサーチに関する教科書の多くは、EOQモデルを取り扱っている。モデルの分類から、「deterministic continuous-review inventory models」などの章で説明されていることが多い。\nリードタイムを考慮したEOQモデルについては、Snyder と Shen (2019) で説明されている。\n数量割引を考慮したEOQモデルについては、Snyder と Shen (2019) 、Camm ほか (2022) で説明されている。\nバックオーダーを考慮したEOQモデルについては、Snyder と Shen (2019) 、Camm ほか (2022) 、Hillier と Lieberman (2025) で説明されている。",
+    "crumbs": [
+      "在庫モデル",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>経済的発注量</span>"
+    ]
+  },
+  {
     "objectID": "inventory/eoq.html#練習問題",
     "href": "inventory/eoq.html#練習問題",
     "title": "2  経済的発注量",
-    "section": "2.6 練習問題",
-    "text": "2.6 練習問題\n\n練習 2.1 ある会社は、毎月300個の需要がある商品を取り扱っている。一回の発注量は600個とし、サイクル期間 \\(T\\) を求めよ。\n\n\n練習 2.2 ある工場は、鋼材を毎日16トン消費し、年間250日稼働している。鋼材の購入単価は1トンあたり1100ドル、1回の発注にかかる固定費は5500ドル、保管費は鋼材1トンあたり年間は275ドルである。EOQモデルにより以下を求めよ。\n\n最適な発注量\nサイクル期間\n年間平均コスト",
+    "section": "2.7 練習問題",
+    "text": "2.7 練習問題\n\n練習 2.1 ある会社は、毎月300個の需要がある商品を取り扱っている。一回の発注量は600個とし、サイクル期間 \\(T\\) を求めよ。\n\n\n練習 2.2 ある工場は、鋼材を毎日16トン消費し、年間250日稼働している。鋼材の購入単価は1トンあたり1100ドル、1回の発注にかかる固定費は5500ドル、保管費は鋼材1トンあたり年間は275ドルである。EOQモデルにより以下を求めよ。\n\n最適な発注量\nサイクル期間\n年間平均コスト",
     "crumbs": [
       "在庫モデル",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>経済的発注量</span>"
@@ -347,8 +358,8 @@
     "objectID": "inventory/eoq.html#解答",
     "href": "inventory/eoq.html#解答",
     "title": "2  経済的発注量",
-    "section": "2.7 解答",
-    "text": "2.7 解答\n\n解答 2.1. 需要率は \\(d = 300\\)、発注量は \\(Q = 600\\) である。したがって、サイクル期間 \\(T\\) は以下のように求められる。\n\\[\nT = \\frac{Q}{d} = \\frac{600}{300} = 2 \\text{ヶ月}\n\\]\n\n\n解答 2.2. 需要率は \\(d = 4000\\)、発注費用は \\(K = 5500\\)、保管費用は \\(h = 275\\)、購入単価は \\(c = 1100\\) である。\n\n\nコード\nK = 5500  # Order cost\nd = 4000  # Demand rate (units per year)\nh = 275  # Holding cost (per unit per year)\nc = 1100  # Purchase cost (per unit)\n\nQ_star = np.sqrt(2 * K * d / h)\nT_star = Q_star / d\ng_avg = (K * d / Q_star) + (c * d) + (h * Q_star / 2)\nprint(f\"Optimal Order Quantity (Q*): {Q_star:.2f} tons\")\nprint(f\"Optimal Cycle Time (T*): {T_star:.2f} years\")\nprint(f\"Average Annual Cost (g(Q*)): {g_avg:.2f} dollars\")\n\n\nOptimal Order Quantity (Q*): 400.00 tons\nOptimal Cycle Time (T*): 0.10 years\nAverage Annual Cost (g(Q*)): 4510000.00 dollars\n\n\n\n\n\n\n\nHarris, Ford W. 1990. 「How many parts to make at once」. Oper. Res. 38 (6): 947–50.\n\n\nSnyder, Lawrence V, と Zuo-Jun Max Shen. 2019. Fundamentals of supply chain theory. 2nd 版. Nashville, TN: John Wiley & Sons.",
+    "section": "2.8 解答",
+    "text": "2.8 解答\n\n解答 2.1. 需要率は \\(d = 300\\)、発注量は \\(Q = 600\\) である。したがって、サイクル期間 \\(T\\) は以下のように求められる。\n\\[\nT = \\frac{Q}{d} = \\frac{600}{300} = 2 \\text{ヶ月}\n\\]\n\n\n解答 2.2. 需要率は \\(d = 4000\\)、発注費用は \\(K = 5500\\)、保管費用は \\(h = 275\\)、購入単価は \\(c = 1100\\) である。\n\n\nコード\nK = 5500  # Order cost\nd = 4000  # Demand rate (units per year)\nh = 275  # Holding cost (per unit per year)\nc = 1100  # Purchase cost (per unit)\n\nQ_star = np.sqrt(2 * K * d / h)\nT_star = Q_star / d\ng_avg = (K * d / Q_star) + (c * d) + (h * Q_star / 2)\nprint(f\"Optimal Order Quantity (Q*): {Q_star:.2f} tons\")\nprint(f\"Optimal Cycle Time (T*): {T_star:.2f} years\")\nprint(f\"Average Annual Cost (g(Q*)): {g_avg:.2f} dollars\")\n\n\nOptimal Order Quantity (Q*): 400.00 tons\nOptimal Cycle Time (T*): 0.10 years\nAverage Annual Cost (g(Q*)): 4510000.00 dollars\n\n\n\n\n\n\n\nCamm, Jeffrey, James Cochran, Michael Fry, Jeffrey Ohlmann, David Anderson, Dennis Sweeney, と Thomas Williams. 2022. An introduction to management science: Quantitative approaches to decision making. 16th 版. Florence, AL: South-Western College Publishing.\n\n\nHarris, Ford W. 1990. 「How many parts to make at once」. Oper. Res. 38 (6): 947–50.\n\n\nHillier, Frederick, と Gerald Lieberman. 2025. ISE introduction to operations research. 11th 版. Columbus, OH: McGraw-Hill Education.\n\n\nSnyder, Lawrence V, と Zuo-Jun Max Shen. 2019. Fundamentals of supply chain theory. 2nd 版. Nashville, TN: John Wiley & Sons.",
     "crumbs": [
       "在庫モデル",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>経済的発注量</span>"
@@ -454,11 +465,11 @@
     ]
   },
   {
-    "objectID": "inventory/newsvendor.html#発注費用を考慮した新聞売り子問題",
-    "href": "inventory/newsvendor.html#発注費用を考慮した新聞売り子問題",
+    "objectID": "inventory/newsvendor.html#文献案内",
+    "href": "inventory/newsvendor.html#文献案内",
     "title": "4  新聞売り子問題",
-    "section": "4.8 発注費用を考慮した新聞売り子問題",
-    "text": "4.8 発注費用を考慮した新聞売り子問題\nScarf (1959) の論文では、\\((s, S)\\) 方策が発注費用を考慮した複数期間の新聞売り子問題において最適であることを示している。",
+    "section": "4.8 文献案内",
+    "text": "4.8 文献案内\nArrow, Harris, と Marschak (1951) は、新聞売り子問題を初めて定式化した。\nScarf (1959) の論文では、\\((s, S)\\) 方策が発注費用を考慮した複数期間の新聞売り子問題において最適であることを示している。\n実際には、需要の分布が不明であることが多い。Huber ほか (2019) は、データ駆動新聞売り子問題（Data-Driven Newsvendor Problem）に関する研究が行われている。\nQin ほか (2011) は、新聞売り子問題に関する研究をレビューした。",
     "crumbs": [
       "在庫モデル",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>新聞売り子問題</span>"
@@ -469,7 +480,7 @@
     "href": "inventory/newsvendor.html#練習問題",
     "title": "4  新聞売り子問題",
     "section": "4.9 練習問題",
-    "text": "4.9 練習問題\n\n練習 4.1 ある弁当屋では、1 個 500 円で弁当を仕入れ、1 個 800 円で販売している。売れ残った弁当を廃棄する場合、1 個当たり 10 円の廃棄費用がかかる。 弁当の需要 \\(D\\) は、正規分布 \\(N(50, 8^2)\\) に従うとする。このとき、最適な弁当の発注量を求めよ。\n\n\n解答 4.1. 弁当 1 個当たりの在庫超過費用 \\(h\\)、在庫不足費用 \\(p\\) は以下のように求められる。 \\[\nh = 10 + 500 = 510, \\quad p = 800 - 500 = 300\n\\]\nしたがって、\\(S^*\\) は以下のように求められる。\n\\[\nS^* = F_D^{-1}\\left(\\frac{p}{h + p}\\right) = F_D^{-1}\\left(\\frac{300}{510 + 300}\\right) \\approx F_D^{-1}\\left(0.37\\right)\n\\]\n標準正規分布表を調べると、\\(\\Phi(z) = 0.37\\) のとき、\\(z\\) は約 -0.33 である。したがって、\\(S^*\\) は\n\\[\nS^* = -0.33 \\times \\sigma + \\mu = -0.33 \\times 8 + 50 \\approx 47.36\n\\]\nとなる。\n\n\nコード\nfrom scipy.stats import norm\n\n# 正規分布のパラメータ\nmu = 50\nsigma = 8\n# 在庫超過費用と在庫不足費用\nh = 510\np = 300\n# 臨界率\ncritical_ratio = p / (h + p)\n# 最適発注量\nS_star = norm.ppf(critical_ratio, loc=mu, scale=sigma)\nprint(f\"Optimal order quantity S*: {S_star:.4f}\")\n\n\nOptimal order quantity S*: 47.3530\n\n\n\n\n\n\n\nScarf, Herbert. 1959. 「The optimality of (S, s) policies in the dynamic inventory problem」.",
+    "text": "4.9 練習問題\n\n練習 4.1 ある弁当屋では、1 個 500 円で弁当を仕入れ、1 個 800 円で販売している。売れ残った弁当を廃棄する場合、1 個当たり 10 円の廃棄費用がかかる。 弁当の需要 \\(D\\) は、正規分布 \\(N(50, 8^2)\\) に従うとする。このとき、最適な弁当の発注量を求めよ。\n\n\n解答 4.1. 弁当 1 個当たりの在庫超過費用 \\(h\\)、在庫不足費用 \\(p\\) は以下のように求められる。 \\[\nh = 10 + 500 = 510, \\quad p = 800 - 500 = 300\n\\]\nしたがって、\\(S^*\\) は以下のように求められる。\n\\[\nS^* = F_D^{-1}\\left(\\frac{p}{h + p}\\right) = F_D^{-1}\\left(\\frac{300}{510 + 300}\\right) \\approx F_D^{-1}\\left(0.37\\right)\n\\]\n標準正規分布表を調べると、\\(\\Phi(z) = 0.37\\) のとき、\\(z\\) は約 -0.33 である。したがって、\\(S^*\\) は\n\\[\nS^* = -0.33 \\times \\sigma + \\mu = -0.33 \\times 8 + 50 \\approx 47.36\n\\]\nとなる。\n\n\nコード\nfrom scipy.stats import norm\n\n# 正規分布のパラメータ\nmu = 50\nsigma = 8\n# 在庫超過費用と在庫不足費用\nh = 510\np = 300\n# 臨界率\ncritical_ratio = p / (h + p)\n# 最適発注量\nS_star = norm.ppf(critical_ratio, loc=mu, scale=sigma)\nprint(f\"Optimal order quantity S*: {S_star:.4f}\")\n\n\nOptimal order quantity S*: 47.3530\n\n\n\n\n\n\n\nArrow, Kenneth J, Theodore Harris, と Jacob Marschak. 1951. 「Optimal Inventory Policy」. Econometrica 19 (3): 250.\n\n\nHuber, Jakob, Sebastian Müller, Moritz Fleischmann, と Heiner Stuckenschmidt. 2019. 「A data-driven newsvendor problem: From data to decision」. Eur. J. Oper. Res. 278 (3): 904–15.\n\n\nQin, Yan, Ruoxuan Wang, Asoo J Vakharia, Yuwen Chen, と Michelle M H Seref. 2011. 「The newsvendor problem: Review and directions for future research」. Eur. J. Oper. Res. 213 (2): 361–74.\n\n\nScarf, Herbert. 1959. 「The optimality of (S, s) policies in the dynamic inventory problem」.",
     "crumbs": [
       "在庫モデル",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>新聞売り子問題</span>"
@@ -645,7 +656,7 @@
     "href": "references.html",
     "title": "参考文献",
     "section": "",
-    "text": "Camm, Jeffrey, James Cochran, Michael Fry, Jeffrey Ohlmann, David\nAnderson, Dennis Sweeney, and Thomas Williams. 2022. An Introduction\nto Management Science: Quantitative Approaches to Decision Making.\n16th ed. Florence, AL: South-Western College Publishing.\n\n\nEiselt, H A, and Carl-Louis Sandblom. 2022. Operations Research: A\nModel-Based Approach. Cham: Springer International Publishing.\n\n\nHarris, Ford W. 1990. “How Many Parts to Make at Once.”\nOper. Res. 38 (6): 947–50.\n\n\nHillier, Frederick, and Gerald Lieberman. 2025. ISE\nIntroduction to Operations Research. 11th ed. Columbus, OH:\nMcGraw-Hill Education.\n\n\nPleguezuelo, Rafael Herrerı́as, José Garcı́a Pérez, and Salvador Cruz\nRambaud. 2003. “A Note on the Reasonableness of PERT\nHypotheses.” Oper. Res. Lett. 31 (1): 60–62.\n\n\nScarf, Herbert. 1959. “The Optimality of (S, s)\nPolicies in the Dynamic Inventory Problem.”\n\n\nSnyder, Lawrence V, and Zuo-Jun Max Shen. 2019. Fundamentals of\nSupply Chain Theory. 2nd ed. Nashville, TN: John Wiley & Sons.",
+    "text": "Arrow, Kenneth J, Theodore Harris, and Jacob Marschak. 1951.\n“Optimal Inventory Policy.” Econometrica 19 (3):\n250.\n\n\nCamm, Jeffrey, James Cochran, Michael Fry, Jeffrey Ohlmann, David\nAnderson, Dennis Sweeney, and Thomas Williams. 2022. An Introduction\nto Management Science: Quantitative Approaches to Decision Making.\n16th ed. Florence, AL: South-Western College Publishing.\n\n\nEiselt, H A, and Carl-Louis Sandblom. 2022. Operations Research: A\nModel-Based Approach. Cham: Springer International Publishing.\n\n\nHarris, Ford W. 1990. “How Many Parts to Make at Once.”\nOper. Res. 38 (6): 947–50.\n\n\nHillier, Frederick, and Gerald Lieberman. 2025. ISE\nIntroduction to Operations Research. 11th ed. Columbus, OH:\nMcGraw-Hill Education.\n\n\nHuber, Jakob, Sebastian Müller, Moritz Fleischmann, and Heiner\nStuckenschmidt. 2019. “A Data-Driven Newsvendor Problem: From Data\nto Decision.” Eur. J. Oper. Res. 278 (3): 904–15.\n\n\nPleguezuelo, Rafael Herrerı́as, José Garcı́a Pérez, and Salvador Cruz\nRambaud. 2003. “A Note on the Reasonableness of PERT\nHypotheses.” Oper. Res. Lett. 31 (1): 60–62.\n\n\nQin, Yan, Ruoxuan Wang, Asoo J Vakharia, Yuwen Chen, and Michelle M H\nSeref. 2011. “The Newsvendor Problem: Review and Directions for\nFuture Research.” Eur. J. Oper. Res. 213 (2): 361–74.\n\n\nScarf, Herbert. 1959. “The Optimality of (S, s)\nPolicies in the Dynamic Inventory Problem.”\n\n\nSnyder, Lawrence V, and Zuo-Jun Max Shen. 2019. Fundamentals of\nSupply Chain Theory. 2nd ed. Nashville, TN: John Wiley & Sons.",
     "crumbs": [
       "参考文献"
     ]

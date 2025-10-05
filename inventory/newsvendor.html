@@ -575,7 +575,7 @@ window.Quarto = {
   <li><a href="#臨界率-1" id="toc-臨界率-1" class="nav-link" data-scroll-target="#臨界率-1"><span class="header-section-number">4.6.3</span> 臨界率</a></li>
   </ul></li>
   <li><a href="#初期在庫を考慮した新聞売り子問題" id="toc-初期在庫を考慮した新聞売り子問題" class="nav-link" data-scroll-target="#初期在庫を考慮した新聞売り子問題"><span class="header-section-number">4.7</span> 初期在庫を考慮した新聞売り子問題</a></li>
-  <li><a href="#発注費用を考慮した新聞売り子問題" id="toc-発注費用を考慮した新聞売り子問題" class="nav-link" data-scroll-target="#発注費用を考慮した新聞売り子問題"><span class="header-section-number">4.8</span> 発注費用を考慮した新聞売り子問題</a></li>
+  <li><a href="#文献案内" id="toc-文献案内" class="nav-link" data-scroll-target="#文献案内"><span class="header-section-number">4.8</span> 文献案内</a></li>
   <li><a href="#練習問題" id="toc-練習問題" class="nav-link" data-scroll-target="#練習問題"><span class="header-section-number">4.9</span> 練習問題</a></li>
   </ul>
 </nav>
@@ -719,7 +719,7 @@ P(D \leq S) = F_D(S) = \int_{0}^{S} f_D(d) dd
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="fl">1.1</span>)</span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="371cab91" class="cell quarto-layout-panel" data-execution_count="1" data-layout-ncol="2">
+<div id="008b798b" class="cell quarto-layout-panel" data-layout-ncol="2" data-execution_count="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
@@ -932,7 +932,7 @@ F_D(S) = P(D \leq S) = \frac{p}{h + p}
 S^* = F_D^{-1}\left(\frac{p}{h + p}\right) = F_D^{-1}\left(\frac{40}{10 + 40}\right) = F_D^{-1}\left(0.8\right)
 \]</span></p>
 <p>言い換えると、<span class="math inline">\(F_D(S^*) = 0.8\)</span> を満たす <span class="math inline">\(S^*\)</span> を求めればよい。これを図で表すと、面積が 0.8 になるような <span class="math inline">\(S^*\)</span> を求めることに相当する。</p>
-<div id="bc2cbc09" class="cell" data-execution_count="2">
+<div id="7851f037" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -992,7 +992,7 @@ S^* = z \sigma + \mu \approx 0.84 \times 5 + 100 = 104.2
 <section id="python" class="level3" data-number="4.5.3">
 <h3 data-number="4.5.3" class="anchored" data-anchor-id="python"><span class="header-section-number">4.5.3</span> Python</h3>
 <p>Python では、SciPy ライブラリの <code>ppf()</code> 関数を用いて、逆関数を求めることができる。</p>
-<div id="5c39af9f" class="cell" data-execution_count="3">
+<div id="d4984c49" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 正規分布のパラメータ</span></span>
@@ -1123,14 +1123,15 @@ S^* - I, &amp; \text{if } I \le S^*, \\[6pt]
 \]</span></p>
 <p>となる。</p>
 <p>このような発注方式を <strong>Base Stock Policy</strong> (BSP) と呼ぶ。BSP は、各期間の在庫量を観測し、在庫量が <span class="math inline">\(S^*\)</span> に引き上げられるように発注する方式である。新聞売り子問題において、BSP は最適な方策であると知られている。</p>
-<!-- [Arrow et al. (1951)](https://doi.org/10.2307/1906813)
-[Chen et al. (2016)](https://doi.org/10.1111/deci.12215) は新聞売り子問題の最新研究をレビューしている。最近では、データ駆動新聞売り子問題（Data-Driven Newsvendor Problem）に関する研究が行われている。 -->
 </section>
-<section id="発注費用を考慮した新聞売り子問題" class="level2" data-number="4.8">
-<h2 data-number="4.8" class="anchored" data-anchor-id="発注費用を考慮した新聞売り子問題"><span class="header-section-number">4.8</span> 発注費用を考慮した新聞売り子問題</h2>
+<section id="文献案内" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="文献案内"><span class="header-section-number">4.8</span> 文献案内</h2>
+<p><span class="citation" data-cites="Arrow1951-db">Arrow, Harris, と Marschak (<a href="../references.html#ref-Arrow1951-db" role="doc-biblioref">1951</a>)</span> は、新聞売り子問題を初めて定式化した。</p>
 <p><span class="citation" data-cites="Scarf1959-xl">Scarf (<a href="../references.html#ref-Scarf1959-xl" role="doc-biblioref">1959</a>)</span> の論文では、<span class="math inline">\((s, S)\)</span> 方策が発注費用を考慮した複数期間の新聞売り子問題において最適であることを示している。</p>
+<p>実際には、需要の分布が不明であることが多い。<span class="citation" data-cites="Huber2019-ek">Huber ほか (<a href="../references.html#ref-Huber2019-ek" role="doc-biblioref">2019</a>)</span> は、データ駆動新聞売り子問題（Data-Driven Newsvendor Problem）に関する研究が行われている。</p>
+<p><span class="citation" data-cites="Qin2011-kg">Qin ほか (<a href="../references.html#ref-Qin2011-kg" role="doc-biblioref">2011</a>)</span> は、新聞売り子問題に関する研究をレビューした。</p>
 <!-- 1. 発注量 $S = 100$、需要 $D$ の観測値 $d = 120$、在庫超過費用が $h = 10$、在庫不足費用が $p = 40$ のとき、コスト $g(S, d)$ を求めよ。
-2. 需要 $D$ が正規分布 $N(150, 36)$ に従う新聞売り子問題を考える。在庫超過費用が $h = 5$、在庫不足費用が $p = 20$ のとき、最適発注量 $S^*$ を求めよ。 -->
+1. 需要 $D$ が正規分布 $N(150, 36)$ に従う新聞売り子問題を考える。在庫超過費用が $h = 5$、在庫不足費用が $p = 20$ のとき、最適発注量 $S^*$ を求めよ。 -->
 </section>
 <section id="練習問題" class="level2" data-number="4.9">
 <h2 data-number="4.9" class="anchored" data-anchor-id="練習問題"><span class="header-section-number">4.9</span> 練習問題</h2>
@@ -1150,7 +1151,7 @@ S^* = F_D^{-1}\left(\frac{p}{h + p}\right) = F_D^{-1}\left(\frac{300}{510 + 300}
 S^* = -0.33 \times \sigma + \mu = -0.33 \times 8 + 50 \approx 47.36
 \]</span></p>
 <p>となる。</p>
-<div id="e7cb780a" class="cell" data-execution_count="4">
+<div id="d4d084f0" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
@@ -1175,6 +1176,15 @@ S^* = -0.33 \times \sigma + \mu = -0.33 \times 8 + 50 \approx 47.36
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Arrow1951-db" class="csl-entry" role="listitem">
+Arrow, Kenneth J, Theodore Harris, と Jacob Marschak. 1951. <span>「Optimal Inventory Policy」</span>. <em>Econometrica</em> 19 (3): 250.
+</div>
+<div id="ref-Huber2019-ek" class="csl-entry" role="listitem">
+Huber, Jakob, Sebastian Müller, Moritz Fleischmann, と Heiner Stuckenschmidt. 2019. <span>「A data-driven newsvendor problem: From data to decision」</span>. <em>Eur. J. Oper. Res.</em> 278 (3): 904–15.
+</div>
+<div id="ref-Qin2011-kg" class="csl-entry" role="listitem">
+Qin, Yan, Ruoxuan Wang, Asoo J Vakharia, Yuwen Chen, と Michelle M H Seref. 2011. <span>「The newsvendor problem: Review and directions for future research」</span>. <em>Eur. J. Oper. Res.</em> 213 (2): 361–74.
+</div>
 <div id="ref-Scarf1959-xl" class="csl-entry" role="listitem">
 Scarf, Herbert. 1959. <span>「The optimality of (<span>S</span>, s) policies in the dynamic inventory problem」</span>.
 </div>
