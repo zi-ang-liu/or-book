@@ -18,3 +18,55 @@ jupyter: python3
 | Analytic Hierarchy Process (AHP)      | 階層分析法   |
 | Consistency index                     | 整合度       |
 | pairwise comparison matrix            | 一対比較行列 |
+| alternative                           | 代替案       |
+| criterion                             | 評価基準     |
+
+## 記号
+
+| 記号 | 意味               |
+| ---- | ------------------ |
+| $\mathbf{A}$ | 一対比較行列       |
+| $X$ | 代替案の集合       |
+| $x_i$ | 代替案 $i$         |
+| $a_{ij}$ | 一対比較値       |
+
+
+代替案の集合 $X = \{x_1, x_2, \ldots, x_n\}$ とする。代替案の重要度を 
+
+$$
+\mathbf{w} = (w_1, w_2, \ldots, w_n)^T
+$$
+
+で表す。ここで、$w_i$ は代替案 $x_i$ の重要度を表し、$\sum_{i=1}^n w_i = 1$ を満たす。AHPでは、$\mathbf{w}$ を計算できるものとする。計算する方法は後述する。
+
+$w_i$ が大きいほど、代替案 $x_i$ が望ましいとする。$w_i > w_j$ ならば、代替案 $x_i$ は代替案 $x_j$ より望ましい。このとき、$x_i \succ x_j$ と表す。
+
+:::{#exm-weights}
+旅行先の代替案 
+$$
+X = \{\text{北海道}, \text{大阪}, \text{九州}, \text{沖縄}\}
+$$ 
+
+とし、各代替案の重要度を $\mathbf{w} = (0.3, 0.2, 0.1, 0.4)^T$ とするとき、
+$$
+\text{沖縄} \succ \text{北海道} \succ \text{大阪} \succ \text{九州}
+$$
+である。
+:::
+
+## 一対比較行列 
+
+$$
+\mathbf{A} = \begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn} \\
+\end{bmatrix}
+$$
+
+一対比較値 $a_{ij}$ は
+
+$$
+a_{ij} = \frac{w_i}{w_j} \forall i, j
+$$
