@@ -267,22 +267,33 @@
     ]
   },
   {
-    "objectID": "inventory/intro.html#footnotes",
-    "href": "inventory/intro.html#footnotes",
-    "title": "1  在庫管理とは",
-    "section": "",
-    "text": "トヨタ生産方式についてこちらも参照。↩︎",
-    "crumbs": [
-      "在庫モデル",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>在庫管理とは</span>"
-    ]
-  },
-  {
     "objectID": "inventory/eoq.html",
     "href": "inventory/eoq.html",
     "title": "2  経済的発注量",
     "section": "",
-    "text": "2.1 コスト関数\n経済的発注量（EOQ: Economic Order Quantity）モデルは、最も基本的な在庫管理モデルの一つである。Harris (1990) このモデルを最初に提案した。\nEOQモデルは、単位時間あたりの需要量は決定論的で、一定であると仮定する。すなわち、需要量は事前に分かっており、時間とともに変化しない。単位時間あたりの需要量は需要率（demand rate）と呼ばれ、記号 \\(d\\) で表される。リードタイムは0とし、発注から納品までの時間はないと仮定する。一回の発注量を \\(Q\\) とし、一定であるとする。欠品は許せないとする。全ての需要は満されなければならない。また、EOQモデルでは、在庫量は連続的に観測され、いつでも発注が可能であるとする。\n在庫に関わる費用は、1回あたりの発注費用 \\(K\\)、単位時間あたりの1単位の保管費用 \\(h\\) と、購入単価 \\(c\\) がある。\nEOQモデルの最適解は次の二つの性質を持つ(Snyder と Shen 2019)：\n以上の性質から、在庫量の時間的変化は下図のようになる。\n発注の間隔をサイクル(cycle)と呼び、サイクル期間は\n\\[\nT = \\frac{Q}{d}\n\\]\nで与えられる。\nここでは、1サイクルあたりのコストを考える。\n発注費用：発注は1回だけ行うため、発注費用は \\(K\\) である。\n購入費用：\\(Q\\) 個の商品を単価 \\(c\\) で購入するため、購入費用は \\(cQ\\) である。\n保管費用：サイクル期間 \\(T\\) は \\(\\frac{Q}{d}\\) であるため、1サイクルあたりの保管費用は\n\\[\n\\frac{TQ}{2} h = \\frac{hQ^2}{2d}\n\\]\nとなる。\n以上より、1サイクルあたりのコストは次のように表される。\n\\[\nK + cQ + \\frac{hQ^2}{2d}\n\\]\n平均コストは、これをサイクル期間 \\(T\\) で割ったものとして定義される。したがって、平均コスト \\(g(Q)\\) は次のように表される。\n\\[\\begin{align*}\ng(Q) &= \\frac{1}{T} \\left( K + cQ + \\frac{hQ^2}{2d} \\right) \\\\\n&= \\frac{d}{Q} \\left( K + cQ + \\frac{hQ^2}{2d} \\right) \\\\\n&= \\frac{Kd}{Q} + c d + \\frac{hQ}{2}\n\\end{align*}\\]\n以上より、平均コストは発注量 \\(Q\\) の関数として次のように表される。\n\\[\ng(Q) = \\frac{Kd}{Q} + cd + \\frac{hQ}{2}\n\\]",
+    "text": "2.1 記号\n経済的発注量（EOQ: Economic Order Quantity）モデルは、最も基本的な在庫管理モデルの一つである。Harris (1990) がこのモデルを最初に提案した。\nEOQモデルは、単位時間あたりの需要量は決定論的で、一定であると仮定する。すなわち、需要量は事前に分かっており、時間とともに変化しない。単位時間あたりの需要量は需要率（demand rate）と呼ばれ、記号 \\(d\\) で表される。リードタイムは0とし、発注から納品までの時間はないと仮定する。一回の発注量を \\(Q\\) とし、一定であるとする。欠品は許せないとする。全ての需要は満されなければならない。また、EOQモデルでは、在庫量は連続的に観測され、いつでも発注が可能であるとする。\n在庫に関わる費用は、1回あたりの発注費用 \\(K\\)、単位時間あたりの1単位の保管費用 \\(h\\) と、購入単価 \\(c\\) がある。\nEOQモデルの最適解は次の二つの性質を持つ(Snyder と Shen 2019)：\n以上の性質から、在庫量の時間的変化は下図のようになる。\n発注の間隔をサイクル(cycle)と呼び、サイクル期間は\n\\[\nT = \\frac{Q}{d}\n\\]\nで与えられる。",
+    "crumbs": [
+      "在庫モデル",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>経済的発注量</span>"
+    ]
+  },
+  {
+    "objectID": "inventory/eoq.html#記号",
+    "href": "inventory/eoq.html#記号",
+    "title": "2  経済的発注量",
+    "section": "",
+    "text": "記号\n意味\n\n\n\n\n\\(d\\)\n単位時間あたりの需要量\n\n\n\\(K\\)\n1回あたりの発注費用\n\n\n\\(h\\)\n単位時間あたりの1単位の保管費用\n\n\n\\(c\\)\n購入単価\n\n\n\\(Q\\)\n発注量\n\n\n\\(T\\)\nサイクル期間\n\n\n\\(g(Q)\\)\n平均コスト",
+    "crumbs": [
+      "在庫モデル",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>経済的発注量</span>"
+    ]
+  },
+  {
+    "objectID": "inventory/eoq.html#コスト関数",
+    "href": "inventory/eoq.html#コスト関数",
+    "title": "2  経済的発注量",
+    "section": "2.2 コスト関数",
+    "text": "2.2 コスト関数\nここでは、1サイクルあたりのコストを考える。\n発注費用：発注は1回だけ行うため、発注費用は \\(K\\) である。\n購入費用：\\(Q\\) 個の商品を単価 \\(c\\) で購入するため、購入費用は \\(cQ\\) である。\n保管費用：サイクル期間 \\(T\\) は \\(\\frac{Q}{d}\\) であるため、1サイクルあたりの保管費用は\n\\[\n\\frac{TQ}{2} h = \\frac{hQ^2}{2d}\n\\]\nとなる。\n以上より、1サイクルあたりのコストは次のように表される。\n\\[\nK + cQ + \\frac{hQ^2}{2d}\n\\]\n平均コストは、これをサイクル期間 \\(T\\) で割ったものとして定義される。したがって、平均コスト \\(g(Q)\\) は次のように表される。\n\\[\\begin{align*}\ng(Q) &= \\frac{1}{T} \\left( K + cQ + \\frac{hQ^2}{2d} \\right) \\\\\n&= \\frac{d}{Q} \\left( K + cQ + \\frac{hQ^2}{2d} \\right) \\\\\n&= \\frac{Kd}{Q} + c d + \\frac{hQ}{2}\n\\end{align*}\\]\n以上より、平均コストは発注量 \\(Q\\) の関数として次のように表される。\n\\[\ng(Q) = \\frac{Kd}{Q} + cd + \\frac{hQ}{2}\n\\]",
     "crumbs": [
       "在庫モデル",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>経済的発注量</span>"
@@ -292,8 +303,8 @@
     "objectID": "inventory/eoq.html#最適発注量",
     "href": "inventory/eoq.html#最適発注量",
     "title": "2  経済的発注量",
-    "section": "2.2 最適発注量",
-    "text": "2.2 最適発注量\nEOQモデルの目的は、平均コスト \\(g(Q)\\) を最小化する発注量 \\(Q\\) を求めることである。\n平均コストの導関数 \\(g'(Q)\\) が 0 となる点を求めることで、最適発注量 \\(Q^*\\) を求めることができる。\n\\[\ng'(Q) = -\\frac{Kd}{Q^2} + \\frac{h}{2} = 0\n\\]\nこれを解くと、最適発注量\n\\[\nQ^* = \\sqrt{\\frac{2Kd}{h}}\n\\]\nを得る。これをEOQ公式（EOQ formula）と呼ぶ。\\(Q^*\\) を経済的発注量と呼ぶ（経済的は最適という意味である）。\n二階導関数 \\(g''(Q)\\) を求めて、最適発注量が最小値を与えることを確認する。\n\\[\ng''(Q) = \\frac{2Kd}{Q^3} &gt; 0\n\\]\n\\(g''(Q) &gt; 0\\) であるため、\\(Q^*\\) は最小値を与える。\n最適発注量 \\(Q^*\\) を次の定理にまとめる。\n\n定理 2.1 EOQモデルにおいて、最適発注量 \\(Q^*\\) は \\[\nQ^* = \\sqrt{\\frac{2Kd}{h}}\n\\tag{2.1}\\]\nで与えられる。\n\n\\(Q^*\\) を用いて、最適なサイクル期間 \\(T^*\\) を求めることができる。\n\\[\nT^* = \\frac{Q^*}{d} = \\sqrt{\\frac{2K}{hd}}\n\\tag{2.2}\\]\n式 2.1 と 式 2.2 から、以下の性質がわかる。\n\n\\(h\\) の増加に伴い、\\(Q^*\\) は減少する。保管費用が高い場合は、少量で高い頻度で発注することが望ましい。\n\\(K\\) の増加に伴い、\\(Q^*\\) は増加する。発注費用が高い場合は、多量で低い頻度で発注することが望ましい。\n\\(d\\) の増加に伴い、\\(Q^*\\) は増加する。\n\\(c\\) は \\(Q^*\\) に影響しない。購入単価は最適発注量に影響しない。\n\n\n例 2.2 ある電気量販店では、毎月250台のPCが販売されている。発注費用は5000円、保管費用は1台あたり月150円、購入単価は10万円とする。このとき、最適発注量 \\(Q^*\\) は次のように求められる。\n\\[\nQ^* = \\sqrt{\\frac{2 \\cdot 5000 \\cdot 250}{150}}\n\\]\nExcel では、下記のように計算できる。\n=SQRT(2 * 5000 * 250 / 150)\nPython では、次のようにeoq(K, d, h) 関数を定義し、最適発注量を計算できる。\n\ndef eoq(K, d, h):\n    \"\"\"\n    Calculate the Economic Order Quantity (EOQ).\n\n    Parameters:\n    K (float): Order cost\n    d (float): Demand rate\n    h (float): Holding cost\n\n    Returns:\n    float: Optimal order quantity Q*\n    \"\"\"\n    return np.sqrt(2 * K * d / h)\n\n\nif __name__ == \"__main__\":\n    K = 5000  # Order cost\n    d = 250  # Demand rate (units per month)\n    h = 150  # Holding cost (per unit per month)\n\n    Q_star = eoq(K, d, h)\n    print(f\"Optimal Order Quantity (Q*): {Q_star:.2f}\")\n\nOptimal Order Quantity (Q*): 129.10\n\n\nPCの場合は、注文量が整数である必要があるため、\\(g(129)\\) と \\(g(130)\\) を比較して最適発注量を決定する。\n\n次の図は、購入単価を \\(c = 0\\) とするとき、平均コスト \\(g(Q)\\)、発注コスト \\(\\frac{Kd}{Q}\\)、保管コスト \\(\\frac{hQ}{2}\\) のグラフを示す。\n\n\nコード\n# Parameters\nK = 40  # Order cost\nh = 10  # Holding cost\nd = 5  # Demand rate\nQ = np.linspace(1, 40, 400)  # Order quantity from 1 to 40\n\n# Cost calculations\norder_cost = K * d / Q\nholding_cost = (h * Q) / 2\naverage_cost = order_cost + holding_cost\noptimal_Q = np.sqrt(2 * K * d / h)\n\n# Plotting the costs\nplt.plot(Q, order_cost, label=\"Kd/Q\", color=\"blue\")\nplt.plot(Q, holding_cost, label=\"hQ/2\", color=\"orange\")\nplt.plot(Q, average_cost, label=\"g(Q)\", color=\"green\", linewidth=2)\nplt.axvline(optimal_Q, color=\"red\", linestyle=\"--\", label=\"Q*\")\nplt.xlabel(\"Order Quantity Q\")\nplt.ylabel(\"Cost\")\nplt.ylim(bottom=0)\nplt.legend()\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\n平均コストが最小となる発注量 \\(Q^*\\) は、発注コストと保管コストの交差点である。すなわち、発注コストと保管コストを等しくする発注量は最適な発注量 \\(Q^*\\) である。この性質は以下の式からわかる。\n\\[\n\\frac{Kd}{Q^*} = \\frac{hQ^*}{2} \\Longrightarrow Q^* = \\sqrt{\\frac{2Kd}{h}}\n\\]\nまた、この図からもわかるように、\\(Q\\) の増加に伴い、平均発注コストは減少し、平均保管コストは増加する。逆もまた然りである。",
+    "section": "2.3 最適発注量",
+    "text": "2.3 最適発注量\nEOQモデルの目的は、平均コスト \\(g(Q)\\) を最小化する発注量 \\(Q\\) を求めることである。\n平均コストの導関数 \\(g'(Q)\\) が 0 となる点を求めることで、最適発注量 \\(Q^*\\) を求めることができる。\n\\[\ng'(Q) = -\\frac{Kd}{Q^2} + \\frac{h}{2} = 0\n\\]\nこれを解くと、最適発注量\n\\[\nQ^* = \\sqrt{\\frac{2Kd}{h}}\n\\]\nを得る。これをEOQ公式（EOQ formula）と呼ぶ。\\(Q^*\\) を経済的発注量と呼ぶ（経済的は最適という意味である）。\n二階導関数 \\(g''(Q)\\) を求めて、最適発注量が最小値を与えることを確認する。\n\\[\ng''(Q) = \\frac{2Kd}{Q^3} &gt; 0\n\\]\n\\(g''(Q) &gt; 0\\) であるため、\\(Q^*\\) は最小値を与える。\n最適発注量 \\(Q^*\\) を次の定理にまとめる。\n\n定理 2.1 EOQモデルにおいて、最適発注量 \\(Q^*\\) は \\[\nQ^* = \\sqrt{\\frac{2Kd}{h}}\n\\tag{2.1}\\]\nで与えられる。\n\n\\(Q^*\\) を用いて、最適なサイクル期間 \\(T^*\\) を求めることができる。\n\\[\nT^* = \\frac{Q^*}{d} = \\sqrt{\\frac{2K}{hd}}\n\\tag{2.2}\\]\n式 2.1 と 式 2.2 から、以下の性質がわかる。\n\n\\(h\\) の増加に伴い、\\(Q^*\\) は減少する。保管費用が高い場合は、少量で高い頻度で発注することが望ましい。\n\\(K\\) の増加に伴い、\\(Q^*\\) は増加する。発注費用が高い場合は、多量で低い頻度で発注することが望ましい。\n\\(d\\) の増加に伴い、\\(Q^*\\) は増加する。\n\\(c\\) は \\(Q^*\\) に影響しない。購入単価は最適発注量に影響しない。\n\n次の図は、購入単価を \\(c = 0\\) とするとき、平均コスト \\(g(Q)\\)、発注コスト \\(\\frac{Kd}{Q}\\)、保管コスト \\(\\frac{hQ}{2}\\) のグラフを示す。\n\n\nコード\n# Parameters\nK = 40  # Order cost\nh = 10  # Holding cost\nd = 5  # Demand rate\nQ = np.linspace(1, 40, 400)  # Order quantity from 1 to 40\n\n# Cost calculations\norder_cost = K * d / Q\nholding_cost = (h * Q) / 2\naverage_cost = order_cost + holding_cost\noptimal_Q = np.sqrt(2 * K * d / h)\n\n# Plotting the costs\nplt.plot(Q, order_cost, label=r\"$Kd/Q$\", color=\"blue\")\nplt.plot(Q, holding_cost, label=r\"$hQ/2$\", color=\"orange\")\nplt.plot(Q, average_cost, label=r\"$g(Q)$\", color=\"green\", linewidth=2)\nplt.axvline(optimal_Q, color=\"red\", linestyle=\"--\", label=r\"$Q^*$\")\nplt.xlabel(\"Order Quantity Q\")\nplt.ylabel(\"Cost\")\nplt.ylim(bottom=0)\nplt.legend()\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\n平均コストが最小となる発注量 \\(Q^*\\) は、発注コストと保管コストの交差点である。すなわち、発注コストと保管コストを等しくする発注量は最適な発注量 \\(Q^*\\) である。この性質は以下の式からわかる。\n\\[\n\\frac{Kd}{Q^*} = \\frac{hQ^*}{2} \\Longrightarrow Q^* = \\sqrt{\\frac{2Kd}{h}}\n\\]\nまた、この図からもわかるように、\\(Q\\) の増加に伴い、平均発注コストは減少し、平均保管コストは増加する。逆もまた然りである。\n\n例 2.2 ある電気量販店では、毎月250台のPCが販売されている。発注費用は5000円、保管費用は1台あたり月150円、購入単価は10万円とする。このとき、最適発注量 \\(Q^*\\) は次のように求められる。\n\\[\nQ^* = \\sqrt{\\frac{2 \\cdot 5000 \\cdot 250}{150}}\n\\]\nExcel では、下記のように計算できる。\n=SQRT(2 * 5000 * 250 / 150)\nPython では、次のようにeoq(K, d, h) 関数を定義し、最適発注量を計算できる。\n\ndef eoq(K, d, h):\n    \"\"\"\n    Calculate the Economic Order Quantity (EOQ).\n\n    Parameters:\n    K (float): Order cost\n    d (float): Demand rate\n    h (float): Holding cost\n\n    Returns:\n    float: Optimal order quantity Q*\n    \"\"\"\n    return np.sqrt(2 * K * d / h)\n\n\nif __name__ == \"__main__\":\n    K = 5000  # Order cost\n    d = 250  # Demand rate (units per month)\n    h = 150  # Holding cost (per unit per month)\n\n    Q_star = eoq(K, d, h)\n    T_star = Q_star / d\n    print(f\"Optimal Order Quantity (Q*): {Q_star:.2f}\")\n    print(f\"Optimal Cycle Time (T*): {T_star:.2f}\")\n\nOptimal Order Quantity (Q*): 129.10\nOptimal Cycle Time (T*): 0.52\n\n\nPCの場合は、注文量が整数である必要があるため、\\(g(129)\\) と \\(g(130)\\) を比較して最適発注量を決定する。",
     "crumbs": [
       "在庫モデル",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>経済的発注量</span>"
@@ -303,8 +314,8 @@
     "objectID": "inventory/eoq.html#リードタイム",
     "href": "inventory/eoq.html#リードタイム",
     "title": "2  経済的発注量",
-    "section": "2.3 リードタイム",
-    "text": "2.3 リードタイム\nEOQ モデルでは、リードタイムは0と仮定している。リードタイムが \\(L &gt; 0\\) の場合も、最適発注量 \\(Q^*\\) も変換せず、\\(L\\) 期間前に \\(Q^*\\) を発注すればよい。\nここでは、\\(r\\) を発注点（reorder point）とする。在庫量が \\(r\\) になったときに発注を行う。リードタイム \\(L\\) の間に需要が \\(dL\\) 個あるため、発注点は次のように表される。\n\\[\nr = dL\n\\]\n\n例 2.3 上の例で、リードタイムが一週間とし、一か月を4週間とすると、リードタイムは \\(L = 1/4\\) となる。したがって、発注点は次のように求められる。\n\\[\nr = dL = 250 \\times \\frac{1}{4} = 62.5\n\\]\nPCの在庫量が63台になったときに発注を行う。",
+    "section": "2.4 リードタイム",
+    "text": "2.4 リードタイム\nEOQ モデルでは、リードタイムは0と仮定している。リードタイムが \\(L &gt; 0\\) の場合も、最適発注量 \\(Q^*\\) も変換せず、\\(L\\) 期間前に \\(Q^*\\) を発注すればよい。\nここでは、\\(r\\) を発注点（reorder point）とする。在庫量が \\(r\\) になったときに発注を行う。リードタイム \\(L\\) の間に需要が \\(dL\\) 個あるため、発注点は次のように表される。\n\\[\nr = dL\n\\]\n\n例 2.3 上の例で、リードタイムが一週間とし、一か月を4週間とすると、リードタイムは \\(L = 1/4\\) となる。したがって、発注点は次のように求められる。\n\\[\nr = dL = 250 \\times \\frac{1}{4} = 62.5\n\\]\nPCの在庫量が63台になったときに発注を行う。",
     "crumbs": [
       "在庫モデル",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>経済的発注量</span>"
@@ -314,8 +325,8 @@
     "objectID": "inventory/eoq.html#他のeoqモデル",
     "href": "inventory/eoq.html#他のeoqモデル",
     "title": "2  経済的発注量",
-    "section": "2.4 他のEOQモデル",
-    "text": "2.4 他のEOQモデル\n\nバックオーダーを考慮したEOQモデル\n数量割引（quantity discount）を考慮したEOQモデル\n\n総量割引（all-units discount）\n増分割引（incremental discount）",
+    "section": "2.5 他のEOQモデル",
+    "text": "2.5 他のEOQモデル\n\nバックオーダーを考慮したEOQモデル\n数量割引（quantity discount）を考慮したEOQモデル\n\n総量割引（all-units discount）\n増分割引（incremental discount）",
     "crumbs": [
       "在庫モデル",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>経済的発注量</span>"
@@ -325,19 +336,19 @@
     "objectID": "inventory/eoq.html#練習問題",
     "href": "inventory/eoq.html#練習問題",
     "title": "2  経済的発注量",
-    "section": "2.5 練習問題",
-    "text": "2.5 練習問題\n\nB社は、毎月300個の需要がある商品を取り扱っている。一回の発注量は600個とし、サイクル期間 \\(T\\) を求めよ。\n需要率を \\(d\\)、発注費用を \\(K\\)、保管費用を \\(h\\)，購入単価を \\(c\\) とする。EOQモデルにおける平均コスト \\(g(Q)\\) を発注量 \\(Q\\) の関数として導出せよ。\n\\(g(Q)\\) を最小化する発注量 \\(Q^*\\) を導出せよ。なぜ \\(Q^*\\) が最小値を与えるのか説明せよ。\n需要率 \\(d = 300\\)、発注費用 \\(K = 4000\\)、保管費用 \\(h = 20\\) のとき、最適発注量 \\(Q^*\\) とサイクル期間 \\(T^*\\) を計算せよ。\n\n\n\n\n\n\n\n解答例\n\n\n\n\n\n\n\\(T = \\frac{Q}{d}\\)\n省略\n省略\n\\(Q^* = \\sqrt{\\frac{2Kd}{h}}\\)、\\(T^* = \\sqrt{\\frac{2K}{hd}}\\) である。",
+    "section": "2.6 練習問題",
+    "text": "2.6 練習問題\n\n練習 2.1 ある会社は、毎月300個の需要がある商品を取り扱っている。一回の発注量は600個とし、サイクル期間 \\(T\\) を求めよ。\n\n\n練習 2.2 ある工場は、鋼材を毎日16トン消費し、年間250日稼働している。鋼材の購入単価は1トンあたり1100ドル、1回の発注にかかる固定費は5500ドル、保管費は鋼材1トンあたり年間は275ドルである。EOQモデルにより以下を求めよ。\n\n最適な発注量\nサイクル期間\n年間平均コスト",
     "crumbs": [
       "在庫モデル",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>経済的発注量</span>"
     ]
   },
   {
-    "objectID": "inventory/eoq.html#実装",
-    "href": "inventory/eoq.html#実装",
+    "objectID": "inventory/eoq.html#解答",
+    "href": "inventory/eoq.html#解答",
     "title": "2  経済的発注量",
-    "section": "2.6 実装",
-    "text": "2.6 実装\n\nPython で EOQ モデルの最適発注量を計算する関数 eoq(K, d, h) を実装せよ。\n\n\n\n\n\nHarris, Ford W. 1990. 「How many parts to make at once」. Oper. Res. 38 (6): 947–50.\n\n\nSnyder, Lawrence V, と Zuo-Jun Max Shen. 2019. Fundamentals of supply chain theory. 2nd 版. Nashville, TN: John Wiley & Sons.",
+    "section": "2.7 解答",
+    "text": "2.7 解答\n\n解答 2.1. 需要率は \\(d = 300\\)、発注量は \\(Q = 600\\) である。したがって、サイクル期間 \\(T\\) は以下のように求められる。\n\\[\nT = \\frac{Q}{d} = \\frac{600}{300} = 2 \\text{ヶ月}\n\\]\n\n\n解答 2.2. 需要率は \\(d = 4000\\)、発注費用は \\(K = 5500\\)、保管費用は \\(h = 275\\)、購入単価は \\(c = 1100\\) である。\n\n\nコード\nK = 5500  # Order cost\nd = 4000  # Demand rate (units per year)\nh = 275  # Holding cost (per unit per year)\nc = 1100  # Purchase cost (per unit)\n\nQ_star = np.sqrt(2 * K * d / h)\nT_star = Q_star / d\ng_avg = (K * d / Q_star) + (c * d) + (h * Q_star / 2)\nprint(f\"Optimal Order Quantity (Q*): {Q_star:.2f} tons\")\nprint(f\"Optimal Cycle Time (T*): {T_star:.2f} years\")\nprint(f\"Average Annual Cost (g(Q*)): {g_avg:.2f} dollars\")\n\n\nOptimal Order Quantity (Q*): 400.00 tons\nOptimal Cycle Time (T*): 0.10 years\nAverage Annual Cost (g(Q*)): 4510000.00 dollars\n\n\n\n\n\n\n\nHarris, Ford W. 1990. 「How many parts to make at once」. Oper. Res. 38 (6): 947–50.\n\n\nSnyder, Lawrence V, と Zuo-Jun Max Shen. 2019. Fundamentals of supply chain theory. 2nd 版. Nashville, TN: John Wiley & Sons.",
     "crumbs": [
       "在庫モデル",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>経済的発注量</span>"
@@ -355,278 +366,168 @@
     ]
   },
   {
-    "objectID": "inventory/newsvendor.html",
-    "href": "inventory/newsvendor.html",
-    "title": "4  新聞売り子問題",
-    "section": "",
-    "text": "4.1 定式化\n新聞売り子問題（Newsvendor Problem）は、古典的な確率的在庫モデルの一つである。新聞は次の日には売れなくなるため、新聞売り子問題は最も単純な perishable 在庫モデルとして知られている。\n新聞売り子が新聞を仕入れ、販売する問題を考える。新聞 1 部の欠品費用を \\(p\\)、保管費用を \\(h\\) とする。新聞売子問題において、\\(p\\) を在庫不足費用（underage cost）、\\(h\\) を在庫超過費用（overage cost）とも呼ぶ。\\(p \\gt 0\\)、\\(h \\gt 0\\) とし、初期在庫は 0 とする。\n新聞の需要 \\(D\\) を確率変数とするとき、新聞売り子はどれだけの新聞を発注すればよいかという問題である。\n新聞売り子が \\(S\\) 部の新聞を仕入れ、需要 \\(D\\) が \\(d\\) であったとする。このとき、新聞売り子のコスト \\(g(S, d)\\) は以下のように表される。\n\\[\ng(S, d) = h (S - d)^+ + p (d - S)^+\n\\]\n需要 \\(D\\) が確率変数であることを思い出そう。ここからは、需要 \\(D\\) が連続型確率変数であると仮定する。需要 \\(D\\) の確率密度関数を \\(f_D(d)\\)、累積分布関数を \\(F_D(d)\\) とする。\n\\(D\\) が確率変数であるため、コストの期待値 \\(g(S)\\) は以下のように表される。\n\\[\\begin{align}\ng(S) &= \\mathbb{E}[g(S, D)] \\\\\n&= h \\mathbb{E}[(S - D)^+] + p \\mathbb{E}[(D - S)^+] \\\\\n&= h \\int_{0}^{\\infty}(S - d)^+ f_D(d) dd + p \\int_{0}^{\\infty} (d - S)^+ f_D(d) dd \\\\\n&= h \\int_{0}^{S} (S - d) f_D(d) dd + p \\int_{S}^{\\infty} (d - S) f_D(d) dd\n\\end{align}\\]",
-    "crumbs": [
-      "在庫モデル",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>新聞売り子問題</span>"
-    ]
-  },
-  {
-    "objectID": "inventory/newsvendor.html#定式化",
-    "href": "inventory/newsvendor.html#定式化",
-    "title": "4  新聞売り子問題",
-    "section": "",
-    "text": "例題\n\n\n\n発注量 \\(S = 100\\)、需要 \\(D\\) の観測値 \\(d = 120\\)、在庫超過費用が \\(h = 10\\)、在庫不足費用が \\(p = 5\\) のとき、コスト \\(g(S, d)\\) は以下のように求められる。\n\\[\ng(100, 120) = 10 (100 - 120)^+ + 5 (120 - 100)^+ = 100\n\\]\n\n\n\n\n\n\n\n\n\n例題\n\n\n\n需要 \\(D\\) が一様分布 \\(U(100,300)\\) に従うとき、確率密度関数 \\(f_D(d)\\) と累積分布関数 \\(F_D(d)\\) は以下のように表される。\n\nコード\nimport matplotlib.pyplot as plt\nimport numpy as np\nfrom scipy.stats import uniform\n\n# 一様分布のパラメータ\na = 100\nb = 300\n# 需要の範囲\nd = np.linspace(a - 50, b + 50, 1000)\n# plot pdf with shaded area\nplt.figure(figsize=(4, 4))\nplt.plot(d, uniform.pdf(d, a, b - a))\n# plt.fill_between(\n#     d,\n#     0,\n#     uniform.pdf(d, a, b - a),\n#     where=(d &gt;= a) & (d &lt;= b),\n#     color=\"skyblue\",\n#     alpha=0.5,\n#     label=\"f_D(d)\",\n# )\nplt.xlabel(r\"$D$\")\nplt.ylabel(r\"$f_D(d)$\")\nplt.xlim(a - 50, b + 50)\nplt.ylim(0, 0.006)\nplt.show()\n\n# plot cdf\nplt.figure(figsize=(4, 4))\nplt.plot(d, uniform.cdf(d, a, b - a))\nplt.xlabel(r\"$D$\")\nplt.ylabel(r\"$F_D(d)$\")\nplt.xlim(a - 50, b + 50)\nplt.ylim(0, 1.1)\nplt.show()\n\n\n\n\n\n\n\n確率密度関数 \\(f_D(d)\\)\n\n\n\n\n\n\n\n累積分布関数 \\(F_D(d)\\)\n\n\n\n\n\n需要 \\(D \\leq 200\\) である確率は、累積分布関数 \\(F_D(200)\\) で与えられる。\n\\[\nP(D \\leq 200) = F_D(200) = \\int_{100}^{200} f_D(d) dd = 0.5\n\\]\n需要 \\(D &gt; 250\\) である確率は \\(1 - F_D(250)\\) で与えられる。\n\\[\nP(D &gt; 250) = 1 - F_D(250) = 1 - \\int_{100}^{250} f_D(d) dd = 0.25\n\\]",
-    "crumbs": [
-      "在庫モデル",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>新聞売り子問題</span>"
-    ]
-  },
-  {
-    "objectID": "inventory/newsvendor.html#最適化",
-    "href": "inventory/newsvendor.html#最適化",
-    "title": "4  新聞売り子問題",
-    "section": "4.2 最適化",
-    "text": "4.2 最適化\n\\(g(S)\\) の1階微分は以下のように求める。\n\\[\\begin{align}\n\\frac{dg(S)}{dS} &= h \\int_{0}^{S} f_D(d) dd - p \\int_{S}^{\\infty} f_D(d) dd \\\\\n&= h F_D(S) - p (1 - F_D(S)) \\\\\n\\end{align}\\]\n\n\n\n\n\n\nノート\n\n\n\n\\(D \\leq S\\) である確率は、需要 \\(D\\) の累積分布関数 \\(F_D(S)\\) で与えられる。\n\\[\nP(D \\leq S) = F_D(S) = \\int_{0}^{S} f_D(d) dd\n\\]\nまた、\\(D &gt; S\\) である確率は \\(1 - F_D(S)\\) で与えられる。\n\\[\nP(D &gt; S) = 1 - F_D(S) = \\int_{S}^{\\infty} f_D(d) dd\n\\]\n\n\nよって、\\(dg(S)/dS = 0\\) から、\n\\[\\begin{align}\nh F_D(S) - p (1 - F_D(S)) &= 0 \\\\\nF_D(S) &= \\frac{p}{h + p}\n\\end{align}\\]\nになる。2 階微分は\n\\[\\begin{align}\n\\frac{d^2g(S)}{dS^2} &= h f_D(S) + p f_D(S) \\\\\n&= (h + p) f_D(S)\n\\end{align}\\]\nである。したがって、コスト関数 \\(g(S)\\) は凸関数であり、1 階微分が 0 になる点は最小値を与える。\nコスト関数 \\(g(S)\\) を最小化するための最適発注量 \\(S^*\\) は\n\\[\nS^* = F_D^{-1}\\left(\\frac{p}{h + p}\\right)\n\\]\nとなる。ここで、\\(F_D^{-1}\\) は需要 \\(D\\) の累積分布関数の逆関数である。\n\n定理 4.1 新聞売り子問題における最適発注量 \\(S^*\\) は、\n\\[\nS^* = F_D^{-1}\\left(\\frac{p}{h + p}\\right)\n\\]\nで与えられる。",
-    "crumbs": [
-      "在庫モデル",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>新聞売り子問題</span>"
-    ]
-  },
-  {
-    "objectID": "inventory/newsvendor.html#臨界率",
-    "href": "inventory/newsvendor.html#臨界率",
-    "title": "4  新聞売り子問題",
-    "section": "4.3 臨界率",
-    "text": "4.3 臨界率\n\\(p/(h+p)\\) は臨界率（critical ratio）と呼ばれる。臨界率は、在庫不足費用と在庫超過費用の比率を表す。\nここで、\\(F_D(S) = P(D \\leq S)\\) は欠品が発生しない確率を表す。この確率のことはサービスレベル（service level）と呼ぶ。したがって、最適発注量 \\(S^*\\) を用いることは、サービスレベルを \\(p/(h+p)\\) に等しくすることを意味する。これは、\n\\[\n1 - \\frac{p}{h + p} = \\frac{h}{h + p}\n\\]\nの確率で欠品が発生することが最適であることがわかる。\n\n注釈 4.1. \n\n在庫不足費用 \\(p\\) の増加に伴い、サービスレベル \\(p/(h+p)\\) は増加し、最適発注量 \\(S^* = F_D^{-1}(p/(h+p))\\) も増加する。\n在庫超過費用 \\(h\\) の増加に伴い、サービスレベル \\(p/(h+p)\\) は減少し、最適発注量 \\(S^* = F_D^{-1}(p/(h+p))\\) も減少する。\n直感的に、在庫不足費用が増加すると、欠品を避けるために発注量が増加し、サービスレベルも上昇する。一方、在庫超過費用が増加すると、過剰在庫を避けるために発注量が減少し、サービスレベルも低下する。",
-    "crumbs": [
-      "在庫モデル",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>新聞売り子問題</span>"
-    ]
-  },
-  {
-    "objectID": "inventory/newsvendor.html#例題-2",
-    "href": "inventory/newsvendor.html#例題-2",
-    "title": "4  新聞売り子問題",
-    "section": "4.4 例題",
-    "text": "4.4 例題\n\n例 4.1 需要 \\(D\\) が正規分布 \\(N(100, 25)\\) に従う新聞売り子問題を考える。在庫超過費用が \\(h = 10\\)、在庫不足費用が \\(p = 40\\) のとき、最適発注量 \\(S^*\\) を求める。\n定理 4.1 より、\\(S^*\\) は以下の式で与えられる。\n\\[\nS^* = F_D^{-1}\\left(\\frac{p}{h + p}\\right) = F_D^{-1}\\left(\\frac{40}{10 + 40}\\right) = F_D^{-1}\\left(0.8\\right)\n\\]\n言い換えると、\\(F_D(S^*) = 0.8\\) を満たす \\(S^*\\) を求めればよい。これを図で表すと、面積が 0.8 になるような \\(S^*\\) を求めることに相当する。\n\n\nコード\nimport matplotlib.pyplot as plt\nimport numpy as np\nfrom scipy.stats import norm\n\n# 正規分布のパラメータ\nmu = 100\nsigma = 5\n\n# 需要の範囲\nd = np.linspace(mu - 4 * sigma, mu + 4 * sigma, 1000)\nS_star = norm.ppf(0.8, loc=mu, scale=sigma)\n\n# plot the normal distribution\nplt.plot(d, norm.pdf(d, mu, sigma))\nplt.fill_between(\n    d,\n    0,\n    norm.pdf(d, mu, sigma),\n    where=(d &lt;= S_star),\n    color=\"skyblue\",\n    alpha=0.5,\n    label=\"F(S*)\",\n)\nplt.xlabel(\"Demand\")\nplt.ylabel(\"Probability Density\")\nplt.axvline(mu, color=\"r\", linestyle=\"--\", label=\"mu\")\nplt.axvline(S_star, color=\"g\", linestyle=\"--\", label=\"S*\")\nplt.ylim(0, 0.09)\nplt.legend()\nplt.show()\n\n\n\n\n\n\n\n\n\n\n下では、Excel、Python、標準正規分布表を用いて \\(S^*\\) を求める方法を示す。\n\n4.4.1 Excel\nExcel では、NORM.INV(確率,平均,標準偏差) 関数を用いて \\(F_D^{-1}(0.8)\\) を求めることができる。\n=NORM.INV(0.8, 100, 5)\n\n\n4.4.2 Python\nPython では、SciPy ライブラリの ppf() 関数を用いて、逆関数を求めることができる。\n\nfrom scipy.stats import norm\n\n# 正規分布のパラメータ\nmu = 100\nsigma = 5\n\n# 在庫超過費用と在庫不足費用\nh = 10\np = 40\n\n# 臨界率\ncritical_ratio = p / (h + p)\n\n# 最適発注量\nS_star = norm.ppf(critical_ratio, loc=mu, scale=sigma)\nprint(f\"Optimal order quantity S*: {S_star:.2f}\")\n\nOptimal order quantity S*: 104.21\n\n\n\n\n4.4.3 標準正規分布表\n新聞売り子問題の最適発注量 \\(S^*\\) は、以下の式を満たす。\n\\[\nF_D(S^*) = \\frac{p}{h + p}\n\\]\nここで、\\(D\\) は正規分布 \\(N(\\mu, \\sigma^2)\\) に従うため、\n\\[\nF_D(S^*) = P(D \\leq S^*) = \\Phi\\left(\\frac{S^* - \\mu}{\\sigma}\\right)\n\\] である。したがって、\\(S^*\\) は以下の式を満たす。\n\\[\n\\Phi\\left(\\frac{S^* - 100}{5}\\right) = \\frac{p}{h + p}\n\\]\n標準正規分布表 を調べると、\\(\\Phi(z) = 0.8\\) のとき、\\(z\\) は約 0.84 である。したがって、\\(S^*\\) は以下の式を満たす。\n\\[\n\\frac{S^* - 100}{5} \\approx 0.84\n\\]\nこれを解くと、\\(S^* \\approx 104.2\\) となる。",
-    "crumbs": [
-      "在庫モデル",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>新聞売り子問題</span>"
-    ]
-  },
-  {
-    "objectID": "inventory/newsvendor.html#再定式化",
-    "href": "inventory/newsvendor.html#再定式化",
-    "title": "4  新聞売り子問題",
-    "section": "4.5 再定式化",
-    "text": "4.5 再定式化\n新聞 1 部の仕入れ価格を \\(c\\)、販売価格を \\(r\\)、残存価額を \\(v\\)、欠品費用を \\(p\\)、保管費用を \\(h\\) とする。ここで、以下の条件を満たすとする。\n\n\\(r &gt; c\\). 販売価格は仕入れ価格より高い。\n\\(r &gt; v\\). 販売価格は残存価値より高い。\n\n新聞売り子が \\(S\\) 部の新聞を仕入れ、需要 \\(D\\) が \\(d\\) であったとする。このとき、新聞売り子の利益 \\(\\pi(S, d)\\) は以下のように表される。\n\n4.5.1 コスト関数\n\\[\\begin{align}\n\\pi(S, d) & = r \\min\\{d, S\\} - cS + v \\max\\{0, S - d\\} \\\\\n& \\quad - h \\max\\{0, S - d\\} - p \\max\\{0, d - S\\}\n\\end{align}\\]\n第一項は販売利益、第二項は仕入れコスト、第三項は残存価値、第四項は保管コスト、第五項は欠品コストである。\n以下は、\\(\\max\\{0, x\\} = x^+\\) を用いて書き換えた形である。整理すると、利益は以下のように表される。\n\\[\n\\pi(S, d) = r \\min\\{d, S\\} - cS + (v - h) (S - d)^+ - p (d - S)^+\n\\]\n第一項を以下のように書き換えることができる。\n\\[\nr \\min\\{d, S\\} = r d - r (d - S)^+\n\\]\n\n\n\n\n\n\nノート\n\n\n\n\n\\(d &lt; S\\) の場合、\\(r \\min\\{d, S\\} = r d\\) となる。\n\\(d &gt;= S\\) の場合、\\(r \\min\\{d, S\\} = r d - r(d - S) = r S\\) となる。\n\n\n\nしたがって、利益は以下のように書き換えられる。\n\\[\n\\pi(S, d) = r d - cS + (v- h) (S - d)^+ - (p + r) (d - S)^+\n\\]\n利益の最大化は、コストの最小化に帰着される。したがって、コスト関数 \\(g(S, d) = -\\pi(S, d)\\) は以下のように表される。\n\\[\ng(S, d) = cS - rd + (h - v) (S - d)^+ + (p + r) (d - S)^+\n\\]\n\\(D\\) が確率変数であるため、コストの期待値 \\(g(S)\\) は以下のように表される。\n\\[\\begin{align}\ng(S) &= \\mathbb{E}[g(S, D)] \\\\\n&= \\int_{0}^{\\infty} g(S, d) f_D(d) dd \\\\\n&= cS - r\\mathbb{E}[D] + (h - v) \\mathbb{E}[(S - D)^+] + (p + r) \\mathbb{E}[(D - S)^+] \\\\\n&= c S - r \\mu + (h - v)  \\int_{0}^{\\infty}(S - d)^+ f_D(d) dd + (p + r) \\int_{0}^{\\infty} (d - S)^+ f_D(d) dd \\\\\n&= c S - r \\mu + (h - v) \\int_{0}^{S} (S - d) f_D(d) dd + (p + r) \\int_{S}^{\\infty} (d - S) f_D(d) dd\n\\end{align}\\]\n\n\n4.5.2 最適化\n\\(g(S)\\) の1階微分は以下のように求める。\n\\[\\begin{align}\n\\frac{dg(S)}{dS} &= c + (h - v) F_D(S) - (p + r) (1 - F_D(S)) \\\\\n\\end{align}\\]\nよって、\\(dg(S)/dS = 0\\) から、\n\\[\\begin{align}\nc + (h - v) F_D(S) - (p + r) (1 - F_D(S)) &= 0 \\\\\nF_D(S) &= \\frac{p + r - c}{h + p + r - v}\n\\end{align}\\]\nになる。2 階微分は\n\\[\\begin{align}\n\\frac{d^2g(S)}{dS^2} &= (h - v) f_D(S) + (p + r) f_D(S) \\\\\n&= (h - v + p + r) f_D(S)\n\\end{align}\\]\nである。したがって、コスト関数 \\(g(S)\\) は凸関数であり、1 階微分が 0 になる点は最小値を与える。\nコスト関数 \\(g(S)\\) を最小化するための最適発注量 \\(S^*\\) は\n\\[\nS^* = F_D^{-1}\\left(\\frac{p + r - c}{h + p + r - v}\\right)\n\\] となる。ここで、\\(F_D^{-1}\\) は需要 \\(D\\) の累積分布関数の逆関数である。\n新聞売り子問題において、より一般的に、在庫超過費用（overage cost）と 在庫不足費用（underage cost）を考慮する。\n\\[\nC_o = h + c - v, \\quad C_u = p + r - c\n\\]\n\n\n4.5.3 臨界率\n在庫超過費用 \\(C_o\\) は、在庫が余ったときのコストである。1 部の在庫超過に対し、保管コストと仕入れコストが発生するが、残存価額が得られないため、\\(C_o = h + c - v\\) となる。\n在庫不足費用 \\(C_u\\) は、在庫が不足したときのコストである。1 部の在庫不足に対し、欠品コスト \\(p\\) と失われた販売機会の利益 \\(r - c\\) が発生するため、\\(C_u = p + r - c\\) となる。\n従って、\n\\[\\begin{align*}\nS^* &= F_D^{-1}\\left(\\frac{p + r - c}{h + p + r - v}\\right)\\\\\n&= F_D^{-1}\\left(\\frac{C_u}{C_o + C_u}\\right)\n\\end{align*}\\]\nが得られる。",
-    "crumbs": [
-      "在庫モデル",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>新聞売り子問題</span>"
-    ]
-  },
-  {
-    "objectID": "inventory/newsvendor.html#初期在庫を考慮した新聞売り子問題",
-    "href": "inventory/newsvendor.html#初期在庫を考慮した新聞売り子問題",
-    "title": "4  新聞売り子問題",
-    "section": "4.6 初期在庫を考慮した新聞売り子問題",
-    "text": "4.6 初期在庫を考慮した新聞売り子問題\n新聞売り子の初期在庫を \\(I\\) とする。\\(I \\leq S^*\\)の場合、最適発注量は \\(S^* - I\\) となる。すなわち、在庫量を \\(S^*\\) にすればよい。\nまた、\\(g(S)\\) は凸関数であるため、\\(I &gt; S^*\\) の場合、何も発注しないことが最適である。\nしたがって、最適発注量は\n\\[\nQ =\n\\begin{cases}\nS^* - I, & \\text{if } I \\le S^*, \\\\[6pt]\n0, & \\text{if } I &gt; S^* .\n\\end{cases}\n\\]\nとなる。\nこのような発注方式を Base Stock Policy (BSP) と呼ぶ。BSP は、各期間の在庫量を観測し、在庫量が \\(S^*\\) に引き上げられるように発注する方式である。新聞売り子問題において、BSP は最適な方策であると知られている。",
-    "crumbs": [
-      "在庫モデル",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>新聞売り子問題</span>"
-    ]
-  },
-  {
-    "objectID": "inventory/newsvendor.html#発注費用を考慮した新聞売り子問題",
-    "href": "inventory/newsvendor.html#発注費用を考慮した新聞売り子問題",
-    "title": "4  新聞売り子問題",
-    "section": "4.7 発注費用を考慮した新聞売り子問題",
-    "text": "4.7 発注費用を考慮した新聞売り子問題\nScarf (1959) の論文では、\\((s, S)\\) 方策が発注費用を考慮した複数期間の新聞売り子問題において最適であることを示している。",
-    "crumbs": [
-      "在庫モデル",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>新聞売り子問題</span>"
-    ]
-  },
-  {
-    "objectID": "inventory/newsvendor.html#練習問題",
-    "href": "inventory/newsvendor.html#練習問題",
-    "title": "4  新聞売り子問題",
-    "section": "4.8 練習問題",
-    "text": "4.8 練習問題\n\n発注量 \\(S = 100\\)、需要 \\(D\\) の観測値 \\(d = 120\\)、在庫超過費用が \\(h = 10\\)、在庫不足費用が \\(p = 40\\) のとき、コスト \\(g(S, d)\\) を求めよ。\n需要 \\(D\\) が正規分布 \\(N(150, 36)\\) に従う新聞売り子問題を考える。在庫超過費用が \\(h = 5\\)、在庫不足費用が \\(p = 20\\) のとき、最適発注量 \\(S^*\\) を求めよ。\n\n\n\n\n\nScarf, Herbert. 1959. 「The optimality of (S, s) policies in the dynamic inventory problem」.",
-    "crumbs": [
-      "在庫モデル",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>新聞売り子問題</span>"
-    ]
-  },
-  {
     "objectID": "inventory/safety.html",
     "href": "inventory/safety.html",
-    "title": "5  安全在庫",
+    "title": "4  安全在庫",
     "section": "",
-    "text": "5.1 問題設定\nこれまで紹介した在庫モデルは、需要が決定論的であると仮定していた。ここからは、需要が確率的であると仮定した在庫モデルを紹介する。\n需要 \\(D\\) がある確率分布に従うと仮定する。リードタイムを \\(L\\) とし、既知の定数とする。発注費用を \\(K\\)、単位あたりの保管費用を \\(h\\) とする。在庫量が連続的に観測され、いつでも発注が可能であるとする連続観測の場合を考える。\n\\((r, Q)\\) 方策が用いられるとする。在庫量が発注点 \\(r\\) 以下になったときに、発注量 \\(Q\\) を発注する。この場合、発注点 \\(r\\) と発注量 \\(Q\\) を決定変数とし、在庫の期待コスト（expected cost）を最小化することを目的とする。",
+    "text": "4.1 問題設定\nこれまで紹介した在庫モデルは、需要が決定論的であると仮定していた。ここからは、需要が確率的であると仮定した在庫モデルを紹介する。\n需要 \\(D\\) がある確率分布に従うと仮定する。リードタイムを \\(L\\) とし、既知の定数とする。発注費用を \\(K\\)、単位あたりの保管費用を \\(h\\) とする。在庫量が連続的に観測され、いつでも発注が可能であるとする連続観測の場合を考える。\n\\((r, Q)\\) 方策が用いられるとする。在庫量が発注点 \\(r\\) 以下になったときに、発注量 \\(Q\\) を発注する。この場合、発注点 \\(r\\) と発注量 \\(Q\\) を決定変数とし、在庫の期待コスト（expected cost）を最小化することを目的とする。",
     "crumbs": [
       "在庫モデル",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>安全在庫</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>安全在庫</span>"
     ]
   },
   {
     "objectID": "inventory/safety.html#問題設定",
     "href": "inventory/safety.html#問題設定",
-    "title": "5  安全在庫",
+    "title": "4  安全在庫",
     "section": "",
     "text": "ノート\n\n\n\nこの問題の定式化および厳密解法は、ここでは説明しない。Snyder と Shen (2019) の「Fundamentals of Supply Chain Theory」などの文献を参照されたい。 以下は \\((r, Q)\\) の近似解法を紹介する。",
     "crumbs": [
       "在庫モデル",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>安全在庫</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>安全在庫</span>"
     ]
   },
   {
     "objectID": "inventory/safety.html#近似解法",
     "href": "inventory/safety.html#近似解法",
-    "title": "5  安全在庫",
-    "section": "5.2 近似解法",
-    "text": "5.2 近似解法\n以下では、単位期間あたりの需要を \\(D\\) とし、\\(D\\) は正規分布 \\(N(\\mu, \\sigma^2)\\) に従うと仮定する。ここで、\\(\\mu\\) は平均需要、\\(\\sigma\\) は需要の標準偏差である。\n\n5.2.1 発注量 \\(Q\\)\n\\(D\\) の平均 \\(\\mu\\) をEOQモデルの需要率とみなすと、発注量 \\(Q\\) は次のように求めることができる(Camm ほか 2022)。\n\\[\nQ = \\sqrt{\\frac{2K \\mu}{h}}\n\\]\nまた、欠品費用も考慮する場合、バックオーダーを考慮した EOQ モデルを用いて、発注量 \\(Q\\) は次のように求めることができる(Hillier と Lieberman 2025)。\n\\[\nQ = \\sqrt{\\frac{2K \\mu}{h}} \\sqrt{\\frac{p+h}{p}}\n\\] \\(p\\) は単位あたりの欠品費用である。\n得られた発注量 \\(Q\\) は、最適解ではなく、近似解であることに注意されたい。\n\n\n5.2.2 発注点 \\(r\\)\nリードタイム期間中に発生する需要は \\(D_L \\sim N(\\mu_L, \\sigma_L^2)\\) とし、正規分布の再生性により、\n\\[\n\\mu_L = \\mu L, \\quad \\sigma_L^2 = \\sigma^2 L\n\\]\nになる。すなわち、リードタイム期間中の平均需要は \\(\\mu_L = \\mu L\\)、標準偏差は \\(\\sigma_L = \\sigma \\sqrt{L}\\) である。\n発注点 \\(r\\) を決めるためには、サービスレベル（service level）を考える。ここでは、サービスレベルを、リードタイム期間中に需要を満たす確率と定義する。サービスレベルを \\(\\alpha\\) とし、\\(0 &lt; \\alpha &lt; 1\\) とする。\n与えられたサービスレベル \\(\\alpha\\) に対して、\\(D_L\\) が発注点 \\(r\\) 以下になる確率（欠品が発生しない確率、つまり、サービスレベル）が \\(\\alpha\\) になるように発注点 \\(r\\) を決定する。\n\\[\nP(D_L \\leq r) = \\alpha\n\\]\nもし、発注点 \\(r = \\mu_L\\) とすると、\\(P(D_L \\leq \\mu_L) = 0.5\\) となる。すなわち、50% の確率で欠品が発生することになる。\n\n\n\n\n\n\nノート\n\n\n\n\\[\nP(D_L \\leq \\mu_L) = P\\left(\\frac{D_L - \\mu_L}{\\sigma_L} \\leq 0\\right) = \\Phi(0) = 0.5\n\\]\n\n\nしたがって、サービスレベル \\(\\alpha &gt; 0.5\\) の場合、発注点 \\(r\\) は平均需要 \\(\\mu_L\\) より大きくなる必要がある。それを安全在庫（safety stock）と呼び、\\(s\\) と表す。\n\n例 5.1 単位期間あたりの需要 \\(D\\) が連続一様分布 \\(U(200, 300)\\) に従うと仮定する。平均需要は \\(\\mu = 250\\) である。一回の発注量を \\(Q = 500\\) とする。次の図は、在庫量の時間的変化を示す。灰色の領域は、需要の範囲を示す。赤い領域は、在庫量が0以下になったときの欠品を示す。黒い線は平均需要に基づく在庫量の変化を示す。\n\n\nコード\nimport scipy.stats as stats\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Parameters\nd_mean = 250  # Mean demand rate\nd_max = 300   # Max demand rate\nd_min = 200   # Min demand rate\nQ = 500       # Order quantity\nT = Q / d_mean  # Average cycle length\n\n# Simulate over multiple cycles to show repeated pattern\nn_cycles = 1\nt = np.linspace(0, n_cycles * T, 1000)\n\n# Inventory levels: linear depletion over time\ninventory_mean = Q - d_mean * (t % T)\ninventory_mean[0] = 0\ninventory_max = Q - d_max * (t % T)\ninventory_min = Q - d_min * (t % T)\n\n# Plotting\nplt.plot(t, inventory_mean, label=\"Mean Demand\", color=\"black\", linewidth=2)\nplt.fill_between(t, inventory_min, inventory_max, color=\"gray\", alpha=0.5, label=\"Demand Range\")\n\n# Highlight when inventory drops below 0 (shortage)\nplt.fill_between(t, inventory_max, 0, where=(inventory_max &lt; 0), color=\"red\", alpha=0.3, label=\"Shortage\")\n\n# Aesthetics\nplt.axhline(0, color=\"gray\", linewidth=1)\nplt.xlabel(\"Time\", fontsize=14)\nplt.ylabel(\"Inventory Level\", fontsize=14)\nplt.title(\"Inventory Level Over Time with Uniform Demand Distribution\")\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\n\nよって、発注点 \\(r\\) は次のように表される。\n\\[\nr = \\mu_L + s\n\\]\n従って、\\(P(D_L \\leq r) = \\alpha\\) は次のように表される。\n\\[\nP(D_L \\leq \\mu_L + s) = \\alpha\n\\]\nこの式を変形すると、\n\\[\\begin{align}\nP(D_L - \\mu_L \\leq s) &= \\alpha \\\\\nP\\left(\\frac{D_L - \\mu_L}{\\sigma_L} \\leq \\frac{s}{\\sigma_L}\\right) &= \\alpha \\\\\n\\Phi\\left(\\frac{s}{\\sigma_L}\\right) &= \\alpha \\\\\n\\frac{s}{\\sigma_L} &= \\Phi^{-1}(\\alpha) \\\\\ns &= \\sigma_L \\Phi^{-1}(\\alpha) \\\\\ns &= \\sigma \\sqrt{L} \\Phi^{-1}(\\alpha)\n\\end{align}\\]\nここで、\\(\\Phi(\\cdot)\\) は標準正規分布の累計分布関数であり、\\(\\Phi^{-1}(\\alpha)\\) はその逆関数である。したがって、発注点 \\(r\\) は次のように表される。\n\\[\nr = \\mu_L + s = \\mu L + \\sigma \\sqrt{L} \\Phi^{-1}(\\alpha)\n\\]\n\\(\\Phi^{-1}(\\alpha)\\) は標準正規分布表、Excel、Python などを用いて求めることができる。\n\n例 5.2 リードタイム \\(L = 4\\)、平均需要 \\(\\mu = 100\\)、需要の標準偏差 \\(\\sigma = 20\\)、サービスレベル \\(\\alpha = 0.95\\) のとき、発注点 \\(r\\) と安全在庫 \\(s\\) を求める。\nリードタイム期間中の平均需要と標準偏差は次のように計算される。\n\\[\\begin{align}\n\\mu_L &= \\mu L = 100 \\cdot 4 = 400 \\\\\n\\sigma_L &= \\sigma \\sqrt{L} = 20 \\sqrt{4} = 40 \\\\\n\\end{align}\\]\n標準正規分布表から \\(\\Phi^{-1}(0.95) \\approx 1.64485\\) を得る。これを用いて安全在庫 \\(s\\) と発注点 \\(r\\) を求める。\n\\[\\begin{align}\ns &= \\sigma_L \\Phi^{-1}(0.95) \\approx 40 \\cdot 1.64485 \\approx 65.79 \\\\\nr &= \\mu_L + s \\approx 400 + 65.79 \\approx 465.79\n\\end{align}\\]\nしたがって、発注点 \\(r\\) は約465.79、必要な安全在庫 \\(s\\) は約65.79となる。\nPython では、以下のように計算できる。\n\n\nコード\nfrom scipy.stats import norm\n\nL = 4\nmu = 100\nsigma = 20\nalpha = 0.95\n\nmu_L = mu * L\nsigma_L = sigma * (L ** 0.5)\n\ns = sigma_L * norm.ppf(alpha)\nr = mu_L + s\n\nprint(f\"reorder point: {r:.2f},  safety stock: {s:.2f}\")\n\n\nreorder point: 465.79,  safety stock: 65.79\n\n\n\n\n\n\n\nCamm, Jeffrey, James Cochran, Michael Fry, Jeffrey Ohlmann, David Anderson, Dennis Sweeney, と Thomas Williams. 2022. An introduction to management science: Quantitative approaches to decision making. 16th 版. Florence, AL: South-Western College Publishing.\n\n\nHillier, Frederick, と Gerald Lieberman. 2025. ISE introduction to operations research. 11th 版. Columbus, OH: McGraw-Hill Education.\n\n\nSnyder, Lawrence V, と Zuo-Jun Max Shen. 2019. Fundamentals of supply chain theory. 2nd 版. Nashville, TN: John Wiley & Sons.",
+    "title": "4  安全在庫",
+    "section": "4.2 近似解法",
+    "text": "4.2 近似解法\n以下では、単位期間あたりの需要を \\(D\\) とし、\\(D\\) は正規分布 \\(N(\\mu, \\sigma^2)\\) に従うと仮定する。ここで、\\(\\mu\\) は平均需要、\\(\\sigma\\) は需要の標準偏差である。\n\n4.2.1 発注量 \\(Q\\)\n\\(D\\) の平均 \\(\\mu\\) をEOQモデルの需要率とみなすと、発注量 \\(Q\\) は次のように求めることができる(Camm ほか 2022)。\n\\[\nQ = \\sqrt{\\frac{2K \\mu}{h}}\n\\]\nまた、欠品費用も考慮する場合、バックオーダーを考慮した EOQ モデルを用いて、発注量 \\(Q\\) は次のように求めることができる(Hillier と Lieberman 2025)。\n\\[\nQ = \\sqrt{\\frac{2K \\mu}{h}} \\sqrt{\\frac{p+h}{p}}\n\\] \\(p\\) は単位あたりの欠品費用である。\n得られた発注量 \\(Q\\) は、最適解ではなく、近似解であることに注意されたい。\n\n\n4.2.2 発注点 \\(r\\)\nリードタイム期間中に発生する需要は \\(D_L \\sim N(\\mu_L, \\sigma_L^2)\\) とし、正規分布の再生性により、\n\\[\n\\mu_L = \\mu L, \\quad \\sigma_L^2 = \\sigma^2 L\n\\]\nになる。すなわち、リードタイム期間中の平均需要は \\(\\mu_L = \\mu L\\)、標準偏差は \\(\\sigma_L = \\sigma \\sqrt{L}\\) である。\n発注点 \\(r\\) を決めるためには、サービスレベル（service level）を考える。ここでは、サービスレベルを、リードタイム期間中に需要を満たす確率と定義する。サービスレベルを \\(\\alpha\\) とし、\\(0 &lt; \\alpha &lt; 1\\) とする。\n与えられたサービスレベル \\(\\alpha\\) に対して、\\(D_L\\) が発注点 \\(r\\) 以下になる確率（欠品が発生しない確率、つまり、サービスレベル）が \\(\\alpha\\) になるように発注点 \\(r\\) を決定する。\n\\[\nP(D_L \\leq r) = \\alpha\n\\]\nもし、発注点 \\(r = \\mu_L\\) とすると、\\(P(D_L \\leq \\mu_L) = 0.5\\) となる。すなわち、50% の確率で欠品が発生することになる。\n\n\n\n\n\n\nノート\n\n\n\n\\[\nP(D_L \\leq \\mu_L) = P\\left(\\frac{D_L - \\mu_L}{\\sigma_L} \\leq 0\\right) = \\Phi(0) = 0.5\n\\]\n\n\nしたがって、サービスレベル \\(\\alpha &gt; 0.5\\) の場合、発注点 \\(r\\) は平均需要 \\(\\mu_L\\) より大きくなる必要がある。それを安全在庫（safety stock）と呼び、\\(s\\) と表す。\n\n例 4.1 単位期間あたりの需要 \\(D\\) が連続一様分布 \\(U(200, 300)\\) に従うと仮定する。平均需要は \\(\\mu = 250\\) である。一回の発注量を \\(Q = 500\\) とする。次の図は、在庫量の時間的変化を示す。灰色の領域は、需要の範囲を示す。赤い領域は、在庫量が0以下になったときの欠品を示す。黒い線は平均需要に基づく在庫量の変化を示す。\n\n\nコード\nimport scipy.stats as stats\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Parameters\nd_mean = 250  # Mean demand rate\nd_max = 300   # Max demand rate\nd_min = 200   # Min demand rate\nQ = 500       # Order quantity\nT = Q / d_mean  # Average cycle length\n\n# Simulate over multiple cycles to show repeated pattern\nn_cycles = 1\nt = np.linspace(0, n_cycles * T, 1000)\n\n# Inventory levels: linear depletion over time\ninventory_mean = Q - d_mean * (t % T)\ninventory_mean[0] = 0\ninventory_max = Q - d_max * (t % T)\ninventory_min = Q - d_min * (t % T)\n\n# Plotting\nplt.plot(t, inventory_mean, label=\"Mean Demand\", color=\"black\", linewidth=2)\nplt.fill_between(t, inventory_min, inventory_max, color=\"gray\", alpha=0.5, label=\"Demand Range\")\n\n# Highlight when inventory drops below 0 (shortage)\nplt.fill_between(t, inventory_max, 0, where=(inventory_max &lt; 0), color=\"red\", alpha=0.3, label=\"Shortage\")\n\n# Aesthetics\nplt.axhline(0, color=\"gray\", linewidth=1)\nplt.xlabel(\"Time\", fontsize=14)\nplt.ylabel(\"Inventory Level\", fontsize=14)\nplt.title(\"Inventory Level Over Time with Uniform Demand Distribution\")\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\n\nよって、発注点 \\(r\\) は次のように表される。\n\\[\nr = \\mu_L + s\n\\]\n従って、\\(P(D_L \\leq r) = \\alpha\\) は次のように表される。\n\\[\nP(D_L \\leq \\mu_L + s) = \\alpha\n\\]\nこの式を変形すると、\n\\[\\begin{align}\nP(D_L - \\mu_L \\leq s) &= \\alpha \\\\\nP\\left(\\frac{D_L - \\mu_L}{\\sigma_L} \\leq \\frac{s}{\\sigma_L}\\right) &= \\alpha \\\\\n\\Phi\\left(\\frac{s}{\\sigma_L}\\right) &= \\alpha \\\\\n\\frac{s}{\\sigma_L} &= \\Phi^{-1}(\\alpha) \\\\\ns &= \\sigma_L \\Phi^{-1}(\\alpha) \\\\\ns &= \\sigma \\sqrt{L} \\Phi^{-1}(\\alpha)\n\\end{align}\\]\nここで、\\(\\Phi(\\cdot)\\) は標準正規分布の累計分布関数であり、\\(\\Phi^{-1}(\\alpha)\\) はその逆関数である。したがって、発注点 \\(r\\) は次のように表される。\n\\[\nr = \\mu_L + s = \\mu L + \\sigma \\sqrt{L} \\Phi^{-1}(\\alpha)\n\\]\n\\(\\Phi^{-1}(\\alpha)\\) は標準正規分布表、Excel、Python などを用いて求めることができる。\n\n例 4.2 リードタイム \\(L = 4\\)、平均需要 \\(\\mu = 100\\)、需要の標準偏差 \\(\\sigma = 20\\)、サービスレベル \\(\\alpha = 0.95\\) のとき、発注点 \\(r\\) と安全在庫 \\(s\\) を求める。\nリードタイム期間中の平均需要と標準偏差は次のように計算される。\n\\[\\begin{align}\n\\mu_L &= \\mu L = 100 \\cdot 4 = 400 \\\\\n\\sigma_L &= \\sigma \\sqrt{L} = 20 \\sqrt{4} = 40 \\\\\n\\end{align}\\]\n標準正規分布表から \\(\\Phi^{-1}(0.95) \\approx 1.64485\\) を得る。これを用いて安全在庫 \\(s\\) と発注点 \\(r\\) を求める。\n\\[\\begin{align}\ns &= \\sigma_L \\Phi^{-1}(0.95) \\approx 40 \\cdot 1.64485 \\approx 65.79 \\\\\nr &= \\mu_L + s \\approx 400 + 65.79 \\approx 465.79\n\\end{align}\\]\nしたがって、発注点 \\(r\\) は約465.79、必要な安全在庫 \\(s\\) は約65.79となる。\nPython では、以下のように計算できる。\n\n\nコード\nfrom scipy.stats import norm\n\nL = 4\nmu = 100\nsigma = 20\nalpha = 0.95\n\nmu_L = mu * L\nsigma_L = sigma * (L ** 0.5)\n\ns = sigma_L * norm.ppf(alpha)\nr = mu_L + s\n\nprint(f\"reorder point: {r:.2f},  safety stock: {s:.2f}\")\n\n\nreorder point: 465.79,  safety stock: 65.79\n\n\n\n\n\n\n\nCamm, Jeffrey, James Cochran, Michael Fry, Jeffrey Ohlmann, David Anderson, Dennis Sweeney, と Thomas Williams. 2022. An introduction to management science: Quantitative approaches to decision making. 16th 版. Florence, AL: South-Western College Publishing.\n\n\nHillier, Frederick, と Gerald Lieberman. 2025. ISE introduction to operations research. 11th 版. Columbus, OH: McGraw-Hill Education.\n\n\nSnyder, Lawrence V, と Zuo-Jun Max Shen. 2019. Fundamentals of supply chain theory. 2nd 版. Nashville, TN: John Wiley & Sons.",
     "crumbs": [
       "在庫モデル",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>安全在庫</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>安全在庫</span>"
     ]
   },
   {
     "objectID": "network/graph.html",
     "href": "network/graph.html",
-    "title": "7  グラフ理論",
+    "title": "6  グラフ理論",
     "section": "",
-    "text": "7.1 無向グラフ\nグラフ（graph）は、点（vertex）の集合\\(V\\)と辺（edge）の集合\\(E\\)から構成され、\\(G=(V,E)\\)で表される。\nグラフは、有向グラフ（directed graph）と無向グラフ（undirected graph）に分けられる。\n無向グラフは、辺の方向を持たないグラフである。辺は、2つの点の集合として表される。\nグラフ \\(G = (V, E)\\) において、\\(e = \\{v, u\\} \\in E\\) を満たすとき、点 \\(v\\) と \\(u\\) は隣接（adjacent）しているといい、\\(e\\) は \\(v\\) と \\(u\\) を接続（incident）しているという。\n点 \\(v\\) に接続している辺の数を、\\(v\\) の次数（degree）という。例 7.1 の場合、\\(v_1\\) の次数は 3、\\(v_2\\) の次数は 2 である。",
+    "text": "6.1 無向グラフ\nグラフ（graph）は、点（vertex）の集合\\(V\\)と辺（edge）の集合\\(E\\)から構成され、\\(G=(V,E)\\)で表される。\nグラフは、有向グラフ（directed graph）と無向グラフ（undirected graph）に分けられる。\n無向グラフは、辺の方向を持たないグラフである。辺は、2つの点の集合として表される。\nグラフ \\(G = (V, E)\\) において、\\(e = \\{v, u\\} \\in E\\) を満たすとき、点 \\(v\\) と \\(u\\) は隣接（adjacent）しているといい、\\(e\\) は \\(v\\) と \\(u\\) を接続（incident）しているという。\n点 \\(v\\) に接続している辺の数を、\\(v\\) の次数（degree）という。例 6.1 の場合、\\(v_1\\) の次数は 3、\\(v_2\\) の次数は 2 である。",
     "crumbs": [
       "ネットワーク最適化",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>グラフ理論</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>グラフ理論</span>"
     ]
   },
   {
     "objectID": "network/graph.html#無向グラフ",
     "href": "network/graph.html#無向グラフ",
-    "title": "7  グラフ理論",
+    "title": "6  グラフ理論",
     "section": "",
-    "text": "例 7.1 (無向グラフの例) グラフ\n\\[\nG = ({v_1, v_2, v_3, v_4}, \\{\\{v_1,v_2\\},\\{v_2,v_3\\},\\{v_3,v_4\\},\\{v_4,v_1\\},\\{v_1,v_3\\}\\})\n\\]\nは、点の集合\\(V=\\{v_1,v_2,v_3,v_4\\}\\)と辺の集合\\(E=\\{\\{v_1,v_2\\},\\{v_2,v_3\\},\\{v_3,v_4\\},\\{v_4,v_1\\},\\{v_1,v_3\\}\\}\\)からなる。\n\n\nコード\nimport networkx as nx\nimport matplotlib.pyplot as plt\nimport numpy as np\n\n# グラフの作成（頂点を番号で定義）\nG = nx.Graph()\nG.add_edges_from([(1, 2), (2, 3), (3, 4), (4, 1), (1, 3)])\n\n# 頂点ラベルを LaTeX 形式に変換\nlabels = {i: rf\"$v_{i}$\" for i in G.nodes()}\n\n# レイアウト（円形）\npos = nx.circular_layout(G)\n\n# ラベルの位置を少し外側へ移動\nlabel_pos = {}\nfor k, (x, y) in pos.items():\n    r = np.sqrt(x**2 + y**2)  # 原点からの距離\n    scale = 1.15  # 外側に押し出す係数（調整可）\n    label_pos[k] = (x / r * scale, y / r * scale)\n\nplt.figure(figsize=(4, 4))\n# ノード描画\nnx.draw_networkx_nodes(G, pos, node_color=\"black\", node_size=120, edgecolors=\"black\")\n# エッジ描画\nnx.draw_networkx_edges(G, pos, edge_color=\"black\", width=1.2)\n# 外側にラベル描画\nnx.draw_networkx_labels(G, label_pos, labels, font_size=12, font_weight=\"regular\")\nplt.axis(\"off\")\nplt.show()",
+    "text": "例 6.1 (無向グラフの例) グラフ\n\\[\nG = ({v_1, v_2, v_3, v_4}, \\{\\{v_1,v_2\\},\\{v_2,v_3\\},\\{v_3,v_4\\},\\{v_4,v_1\\},\\{v_1,v_3\\}\\})\n\\]\nは、点の集合\\(V=\\{v_1,v_2,v_3,v_4\\}\\)と辺の集合\\(E=\\{\\{v_1,v_2\\},\\{v_2,v_3\\},\\{v_3,v_4\\},\\{v_4,v_1\\},\\{v_1,v_3\\}\\}\\)からなる。\n\n\nコード\nimport networkx as nx\nimport matplotlib.pyplot as plt\nimport numpy as np\n\n# グラフの作成（頂点を番号で定義）\nG = nx.Graph()\nG.add_edges_from([(1, 2), (2, 3), (3, 4), (4, 1), (1, 3)])\n\n# 頂点ラベルを LaTeX 形式に変換\nlabels = {i: rf\"$v_{i}$\" for i in G.nodes()}\n\n# レイアウト（円形）\npos = nx.circular_layout(G)\n\n# ラベルの位置を少し外側へ移動\nlabel_pos = {}\nfor k, (x, y) in pos.items():\n    r = np.sqrt(x**2 + y**2)  # 原点からの距離\n    scale = 1.15  # 外側に押し出す係数（調整可）\n    label_pos[k] = (x / r * scale, y / r * scale)\n\nplt.figure(figsize=(4, 4))\n# ノード描画\nnx.draw_networkx_nodes(G, pos, node_color=\"black\", node_size=120, edgecolors=\"black\")\n# エッジ描画\nnx.draw_networkx_edges(G, pos, edge_color=\"black\", width=1.2)\n# 外側にラベル描画\nnx.draw_networkx_labels(G, label_pos, labels, font_size=12, font_weight=\"regular\")\nplt.axis(\"off\")\nplt.show()",
     "crumbs": [
       "ネットワーク最適化",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>グラフ理論</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>グラフ理論</span>"
     ]
   },
   {
     "objectID": "network/graph.html#有向グラフ",
     "href": "network/graph.html#有向グラフ",
-    "title": "7  グラフ理論",
-    "section": "7.2 有向グラフ",
-    "text": "7.2 有向グラフ\n有向グラフは、辺に方向があるグラフである。辺は、2つの点の順序対として表される。\n\n例 7.2 (有向グラフの例) グラフ\n\\[\nG = ({v_1, v_2, v_3, v_4}, \\{(v_1,v_2),(v_2,v_3),(v_3,v_4),(v_4,v_1),(v_1,v_3)\\})\n\\]\nは、点の集合\\(V=\\{v_1,v_2,v_3,v_4\\}\\)と辺の集合\\(E=\\{(v_1,v_2),(v_2,v_3),(v_3,v_4),(v_4,v_1),(v_1,v_3)\\}\\)からなる。\n\n\nコード\nimport networkx as nx\nimport matplotlib.pyplot as plt\nimport numpy as np\n\n# グラフの作成（頂点を番号で定義）\nG = nx.DiGraph()\nG.add_edges_from([(1, 2), (2, 3), (3, 4), (4, 1), (1, 3)])\n\n# 頂点ラベルを LaTeX 形式に変換\nlabels = {i: rf\"$v_{i}$\" for i in G.nodes()}\n\n# レイアウト（円形）\npos = nx.circular_layout(G)\n\n# ラベルの位置を少し外側へ移動\nlabel_pos = {}\nfor k, (x, y) in pos.items():\n    r = np.sqrt(x**2 + y**2)  # 原点からの距離\n    scale = 1.15  # 外側に押し出す係数（調整可）\n    label_pos[k] = (x / r * scale, y / r * scale)\n\nplt.figure(figsize=(4, 4))\n\n# ノード描画\nnx.draw_networkx_nodes(G, pos, node_color=\"black\", node_size=120, edgecolors=\"black\")\n\n# エッジ描画\nnx.draw_networkx_edges(G, pos, edge_color=\"black\", width=1.2, arrowsize=15)\n\n# 外側にラベル描画\nnx.draw_networkx_labels(G, label_pos, labels, font_size=12, font_weight=\"regular\")\n\nplt.axis(\"off\")\nplt.show()\n\n\n\n\n\n\n\n\n\n\nグラフ \\(G = (V, E)\\) において、点 \\(v\\) から出る辺の数を出次数（outdegree）といい、点 \\(v\\) に入る辺の数を入次数（indegree）という。例 7.2 の場合、\\(v_1\\) の出次数は 2、入次数は 1 である。",
+    "title": "6  グラフ理論",
+    "section": "6.2 有向グラフ",
+    "text": "6.2 有向グラフ\n有向グラフは、辺に方向があるグラフである。辺は、2つの点の順序対として表される。\n\n例 6.2 (有向グラフの例) グラフ\n\\[\nG = ({v_1, v_2, v_3, v_4}, \\{(v_1,v_2),(v_2,v_3),(v_3,v_4),(v_4,v_1),(v_1,v_3)\\})\n\\]\nは、点の集合\\(V=\\{v_1,v_2,v_3,v_4\\}\\)と辺の集合\\(E=\\{(v_1,v_2),(v_2,v_3),(v_3,v_4),(v_4,v_1),(v_1,v_3)\\}\\)からなる。\n\n\nコード\nimport networkx as nx\nimport matplotlib.pyplot as plt\nimport numpy as np\n\n# グラフの作成（頂点を番号で定義）\nG = nx.DiGraph()\nG.add_edges_from([(1, 2), (2, 3), (3, 4), (4, 1), (1, 3)])\n\n# 頂点ラベルを LaTeX 形式に変換\nlabels = {i: rf\"$v_{i}$\" for i in G.nodes()}\n\n# レイアウト（円形）\npos = nx.circular_layout(G)\n\n# ラベルの位置を少し外側へ移動\nlabel_pos = {}\nfor k, (x, y) in pos.items():\n    r = np.sqrt(x**2 + y**2)  # 原点からの距離\n    scale = 1.15  # 外側に押し出す係数（調整可）\n    label_pos[k] = (x / r * scale, y / r * scale)\n\nplt.figure(figsize=(4, 4))\n\n# ノード描画\nnx.draw_networkx_nodes(G, pos, node_color=\"black\", node_size=120, edgecolors=\"black\")\n\n# エッジ描画\nnx.draw_networkx_edges(G, pos, edge_color=\"black\", width=1.2, arrowsize=15)\n\n# 外側にラベル描画\nnx.draw_networkx_labels(G, label_pos, labels, font_size=12, font_weight=\"regular\")\n\nplt.axis(\"off\")\nplt.show()\n\n\n\n\n\n\n\n\n\n\nグラフ \\(G = (V, E)\\) において、点 \\(v\\) から出る辺の数を出次数（outdegree）といい、点 \\(v\\) に入る辺の数を入次数（indegree）という。例 6.2 の場合、\\(v_1\\) の出次数は 2、入次数は 1 である。",
     "crumbs": [
       "ネットワーク最適化",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>グラフ理論</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>グラフ理論</span>"
     ]
   },
   {
     "objectID": "network/graph.html#パス",
     "href": "network/graph.html#パス",
-    "title": "7  グラフ理論",
-    "section": "7.3 パス",
-    "text": "7.3 パス\n\\(G = (V, E)\\) において、パス（path）\\(P\\) とは、点の組\n\\[\nP = (v_{i_1}, v_{i_2}, \\ldots, v_{i_k})\n\\]\nであって、各 \\(j = 1, 2, \\ldots, k-1\\) に対して \\((v_{i_j}, v_{i_{j+1}}) \\in E\\) を満たすものをいう。パスの長さ（length）は、パスに含まれる辺の数である。",
+    "title": "6  グラフ理論",
+    "section": "6.3 パス",
+    "text": "6.3 パス\n\\(G = (V, E)\\) において、パス（path）\\(P\\) とは、点の組\n\\[\nP = (v_{i_1}, v_{i_2}, \\ldots, v_{i_k})\n\\]\nであって、各 \\(j = 1, 2, \\ldots, k-1\\) に対して \\((v_{i_j}, v_{i_{j+1}}) \\in E\\) を満たすものをいう。パスの長さ（length）は、パスに含まれる辺の数である。",
     "crumbs": [
       "ネットワーク最適化",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>グラフ理論</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>グラフ理論</span>"
     ]
   },
   {
     "objectID": "network/shortest-path.html",
     "href": "network/shortest-path.html",
-    "title": "8  最短路問題",
+    "title": "7  最短路問題",
     "section": "",
-    "text": "有向グラフ \\(G = (V, E)\\) を考える。各辺 \\((v, u) \\in E\\) に非負の重み \\(w(v, u)\\) が与えられているとする。このとき、点 \\(s \\in V\\) から点 \\(t \\in V\\) への最短路（shortest path）とは、\\(s\\) から \\(t\\) へのパスのうち、重みの和が最小となるパスである。 最短路問題とは、\\(s\\) から \\(t\\) への最短路を求める問題である。\n\n例 8.1 次の図は、最短路問題の例を示している。\n\n\nコード\nimport matplotlib.pyplot as plt\nimport networkx as nx\nimport numpy as np\n\n# グラフの作成（頂点を番号で定義）\nG = nx.DiGraph()\nedges = [\n    (\"s\", \"v1\", 5),\n    (\"s\", \"v2\", 3),\n    (\"v1\", \"v3\", 17),\n    (\"v2\", \"v3\", 1),\n    (\"v2\", \"v4\", 3),\n    (\"v3\", \"t\", 4),\n    (\"v4\", \"t\", 2),\n]\nG.add_weighted_edges_from(edges)\n\nlabels = {\n    node: (rf\"$v_{node[1:]}$\" if node.startswith(\"v\") else rf\"${node}$\")\n    for node in G.nodes()\n}\n\nfor layer, nodes in enumerate(nx.topological_generations(G)):\n    for node in nodes:\n        G.nodes[node][\"layer\"] = layer\n\npos = nx.multipartite_layout(G, subset_key=\"layer\")\n\nlabel_pos = {}\nfor k, (x, y) in pos.items():\n    r = np.sqrt(x**2 + y**2) if np.sqrt(x**2 + y**2) &gt; 0 else 1\n    scale = 1.1\n    label_pos[k] = (x * scale, y * scale)\n\n# Plotting\nnx.draw_networkx(\n    G,\n    pos=pos,\n    with_labels=False,\n    node_color=\"white\",\n    node_size=50,\n    edgecolors=\"black\",\n)\nnx.draw_networkx_labels(G, label_pos, labels, font_size=12)\nnx.draw_networkx_edge_labels(\n    G,\n    pos,\n    edge_labels={(u, v): d[\"weight\"] for u, v, d in G.edges(data=True)},\n    font_color=\"black\",\n    font_size=12,\n)\nplt.axis(\"off\")\nplt.show()",
+    "text": "有向グラフ \\(G = (V, E)\\) を考える。各辺 \\((v, u) \\in E\\) に非負の重み \\(w(v, u)\\) が与えられているとする。このとき、点 \\(s \\in V\\) から点 \\(t \\in V\\) への最短路（shortest path）とは、\\(s\\) から \\(t\\) へのパスのうち、重みの和が最小となるパスである。 最短路問題とは、\\(s\\) から \\(t\\) への最短路を求める問題である。\n\n例 7.1 次の図は、最短路問題の例を示している。\n\n\nコード\nimport matplotlib.pyplot as plt\nimport networkx as nx\nimport numpy as np\n\n# グラフの作成（頂点を番号で定義）\nG = nx.DiGraph()\nedges = [\n    (\"s\", \"v1\", 5),\n    (\"s\", \"v2\", 3),\n    (\"v1\", \"v3\", 17),\n    (\"v2\", \"v3\", 1),\n    (\"v2\", \"v4\", 3),\n    (\"v3\", \"t\", 4),\n    (\"v4\", \"t\", 2),\n]\nG.add_weighted_edges_from(edges)\n\nlabels = {\n    node: (rf\"$v_{node[1:]}$\" if node.startswith(\"v\") else rf\"${node}$\")\n    for node in G.nodes()\n}\n\nfor layer, nodes in enumerate(nx.topological_generations(G)):\n    for node in nodes:\n        G.nodes[node][\"layer\"] = layer\n\npos = nx.multipartite_layout(G, subset_key=\"layer\")\n\nlabel_pos = {}\nfor k, (x, y) in pos.items():\n    r = np.sqrt(x**2 + y**2) if np.sqrt(x**2 + y**2) &gt; 0 else 1\n    scale = 1.1\n    label_pos[k] = (x * scale, y * scale)\n\n# Plotting\nnx.draw_networkx(\n    G,\n    pos=pos,\n    with_labels=False,\n    node_color=\"white\",\n    node_size=50,\n    edgecolors=\"black\",\n)\nnx.draw_networkx_labels(G, label_pos, labels, font_size=12)\nnx.draw_networkx_edge_labels(\n    G,\n    pos,\n    edge_labels={(u, v): d[\"weight\"] for u, v, d in G.edges(data=True)},\n    font_color=\"black\",\n    font_size=12,\n)\nplt.axis(\"off\")\nplt.show()",
     "crumbs": [
       "ネットワーク最適化",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>最短路問題</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>最短路問題</span>"
     ]
   },
   {
     "objectID": "network/pert.html",
     "href": "network/pert.html",
-    "title": "9  PERT/CPM",
+    "title": "8  PERT/CPM",
     "section": "",
-    "text": "9.1 プロジェクト\nプロジェクトは、多くの作業からなる。プロジェクトを完遂できるように、作業のスケジュールを作成する必要がある。その方法として、PERT（Program Evaluation and Review Technique）とCPM（Critical Path Method）がある。現在では、PERTとCPMが統合され、PERT/CPMとして知られている(Camm ほか 2022; Hillier と Lieberman 2025)。\nここで、ある作業の開始前に完了しなければならない作業を先行作業（Immediate Predecessor）と呼ぶ。また、ある作業の完了後に開始できる作業を後続作業（Immediate Successor）と呼ぶ。\nまとめると、プロジェクトは、次の要素で構成される。",
+    "text": "8.1 プロジェクト\nプロジェクトは、多くの作業からなる。プロジェクトを完遂できるように、作業のスケジュールを作成する必要がある。その方法として、PERT（Program Evaluation and Review Technique）とCPM（Critical Path Method）がある。現在では、PERTとCPMが統合され、PERT/CPMとして知られている(Camm ほか 2022; Hillier と Lieberman 2025)。\nここで、ある作業の開始前に完了しなければならない作業を先行作業（Immediate Predecessor）と呼ぶ。また、ある作業の完了後に開始できる作業を後続作業（Immediate Successor）と呼ぶ。\nまとめると、プロジェクトは、次の要素で構成される。",
     "crumbs": [
       "ネットワーク最適化",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>PERT/CPM</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>PERT/CPM</span>"
     ]
   },
   {
     "objectID": "network/pert.html#プロジェクト",
     "href": "network/pert.html#プロジェクト",
-    "title": "9  PERT/CPM",
+    "title": "8  PERT/CPM",
     "section": "",
-    "text": "作業：プロジェクトを構成する仕事。活動、アクティビティとも呼ばれる。\n先行関係：それぞれの作業の先行作業を定義する関係。\n作業時間：各作業に必要な時間。\n\n\n例 9.1 学生の田中さんと佐藤さんが協力し、ある授業のレポートを作成することになった。このレポートを作成するためには、下の表に示すように、いくつかの作業を行う必要がある。\n\n\n\n作業\n作業内容\n先行作業\n時間（日）\n\n\n\n\nA\n課題の理解\n-\n2\n\n\nB\nデータ収集\nA\n3\n\n\nC\nデータ分析\nB\n4\n\n\nD\n文献調査\nA\n2\n\n\nE\nレポート作成\nC, D\n5",
+    "text": "作業：プロジェクトを構成する仕事。活動、アクティビティとも呼ばれる。\n先行関係：それぞれの作業の先行作業を定義する関係。\n作業時間：各作業に必要な時間。\n\n\n例 8.1 学生の田中さんと佐藤さんが協力し、ある授業のレポートを作成することになった。このレポートを作成するためには、下の表に示すように、いくつかの作業を行う必要がある。\n\n\n\n作業\n作業内容\n先行作業\n時間（日）\n\n\n\n\nA\n課題の理解\n-\n2\n\n\nB\nデータ収集\nA\n3\n\n\nC\nデータ分析\nB\n4\n\n\nD\n文献調査\nA\n2\n\n\nE\nレポート作成\nC, D\n5",
     "crumbs": [
       "ネットワーク最適化",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>PERT/CPM</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>PERT/CPM</span>"
     ]
   },
   {
     "objectID": "network/pert.html#プロジェクトネットワーク",
     "href": "network/pert.html#プロジェクトネットワーク",
-    "title": "9  PERT/CPM",
-    "section": "9.2 プロジェクト・ネットワーク",
-    "text": "9.2 プロジェクト・ネットワーク\nプロジェクトをネットワークで表現したものをプロジェクト・ネットワーク（Project Network）と呼ぶ。プロジェクト・ネットワークには、AOA（Activity on Arrow）や AON（Activity on Node）という 2 種類の表現方法がある。\nAOA では、作業を辺で表現し、先行関係を点で表現する。AON では、作業を点で表現し、先行関係を辺で表現する。AON のほうが理解と作成が容易で、実務でも AON がよく使われる(Camm ほか 2022; Hillier と Lieberman 2025; Eiselt と Sandblom 2022)。これは以降、AON に基づいて説明する。\nプロジェクト・ネットワークは \\(G = (V, E)\\) という有向グラフで表される。ここで、\\(V\\) は始点 \\(s\\)、終点 \\(t\\) と各作業を表す点の集合であり、\\(E\\) は先行関係を表す辺の集合である。辺 \\((v, u) \\in E\\) では、\\(v\\) が \\(u\\) の先行作業であることを意味する。\n辺 \\((s, v) \\in E\\) は、作業 \\(v\\) が先行作業を持たないことを意味し、辺 \\((v, t) \\in E\\) は、作業 \\(v\\) が後続作業を持たないことを意味する。作業 \\(v\\) の先行作業の集合を \\(\\mathcal{P}(v)\\) と表す。作業 \\(v\\) の後続作業の集合を \\(\\mathcal{S}(v)\\) と表す。\n作業点 \\(v \\in V\\) には、作業時間 \\(\\tau(v)\\) が与えられている。始点 \\(s\\) と終点 \\(t\\) の作業時間は \\(\\tau(s) = \\tau(t) = 0\\) とする。\n例 9.1 のプロジェクト・ネットワークは次の図のようになる。\n\n\nコード\nimport matplotlib.pyplot as plt\nimport networkx as nx\nimport numpy as np\n\n# グラフの作成（頂点を番号で定義）\nG = nx.DiGraph()\nedges = [\n    (\"s\", \"A\"),\n    (\"A\", \"B\"),\n    (\"A\", \"D\"),\n    (\"B\", \"C\"),\n    (\"C\", \"E\"),\n    (\"D\", \"E\"),\n    (\"E\", \"t\"),\n]\nG.add_edges_from(edges)\n\nfor layer, nodes in enumerate(nx.topological_generations(G)):\n    for node in nodes:\n        G.nodes[node][\"layer\"] = layer\n\npos = nx.multipartite_layout(G, subset_key=\"layer\")\n\nlabel_pos = {}\nfor k, (x, y) in pos.items():\n    r = np.sqrt(x**2 + y**2) if np.sqrt(x**2 + y**2) &gt; 0 else 1\n    scale = 1.12\n    label_pos[k] = (x * scale, y * scale)\n\n# Plotting\nnx.draw_networkx(\n    G,\n    pos=pos,\n    with_labels=True,\n    node_color=\"white\",\n    node_size=500,\n    edgecolors=\"black\",\n)\nplt.axis(\"off\")\nplt.show()\n\n\n\n\n\n\n\n\n\n\n例 9.2 以下の作業リストに基づいて、プロジェクト・ネットワークを作成せよ。\n\n\n\n作業\n先行作業\n時間（日）\n\n\n\n\nA\n-\n2\n\n\nB\n-\n3\n\n\nC\nA\n4\n\n\nD\nA\n2\n\n\nE\nB\n5\n\n\nF\nC, D, E\n9\n\n\nG\nE\n2\n\n\n\n\n\nコード\nimport matplotlib.pyplot as plt\nimport networkx as nx\nimport numpy as np\n\n# グラフの作成（頂点を番号で定義）\nG = nx.DiGraph()\nedges = [\n    (\"s\", \"A\"),\n    (\"s\", \"B\"),\n    (\"A\", \"C\"),\n    (\"A\", \"D\"),\n    (\"C\", \"F\"),\n    (\"D\", \"F\"),\n    (\"B\", \"E\"),\n    (\"E\", \"G\"),\n    (\"E\", \"F\"),\n    (\"G\", \"t\"),\n    (\"F\", \"t\"),\n]\nG.add_edges_from(edges)\n\nfor layer, nodes in enumerate(nx.topological_generations(G)):\n    for node in nodes:\n        G.nodes[node][\"layer\"] = layer\n\npos = nx.multipartite_layout(G, subset_key=\"layer\")\n\nlabel_pos = {}\nfor k, (x, y) in pos.items():\n    r = np.sqrt(x**2 + y**2) if np.sqrt(x**2 + y**2) &gt; 0 else 1\n    scale = 1.12\n    label_pos[k] = (x * scale, y * scale)\n\n# Plotting\nnx.draw_networkx(\n    G,\n    pos=pos,\n    with_labels=True,\n    node_color=\"white\",\n    node_size=500,\n    edgecolors=\"black\",\n)\nplt.axis(\"off\")\nplt.show()",
+    "title": "8  PERT/CPM",
+    "section": "8.2 プロジェクト・ネットワーク",
+    "text": "8.2 プロジェクト・ネットワーク\nプロジェクトをネットワークで表現したものをプロジェクト・ネットワーク（Project Network）と呼ぶ。プロジェクト・ネットワークには、AOA（Activity on Arrow）や AON（Activity on Node）という 2 種類の表現方法がある。\nAOA では、作業を辺で表現し、先行関係を点で表現する。AON では、作業を点で表現し、先行関係を辺で表現する。AON のほうが理解と作成が容易で、実務でも AON がよく使われる(Camm ほか 2022; Hillier と Lieberman 2025; Eiselt と Sandblom 2022)。これは以降、AON に基づいて説明する。\nプロジェクト・ネットワークは \\(G = (V, E)\\) という有向グラフで表される。ここで、\\(V\\) は始点 \\(s\\)、終点 \\(t\\) と各作業を表す点の集合であり、\\(E\\) は先行関係を表す辺の集合である。辺 \\((v, u) \\in E\\) では、\\(v\\) が \\(u\\) の先行作業であることを意味する。\n辺 \\((s, v) \\in E\\) は、作業 \\(v\\) が先行作業を持たないことを意味し、辺 \\((v, t) \\in E\\) は、作業 \\(v\\) が後続作業を持たないことを意味する。作業 \\(v\\) の先行作業の集合を \\(\\mathcal{P}(v)\\) と表す。作業 \\(v\\) の後続作業の集合を \\(\\mathcal{S}(v)\\) と表す。\n作業点 \\(v \\in V\\) には、作業時間 \\(\\tau(v)\\) が与えられている。始点 \\(s\\) と終点 \\(t\\) の作業時間は \\(\\tau(s) = \\tau(t) = 0\\) とする。\n例 8.1 のプロジェクト・ネットワークは次の図のようになる。\n\n\nコード\nimport matplotlib.pyplot as plt\nimport networkx as nx\nimport numpy as np\n\n# グラフの作成（頂点を番号で定義）\nG = nx.DiGraph()\nedges = [\n    (\"s\", \"A\"),\n    (\"A\", \"B\"),\n    (\"A\", \"D\"),\n    (\"B\", \"C\"),\n    (\"C\", \"E\"),\n    (\"D\", \"E\"),\n    (\"E\", \"t\"),\n]\nG.add_edges_from(edges)\n\nfor layer, nodes in enumerate(nx.topological_generations(G)):\n    for node in nodes:\n        G.nodes[node][\"layer\"] = layer\n\npos = nx.multipartite_layout(G, subset_key=\"layer\")\n\nlabel_pos = {}\nfor k, (x, y) in pos.items():\n    r = np.sqrt(x**2 + y**2) if np.sqrt(x**2 + y**2) &gt; 0 else 1\n    scale = 1.12\n    label_pos[k] = (x * scale, y * scale)\n\n# Plotting\nnx.draw_networkx(\n    G,\n    pos=pos,\n    with_labels=True,\n    node_color=\"white\",\n    node_size=500,\n    edgecolors=\"black\",\n)\nplt.axis(\"off\")\nplt.show()\n\n\n\n\n\n\n\n\n\n\n例 8.2 以下の作業リストに基づいて、プロジェクト・ネットワークを作成せよ。\n\n\n\n作業\n先行作業\n時間（日）\n\n\n\n\nA\n-\n2\n\n\nB\n-\n3\n\n\nC\nA\n4\n\n\nD\nA\n2\n\n\nE\nB\n5\n\n\nF\nC, D, E\n9\n\n\nG\nE\n2\n\n\n\n\n\nコード\nimport matplotlib.pyplot as plt\nimport networkx as nx\nimport numpy as np\n\n# グラフの作成（頂点を番号で定義）\nG = nx.DiGraph()\nedges = [\n    (\"s\", \"A\"),\n    (\"s\", \"B\"),\n    (\"A\", \"C\"),\n    (\"A\", \"D\"),\n    (\"C\", \"F\"),\n    (\"D\", \"F\"),\n    (\"B\", \"E\"),\n    (\"E\", \"G\"),\n    (\"E\", \"F\"),\n    (\"G\", \"t\"),\n    (\"F\", \"t\"),\n]\nG.add_edges_from(edges)\n\nfor layer, nodes in enumerate(nx.topological_generations(G)):\n    for node in nodes:\n        G.nodes[node][\"layer\"] = layer\n\npos = nx.multipartite_layout(G, subset_key=\"layer\")\n\nlabel_pos = {}\nfor k, (x, y) in pos.items():\n    r = np.sqrt(x**2 + y**2) if np.sqrt(x**2 + y**2) &gt; 0 else 1\n    scale = 1.12\n    label_pos[k] = (x * scale, y * scale)\n\n# Plotting\nnx.draw_networkx(\n    G,\n    pos=pos,\n    with_labels=True,\n    node_color=\"white\",\n    node_size=500,\n    edgecolors=\"black\",\n)\nplt.axis(\"off\")\nplt.show()",
     "crumbs": [
       "ネットワーク最適化",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>PERT/CPM</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>PERT/CPM</span>"
     ]
   },
   {
     "objectID": "network/pert.html#sec-critical-path",
     "href": "network/pert.html#sec-critical-path",
-    "title": "9  PERT/CPM",
-    "section": "9.3 クリティカルパス",
-    "text": "9.3 クリティカルパス\nプロジェクト・ネットワークにおいて、始点 \\(s\\) から終点 \\(t\\) までの経路をパスと呼ぶ。パスの長さは、そのパス上の作業時間の合計である。パス \\(P = (s, v_{i_1}, v_{i_2}, \\ldots, v_{i_k}, t)\\) の長さは、\n\\[\n\\sum_{v \\in P} \\tau(v) = \\tau(v_{i_1}) + \\tau(v_{i_2}) + \\cdots + \\tau(v_{i_k})\n\\]\nである。\n最も長いパスをクリティカルパス（Critical Path）と呼ぶ。クリティカルパスに含まれる作業をクリティカル作業（Critical Activity）と呼ぶ。クリティカル作業が遅延すると、プロジェクト全体の完了が遅延する。\nクリティカルパスを求める問題は、最長路問題に帰着できるが、ここで述べる方法は、プロジェクトにおける様々な有用な情報も提供する。\n\n9.3.1 最早開始時刻と最早終了時刻\n作業点 \\(v \\in V\\) の最も早く開始できる時間を最早開始時刻（Earliest Start Time）と呼び、\\(ES(v)\\) と表す。\\(v\\) の最も早く終了できる時間を最早終了時刻（Earliest Finish Time）と呼び、\\(EF(v)\\) と表す。始点 \\(s\\) の最早開始時刻は \\(ES(s) = 0\\) とする。\n\\(v\\) の最早終了時刻は、最早開始時刻に作業時間を加えたものである。\n\\[\nEF(v) = ES(v) + \\tau(v)\n\\]\n\\(u\\) の最早開始時刻は、\\(u\\) の先行作業 \\(v \\in \\mathcal{P}(u)\\) の中で最早終了時刻 \\(EF(v)\\) が最大のものである。\n\\[\nES(u) = \\max_{v \\in \\mathcal{P}(u)} EF(v)\n\\]\nで与えられる。\n最早開始時刻と最早終了時刻を求めるアルゴリズムは下の通りである。ここで、点をトポロジカルオーダー(topological order)で処理するとは、\\(v\\) のすべての先行作業 \\(u \\in \\mathcal{P}(v)\\) が \\(v\\) より前に処理されるように点を順序付けることである。\n\nForward Pass Algorithm\n\n\\(ES(s) \\leftarrow 0\\), \\(EF(s) \\leftarrow 0\\).\nFor each \\(v \\in V \\setminus \\{s\\}\\) in topological order do\n\n\\(ES(v) \\leftarrow \\max_{u \\in \\mathcal{P}(v)} EF(u)\\).\n\\(EF(v) \\leftarrow ES(v) + \\tau(v)\\).\n\n\n\n例 9.2 のプロジェクト・ネットワークに対して、最早開始時刻と最早終了時刻を求めると、次の表のようになる。\n\n\n\n\\(v\\)\n\\(\\mathcal{P}(v)\\)\n\\(\\tau(v)\\)\n\\(ES(v)\\)\n\\(EF(v)\\)\n\n\n\n\ns\n-\n0\n0\n0\n\n\nA\ns\n2\n0\n2\n\n\nB\ns\n3\n0\n3\n\n\nC\nA\n4\n2\n6\n\n\nD\nA\n2\n2\n4\n\n\nE\nB\n5\n3\n8\n\n\nF\nC, D, E\n9\n8\n17\n\n\nG\nE\n2\n8\n10\n\n\nt\nF, G\n0\n17\n17\n\n\n\n作業 F を開始するためには、作業 C、D、E のすべてが完了している必要がある。そのため、作業 F の開始時間は、作業 C、D、E の中で最も遅い完了時間に依存する。作業 C、D、E の完了時間はそれぞれ 6 日、4 日、8 日であるため、作業 F の最も早い開始時間は 8 日となる。\n\n\n9.3.2 最遅開始時刻と最遅終了時刻\n作業点 \\(v\\) の遅くとも始めないといけない時間を最遅開始時刻（Latest Start Time）と呼び、\\(LS(v)\\) と表す。\\(v\\) の遅くとも終わらせないといけない時間を最遅終了時刻（Latest Finish Time）と呼び、\\(LF(v)\\) と表す。\n終点 \\(t\\) の最遅終了時刻は \\(LF(t) = EF(t)\\) とする。\n\\(v\\) の最遅開始時刻は、最遅終了時刻から作業時間を引いたものである。\n\\[\nLS(v) = LF(v) - \\tau(v)\n\\]\n\\(u\\) の最遅終了時刻は、\\(u\\) の後続作業 \\(v \\in \\mathcal{S}(u)\\) の中で \\(LS(v)\\) が最小のものである。\n\\[\nLF(u) = \\min_{v \\in \\mathcal{S}(u)} LS(v)\n\\]\n例 9.2 のプロジェクト・ネットワークに対して、最遅開始時刻と最遅終了時刻を求めると、次の表のようになる。\n\n\n\n\\(v\\)\n\\(\\mathcal{S}(v)\\)\n\\(\\tau(v)\\)\n\\(LS(v)\\)\n\\(LF(v)\\)\n\n\n\n\ns\nA, B\n0\n0\n0\n\n\nA\nC, D\n2\n2\n4\n\n\nB\nE\n3\n0\n3\n\n\nC\nF\n4\n4\n8\n\n\nD\nF\n2\n6\n8\n\n\nE\nF, G\n5\n3\n8\n\n\nF\nt\n9\n8\n17\n\n\nG\nt\n2\n15\n17\n\n\nt\n-\n0\n17\n17\n\n\n\n\n\n9.3.3 スラック\n作業点 \\(v\\) のスラック（Slack）を \\(SL(v)\\) と表す。スラックは、\n\\[\nSL(v) = LS(v) - ES(v) = LF(v) - EF(v)\n\\]\nで与えられる。スラックは、作業 \\(v\\) の開始または終了を遅らせることができる時間を示す。スラックが 0 の作業はクリティカル作業である。\n例 9.2 のプロジェクト・ネットワークに対して、スラックを求めると、次の表のようになる。\n\n\n\n\\(v\\)\n\\(\\tau(v)\\)\n\\(ES(v)\\)\n\\(EF(v)\\)\n\\(LS(v)\\)\n\\(LF(v)\\)\n\\(SL(v)\\)\n\n\n\n\ns\n0\n0\n0\n0\n0\n0\n\n\nA\n2\n0\n2\n2\n4\n2\n\n\nB\n3\n0\n3\n0\n3\n0\n\n\nC\n4\n2\n6\n4\n8\n2\n\n\nD\n2\n2\n4\n6\n8\n4\n\n\nE\n5\n3\n8\n3\n8\n0\n\n\nF\n9\n8\n17\n8\n17\n0\n\n\nG\n2\n8\n10\n15\n17\n7\n\n\nt\n0\n17\n17\n17\n17\n0\n\n\n\nクリティカルパスは、\\(s \\to B \\to E \\to F \\to t\\) であり、このパスの長さは 17 日である。",
+    "title": "8  PERT/CPM",
+    "section": "8.3 クリティカルパス",
+    "text": "8.3 クリティカルパス\nプロジェクト・ネットワークにおいて、始点 \\(s\\) から終点 \\(t\\) までの経路をパスと呼ぶ。パスの長さは、そのパス上の作業時間の合計である。パス \\(P = (s, v_{i_1}, v_{i_2}, \\ldots, v_{i_k}, t)\\) の長さは、\n\\[\n\\sum_{v \\in P} \\tau(v) = \\tau(v_{i_1}) + \\tau(v_{i_2}) + \\cdots + \\tau(v_{i_k})\n\\]\nである。\n最も長いパスをクリティカルパス（Critical Path）と呼ぶ。クリティカルパスに含まれる作業をクリティカル作業（Critical Activity）と呼ぶ。クリティカル作業が遅延すると、プロジェクト全体の完了が遅延する。\nクリティカルパスを求める問題は、最長路問題に帰着できるが、ここで述べる方法は、プロジェクトにおける様々な有用な情報も提供する。\n\n8.3.1 最早開始時刻と最早終了時刻\n作業点 \\(v \\in V\\) の最も早く開始できる時間を最早開始時刻（Earliest Start Time）と呼び、\\(ES(v)\\) と表す。\\(v\\) の最も早く終了できる時間を最早終了時刻（Earliest Finish Time）と呼び、\\(EF(v)\\) と表す。始点 \\(s\\) の最早開始時刻は \\(ES(s) = 0\\) とする。\n\\(v\\) の最早終了時刻は、最早開始時刻に作業時間を加えたものである。\n\\[\nEF(v) = ES(v) + \\tau(v)\n\\]\n\\(u\\) の最早開始時刻は、\\(u\\) の先行作業 \\(v \\in \\mathcal{P}(u)\\) の中で最早終了時刻 \\(EF(v)\\) が最大のものである。\n\\[\nES(u) = \\max_{v \\in \\mathcal{P}(u)} EF(v)\n\\]\nで与えられる。\n最早開始時刻と最早終了時刻を求めるアルゴリズムは下の通りである。ここで、点をトポロジカルオーダー(topological order)で処理するとは、\\(v\\) のすべての先行作業 \\(u \\in \\mathcal{P}(v)\\) が \\(v\\) より前に処理されるように点を順序付けることである。\n\nForward Pass Algorithm\n\n\\(ES(s) \\leftarrow 0\\), \\(EF(s) \\leftarrow 0\\).\nFor each \\(v \\in V \\setminus \\{s\\}\\) in topological order do\n\n\\(ES(v) \\leftarrow \\max_{u \\in \\mathcal{P}(v)} EF(u)\\).\n\\(EF(v) \\leftarrow ES(v) + \\tau(v)\\).\n\n\n\n例 8.2 のプロジェクト・ネットワークに対して、最早開始時刻と最早終了時刻を求めると、次の表のようになる。\n\n\n\n\\(v\\)\n\\(\\mathcal{P}(v)\\)\n\\(\\tau(v)\\)\n\\(ES(v)\\)\n\\(EF(v)\\)\n\n\n\n\ns\n-\n0\n0\n0\n\n\nA\ns\n2\n0\n2\n\n\nB\ns\n3\n0\n3\n\n\nC\nA\n4\n2\n6\n\n\nD\nA\n2\n2\n4\n\n\nE\nB\n5\n3\n8\n\n\nF\nC, D, E\n9\n8\n17\n\n\nG\nE\n2\n8\n10\n\n\nt\nF, G\n0\n17\n17\n\n\n\n作業 F を開始するためには、作業 C、D、E のすべてが完了している必要がある。そのため、作業 F の開始時間は、作業 C、D、E の中で最も遅い完了時間に依存する。作業 C、D、E の完了時間はそれぞれ 6 日、4 日、8 日であるため、作業 F の最も早い開始時間は 8 日となる。\n\n\n8.3.2 最遅開始時刻と最遅終了時刻\n作業点 \\(v\\) の遅くとも始めないといけない時間を最遅開始時刻（Latest Start Time）と呼び、\\(LS(v)\\) と表す。\\(v\\) の遅くとも終わらせないといけない時間を最遅終了時刻（Latest Finish Time）と呼び、\\(LF(v)\\) と表す。\n終点 \\(t\\) の最遅終了時刻は \\(LF(t) = EF(t)\\) とする。\n\\(v\\) の最遅開始時刻は、最遅終了時刻から作業時間を引いたものである。\n\\[\nLS(v) = LF(v) - \\tau(v)\n\\]\n\\(u\\) の最遅終了時刻は、\\(u\\) の後続作業 \\(v \\in \\mathcal{S}(u)\\) の中で \\(LS(v)\\) が最小のものである。\n\\[\nLF(u) = \\min_{v \\in \\mathcal{S}(u)} LS(v)\n\\]\n例 8.2 のプロジェクト・ネットワークに対して、最遅開始時刻と最遅終了時刻を求めると、次の表のようになる。\n\n\n\n\\(v\\)\n\\(\\mathcal{S}(v)\\)\n\\(\\tau(v)\\)\n\\(LS(v)\\)\n\\(LF(v)\\)\n\n\n\n\ns\nA, B\n0\n0\n0\n\n\nA\nC, D\n2\n2\n4\n\n\nB\nE\n3\n0\n3\n\n\nC\nF\n4\n4\n8\n\n\nD\nF\n2\n6\n8\n\n\nE\nF, G\n5\n3\n8\n\n\nF\nt\n9\n8\n17\n\n\nG\nt\n2\n15\n17\n\n\nt\n-\n0\n17\n17\n\n\n\n\n\n8.3.3 スラック\n作業点 \\(v\\) のスラック（Slack）を \\(SL(v)\\) と表す。スラックは、\n\\[\nSL(v) = LS(v) - ES(v) = LF(v) - EF(v)\n\\]\nで与えられる。スラックは、作業 \\(v\\) の開始または終了を遅らせることができる時間を示す。スラックが 0 の作業はクリティカル作業である。\n例 8.2 のプロジェクト・ネットワークに対して、スラックを求めると、次の表のようになる。\n\n\n\n\\(v\\)\n\\(\\tau(v)\\)\n\\(ES(v)\\)\n\\(EF(v)\\)\n\\(LS(v)\\)\n\\(LF(v)\\)\n\\(SL(v)\\)\n\n\n\n\ns\n0\n0\n0\n0\n0\n0\n\n\nA\n2\n0\n2\n2\n4\n2\n\n\nB\n3\n0\n3\n0\n3\n0\n\n\nC\n4\n2\n6\n4\n8\n2\n\n\nD\n2\n2\n4\n6\n8\n4\n\n\nE\n5\n3\n8\n3\n8\n0\n\n\nF\n9\n8\n17\n8\n17\n0\n\n\nG\n2\n8\n10\n15\n17\n7\n\n\nt\n0\n17\n17\n17\n17\n0\n\n\n\nクリティカルパスは、\\(s \\to B \\to E \\to F \\to t\\) であり、このパスの長さは 17 日である。",
     "crumbs": [
       "ネットワーク最適化",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>PERT/CPM</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>PERT/CPM</span>"
     ]
   },
   {
     "objectID": "network/pert.html#点見積もり",
     "href": "network/pert.html#点見積もり",
-    "title": "9  PERT/CPM",
-    "section": "9.4 3 点見積もり",
-    "text": "9.4 3 点見積もり\n以上の方法では、作業の所要時間が確定していることを前提としている。しかし、実際には、所要時間の推定は難しい場合が多い。そこで、作業の所要時間を確率変数として扱い、3 点見積もり（Three-Point Estimation）という方法でその作業時間の平均と分散を推定する。\n3 点見積もりでは、次の 3 つの所要時間を事前に与えられたとする。\n\n楽観値（Optimistic Time, \\(a\\)）：予想される最短の所要時間。\n最頻値（Most Likely Time, \\(m\\)）：最も可能性が高い所要時間。\n悲観値（Pessimistic Time, \\(b\\)）：予想される最長の所要時間。\n\n一般に、\\(a \\leq m \\leq b\\) である。\nこの \\(a\\)、\\(m\\)、\\(b\\) に基づいて、所要時間の平均 \\(\\hat{\\mu}\\) と分散 \\(\\hat{\\sigma}^2\\) を次のように推定する 1。\n\\[\n\\hat{\\mu} = \\frac{a + 4m + b}{6}, \\quad \\hat{\\sigma}^2 = \\left(\\frac{b - a}{6}\\right)^2\n\\tag{9.1}\\]\nそこで、\\(\\mu(v)\\) と \\(\\sigma^2(v)\\) をそれぞれ作業点 \\(v\\) の所要時間の平均と分散とする。\\(a(v)\\)、\\(m(v)\\)、\\(b(v)\\) をそれぞれ作業点 \\(v\\) の楽観値、最頻値、悲観値とする。このとき、すべての作業点 \\(v \\in V\\) に対して、\n\\[\n\\mu(v) = \\frac{a(v) + 4m(v) + b(v)}{6}, \\quad \\sigma^2(v) = \\left(\\frac{b(v) - a(v)}{6}\\right)^2\n\\]\nで \\(\\mu(v)\\) と \\(\\sigma^2(v)\\) を計算する。\n例 9.2 のプロジェクト・ネットワークに対して、各作業点の楽観値、最頻値、悲観値が次のように与えられたとするとき、平均と分散を求めると、次の表のようになる。\n\n\n\n\\(v\\)\n\\(a\\)\n\\(m\\)\n\\(b\\)\n\\(\\mu\\)\n\\(\\sigma^2\\)\n\n\n\n\ns\n0\n0\n0\n0\n0\n\n\nA\n0.5\n2\n3.5\n2\n0.25\n\n\nB\n1.5\n3\n4.5\n3\n0.25\n\n\nC\n1.5\n3\n4.5\n3\n0.25\n\n\nD\n0.5\n2\n3.5\n2\n0.25\n\n\nE\n1\n5.5\n7\n5\n1\n\n\nF\n5\n8\n17\n9\n4\n\n\nG\n0.5\n2\n3.5\n2\n0.25\n\n\nt\n0\n0\n0\n0\n0",
+    "title": "8  PERT/CPM",
+    "section": "8.4 3 点見積もり",
+    "text": "8.4 3 点見積もり\n以上の方法では、作業の所要時間が確定していることを前提としている。しかし、実際には、所要時間の推定は難しい場合が多い。そこで、作業の所要時間を確率変数として扱い、3 点見積もり（Three-Point Estimation）という方法でその作業時間の平均と分散を推定する。\n3 点見積もりでは、次の 3 つの所要時間を事前に与えられたとする。\n\n楽観値（Optimistic Time, \\(a\\)）：予想される最短の所要時間。\n最頻値（Most Likely Time, \\(m\\)）：最も可能性が高い所要時間。\n悲観値（Pessimistic Time, \\(b\\)）：予想される最長の所要時間。\n\n一般に、\\(a \\leq m \\leq b\\) である。\nこの \\(a\\)、\\(m\\)、\\(b\\) に基づいて、所要時間の平均 \\(\\hat{\\mu}\\) と分散 \\(\\hat{\\sigma}^2\\) を次のように推定する。\n\n\n\n\n\n\nノート\n\n\n\n作業の所要時間がベータ分布に従うと仮定した場合は、式 8.1 が \\(\\mu\\) と \\(\\sigma^2\\) の良い推定量となる。これらの式の詳細な導出は省略する。興味のある読者は、Pleguezuelo, Pérez, と Rambaud (2003) を参照されたい。\n\n\n\\[\n\\hat{\\mu} = \\frac{a + 4m + b}{6}, \\quad \\hat{\\sigma}^2 = \\left(\\frac{b - a}{6}\\right)^2\n\\tag{8.1}\\]\nそこで、\\(\\mu(v)\\) と \\(\\sigma^2(v)\\) をそれぞれ作業点 \\(v\\) の所要時間の平均と分散とする。\\(a(v)\\)、\\(m(v)\\)、\\(b(v)\\) をそれぞれ作業点 \\(v\\) の楽観値、最頻値、悲観値とする。このとき、すべての作業点 \\(v \\in V\\) に対して、\n\\[\n\\mu(v) = \\frac{a(v) + 4m(v) + b(v)}{6}, \\quad \\sigma^2(v) = \\left(\\frac{b(v) - a(v)}{6}\\right)^2\n\\]\nで \\(\\mu(v)\\) と \\(\\sigma^2(v)\\) を計算する。\n例 8.2 のプロジェクト・ネットワークに対して、各作業点の楽観値、最頻値、悲観値が次のように与えられたとするとき、平均と分散を求めると、次の表のようになる。\n\n\n\n\\(v\\)\n\\(a\\)\n\\(m\\)\n\\(b\\)\n\\(\\mu\\)\n\\(\\sigma^2\\)\n\n\n\n\ns\n0\n0\n0\n0\n0\n\n\nA\n0.5\n2\n3.5\n2\n0.25\n\n\nB\n1.5\n3\n4.5\n3\n0.25\n\n\nC\n1.5\n3\n4.5\n3\n0.25\n\n\nD\n0.5\n2\n3.5\n2\n0.25\n\n\nE\n1\n5.5\n7\n5\n1\n\n\nF\n5\n8\n17\n9\n4\n\n\nG\n0.5\n2\n3.5\n2\n0.25\n\n\nt\n0\n0\n0\n0\n0",
     "crumbs": [
       "ネットワーク最適化",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>PERT/CPM</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>PERT/CPM</span>"
     ]
   },
   {
     "objectID": "network/pert.html#不確実性を考慮したpertcpm",
     "href": "network/pert.html#不確実性を考慮したpertcpm",
-    "title": "9  PERT/CPM",
-    "section": "9.5 不確実性を考慮したPERT/CPM",
-    "text": "9.5 不確実性を考慮したPERT/CPM\n3 点見積もりを用いて、各作業点 \\(v \\in V\\) の所要時間の平均 \\(\\mu(v)\\) と分散 \\(\\sigma^2(v)\\) を求めたとする。このとき、与えられた時間までにプロジェクトが完了する確率を求めたい。\nプロジェクト・ネットワークにおけるパス \\(P = (s, v_{i_1}, v_{i_2}, \\ldots, v_{i_k}, t)\\) の所要時間の平均 \\(\\mu(P)\\) と分散 \\(\\sigma^2(P)\\) は、それぞれ次のように推定できる。\n\\[\n\\mu(P) = \\sum_{v \\in P} \\mu(v), \\quad \\sigma^2(P) = \\sum_{v \\in P} \\sigma^2(v)\n\\]\nパス \\(P\\) の所要時間の標準偏差 \\(\\sigma(P)\\) は、\n\\[\n\\sigma(P) = \\sqrt{\\sigma^2(P)}\n\\]\nで与えられる。求められたパスの中で、所要時間の平均 \\(\\mu(P)\\) が最大のパスをクリティカルパス \\(P^*\\) とする。セクション 9.3 で述べた方法でクリティカルパスを求めることができる。\nクリティカルパス \\(P^*\\) の所要時間を \\(X\\) とし、与えられた時間 \\(d\\) までにプロジェクトが完了する確率を \\(\\mathbb{P}(X \\leq d)\\) と表す 2。\n\\[\n\\mathbb{P}(X \\leq d) = \\phi\\left(\\frac{d - \\mu(P^*)}{\\sigma(P^*)}\\right)\n\\]\nここで、\\(\\phi(z)\\) は標準正規分布の確率密度関数である。\\(z\\) は次のように計算し、標準正規分布表を用いて \\(\\phi(z)\\) を調べる。\n\\[\nz = \\frac{d - \\mu(P^*)}{\\sigma(P^*)}\n\\]\n例 9.2 では、クリティカルパスは \\(s \\to B \\to E \\to F \\to t\\) であり、このパスの所要時間の平均、分散、標準偏差は次のように計算できる。\n\\[\n\\mu(P^*) = 3 + 5 + 9 = 17\n\\]\n\\[\n\\sigma^2(P^*) = 0.25 + 1 + 4 = 5.25\n\\]\n\\[\n\\sigma(P^*) = \\sqrt{5.25} \\approx 2.29\n\\]\n与えられた時間 \\(d = 20\\) 日までにプロジェクトが完了する確率を求めるには、次のように計算する。\n\\(z\\) を計算すると、\n\\[\nz = \\frac{20 - 17}{2.29} \\approx 1.31\n\\]\n標準正規分布表を用いて、\\(\\phi(1.31) \\approx 0.9049\\) である。したがって、与えられた時間 \\(d = 20\\) 日までにプロジェクトが完了する確率は約 90.49% である。",
+    "title": "8  PERT/CPM",
+    "section": "8.5 不確実性を考慮したPERT/CPM",
+    "text": "8.5 不確実性を考慮したPERT/CPM\n3 点見積もりを用いて、各作業点 \\(v \\in V\\) の所要時間の平均 \\(\\mu(v)\\) と分散 \\(\\sigma^2(v)\\) を求めたとする。このとき、与えられた時間までにプロジェクトが完了する確率を求めたい。\nプロジェクト・ネットワークにおけるパス \\(P = (s, v_{i_1}, v_{i_2}, \\ldots, v_{i_k}, t)\\) の所要時間の平均 \\(\\mu(P)\\) と分散 \\(\\sigma^2(P)\\) は、それぞれ次のように推定できる。\n\\[\n\\mu(P) = \\sum_{v \\in P} \\mu(v), \\quad \\sigma^2(P) = \\sum_{v \\in P} \\sigma^2(v)\n\\]\nパス \\(P\\) の所要時間の標準偏差 \\(\\sigma(P)\\) は、\n\\[\n\\sigma(P) = \\sqrt{\\sigma^2(P)}\n\\]\nで与えられる。求められたパスの中で、所要時間の平均 \\(\\mu(P)\\) が最大のパスをクリティカルパス \\(P^*\\) とする。セクション 8.3 で述べた方法でクリティカルパスを求めることができる。\nクリティカルパス \\(P^*\\) の所要時間を \\(X\\) とし、与えられた時間 \\(d\\) までにプロジェクトが完了する確率を \\(\\mathbb{P}(X \\leq d)\\) と表す。\n\n\n\n\n\n\nノート\n\n\n\nここでは、計算を簡単にするために、クリティカルパスが最も時間がかかるパスであると仮定している。実際には、平均値から計算されたクリティカルパスが、最も時間がかかるパスであるとは限らないことに注意されたい。\n\n\n\\[\n\\mathbb{P}(X \\leq d) = \\phi\\left(\\frac{d - \\mu(P^*)}{\\sigma(P^*)}\\right)\n\\]\nここで、\\(\\phi(z)\\) は標準正規分布の確率密度関数である。\\(z\\) は次のように計算し、標準正規分布表を用いて \\(\\phi(z)\\) を調べる。\n\\[\nz = \\frac{d - \\mu(P^*)}{\\sigma(P^*)}\n\\]\n例 8.2 では、クリティカルパスは \\(s \\to B \\to E \\to F \\to t\\) であり、このパスの所要時間の平均、分散、標準偏差は次のように計算できる。\n\\[\n\\mu(P^*) = 3 + 5 + 9 = 17\n\\]\n\\[\n\\sigma^2(P^*) = 0.25 + 1 + 4 = 5.25\n\\]\n\\[\n\\sigma(P^*) = \\sqrt{5.25} \\approx 2.29\n\\]\n与えられた時間 \\(d = 20\\) 日までにプロジェクトが完了する確率を求めるには、次のように計算する。\n\\(z\\) を計算すると、\n\\[\nz = \\frac{20 - 17}{2.29} \\approx 1.31\n\\]\n標準正規分布表を用いて、\\(\\phi(1.31) \\approx 0.9049\\) である。したがって、与えられた時間 \\(d = 20\\) 日までにプロジェクトが完了する確率は約 90.49% である。",
     "crumbs": [
       "ネットワーク最適化",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>PERT/CPM</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>PERT/CPM</span>"
     ]
   },
   {
     "objectID": "network/pert.html#時間とコストのトレードオフ",
     "href": "network/pert.html#時間とコストのトレードオフ",
-    "title": "9  PERT/CPM",
-    "section": "9.6 時間とコストのトレードオフ",
-    "text": "9.6 時間とコストのトレードオフ\n作業時間を短縮するには、コストがかかる。最小のコストでプロジェクトを短縮する問題を考える。\n\n9.6.1 問題の定式化\n\n\\(c_i\\): 作業 \\(i\\) の単位時間あたりの短縮コスト\n\\(M_i\\): 作業 \\(i\\) の最大短縮時間\n\\(T\\): プロジェクトの完了時間の上限\n\\(\\tau_i\\): 作業 \\(i\\) の標準所要時間\n\\(y_i\\): 作業 \\(i\\) の開始時間\n\\(x_i\\): 作業 \\(i\\) の短縮時間\n\n\\[\\begin{align*}\n\\text{minimize} \\quad & \\sum_{i} c_i x_i &\\\\\n\\text{subject to} \\quad & y_j \\geq y_i + \\tau_i - x_i, \\quad & \\forall (i, j) \\in E \\\\\n& 0 \\leq x_i \\leq M_i, \\quad & \\forall i \\in V \\\\\n& y_t \\leq T \\\\\n& y_s = 0\n\\end{align*}\\]\n\n\n9.6.2 例題\nプロジェクト・ネットワークはグラフ \\(G = (V, E)\\) で表す。作業の集合は\n\\[\nV = \\{s, t, A, B, C, D, E\\}\n\\] であり、辺の集合は\n\\[\nE = \\{(s, A), (s, C), (A, B), (C, D), (B, E), (D, E), (E, t)\\}\n\\] である。ここで、\\(s\\) は始点、\\(t\\) は終点である。プロジェクト全体の所要時間の上限を \\(T = 10\\) とする。\n作業時間、コスト、最大短縮時間は次の表のように与えられる。\n\n\n\n作業\n\\(\\tau_i\\)\n\\(c_i\\)\n\\(M_i\\)\n\n\n\n\nA\n7\n100\n3\n\n\nB\n3\n150\n1\n\n\nC\n6\n200\n2\n\n\nD\n3\n150\n2\n\n\nE\n2\n250\n1\n\n\n\nこの問題を次のように定式化できる。\n\\[\\begin{align*}\n\\text{minimize} \\quad & 100x_A + 150x_B + 200x_C + 150x_D + 250x_E &\\\\\n\\text{subject to} \\quad & y_A \\geq 0 \\\\\n& y_C \\geq 0 \\\\\n& y_B \\geq y_A + 7 - x_A \\\\\n& y_D \\geq y_C + 6 - x_C \\\\\n& y_E \\geq y_B + 3 - x_B \\\\\n& y_E \\geq y_D + 3 - x_D \\\\\n& y_t \\geq y_E + 2 - x_E \\\\\n& 0 \\leq x_A \\leq 3 \\\\\n& 0 \\leq x_B \\leq 1 \\\\\n& 0 \\leq x_C \\leq 2 \\\\\n& 0 \\leq x_D \\leq 2 \\\\\n& 0 \\leq x_E \\leq 1 \\\\\n& y_t \\leq 10 \\\\\n& y_s = 0\n\\end{align*}\\]\nこの線形計画問題は、最適化ソルバーを用いて解くことができる。以下に Gurobi を用いた実装例を示す。\n!pip install gurobipy\nfrom gurobipy import Model, GRB\n\n# データ定義\nV = [\"s\", \"t\", \"A\", \"B\", \"C\", \"D\", \"E\"]\nE = [(\"s\", \"A\"), (\"s\", \"C\"), (\"A\", \"B\"), (\"C\", \"D\"), (\"B\", \"E\"), (\"D\", \"E\"), (\"E\", \"t\")]\n\ntau = {\"A\": 7, \"B\": 3, \"C\": 6, \"D\": 3, \"E\": 2}\ncost = {\"A\": 100, \"B\": 150, \"C\": 200, \"D\": 150, \"E\": 250}\nM = {\"A\": 3, \"B\": 1, \"C\": 2, \"D\": 2, \"E\": 1}\n\nT = 10\n\n# モデル作成\nm = Model(\"Project_Crashing\")\nm.setParam(\"OutputFlag\", 0) \n\n# 変数定義\nx = {i: m.addVar(lb=0, ub=M[i], name=\"x_{}\".format(i)) for i in M}\ny = {i: m.addVar(lb=0, name=\"y_{}\".format(i)) for i in V}\n\n# 目的関数\nm.setObjective(sum(cost[i] * x[i] for i in M), GRB.MINIMIZE)\n\n# 制約\nfor i, j in E:\n    if i == \"s\":\n        m.addConstr(y[j] &gt;= 0)\n    elif i in tau:\n        m.addConstr(y[j] &gt;= y[i] + tau[i] - x[i])\n\n# プロジェクト終了制約\nm.addConstr(y[\"t\"] &lt;= T)\n\n# 開始ノード固定\nm.addConstr(y[\"s\"] == 0)\n\n# 最適化\nm.optimize()\n\n# 結果表示\nprint(\"Objective:\", m.objVal)\nfor i in x:\n    print(\"x_{} =\".format(i), x[i].X)\nfor i in y:\n    print(\"y_{} =\".format(i), y[i].X)\nObjective: 350.0\nx_A = 1.0\nx_B = 0.0\nx_C = 0.0\nx_D = 0.0\nx_E = 1.0\ny_s = 0.0\ny_t = 10.0\ny_A = 0.0\ny_B = 6.0\ny_C = 0.0\ny_D = 6.0\ny_E = 9.0\nこの結果から、作業 A を 1 日、作業 E を 1 日短縮することで、最小コスト 350 でプロジェクトを 10 日以内に完了できることがわかる。\n\n\n\n\nCamm, Jeffrey, James Cochran, Michael Fry, Jeffrey Ohlmann, David Anderson, Dennis Sweeney, と Thomas Williams. 2022. An introduction to management science: Quantitative approaches to decision making. 16th 版. Florence, AL: South-Western College Publishing.\n\n\nEiselt, H A, と Carl-Louis Sandblom. 2022. Operations research: A model-based approach. Cham: Springer International Publishing.\n\n\nHillier, Frederick, と Gerald Lieberman. 2025. ISE introduction to operations research. 11th 版. Columbus, OH: McGraw-Hill Education.\n\n\nPleguezuelo, Rafael Herrerı́as, José Garcı́a Pérez, と Salvador Cruz Rambaud. 2003. 「A note on the reasonableness of PERT hypotheses」. Oper. Res. Lett. 31 (1): 60–62.",
+    "title": "8  PERT/CPM",
+    "section": "8.6 時間とコストのトレードオフ",
+    "text": "8.6 時間とコストのトレードオフ\n作業時間を短縮するには、コストがかかる。最小のコストでプロジェクトを短縮する問題を考える。\n\n8.6.1 問題の定式化\n\n\\(c_i\\): 作業 \\(i\\) の単位時間あたりの短縮コスト\n\\(M_i\\): 作業 \\(i\\) の最大短縮時間\n\\(T\\): プロジェクトの完了時間の上限\n\\(\\tau_i\\): 作業 \\(i\\) の標準所要時間\n\\(y_i\\): 作業 \\(i\\) の開始時間\n\\(x_i\\): 作業 \\(i\\) の短縮時間\n\n\\[\\begin{align*}\n\\text{minimize} \\quad & \\sum_{i} c_i x_i &\\\\\n\\text{subject to} \\quad & y_j \\geq y_i + \\tau_i - x_i, \\quad & \\forall (i, j) \\in E \\\\\n& 0 \\leq x_i \\leq M_i, \\quad & \\forall i \\in V \\\\\n& y_t \\leq T \\\\\n& y_s = 0\n\\end{align*}\\]\n\n\n8.6.2 例題\nプロジェクト・ネットワークはグラフ \\(G = (V, E)\\) で表す。作業の集合は\n\\[\nV = \\{s, t, A, B, C, D, E\\}\n\\] であり、辺の集合は\n\\[\nE = \\{(s, A), (s, C), (A, B), (C, D), (B, E), (D, E), (E, t)\\}\n\\] である。ここで、\\(s\\) は始点、\\(t\\) は終点である。プロジェクト全体の所要時間の上限を \\(T = 10\\) とする。\n作業時間、コスト、最大短縮時間は次の表のように与えられる。\n\n\n\n作業\n\\(\\tau_i\\)\n\\(c_i\\)\n\\(M_i\\)\n\n\n\n\nA\n7\n100\n3\n\n\nB\n3\n150\n1\n\n\nC\n6\n200\n2\n\n\nD\n3\n150\n2\n\n\nE\n2\n250\n1\n\n\n\nこの問題を次のように定式化できる。\n\\[\\begin{align*}\n\\text{minimize} \\quad & 100x_A + 150x_B + 200x_C + 150x_D + 250x_E &\\\\\n\\text{subject to} \\quad & y_A \\geq 0 \\\\\n& y_C \\geq 0 \\\\\n& y_B \\geq y_A + 7 - x_A \\\\\n& y_D \\geq y_C + 6 - x_C \\\\\n& y_E \\geq y_B + 3 - x_B \\\\\n& y_E \\geq y_D + 3 - x_D \\\\\n& y_t \\geq y_E + 2 - x_E \\\\\n& 0 \\leq x_A \\leq 3 \\\\\n& 0 \\leq x_B \\leq 1 \\\\\n& 0 \\leq x_C \\leq 2 \\\\\n& 0 \\leq x_D \\leq 2 \\\\\n& 0 \\leq x_E \\leq 1 \\\\\n& y_t \\leq 10 \\\\\n& y_s = 0\n\\end{align*}\\]\nこの線形計画問題は、最適化ソルバーを用いて解くことができる。以下に Gurobi を用いた実装例を示す。\n!pip install gurobipy\nfrom gurobipy import Model, GRB\n\n# データ定義\nV = [\"s\", \"t\", \"A\", \"B\", \"C\", \"D\", \"E\"]\nE = [(\"s\", \"A\"), (\"s\", \"C\"), (\"A\", \"B\"), (\"C\", \"D\"), (\"B\", \"E\"), (\"D\", \"E\"), (\"E\", \"t\")]\n\ntau = {\"A\": 7, \"B\": 3, \"C\": 6, \"D\": 3, \"E\": 2}\ncost = {\"A\": 100, \"B\": 150, \"C\": 200, \"D\": 150, \"E\": 250}\nM = {\"A\": 3, \"B\": 1, \"C\": 2, \"D\": 2, \"E\": 1}\n\nT = 10\n\n# モデル作成\nm = Model(\"Project_Crashing\")\nm.setParam(\"OutputFlag\", 0) \n\n# 変数定義\nx = {i: m.addVar(lb=0, ub=M[i], name=\"x_{}\".format(i)) for i in M}\ny = {i: m.addVar(lb=0, name=\"y_{}\".format(i)) for i in V}\n\n# 目的関数\nm.setObjective(sum(cost[i] * x[i] for i in M), GRB.MINIMIZE)\n\n# 制約\nfor i, j in E:\n    if i == \"s\":\n        m.addConstr(y[j] &gt;= 0)\n    elif i in tau:\n        m.addConstr(y[j] &gt;= y[i] + tau[i] - x[i])\n\n# プロジェクト終了制約\nm.addConstr(y[\"t\"] &lt;= T)\n\n# 開始ノード固定\nm.addConstr(y[\"s\"] == 0)\n\n# 最適化\nm.optimize()\n\n# 結果表示\nprint(\"Objective:\", m.objVal)\nfor i in x:\n    print(\"x_{} =\".format(i), x[i].X)\nfor i in y:\n    print(\"y_{} =\".format(i), y[i].X)\nObjective: 350.0\nx_A = 1.0\nx_B = 0.0\nx_C = 0.0\nx_D = 0.0\nx_E = 1.0\ny_s = 0.0\ny_t = 10.0\ny_A = 0.0\ny_B = 6.0\ny_C = 0.0\ny_D = 6.0\ny_E = 9.0\nこの結果から、作業 A を 1 日、作業 E を 1 日短縮することで、最小コスト 350 でプロジェクトを 10 日以内に完了できることがわかる。\n\n\n\n\nCamm, Jeffrey, James Cochran, Michael Fry, Jeffrey Ohlmann, David Anderson, Dennis Sweeney, と Thomas Williams. 2022. An introduction to management science: Quantitative approaches to decision making. 16th 版. Florence, AL: South-Western College Publishing.\n\n\nEiselt, H A, と Carl-Louis Sandblom. 2022. Operations research: A model-based approach. Cham: Springer International Publishing.\n\n\nHillier, Frederick, と Gerald Lieberman. 2025. ISE introduction to operations research. 11th 版. Columbus, OH: McGraw-Hill Education.\n\n\nPleguezuelo, Rafael Herrerı́as, José Garcı́a Pérez, と Salvador Cruz Rambaud. 2003. 「A note on the reasonableness of PERT hypotheses」. Oper. Res. Lett. 31 (1): 60–62.",
     "crumbs": [
       "ネットワーク最適化",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>PERT/CPM</span>"
-    ]
-  },
-  {
-    "objectID": "network/pert.html#footnotes",
-    "href": "network/pert.html#footnotes",
-    "title": "9  PERT/CPM",
-    "section": "",
-    "text": "作業の所要時間がベータ分布に従うと仮定した場合は、式 9.1 が \\(\\mu\\) と \\(\\sigma^2\\) の良い推定量となる。これらの式の詳細な導出は省略する。興味のある読者は、Pleguezuelo, Pérez, と Rambaud (2003) を参照されたい。↩︎\nここでは、計算を簡単にするために、クリティカルパスが最も時間がかかるパスであると仮定している。実際には、平均値から計算されたクリティカルパスが、最も時間がかかるパスであるとは限らないことに注意されたい。↩︎",
-    "crumbs": [
-      "ネットワーク最適化",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>PERT/CPM</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>PERT/CPM</span>"
     ]
   },
   {
@@ -634,7 +535,7 @@
     "href": "references.html",
     "title": "参考文献",
     "section": "",
-    "text": "Camm, Jeffrey, James Cochran, Michael Fry, Jeffrey Ohlmann, David\nAnderson, Dennis Sweeney, and Thomas Williams. 2022. An Introduction\nto Management Science: Quantitative Approaches to Decision Making.\n16th ed. Florence, AL: South-Western College Publishing.\n\n\nEiselt, H A, and Carl-Louis Sandblom. 2022. Operations Research: A\nModel-Based Approach. Cham: Springer International Publishing.\n\n\nHarris, Ford W. 1990. “How Many Parts to Make at Once.”\nOper. Res. 38 (6): 947–50.\n\n\nHillier, Frederick, and Gerald Lieberman. 2025. ISE\nIntroduction to Operations Research. 11th ed. Columbus, OH:\nMcGraw-Hill Education.\n\n\nPleguezuelo, Rafael Herrerı́as, José Garcı́a Pérez, and Salvador Cruz\nRambaud. 2003. “A Note on the Reasonableness of PERT\nHypotheses.” Oper. Res. Lett. 31 (1): 60–62.\n\n\nScarf, Herbert. 1959. “The Optimality of (S, s)\nPolicies in the Dynamic Inventory Problem.”\n\n\nSnyder, Lawrence V, and Zuo-Jun Max Shen. 2019. Fundamentals of\nSupply Chain Theory. 2nd ed. Nashville, TN: John Wiley & Sons.",
+    "text": "Camm, Jeffrey, James Cochran, Michael Fry, Jeffrey Ohlmann, David\nAnderson, Dennis Sweeney, and Thomas Williams. 2022. An Introduction\nto Management Science: Quantitative Approaches to Decision Making.\n16th ed. Florence, AL: South-Western College Publishing.\n\n\nEiselt, H A, and Carl-Louis Sandblom. 2022. Operations Research: A\nModel-Based Approach. Cham: Springer International Publishing.\n\n\nHarris, Ford W. 1990. “How Many Parts to Make at Once.”\nOper. Res. 38 (6): 947–50.\n\n\nHillier, Frederick, and Gerald Lieberman. 2025. ISE\nIntroduction to Operations Research. 11th ed. Columbus, OH:\nMcGraw-Hill Education.\n\n\nPleguezuelo, Rafael Herrerı́as, José Garcı́a Pérez, and Salvador Cruz\nRambaud. 2003. “A Note on the Reasonableness of PERT\nHypotheses.” Oper. Res. Lett. 31 (1): 60–62.\n\n\nSnyder, Lawrence V, and Zuo-Jun Max Shen. 2019. Fundamentals of\nSupply Chain Theory. 2nd ed. Nashville, TN: John Wiley & Sons.",
     "crumbs": [
       "参考文献"
     ]
