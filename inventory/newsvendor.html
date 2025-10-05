@@ -161,9 +161,7 @@ window.Quarto = {
 
 <meta name="twitter:title" content="4&nbsp; 新聞売り子問題 – オペレーションズ・リサーチ">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://zi-ang-liu.github.io/or-book/inventory/newsvendor_files/figure-html/cell-2-output-1.png">
-<meta name="twitter:image-height" content="721">
-<meta name="twitter:image-width" content="792">
+<meta name="twitter:image" content="https://zi-ang-liu.github.io/or-book/inventory/fig/Buying_a_newspaper.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -605,7 +603,7 @@ window.Quarto = {
 <p>新聞売り子問題（Newsvendor Problem）は、古典的な確率的在庫モデルの一つである。新聞は次の日には売れなくなるため、新聞売り子問題は最も単純な perishable 在庫モデルとして知られている。</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Buying_a_newspaper._The_spirit_of_the_Ghetto.1902.jpg/330px-Buying_a_newspaper._The_spirit_of_the_Ghetto.1902.jpg" class="img-fluid figure-img"></p>
+<p><img src="./fig/Buying_a_newspaper.jpg" class="img-fluid figure-img"></p>
 <figcaption>Jacob Epstein, Buying a Newspaper. The Spirit of the Ghetto, 1902, public domain, Wikimedia Commons</figcaption>
 </figure>
 </div>
@@ -718,7 +716,7 @@ P(D \leq S) = F_D(S) = \int_{0}^{S} f_D(d) dd
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="fl">1.1</span>)</span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="858fad34" class="cell quarto-layout-panel" data-layout-ncol="2" data-execution_count="1">
+<div id="9b20988c" class="cell quarto-layout-panel" data-layout-ncol="2" data-execution_count="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
@@ -748,7 +746,7 @@ P(D &gt; 250) = 1 - F_D(250) = 1 - \int_{100}^{250} f_D(d) dd = 0.25
 \]</span></p>
 </div>
 <p><span class="math inline">\(D\)</span> が確率変数であるため、コストも確率変数となる。新聞売り子問題の目的は、コストの期待値を最小化することである。</p>
-<p>ここで、コストの期待値を <span class="math inline">\(g(S) = \mathbb{E}[g(S, D)]\)</span> とする。<span class="math inline">\(g(S, D)\)</span> は <a href="#eq-newsvendor-cost" class="quarto-xref">式&nbsp;<span class="quarto-unresolved-ref">eq-newsvendor-cost</span></a> で与えられるため、コストの期待値 <span class="math inline">\(g(S)\)</span> は以下のように表される。</p>
+<p>ここで、コストの期待値を <span class="math inline">\(g(S) = \mathbb{E}[g(S, D)]\)</span> とする。<span class="math inline">\(g(S, D)\)</span> は <a href="#eq-newsvendor-cost" class="quarto-xref">式&nbsp;<span>4.1</span></a> で与えられるため、コストの期待値 <span class="math inline">\(g(S)\)</span> は以下のように表される。</p>
 <p><span class="math display">\[\begin{align}
 g(S) &amp;= \mathbb{E}[g(S, D)] \\
 &amp;= \mathbb{E}[h (S - D)^+ + p (D - S)^+] \\
@@ -823,7 +821,7 @@ g(150) = 10 \int_{100}^{150} (150 - d) f_D(d) dd + 5 \int_{150}^{300} (d - 150) 
 <li><span class="math inline">\(dg(S)/dS = 0\)</span> を解く。</li>
 <li>2階微分を求め、<span class="math inline">\(g(S)\)</span> が凸関数であることを確認する。</li>
 </ol>
-<p><a href="#eq-newsvendor-S" class="quarto-xref">式&nbsp;<span class="quarto-unresolved-ref">eq-newsvendor-S</span></a> を用い、<span class="math inline">\(g(S)\)</span> の1階微分は以下のように求める。</p>
+<p><a href="#eq-newsvendor-S" class="quarto-xref">式&nbsp;<span>4.2</span></a> を用い、<span class="math inline">\(g(S)\)</span> の1階微分は以下のように求める。</p>
 <p><span class="math display">\[\begin{align}
 \frac{dg(S)}{dS} &amp;= h \int_{0}^{S} f_D(d) dd - p \int_{S}^{\infty} f_D(d) dd \\
 &amp;= h F_D(S) - p (1 - F_D(S)) \\
@@ -874,7 +872,7 @@ S^* = F_D^{-1}\left(\frac{p}{h + p}\right)
 <p><span class="math display">\[
 F_D(S) = P(D \leq S) = \frac{p}{h + p}
 \]</span></p>
-<p>ここで、<span class="math inline">\(F_D(S) = P(D \leq S)\)</span> は需要 <span class="math inline">\(D\)</span> が発注量 <span class="math inline">\(S\)</span> 以下である確率を表す。言い換えると、欠品が発生しない確率を表す。この確率のことは<strong>サービスレベル</strong>（service level）と呼ぶ。<a href="#thm-newsvendor" class="quarto-xref">定理&nbsp;<span class="quarto-unresolved-ref">thm-newsvendor</span></a> は、サービスレベルを <span class="math inline">\(p/(h+p)\)</span> に等しくする発注量 <span class="math inline">\(S\)</span> が最適であることを示している。</p>
+<p>ここで、<span class="math inline">\(F_D(S) = P(D \leq S)\)</span> は需要 <span class="math inline">\(D\)</span> が発注量 <span class="math inline">\(S\)</span> 以下である確率を表す。言い換えると、欠品が発生しない確率を表す。この確率のことは<strong>サービスレベル</strong>（service level）と呼ぶ。<a href="#thm-newsvendor" class="quarto-xref">定理&nbsp;<span>4.1</span></a> は、サービスレベルを <span class="math inline">\(p/(h+p)\)</span> に等しくする発注量 <span class="math inline">\(S\)</span> が最適であることを示している。</p>
 <p>この <span class="math inline">\(p/(h+p)\)</span> は<strong>臨界率</strong>（critical ratio）と呼ばれる。</p>
 <div id="rem-newsvendor" class="proof remark">
 <p><span class="proof-title"><em>注釈 4.1</em>. </span></p>
@@ -889,12 +887,12 @@ F_D(S) = P(D \leq S) = \frac{p}{h + p}
 <h2 data-number="4.5" class="anchored" data-anchor-id="例題"><span class="header-section-number">4.5</span> 例題</h2>
 <div id="exm-newsvendor" class="theorem example">
 <p><span class="theorem-title"><strong>例 4.4</strong></span> 需要 <span class="math inline">\(D\)</span> が正規分布 <span class="math inline">\(N(100, 25)\)</span> に従う新聞売り子問題を考える。在庫超過費用が <span class="math inline">\(h = 10\)</span>、在庫不足費用が <span class="math inline">\(p = 40\)</span> のとき、最適発注量 <span class="math inline">\(S^*\)</span> を求める。</p>
-<p><a href="#thm-newsvendor" class="quarto-xref">定理&nbsp;<span class="quarto-unresolved-ref">thm-newsvendor</span></a> より、<span class="math inline">\(S^*\)</span> は以下の式で与えられる。</p>
+<p><a href="#thm-newsvendor" class="quarto-xref">定理&nbsp;<span>4.1</span></a> より、<span class="math inline">\(S^*\)</span> は以下の式で与えられる。</p>
 <p><span class="math display">\[
 S^* = F_D^{-1}\left(\frac{p}{h + p}\right) = F_D^{-1}\left(\frac{40}{10 + 40}\right) = F_D^{-1}\left(0.8\right)
 \]</span></p>
 <p>言い換えると、<span class="math inline">\(F_D(S^*) = 0.8\)</span> を満たす <span class="math inline">\(S^*\)</span> を求めればよい。これを図で表すと、面積が 0.8 になるような <span class="math inline">\(S^*\)</span> を求めることに相当する。</p>
-<div id="2bcd3eb6" class="cell" data-execution_count="2">
+<div id="29e105e7" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -946,7 +944,7 @@ S^* = F_D^{-1}\left(\frac{p}{h + p}\right) = F_D^{-1}\left(\frac{40}{10 + 40}\ri
 <section id="python" class="level3" data-number="4.5.2">
 <h3 data-number="4.5.2" class="anchored" data-anchor-id="python"><span class="header-section-number">4.5.2</span> Python</h3>
 <p>Python では、SciPy ライブラリの <code>ppf()</code> 関数を用いて、逆関数を求めることができる。</p>
-<div id="76227b0c" class="cell" data-execution_count="3">
+<div id="3efb1576" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 正規分布のパラメータ</span></span>
@@ -1118,15 +1116,17 @@ S^* - I, &amp; \text{if } I \le S^*, \\[6pt]
 </section>
 <section id="発注費用を考慮した新聞売り子問題" class="level2" data-number="4.8">
 <h2 data-number="4.8" class="anchored" data-anchor-id="発注費用を考慮した新聞売り子問題"><span class="header-section-number">4.8</span> 発注費用を考慮した新聞売り子問題</h2>
-<p><span class="citation" data-cites="Scarf1959-xl">Scarf (<a href="#ref-Scarf1959-xl" role="doc-biblioref">1959</a>)</span> の論文では、<span class="math inline">\((s, S)\)</span> 方策が発注費用を考慮した複数期間の新聞売り子問題において最適であることを示している。</p>
-<!-- 1. 発注量 $S = 100$、需要 $D$ の観測値 $d = 120$、在庫超過費用が $h = 10$、在庫不足費用が $p = 40$ のとき、コスト $g(S, d)$ を求めよ。
-2. 需要 $D$ が正規分布 $N(150, 36)$ に従う新聞売り子問題を考える。在庫超過費用が $h = 5$、在庫不足費用が $p = 20$ のとき、最適発注量 $S^*$ を求めよ。 -->
+<p><span class="citation" data-cites="Scarf1959-xl">Scarf (<a href="../references.html#ref-Scarf1959-xl" role="doc-biblioref">1959</a>)</span> の論文では、<span class="math inline">\((s, S)\)</span> 方策が発注費用を考慮した複数期間の新聞売り子問題において最適であることを示している。</p>
 </section>
 <section id="練習問題" class="level2" data-number="4.9">
 <h2 data-number="4.9" class="anchored" data-anchor-id="練習問題"><span class="header-section-number">4.9</span> 練習問題</h2>
+<ol type="1">
+<li>発注量 <span class="math inline">\(S = 100\)</span>、需要 <span class="math inline">\(D\)</span> の観測値 <span class="math inline">\(d = 120\)</span>、在庫超過費用が <span class="math inline">\(h = 10\)</span>、在庫不足費用が <span class="math inline">\(p = 40\)</span> のとき、コスト <span class="math inline">\(g(S, d)\)</span> を求めよ。</li>
+<li>需要 <span class="math inline">\(D\)</span> が正規分布 <span class="math inline">\(N(150, 36)\)</span> に従う新聞売り子問題を考える。在庫超過費用が <span class="math inline">\(h = 5\)</span>、在庫不足費用が <span class="math inline">\(p = 20\)</span> のとき、最適発注量 <span class="math inline">\(S^*\)</span> を求めよ。</li>
+</ol>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-Scarf1959-xl" class="csl-entry" role="listitem">
 Scarf, Herbert. 1959. <span>「The optimality of (<span>S</span>, s) policies in the dynamic inventory problem」</span>.
 </div>
