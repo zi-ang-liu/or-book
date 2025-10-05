@@ -11,6 +11,8 @@ format:
   pdf:
     pdf-engine: lualatex
     documentclass: ltjbook
+    toc: true
+    toc-depth: 1
 
 bibliography: references.bib
 

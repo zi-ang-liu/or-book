@@ -6,3 +6,8 @@ format:
 jupyter: python3
 ---
 
+## 文献案内
+
+@Brunelli2015-mz はAHPを丁寧に解説した書籍である。
+
+## 
