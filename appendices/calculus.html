@@ -74,38 +74,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <meta name="twitter:title" content="付録 A — 微分積分 – オペレーションズ・リサーチ">
-<meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -494,15 +464,8 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">目次</h2>
-   
-  <ul>
-  <li><a href="#変数関数の極値" id="toc-変数関数の極値" class="nav-link active" data-scroll-target="#変数関数の極値"><span class="header-section-number">A.1</span> 1変数関数の極値</a></li>
-  <li><a href="#凸関数の性質" id="toc-凸関数の性質" class="nav-link" data-scroll-target="#凸関数の性質"><span class="header-section-number">A.2</span> 凸関数の性質</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -527,20 +490,8 @@ window.Quarto = {
 </header>
 
 
-<section id="変数関数の極値" class="level2" data-number="A.1">
-<h2 data-number="A.1" class="anchored" data-anchor-id="変数関数の極値"><span class="header-section-number">A.1</span> 1変数関数の極値</h2>
-<p>関数 <span class="math inline">\(f(x)\)</span> が点 <span class="math inline">\(x = a\)</span> で極値をとるとき、<span class="math inline">\(f'(a) = 0\)</span> が成り立つ。</p>
-<p><span class="math inline">\(f''(a) &gt; 0\)</span> のとき、<span class="math inline">\(f(a)\)</span> は極小値をとる。</p>
-<p><span class="math inline">\(f''(a) &lt; 0\)</span> のとき、<span class="math inline">\(f(a)\)</span> は極大値をとる。</p>
-</section>
-<section id="凸関数の性質" class="level2" data-number="A.2">
-<h2 data-number="A.2" class="anchored" data-anchor-id="凸関数の性質"><span class="header-section-number">A.2</span> 凸関数の性質</h2>
-<p>1 変数 2 階微分可能な関数 <span class="math inline">\(f(x)\)</span> が凸関数であることの必要十分条件は、<span class="math inline">\(f''(x) \geq 0\)</span> が成り立つことである。</p>
-<p><span class="math inline">\(f''(x) &gt; 0\)</span> のとき、<span class="math inline">\(f(x)\)</span> は狭義凸関数である。</p>
-<p>凸関数 <span class="math inline">\(f(x)\)</span> の極小値は、最小値である。</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -607,13 +607,6 @@ f_X(x) = \frac{1}{\sqrt{2\pi} \sigma} e^{-\frac{(x - \mu)^2}{2\sigma^2}}
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> norm.ppf(p)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>phi_inverse(<span class="fl">0.95</span>)  <span class="co"># 約1.64485</span></span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>与えられた <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span> の累積分布関数 <span class="math inline">\(F_X(x)\)</span> の値を求めるには、以下のように変換する。</p>
-<p><span class="math display">\[\begin{align}
-P(X \leq x)
-&amp;= P \left( \frac{X - \mu}{\sigma} \leq \frac{x - \mu}{\sigma} \right) \\\\
-&amp;= P\left( Y \leq \frac{x - \mu}{\sigma} \right) \\\\
-&amp;= \Phi \left( \frac{x - \mu}{\sigma} \right)
-\end{align}\]</span></p>
 <p>正規分布は<strong>再生性</strong>（reproductive property）を持つ。すなわち、<span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> が独立に <span class="math inline">\(N(\mu_i, \sigma_i^2)\)</span> に従うとき、<span class="math inline">\(Y = \sum_{i=1}^n a_i X_i\)</span> は <span class="math inline">\(N\left(\sum_{i=1}^n a_i \mu_i, \sum_{i=1}^n a_i^2 \sigma_i^2\right)\)</span> に従う。</p>
 
 
