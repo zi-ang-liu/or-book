@@ -8,9 +8,13 @@ jupyter: python3
 
 新聞売り子問題（Newsvendor Problem）は、古典的な確率的在庫モデルの一つである。新聞は次の日には売れなくなるため、新聞売り子問題は最も単純な perishable 在庫モデルとして知られている。
 
+![Jacob Epstein, Buying a Newspaper. The Spirit of the Ghetto, 1902, public domain, Wikimedia Commons](./fig/Buying_a_newspaper.jpg)
+
 新聞売り子が新聞を仕入れ、販売する問題を考える。新聞 1 部の欠品費用を $p$、保管費用を $h$ とする。新聞売子問題において、$p$ を**在庫不足費用**（underage cost）、$h$ を**在庫超過費用**（overage cost）とも呼ぶ。$p \gt 0$、$h \gt 0$ とし、初期在庫は 0 とする。
 
 新聞の需要 $D$ を確率変数とするとき、新聞売り子はどれだけの新聞を発注すればよいかという問題である。
+
+## 記号
 
 | 記号 | 意味 |
 |:---|:---|
@@ -18,6 +22,11 @@ jupyter: python3
 | $p$ | 1 個当たりの在庫不足費用 |
 | $D$ | 需要（確率変数） |
 | $d$ | 需要の観測値 |
+| $f_D(d)$ | 需要 $D$ の確率密度関数 |
+| $F_D(d)$ | 需要 $D$ の累積分布関数 |
+| $S$ | 発注量 |
+| $g(S, d)$ | 発注量 $S$、需要の観測値 $d$ に対するコスト |
+| $g(S)$ | $g(S, d)$ の期待値、$g(S) = \mathbb{E}[g(S, D)]$ |
 
 ## 定式化
 
@@ -27,8 +36,7 @@ $$
 g(S, d) = h (S - d)^+ + p (d - S)^+
 $$  {#eq-newsvendor-cost}
 
-:::{.callout-tip icon=false}
-## 例題
+:::{#exm-newsvendor-cost}
 発注量 $S = 100$、需要 $D$ の観測値 $d = 120$、在庫超過費用が $h = 10$、在庫不足費用が $p = 5$ のとき、コスト $g(S, d)$ は以下のように求められる。
 
 $$
@@ -36,16 +44,15 @@ g(100, 120) = 10 (100 - 120)^+ + 5 (120 - 100)^+ = 100
 $$
 :::
 
-需要 $D$ が確率変数であることを思い出そう。ここからは、需要 $D$ が連続型確率変数であると仮定する。需要 $D$ の確率密度関数を $f_D(d)$、累積分布関数を $F_D(d)$ とする。
+観測値 $d$ が分かれば、コスト $g(S, d)$ を計算できる。しかし、需要 $D$ が確率変数であることを思い出そう。ここからは、需要 $D$ が連続型確率変数であると仮定する。
 
-発注量を $S$ としたとき、需要 $D \leq S$ である確率は、累積分布関数 $F_D(S)$ で与えられる。
+需要 $D$ の確率密度関数を $f_D(d)$、累積分布関数を $F_D(d)$ とする。発注量を $S$ としたとき、需要 $D \leq S$ である確率は、累積分布関数 $F_D(S)$ で与えられる。
 
 $$
 P(D \leq S) = F_D(S) = \int_{0}^{S} f_D(d) dd
 $$ {#eq-newsvendor-S}
 
-:::{.callout-tip icon=false}
-## 例題
+:::{#exm-newsvendor-distribution}
 需要 $D$ が一様分布 $U(100,300)$ に従うとき、確率密度関数 $f_D(250)$ と累積分布関数 $F_D(250)$ は以下のように表される。
 
 ```{python}
@@ -104,19 +111,68 @@ P(D > 250) = 1 - F_D(250) = 1 - \int_{100}^{250} f_D(d) dd = 0.25
 $$
 :::
 
-$D$ が確率変数であるため、コストも確率変数となる。新聞売り子問題の目的は、コストの期待値を最小化することである。ここで、コストの期待値を $g(S) = \mathbb{E}[g(S, D)]$ とする。$g(S, D)$ は @eq-newsvendor-cost で与えられるため、コストの期待値 $g(S)$ は以下のように表される。
+$D$ が確率変数であるため、コストも確率変数となる。新聞売り子問題の目的は、コストの期待値を最小化することである。
+
+ここで、コストの期待値を $g(S) = \mathbb{E}[g(S, D)]$ とする。$g(S, D)$ は @eq-newsvendor-cost で与えられるため、コストの期待値 $g(S)$ は以下のように表される。
 
 \begin{align}
 g(S) &= \mathbb{E}[g(S, D)] \\
 &= \mathbb{E}[h (S - D)^+ + p (D - S)^+] \\
 &= \mathbb{E}[h (S - D)^+] + \mathbb{E}[p (D - S)^+] \\
 &= h \mathbb{E}[(S - D)^+] + p \mathbb{E}[(D - S)^+] \\
-&= h \int_{0}^{\infty}(S - d)^+ f_D(d) dd + p \int_{0}^{\infty} (d - S)^+ f_D(d) dd \\
+\end{align}
+
+この式により、コストの期待値 $g(S)$ は、$(S - D)^+$ の期待値かける在庫超過費用 $h$ と、$(D - S)^+$ の期待値かける在庫不足費用 $p$ の和であることが分かる。
+
+:::{.callout-tip}
+### 期待値の線形性（Linearity of Expectation）
+
+$X$ と $Y$ を確率変数、$a$ と $b$ を定数とする。このとき、
+
+$$
+\mathbb{E}[X + Y] = \mathbb{E}[X] + \mathbb{E}[Y]
+$$
+
+$$
+\mathbb{E}[aX + b] = a\mathbb{E}[X] + b
+$$
+
+が成り立つ。
+:::
+
+需要 $D$ が連続型確率変数であるため、$\mathbb{E}[(S - D)^+]$ と $\mathbb{E}[(D - S)^+]$ は以下のように表される。
+\begin{align}
+\mathbb{E}[(S - D)^+]
+&= \int_{0}^{\infty} (S - d)^+ f_D(d) dd = \int_{0}^{S} (S - d) f_D(d) dd \\
+\mathbb{E}[(D - S)^+]
+&= \int_{0}^{\infty} (d - S)^+ f_D(d) dd = \int_{S}^{\infty} (d - S) f_D(d) dd
+\end{align}
+
+:::{.callout-tip}
+### 連続型確率変数の期待値
+$X$ を連続型確率変数、$f_X(x)$ を $X$ の確率密度関数とする。このとき、$X$ の期待値 $\mathbb{E}[X]$ は以下のように表される。
+
+$$
+\mathbb{E}[X] = \int_{-\infty}^{\infty} x f_X(x) dx
+$$
+
+$\mathbb{E}[g(X)]$ は以下のように表される。
+
+$$
+\mathbb{E}[g(X)] = \int_{-\infty}^{\infty} g(x) f_X(x) dx
+$$
+:::
+
+したがって、コストの期待値 $g(S)$ は以下のように表される。
+
+\begin{align}
+g(S) &= \mathbb{E}[g(S, D)] \\
+&= h \mathbb{E}[(S - D)^+] + p \mathbb{E}[(D - S)^+] \\
 &= h \int_{0}^{S} (S - d) f_D(d) dd + p \int_{S}^{\infty} (d - S) f_D(d) dd
 \end{align}
 
-:::{.callout-tip icon=false}
-## 例題
+:::{#exm-newsvendor-expectation}
+
 需要 $D$ が一様分布 $U(100,300)$ に従う新聞売り子問題を考える。在庫超過費用が $h = 10$、在庫不足費用が $p = 5$ のとき、発注量 $S = 150$ に対するコストの期待値 $g(150)$ は以下のように求められる。
 
 $$
@@ -163,6 +219,15 @@ $$
 
 となる。ここで、$F_D^{-1}$ は需要 $D$ の累積分布関数の逆関数である。
 
+:::{.callout-tip}
+### 逆関数（Inverse Function）
+ある関数 $y = f(x)$ に対し、次の条件を満たす関数 $x = f^{-1}(y)$ を $f(x)$ の逆関数と呼ぶ。
+
+$$
+f(f^{-1}(y)) = y, \quad f^{-1}(f(x)) = x
+$$
+:::
+
 :::{#thm-newsvendor}
 
 新聞売り子問題における最適発注量 $S^*$ は、
@@ -182,7 +247,7 @@ $$
 F_D(S) = P(D \leq S) = \frac{p}{h + p}
 $$
 
-ここで、$F_D(S) = P(D \leq S)$ は需要 $D$ が発注量 $S$ 以下である確率を表す。言い換えると、欠品が発生しない確率を表す。この確率のことは**サービスレベル**（service level）と呼ぶ。したがって、サービスレベルを $p/(h+p)$ に等しくする発注量 $S$ は最適である。
+ここで、$F_D(S) = P(D \leq S)$ は需要 $D$ が発注量 $S$ 以下である確率を表す。言い換えると、欠品が発生しない確率を表す。この確率のことは**サービスレベル**（service level）と呼ぶ。@thm-newsvendor は、サービスレベルを $p/(h+p)$ に等しくする発注量 $S$ が最適であることを示している。
 
 この $p/(h+p)$ は**臨界率**（critical ratio）と呼ばれる。
 
@@ -295,6 +360,18 @@ $$
 $$
 \Phi\left(\frac{S^* - 100}{5}\right) = \frac{p}{h + p}
 $$
+
+:::{.callout-tip}
+### 標準正規分布（Standard Normal Distribution）
+平均 0、分散 1 の正規分布を**標準正規分布**（standard normal distribution）と呼ぶ。標準正規分布の確率密度関数を $\phi(z)$、累積分布関数を $\Phi(z)$ と表す。
+
+ある正規分布 $N(\mu, \sigma^2)$ に従う確率変数 $X$ の累積分布関数 $F_X(x)$ は、標準正規分布の累積分布関数 $\Phi(z)$ を用いて以下のように表される。
+$$
+F_X(x) = P(X \leq x) = \Phi\left(\frac{x - \mu}{\sigma}\right)
+$$
+
+与えられた $z$ に対し、$\Phi(z)$ の値は**標準正規分布表**（standard normal table）を用いて調べることができる。
+:::
 
 [標準正規分布表](../appendices/standard_normal_table.qmd) を調べると、$\Phi(z) = 0.8$ のとき、$z$ は約 0.84 である。したがって、$S^*$ は以下の式を満たす。
 
