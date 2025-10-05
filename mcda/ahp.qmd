@@ -10,4 +10,11 @@ jupyter: python3
 
 @Brunelli2015-mz はAHPを丁寧に解説した書籍である。
 
-## 
+## 用語
+
+| English                               | Japanese     |
+| ------------------------------------- | ------------ |
+| multi-criteria decision making (MCDM) | 多基準意思決定 |
+| Analytic Hierarchy Process (AHP)      | 階層分析法   |
+| Consistency index                     | 整合度       |
+| pairwise comparison matrix            | 一対比較行列 |
