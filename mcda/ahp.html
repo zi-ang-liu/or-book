@@ -519,10 +519,12 @@ window.Quarto = {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#文献案内" id="toc-文献案内" class="nav-link active" data-scroll-target="#文献案内"><span class="header-section-number">6.1</span> 文献案内</a></li>
-  <li><a href="#用語" id="toc-用語" class="nav-link" data-scroll-target="#用語"><span class="header-section-number">6.2</span> 用語</a></li>
-  <li><a href="#記号" id="toc-記号" class="nav-link" data-scroll-target="#記号"><span class="header-section-number">6.3</span> 記号</a></li>
-  <li><a href="#一対比較行列" id="toc-一対比較行列" class="nav-link" data-scroll-target="#一対比較行列"><span class="header-section-number">6.4</span> 一対比較行列</a></li>
+  <li><a href="#記号" id="toc-記号" class="nav-link active" data-scroll-target="#記号"><span class="header-section-number">6.1</span> 記号</a></li>
+  <li><a href="#代替案の重要度" id="toc-代替案の重要度" class="nav-link" data-scroll-target="#代替案の重要度"><span class="header-section-number">6.2</span> 代替案の重要度</a></li>
+  <li><a href="#一対比較" id="toc-一対比較" class="nav-link" data-scroll-target="#一対比較"><span class="header-section-number">6.3</span> 一対比較</a></li>
+  <li><a href="#重要度ベクトル" id="toc-重要度ベクトル" class="nav-link" data-scroll-target="#重要度ベクトル"><span class="header-section-number">6.4</span> 重要度ベクトル</a></li>
+  <li><a href="#文献案内" id="toc-文献案内" class="nav-link" data-scroll-target="#文献案内"><span class="header-section-number">6.5</span> 文献案内</a></li>
+  <li><a href="#用語" id="toc-用語" class="nav-link" data-scroll-target="#用語"><span class="header-section-number">6.6</span> 用語</a></li>
   </ul>
 </nav>
     </div>
@@ -549,12 +551,268 @@ window.Quarto = {
 </header>
 
 
-<section id="文献案内" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="文献案内"><span class="header-section-number">6.1</span> 文献案内</h2>
-<p><span class="citation" data-cites="Brunelli2015-mz">Brunelli (<a href="../references.html#ref-Brunelli2015-mz" role="doc-biblioref">2015</a>)</span> はAHPを丁寧に解説した書籍である。</p>
+<section id="記号" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="記号"><span class="header-section-number">6.1</span> 記号</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>記号</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\mathbf{A}\)</span></td>
+<td>一対比較行列</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(X\)</span></td>
+<td>代替案の集合</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(x_i\)</span></td>
+<td>代替案 <span class="math inline">\(i\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(a_{ij}\)</span></td>
+<td>一対比較値</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mathbf{w}\)</span></td>
+<td>重要度ベクトル</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="用語" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="用語"><span class="header-section-number">6.2</span> 用語</h2>
+<section id="代替案の重要度" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="代替案の重要度"><span class="header-section-number">6.2</span> 代替案の重要度</h2>
+<p>AHPは，複数の代替案の中から一つの代替案を選択するための手法である．</p>
+<p>代替案の集合 <span class="math inline">\(X = \{x_1, x_2, \ldots, x_n\}\)</span> とする．代替案の重要度を</p>
+<p><span class="math display">\[
+\mathbf{w} = (w_1, w_2, \ldots, w_n)^T
+\]</span></p>
+<p>で表す．ここで，<span class="math inline">\(w_i\)</span> は代替案 <span class="math inline">\(x_i\)</span> の重要度を表し，<span class="math inline">\(\sum_{i=1}^n w_i = 1\)</span> を満たす．AHPでは，<span class="math inline">\(\mathbf{w}\)</span> を計算できるものとする．計算する方法は後述する．</p>
+<p><span class="math inline">\(w_i\)</span> が大きいほど，代替案 <span class="math inline">\(x_i\)</span> が望ましいとする．<span class="math inline">\(w_i &gt; w_j\)</span> ならば，代替案 <span class="math inline">\(x_i\)</span> は代替案 <span class="math inline">\(x_j\)</span> より望ましい．このとき，<span class="math inline">\(x_i \succ x_j\)</span> と表す．</p>
+<div id="exm-weights" class="theorem example">
+<p><span class="theorem-title"><strong>例 6.1</strong></span> 旅行先の代替案 <span class="math display">\[
+X = \{\text{北海道}, \text{沖縄}, \text{九州}\}
+\]</span></p>
+<p>とし，各代替案の重要度を <span class="math inline">\(\mathbf{w} = (0.3, 0.5, 0.2)^T\)</span> とするとき， <span class="math display">\[
+\text{沖縄} \succ \text{北海道} \succ \text{九州}
+\]</span> である．</p>
+</div>
+<p>このように，それぞれの代替案の重要度が与えられるならば，望ましい代替案の選択は容易である．しかし，実際には，代替案の重要度を直接決定することは難しい．</p>
+</section>
+<section id="一対比較" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="一対比較"><span class="header-section-number">6.3</span> 一対比較</h2>
+<p>すべての代替案を並べて比較することは難しい．そこで，AHPでは，2つの代替案を比較する<strong>一対比較</strong> (pairwise comparison)を用いる．その理由として，<span class="math inline">\(\{x_1, x_2, \ldots, x_n\}\)</span> の中から最も望ましい代替案を選ぶことは難しいが，2つの代替案 <span class="math inline">\(x_i\)</span> と <span class="math inline">\(x_j\)</span> のどちらが望ましいかを決定することは比較的容易であることが挙げられる．</p>
+<p>AHPでは，<span class="math inline">\(x_i\)</span> は <span class="math inline">\(x_j\)</span> よりどれくらい望ましいかを<strong>一対比較値</strong>で表す．正式には，一対比較値 <span class="math inline">\(a_{ij}\)</span> は <span class="math inline">\(x_i\)</span> が <span class="math inline">\(x_j\)</span> より <span class="math inline">\(a_{ij}\)</span> 倍望ましいことを表す．</p>
+<p>例えば，<span class="math inline">\(a_{ij} = 3\)</span> ならば，<span class="math inline">\(x_i\)</span> は <span class="math inline">\(x_j\)</span> より3倍望ましいことを表す．<a href="#exm-weights" class="quarto-xref">例&nbsp;<span>6.1</span></a> で，<span class="math inline">\(a_{12} = 3\)</span> ならば，<span class="math inline">\(x_1\)</span> （北海道）は <span class="math inline">\(x_2\)</span> （沖縄）より3倍望ましいことを表す．</p>
+<p>すべての代替案の組み合わせについて一対比較を行い，その結果を<strong>一対比較行列</strong> (pairwise comparison matrix)にまとめる．一対比較行列は <span class="math inline">\(\mathbf{A} = [a_{ij}]_{n \times n}\)</span> と定義され，以下のように表される。</p>
+<p><span class="math display">\[
+\mathbf{A} = \begin{bmatrix}
+a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
+a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{nn} \\
+\end{bmatrix}
+\]</span></p>
+<p>理論的には，</p>
+<p><span class="math display">\[
+a_{ij} \approx \frac{w_i}{w_j} \quad \forall i, j
+\]</span></p>
+<p>が想定されている．</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+ヒント
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>意思決定者が一対比較を行うとき，<span class="math inline">\(\mathbf{w} = (w_1, w_2, \ldots, w_n)^T\)</span> が知らないが，合理的な意思決定者ならば，<span class="math inline">\(a_{ij} \approx w_i/w_j\)</span> を満たすと考えられる．</p>
+<p>しかし，人間の評価は必ずしも合理的でないため，一般には <span class="math inline">\(a_{ij} = w_i/w_j\)</span> を満たさない．これについては後述する．</p>
+</div>
+</div>
+<p>意思決定者が完全に合理的であるならば，<span class="math inline">\(a_{ij} = w_i/w_j\)</span> を満たす． このとき，一対比較行列 <span class="math inline">\(\mathbf{A}\)</span> は以下のようになる．</p>
+<p><span class="math display">\[
+\mathbf{A} = \begin{bmatrix}
+w_1/w_1 &amp; w_1/w_2 &amp; \cdots &amp; w_1/w_n \\
+w_2/w_1 &amp; w_2/w_2 &amp; \cdots &amp; w_2/w_n \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+w_n/w_1 &amp; w_n/w_2 &amp; \cdots &amp; w_n/w_n \\
+\end{bmatrix}
+\]</span></p>
+<p>このとき，<span class="math inline">\(\mathbf{A}\)</span> は完全な整合性 (consistency) を持つと言う．<span class="math inline">\(\mathbf{A}\)</span> は，以下の性質が成り立つ．</p>
+<ul>
+<li><span class="math inline">\(a_{ii} = 1, \forall i\)</span></li>
+<li><span class="math inline">\(a_{ij} = 1/a_{ji}, \forall i, j\)</span></li>
+</ul>
+<p>例えば，<span class="math inline">\(a_{12} = 3\)</span> ならば，<span class="math inline">\(x_1\)</span> は <span class="math inline">\(x_2\)</span> より3倍望ましい，かつ，<span class="math inline">\(x_2\)</span> は <span class="math inline">\(x_1\)</span> より <span class="math inline">\(1/3\)</span> 倍望ましいことが分かる．</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+ヒント
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(a_{ij} = w_i/w_j\)</span> とするとき，この2つの性質は，以下のように導かれる．</p>
+<p><span class="math display">\[
+a_{ii} = \frac{w_i}{w_i} = 1
+\]</span></p>
+<p><span class="math display">\[
+a_{ij} = \frac{w_i}{w_j} = \frac{1}{\frac{w_j}{w_i}} = \frac{1}{a_{ji}}
+\]</span></p>
+</div>
+</div>
+<div id="exm-pairwise" class="theorem example">
+<p><span class="theorem-title"><strong>例 6.2</strong></span> 旅行先の代替案 <span class="math inline">\(X = \{\text{北海道}, \text{沖縄}, \text{九州}\}\)</span> とし，以下の一対比較を行ったとする．</p>
+<ul>
+<li><span class="math inline">\(x_1\)</span> （北海道）は <span class="math inline">\(x_2\)</span> （沖縄）より3倍望ましい</li>
+<li><span class="math inline">\(x_1\)</span> （北海道）は <span class="math inline">\(x_3\)</span> （九州）より6倍望ましい</li>
+<li><span class="math inline">\(x_2\)</span> （沖縄）は <span class="math inline">\(x_3\)</span> （九州）より2倍望ましい</li>
+</ul>
+<p>このとき，一対比較行列 <span class="math inline">\(\mathbf{A}\)</span> は以下のようになる．</p>
+<p><span class="math display">\[
+\mathbf{A} = \begin{bmatrix}
+1 &amp; 3 &amp; 6 \\
+1/3 &amp; 1 &amp; 2 \\
+1/6 &amp; 1/2 &amp; 1 \\
+\end{bmatrix}
+\]</span></p>
+</div>
+</section>
+<section id="重要度ベクトル" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="重要度ベクトル"><span class="header-section-number">6.4</span> 重要度ベクトル</h2>
+<p>一対比較行列 <span class="math inline">\(\mathbf{A}\)</span> が与えられたとき，重要度ベクトル <span class="math inline">\(\mathbf{w}\)</span> を計算する方法を説明する．</p>
+<p>まず，意思決定者が完全に合理的であるならば，<span class="math inline">\(a_{ij} = w_i/w_j\)</span> を満たすため，<span class="math inline">\(\mathbf{A}\)</span> は</p>
+<p><span class="math display">\[
+\mathbf{A} = \begin{bmatrix}
+w_1/w_1 &amp; w_1/w_2 &amp; \cdots &amp; w_1/w_n \\
+w_2/w_1 &amp; w_2/w_2 &amp; \cdots &amp; w_2/w_n \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+w_n/w_1 &amp; w_n/w_2 &amp; \cdots &amp; w_n/w_n \\
+\end{bmatrix}
+\]</span></p>
+<p>であるから， <span class="math display">\[
+\mathbf{A} \mathbf{w} = \begin{bmatrix}
+w_1/w_1 &amp; w_1/w_2 &amp; \cdots &amp; w_1/w_n \\
+w_2/w_1 &amp; w_2/w_2 &amp; \cdots &amp; w_2/w_n \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+w_n/w_1 &amp; w_n/w_2 &amp; \cdots &amp; w_n/w_n \\
+\end{bmatrix}
+\begin{bmatrix}
+w_1 \\
+w_2 \\
+\vdots \\
+w_n \\
+\end{bmatrix}
+= \begin{bmatrix}
+n w_1 \\
+n w_2 \\
+\vdots \\
+n w_n \\
+\end{bmatrix}
+= n \mathbf{w}
+\]</span></p>
+<p>となる．式 <span class="math inline">\(\mathbf{A} \mathbf{w} = n \mathbf{w}\)</span> より，<span class="math inline">\(\mathbf{w}\)</span> は <span class="math inline">\(\mathbf{A}\)</span> の固有ベクトル，<span class="math inline">\(n\)</span> は <span class="math inline">\(\mathbf{A}\)</span> の固有値である．</p>
+<p><a href="#exm-pairwise" class="quarto-xref">例&nbsp;<span>6.2</span></a> の一対比較行列が与えられたとする．</p>
+<p><span class="math display">\[
+\mathbf{A} = \begin{bmatrix}
+1 &amp; 3 &amp; 6 \\
+1/3 &amp; 1 &amp; 2 \\
+1/6 &amp; 1/2 &amp; 1 \\
+\end{bmatrix}
+\]</span></p>
+<p>このとき，<span class="math inline">\(\mathbf{A}\)</span> の固有値は</p>
+<p><span class="math display">\[\begin{align*}
+\det(\mathbf{A} - \lambda \mathbf{I}) &amp;= \det\begin{bmatrix}
+1 - \lambda &amp; 3 &amp; 6 \\
+1/3 &amp; 1 - \lambda &amp; 2 \\
+1/6 &amp; 1/2 &amp; 1 - \lambda \\
+\end{bmatrix} \\
+&amp;= -\lambda^3 + 3\lambda^2 \\
+&amp;= -\lambda^2(\lambda - 3)
+\end{align*}\]</span></p>
+<div id="thm-perron" class="theorem">
+<p><span class="theorem-title"><strong>定理 6.1 (Perron-Frobenius)</strong></span> &nbsp;</p>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+固有値と固有ベクトル（Eigenvalues and Eigenvectors）
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(n \times n\)</span> 行列 <span class="math inline">\(\mathbf{A}\)</span> に対し，ベクトル <span class="math inline">\(\mathbf{x} \neq \mathbf{0}\)</span> とスカラー <span class="math inline">\(\lambda\)</span> が存在して， <span class="math display">\[
+\mathbf{A} \mathbf{x} = \lambda \mathbf{x}
+\]</span> が成り立つとき，<span class="math inline">\(\mathbf{x}\)</span> を <span class="math inline">\(\mathbf{A}\)</span> の<strong>固有ベクトル</strong> (eigenvector)，<span class="math inline">\(\lambda\)</span> を <span class="math inline">\(\mathbf{A}\)</span> の<strong>固有値</strong> (eigenvalue) と呼ぶ．</p>
+<p>例えば，次のような <span class="math inline">\(\mathbf{A}, \mathbf{x}, \lambda\)</span> を考える． <span class="math display">\[
+\mathbf{A} = \begin{bmatrix}
+1 &amp; 2 \\
+1/2 &amp; 1 \\
+\end{bmatrix}, \quad
+\mathbf{x} = \begin{bmatrix}
+2 \\
+1 \\
+\end{bmatrix}, \quad
+\lambda = 2
+\]</span></p>
+<p>このとき，</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+1 &amp; 2 \\
+1/2 &amp; 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+2 \\
+1 \\
+\end{bmatrix}
+= \begin{bmatrix}
+4 \\
+2 \\
+\end{bmatrix}
+= 2 \begin{bmatrix}
+2 \\
+1 \\
+\end{bmatrix}
+\]</span></p>
+<p>が成り立つため，<span class="math inline">\(\mathbf{x}\)</span> は <span class="math inline">\(\mathbf{A}\)</span> の固有ベクトル，<span class="math inline">\(\lambda\)</span> は <span class="math inline">\(\mathbf{A}\)</span> の固有値である．</p>
+<p><span class="math inline">\(\mathbf{A} \mathbf{x} = \lambda \mathbf{x}\)</span> は単位行列 <span class="math inline">\(\mathbf{I}\)</span> を用いて <span class="math inline">\((\mathbf{A} - \lambda \mathbf{I}) \mathbf{x} = \mathbf{0}\)</span> と書ける．このとき，<span class="math inline">\(\mathbf{x} \neq \mathbf{0}\)</span> であるため，<span class="math inline">\(\det(\mathbf{A} - \lambda \mathbf{I}) = 0\)</span> が成り立つ．</p>
+<p>例えば，次のような行列 <span class="math inline">\(\mathbf{A}\)</span> を考える． <span class="math display">\[
+\mathbf{A} = \begin{bmatrix}
+1 &amp; 2 \\
+1/2 &amp; 1 \\
+\end{bmatrix}
+\]</span></p>
+<p>このとき，<span class="math inline">\(\det(\mathbf{A} - \lambda \mathbf{I})\)</span> は以下のようになる．</p>
+<p><span class="math display">\[\begin{align*}
+\det(\mathbf{A} - \lambda \mathbf{I}) &amp;= \det\begin{bmatrix}
+1 - \lambda &amp; 2 \\
+1/2 &amp; 1 - \lambda \\
+\end{bmatrix} \\
+&amp;= (1 - \lambda)^2 - 1 \\
+&amp;= \lambda^2 - 2\lambda \\
+&amp;= \lambda(\lambda - 2)
+\end{align*}\]</span></p>
+<p><span class="math inline">\(\lambda(\lambda - 2) = 0\)</span> より，<span class="math inline">\(\lambda = 0, 2\)</span> が得られる．</p>
+</div>
+</div>
+</section>
+<section id="文献案内" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="文献案内"><span class="header-section-number">6.5</span> 文献案内</h2>
+<p><span class="citation" data-cites="Brunelli2015-mz">Brunelli (<a href="../references.html#ref-Brunelli2015-mz" role="doc-biblioref">2015</a>)</span> はAHPを丁寧に解説した書籍である．</p>
+</section>
+<section id="用語" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="用語"><span class="header-section-number">6.6</span> 用語</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -587,66 +845,12 @@ window.Quarto = {
 <td>criterion</td>
 <td>評価基準</td>
 </tr>
-</tbody>
-</table>
-</section>
-<section id="記号" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="記号"><span class="header-section-number">6.3</span> 記号</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>記号</th>
-<th>意味</th>
-</tr>
-</thead>
-<tbody>
 <tr class="odd">
-<td><span class="math inline">\(\mathbf{A}\)</span></td>
-<td>一対比較行列</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(X\)</span></td>
-<td>代替案の集合</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(x_i\)</span></td>
-<td>代替案 <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(a_{ij}\)</span></td>
-<td>一対比較値</td>
+<td>priority vector</td>
+<td>重要度ベクトル</td>
 </tr>
 </tbody>
 </table>
-<p>代替案の集合 <span class="math inline">\(X = \{x_1, x_2, \ldots, x_n\}\)</span> とする。代替案の重要度を</p>
-<p><span class="math display">\[
-\mathbf{w} = (w_1, w_2, \ldots, w_n)^T
-\]</span></p>
-<p>で表す。ここで、<span class="math inline">\(w_i\)</span> は代替案 <span class="math inline">\(x_i\)</span> の重要度を表し、<span class="math inline">\(\sum_{i=1}^n w_i = 1\)</span> を満たす。AHPでは、<span class="math inline">\(\mathbf{w}\)</span> を計算できるものとする。計算する方法は後述する。</p>
-<p><span class="math inline">\(w_i\)</span> が大きいほど、代替案 <span class="math inline">\(x_i\)</span> が望ましいとする。<span class="math inline">\(w_i &gt; w_j\)</span> ならば、代替案 <span class="math inline">\(x_i\)</span> は代替案 <span class="math inline">\(x_j\)</span> より望ましい。このとき、<span class="math inline">\(x_i \succ x_j\)</span> と表す。</p>
-<div id="exm-weights" class="theorem example">
-<p><span class="theorem-title"><strong>例 6.1</strong></span> 旅行先の代替案 <span class="math display">\[
-X = \{\text{北海道}, \text{大阪}, \text{九州}, \text{沖縄}\}
-\]</span></p>
-<p>とし、各代替案の重要度を <span class="math inline">\(\mathbf{w} = (0.3, 0.2, 0.1, 0.4)^T\)</span> とするとき、 <span class="math display">\[
-\text{沖縄} \succ \text{北海道} \succ \text{大阪} \succ \text{九州}
-\]</span> である。</p>
-</div>
-</section>
-<section id="一対比較行列" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="一対比較行列"><span class="header-section-number">6.4</span> 一対比較行列</h2>
-<p><span class="math display">\[
-\mathbf{A} = \begin{bmatrix}
-a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
-a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{nn} \\
-\end{bmatrix}
-\]</span></p>
-<p>一対比較値 <span class="math inline">\(a_{ij}\)</span> は</p>
-<p><span class="math display">\[
-a_{ij} = \frac{w_i}{w_j} \forall i, j
-\]</span></p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
