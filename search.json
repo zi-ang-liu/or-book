@@ -160,6 +160,16 @@
     ]
   },
   {
+    "objectID": "notation.html#線形代数",
+    "href": "notation.html#線形代数",
+    "title": "記号",
+    "section": "線形代数",
+    "text": "線形代数\n\n\n\n記号\n意味\n\n\n\n\n\\(\\mathbf{x}\\), \\(\\mathbf{y}\\)\nベクトル。太字の小文字で表す。\n\n\n\\(\\mathbf{A}\\), \\(\\mathbf{B}\\)\n行列。太字の大文字で表す。\n\n\n\\(\\mathbf{I}\\)\n単位行列。",
+    "crumbs": [
+      "記号"
+    ]
+  },
+  {
     "objectID": "notation.html#確率統計",
     "href": "notation.html#確率統計",
     "title": "記号",
@@ -531,11 +541,33 @@
     ]
   },
   {
-    "objectID": "mcda/ahp.html#section",
-    "href": "mcda/ahp.html#section",
+    "objectID": "mcda/ahp.html#用語",
+    "href": "mcda/ahp.html#用語",
     "title": "6  階層分析法",
-    "section": "6.2 ",
-    "text": "6.2 \n\n\n\n\nBrunelli, Matteo. 2015. Introduction to the Analytic Hierarchy Process. 2015th 版. SpringerBriefs in Operations Research. Cham: Springer International Publishing.",
+    "section": "6.2 用語",
+    "text": "6.2 用語\n\n\n\nEnglish\nJapanese\n\n\n\n\nmulti-criteria decision making (MCDM)\n多基準意思決定\n\n\nAnalytic Hierarchy Process (AHP)\n階層分析法\n\n\nConsistency index\n整合度\n\n\npairwise comparison matrix\n一対比較行列\n\n\nalternative\n代替案\n\n\ncriterion\n評価基準",
+    "crumbs": [
+      "多基準意思決定分析",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>階層分析法</span>"
+    ]
+  },
+  {
+    "objectID": "mcda/ahp.html#記号",
+    "href": "mcda/ahp.html#記号",
+    "title": "6  階層分析法",
+    "section": "6.3 記号",
+    "text": "6.3 記号\n\n\n\n記号\n意味\n\n\n\n\n\\(\\mathbf{A}\\)\n一対比較行列\n\n\n\\(X\\)\n代替案の集合\n\n\n\\(x_i\\)\n代替案 \\(i\\)\n\n\n\\(a_{ij}\\)\n一対比較値\n\n\n\n代替案の集合 \\(X = \\{x_1, x_2, \\ldots, x_n\\}\\) とする。代替案の重要度を\n\\[\n\\mathbf{w} = (w_1, w_2, \\ldots, w_n)^T\n\\]\nで表す。ここで、\\(w_i\\) は代替案 \\(x_i\\) の重要度を表し、\\(\\sum_{i=1}^n w_i = 1\\) を満たす。AHPでは、\\(\\mathbf{w}\\) を計算できるものとする。計算する方法は後述する。\n\\(w_i\\) が大きいほど、代替案 \\(x_i\\) が望ましいとする。\\(w_i &gt; w_j\\) ならば、代替案 \\(x_i\\) は代替案 \\(x_j\\) より望ましい。このとき、\\(x_i \\succ x_j\\) と表す。\n\n例 6.1 旅行先の代替案 \\[\nX = \\{\\text{北海道}, \\text{大阪}, \\text{九州}, \\text{沖縄}\\}\n\\]\nとし、各代替案の重要度を \\(\\mathbf{w} = (0.3, 0.2, 0.1, 0.4)^T\\) とするとき、 \\[\n\\text{沖縄} \\succ \\text{北海道} \\succ \\text{大阪} \\succ \\text{九州}\n\\] である。",
+    "crumbs": [
+      "多基準意思決定分析",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>階層分析法</span>"
+    ]
+  },
+  {
+    "objectID": "mcda/ahp.html#一対比較行列",
+    "href": "mcda/ahp.html#一対比較行列",
+    "title": "6  階層分析法",
+    "section": "6.4 一対比較行列",
+    "text": "6.4 一対比較行列\n\\[\n\\mathbf{A} = \\begin{bmatrix}\na_{11} & a_{12} & \\cdots & a_{1n} \\\\\na_{21} & a_{22} & \\cdots & a_{2n} \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\na_{n1} & a_{n2} & \\cdots & a_{nn} \\\\\n\\end{bmatrix}\n\\]\n一対比較値 \\(a_{ij}\\) は\n\\[\na_{ij} = \\frac{w_i}{w_j} \\forall i, j\n\\]\n\n\n\n\nBrunelli, Matteo. 2015. Introduction to the Analytic Hierarchy Process. 2015th 版. SpringerBriefs in Operations Research. Cham: Springer International Publishing.",
     "crumbs": [
       "多基準意思決定分析",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>階層分析法</span>"
