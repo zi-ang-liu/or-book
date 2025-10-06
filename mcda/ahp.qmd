@@ -6,9 +6,273 @@ format:
 jupyter: python3
 ---
 
+
+
+## 記号
+
+| 記号 | 意味               |
+| ---- | ------------------ |
+| $\mathbf{A}$ | 一対比較行列       |
+| $X$ | 代替案の集合       |
+| $x_i$ | 代替案 $i$         |
+| $a_{ij}$ | 一対比較値       |
+| $\mathbf{w}$ | 重要度ベクトル |
+
+
+## 代替案の重要度
+
+AHPは，複数の代替案の中から一つの代替案を選択するための手法である．
+
+代替案の集合 $X = \{x_1, x_2, \ldots, x_n\}$ とする．代替案の重要度を 
+
+$$
+\mathbf{w} = (w_1, w_2, \ldots, w_n)^T
+$$
+
+で表す．ここで，$w_i$ は代替案 $x_i$ の重要度を表し，$\sum_{i=1}^n w_i = 1$ を満たす．AHPでは，$\mathbf{w}$ を計算できるものとする．計算する方法は後述する．
+
+$w_i$ が大きいほど，代替案 $x_i$ が望ましいとする．$w_i > w_j$ ならば，代替案 $x_i$ は代替案 $x_j$ より望ましい．このとき，$x_i \succ x_j$ と表す．
+
+:::{#exm-weights}
+旅行先の代替案 
+$$
+X = \{\text{北海道}, \text{沖縄}, \text{九州}\}
+$$ 
+
+とし，各代替案の重要度を $\mathbf{w} = (0.3, 0.5, 0.2)^T$ とするとき，
+$$
+\text{沖縄} \succ \text{北海道} \succ \text{九州}
+$$
+である．
+:::
+
+このように，それぞれの代替案の重要度が与えられるならば，望ましい代替案の選択は容易である．しかし，実際には，代替案の重要度を直接決定することは難しい．
+
+## 一対比較 
+
+すべての代替案を並べて比較することは難しい．そこで，AHPでは，2つの代替案を比較する**一対比較** (pairwise comparison)を用いる．その理由として，$\{x_1, x_2, \ldots, x_n\}$ の中から最も望ましい代替案を選ぶことは難しいが，2つの代替案 $x_i$ と $x_j$ のどちらが望ましいかを決定することは比較的容易であることが挙げられる．
+
+AHPでは，$x_i$ は $x_j$ よりどれくらい望ましいかを**一対比較値**で表す．正式には，一対比較値 $a_{ij}$ は $x_i$ が $x_j$ より $a_{ij}$ 倍望ましいことを表す．
+
+例えば，$a_{ij} = 3$ ならば，$x_i$ は $x_j$ より3倍望ましいことを表す．@exm-weights で，$a_{12} = 3$ ならば，$x_1$ （北海道）は $x_2$ （沖縄）より3倍望ましいことを表す．
+
+すべての代替案の組み合わせについて一対比較を行い，その結果を**一対比較行列** (pairwise comparison matrix)にまとめる．一対比較行列は $\mathbf{A} = [a_{ij}]_{n \times n}$ と定義され，以下のように表される。
+
+$$
+\mathbf{A} = \begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn} \\
+\end{bmatrix}
+$$
+
+理論的には，
+
+$$
+a_{ij} \approx \frac{w_i}{w_j} \quad \forall i, j
+$$
+
+が想定されている．
+
+:::{.callout-tip}
+意思決定者が一対比較を行うとき，$\mathbf{w} = (w_1, w_2, \ldots, w_n)^T$ が知らないが，合理的な意思決定者ならば，$a_{ij} \approx w_i/w_j$ を満たすと考えられる．
+
+しかし，人間の評価は必ずしも合理的でないため，一般には $a_{ij} = w_i/w_j$ を満たさない．これについては後述する．
+:::
+
+意思決定者が完全に合理的であるならば，$a_{ij} = w_i/w_j$ を満たす．
+このとき，一対比較行列 $\mathbf{A}$ は以下のようになる．
+
+$$
+\mathbf{A} = \begin{bmatrix}
+w_1/w_1 & w_1/w_2 & \cdots & w_1/w_n \\
+w_2/w_1 & w_2/w_2 & \cdots & w_2/w_n \\
+\vdots & \vdots & \ddots & \vdots \\
+w_n/w_1 & w_n/w_2 & \cdots & w_n/w_n \\
+\end{bmatrix}
+$$
+
+このとき，$\mathbf{A}$ は完全な整合性 (consistency) を持つと言う．$\mathbf{A}$ は，以下の性質が成り立つ．
+
+- $a_{ii} = 1, \forall i$
+- $a_{ij} = 1/a_{ji}, \forall i, j$
+
+例えば，$a_{12} = 3$ ならば，$x_1$ は $x_2$ より3倍望ましい，かつ，$x_2$ は $x_1$ より $1/3$ 倍望ましいことが分かる．
+
+:::{.callout-tip}
+$a_{ij} = w_i/w_j$ とするとき，この2つの性質は，以下のように導かれる．
+
+$$
+a_{ii} = \frac{w_i}{w_i} = 1
+$$
+
+$$
+a_{ij} = \frac{w_i}{w_j} = \frac{1}{\frac{w_j}{w_i}} = \frac{1}{a_{ji}}
+$$
+:::
+
+:::{#exm-pairwise}
+旅行先の代替案 $X = \{\text{北海道}, \text{沖縄}, \text{九州}\}$ とし，以下の一対比較を行ったとする．
+
+- $x_1$ （北海道）は $x_2$ （沖縄）より3倍望ましい
+- $x_1$ （北海道）は $x_3$ （九州）より6倍望ましい
+- $x_2$ （沖縄）は $x_3$ （九州）より2倍望ましい
+
+このとき，一対比較行列 $\mathbf{A}$ は以下のようになる．
+
+$$
+\mathbf{A} = \begin{bmatrix}
+1 & 3 & 6 \\
+1/3 & 1 & 2 \\
+1/6 & 1/2 & 1 \\
+\end{bmatrix}
+$$
+:::
+
+## 重要度ベクトル
+
+一対比較行列 $\mathbf{A}$ が与えられたとき，重要度ベクトル $\mathbf{w}$ を計算する方法を説明する．
+
+まず，意思決定者が完全に合理的であるならば，$a_{ij} = w_i/w_j$ を満たすため，$\mathbf{A}$ は
+
+$$
+\mathbf{A} = \begin{bmatrix}
+w_1/w_1 & w_1/w_2 & \cdots & w_1/w_n \\
+w_2/w_1 & w_2/w_2 & \cdots & w_2/w_n \\
+\vdots & \vdots & \ddots & \vdots \\
+w_n/w_1 & w_n/w_2 & \cdots & w_n/w_n \\
+\end{bmatrix}
+$$
+
+であるから，
+$$
+\mathbf{A} \mathbf{w} = \begin{bmatrix}
+w_1/w_1 & w_1/w_2 & \cdots & w_1/w_n \\
+w_2/w_1 & w_2/w_2 & \cdots & w_2/w_n \\
+\vdots & \vdots & \ddots & \vdots \\
+w_n/w_1 & w_n/w_2 & \cdots & w_n/w_n \\
+\end{bmatrix}
+\begin{bmatrix}
+w_1 \\
+w_2 \\
+\vdots \\
+w_n \\
+\end{bmatrix}
+= \begin{bmatrix}
+n w_1 \\
+n w_2 \\
+\vdots \\
+n w_n \\
+\end{bmatrix}
+= n \mathbf{w}
+$$
+
+となる．式 $\mathbf{A} \mathbf{w} = n \mathbf{w}$ より，$\mathbf{w}$ は $\mathbf{A}$ の固有ベクトル，$n$ は $\mathbf{A}$ の固有値である．
+
+@exm-pairwise の一対比較行列が与えられたとする．
+
+$$
+\mathbf{A} = \begin{bmatrix}
+1 & 3 & 6 \\
+1/3 & 1 & 2 \\
+1/6 & 1/2 & 1 \\
+\end{bmatrix}
+$$
+
+このとき，$\mathbf{A}$ の固有値は
+
+\begin{align*}
+\det(\mathbf{A} - \lambda \mathbf{I}) &= \det\begin{bmatrix}
+1 - \lambda & 3 & 6 \\
+1/3 & 1 - \lambda & 2 \\
+1/6 & 1/2 & 1 - \lambda \\
+\end{bmatrix} \\
+&= -\lambda^3 + 3\lambda^2 \\
+&= -\lambda^2(\lambda - 3)
+\end{align*}
+
+
+:::{#thm-perron}
+## Perron-Frobenius
+
+:::
+
+:::{.callout-note}
+## 固有値と固有ベクトル（Eigenvalues and Eigenvectors）
+$n \times n$ 行列 $\mathbf{A}$ に対し，ベクトル $\mathbf{x} \neq \mathbf{0}$ とスカラー $\lambda$ が存在して，
+$$
+\mathbf{A} \mathbf{x} = \lambda \mathbf{x}
+$$
+が成り立つとき，$\mathbf{x}$ を $\mathbf{A}$ の**固有ベクトル** (eigenvector)，$\lambda$ を $\mathbf{A}$ の**固有値** (eigenvalue) と呼ぶ．
+
+例えば，次のような $\mathbf{A}, \mathbf{x}, \lambda$ を考える．
+$$
+\mathbf{A} = \begin{bmatrix}
+1 & 2 \\
+1/2 & 1 \\
+\end{bmatrix}, \quad
+\mathbf{x} = \begin{bmatrix}
+2 \\
+1 \\
+\end{bmatrix}, \quad
+\lambda = 2
+$$
+
+このとき，
+
+$$
+\begin{bmatrix}
+1 & 2 \\
+1/2 & 1 \\
+\end{bmatrix} 
+\begin{bmatrix}
+2 \\
+1 \\
+\end{bmatrix}
+= \begin{bmatrix}
+4 \\
+2 \\
+\end{bmatrix}
+= 2 \begin{bmatrix}
+2 \\
+1 \\
+\end{bmatrix}
+$$
+
+が成り立つため，$\mathbf{x}$ は $\mathbf{A}$ の固有ベクトル，$\lambda$ は $\mathbf{A}$ の固有値である．
+
+$\mathbf{A} \mathbf{x} = \lambda \mathbf{x}$ は単位行列 $\mathbf{I}$ を用いて $(\mathbf{A} - \lambda \mathbf{I}) \mathbf{x} = \mathbf{0}$ と書ける．このとき，$\mathbf{x} \neq \mathbf{0}$ であるため，$\det(\mathbf{A} - \lambda \mathbf{I}) = 0$ が成り立つ．
+
+例えば，次のような行列 $\mathbf{A}$ を考える．
+$$
+\mathbf{A} = \begin{bmatrix}
+1 & 2 \\
+1/2 & 1 \\
+\end{bmatrix} 
+$$
+
+このとき，$\det(\mathbf{A} - \lambda \mathbf{I})$ は以下のようになる．
+
+\begin{align*}
+\det(\mathbf{A} - \lambda \mathbf{I}) &= \det\begin{bmatrix}
+1 - \lambda & 2 \\
+1/2 & 1 - \lambda \\
+\end{bmatrix} \\
+&= (1 - \lambda)^2 - 1 \\
+&= \lambda^2 - 2\lambda \\
+&= \lambda(\lambda - 2)
+\end{align*}
+
+$\lambda(\lambda - 2) = 0$ より，$\lambda = 0, 2$ が得られる．
+:::
+
+
+
+
 ## 文献案内
 
-@Brunelli2015-mz はAHPを丁寧に解説した書籍である。
+@Brunelli2015-mz はAHPを丁寧に解説した書籍である．
 
 ## 用語
 
@@ -20,53 +284,4 @@ jupyter: python3
 | pairwise comparison matrix            | 一対比較行列 |
 | alternative                           | 代替案       |
 | criterion                             | 評価基準     |
-
-## 記号
-
-| 記号 | 意味               |
-| ---- | ------------------ |
-| $\mathbf{A}$ | 一対比較行列       |
-| $X$ | 代替案の集合       |
-| $x_i$ | 代替案 $i$         |
-| $a_{ij}$ | 一対比較値       |
-
-
-代替案の集合 $X = \{x_1, x_2, \ldots, x_n\}$ とする。代替案の重要度を 
-
-$$
-\mathbf{w} = (w_1, w_2, \ldots, w_n)^T
-$$
-
-で表す。ここで、$w_i$ は代替案 $x_i$ の重要度を表し、$\sum_{i=1}^n w_i = 1$ を満たす。AHPでは、$\mathbf{w}$ を計算できるものとする。計算する方法は後述する。
-
-$w_i$ が大きいほど、代替案 $x_i$ が望ましいとする。$w_i > w_j$ ならば、代替案 $x_i$ は代替案 $x_j$ より望ましい。このとき、$x_i \succ x_j$ と表す。
-
-:::{#exm-weights}
-旅行先の代替案 
-$$
-X = \{\text{北海道}, \text{大阪}, \text{九州}, \text{沖縄}\}
-$$ 
-
-とし、各代替案の重要度を $\mathbf{w} = (0.3, 0.2, 0.1, 0.4)^T$ とするとき、
-$$
-\text{沖縄} \succ \text{北海道} \succ \text{大阪} \succ \text{九州}
-$$
-である。
-:::
-
-## 一対比較行列 
-
-$$
-\mathbf{A} = \begin{bmatrix}
-a_{11} & a_{12} & \cdots & a_{1n} \\
-a_{21} & a_{22} & \cdots & a_{2n} \\
-\vdots & \vdots & \ddots & \vdots \\
-a_{n1} & a_{n2} & \cdots & a_{nn} \\
-\end{bmatrix}
-$$
-
-一対比較値 $a_{ij}$ は
-
-$$
-a_{ij} = \frac{w_i}{w_j} \forall i, j
-$$
+| priority vector                       | 重要度ベクトル |
