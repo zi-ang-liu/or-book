@@ -168,7 +168,7 @@ n w_n \\
 = n \mathbf{w}
 $$
 
-となる．式 $\mathbf{A} \mathbf{w} = n \mathbf{w}$ より，$\mathbf{w}$ は $\mathbf{A}$ の固有ベクトル，$n$ は $\mathbf{A}$ の固有値である．
+が成り立つ．式 $\mathbf{A} \mathbf{w} = n \mathbf{w}$ より，$\mathbf{w}$ は $\mathbf{A}$ の固有ベクトル，$n$ は $\mathbf{A}$ の固有値である．
 
 @exm-pairwise の一対比較行列が与えられたとする．
 
@@ -180,7 +180,7 @@ $$
 \end{bmatrix}
 $$
 
-このとき，$\mathbf{A}$ の固有値は
+このとき，$\mathbf{A}$ の固有値は，$\det(\mathbf{A} - \lambda \mathbf{I}) = 0$ を解くことで求められる．
 
 \begin{align*}
 \det(\mathbf{A} - \lambda \mathbf{I}) &= \det\begin{bmatrix}
@@ -192,6 +192,15 @@ $$
 &= -\lambda^2(\lambda - 3)
 \end{align*}
 
+$\lambda^2(\lambda - 3) = 0$ より，$\lambda = 0, 3$ が得られる．この例において，$\mathbf{A}$ の最大固有値は $\lambda_{max} = 3$ であり，それ以外の固有値は $\lambda = 0$ である．また，$\mathbf{A}$ は $3 \times 3$ 行列であるため，$\lambda_{max} = n$ が成り立つ．
+
+一般に，以下の命題が成り立つ．
+
+:::{#prp-}
+整合性のある $n \times n$ 行列 $\mathbf{A}$ の最大固有値は $\lambda_{max} = n$ であり，それ以外の固有値は $\lambda = 0$ である．
+:::
+
+行列 $\mathbf{A}$ は
 
 :::{#thm-perron}
 ## Perron-Frobenius
@@ -265,6 +274,8 @@ $$
 \end{align*}
 
 $\lambda(\lambda - 2) = 0$ より，$\lambda = 0, 2$ が得られる．
+
+
 :::
 
 
