@@ -6,8 +6,6 @@ format:
 jupyter: python3
 ---
 
-
-
 ## 記号
 
 | 記号 | 意味               |
@@ -93,7 +91,7 @@ w_n/w_1 & w_n/w_2 & \cdots & w_n/w_n \\
 \end{bmatrix}
 $$
 
-このとき，$\mathbf{A}$ は完全な整合性 (consistency) を持つと言う．$\mathbf{A}$ は，以下の性質が成り立つ．
+このとき，$\mathbf{A}$ は完全に整合性 (consistency) を持つと言う．$\mathbf{A}$ は，以下の性質が成り立つ．
 
 - $a_{ii} = 1, \forall i$
 - $a_{ij} = 1/a_{ji}, \forall i, j$
@@ -145,7 +143,83 @@ w_n/w_1 & w_n/w_2 & \cdots & w_n/w_n \\
 \end{bmatrix}
 $$
 
-であるから，
+であるから，$\mathbf{A}$ の各列は比例している．このとき，重要度ベクトル $\mathbf{w}$ は，$\mathbf{A}$ の任意の列を正規化することで求められる．
+
+@exm-pairwise の一対比較行列 $\mathbf{A}$ を考える．
+
+$$
+\mathbf{A} = \begin{bmatrix}
+1 & 3 & 6 \\
+1/3 & 1 & 2 \\
+1/6 & 1/2 & 1 \\
+\end{bmatrix}
+$$
+
+このとき，$\mathbf{A}$ の第3列を正規化すると，重要度ベクトル $\mathbf{w}$ は以下のようになる．
+$$
+w_1 = \frac{6}{6 + 2 + 1} = \frac{6}{9} \approx 0.67
+$$
+$$
+w_2 = \frac{2}{6 + 2 + 1} = \frac{2}{9} \approx 0.22
+$$
+$$
+w_3 = \frac{1}{6 + 2 + 1} = \frac{1}{9} \approx 0.11
+$$
+
+しかし，人間の評価は必ずしも合理的でないため，一般には $a_{ij} = w_i/w_j$ を満たさない．このとき，他の方法で一対比較行列 $\mathbf{A}$ から重要度ベクトル $\mathbf{w}$ を計算する必要がある．計算する方法として，主に**幾何平均法** (geometric mean method) と**固有ベクトル法** (eigenvector method) の2つがある．
+
+:::{.callout-tip}
+幾何平均法と固有ベクトル法のどちらが優れているかについては議論がある．AHPの創始者であるSaatyは固有ベクトル法が優れていると主張しているが，幾何平均法が優れているとする出張する研究もある．
+
+他にもnormalized columns methodという方法もあるが，理論的根拠がないと言われている．
+:::
+
+### 幾何平均法
+
+@Crawford1985-gb は，幾何平均法を提案した．幾何平均法では，重要度ベクトル $\mathbf{w}$ の各要素 $w_k$ を以下のように計算する．
+
+$$
+w_k = \frac{\left(\prod_{j=1}^n a_{kj}\right)^{1/n}}{\sum_{i=1}^n \left(\prod_{j=1}^n a_{ij}\right)^{1/n}} \quad \forall k
+$$
+
+:::{.callout-tip}
+$\mathbf{A}$ の各行の幾何平均を計算し，正規化することで，重要度ベクトル $\mathbf{w}$ を求めている．
+:::
+
+@exm-pairwise の一対比較行列 $\mathbf{A}$ を考える．
+
+$$
+\mathbf{A} = \begin{bmatrix}
+1 & 3 & 6 \\
+1/3 & 1 & 2 \\
+1/6 & 1/2 & 1 \\
+\end{bmatrix}
+$$
+
+このとき，重要度ベクトル $\mathbf{w}$ は以下のようになる．これは，理論から計算した重要度ベクトルと一致する．
+
+$$
+w_1 = \frac{(1 \times 3 \times 6)^{1/3}}{(1 \times 3 \times 6)^{1/3} + (1/3 \times 1 \times 2)^{1/3} + (1/6 \times 1/2 \times 1)^{1/3}}  \approx 0.67
+$$
+
+$$
+w_2 = \frac{(1/3 \times 1 \times 2)^{1/3}}{(1 \times 3 \times 6)^{1/3} + (1/3 \times 1 \times 2)^{1/3} + (1/6 \times 1/2 \times 1)^{1/3}}  \approx 0.22
+$$
+
+$$
+w_3 = \frac{(1/6 \times 1/2 \times 1)^{1/3}}{(1 \times 3 \times 6)^{1/3} + (1/3 \times 1 \times 2)^{1/3} + (1/6 \times 1/2 \times 1)^{1/3}}  \approx 0.11
+$$
+
+一般に，一対比較行列 $\mathbf{A}$ が整合性を持つならば，幾何平均法で計算した重要度ベクトル $\mathbf{w}$ は理論から計算した重要度ベクトルと一致する．興味があれば，証明してみよう．
+
+### 固有ベクトル法*
+
+:::{.callout-tip}
+固有ベクトル法は直感的に理解することが難しいため，講義では扱わない．
+:::
+
+一対比較行列 $\mathbf{A}$ が整合性を持つとき，
+
 $$
 \mathbf{A} \mathbf{w} = \begin{bmatrix}
 w_1/w_1 & w_1/w_2 & \cdots & w_1/w_n \\
@@ -169,12 +243,6 @@ n w_n \\
 $$
 
 が成り立つ．式 $\mathbf{A} \mathbf{w} = n \mathbf{w}$ より，$\mathbf{w}$ は $\mathbf{A}$ の固有ベクトル，$n$ は $\mathbf{A}$ の固有値である．
-
-### 固有ベクトル法*
-
-:::{.callout-tip}
-固有ベクトル法は直感的に理解することが難しいため，講義では扱わない．
-:::
 
 Saatyは，最大固有値 $\lambda_{max}$ に対応する固有ベクトルを重要度ベクトルとして用いることを提案した．すなわち，重要度ベクトル $\mathbf{w}$ を求めるには，以下の式を解く．
 
@@ -286,10 +354,29 @@ $$
 $\lambda(\lambda - 2) = 0$ より，$\lambda = 0, 2$ が得られる．
 :::
 
-### aa
-
-
 ## 整合性
+
+### GCI
+
+計算された重要度ベクトル $\mathbf{w}$ が一対比較行列 $\mathbf{A}$ とどれくらい整合しているかを評価する指標として，@Aguarón2003-nt が提案した**平均幾何整合度** (geometric consistency index, GCI) がある．
+
+一対比較値 $a_{ij}$ と重要度ベクトル $\mathbf{w}$ から，以下のように $e_{ij}$ を定義する．
+
+$$
+e_{ij} = a_{ij} \frac{w_j}{w_i}
+$$
+
+$a_{ij} = w_i/w_j$ を満たすならば，$e_{ij} = 1$ である．
+
+GCIは以下のように定義される．
+
+$$
+GCI = \frac{2}{(n-1)(n-2)} \sum_{i=1}^{n-1} \sum_{j=i+1}^{n} \left(\ln e_{ij}\right)^2
+$$
+
+## 階層
+
+
 
 ## 文献案内
 
