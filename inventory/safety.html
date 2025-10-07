@@ -557,12 +557,14 @@ window.Quarto = {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#問題設定" id="toc-問題設定" class="nav-link active" data-scroll-target="#問題設定"><span class="header-section-number">5.1</span> 問題設定</a></li>
-  <li><a href="#近似解法" id="toc-近似解法" class="nav-link" data-scroll-target="#近似解法"><span class="header-section-number">5.2</span> 近似解法</a>
+  <li><a href="#近似解法" id="toc-近似解法" class="nav-link active" data-scroll-target="#近似解法"><span class="header-section-number">5.1</span> 近似解法</a>
   <ul class="collapse">
-  <li><a href="#発注量-q" id="toc-発注量-q" class="nav-link" data-scroll-target="#発注量-q"><span class="header-section-number">5.2.1</span> 発注量 <span class="math inline">\(Q\)</span></a></li>
-  <li><a href="#発注点-r" id="toc-発注点-r" class="nav-link" data-scroll-target="#発注点-r"><span class="header-section-number">5.2.2</span> 発注点 <span class="math inline">\(r\)</span></a></li>
+  <li><a href="#発注量-q" id="toc-発注量-q" class="nav-link" data-scroll-target="#発注量-q"><span class="header-section-number">5.1.1</span> 発注量 <span class="math inline">\(Q\)</span></a></li>
+  <li><a href="#発注点-r" id="toc-発注点-r" class="nav-link" data-scroll-target="#発注点-r"><span class="header-section-number">5.1.2</span> 発注点 <span class="math inline">\(r\)</span></a></li>
   </ul></li>
+  <li><a href="#欠品費用を考慮する場合" id="toc-欠品費用を考慮する場合" class="nav-link" data-scroll-target="#欠品費用を考慮する場合"><span class="header-section-number">5.2</span> 欠品費用を考慮する場合*</a></li>
+  <li><a href="#文献案内" id="toc-文献案内" class="nav-link" data-scroll-target="#文献案内"><span class="header-section-number">5.3</span> 文献案内</a></li>
+  <li><a href="#練習問題" id="toc-練習問題" class="nav-link" data-scroll-target="#練習問題"><span class="header-section-number">5.4</span> 練習問題</a></li>
   </ul>
 </nav>
     </div>
@@ -589,11 +591,9 @@ window.Quarto = {
 </header>
 
 
-<p>これまで紹介した在庫モデルは、需要が決定論的であると仮定していた。ここからは、需要が確率的であると仮定した在庫モデルを紹介する。</p>
-<section id="問題設定" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="問題設定"><span class="header-section-number">5.1</span> 問題設定</h2>
+<!-- 新聞売り子問題では，一日の -->
 <p>需要 <span class="math inline">\(D\)</span> がある確率分布に従うと仮定する。リードタイムを <span class="math inline">\(L\)</span> とし、既知の定数とする。発注費用を <span class="math inline">\(K\)</span>、単位あたりの保管費用を <span class="math inline">\(h\)</span> とする。在庫量が連続的に観測され、いつでも発注が可能であるとする<strong>連続観測</strong>の場合を考える。</p>
-<p><span class="math inline">\((r, Q)\)</span> 方策が用いられるとする。在庫量が発注点 <span class="math inline">\(r\)</span> 以下になったときに、発注量 <span class="math inline">\(Q\)</span> を発注する。この場合、発注点 <span class="math inline">\(r\)</span> と発注量 <span class="math inline">\(Q\)</span> を決定変数とし、在庫の<strong>期待コスト</strong>（expected cost）を最小化することを目的とする。</p>
+<p>在庫管理には，<span class="math inline">\((r, Q)\)</span> 方策が用いられるとする。在庫量が発注点 <span class="math inline">\(r\)</span> 以下になったときに、発注量 <span class="math inline">\(Q\)</span> を発注する。この場合、発注点 <span class="math inline">\(r\)</span> と発注量 <span class="math inline">\(Q\)</span> を決定変数とし、在庫の<strong>期待コスト</strong>（expected cost）を最小化することを目的とする。</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -607,29 +607,37 @@ window.Quarto = {
 <p>この問題の定式化および厳密解法は、ここでは説明しない。<span class="citation" data-cites="Snyder2019-cy">Snyder と Shen (<a href="../references.html#ref-Snyder2019-cy" role="doc-biblioref">2019</a>)</span> の「Fundamentals of Supply Chain Theory」などの文献を参照されたい。 以下は <span class="math inline">\((r, Q)\)</span> の近似解法を紹介する。</p>
 </div>
 </div>
-</section>
-<section id="近似解法" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="近似解法"><span class="header-section-number">5.2</span> 近似解法</h2>
-<p>以下では、単位期間あたりの需要を <span class="math inline">\(D\)</span> とし、<span class="math inline">\(D\)</span> は正規分布 <span class="math inline">\(N(\mu, \sigma^2)\)</span> に従うと仮定する。ここで、<span class="math inline">\(\mu\)</span> は平均需要、<span class="math inline">\(\sigma\)</span> は需要の標準偏差である。</p>
-<section id="発注量-q" class="level3" data-number="5.2.1">
-<h3 data-number="5.2.1" class="anchored" data-anchor-id="発注量-q"><span class="header-section-number">5.2.1</span> 発注量 <span class="math inline">\(Q\)</span></h3>
-<p><span class="math inline">\(D\)</span> の平均 <span class="math inline">\(\mu\)</span> をEOQモデルの需要率とみなすと、発注量 <span class="math inline">\(Q\)</span> は次のように求めることができる<span class="citation" data-cites="Camm2022-zv">(<a href="../references.html#ref-Camm2022-zv" role="doc-biblioref">Camm ほか 2022</a>)</span>。</p>
+<section id="近似解法" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="近似解法"><span class="header-section-number">5.1</span> 近似解法</h2>
+<p>単位期間あたりの需要を <span class="math inline">\(D\)</span> とし、<span class="math inline">\(D\)</span> は正規分布 <span class="math inline">\(N(\mu, \sigma^2)\)</span> に従うと仮定する。</p>
+<section id="発注量-q" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="発注量-q"><span class="header-section-number">5.1.1</span> 発注量 <span class="math inline">\(Q\)</span></h3>
+<p><span class="math inline">\(D\)</span> の平均需要 <span class="math inline">\(\mu\)</span> をEOQモデルの需要率とみなすと、発注量 <span class="math inline">\(Q\)</span> は次のように求めることができる<span class="citation" data-cites="Camm2022-zv">(<a href="../references.html#ref-Camm2022-zv" role="doc-biblioref">Camm ほか 2022</a>)</span>。</p>
 <p><span class="math display">\[
 Q = \sqrt{\frac{2K \mu}{h}}
 \]</span></p>
-<p>また、欠品費用も考慮する場合、バックオーダーを考慮した EOQ モデルを用いて、発注量 <span class="math inline">\(Q\)</span> は次のように求めることができる<span class="citation" data-cites="Hillier2025-cb">(<a href="../references.html#ref-Hillier2025-cb" role="doc-biblioref">Hillier と Lieberman 2025</a>)</span>。</p>
-<p><span class="math display">\[
-Q = \sqrt{\frac{2K \mu}{h}} \sqrt{\frac{p+h}{p}}
-\]</span> <span class="math inline">\(p\)</span> は単位あたりの欠品費用である。</p>
 <p>得られた発注量 <span class="math inline">\(Q\)</span> は、最適解ではなく、近似解であることに注意されたい。</p>
 </section>
-<section id="発注点-r" class="level3" data-number="5.2.2">
-<h3 data-number="5.2.2" class="anchored" data-anchor-id="発注点-r"><span class="header-section-number">5.2.2</span> 発注点 <span class="math inline">\(r\)</span></h3>
+<section id="発注点-r" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="発注点-r"><span class="header-section-number">5.1.2</span> 発注点 <span class="math inline">\(r\)</span></h3>
 <p>リードタイム期間中に発生する需要は <span class="math inline">\(D_L \sim N(\mu_L, \sigma_L^2)\)</span> とし、正規分布の再生性により、</p>
 <p><span class="math display">\[
 \mu_L = \mu L, \quad \sigma_L^2 = \sigma^2 L
 \]</span></p>
 <p>になる。すなわち、リードタイム期間中の平均需要は <span class="math inline">\(\mu_L = \mu L\)</span>、標準偏差は <span class="math inline">\(\sigma_L = \sigma \sqrt{L}\)</span> である。</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+正規分布の再生性
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> が独立に同一の正規分布 <span class="math inline">\(N(\mu, \sigma^2)\)</span> に従うならば、<span class="math inline">\(Y = X_1 + X_2 + \cdots + X_n\)</span> は正規分布 <span class="math inline">\(N(n\mu, n\sigma^2)\)</span> に従う。</p>
+</div>
+</div>
 <p>発注点 <span class="math inline">\(r\)</span> を決めるためには、<strong>サービスレベル</strong>（service level）を考える。ここでは、サービスレベルを、リードタイム期間中に需要を満たす確率と定義する。サービスレベルを <span class="math inline">\(\alpha\)</span> とし、<span class="math inline">\(0 &lt; \alpha &lt; 1\)</span> とする。</p>
 <p>与えられたサービスレベル <span class="math inline">\(\alpha\)</span> に対して、<span class="math inline">\(D_L\)</span> が発注点 <span class="math inline">\(r\)</span> 以下になる確率（欠品が発生しない確率、つまり、サービスレベル）が <span class="math inline">\(\alpha\)</span> になるように発注点 <span class="math inline">\(r\)</span> を決定する。</p>
 <p><span class="math display">\[
@@ -653,8 +661,9 @@ P(D_L \leq \mu_L) = P\left(\frac{D_L - \mu_L}{\sigma_L} \leq 0\right) = \Phi(0) 
 </div>
 <p>したがって、サービスレベル <span class="math inline">\(\alpha &gt; 0.5\)</span> の場合、発注点 <span class="math inline">\(r\)</span> は平均需要 <span class="math inline">\(\mu_L\)</span> より大きくなる必要がある。それを<strong>安全在庫</strong>（safety stock）と呼び、<span class="math inline">\(s\)</span> と表す。</p>
 <div id="exm-safety-stock-unified" class="theorem example">
-<p><span class="theorem-title"><strong>例 5.1</strong></span> 単位期間あたりの需要 <span class="math inline">\(D\)</span> が連続一様分布 <span class="math inline">\(U(200, 300)\)</span> に従うと仮定する。平均需要は <span class="math inline">\(\mu = 250\)</span> である。一回の発注量を <span class="math inline">\(Q = 500\)</span> とする。次の図は、在庫量の時間的変化を示す。灰色の領域は、需要の範囲を示す。赤い領域は、在庫量が0以下になったときの欠品を示す。黒い線は平均需要に基づく在庫量の変化を示す。</p>
-<div id="8a33cfbc" class="cell" data-execution_count="1">
+<p><span class="theorem-title"><strong>例 5.1</strong></span> 単位期間あたりの需要 <span class="math inline">\(D\)</span> が連続一様分布 <span class="math inline">\(U(200, 300)\)</span> に従うと仮定する。平均需要は <span class="math inline">\(\mu = 250\)</span> である。一回の発注量を <span class="math inline">\(Q = 500\)</span> とする。</p>
+<p>次の図は、在庫量の時間的変化を示す。灰色の領域は、需要の範囲を示す。赤い領域は、在庫量が0以下になったときの欠品を示す。黒い線は平均需要に基づく在庫量の変化を示す。</p>
+<div id="6b3d6646" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
@@ -738,7 +747,7 @@ r &amp;= \mu_L + s \approx 400 + 65.79 \approx 465.79
 \end{align}\]</span></p>
 <p>したがって、発注点 <span class="math inline">\(r\)</span> は約465.79、必要な安全在庫 <span class="math inline">\(s\)</span> は約65.79となる。</p>
 <p>Python では、以下のように計算できる。</p>
-<div id="be0cbb5a" class="cell" data-execution_count="2">
+<div id="73afb86e" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
@@ -761,6 +770,24 @@ r &amp;= \mu_L + s \approx 400 + 65.79 \approx 465.79
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="欠品費用を考慮する場合" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="欠品費用を考慮する場合"><span class="header-section-number">5.2</span> 欠品費用を考慮する場合*</h2>
+<p>また、欠品費用も考慮する場合、バックオーダーを考慮した EOQ モデルを用いて、発注量 <span class="math inline">\(Q\)</span> は次のように求めることができる<span class="citation" data-cites="Hillier2025-cb">(<a href="../references.html#ref-Hillier2025-cb" role="doc-biblioref">Hillier と Lieberman 2025</a>)</span>。</p>
+<p><span class="math display">\[
+Q = \sqrt{\frac{2K \mu}{h}} \sqrt{\frac{p+h}{p}}
+\]</span></p>
+<p><span class="math inline">\(p\)</span> は単位あたりの欠品費用である。</p>
+</section>
+<section id="文献案内" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="文献案内"><span class="header-section-number">5.3</span> 文献案内</h2>
+</section>
+<section id="練習問題" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="練習問題"><span class="header-section-number">5.4</span> 練習問題</h2>
+<div id="exr-safety" class="theorem exercise">
+<p><span class="theorem-title"><strong>練習 5.1</strong></span> &nbsp;</p>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -774,7 +801,6 @@ Hillier, Frederick, と Gerald Lieberman. 2025. <em><span>ISE</span> introductio
 Snyder, Lawrence V, と Zuo-Jun Max Shen. 2019. <em>Fundamentals of supply chain theory</em>. 2nd 版. Nashville, TN: John Wiley &amp; Sons.
 </div>
 </div>
-</section>
 </section>
 
 </main> <!-- /main -->

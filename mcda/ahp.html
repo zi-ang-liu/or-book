@@ -522,9 +522,14 @@ window.Quarto = {
   <li><a href="#記号" id="toc-記号" class="nav-link active" data-scroll-target="#記号"><span class="header-section-number">6.1</span> 記号</a></li>
   <li><a href="#代替案の重要度" id="toc-代替案の重要度" class="nav-link" data-scroll-target="#代替案の重要度"><span class="header-section-number">6.2</span> 代替案の重要度</a></li>
   <li><a href="#一対比較" id="toc-一対比較" class="nav-link" data-scroll-target="#一対比較"><span class="header-section-number">6.3</span> 一対比較</a></li>
-  <li><a href="#重要度ベクトル" id="toc-重要度ベクトル" class="nav-link" data-scroll-target="#重要度ベクトル"><span class="header-section-number">6.4</span> 重要度ベクトル</a></li>
-  <li><a href="#文献案内" id="toc-文献案内" class="nav-link" data-scroll-target="#文献案内"><span class="header-section-number">6.5</span> 文献案内</a></li>
-  <li><a href="#用語" id="toc-用語" class="nav-link" data-scroll-target="#用語"><span class="header-section-number">6.6</span> 用語</a></li>
+  <li><a href="#重要度ベクトル" id="toc-重要度ベクトル" class="nav-link" data-scroll-target="#重要度ベクトル"><span class="header-section-number">6.4</span> 重要度ベクトル</a>
+  <ul class="collapse">
+  <li><a href="#固有ベクトル法" id="toc-固有ベクトル法" class="nav-link" data-scroll-target="#固有ベクトル法"><span class="header-section-number">6.4.1</span> 固有ベクトル法*</a></li>
+  <li><a href="#aa" id="toc-aa" class="nav-link" data-scroll-target="#aa"><span class="header-section-number">6.4.2</span> aa</a></li>
+  </ul></li>
+  <li><a href="#整合性" id="toc-整合性" class="nav-link" data-scroll-target="#整合性"><span class="header-section-number">6.5</span> 整合性</a></li>
+  <li><a href="#文献案内" id="toc-文献案内" class="nav-link" data-scroll-target="#文献案内"><span class="header-section-number">6.6</span> 文献案内</a></li>
+  <li><a href="#用語" id="toc-用語" class="nav-link" data-scroll-target="#用語"><span class="header-section-number">6.7</span> 用語</a></li>
   </ul>
 </nav>
     </div>
@@ -720,7 +725,26 @@ n w_n \\
 \end{bmatrix}
 = n \mathbf{w}
 \]</span></p>
-<p>となる．式 <span class="math inline">\(\mathbf{A} \mathbf{w} = n \mathbf{w}\)</span> より，<span class="math inline">\(\mathbf{w}\)</span> は <span class="math inline">\(\mathbf{A}\)</span> の固有ベクトル，<span class="math inline">\(n\)</span> は <span class="math inline">\(\mathbf{A}\)</span> の固有値である．</p>
+<p>が成り立つ．式 <span class="math inline">\(\mathbf{A} \mathbf{w} = n \mathbf{w}\)</span> より，<span class="math inline">\(\mathbf{w}\)</span> は <span class="math inline">\(\mathbf{A}\)</span> の固有ベクトル，<span class="math inline">\(n\)</span> は <span class="math inline">\(\mathbf{A}\)</span> の固有値である．</p>
+<section id="固有ベクトル法" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="固有ベクトル法"><span class="header-section-number">6.4.1</span> 固有ベクトル法*</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+ヒント
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>固有ベクトル法は直感的に理解することが難しいため，講義では扱わない．</p>
+</div>
+</div>
+<p>Saatyは，最大固有値 <span class="math inline">\(\lambda_{max}\)</span> に対応する固有ベクトルを重要度ベクトルとして用いることを提案した．すなわち，重要度ベクトル <span class="math inline">\(\mathbf{w}\)</span> を求めるには，以下の式を解く．</p>
+<p><span class="math display">\[
+\mathbf{A} \mathbf{w} = \lambda_{max} \mathbf{w}
+\]</span></p>
 <p><a href="#exm-pairwise" class="quarto-xref">例&nbsp;<span>6.2</span></a> の一対比較行列が与えられたとする．</p>
 <p><span class="math display">\[
 \mathbf{A} = \begin{bmatrix}
@@ -729,7 +753,7 @@ n w_n \\
 1/6 &amp; 1/2 &amp; 1 \\
 \end{bmatrix}
 \]</span></p>
-<p>このとき，<span class="math inline">\(\mathbf{A}\)</span> の固有値は</p>
+<p>このとき，<span class="math inline">\(\mathbf{A}\)</span> の固有値は，<span class="math inline">\(\det(\mathbf{A} - \lambda \mathbf{I}) = 0\)</span> を解くことで求められる．</p>
 <p><span class="math display">\[\begin{align*}
 \det(\mathbf{A} - \lambda \mathbf{I}) &amp;= \det\begin{bmatrix}
 1 - \lambda &amp; 3 &amp; 6 \\
@@ -739,8 +763,13 @@ n w_n \\
 &amp;= -\lambda^3 + 3\lambda^2 \\
 &amp;= -\lambda^2(\lambda - 3)
 \end{align*}\]</span></p>
-<div id="thm-perron" class="theorem">
-<p><span class="theorem-title"><strong>定理 6.1 (Perron-Frobenius)</strong></span> &nbsp;</p>
+<p><span class="math inline">\(\lambda^2(\lambda - 3) = 0\)</span> より，<span class="math inline">\(\lambda = 0, 3\)</span> が得られる．この例において，<span class="math inline">\(\mathbf{A}\)</span> の最大固有値は <span class="math inline">\(\lambda_{max} = 3\)</span> であり，それ以外の固有値は <span class="math inline">\(\lambda = 0\)</span> である．また，<span class="math inline">\(\mathbf{A}\)</span> は <span class="math inline">\(3 \times 3\)</span> 行列であるため，<span class="math inline">\(\lambda_{max} = n\)</span> が成り立つ．これは特別な例ではなく，一般に <a href="#prp-lambda-n" class="quarto-xref">命題&nbsp;<span>6.1</span></a> が成り立つ．</p>
+<div id="prp-lambda-n" class="theorem proposition">
+<p><span class="theorem-title"><strong>命題 6.1</strong></span> 整合性のある <span class="math inline">\(n \times n\)</span> 行列 <span class="math inline">\(\mathbf{A}\)</span> の最大固有値は <span class="math inline">\(\lambda_{max} = n\)</span> であり，それ以外の固有値は <span class="math inline">\(\lambda = 0\)</span> である．</p>
+</div>
+<p>行列 <span class="math inline">\(\mathbf{A}\)</span> は整合性を持たないとき，<span class="math inline">\(\lambda_{max} &gt; n\)</span> が成り立つ．<a href="#prp-Saaty" class="quarto-xref">命題&nbsp;<span>6.2</span></a> は <span class="math inline">\(\lambda_{max}\)</span> の性質を述べている．</p>
+<div id="prp-Saaty" class="theorem proposition">
+<p><span class="theorem-title"><strong>命題 6.2 (Saaty)</strong></span> <span class="math inline">\(\mathbf{A}\)</span> を一対行列とする．<span class="math inline">\(\mathbf{A}\)</span> が整合性を持つならば，<span class="math inline">\(\lambda_{max} = n\)</span> である．<span class="math inline">\(\mathbf{A}\)</span> が整合性を持たないならば，<span class="math inline">\(\lambda_{max} &gt; n\)</span> である．</p>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -807,12 +836,19 @@ n w_n \\
 </div>
 </div>
 </section>
-<section id="文献案内" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="文献案内"><span class="header-section-number">6.5</span> 文献案内</h2>
+<section id="aa" class="level3" data-number="6.4.2">
+<h3 data-number="6.4.2" class="anchored" data-anchor-id="aa"><span class="header-section-number">6.4.2</span> aa</h3>
+</section>
+</section>
+<section id="整合性" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="整合性"><span class="header-section-number">6.5</span> 整合性</h2>
+</section>
+<section id="文献案内" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="文献案内"><span class="header-section-number">6.6</span> 文献案内</h2>
 <p><span class="citation" data-cites="Brunelli2015-mz">Brunelli (<a href="../references.html#ref-Brunelli2015-mz" role="doc-biblioref">2015</a>)</span> はAHPを丁寧に解説した書籍である．</p>
 </section>
-<section id="用語" class="level2" data-number="6.6">
-<h2 data-number="6.6" class="anchored" data-anchor-id="用語"><span class="header-section-number">6.6</span> 用語</h2>
+<section id="用語" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="用語"><span class="header-section-number">6.7</span> 用語</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">

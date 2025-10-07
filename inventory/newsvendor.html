@@ -603,15 +603,24 @@ window.Quarto = {
 </header>
 
 
-<p>新聞売り子問題（Newsvendor Problem）は、古典的な確率的在庫モデルの一つである。新聞は次の日には売れなくなるため、新聞売り子問題は最も単純な perishable 在庫モデルとして知られている。</p>
+<p>これまで紹介した EOQ 在庫モデルは、需要が決定論的であると仮定していた。ここからは、需要が確率的であると仮定した在庫モデルを紹介する。</p>
+<p>新聞売り子問題（Newsvendor Problem）は，古典的な確率的在庫モデルの一つである。新聞は次の日には売れなくなるため，新聞売り子問題は最も単純な perishable 在庫モデルとして知られている。新聞に限らず，食品や花などの生鮮品の在庫管理にも応用される。</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="fig/Buying_a_newspaper.jpg" class="img-fluid figure-img"></p>
 <figcaption>Jacob Epstein, Buying a Newspaper. The Spirit of the Ghetto, 1902, public domain, Wikimedia Commons</figcaption>
 </figure>
 </div>
-<p>新聞売り子が新聞を仕入れ、販売する問題を考える。新聞 1 部の欠品費用を <span class="math inline">\(p\)</span>、保管費用を <span class="math inline">\(h\)</span> とする。新聞売子問題において、<span class="math inline">\(p\)</span> を<strong>在庫不足費用</strong>（underage cost）、<span class="math inline">\(h\)</span> を<strong>在庫超過費用</strong>（overage cost）とも呼ぶ。<span class="math inline">\(p \gt 0\)</span>、<span class="math inline">\(h \gt 0\)</span> とし、初期在庫は 0 とする。</p>
-<p>新聞の需要 <span class="math inline">\(D\)</span> を確率変数とするとき、新聞売り子はどれだけの新聞を発注すればよいかという問題である。</p>
+<p>新聞売り子が新聞を仕入れ，販売する問題を考える。新聞 1 部の欠品費用を <span class="math inline">\(p\)</span>，保管費用を <span class="math inline">\(h\)</span> とする。新聞売子問題において，<span class="math inline">\(p\)</span> を<strong>在庫不足費用</strong>（underage cost），<span class="math inline">\(h\)</span> を<strong>在庫超過費用</strong>（overage cost）とも呼ぶ。<span class="math inline">\(p \gt 0\)</span>，<span class="math inline">\(h \gt 0\)</span> とし，初期在庫は 0 とする。</p>
+<p>新聞の需要 <span class="math inline">\(D\)</span> を確率変数とするとき，新聞売り子はどれだけの新聞を発注すればよいかという問題である。</p>
+<div id="exm-newsvendor-thought" class="theorem example">
+<p><span class="theorem-title"><strong>例 4.1 (思考実験)</strong></span> 需要 <span class="math inline">\(D\)</span> が 一様分布 <span class="math inline">\(U(100,300)\)</span> に従うとする。以下のそれぞれの場合，新聞売り子がどれだけの新聞を発注するか考えよ。</p>
+<ul>
+<li>在庫超過費用 <span class="math inline">\(h = 1000\)</span>，在庫不足費用 <span class="math inline">\(p = 0.1\)</span></li>
+<li>在庫超過費用 <span class="math inline">\(h = 0.1\)</span>，在庫不足費用 <span class="math inline">\(p = 1000\)</span></li>
+<li>在庫超過費用 <span class="math inline">\(h = 10\)</span>，在庫不足費用 <span class="math inline">\(p = 10\)</span></li>
+</ul>
+</div>
 <section id="記号" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="記号"><span class="header-section-number">4.1</span> 記号</h2>
 <table class="caption-top table">
@@ -652,34 +661,34 @@ window.Quarto = {
 </tr>
 <tr class="even">
 <td style="text-align: left;"><span class="math inline">\(g(S, d)\)</span></td>
-<td style="text-align: left;">発注量 <span class="math inline">\(S\)</span>、需要の観測値 <span class="math inline">\(d\)</span> に対するコスト</td>
+<td style="text-align: left;">発注量 <span class="math inline">\(S\)</span>，需要の観測値 <span class="math inline">\(d\)</span> に対するコスト</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\(g(S)\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(g(S, d)\)</span> の期待値、<span class="math inline">\(g(S) = \mathbb{E}[g(S, D)]\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(g(S, d)\)</span> の期待値，<span class="math inline">\(g(S) = \mathbb{E}[g(S, D)]\)</span></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="定式化" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="定式化"><span class="header-section-number">4.2</span> 定式化</h2>
-<p>新聞売り子が <span class="math inline">\(S\)</span> 部の新聞を仕入れ、需要 <span class="math inline">\(D\)</span> が <span class="math inline">\(d\)</span> であったとする。このとき、新聞売り子のコスト <span class="math inline">\(g(S, d)\)</span> は以下のように表される。</p>
+<p>新聞売り子が <span class="math inline">\(S\)</span> 部の新聞を仕入れ，需要 <span class="math inline">\(D\)</span> が <span class="math inline">\(d\)</span> であったとする。このとき，新聞売り子のコスト <span class="math inline">\(g(S, d)\)</span> は以下のように表される。</p>
 <p><span id="eq-newsvendor-cost"><span class="math display">\[
 g(S, d) = h (S - d)^+ + p (d - S)^+
 \tag{4.1}\]</span></span></p>
 <div id="exm-newsvendor-cost" class="theorem example">
-<p><span class="theorem-title"><strong>例 4.1</strong></span> 発注量 <span class="math inline">\(S = 100\)</span>、需要 <span class="math inline">\(D\)</span> の観測値 <span class="math inline">\(d = 120\)</span>、在庫超過費用が <span class="math inline">\(h = 10\)</span>、在庫不足費用が <span class="math inline">\(p = 5\)</span> のとき、コスト <span class="math inline">\(g(S, d)\)</span> は以下のように求められる。</p>
+<p><span class="theorem-title"><strong>例 4.2</strong></span> 発注量 <span class="math inline">\(S = 100\)</span>，需要 <span class="math inline">\(D\)</span> の観測値 <span class="math inline">\(d = 120\)</span>，在庫超過費用が <span class="math inline">\(h = 10\)</span>，在庫不足費用が <span class="math inline">\(p = 5\)</span> のとき，コスト <span class="math inline">\(g(S, d)\)</span> は以下のように求められる。</p>
 <p><span class="math display">\[
 g(100, 120) = 10 (100 - 120)^+ + 5 (120 - 100)^+ = 100
 \]</span></p>
 </div>
-<p>観測値 <span class="math inline">\(d\)</span> が分かれば、コスト <span class="math inline">\(g(S, d)\)</span> を計算できる。しかし、需要 <span class="math inline">\(D\)</span> が確率変数であることを思い出そう。ここからは、需要 <span class="math inline">\(D\)</span> が連続型確率変数であると仮定する。</p>
-<p>需要 <span class="math inline">\(D\)</span> の確率密度関数を <span class="math inline">\(f_D(d)\)</span>、累積分布関数を <span class="math inline">\(F_D(d)\)</span> とする。発注量を <span class="math inline">\(S\)</span> としたとき、需要 <span class="math inline">\(D \leq S\)</span> である確率は、累積分布関数 <span class="math inline">\(F_D(S)\)</span> で与えられる。</p>
+<p>観測値 <span class="math inline">\(d\)</span> が分かれば，コスト <span class="math inline">\(g(S, d)\)</span> を計算できる。しかし，需要 <span class="math inline">\(D\)</span> が確率変数であることを思い出そう。ここからは，需要 <span class="math inline">\(D\)</span> が連続型確率変数であると仮定する。</p>
+<p>需要 <span class="math inline">\(D\)</span> の確率密度関数を <span class="math inline">\(f_D(d)\)</span>，累積分布関数を <span class="math inline">\(F_D(d)\)</span> とする。発注量を <span class="math inline">\(S\)</span> としたとき，需要 <span class="math inline">\(D \leq S\)</span> である確率は，累積分布関数 <span class="math inline">\(F_D(S)\)</span> で与えられる。</p>
 <p><span id="eq-newsvendor-S"><span class="math display">\[
 P(D \leq S) = F_D(S) = \int_{0}^{S} f_D(d) dd
 \tag{4.2}\]</span></span></p>
 <div id="exm-newsvendor-distribution" class="theorem example">
-<p><span class="theorem-title"><strong>例 4.2</strong></span> 需要 <span class="math inline">\(D\)</span> が一様分布 <span class="math inline">\(U(100,300)\)</span> に従うとき、確率密度関数 <span class="math inline">\(f_D(250)\)</span> と累積分布関数 <span class="math inline">\(F_D(250)\)</span> は以下のように表される。</p>
+<p><span class="theorem-title"><strong>例 4.3</strong></span> 需要 <span class="math inline">\(D\)</span> が一様分布 <span class="math inline">\(U(100,300)\)</span> に従うとき，確率密度関数 <span class="math inline">\(f_D(250)\)</span> と累積分布関数 <span class="math inline">\(F_D(250)\)</span> は以下のように表される。</p>
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -719,7 +728,7 @@ P(D \leq S) = F_D(S) = \int_{0}^{S} f_D(d) dd
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="fl">1.1</span>)</span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="51eba1c9" class="cell quarto-layout-panel" data-execution_count="1" data-layout-ncol="2">
+<div id="fbad020c" class="cell quarto-layout-panel" data-execution_count="1" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
@@ -739,7 +748,7 @@ P(D \leq S) = F_D(S) = \int_{0}^{S} f_D(d) dd
 </div>
 </div>
 </div>
-<p>需要 <span class="math inline">\(D \leq 250\)</span> である確率は、累積分布関数 <span class="math inline">\(F_D(250)\)</span> で与えられる。</p>
+<p>需要 <span class="math inline">\(D \leq 250\)</span> である確率は，累積分布関数 <span class="math inline">\(F_D(250)\)</span> で与えられる。</p>
 <p><span class="math display">\[
 P(D \leq 250) = F_D(250) = \int_{100}^{250} f_D(d) dd = 0.75
 \]</span></p>
@@ -748,15 +757,15 @@ P(D \leq 250) = F_D(250) = \int_{100}^{250} f_D(d) dd = 0.75
 P(D &gt; 250) = 1 - F_D(250) = 1 - \int_{100}^{250} f_D(d) dd = 0.25
 \]</span></p>
 </div>
-<p><span class="math inline">\(D\)</span> が確率変数であるため、コストも確率変数となる。新聞売り子問題の目的は、コストの期待値を最小化することである。</p>
-<p>ここで、コストの期待値を <span class="math inline">\(g(S) = \mathbb{E}[g(S, D)]\)</span> とする。<span class="math inline">\(g(S, D)\)</span> は <a href="#eq-newsvendor-cost" class="quarto-xref">式&nbsp;<span>4.1</span></a> で与えられるため、コストの期待値 <span class="math inline">\(g(S)\)</span> は以下のように表される。</p>
+<p><span class="math inline">\(D\)</span> が確率変数であるため，コストも確率変数となる。新聞売り子問題の目的は，コストの期待値を最小化することである。</p>
+<p>ここで，コストの期待値を <span class="math inline">\(g(S) = \mathbb{E}[g(S, D)]\)</span> とする。<span class="math inline">\(g(S, D)\)</span> は <a href="#eq-newsvendor-cost" class="quarto-xref">式&nbsp;<span>4.1</span></a> で与えられるため，コストの期待値 <span class="math inline">\(g(S)\)</span> は以下のように表される。</p>
 <p><span class="math display">\[\begin{align}
 g(S) &amp;= \mathbb{E}[g(S, D)] \\
 &amp;= \mathbb{E}[h (S - D)^+ + p (D - S)^+] \\
 &amp;= \mathbb{E}[h (S - D)^+] + \mathbb{E}[p (D - S)^+] \\
 &amp;= h \mathbb{E}[(S - D)^+] + p \mathbb{E}[(D - S)^+] \\
 \end{align}\]</span></p>
-<p>この式により、コストの期待値 <span class="math inline">\(g(S)\)</span> は、<span class="math inline">\((S - D)^+\)</span> の期待値かける在庫超過費用 <span class="math inline">\(h\)</span> と、<span class="math inline">\((D - S)^+\)</span> の期待値かける在庫不足費用 <span class="math inline">\(p\)</span> の和であることが分かる。</p>
+<p>この式により，コストの期待値 <span class="math inline">\(g(S)\)</span> は，<span class="math inline">\((S - D)^+\)</span> の期待値かける在庫超過費用 <span class="math inline">\(h\)</span> と，<span class="math inline">\((D - S)^+\)</span> の期待値かける在庫不足費用 <span class="math inline">\(p\)</span> の和であることが分かる。</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -767,7 +776,7 @@ g(S) &amp;= \mathbb{E}[g(S, D)] \\
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><span class="math inline">\(X\)</span> と <span class="math inline">\(Y\)</span> を確率変数、<span class="math inline">\(a\)</span> と <span class="math inline">\(b\)</span> を定数とする。このとき、</p>
+<p><span class="math inline">\(X\)</span> と <span class="math inline">\(Y\)</span> を確率変数，<span class="math inline">\(a\)</span> と <span class="math inline">\(b\)</span> を定数とする。このとき，</p>
 <p><span class="math display">\[
 \mathbb{E}[X + Y] = \mathbb{E}[X] + \mathbb{E}[Y]
 \]</span></p>
@@ -777,7 +786,7 @@ g(S) &amp;= \mathbb{E}[g(S, D)] \\
 <p>が成り立つ。</p>
 </div>
 </div>
-<p>需要 <span class="math inline">\(D\)</span> が連続型確率変数であるため、<span class="math inline">\(\mathbb{E}[(S - D)^+]\)</span> と <span class="math inline">\(\mathbb{E}[(D - S)^+]\)</span> は以下のように表される。 <span class="math display">\[\begin{align}
+<p>需要 <span class="math inline">\(D\)</span> が連続型確率変数であるため，<span class="math inline">\(\mathbb{E}[(S - D)^+]\)</span> と <span class="math inline">\(\mathbb{E}[(D - S)^+]\)</span> は以下のように表される。 <span class="math display">\[\begin{align}
 \mathbb{E}[(S - D)^+]
 &amp;= \int_{0}^{\infty} (S - d)^+ f_D(d) dd = \int_{0}^{S} (S - d) f_D(d) dd \\
 \mathbb{E}[(D - S)^+]
@@ -793,7 +802,7 @@ g(S) &amp;= \mathbb{E}[g(S, D)] \\
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><span class="math inline">\(X\)</span> を連続型確率変数、<span class="math inline">\(f_X(x)\)</span> を <span class="math inline">\(X\)</span> の確率密度関数とする。このとき、<span class="math inline">\(X\)</span> の期待値 <span class="math inline">\(\mathbb{E}[X]\)</span> は以下のように表される。</p>
+<p><span class="math inline">\(X\)</span> を連続型確率変数，<span class="math inline">\(f_X(x)\)</span> を <span class="math inline">\(X\)</span> の確率密度関数とする。このとき，<span class="math inline">\(X\)</span> の期待値 <span class="math inline">\(\mathbb{E}[X]\)</span> は以下のように表される。</p>
 <p><span class="math display">\[
 \mathbb{E}[X] = \int_{-\infty}^{\infty} x f_X(x) dx
 \]</span></p>
@@ -803,14 +812,14 @@ g(S) &amp;= \mathbb{E}[g(S, D)] \\
 \]</span></p>
 </div>
 </div>
-<p>したがって、コストの期待値 <span class="math inline">\(g(S)\)</span> は以下のように表される。</p>
+<p>したがって，コストの期待値 <span class="math inline">\(g(S)\)</span> は以下のように表される。</p>
 <p><span class="math display">\[\begin{align}
 g(S) &amp;= \mathbb{E}[g(S, D)] \\
 &amp;= h \mathbb{E}[(S - D)^+] + p \mathbb{E}[(D - S)^+] \\
 &amp;= h \int_{0}^{S} (S - d) f_D(d) dd + p \int_{S}^{\infty} (d - S) f_D(d) dd
 \end{align}\]</span></p>
 <div id="exm-newsvendor-expectation" class="theorem example">
-<p><span class="theorem-title"><strong>例 4.3</strong></span> 在庫超過費用が <span class="math inline">\(h = 10\)</span>、在庫不足費用が <span class="math inline">\(p = 5\)</span> のとき、発注量 <span class="math inline">\(S = 150\)</span> に対するコストの期待値 <span class="math inline">\(g(150)\)</span> は以下のように求められる。</p>
+<p><span class="theorem-title"><strong>例 4.4</strong></span> 在庫超過費用が <span class="math inline">\(h = 10\)</span>，在庫不足費用が <span class="math inline">\(p = 5\)</span> のとき，発注量 <span class="math inline">\(S = 150\)</span> に対するコストの期待値 <span class="math inline">\(g(150)\)</span> は以下のように求められる。</p>
 <p><span class="math display">\[
 g(150) = 10 \int_{0}^{150} (150 - d) f_D(d) dd + 5 \int_{150}^{\infty} (d - 150) f_D(d) dd
 \]</span></p>
@@ -818,18 +827,18 @@ g(150) = 10 \int_{0}^{150} (150 - d) f_D(d) dd + 5 \int_{150}^{\infty} (d - 150)
 </section>
 <section id="最適化" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="最適化"><span class="header-section-number">4.3</span> 最適化</h2>
-<p>以下の手順で、コストの期待値 <span class="math inline">\(g(S)\)</span> を最小化する発注量 <span class="math inline">\(S^*\)</span> を求める。</p>
+<p>以上の議論から，新聞売り子問題は，コストの期待値 <span class="math inline">\(g(S)\)</span> を最小化する発注量 <span class="math inline">\(S\)</span> を求める問題に帰着される。手順は以下の通りである。</p>
 <ol type="1">
 <li><span class="math inline">\(g(S)\)</span> の1階微分を求める。</li>
 <li><span class="math inline">\(dg(S)/dS = 0\)</span> を解く。</li>
-<li>2階微分を求め、<span class="math inline">\(g(S)\)</span> が凸関数であることを確認する。</li>
+<li>2階微分を求め，<span class="math inline">\(g(S)\)</span> が凸関数であることを確認する。</li>
 </ol>
-<p><a href="#eq-newsvendor-S" class="quarto-xref">式&nbsp;<span>4.2</span></a> を用い、<span class="math inline">\(g(S)\)</span> の1階微分は以下のように求める。</p>
+<p><a href="#eq-newsvendor-S" class="quarto-xref">式&nbsp;<span>4.2</span></a> を用い，<span class="math inline">\(g(S)\)</span> の1階微分は以下のように求める。</p>
 <p><span class="math display">\[\begin{align}
 \frac{dg(S)}{dS} &amp;= h \int_{0}^{S} f_D(d) dd - p \int_{S}^{\infty} f_D(d) dd \\
 &amp;= h F_D(S) - p (1 - F_D(S)) \\
 \end{align}\]</span></p>
-<p>よって、<span class="math inline">\(dg(S)/dS = 0\)</span> から、</p>
+<p>よって，<span class="math inline">\(dg(S)/dS = 0\)</span> から，</p>
 <p><span class="math display">\[\begin{align}
 h F_D(S) - p (1 - F_D(S)) &amp;= 0 \\
 F_D(S) &amp;= \frac{p}{h + p}
@@ -839,12 +848,25 @@ F_D(S) &amp;= \frac{p}{h + p}
 \frac{d^2g(S)}{dS^2} &amp;= h f_D(S) + p f_D(S) \\
 &amp;= (h + p) f_D(S) &gt; 0
 \end{align}\]</span></p>
-<p>である。したがって、コスト関数 <span class="math inline">\(g(S)\)</span> は凸関数であり、1 階微分が 0 になる点は最小値を与える。</p>
+<p>である。したがって，コスト関数 <span class="math inline">\(g(S)\)</span> は凸関数であり，1 階微分が 0 になる点は最小値を与える。</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+ヒント
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(p &gt; 0\)</span>，<span class="math inline">\(h &gt; 0\)</span>，<span class="math inline">\(f_D(S) &gt; 0\)</span> より，<span class="math inline">\((h + p) f_D(S) &gt; 0\)</span> が成り立つ。</p>
+</div>
+</div>
 <p>コスト関数 <span class="math inline">\(g(S)\)</span> を最小化するための最適発注量 <span class="math inline">\(S^*\)</span> は</p>
 <p><span class="math display">\[
 S^* = F_D^{-1}\left(\frac{p}{h + p}\right)
 \]</span></p>
-<p>となる。ここで、<span class="math inline">\(F_D^{-1}\)</span> は需要 <span class="math inline">\(D\)</span> の累積分布関数の逆関数である。</p>
+<p>となる。ここで，<span class="math inline">\(F_D^{-1}\)</span> は需要 <span class="math inline">\(D\)</span> の累積分布関数の逆関数である。</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -855,14 +877,14 @@ S^* = F_D^{-1}\left(\frac{p}{h + p}\right)
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>ある関数 <span class="math inline">\(y = f(x)\)</span> に対し、次の条件を満たす関数 <span class="math inline">\(x = f^{-1}(y)\)</span> を <span class="math inline">\(f(x)\)</span> の逆関数と呼ぶ。</p>
+<p>ある関数 <span class="math inline">\(y = f(x)\)</span> に対し，次の条件を満たす関数 <span class="math inline">\(x = f^{-1}(y)\)</span> を <span class="math inline">\(f(x)\)</span> の逆関数と呼ぶ。</p>
 <p><span class="math display">\[
 f(f^{-1}(y)) = y, \quad f^{-1}(f(x)) = x
 \]</span></p>
 </div>
 </div>
 <div id="thm-newsvendor" class="theorem">
-<p><span class="theorem-title"><strong>定理 4.1</strong></span> 新聞売り子問題における最適発注量 <span class="math inline">\(S^*\)</span> は、</p>
+<p><span class="theorem-title"><strong>定理 4.1</strong></span> 新聞売り子問題における最適発注量 <span class="math inline">\(S^*\)</span> は，</p>
 <p><span class="math display">\[
 S^* = F_D^{-1}\left(\frac{p}{h + p}\right)
 \]</span></p>
@@ -870,15 +892,15 @@ S^* = F_D^{-1}\left(\frac{p}{h + p}\right)
 </div>
 <section id="正規分布の場合" class="level3" data-number="4.3.1">
 <h3 data-number="4.3.1" class="anchored" data-anchor-id="正規分布の場合"><span class="header-section-number">4.3.1</span> 正規分布の場合</h3>
-<p>需要 <span class="math inline">\(D\)</span> が正規分布 <span class="math inline">\(N(\mu, \sigma^2)\)</span> に従うとき、新聞売り子問題の最適発注量 <span class="math inline">\(S^*\)</span> は以下の式を満たす。</p>
+<p>需要 <span class="math inline">\(D\)</span> が正規分布 <span class="math inline">\(N(\mu, \sigma^2)\)</span> に従うとき，新聞売り子問題の最適発注量 <span class="math inline">\(S^*\)</span> は以下の式を満たす。</p>
 <p><span class="math display">\[
 F_D(S^*) = \Phi\left(\frac{S^* - \mu}{\sigma}\right) = \frac{p}{h + p}
 \]</span></p>
-<p>ここで、</p>
+<p>ここで，</p>
 <p><span class="math display">\[
 z = \Phi^{-1}\left(\frac{p}{h + p}\right)
 \]</span></p>
-<p>とおくと、</p>
+<p>とおくと，</p>
 <p><span class="math display">\[
 S^* = \sigma z + \mu
 \]</span></p>
@@ -893,46 +915,46 @@ S^* = \sigma z + \mu
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>平均 0、分散 1 の正規分布を<strong>標準正規分布</strong>（standard normal distribution）と呼ぶ。標準正規分布に従う確率変数を <span class="math inline">\(Y\)</span> とすると、<span class="math inline">\(Y \sim N(0, 1)\)</span> と表される。標準正規分布の確率密度関数を <span class="math inline">\(\phi(z)\)</span>、累積分布関数を <span class="math inline">\(\Phi(z)\)</span> と表す。</p>
-<p>与えられた <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span> の累積分布関数 <span class="math inline">\(F_X(x)\)</span> の値を求めるには、以下のように変換する。</p>
+<p>平均 0，分散 1 の正規分布を<strong>標準正規分布</strong>（standard normal distribution）と呼ぶ。標準正規分布に従う確率変数を <span class="math inline">\(Y\)</span> とすると，<span class="math inline">\(Y \sim N(0, 1)\)</span> と表される。標準正規分布の確率密度関数を <span class="math inline">\(\phi(z)\)</span>，累積分布関数を <span class="math inline">\(\Phi(z)\)</span> と表す。</p>
+<p>与えられた <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span> の累積分布関数 <span class="math inline">\(F_X(x)\)</span> の値を求めるには，以下のように変換する。</p>
 <p><span class="math display">\[\begin{align}
 F_X(x) &amp;= P(X \leq x) \\
 &amp;= P \left( \frac{X - \mu}{\sigma} \leq \frac{x - \mu}{\sigma} \right) \\\\
 &amp;= P\left( Y \leq \frac{x - \mu}{\sigma} \right) \\\\
 &amp;= \Phi \left( \frac{x - \mu}{\sigma} \right)
 \end{align}\]</span></p>
-<p>与えられた <span class="math inline">\(z\)</span> に対し、<span class="math inline">\(\Phi(z)\)</span> の値は<strong>標準正規分布表</strong>（standard normal table）を用いて調べることができる。</p>
+<p>与えられた <span class="math inline">\(z\)</span> に対し，<span class="math inline">\(\Phi(z)\)</span> の値は<strong>標準正規分布表</strong>（standard normal table）を用いて調べることができる。</p>
 </div>
 </div>
 </section>
 </section>
 <section id="臨界率" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="臨界率"><span class="header-section-number">4.4</span> 臨界率</h2>
-<p>以上の議論から、最適発注量 <span class="math inline">\(S^*\)</span> は以下の式を満たす。</p>
+<p>以上の議論から，最適発注量 <span class="math inline">\(S^*\)</span> は以下の式を満たす。</p>
 <p><span class="math display">\[
 F_D(S) = P(D \leq S) = \frac{p}{h + p}
 \]</span></p>
-<p>ここで、<span class="math inline">\(F_D(S) = P(D \leq S)\)</span> は需要 <span class="math inline">\(D\)</span> が発注量 <span class="math inline">\(S\)</span> 以下である確率を表す。言い換えると、欠品が発生しない確率を表す。この確率のことは<strong>サービスレベル</strong>（service level）と呼ぶ。<a href="#thm-newsvendor" class="quarto-xref">定理&nbsp;<span>4.1</span></a> は、サービスレベルを <span class="math inline">\(p/(h+p)\)</span> に等しくする発注量 <span class="math inline">\(S\)</span> が最適であることを示している。</p>
+<p>ここで，<span class="math inline">\(F_D(S) = P(D \leq S)\)</span> は需要 <span class="math inline">\(D\)</span> が発注量 <span class="math inline">\(S\)</span> 以下である確率を表す。言い換えると，欠品が発生しない確率を表す。この確率のことは<strong>サービスレベル</strong>（service level）と呼ぶ。<a href="#thm-newsvendor" class="quarto-xref">定理&nbsp;<span>4.1</span></a> は，サービスレベルを <span class="math inline">\(p/(h+p)\)</span> に等しくする発注量 <span class="math inline">\(S\)</span> が最適であることを示している。</p>
 <p>この <span class="math inline">\(p/(h+p)\)</span> は<strong>臨界率</strong>（critical ratio）と呼ばれる。</p>
 <div id="rem-newsvendor" class="proof remark">
 <p><span class="proof-title"><em>注釈 4.1</em>. </span></p>
 <ul>
-<li>在庫不足費用 <span class="math inline">\(p\)</span> の増加に伴い、サービスレベル <span class="math inline">\(p/(h+p)\)</span> は増加し、最適発注量 <span class="math inline">\(S^* = F_D^{-1}(p/(h+p))\)</span> も増加する。</li>
-<li>在庫超過費用 <span class="math inline">\(h\)</span> の増加に伴い、サービスレベル <span class="math inline">\(p/(h+p)\)</span> は減少し、最適発注量 <span class="math inline">\(S^* = F_D^{-1}(p/(h+p))\)</span> も減少する。</li>
-<li>直感的に、在庫不足費用が増加すると、欠品を避けるために発注量が増加し、サービスレベルも上昇する。一方、在庫超過費用が増加すると、過剰在庫を避けるために発注量が減少し、サービスレベルも低下する。</li>
+<li>在庫不足費用 <span class="math inline">\(p\)</span> の増加に伴い，サービスレベル <span class="math inline">\(p/(h+p)\)</span> は増加し，最適発注量 <span class="math inline">\(S^* = F_D^{-1}(p/(h+p))\)</span> も増加する。</li>
+<li>在庫超過費用 <span class="math inline">\(h\)</span> の増加に伴い，サービスレベル <span class="math inline">\(p/(h+p)\)</span> は減少し，最適発注量 <span class="math inline">\(S^* = F_D^{-1}(p/(h+p))\)</span> も減少する。</li>
+<li>直感的に，在庫不足費用が増加すると，欠品を避けるために発注量が増加し，サービスレベルも上昇する。一方，在庫超過費用が増加すると，過剰在庫を避けるために発注量が減少し，サービスレベルも低下する。</li>
 </ul>
 </div>
 </section>
 <section id="例題" class="level2" data-number="4.5">
 <h2 data-number="4.5" class="anchored" data-anchor-id="例題"><span class="header-section-number">4.5</span> 例題</h2>
 <div id="exm-newsvendor" class="theorem example">
-<p><span class="theorem-title"><strong>例 4.4</strong></span> 需要 <span class="math inline">\(D\)</span> が正規分布 <span class="math inline">\(N(100, 25)\)</span> に従う新聞売り子問題を考える。在庫超過費用が <span class="math inline">\(h = 10\)</span>、在庫不足費用が <span class="math inline">\(p = 40\)</span> のとき、最適発注量 <span class="math inline">\(S^*\)</span> を求める。</p>
-<p><a href="#thm-newsvendor" class="quarto-xref">定理&nbsp;<span>4.1</span></a> より、<span class="math inline">\(S^*\)</span> は以下の式で与えられる。</p>
+<p><span class="theorem-title"><strong>例 4.5</strong></span> 需要 <span class="math inline">\(D\)</span> が正規分布 <span class="math inline">\(N(100, 25)\)</span> に従う新聞売り子問題を考える。在庫超過費用が <span class="math inline">\(h = 10\)</span>，在庫不足費用が <span class="math inline">\(p = 40\)</span> のとき，最適発注量 <span class="math inline">\(S^*\)</span> を求める。</p>
+<p><a href="#thm-newsvendor" class="quarto-xref">定理&nbsp;<span>4.1</span></a> より，<span class="math inline">\(S^*\)</span> は以下の式で与えられる。</p>
 <p><span class="math display">\[
 S^* = F_D^{-1}\left(\frac{p}{h + p}\right) = F_D^{-1}\left(\frac{40}{10 + 40}\right) = F_D^{-1}\left(0.8\right)
 \]</span></p>
-<p>言い換えると、<span class="math inline">\(F_D(S^*) = 0.8\)</span> を満たす <span class="math inline">\(S^*\)</span> を求めればよい。これを図で表すと、面積が 0.8 になるような <span class="math inline">\(S^*\)</span> を求めることに相当する。</p>
-<div id="7a1a80d6" class="cell" data-execution_count="2">
+<p>言い換えると，<span class="math inline">\(F_D(S^*) = 0.8\)</span> を満たす <span class="math inline">\(S^*\)</span> を求めればよい。これを図で表すと，面積が 0.8 になるような <span class="math inline">\(S^*\)</span> を求めることに相当する。</p>
+<div id="a1964355" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -975,10 +997,10 @@ S^* = F_D^{-1}\left(\frac{p}{h + p}\right) = F_D^{-1}\left(\frac{40}{10 + 40}\ri
 </div>
 </div>
 </div>
-<p>下では、Excel、Python、標準正規分布表を用いて <span class="math inline">\(S^*\)</span> を求める方法を示す。</p>
+<p>下では，Excel，Python，標準正規分布表を用いて <span class="math inline">\(S^*\)</span> を求める方法を示す。</p>
 <section id="標準正規分布表" class="level3" data-number="4.5.1">
 <h3 data-number="4.5.1" class="anchored" data-anchor-id="標準正規分布表"><span class="header-section-number">4.5.1</span> 標準正規分布表</h3>
-<p><a href="../appendices/standard_normal_table.html">標準正規分布表</a> を調べると、<span class="math inline">\(\Phi(z) = 0.8\)</span> のとき、<span class="math inline">\(z\)</span> は約 0.84 である。したがって、<span class="math inline">\(S^*\)</span> は</p>
+<p><a href="../appendices/standard_normal_table.html">標準正規分布表</a> を調べると，<span class="math inline">\(\Phi(z) = 0.8\)</span> のとき，<span class="math inline">\(z\)</span> は約 0.84 である。したがって，<span class="math inline">\(S^*\)</span> は</p>
 <p><span class="math display">\[
 S^* = z \sigma + \mu \approx 0.84 \times 5 + 100 = 104.2
 \]</span></p>
@@ -986,13 +1008,13 @@ S^* = z \sigma + \mu \approx 0.84 \times 5 + 100 = 104.2
 </section>
 <section id="excel" class="level3" data-number="4.5.2">
 <h3 data-number="4.5.2" class="anchored" data-anchor-id="excel"><span class="header-section-number">4.5.2</span> Excel</h3>
-<p>Excel では、<code>NORM.INV(確率,平均,標準偏差)</code> 関数を用いて <span class="math inline">\(F_D^{-1}(0.8)\)</span> を求めることができる。</p>
+<p>Excel では，<code>NORM.INV(確率,平均,標準偏差)</code> 関数を用いて <span class="math inline">\(F_D^{-1}(0.8)\)</span> を求めることができる。</p>
 <pre class="excel"><code>=NORM.INV(0.8, 100, 5)</code></pre>
 </section>
 <section id="python" class="level3" data-number="4.5.3">
 <h3 data-number="4.5.3" class="anchored" data-anchor-id="python"><span class="header-section-number">4.5.3</span> Python</h3>
-<p>Python では、SciPy ライブラリの <code>ppf()</code> 関数を用いて、逆関数を求めることができる。</p>
-<div id="1c257619" class="cell" data-execution_count="3">
+<p>Python では，SciPy ライブラリの <code>ppf()</code> 関数を用いて，逆関数を求めることができる。</p>
+<div id="74e191da" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 正規分布のパラメータ</span></span>
@@ -1017,20 +1039,20 @@ S^* = z \sigma + \mu \approx 0.84 \times 5 + 100 = 104.2
 </section>
 <section id="再定式化" class="level2" data-number="4.6">
 <h2 data-number="4.6" class="anchored" data-anchor-id="再定式化"><span class="header-section-number">4.6</span> 再定式化</h2>
-<p>新聞 1 部の仕入れ価格を <span class="math inline">\(c\)</span>、販売価格を <span class="math inline">\(r\)</span>、残存価額を <span class="math inline">\(v\)</span>、欠品費用を <span class="math inline">\(p\)</span>、保管費用を <span class="math inline">\(h\)</span> とする。ここで、以下の条件を満たすとする。</p>
+<p>新聞 1 部の仕入れ価格を <span class="math inline">\(c\)</span>，販売価格を <span class="math inline">\(r\)</span>，残存価額を <span class="math inline">\(v\)</span>，欠品費用を <span class="math inline">\(p\)</span>，保管費用を <span class="math inline">\(h\)</span> とする。ここで，以下の条件を満たすとする。</p>
 <ul>
 <li><span class="math inline">\(r &gt; c\)</span>. 販売価格は仕入れ価格より高い。</li>
 <li><span class="math inline">\(r &gt; v\)</span>. 販売価格は残存価値より高い。</li>
 </ul>
-<p>新聞売り子が <span class="math inline">\(S\)</span> 部の新聞を仕入れ、需要 <span class="math inline">\(D\)</span> が <span class="math inline">\(d\)</span> であったとする。このとき、新聞売り子の利益 <span class="math inline">\(\pi(S, d)\)</span> は以下のように表される。</p>
+<p>新聞売り子が <span class="math inline">\(S\)</span> 部の新聞を仕入れ，需要 <span class="math inline">\(D\)</span> が <span class="math inline">\(d\)</span> であったとする。このとき，新聞売り子の利益 <span class="math inline">\(\pi(S, d)\)</span> は以下のように表される。</p>
 <section id="コスト関数" class="level3" data-number="4.6.1">
 <h3 data-number="4.6.1" class="anchored" data-anchor-id="コスト関数"><span class="header-section-number">4.6.1</span> コスト関数</h3>
 <p><span class="math display">\[\begin{align}
 \pi(S, d) &amp; = r \min\{d, S\} - cS + v \max\{0, S - d\} \\
 &amp; \quad - h \max\{0, S - d\} - p \max\{0, d - S\}
 \end{align}\]</span></p>
-<p>第一項は販売利益、第二項は仕入れコスト、第三項は残存価値、第四項は保管コスト、第五項は欠品コストである。</p>
-<p>以下は、<span class="math inline">\(\max\{0, x\} = x^+\)</span> を用いて書き換えた形である。整理すると、利益は以下のように表される。</p>
+<p>第一項は販売利益，第二項は仕入れコスト，第三項は残存価値，第四項は保管コスト，第五項は欠品コストである。</p>
+<p>以下は，<span class="math inline">\(\max\{0, x\} = x^+\)</span> を用いて書き換えた形である。整理すると，利益は以下のように表される。</p>
 <p><span class="math display">\[
 \pi(S, d) = r \min\{d, S\} - cS + (v - h) (S - d)^+ - p (d - S)^+
 \]</span></p>
@@ -1049,20 +1071,20 @@ r \min\{d, S\} = r d - r (d - S)^+
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><span class="math inline">\(d &lt; S\)</span> の場合、<span class="math inline">\(r \min\{d, S\} = r d\)</span> となる。</li>
-<li><span class="math inline">\(d &gt;= S\)</span> の場合、<span class="math inline">\(r \min\{d, S\} = r d - r(d - S) = r S\)</span> となる。</li>
+<li><span class="math inline">\(d &lt; S\)</span> の場合，<span class="math inline">\(r \min\{d, S\} = r d\)</span> となる。</li>
+<li><span class="math inline">\(d &gt;= S\)</span> の場合，<span class="math inline">\(r \min\{d, S\} = r d - r(d - S) = r S\)</span> となる。</li>
 </ul>
 </div>
 </div>
-<p>したがって、利益は以下のように書き換えられる。</p>
+<p>したがって，利益は以下のように書き換えられる。</p>
 <p><span class="math display">\[
 \pi(S, d) = r d - cS + (v- h) (S - d)^+ - (p + r) (d - S)^+
 \]</span></p>
-<p>利益の最大化は、コストの最小化に帰着される。したがって、コスト関数 <span class="math inline">\(g(S, d) = -\pi(S, d)\)</span> は以下のように表される。</p>
+<p>利益の最大化は，コストの最小化に帰着される。したがって，コスト関数 <span class="math inline">\(g(S, d) = -\pi(S, d)\)</span> は以下のように表される。</p>
 <p><span class="math display">\[
 g(S, d) = cS - rd + (h - v) (S - d)^+ + (p + r) (d - S)^+
 \]</span></p>
-<p><span class="math inline">\(D\)</span> が確率変数であるため、コストの期待値 <span class="math inline">\(g(S)\)</span> は以下のように表される。</p>
+<p><span class="math inline">\(D\)</span> が確率変数であるため，コストの期待値 <span class="math inline">\(g(S)\)</span> は以下のように表される。</p>
 <p><span class="math display">\[\begin{align}
 g(S) &amp;= \mathbb{E}[g(S, D)] \\
 &amp;= \int_{0}^{\infty} g(S, d) f_D(d) dd \\
@@ -1077,7 +1099,7 @@ g(S) &amp;= \mathbb{E}[g(S, D)] \\
 <p><span class="math display">\[\begin{align}
 \frac{dg(S)}{dS} &amp;= c + (h - v) F_D(S) - (p + r) (1 - F_D(S)) \\
 \end{align}\]</span></p>
-<p>よって、<span class="math inline">\(dg(S)/dS = 0\)</span> から、</p>
+<p>よって，<span class="math inline">\(dg(S)/dS = 0\)</span> から，</p>
 <p><span class="math display">\[\begin{align}
 c + (h - v) F_D(S) - (p + r) (1 - F_D(S)) &amp;= 0 \\
 F_D(S) &amp;= \frac{p + r - c}{h + p + r - v}
@@ -1087,21 +1109,21 @@ F_D(S) &amp;= \frac{p + r - c}{h + p + r - v}
 \frac{d^2g(S)}{dS^2} &amp;= (h - v) f_D(S) + (p + r) f_D(S) \\
 &amp;= (h - v + p + r) f_D(S)
 \end{align}\]</span></p>
-<p>である。したがって、コスト関数 <span class="math inline">\(g(S)\)</span> は凸関数であり、1 階微分が 0 になる点は最小値を与える。</p>
+<p>である。したがって，コスト関数 <span class="math inline">\(g(S)\)</span> は凸関数であり，1 階微分が 0 になる点は最小値を与える。</p>
 <p>コスト関数 <span class="math inline">\(g(S)\)</span> を最小化するための最適発注量 <span class="math inline">\(S^*\)</span> は</p>
 <p><span class="math display">\[
 S^* = F_D^{-1}\left(\frac{p + r - c}{h + p + r - v}\right)
-\]</span> となる。ここで、<span class="math inline">\(F_D^{-1}\)</span> は需要 <span class="math inline">\(D\)</span> の累積分布関数の逆関数である。</p>
-<p>新聞売り子問題において、より一般的に、在庫超過費用（overage cost）と 在庫不足費用（underage cost）を考慮する。</p>
+\]</span> となる。ここで，<span class="math inline">\(F_D^{-1}\)</span> は需要 <span class="math inline">\(D\)</span> の累積分布関数の逆関数である。</p>
+<p>新聞売り子問題において，より一般的に，在庫超過費用（overage cost）と 在庫不足費用（underage cost）を考慮する。</p>
 <p><span class="math display">\[
 C_o = h + c - v, \quad C_u = p + r - c
 \]</span></p>
 </section>
 <section id="臨界率-1" class="level3" data-number="4.6.3">
 <h3 data-number="4.6.3" class="anchored" data-anchor-id="臨界率-1"><span class="header-section-number">4.6.3</span> 臨界率</h3>
-<p>在庫超過費用 <span class="math inline">\(C_o\)</span> は、在庫が余ったときのコストである。1 部の在庫超過に対し、保管コストと仕入れコストが発生するが、残存価額が得られないため、<span class="math inline">\(C_o = h + c - v\)</span> となる。</p>
-<p>在庫不足費用 <span class="math inline">\(C_u\)</span> は、在庫が不足したときのコストである。1 部の在庫不足に対し、欠品コスト <span class="math inline">\(p\)</span> と失われた販売機会の利益 <span class="math inline">\(r - c\)</span> が発生するため、<span class="math inline">\(C_u = p + r - c\)</span> となる。</p>
-<p>従って、</p>
+<p>在庫超過費用 <span class="math inline">\(C_o\)</span> は，在庫が余ったときのコストである。1 部の在庫超過に対し，保管コストと仕入れコストが発生するが，残存価額が得られないため，<span class="math inline">\(C_o = h + c - v\)</span> となる。</p>
+<p>在庫不足費用 <span class="math inline">\(C_u\)</span> は，在庫が不足したときのコストである。1 部の在庫不足に対し，欠品コスト <span class="math inline">\(p\)</span> と失われた販売機会の利益 <span class="math inline">\(r - c\)</span> が発生するため，<span class="math inline">\(C_u = p + r - c\)</span> となる。</p>
+<p>従って，</p>
 <p><span class="math display">\[\begin{align*}
 S^* &amp;= F_D^{-1}\left(\frac{p + r - c}{h + p + r - v}\right)\\
 &amp;= F_D^{-1}\left(\frac{C_u}{C_o + C_u}\right)
@@ -1111,9 +1133,9 @@ S^* &amp;= F_D^{-1}\left(\frac{p + r - c}{h + p + r - v}\right)\\
 </section>
 <section id="初期在庫を考慮した新聞売り子問題" class="level2" data-number="4.7">
 <h2 data-number="4.7" class="anchored" data-anchor-id="初期在庫を考慮した新聞売り子問題"><span class="header-section-number">4.7</span> 初期在庫を考慮した新聞売り子問題</h2>
-<p>新聞売り子の初期在庫を <span class="math inline">\(I\)</span> とする。<span class="math inline">\(I \leq S^*\)</span>の場合、最適発注量は <span class="math inline">\(S^* - I\)</span> となる。すなわち、在庫量を <span class="math inline">\(S^*\)</span> にすればよい。</p>
-<p>また、<span class="math inline">\(g(S)\)</span> は凸関数であるため、<span class="math inline">\(I &gt; S^*\)</span> の場合、何も発注しないことが最適である。</p>
-<p>したがって、最適発注量は</p>
+<p>新聞売り子の初期在庫を <span class="math inline">\(I\)</span> とする。<span class="math inline">\(I \leq S^*\)</span>の場合，最適発注量は <span class="math inline">\(S^* - I\)</span> となる。すなわち，在庫量を <span class="math inline">\(S^*\)</span> にすればよい。</p>
+<p>また，<span class="math inline">\(g(S)\)</span> は凸関数であるため，<span class="math inline">\(I &gt; S^*\)</span> の場合，何も発注しないことが最適である。</p>
+<p>したがって，最適発注量は</p>
 <p><span class="math display">\[
 Q =
 \begin{cases}
@@ -1122,36 +1144,37 @@ S^* - I, &amp; \text{if } I \le S^*, \\[6pt]
 \end{cases}
 \]</span></p>
 <p>となる。</p>
-<p>このような発注方式を <strong>Base Stock Policy</strong> (BSP) と呼ぶ。BSP は、各期間の在庫量を観測し、在庫量が <span class="math inline">\(S^*\)</span> に引き上げられるように発注する方式である。新聞売り子問題において、BSP は最適な方策であると知られている。</p>
+<p>このような発注方式を <strong>Base Stock Policy</strong> (BSP) と呼ぶ。BSP は，各期間の在庫量を観測し，在庫量が <span class="math inline">\(S^*\)</span> に引き上げられるように発注する方式である。新聞売り子問題において，BSP は最適な方策であると知られている。</p>
 </section>
 <section id="文献案内" class="level2" data-number="4.8">
 <h2 data-number="4.8" class="anchored" data-anchor-id="文献案内"><span class="header-section-number">4.8</span> 文献案内</h2>
-<p><span class="citation" data-cites="Arrow1951-db">Arrow, Harris, と Marschak (<a href="../references.html#ref-Arrow1951-db" role="doc-biblioref">1951</a>)</span> は、新聞売り子問題を初めて定式化した。</p>
-<p><span class="citation" data-cites="Scarf1959-xl">Scarf (<a href="../references.html#ref-Scarf1959-xl" role="doc-biblioref">1959</a>)</span> の論文では、<span class="math inline">\((s, S)\)</span> 方策が発注費用を考慮した複数期間の新聞売り子問題において最適であることを示している。</p>
-<p>実際には、需要の分布が不明であることが多い。<span class="citation" data-cites="Huber2019-ek">Huber ほか (<a href="../references.html#ref-Huber2019-ek" role="doc-biblioref">2019</a>)</span> は、データ駆動新聞売り子問題（Data-Driven Newsvendor Problem）に関する研究が行われている。</p>
-<p><span class="citation" data-cites="Qin2011-kg">Qin ほか (<a href="../references.html#ref-Qin2011-kg" role="doc-biblioref">2011</a>)</span> は、新聞売り子問題に関する研究をレビューした。</p>
-<!-- 1. 発注量 $S = 100$、需要 $D$ の観測値 $d = 120$、在庫超過費用が $h = 10$、在庫不足費用が $p = 40$ のとき、コスト $g(S, d)$ を求めよ。
-1. 需要 $D$ が正規分布 $N(150, 36)$ に従う新聞売り子問題を考える。在庫超過費用が $h = 5$、在庫不足費用が $p = 20$ のとき、最適発注量 $S^*$ を求めよ。 -->
+<p><span class="citation" data-cites="Arrow1951-db">Arrow, Harris, と Marschak (<a href="../references.html#ref-Arrow1951-db" role="doc-biblioref">1951</a>)</span> は，新聞売り子問題を初めて定式化した。</p>
+<p><span class="citation" data-cites="Scarf1959-xl">Scarf (<a href="../references.html#ref-Scarf1959-xl" role="doc-biblioref">1959</a>)</span> の論文では，<span class="math inline">\((s, S)\)</span> 方策が発注費用を考慮した複数期間の新聞売り子問題において最適であることを示している。</p>
+<p>実際には，需要の分布が不明であることが多い。<span class="citation" data-cites="Huber2019-ek">Huber ほか (<a href="../references.html#ref-Huber2019-ek" role="doc-biblioref">2019</a>)</span> は，データ駆動新聞売り子問題（Data-Driven Newsvendor Problem）に関する研究が行われている。</p>
+<p><span class="citation" data-cites="Qin2011-kg">Qin ほか (<a href="../references.html#ref-Qin2011-kg" role="doc-biblioref">2011</a>)</span> は，新聞売り子問題に関する研究をレビューした。</p>
+<!-- 1. 発注量 $S = 100$，需要 $D$ の観測値 $d = 120$，在庫超過費用が $h = 10$，在庫不足費用が $p = 40$ のとき，コスト $g(S, d)$ を求めよ。
+1. 需要 $D$ が正規分布 $N(150, 36)$ に従う新聞売り子問題を考える。在庫超過費用が $h = 5$，在庫不足費用が $p = 20$ のとき，最適発注量 $S^*$ を求めよ。 -->
 </section>
 <section id="練習問題" class="level2" data-number="4.9">
 <h2 data-number="4.9" class="anchored" data-anchor-id="練習問題"><span class="header-section-number">4.9</span> 練習問題</h2>
 <div id="exr-newsvendor-basic" class="theorem exercise">
-<p><span class="theorem-title"><strong>練習 4.1</strong></span> ある弁当屋では、1 個 500 円で弁当を仕入れ、1 個 800 円で販売している。売れ残った弁当を廃棄する場合、1 個当たり 10 円の廃棄費用がかかる。 弁当の需要 <span class="math inline">\(D\)</span> は、正規分布 <span class="math inline">\(N(50, 8^2)\)</span> に従うとする。このとき、最適な弁当の発注量を求めよ。</p>
+<p><span class="theorem-title"><strong>練習 4.1</strong></span> ある弁当屋では，1 個 500 円で弁当を仕入れ，1 個 800 円で販売している。売れ残った弁当を廃棄する場合，1 個当たり 10 円の廃棄費用がかかる。 弁当の需要 <span class="math inline">\(D\)</span> は，正規分布 <span class="math inline">\(N(50, 8^2)\)</span> に従うとする。このとき，最適な弁当の発注量を求めよ。</p>
 </div>
 <div id="sol-newsvendor-basic" class="proof solution">
-<p><span class="proof-title"><em>解答 4.1</em>. </span>弁当 1 個当たりの在庫超過費用 <span class="math inline">\(h\)</span>、在庫不足費用 <span class="math inline">\(p\)</span> は以下のように求められる。 <span class="math display">\[
+<p><span class="proof-title"><em>解答 4.1</em>. </span>弁当 1 個当たりの在庫超過費用 <span class="math inline">\(h\)</span>，在庫不足費用 <span class="math inline">\(p\)</span> は以下のように求められる。 <span class="math display">\[
 h = 10 + 500 = 510, \quad p = 800 - 500 = 300
 \]</span></p>
-<p>したがって、<span class="math inline">\(S^*\)</span> は以下のように求められる。</p>
+<p>したがって，<span class="math inline">\(S^*\)</span> は以下のように求められる。</p>
 <p><span class="math display">\[
 S^* = F_D^{-1}\left(\frac{p}{h + p}\right) = F_D^{-1}\left(\frac{300}{510 + 300}\right) \approx F_D^{-1}\left(0.37\right)
 \]</span></p>
-<p>標準正規分布表を調べると、<span class="math inline">\(\Phi(z) = 0.37\)</span> のとき、<span class="math inline">\(z\)</span> は約 -0.33 である。したがって、<span class="math inline">\(S^*\)</span> は</p>
+<p>標準正規分布表を調べると，<span class="math inline">\(\Phi(z) = 0.37\)</span> のとき，<span class="math inline">\(z\)</span> は約 -0.33 である。したがって，<span class="math inline">\(S^*\)</span> は</p>
 <p><span class="math display">\[
 S^* = -0.33 \times \sigma + \mu = -0.33 \times 8 + 50 \approx 47.36
 \]</span></p>
 <p>となる。</p>
-<div id="929f27c5" class="cell" data-execution_count="4">
+<p>Python を用いて計算すると，以下のようになる。</p>
+<div id="8aafa2b6" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
