@@ -170,6 +170,18 @@ $$
 
 が成り立つ．式 $\mathbf{A} \mathbf{w} = n \mathbf{w}$ より，$\mathbf{w}$ は $\mathbf{A}$ の固有ベクトル，$n$ は $\mathbf{A}$ の固有値である．
 
+### 固有ベクトル法*
+
+:::{.callout-tip}
+固有ベクトル法は直感的に理解することが難しいため，講義では扱わない．
+:::
+
+Saatyは，最大固有値 $\lambda_{max}$ に対応する固有ベクトルを重要度ベクトルとして用いることを提案した．すなわち，重要度ベクトル $\mathbf{w}$ を求めるには，以下の式を解く．
+
+$$
+\mathbf{A} \mathbf{w} = \lambda_{max} \mathbf{w}
+$$
+
 @exm-pairwise の一対比較行列が与えられたとする．
 
 $$
@@ -192,19 +204,17 @@ $$
 &= -\lambda^2(\lambda - 3)
 \end{align*}
 
-$\lambda^2(\lambda - 3) = 0$ より，$\lambda = 0, 3$ が得られる．この例において，$\mathbf{A}$ の最大固有値は $\lambda_{max} = 3$ であり，それ以外の固有値は $\lambda = 0$ である．また，$\mathbf{A}$ は $3 \times 3$ 行列であるため，$\lambda_{max} = n$ が成り立つ．
+$\lambda^2(\lambda - 3) = 0$ より，$\lambda = 0, 3$ が得られる．この例において，$\mathbf{A}$ の最大固有値は $\lambda_{max} = 3$ であり，それ以外の固有値は $\lambda = 0$ である．また，$\mathbf{A}$ は $3 \times 3$ 行列であるため，$\lambda_{max} = n$ が成り立つ．これは特別な例ではなく，一般に @prp-lambda-n が成り立つ．
 
-一般に，以下の命題が成り立つ．
-
-:::{#prp-}
+:::{#prp-lambda-n}
 整合性のある $n \times n$ 行列 $\mathbf{A}$ の最大固有値は $\lambda_{max} = n$ であり，それ以外の固有値は $\lambda = 0$ である．
 :::
 
-行列 $\mathbf{A}$ は
+行列 $\mathbf{A}$ は整合性を持たないとき，$\lambda_{max} > n$ が成り立つ．@prp-Saaty は $\lambda_{max}$ の性質を述べている．
 
-:::{#thm-perron}
-## Perron-Frobenius
-
+:::{#prp-Saaty}
+## Saaty
+$\mathbf{A}$ を一対行列とする．$\mathbf{A}$ が整合性を持つならば，$\lambda_{max} = n$ である．$\mathbf{A}$ が整合性を持たないならば，$\lambda_{max} > n$ である．
 :::
 
 :::{.callout-note}
@@ -274,12 +284,12 @@ $$
 \end{align*}
 
 $\lambda(\lambda - 2) = 0$ より，$\lambda = 0, 2$ が得られる．
-
-
 :::
 
+### aa
 
 
+## 整合性
 
 ## 文献案内
 
