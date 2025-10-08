@@ -810,6 +810,123 @@ w_3 = \frac{1}{6 + 2 + 1} = \frac{1}{9} \approx 0.11
 <p>正式に，評価基準の集合を <span class="math inline">\(C = \{c_1, c_2, \ldots, c_m\}\)</span> とする．</p>
 <div id="exm-hierarchy" class="theorem example">
 <p><span class="theorem-title"><strong>例 6.3</strong></span> 旅行先の代替案を <span class="math inline">\(X = \{\text{北海道}, \text{沖縄}, \text{九州}\}\)</span> とし，評価基準 <span class="math inline">\(C = \{\text{費用}, \text{食事}, \text{環境}\}\)</span> とする．このとき，以下のような階層を考える．</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 206.00 188.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 184)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-184 202,-184 202,4 -4,4"></polygon>
+<!-- Goal -->
+<g id="node1" class="node">
+<title>Goal</title>
+<polygon fill="none" stroke="black" points="138.5,-180 59.5,-180 59.5,-144 138.5,-144 138.5,-180"></polygon>
+<text text-anchor="middle" x="99" y="-157.8" font-family="Times,serif" font-size="14.00">旅行先の選択</text>
+</g>
+<!-- C1 -->
+<g id="node2" class="node">
+<title>C1</title>
+<polygon fill="none" stroke="black" points="54,-108 0,-108 0,-72 54,-72 54,-108"></polygon>
+<text text-anchor="middle" x="27" y="-85.8" font-family="Times,serif" font-size="14.00">費用</text>
+</g>
+<!-- Goal&#45;&#45;C1 -->
+<g id="edge1" class="edge">
+<title>Goal--C1</title>
+<path fill="none" stroke="black" d="M81.2,-143.7C70.04,-132.85 55.71,-118.92 44.59,-108.1"></path>
+</g>
+<!-- C2 -->
+<g id="node3" class="node">
+<title>C2</title>
+<polygon fill="none" stroke="black" points="126,-108 72,-108 72,-72 126,-72 126,-108"></polygon>
+<text text-anchor="middle" x="99" y="-85.8" font-family="Times,serif" font-size="14.00">食事</text>
+</g>
+<!-- Goal&#45;&#45;C2 -->
+<g id="edge2" class="edge">
+<title>Goal--C2</title>
+<path fill="none" stroke="black" d="M99,-143.7C99,-132.85 99,-118.92 99,-108.1"></path>
+</g>
+<!-- C3 -->
+<g id="node4" class="node">
+<title>C3</title>
+<polygon fill="none" stroke="black" points="198,-108 144,-108 144,-72 198,-72 198,-108"></polygon>
+<text text-anchor="middle" x="171" y="-85.8" font-family="Times,serif" font-size="14.00">環境</text>
+</g>
+<!-- Goal&#45;&#45;C3 -->
+<g id="edge3" class="edge">
+<title>Goal--C3</title>
+<path fill="none" stroke="black" d="M116.8,-143.7C127.96,-132.85 142.29,-118.92 153.41,-108.1"></path>
+</g>
+<!-- A1 -->
+<g id="node5" class="node">
+<title>A1</title>
+<polygon fill="none" stroke="black" points="54,-36 0,-36 0,0 54,0 54,-36"></polygon>
+<text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00">北海道</text>
+</g>
+<!-- C1&#45;&#45;A1 -->
+<g id="edge4" class="edge">
+<title>C1--A1</title>
+<path fill="none" stroke="black" d="M27,-71.7C27,-60.85 27,-46.92 27,-36.1"></path>
+</g>
+<!-- A2 -->
+<g id="node6" class="node">
+<title>A2</title>
+<polygon fill="none" stroke="black" points="126,-36 72,-36 72,0 126,0 126,-36"></polygon>
+<text text-anchor="middle" x="99" y="-13.8" font-family="Times,serif" font-size="14.00">沖縄</text>
+</g>
+<!-- C1&#45;&#45;A2 -->
+<g id="edge5" class="edge">
+<title>C1--A2</title>
+<path fill="none" stroke="black" d="M44.8,-71.7C55.96,-60.85 70.29,-46.92 81.41,-36.1"></path>
+</g>
+<!-- A3 -->
+<g id="node7" class="node">
+<title>A3</title>
+<polygon fill="none" stroke="black" points="198,-36 144,-36 144,0 198,0 198,-36"></polygon>
+<text text-anchor="middle" x="171" y="-13.8" font-family="Times,serif" font-size="14.00">九州</text>
+</g>
+<!-- C1&#45;&#45;A3 -->
+<g id="edge6" class="edge">
+<title>C1--A3</title>
+<path fill="none" stroke="black" d="M54.09,-75.83C79.67,-63.4 117.84,-44.84 143.55,-32.35"></path>
+</g>
+<!-- C2&#45;&#45;A1 -->
+<g id="edge7" class="edge">
+<title>C2--A1</title>
+<path fill="none" stroke="black" d="M81.2,-71.7C70.04,-60.85 55.71,-46.92 44.59,-36.1"></path>
+</g>
+<!-- C2&#45;&#45;A2 -->
+<g id="edge8" class="edge">
+<title>C2--A2</title>
+<path fill="none" stroke="black" d="M99,-71.7C99,-60.85 99,-46.92 99,-36.1"></path>
+</g>
+<!-- C2&#45;&#45;A3 -->
+<g id="edge9" class="edge">
+<title>C2--A3</title>
+<path fill="none" stroke="black" d="M116.8,-71.7C127.96,-60.85 142.29,-46.92 153.41,-36.1"></path>
+</g>
+<!-- C3&#45;&#45;A1 -->
+<g id="edge10" class="edge">
+<title>C3--A1</title>
+<path fill="none" stroke="black" d="M143.91,-75.83C118.33,-63.4 80.16,-44.84 54.45,-32.35"></path>
+</g>
+<!-- C3&#45;&#45;A2 -->
+<g id="edge11" class="edge">
+<title>C3--A2</title>
+<path fill="none" stroke="black" d="M153.2,-71.7C142.04,-60.85 127.71,-46.92 116.59,-36.1"></path>
+</g>
+<!-- C3&#45;&#45;A3 -->
+<g id="edge12" class="edge">
+<title>C3--A3</title>
+<path fill="none" stroke="black" d="M171,-71.7C171,-60.85 171,-46.92 171,-36.1"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </div>
 <p>このような階層構造を用いることで，評価基準に基づいて代替案を評価することができる．各評価基準 <span class="math inline">\(c_k\)</span> を用いて，代替案の一対比較行列 <span class="math inline">\(\mathbf{A}^{(k)}\)</span> を構築する．</p>
 </section>
