@@ -40,6 +40,16 @@
     ]
   },
   {
+    "objectID": "index.html#内容",
+    "href": "index.html#内容",
+    "title": "オペレーションズ・リサーチ",
+    "section": "内容",
+    "text": "内容\n\n\n\n回\n内容\n\n\n\n\n1\nガイダンス\n\n\n2\n在庫モデル：EOQモデル\n\n\n3\n在庫モデル：新聞売り子問題\n\n\n4\n在庫モデル：安全在庫\n\n\n5\nグラフ理論\n\n\n6\nPERT 1\n\n\n7\nPERT 2\n\n\n8\nAHP",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
     "objectID": "course-info.html",
     "href": "course-info.html",
     "title": "講義",
@@ -582,223 +592,135 @@
     ]
   },
   {
-    "objectID": "mcda/ahp.html",
-    "href": "mcda/ahp.html",
-    "title": "6  階層分析法",
-    "section": "",
-    "text": "6.1 記号",
-    "crumbs": [
-      "多基準意思決定分析",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>階層分析法</span>"
-    ]
-  },
-  {
-    "objectID": "mcda/ahp.html#記号",
-    "href": "mcda/ahp.html#記号",
-    "title": "6  階層分析法",
-    "section": "",
-    "text": "記号\n意味\n\n\n\n\n\\(\\mathbf{A}\\)\n一対比較行列\n\n\n\\(X\\)\n代替案の集合\n\n\n\\(x_i\\)\n代替案 \\(i\\)\n\n\n\\(a_{ij}\\)\n一対比較値\n\n\n\\(\\mathbf{w}\\)\n重要度ベクトル",
-    "crumbs": [
-      "多基準意思決定分析",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>階層分析法</span>"
-    ]
-  },
-  {
-    "objectID": "mcda/ahp.html#代替案の重要度",
-    "href": "mcda/ahp.html#代替案の重要度",
-    "title": "6  階層分析法",
-    "section": "6.2 代替案の重要度",
-    "text": "6.2 代替案の重要度\nAHPは，複数の代替案の中から一つの代替案を選択するための手法である．\n代替案の集合 \\(X = \\{x_1, x_2, \\ldots, x_n\\}\\) とする．代替案の重要度を\n\\[\n\\mathbf{w} = (w_1, w_2, \\ldots, w_n)^T\n\\]\nで表す．ここで，\\(w_i\\) は代替案 \\(x_i\\) の重要度を表し，\\(\\sum_{i=1}^n w_i = 1\\) を満たす．AHPでは，\\(\\mathbf{w}\\) を計算できるものとする．計算する方法は後述する．\n\\(w_i\\) が大きいほど，代替案 \\(x_i\\) が望ましいとする．\\(w_i &gt; w_j\\) ならば，代替案 \\(x_i\\) は代替案 \\(x_j\\) より望ましい．このとき，\\(x_i \\succ x_j\\) と表す．\n\n例 6.1 旅行先の代替案 \\[\nX = \\{\\text{北海道}, \\text{沖縄}, \\text{九州}\\}\n\\]\nとし，各代替案の重要度を \\(\\mathbf{w} = (0.3, 0.5, 0.2)^T\\) とするとき， \\[\n\\text{沖縄} \\succ \\text{北海道} \\succ \\text{九州}\n\\] である．\n\nこのように，それぞれの代替案の重要度が与えられるならば，望ましい代替案の選択は容易である．しかし，実際には，代替案の重要度を直接決定することは難しい．",
-    "crumbs": [
-      "多基準意思決定分析",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>階層分析法</span>"
-    ]
-  },
-  {
-    "objectID": "mcda/ahp.html#一対比較",
-    "href": "mcda/ahp.html#一対比較",
-    "title": "6  階層分析法",
-    "section": "6.3 一対比較",
-    "text": "6.3 一対比較\nすべての代替案を並べて比較することは難しい．そこで，AHPでは，2つの代替案を比較する一対比較 (pairwise comparison)を用いる．その理由として，\\(\\{x_1, x_2, \\ldots, x_n\\}\\) の中から最も望ましい代替案を選ぶことは難しいが，2つの代替案 \\(x_i\\) と \\(x_j\\) のどちらが望ましいかを決定することは比較的容易であることが挙げられる．\nAHPでは，\\(x_i\\) は \\(x_j\\) よりどれくらい望ましいかを一対比較値で表す．正式には，一対比較値 \\(a_{ij}\\) は \\(x_i\\) が \\(x_j\\) より \\(a_{ij}\\) 倍望ましいことを表す．\n例えば，\\(a_{ij} = 3\\) ならば，\\(x_i\\) は \\(x_j\\) より3倍望ましいことを表す．例 6.1 で，\\(a_{12} = 3\\) ならば，\\(x_1\\) （北海道）は \\(x_2\\) （沖縄）より3倍望ましいことを表す．\nすべての代替案の組み合わせについて一対比較を行い，その結果を一対比較行列 (pairwise comparison matrix)にまとめる．一対比較行列は \\(\\mathbf{A} = [a_{ij}]_{n \\times n}\\) と定義され，以下のように表される。\n\\[\n\\mathbf{A} = \\begin{bmatrix}\na_{11} & a_{12} & \\cdots & a_{1n} \\\\\na_{21} & a_{22} & \\cdots & a_{2n} \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\na_{n1} & a_{n2} & \\cdots & a_{nn} \\\\\n\\end{bmatrix}\n\\]\n理論的には，\n\\[\na_{ij} \\approx \\frac{w_i}{w_j} \\quad \\forall i, j\n\\]\nが想定されている．\n\n\n\n\n\n\nヒント\n\n\n\n意思決定者が一対比較を行うとき，\\(\\mathbf{w} = (w_1, w_2, \\ldots, w_n)^T\\) が知らないが，合理的な意思決定者ならば，\\(a_{ij} \\approx w_i/w_j\\) を満たすと考えられる．\nしかし，人間の評価は必ずしも合理的でないため，一般には \\(a_{ij} = w_i/w_j\\) を満たさない．これについては後述する．\n\n\n意思決定者が完全に合理的であるならば，\\(a_{ij} = w_i/w_j\\) を満たす． このとき，一対比較行列 \\(\\mathbf{A}\\) は以下のようになる．\n\\[\n\\mathbf{A} = \\begin{bmatrix}\nw_1/w_1 & w_1/w_2 & \\cdots & w_1/w_n \\\\\nw_2/w_1 & w_2/w_2 & \\cdots & w_2/w_n \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\nw_n/w_1 & w_n/w_2 & \\cdots & w_n/w_n \\\\\n\\end{bmatrix}\n\\]\nこのとき，\\(\\mathbf{A}\\) は完全に整合性 (consistency) を持つと言う．\\(\\mathbf{A}\\) は，以下の性質が成り立つ．\n\n\\(a_{ii} = 1, \\forall i\\)\n\\(a_{ij} = 1/a_{ji}, \\forall i, j\\)\n\n例えば，\\(a_{12} = 3\\) ならば，\\(x_1\\) は \\(x_2\\) より3倍望ましい，かつ，\\(x_2\\) は \\(x_1\\) より \\(1/3\\) 倍望ましいことが分かる．\n\n\n\n\n\n\nヒント\n\n\n\n\\(a_{ij} = w_i/w_j\\) とするとき，この2つの性質は，以下のように導かれる．\n\\[\na_{ii} = \\frac{w_i}{w_i} = 1\n\\]\n\\[\na_{ij} = \\frac{w_i}{w_j} = \\frac{1}{\\frac{w_j}{w_i}} = \\frac{1}{a_{ji}}\n\\]\n\n\n\n例 6.2 旅行先の代替案 \\(X = \\{\\text{北海道}, \\text{沖縄}, \\text{九州}\\}\\) とし，以下の一対比較を行ったとする．\n\n\\(x_1\\) （北海道）は \\(x_2\\) （沖縄）より3倍望ましい\n\\(x_1\\) （北海道）は \\(x_3\\) （九州）より6倍望ましい\n\\(x_2\\) （沖縄）は \\(x_3\\) （九州）より2倍望ましい\n\nこのとき，一対比較行列 \\(\\mathbf{A}\\) は以下のようになる．\n\\[\n\\mathbf{A} = \\begin{bmatrix}\n1 & 3 & 6 \\\\\n1/3 & 1 & 2 \\\\\n1/6 & 1/2 & 1 \\\\\n\\end{bmatrix}\n\\]",
-    "crumbs": [
-      "多基準意思決定分析",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>階層分析法</span>"
-    ]
-  },
-  {
-    "objectID": "mcda/ahp.html#重要度ベクトル",
-    "href": "mcda/ahp.html#重要度ベクトル",
-    "title": "6  階層分析法",
-    "section": "6.4 重要度ベクトル",
-    "text": "6.4 重要度ベクトル\n一対比較行列 \\(\\mathbf{A}\\) が与えられたとき，重要度ベクトル \\(\\mathbf{w}\\) を計算する方法を説明する．\nまず，意思決定者が完全に合理的であるならば，\\(a_{ij} = w_i/w_j\\) を満たすため，\\(\\mathbf{A}\\) は\n\\[\n\\mathbf{A} = \\begin{bmatrix}\nw_1/w_1 & w_1/w_2 & \\cdots & w_1/w_n \\\\\nw_2/w_1 & w_2/w_2 & \\cdots & w_2/w_n \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\nw_n/w_1 & w_n/w_2 & \\cdots & w_n/w_n \\\\\n\\end{bmatrix}\n\\]\nであるから，\\(\\mathbf{A}\\) の各列は比例している．このとき，重要度ベクトル \\(\\mathbf{w}\\) は，\\(\\mathbf{A}\\) の任意の列を正規化することで求められる．\n例 6.2 の一対比較行列 \\(\\mathbf{A}\\) を考える．\n\\[\n\\mathbf{A} = \\begin{bmatrix}\n1 & 3 & 6 \\\\\n1/3 & 1 & 2 \\\\\n1/6 & 1/2 & 1 \\\\\n\\end{bmatrix}\n\\]\nこのとき，\\(\\mathbf{A}\\) の第3列を正規化すると，重要度ベクトル \\(\\mathbf{w}\\) は以下のようになる． \\[\nw_1 = \\frac{6}{6 + 2 + 1} = \\frac{6}{9} \\approx 0.67\n\\] \\[\nw_2 = \\frac{2}{6 + 2 + 1} = \\frac{2}{9} \\approx 0.22\n\\] \\[\nw_3 = \\frac{1}{6 + 2 + 1} = \\frac{1}{9} \\approx 0.11\n\\]\nしかし，人間の評価は必ずしも合理的でないため，一般には \\(a_{ij} = w_i/w_j\\) を満たさない．このとき，他の方法で一対比較行列 \\(\\mathbf{A}\\) から重要度ベクトル \\(\\mathbf{w}\\) を計算する必要がある．計算する方法として，主に幾何平均法 (geometric mean method) と固有ベクトル法 (eigenvector method) の2つがある．\n\n\n\n\n\n\nヒント\n\n\n\n幾何平均法と固有ベクトル法のどちらが優れているかについては議論がある．AHPの創始者であるSaatyは固有ベクトル法が優れていると主張しているが，幾何平均法が優れているとする出張する研究もある．\n他にもnormalized columns methodという方法もあるが，理論的根拠がないと言われている．\n\n\n\n6.4.1 幾何平均法\nCrawford と Williams (1985) は，幾何平均法を提案した．幾何平均法では，重要度ベクトル \\(\\mathbf{w}\\) の各要素 \\(w_k\\) を以下のように計算する．\n\\[\nw_k = \\frac{\\left(\\prod_{j=1}^n a_{kj}\\right)^{1/n}}{\\sum_{i=1}^n \\left(\\prod_{j=1}^n a_{ij}\\right)^{1/n}} \\quad \\forall k\n\\]\n\n\n\n\n\n\nヒント\n\n\n\n\\(\\mathbf{A}\\) の各行の幾何平均を計算し，正規化することで，重要度ベクトル \\(\\mathbf{w}\\) を求めている．\n\n\n例 6.2 の一対比較行列 \\(\\mathbf{A}\\) を考える．\n\\[\n\\mathbf{A} = \\begin{bmatrix}\n1 & 3 & 6 \\\\\n1/3 & 1 & 2 \\\\\n1/6 & 1/2 & 1 \\\\\n\\end{bmatrix}\n\\]\nこのとき，重要度ベクトル \\(\\mathbf{w}\\) は以下のようになる．これは，理論から計算した重要度ベクトルと一致する．\n\\[\nw_1 = \\frac{(1 \\times 3 \\times 6)^{1/3}}{(1 \\times 3 \\times 6)^{1/3} + (1/3 \\times 1 \\times 2)^{1/3} + (1/6 \\times 1/2 \\times 1)^{1/3}}  \\approx 0.67\n\\]\n\\[\nw_2 = \\frac{(1/3 \\times 1 \\times 2)^{1/3}}{(1 \\times 3 \\times 6)^{1/3} + (1/3 \\times 1 \\times 2)^{1/3} + (1/6 \\times 1/2 \\times 1)^{1/3}}  \\approx 0.22\n\\]\n\\[\nw_3 = \\frac{(1/6 \\times 1/2 \\times 1)^{1/3}}{(1 \\times 3 \\times 6)^{1/3} + (1/3 \\times 1 \\times 2)^{1/3} + (1/6 \\times 1/2 \\times 1)^{1/3}}  \\approx 0.11\n\\]\n一般に，一対比較行列 \\(\\mathbf{A}\\) が整合性を持つならば，幾何平均法で計算した重要度ベクトル \\(\\mathbf{w}\\) は理論から計算した重要度ベクトルと一致する．興味があれば，証明してみよう．\n\n\n6.4.2 固有ベクトル法*\n\n\n\n\n\n\nヒント\n\n\n\n固有ベクトル法は直感的に理解することが難しいため，講義では扱わない．\n\n\n一対比較行列 \\(\\mathbf{A}\\) が整合性を持つとき，\n\\[\n\\mathbf{A} \\mathbf{w} = \\begin{bmatrix}\nw_1/w_1 & w_1/w_2 & \\cdots & w_1/w_n \\\\\nw_2/w_1 & w_2/w_2 & \\cdots & w_2/w_n \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\nw_n/w_1 & w_n/w_2 & \\cdots & w_n/w_n \\\\\n\\end{bmatrix}\n\\begin{bmatrix}\nw_1 \\\\\nw_2 \\\\\n\\vdots \\\\\nw_n \\\\\n\\end{bmatrix}\n= \\begin{bmatrix}\nn w_1 \\\\\nn w_2 \\\\\n\\vdots \\\\\nn w_n \\\\\n\\end{bmatrix}\n= n \\mathbf{w}\n\\]\nが成り立つ．式 \\(\\mathbf{A} \\mathbf{w} = n \\mathbf{w}\\) より，\\(\\mathbf{w}\\) は \\(\\mathbf{A}\\) の固有ベクトル，\\(n\\) は \\(\\mathbf{A}\\) の固有値である．\nSaatyは，最大固有値 \\(\\lambda_{max}\\) に対応する固有ベクトルを重要度ベクトルとして用いることを提案した．すなわち，重要度ベクトル \\(\\mathbf{w}\\) を求めるには，以下の式を解く．\n\\[\n\\mathbf{A} \\mathbf{w} = \\lambda_{max} \\mathbf{w}\n\\]\n例 6.2 の一対比較行列が与えられたとする．\n\\[\n\\mathbf{A} = \\begin{bmatrix}\n1 & 3 & 6 \\\\\n1/3 & 1 & 2 \\\\\n1/6 & 1/2 & 1 \\\\\n\\end{bmatrix}\n\\]\nこのとき，\\(\\mathbf{A}\\) の固有値は，\\(\\det(\\mathbf{A} - \\lambda \\mathbf{I}) = 0\\) を解くことで求められる．\n\\[\\begin{align*}\n\\det(\\mathbf{A} - \\lambda \\mathbf{I}) &= \\det\\begin{bmatrix}\n1 - \\lambda & 3 & 6 \\\\\n1/3 & 1 - \\lambda & 2 \\\\\n1/6 & 1/2 & 1 - \\lambda \\\\\n\\end{bmatrix} \\\\\n&= -\\lambda^3 + 3\\lambda^2 \\\\\n&= -\\lambda^2(\\lambda - 3)\n\\end{align*}\\]\n\\(\\lambda^2(\\lambda - 3) = 0\\) より，\\(\\lambda = 0, 3\\) が得られる．この例において，\\(\\mathbf{A}\\) の最大固有値は \\(\\lambda_{max} = 3\\) であり，それ以外の固有値は \\(\\lambda = 0\\) である．また，\\(\\mathbf{A}\\) は \\(3 \\times 3\\) 行列であるため，\\(\\lambda_{max} = n\\) が成り立つ．これは特別な例ではなく，一般に 命題 6.1 が成り立つ．\n\n命題 6.1 整合性のある \\(n \\times n\\) 行列 \\(\\mathbf{A}\\) の最大固有値は \\(\\lambda_{max} = n\\) であり，それ以外の固有値は \\(\\lambda = 0\\) である．\n\n行列 \\(\\mathbf{A}\\) は整合性を持たないとき，\\(\\lambda_{max} &gt; n\\) が成り立つ．命題 6.2 は \\(\\lambda_{max}\\) の性質を述べている．\n\n命題 6.2 (Saaty) \\(\\mathbf{A}\\) を一対行列とする．\\(\\mathbf{A}\\) が整合性を持つならば，\\(\\lambda_{max} = n\\) である．\\(\\mathbf{A}\\) が整合性を持たないならば，\\(\\lambda_{max} &gt; n\\) である．\n\n\n\n\n\n\n\n固有値と固有ベクトル（Eigenvalues and Eigenvectors）\n\n\n\n\\(n \\times n\\) 行列 \\(\\mathbf{A}\\) に対し，ベクトル \\(\\mathbf{x} \\neq \\mathbf{0}\\) とスカラー \\(\\lambda\\) が存在して， \\[\n\\mathbf{A} \\mathbf{x} = \\lambda \\mathbf{x}\n\\] が成り立つとき，\\(\\mathbf{x}\\) を \\(\\mathbf{A}\\) の固有ベクトル (eigenvector)，\\(\\lambda\\) を \\(\\mathbf{A}\\) の固有値 (eigenvalue) と呼ぶ．\n例えば，次のような \\(\\mathbf{A}, \\mathbf{x}, \\lambda\\) を考える． \\[\n\\mathbf{A} = \\begin{bmatrix}\n1 & 2 \\\\\n1/2 & 1 \\\\\n\\end{bmatrix}, \\quad\n\\mathbf{x} = \\begin{bmatrix}\n2 \\\\\n1 \\\\\n\\end{bmatrix}, \\quad\n\\lambda = 2\n\\]\nこのとき，\n\\[\n\\begin{bmatrix}\n1 & 2 \\\\\n1/2 & 1 \\\\\n\\end{bmatrix}\n\\begin{bmatrix}\n2 \\\\\n1 \\\\\n\\end{bmatrix}\n= \\begin{bmatrix}\n4 \\\\\n2 \\\\\n\\end{bmatrix}\n= 2 \\begin{bmatrix}\n2 \\\\\n1 \\\\\n\\end{bmatrix}\n\\]\nが成り立つため，\\(\\mathbf{x}\\) は \\(\\mathbf{A}\\) の固有ベクトル，\\(\\lambda\\) は \\(\\mathbf{A}\\) の固有値である．\n\\(\\mathbf{A} \\mathbf{x} = \\lambda \\mathbf{x}\\) は単位行列 \\(\\mathbf{I}\\) を用いて \\((\\mathbf{A} - \\lambda \\mathbf{I}) \\mathbf{x} = \\mathbf{0}\\) と書ける．このとき，\\(\\mathbf{x} \\neq \\mathbf{0}\\) であるため，\\(\\det(\\mathbf{A} - \\lambda \\mathbf{I}) = 0\\) が成り立つ．\n例えば，次のような行列 \\(\\mathbf{A}\\) を考える． \\[\n\\mathbf{A} = \\begin{bmatrix}\n1 & 2 \\\\\n1/2 & 1 \\\\\n\\end{bmatrix}\n\\]\nこのとき，\\(\\det(\\mathbf{A} - \\lambda \\mathbf{I})\\) は以下のようになる．\n\\[\\begin{align*}\n\\det(\\mathbf{A} - \\lambda \\mathbf{I}) &= \\det\\begin{bmatrix}\n1 - \\lambda & 2 \\\\\n1/2 & 1 - \\lambda \\\\\n\\end{bmatrix} \\\\\n&= (1 - \\lambda)^2 - 1 \\\\\n&= \\lambda^2 - 2\\lambda \\\\\n&= \\lambda(\\lambda - 2)\n\\end{align*}\\]\n\\(\\lambda(\\lambda - 2) = 0\\) より，\\(\\lambda = 0, 2\\) が得られる．",
-    "crumbs": [
-      "多基準意思決定分析",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>階層分析法</span>"
-    ]
-  },
-  {
-    "objectID": "mcda/ahp.html#整合性",
-    "href": "mcda/ahp.html#整合性",
-    "title": "6  階層分析法",
-    "section": "6.5 整合性",
-    "text": "6.5 整合性\n\n6.5.1 GCI\n計算された重要度ベクトル \\(\\mathbf{w}\\) が一対比較行列 \\(\\mathbf{A}\\) とどれくらい整合しているかを評価する指標として，(Aguarón2003-nt?) が提案した平均幾何整合度 (geometric consistency index, GCI) がある．\n一対比較値 \\(a_{ij}\\) と重要度ベクトル \\(\\mathbf{w}\\) から，以下のように \\(e_{ij}\\) を定義する．\n\\[\ne_{ij} = a_{ij} \\frac{w_j}{w_i}\n\\]\n\\(a_{ij} = w_i/w_j\\) を満たすならば，\\(e_{ij} = 1\\) である．\nGCIは以下のように定義される．\n\\[\nGCI = \\frac{2}{(n-1)(n-2)} \\sum_{i=1}^{n-1} \\sum_{j=i+1}^{n} \\left(\\ln e_{ij}\\right)^2\n\\]",
-    "crumbs": [
-      "多基準意思決定分析",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>階層分析法</span>"
-    ]
-  },
-  {
-    "objectID": "mcda/ahp.html#文献案内",
-    "href": "mcda/ahp.html#文献案内",
-    "title": "6  階層分析法",
-    "section": "6.6 文献案内",
-    "text": "6.6 文献案内\nBrunelli (2015) はAHPを丁寧に解説した書籍である．",
-    "crumbs": [
-      "多基準意思決定分析",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>階層分析法</span>"
-    ]
-  },
-  {
-    "objectID": "mcda/ahp.html#用語",
-    "href": "mcda/ahp.html#用語",
-    "title": "6  階層分析法",
-    "section": "6.7 用語",
-    "text": "6.7 用語\n\n\n\nEnglish\nJapanese\n\n\n\n\nmulti-criteria decision making (MCDM)\n多基準意思決定\n\n\nAnalytic Hierarchy Process (AHP)\n階層分析法\n\n\nConsistency index\n整合度\n\n\npairwise comparison matrix\n一対比較行列\n\n\nalternative\n代替案\n\n\ncriterion\n評価基準\n\n\npriority vector\n重要度ベクトル\n\n\n\n\n\n\n\nBrunelli, Matteo. 2015. Introduction to the Analytic Hierarchy Process. 2015th 版. SpringerBriefs in Operations Research. Cham: Springer International Publishing.\n\n\nCrawford, Gordon, と Cindy Williams. 1985. 「A note on the analysis of subjective judgment matrices」. Journal of Mathematical Psychology, Some thoughts about the mathematics of the analytic hierarchy process, 29 (4): 387–405.",
-    "crumbs": [
-      "多基準意思決定分析",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>階層分析法</span>"
-    ]
-  },
-  {
     "objectID": "network/graph.html",
     "href": "network/graph.html",
-    "title": "7  グラフ理論",
+    "title": "6  グラフ理論",
     "section": "",
-    "text": "7.1 無向グラフ\nグラフ（graph）は、点（vertex）の集合\\(V\\)と辺（edge）の集合\\(E\\)から構成され、\\(G=(V,E)\\)で表される。\nグラフは、有向グラフ（directed graph）と無向グラフ（undirected graph）に分けられる。\n無向グラフは、辺の方向を持たないグラフである。辺は、2つの点の集合として表される。\nグラフ \\(G = (V, E)\\) において、\\(e = \\{v, u\\} \\in E\\) を満たすとき、点 \\(v\\) と \\(u\\) は隣接（adjacent）しているといい、\\(e\\) は \\(v\\) と \\(u\\) を接続（incident）しているという。\n点 \\(v\\) に接続している辺の数を、\\(v\\) の次数（degree）という。例 7.1 の場合、\\(v_1\\) の次数は 3、\\(v_2\\) の次数は 2 である。",
+    "text": "6.1 無向グラフ\nグラフ（graph）は、点（vertex）の集合\\(V\\)と辺（edge）の集合\\(E\\)から構成され、\\(G=(V,E)\\)で表される。\nグラフは、有向グラフ（directed graph）と無向グラフ（undirected graph）に分けられる。\n無向グラフは、辺の方向を持たないグラフである。辺は、2つの点の集合として表される。\nグラフ \\(G = (V, E)\\) において、\\(e = \\{v, u\\} \\in E\\) を満たすとき、点 \\(v\\) と \\(u\\) は隣接（adjacent）しているといい、\\(e\\) は \\(v\\) と \\(u\\) を接続（incident）しているという。\n点 \\(v\\) に接続している辺の数を、\\(v\\) の次数（degree）という。例 6.1 の場合、\\(v_1\\) の次数は 3、\\(v_2\\) の次数は 2 である。",
     "crumbs": [
       "ネットワーク最適化",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>グラフ理論</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>グラフ理論</span>"
     ]
   },
   {
     "objectID": "network/graph.html#無向グラフ",
     "href": "network/graph.html#無向グラフ",
-    "title": "7  グラフ理論",
+    "title": "6  グラフ理論",
     "section": "",
-    "text": "例 7.1 (無向グラフの例) グラフ\n\\[\nG = ({v_1, v_2, v_3, v_4}, \\{\\{v_1,v_2\\},\\{v_2,v_3\\},\\{v_3,v_4\\},\\{v_4,v_1\\},\\{v_1,v_3\\}\\})\n\\]\nは、点の集合\\(V=\\{v_1,v_2,v_3,v_4\\}\\)と辺の集合\\(E=\\{\\{v_1,v_2\\},\\{v_2,v_3\\},\\{v_3,v_4\\},\\{v_4,v_1\\},\\{v_1,v_3\\}\\}\\)からなる。\n\n\nコード\nimport networkx as nx\nimport matplotlib.pyplot as plt\nimport numpy as np\n\n# グラフの作成（頂点を番号で定義）\nG = nx.Graph()\nG.add_edges_from([(1, 2), (2, 3), (3, 4), (4, 1), (1, 3)])\n\n# 頂点ラベルを LaTeX 形式に変換\nlabels = {i: rf\"$v_{i}$\" for i in G.nodes()}\n\n# レイアウト（円形）\npos = nx.circular_layout(G)\n\n# ラベルの位置を少し外側へ移動\nlabel_pos = {}\nfor k, (x, y) in pos.items():\n    r = np.sqrt(x**2 + y**2)  # 原点からの距離\n    scale = 1.15  # 外側に押し出す係数（調整可）\n    label_pos[k] = (x / r * scale, y / r * scale)\n\nplt.figure(figsize=(4, 4))\n# ノード描画\nnx.draw_networkx_nodes(G, pos, node_color=\"black\", node_size=120, edgecolors=\"black\")\n# エッジ描画\nnx.draw_networkx_edges(G, pos, edge_color=\"black\", width=1.2)\n# 外側にラベル描画\nnx.draw_networkx_labels(G, label_pos, labels, font_size=12, font_weight=\"regular\")\nplt.axis(\"off\")\nplt.show()",
+    "text": "例 6.1 (無向グラフの例) グラフ\n\\[\nG = ({v_1, v_2, v_3, v_4}, \\{\\{v_1,v_2\\},\\{v_2,v_3\\},\\{v_3,v_4\\},\\{v_4,v_1\\},\\{v_1,v_3\\}\\})\n\\]\nは、点の集合\\(V=\\{v_1,v_2,v_3,v_4\\}\\)と辺の集合\\(E=\\{\\{v_1,v_2\\},\\{v_2,v_3\\},\\{v_3,v_4\\},\\{v_4,v_1\\},\\{v_1,v_3\\}\\}\\)からなる。\n\n\nコード\nimport networkx as nx\nimport matplotlib.pyplot as plt\nimport numpy as np\n\n# グラフの作成（頂点を番号で定義）\nG = nx.Graph()\nG.add_edges_from([(1, 2), (2, 3), (3, 4), (4, 1), (1, 3)])\n\n# 頂点ラベルを LaTeX 形式に変換\nlabels = {i: rf\"$v_{i}$\" for i in G.nodes()}\n\n# レイアウト（円形）\npos = nx.circular_layout(G)\n\n# ラベルの位置を少し外側へ移動\nlabel_pos = {}\nfor k, (x, y) in pos.items():\n    r = np.sqrt(x**2 + y**2)  # 原点からの距離\n    scale = 1.15  # 外側に押し出す係数（調整可）\n    label_pos[k] = (x / r * scale, y / r * scale)\n\nplt.figure(figsize=(4, 4))\n# ノード描画\nnx.draw_networkx_nodes(G, pos, node_color=\"black\", node_size=120, edgecolors=\"black\")\n# エッジ描画\nnx.draw_networkx_edges(G, pos, edge_color=\"black\", width=1.2)\n# 外側にラベル描画\nnx.draw_networkx_labels(G, label_pos, labels, font_size=12, font_weight=\"regular\")\nplt.axis(\"off\")\nplt.show()",
     "crumbs": [
       "ネットワーク最適化",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>グラフ理論</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>グラフ理論</span>"
     ]
   },
   {
     "objectID": "network/graph.html#有向グラフ",
     "href": "network/graph.html#有向グラフ",
-    "title": "7  グラフ理論",
-    "section": "7.2 有向グラフ",
-    "text": "7.2 有向グラフ\n有向グラフは、辺に方向があるグラフである。辺は、2つの点の順序対として表される。\n\n例 7.2 (有向グラフの例) グラフ\n\\[\nG = ({v_1, v_2, v_3, v_4}, \\{(v_1,v_2),(v_2,v_3),(v_3,v_4),(v_4,v_1),(v_1,v_3)\\})\n\\]\nは、点の集合\\(V=\\{v_1,v_2,v_3,v_4\\}\\)と辺の集合\\(E=\\{(v_1,v_2),(v_2,v_3),(v_3,v_4),(v_4,v_1),(v_1,v_3)\\}\\)からなる。\n\n\nコード\nimport networkx as nx\nimport matplotlib.pyplot as plt\nimport numpy as np\n\n# グラフの作成（頂点を番号で定義）\nG = nx.DiGraph()\nG.add_edges_from([(1, 2), (2, 3), (3, 4), (4, 1), (1, 3)])\n\n# 頂点ラベルを LaTeX 形式に変換\nlabels = {i: rf\"$v_{i}$\" for i in G.nodes()}\n\n# レイアウト（円形）\npos = nx.circular_layout(G)\n\n# ラベルの位置を少し外側へ移動\nlabel_pos = {}\nfor k, (x, y) in pos.items():\n    r = np.sqrt(x**2 + y**2)  # 原点からの距離\n    scale = 1.15  # 外側に押し出す係数（調整可）\n    label_pos[k] = (x / r * scale, y / r * scale)\n\nplt.figure(figsize=(4, 4))\n\n# ノード描画\nnx.draw_networkx_nodes(G, pos, node_color=\"black\", node_size=120, edgecolors=\"black\")\n\n# エッジ描画\nnx.draw_networkx_edges(G, pos, edge_color=\"black\", width=1.2, arrowsize=15)\n\n# 外側にラベル描画\nnx.draw_networkx_labels(G, label_pos, labels, font_size=12, font_weight=\"regular\")\n\nplt.axis(\"off\")\nplt.show()\n\n\n\n\n\n\n\n\n\n\nグラフ \\(G = (V, E)\\) において、点 \\(v\\) から出る辺の数を出次数（outdegree）といい、点 \\(v\\) に入る辺の数を入次数（indegree）という。例 7.2 の場合、\\(v_1\\) の出次数は 2、入次数は 1 である。",
+    "title": "6  グラフ理論",
+    "section": "6.2 有向グラフ",
+    "text": "6.2 有向グラフ\n有向グラフは、辺に方向があるグラフである。辺は、2つの点の順序対として表される。\n\n例 6.2 (有向グラフの例) グラフ\n\\[\nG = ({v_1, v_2, v_3, v_4}, \\{(v_1,v_2),(v_2,v_3),(v_3,v_4),(v_4,v_1),(v_1,v_3)\\})\n\\]\nは、点の集合\\(V=\\{v_1,v_2,v_3,v_4\\}\\)と辺の集合\\(E=\\{(v_1,v_2),(v_2,v_3),(v_3,v_4),(v_4,v_1),(v_1,v_3)\\}\\)からなる。\n\n\nコード\nimport networkx as nx\nimport matplotlib.pyplot as plt\nimport numpy as np\n\n# グラフの作成（頂点を番号で定義）\nG = nx.DiGraph()\nG.add_edges_from([(1, 2), (2, 3), (3, 4), (4, 1), (1, 3)])\n\n# 頂点ラベルを LaTeX 形式に変換\nlabels = {i: rf\"$v_{i}$\" for i in G.nodes()}\n\n# レイアウト（円形）\npos = nx.circular_layout(G)\n\n# ラベルの位置を少し外側へ移動\nlabel_pos = {}\nfor k, (x, y) in pos.items():\n    r = np.sqrt(x**2 + y**2)  # 原点からの距離\n    scale = 1.15  # 外側に押し出す係数（調整可）\n    label_pos[k] = (x / r * scale, y / r * scale)\n\nplt.figure(figsize=(4, 4))\n\n# ノード描画\nnx.draw_networkx_nodes(G, pos, node_color=\"black\", node_size=120, edgecolors=\"black\")\n\n# エッジ描画\nnx.draw_networkx_edges(G, pos, edge_color=\"black\", width=1.2, arrowsize=15)\n\n# 外側にラベル描画\nnx.draw_networkx_labels(G, label_pos, labels, font_size=12, font_weight=\"regular\")\n\nplt.axis(\"off\")\nplt.show()\n\n\n\n\n\n\n\n\n\n\nグラフ \\(G = (V, E)\\) において、点 \\(v\\) から出る辺の数を出次数（outdegree）といい、点 \\(v\\) に入る辺の数を入次数（indegree）という。例 6.2 の場合、\\(v_1\\) の出次数は 2、入次数は 1 である。",
     "crumbs": [
       "ネットワーク最適化",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>グラフ理論</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>グラフ理論</span>"
     ]
   },
   {
     "objectID": "network/graph.html#パス",
     "href": "network/graph.html#パス",
-    "title": "7  グラフ理論",
-    "section": "7.3 パス",
-    "text": "7.3 パス\n\\(G = (V, E)\\) において、パス（path）\\(P\\) とは、点の組\n\\[\nP = (v_{i_1}, v_{i_2}, \\ldots, v_{i_k})\n\\]\nであって、各 \\(j = 1, 2, \\ldots, k-1\\) に対して \\((v_{i_j}, v_{i_{j+1}}) \\in E\\) を満たすものをいう。パスの長さ（length）は、パスに含まれる辺の数である。",
+    "title": "6  グラフ理論",
+    "section": "6.3 パス",
+    "text": "6.3 パス\n\\(G = (V, E)\\) において、パス（path）\\(P\\) とは、点の組\n\\[\nP = (v_{i_1}, v_{i_2}, \\ldots, v_{i_k})\n\\]\nであって、各 \\(j = 1, 2, \\ldots, k-1\\) に対して \\((v_{i_j}, v_{i_{j+1}}) \\in E\\) を満たすものをいう。パスの長さ（length）は、パスに含まれる辺の数である。",
     "crumbs": [
       "ネットワーク最適化",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>グラフ理論</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>グラフ理論</span>"
     ]
   },
   {
     "objectID": "network/shortest-path.html",
     "href": "network/shortest-path.html",
-    "title": "8  最短路問題",
+    "title": "7  最短路問題",
     "section": "",
-    "text": "有向グラフ \\(G = (V, E)\\) を考える。各辺 \\((v, u) \\in E\\) に非負の重み \\(w(v, u)\\) が与えられているとする。このとき、点 \\(s \\in V\\) から点 \\(t \\in V\\) への最短路（shortest path）とは、\\(s\\) から \\(t\\) へのパスのうち、重みの和が最小となるパスである。 最短路問題とは、\\(s\\) から \\(t\\) への最短路を求める問題である。\n\n例 8.1 次の図は、最短路問題の例を示している。\n\n\nコード\nimport matplotlib.pyplot as plt\nimport networkx as nx\nimport numpy as np\n\n# グラフの作成（頂点を番号で定義）\nG = nx.DiGraph()\nedges = [\n    (\"s\", \"v1\", 5),\n    (\"s\", \"v2\", 3),\n    (\"v1\", \"v3\", 17),\n    (\"v2\", \"v3\", 1),\n    (\"v2\", \"v4\", 3),\n    (\"v3\", \"t\", 4),\n    (\"v4\", \"t\", 2),\n]\nG.add_weighted_edges_from(edges)\n\nlabels = {\n    node: (rf\"$v_{node[1:]}$\" if node.startswith(\"v\") else rf\"${node}$\")\n    for node in G.nodes()\n}\n\nfor layer, nodes in enumerate(nx.topological_generations(G)):\n    for node in nodes:\n        G.nodes[node][\"layer\"] = layer\n\npos = nx.multipartite_layout(G, subset_key=\"layer\")\n\nlabel_pos = {}\nfor k, (x, y) in pos.items():\n    r = np.sqrt(x**2 + y**2) if np.sqrt(x**2 + y**2) &gt; 0 else 1\n    scale = 1.1\n    label_pos[k] = (x * scale, y * scale)\n\n# Plotting\nnx.draw_networkx(\n    G,\n    pos=pos,\n    with_labels=False,\n    node_color=\"white\",\n    node_size=50,\n    edgecolors=\"black\",\n)\nnx.draw_networkx_labels(G, label_pos, labels, font_size=12)\nnx.draw_networkx_edge_labels(\n    G,\n    pos,\n    edge_labels={(u, v): d[\"weight\"] for u, v, d in G.edges(data=True)},\n    font_color=\"black\",\n    font_size=12,\n)\nplt.axis(\"off\")\nplt.show()",
+    "text": "有向グラフ \\(G = (V, E)\\) を考える。各辺 \\((v, u) \\in E\\) に非負の重み \\(w(v, u)\\) が与えられているとする。このとき、点 \\(s \\in V\\) から点 \\(t \\in V\\) への最短路（shortest path）とは、\\(s\\) から \\(t\\) へのパスのうち、重みの和が最小となるパスである。 最短路問題とは、\\(s\\) から \\(t\\) への最短路を求める問題である。\n\n例 7.1 次の図は、最短路問題の例を示している。\n\n\nコード\nimport matplotlib.pyplot as plt\nimport networkx as nx\nimport numpy as np\n\n# グラフの作成（頂点を番号で定義）\nG = nx.DiGraph()\nedges = [\n    (\"s\", \"v1\", 5),\n    (\"s\", \"v2\", 3),\n    (\"v1\", \"v3\", 17),\n    (\"v2\", \"v3\", 1),\n    (\"v2\", \"v4\", 3),\n    (\"v3\", \"t\", 4),\n    (\"v4\", \"t\", 2),\n]\nG.add_weighted_edges_from(edges)\n\nlabels = {\n    node: (rf\"$v_{node[1:]}$\" if node.startswith(\"v\") else rf\"${node}$\")\n    for node in G.nodes()\n}\n\nfor layer, nodes in enumerate(nx.topological_generations(G)):\n    for node in nodes:\n        G.nodes[node][\"layer\"] = layer\n\npos = nx.multipartite_layout(G, subset_key=\"layer\")\n\nlabel_pos = {}\nfor k, (x, y) in pos.items():\n    r = np.sqrt(x**2 + y**2) if np.sqrt(x**2 + y**2) &gt; 0 else 1\n    scale = 1.1\n    label_pos[k] = (x * scale, y * scale)\n\n# Plotting\nnx.draw_networkx(\n    G,\n    pos=pos,\n    with_labels=False,\n    node_color=\"white\",\n    node_size=50,\n    edgecolors=\"black\",\n)\nnx.draw_networkx_labels(G, label_pos, labels, font_size=12)\nnx.draw_networkx_edge_labels(\n    G,\n    pos,\n    edge_labels={(u, v): d[\"weight\"] for u, v, d in G.edges(data=True)},\n    font_color=\"black\",\n    font_size=12,\n)\nplt.axis(\"off\")\nplt.show()",
     "crumbs": [
       "ネットワーク最適化",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>最短路問題</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>最短路問題</span>"
     ]
   },
   {
     "objectID": "network/pert.html",
     "href": "network/pert.html",
-    "title": "9  PERT/CPM",
+    "title": "8  PERT/CPM",
     "section": "",
-    "text": "9.1 プロジェクト\nプロジェクトは、多くの作業からなる。プロジェクトを完遂できるように、作業のスケジュールを作成する必要がある。その方法として、PERT（Program Evaluation and Review Technique）とCPM（Critical Path Method）がある。現在では、PERTとCPMが統合され、PERT/CPMとして知られている(Camm ほか 2022; Hillier と Lieberman 2025)。\nここで、ある作業の開始前に完了しなければならない作業を先行作業（Immediate Predecessor）と呼ぶ。また、ある作業の完了後に開始できる作業を後続作業（Immediate Successor）と呼ぶ。\nまとめると、プロジェクトは、次の要素で構成される。",
+    "text": "8.1 プロジェクト\nプロジェクトは、多くの作業からなる。プロジェクトを完遂できるように、作業のスケジュールを作成する必要がある。その方法として、PERT（Program Evaluation and Review Technique）とCPM（Critical Path Method）がある。現在では、PERTとCPMが統合され、PERT/CPMとして知られている(Camm ほか 2022; Hillier と Lieberman 2025)。\nここで、ある作業の開始前に完了しなければならない作業を先行作業（Immediate Predecessor）と呼ぶ。また、ある作業の完了後に開始できる作業を後続作業（Immediate Successor）と呼ぶ。\nまとめると、プロジェクトは、次の要素で構成される。",
     "crumbs": [
       "ネットワーク最適化",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>PERT/CPM</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>PERT/CPM</span>"
     ]
   },
   {
     "objectID": "network/pert.html#プロジェクト",
     "href": "network/pert.html#プロジェクト",
-    "title": "9  PERT/CPM",
+    "title": "8  PERT/CPM",
     "section": "",
-    "text": "作業：プロジェクトを構成する仕事。活動、アクティビティとも呼ばれる。\n先行関係：それぞれの作業の先行作業を定義する関係。\n作業時間：各作業に必要な時間。\n\n\n例 9.1 学生の田中さんと佐藤さんが協力し、ある授業のレポートを作成することになった。このレポートを作成するためには、下の表に示すように、いくつかの作業を行う必要がある。\n\n\n\n作業\n作業内容\n先行作業\n時間（日）\n\n\n\n\nA\n課題の理解\n-\n2\n\n\nB\nデータ収集\nA\n3\n\n\nC\nデータ分析\nB\n4\n\n\nD\n文献調査\nA\n2\n\n\nE\nレポート作成\nC, D\n5",
+    "text": "作業：プロジェクトを構成する仕事。活動、アクティビティとも呼ばれる。\n先行関係：それぞれの作業の先行作業を定義する関係。\n作業時間：各作業に必要な時間。\n\n\n例 8.1 学生の田中さんと佐藤さんが協力し、ある授業のレポートを作成することになった。このレポートを作成するためには、下の表に示すように、いくつかの作業を行う必要がある。\n\n\n\n作業\n作業内容\n先行作業\n時間（日）\n\n\n\n\nA\n課題の理解\n-\n2\n\n\nB\nデータ収集\nA\n3\n\n\nC\nデータ分析\nB\n4\n\n\nD\n文献調査\nA\n2\n\n\nE\nレポート作成\nC, D\n5",
     "crumbs": [
       "ネットワーク最適化",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>PERT/CPM</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>PERT/CPM</span>"
     ]
   },
   {
     "objectID": "network/pert.html#プロジェクトネットワーク",
     "href": "network/pert.html#プロジェクトネットワーク",
-    "title": "9  PERT/CPM",
-    "section": "9.2 プロジェクト・ネットワーク",
-    "text": "9.2 プロジェクト・ネットワーク\nプロジェクトをネットワークで表現したものをプロジェクト・ネットワーク（Project Network）と呼ぶ。プロジェクト・ネットワークには、AOA（Activity on Arrow）や AON（Activity on Node）という 2 種類の表現方法がある。\nAOA では、作業を辺で表現し、先行関係を点で表現する。AON では、作業を点で表現し、先行関係を辺で表現する。AON のほうが理解と作成が容易で、実務でも AON がよく使われる(Camm ほか 2022; Hillier と Lieberman 2025; Eiselt と Sandblom 2022)。これは以降、AON に基づいて説明する。\nプロジェクト・ネットワークは \\(G = (V, E)\\) という有向グラフで表される。ここで、\\(V\\) は始点 \\(s\\)、終点 \\(t\\) と各作業を表す点の集合であり、\\(E\\) は先行関係を表す辺の集合である。辺 \\((v, u) \\in E\\) では、\\(v\\) が \\(u\\) の先行作業であることを意味する。\n辺 \\((s, v) \\in E\\) は、作業 \\(v\\) が先行作業を持たないことを意味し、辺 \\((v, t) \\in E\\) は、作業 \\(v\\) が後続作業を持たないことを意味する。作業 \\(v\\) の先行作業の集合を \\(\\mathcal{P}(v)\\) と表す。作業 \\(v\\) の後続作業の集合を \\(\\mathcal{S}(v)\\) と表す。\n作業点 \\(v \\in V\\) には、作業時間 \\(\\tau(v)\\) が与えられている。始点 \\(s\\) と終点 \\(t\\) の作業時間は \\(\\tau(s) = \\tau(t) = 0\\) とする。\n例 9.1 のプロジェクト・ネットワークは次の図のようになる。\n\n\nコード\nimport matplotlib.pyplot as plt\nimport networkx as nx\nimport numpy as np\n\n# グラフの作成（頂点を番号で定義）\nG = nx.DiGraph()\nedges = [\n    (\"s\", \"A\"),\n    (\"A\", \"B\"),\n    (\"A\", \"D\"),\n    (\"B\", \"C\"),\n    (\"C\", \"E\"),\n    (\"D\", \"E\"),\n    (\"E\", \"t\"),\n]\nG.add_edges_from(edges)\n\nfor layer, nodes in enumerate(nx.topological_generations(G)):\n    for node in nodes:\n        G.nodes[node][\"layer\"] = layer\n\npos = nx.multipartite_layout(G, subset_key=\"layer\")\n\nlabel_pos = {}\nfor k, (x, y) in pos.items():\n    r = np.sqrt(x**2 + y**2) if np.sqrt(x**2 + y**2) &gt; 0 else 1\n    scale = 1.12\n    label_pos[k] = (x * scale, y * scale)\n\n# Plotting\nnx.draw_networkx(\n    G,\n    pos=pos,\n    with_labels=True,\n    node_color=\"white\",\n    node_size=500,\n    edgecolors=\"black\",\n)\nplt.axis(\"off\")\nplt.show()\n\n\n\n\n\n\n\n\n\n\n例 9.2 以下の作業リストに基づいて、プロジェクト・ネットワークを作成せよ。\n\n\n\n作業\n先行作業\n時間（日）\n\n\n\n\nA\n-\n2\n\n\nB\n-\n3\n\n\nC\nA\n4\n\n\nD\nA\n2\n\n\nE\nB\n5\n\n\nF\nC, D, E\n9\n\n\nG\nE\n2\n\n\n\n\n\nコード\nimport matplotlib.pyplot as plt\nimport networkx as nx\nimport numpy as np\n\n# グラフの作成（頂点を番号で定義）\nG = nx.DiGraph()\nedges = [\n    (\"s\", \"A\"),\n    (\"s\", \"B\"),\n    (\"A\", \"C\"),\n    (\"A\", \"D\"),\n    (\"C\", \"F\"),\n    (\"D\", \"F\"),\n    (\"B\", \"E\"),\n    (\"E\", \"G\"),\n    (\"E\", \"F\"),\n    (\"G\", \"t\"),\n    (\"F\", \"t\"),\n]\nG.add_edges_from(edges)\n\nfor layer, nodes in enumerate(nx.topological_generations(G)):\n    for node in nodes:\n        G.nodes[node][\"layer\"] = layer\n\npos = nx.multipartite_layout(G, subset_key=\"layer\")\n\nlabel_pos = {}\nfor k, (x, y) in pos.items():\n    r = np.sqrt(x**2 + y**2) if np.sqrt(x**2 + y**2) &gt; 0 else 1\n    scale = 1.12\n    label_pos[k] = (x * scale, y * scale)\n\n# Plotting\nnx.draw_networkx(\n    G,\n    pos=pos,\n    with_labels=True,\n    node_color=\"white\",\n    node_size=500,\n    edgecolors=\"black\",\n)\nplt.axis(\"off\")\nplt.show()",
+    "title": "8  PERT/CPM",
+    "section": "8.2 プロジェクト・ネットワーク",
+    "text": "8.2 プロジェクト・ネットワーク\nプロジェクトをネットワークで表現したものをプロジェクト・ネットワーク（Project Network）と呼ぶ。プロジェクト・ネットワークには、AOA（Activity on Arrow）や AON（Activity on Node）という 2 種類の表現方法がある。\nAOA では、作業を辺で表現し、先行関係を点で表現する。AON では、作業を点で表現し、先行関係を辺で表現する。AON のほうが理解と作成が容易で、実務でも AON がよく使われる(Camm ほか 2022; Hillier と Lieberman 2025; Eiselt と Sandblom 2022)。これは以降、AON に基づいて説明する。\nプロジェクト・ネットワークは \\(G = (V, E)\\) という有向グラフで表される。ここで、\\(V\\) は始点 \\(s\\)、終点 \\(t\\) と各作業を表す点の集合であり、\\(E\\) は先行関係を表す辺の集合である。辺 \\((v, u) \\in E\\) では、\\(v\\) が \\(u\\) の先行作業であることを意味する。\n辺 \\((s, v) \\in E\\) は、作業 \\(v\\) が先行作業を持たないことを意味し、辺 \\((v, t) \\in E\\) は、作業 \\(v\\) が後続作業を持たないことを意味する。作業 \\(v\\) の先行作業の集合を \\(\\mathcal{P}(v)\\) と表す。作業 \\(v\\) の後続作業の集合を \\(\\mathcal{S}(v)\\) と表す。\n作業点 \\(v \\in V\\) には、作業時間 \\(\\tau(v)\\) が与えられている。始点 \\(s\\) と終点 \\(t\\) の作業時間は \\(\\tau(s) = \\tau(t) = 0\\) とする。\n例 8.1 のプロジェクト・ネットワークは次の図のようになる。\n\n\nコード\nimport matplotlib.pyplot as plt\nimport networkx as nx\nimport numpy as np\n\n# グラフの作成（頂点を番号で定義）\nG = nx.DiGraph()\nedges = [\n    (\"s\", \"A\"),\n    (\"A\", \"B\"),\n    (\"A\", \"D\"),\n    (\"B\", \"C\"),\n    (\"C\", \"E\"),\n    (\"D\", \"E\"),\n    (\"E\", \"t\"),\n]\nG.add_edges_from(edges)\n\nfor layer, nodes in enumerate(nx.topological_generations(G)):\n    for node in nodes:\n        G.nodes[node][\"layer\"] = layer\n\npos = nx.multipartite_layout(G, subset_key=\"layer\")\n\nlabel_pos = {}\nfor k, (x, y) in pos.items():\n    r = np.sqrt(x**2 + y**2) if np.sqrt(x**2 + y**2) &gt; 0 else 1\n    scale = 1.12\n    label_pos[k] = (x * scale, y * scale)\n\n# Plotting\nnx.draw_networkx(\n    G,\n    pos=pos,\n    with_labels=True,\n    node_color=\"white\",\n    node_size=500,\n    edgecolors=\"black\",\n)\nplt.axis(\"off\")\nplt.show()\n\n\n\n\n\n\n\n\n\n\n例 8.2 以下の作業リストに基づいて、プロジェクト・ネットワークを作成せよ。\n\n\n\n作業\n先行作業\n時間（日）\n\n\n\n\nA\n-\n2\n\n\nB\n-\n3\n\n\nC\nA\n4\n\n\nD\nA\n2\n\n\nE\nB\n5\n\n\nF\nC, D, E\n9\n\n\nG\nE\n2\n\n\n\n\n\nコード\nimport matplotlib.pyplot as plt\nimport networkx as nx\nimport numpy as np\n\n# グラフの作成（頂点を番号で定義）\nG = nx.DiGraph()\nedges = [\n    (\"s\", \"A\"),\n    (\"s\", \"B\"),\n    (\"A\", \"C\"),\n    (\"A\", \"D\"),\n    (\"C\", \"F\"),\n    (\"D\", \"F\"),\n    (\"B\", \"E\"),\n    (\"E\", \"G\"),\n    (\"E\", \"F\"),\n    (\"G\", \"t\"),\n    (\"F\", \"t\"),\n]\nG.add_edges_from(edges)\n\nfor layer, nodes in enumerate(nx.topological_generations(G)):\n    for node in nodes:\n        G.nodes[node][\"layer\"] = layer\n\npos = nx.multipartite_layout(G, subset_key=\"layer\")\n\nlabel_pos = {}\nfor k, (x, y) in pos.items():\n    r = np.sqrt(x**2 + y**2) if np.sqrt(x**2 + y**2) &gt; 0 else 1\n    scale = 1.12\n    label_pos[k] = (x * scale, y * scale)\n\n# Plotting\nnx.draw_networkx(\n    G,\n    pos=pos,\n    with_labels=True,\n    node_color=\"white\",\n    node_size=500,\n    edgecolors=\"black\",\n)\nplt.axis(\"off\")\nplt.show()",
     "crumbs": [
       "ネットワーク最適化",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>PERT/CPM</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>PERT/CPM</span>"
     ]
   },
   {
     "objectID": "network/pert.html#sec-critical-path",
     "href": "network/pert.html#sec-critical-path",
-    "title": "9  PERT/CPM",
-    "section": "9.3 クリティカルパス",
-    "text": "9.3 クリティカルパス\nプロジェクト・ネットワークにおいて、始点 \\(s\\) から終点 \\(t\\) までの経路をパスと呼ぶ。パスの長さは、そのパス上の作業時間の合計である。パス \\(P = (s, v_{i_1}, v_{i_2}, \\ldots, v_{i_k}, t)\\) の長さは、\n\\[\n\\sum_{v \\in P} \\tau(v) = \\tau(v_{i_1}) + \\tau(v_{i_2}) + \\cdots + \\tau(v_{i_k})\n\\]\nである。\n最も長いパスをクリティカルパス（Critical Path）と呼ぶ。クリティカルパスに含まれる作業をクリティカル作業（Critical Activity）と呼ぶ。クリティカル作業が遅延すると、プロジェクト全体の完了が遅延する。\nクリティカルパスを求める問題は、最長路問題に帰着できるが、ここで述べる方法は、プロジェクトにおける様々な有用な情報も提供する。\n\n9.3.1 最早開始時刻と最早終了時刻\n作業点 \\(v \\in V\\) の最も早く開始できる時間を最早開始時刻（Earliest Start Time）と呼び、\\(ES(v)\\) と表す。\\(v\\) の最も早く終了できる時間を最早終了時刻（Earliest Finish Time）と呼び、\\(EF(v)\\) と表す。始点 \\(s\\) の最早開始時刻は \\(ES(s) = 0\\) とする。\n\\(v\\) の最早終了時刻は、最早開始時刻に作業時間を加えたものである。\n\\[\nEF(v) = ES(v) + \\tau(v)\n\\]\n\\(u\\) の最早開始時刻は、\\(u\\) の先行作業 \\(v \\in \\mathcal{P}(u)\\) の中で最早終了時刻 \\(EF(v)\\) が最大のものである。\n\\[\nES(u) = \\max_{v \\in \\mathcal{P}(u)} EF(v)\n\\]\nで与えられる。\n最早開始時刻と最早終了時刻を求めるアルゴリズムは下の通りである。ここで、点をトポロジカルオーダー(topological order)で処理するとは、\\(v\\) のすべての先行作業 \\(u \\in \\mathcal{P}(v)\\) が \\(v\\) より前に処理されるように点を順序付けることである。\n\nForward Pass Algorithm\n\n\\(ES(s) \\leftarrow 0\\), \\(EF(s) \\leftarrow 0\\).\nFor each \\(v \\in V \\setminus \\{s\\}\\) in topological order do\n\n\\(ES(v) \\leftarrow \\max_{u \\in \\mathcal{P}(v)} EF(u)\\).\n\\(EF(v) \\leftarrow ES(v) + \\tau(v)\\).\n\n\n\n例 9.2 のプロジェクト・ネットワークに対して、最早開始時刻と最早終了時刻を求めると、次の表のようになる。\n\n\n\n\\(v\\)\n\\(\\mathcal{P}(v)\\)\n\\(\\tau(v)\\)\n\\(ES(v)\\)\n\\(EF(v)\\)\n\n\n\n\ns\n-\n0\n0\n0\n\n\nA\ns\n2\n0\n2\n\n\nB\ns\n3\n0\n3\n\n\nC\nA\n4\n2\n6\n\n\nD\nA\n2\n2\n4\n\n\nE\nB\n5\n3\n8\n\n\nF\nC, D, E\n9\n8\n17\n\n\nG\nE\n2\n8\n10\n\n\nt\nF, G\n0\n17\n17\n\n\n\n作業 F を開始するためには、作業 C、D、E のすべてが完了している必要がある。そのため、作業 F の開始時間は、作業 C、D、E の中で最も遅い完了時間に依存する。作業 C、D、E の完了時間はそれぞれ 6 日、4 日、8 日であるため、作業 F の最も早い開始時間は 8 日となる。\n\n\n9.3.2 最遅開始時刻と最遅終了時刻\n作業点 \\(v\\) の遅くとも始めないといけない時間を最遅開始時刻（Latest Start Time）と呼び、\\(LS(v)\\) と表す。\\(v\\) の遅くとも終わらせないといけない時間を最遅終了時刻（Latest Finish Time）と呼び、\\(LF(v)\\) と表す。\n終点 \\(t\\) の最遅終了時刻は \\(LF(t) = EF(t)\\) とする。\n\\(v\\) の最遅開始時刻は、最遅終了時刻から作業時間を引いたものである。\n\\[\nLS(v) = LF(v) - \\tau(v)\n\\]\n\\(u\\) の最遅終了時刻は、\\(u\\) の後続作業 \\(v \\in \\mathcal{S}(u)\\) の中で \\(LS(v)\\) が最小のものである。\n\\[\nLF(u) = \\min_{v \\in \\mathcal{S}(u)} LS(v)\n\\]\n例 9.2 のプロジェクト・ネットワークに対して、最遅開始時刻と最遅終了時刻を求めると、次の表のようになる。\n\n\n\n\\(v\\)\n\\(\\mathcal{S}(v)\\)\n\\(\\tau(v)\\)\n\\(LS(v)\\)\n\\(LF(v)\\)\n\n\n\n\ns\nA, B\n0\n0\n0\n\n\nA\nC, D\n2\n2\n4\n\n\nB\nE\n3\n0\n3\n\n\nC\nF\n4\n4\n8\n\n\nD\nF\n2\n6\n8\n\n\nE\nF, G\n5\n3\n8\n\n\nF\nt\n9\n8\n17\n\n\nG\nt\n2\n15\n17\n\n\nt\n-\n0\n17\n17\n\n\n\n\n\n9.3.3 スラック\n作業点 \\(v\\) のスラック（Slack）を \\(SL(v)\\) と表す。スラックは、\n\\[\nSL(v) = LS(v) - ES(v) = LF(v) - EF(v)\n\\]\nで与えられる。スラックは、作業 \\(v\\) の開始または終了を遅らせることができる時間を示す。スラックが 0 の作業はクリティカル作業である。\n例 9.2 のプロジェクト・ネットワークに対して、スラックを求めると、次の表のようになる。\n\n\n\n\\(v\\)\n\\(\\tau(v)\\)\n\\(ES(v)\\)\n\\(EF(v)\\)\n\\(LS(v)\\)\n\\(LF(v)\\)\n\\(SL(v)\\)\n\n\n\n\ns\n0\n0\n0\n0\n0\n0\n\n\nA\n2\n0\n2\n2\n4\n2\n\n\nB\n3\n0\n3\n0\n3\n0\n\n\nC\n4\n2\n6\n4\n8\n2\n\n\nD\n2\n2\n4\n6\n8\n4\n\n\nE\n5\n3\n8\n3\n8\n0\n\n\nF\n9\n8\n17\n8\n17\n0\n\n\nG\n2\n8\n10\n15\n17\n7\n\n\nt\n0\n17\n17\n17\n17\n0\n\n\n\nクリティカルパスは、\\(s \\to B \\to E \\to F \\to t\\) であり、このパスの長さは 17 日である。",
+    "title": "8  PERT/CPM",
+    "section": "8.3 クリティカルパス",
+    "text": "8.3 クリティカルパス\nプロジェクト・ネットワークにおいて、始点 \\(s\\) から終点 \\(t\\) までの経路をパスと呼ぶ。パスの長さは、そのパス上の作業時間の合計である。パス \\(P = (s, v_{i_1}, v_{i_2}, \\ldots, v_{i_k}, t)\\) の長さは、\n\\[\n\\sum_{v \\in P} \\tau(v) = \\tau(v_{i_1}) + \\tau(v_{i_2}) + \\cdots + \\tau(v_{i_k})\n\\]\nである。\n最も長いパスをクリティカルパス（Critical Path）と呼ぶ。クリティカルパスに含まれる作業をクリティカル作業（Critical Activity）と呼ぶ。クリティカル作業が遅延すると、プロジェクト全体の完了が遅延する。\nクリティカルパスを求める問題は、最長路問題に帰着できるが、ここで述べる方法は、プロジェクトにおける様々な有用な情報も提供する。\n\n8.3.1 最早開始時刻と最早終了時刻\n作業点 \\(v \\in V\\) の最も早く開始できる時間を最早開始時刻（Earliest Start Time）と呼び、\\(ES(v)\\) と表す。\\(v\\) の最も早く終了できる時間を最早終了時刻（Earliest Finish Time）と呼び、\\(EF(v)\\) と表す。始点 \\(s\\) の最早開始時刻は \\(ES(s) = 0\\) とする。\n\\(v\\) の最早終了時刻は、最早開始時刻に作業時間を加えたものである。\n\\[\nEF(v) = ES(v) + \\tau(v)\n\\]\n\\(u\\) の最早開始時刻は、\\(u\\) の先行作業 \\(v \\in \\mathcal{P}(u)\\) の中で最早終了時刻 \\(EF(v)\\) が最大のものである。\n\\[\nES(u) = \\max_{v \\in \\mathcal{P}(u)} EF(v)\n\\]\nで与えられる。\n最早開始時刻と最早終了時刻を求めるアルゴリズムは下の通りである。ここで、点をトポロジカルオーダー(topological order)で処理するとは、\\(v\\) のすべての先行作業 \\(u \\in \\mathcal{P}(v)\\) が \\(v\\) より前に処理されるように点を順序付けることである。\n\nForward Pass Algorithm\n\n\\(ES(s) \\leftarrow 0\\), \\(EF(s) \\leftarrow 0\\).\nFor each \\(v \\in V \\setminus \\{s\\}\\) in topological order do\n\n\\(ES(v) \\leftarrow \\max_{u \\in \\mathcal{P}(v)} EF(u)\\).\n\\(EF(v) \\leftarrow ES(v) + \\tau(v)\\).\n\n\n\n例 8.2 のプロジェクト・ネットワークに対して、最早開始時刻と最早終了時刻を求めると、次の表のようになる。\n\n\n\n\\(v\\)\n\\(\\mathcal{P}(v)\\)\n\\(\\tau(v)\\)\n\\(ES(v)\\)\n\\(EF(v)\\)\n\n\n\n\ns\n-\n0\n0\n0\n\n\nA\ns\n2\n0\n2\n\n\nB\ns\n3\n0\n3\n\n\nC\nA\n4\n2\n6\n\n\nD\nA\n2\n2\n4\n\n\nE\nB\n5\n3\n8\n\n\nF\nC, D, E\n9\n8\n17\n\n\nG\nE\n2\n8\n10\n\n\nt\nF, G\n0\n17\n17\n\n\n\n作業 F を開始するためには、作業 C、D、E のすべてが完了している必要がある。そのため、作業 F の開始時間は、作業 C、D、E の中で最も遅い完了時間に依存する。作業 C、D、E の完了時間はそれぞれ 6 日、4 日、8 日であるため、作業 F の最も早い開始時間は 8 日となる。\n\n\n8.3.2 最遅開始時刻と最遅終了時刻\n作業点 \\(v\\) の遅くとも始めないといけない時間を最遅開始時刻（Latest Start Time）と呼び、\\(LS(v)\\) と表す。\\(v\\) の遅くとも終わらせないといけない時間を最遅終了時刻（Latest Finish Time）と呼び、\\(LF(v)\\) と表す。\n終点 \\(t\\) の最遅終了時刻は \\(LF(t) = EF(t)\\) とする。\n\\(v\\) の最遅開始時刻は、最遅終了時刻から作業時間を引いたものである。\n\\[\nLS(v) = LF(v) - \\tau(v)\n\\]\n\\(u\\) の最遅終了時刻は、\\(u\\) の後続作業 \\(v \\in \\mathcal{S}(u)\\) の中で \\(LS(v)\\) が最小のものである。\n\\[\nLF(u) = \\min_{v \\in \\mathcal{S}(u)} LS(v)\n\\]\n例 8.2 のプロジェクト・ネットワークに対して、最遅開始時刻と最遅終了時刻を求めると、次の表のようになる。\n\n\n\n\\(v\\)\n\\(\\mathcal{S}(v)\\)\n\\(\\tau(v)\\)\n\\(LS(v)\\)\n\\(LF(v)\\)\n\n\n\n\ns\nA, B\n0\n0\n0\n\n\nA\nC, D\n2\n2\n4\n\n\nB\nE\n3\n0\n3\n\n\nC\nF\n4\n4\n8\n\n\nD\nF\n2\n6\n8\n\n\nE\nF, G\n5\n3\n8\n\n\nF\nt\n9\n8\n17\n\n\nG\nt\n2\n15\n17\n\n\nt\n-\n0\n17\n17\n\n\n\n\n\n8.3.3 スラック\n作業点 \\(v\\) のスラック（Slack）を \\(SL(v)\\) と表す。スラックは、\n\\[\nSL(v) = LS(v) - ES(v) = LF(v) - EF(v)\n\\]\nで与えられる。スラックは、作業 \\(v\\) の開始または終了を遅らせることができる時間を示す。スラックが 0 の作業はクリティカル作業である。\n例 8.2 のプロジェクト・ネットワークに対して、スラックを求めると、次の表のようになる。\n\n\n\n\\(v\\)\n\\(\\tau(v)\\)\n\\(ES(v)\\)\n\\(EF(v)\\)\n\\(LS(v)\\)\n\\(LF(v)\\)\n\\(SL(v)\\)\n\n\n\n\ns\n0\n0\n0\n0\n0\n0\n\n\nA\n2\n0\n2\n2\n4\n2\n\n\nB\n3\n0\n3\n0\n3\n0\n\n\nC\n4\n2\n6\n4\n8\n2\n\n\nD\n2\n2\n4\n6\n8\n4\n\n\nE\n5\n3\n8\n3\n8\n0\n\n\nF\n9\n8\n17\n8\n17\n0\n\n\nG\n2\n8\n10\n15\n17\n7\n\n\nt\n0\n17\n17\n17\n17\n0\n\n\n\nクリティカルパスは、\\(s \\to B \\to E \\to F \\to t\\) であり、このパスの長さは 17 日である。",
     "crumbs": [
       "ネットワーク最適化",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>PERT/CPM</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>PERT/CPM</span>"
     ]
   },
   {
     "objectID": "network/pert.html#点見積もり",
     "href": "network/pert.html#点見積もり",
-    "title": "9  PERT/CPM",
-    "section": "9.4 3 点見積もり",
-    "text": "9.4 3 点見積もり\n以上の方法では、作業の所要時間が確定していることを前提としている。しかし、実際には、所要時間の推定は難しい場合が多い。そこで、作業の所要時間を確率変数として扱い、3 点見積もり（Three-Point Estimation）という方法でその作業時間の平均と分散を推定する。\n3 点見積もりでは、次の 3 つの所要時間を事前に与えられたとする。\n\n楽観値（Optimistic Time, \\(a\\)）：予想される最短の所要時間。\n最頻値（Most Likely Time, \\(m\\)）：最も可能性が高い所要時間。\n悲観値（Pessimistic Time, \\(b\\)）：予想される最長の所要時間。\n\n一般に、\\(a \\leq m \\leq b\\) である。\nこの \\(a\\)、\\(m\\)、\\(b\\) に基づいて、所要時間の平均 \\(\\hat{\\mu}\\) と分散 \\(\\hat{\\sigma}^2\\) を次のように推定する。\n\n\n\n\n\n\nノート\n\n\n\n作業の所要時間がベータ分布に従うと仮定した場合は、式 9.1 が \\(\\mu\\) と \\(\\sigma^2\\) の良い推定量となる。これらの式の詳細な導出は省略する。興味のある読者は、Pleguezuelo, Pérez, と Rambaud (2003) を参照されたい。\n\n\n\\[\n\\hat{\\mu} = \\frac{a + 4m + b}{6}, \\quad \\hat{\\sigma}^2 = \\left(\\frac{b - a}{6}\\right)^2\n\\tag{9.1}\\]\nそこで、\\(\\mu(v)\\) と \\(\\sigma^2(v)\\) をそれぞれ作業点 \\(v\\) の所要時間の平均と分散とする。\\(a(v)\\)、\\(m(v)\\)、\\(b(v)\\) をそれぞれ作業点 \\(v\\) の楽観値、最頻値、悲観値とする。このとき、すべての作業点 \\(v \\in V\\) に対して、\n\\[\n\\mu(v) = \\frac{a(v) + 4m(v) + b(v)}{6}, \\quad \\sigma^2(v) = \\left(\\frac{b(v) - a(v)}{6}\\right)^2\n\\]\nで \\(\\mu(v)\\) と \\(\\sigma^2(v)\\) を計算する。\n例 9.2 のプロジェクト・ネットワークに対して、各作業点の楽観値、最頻値、悲観値が次のように与えられたとするとき、平均と分散を求めると、次の表のようになる。\n\n\n\n\\(v\\)\n\\(a\\)\n\\(m\\)\n\\(b\\)\n\\(\\mu\\)\n\\(\\sigma^2\\)\n\n\n\n\ns\n0\n0\n0\n0\n0\n\n\nA\n0.5\n2\n3.5\n2\n0.25\n\n\nB\n1.5\n3\n4.5\n3\n0.25\n\n\nC\n1.5\n3\n4.5\n3\n0.25\n\n\nD\n0.5\n2\n3.5\n2\n0.25\n\n\nE\n1\n5.5\n7\n5\n1\n\n\nF\n5\n8\n17\n9\n4\n\n\nG\n0.5\n2\n3.5\n2\n0.25\n\n\nt\n0\n0\n0\n0\n0",
+    "title": "8  PERT/CPM",
+    "section": "8.4 3 点見積もり",
+    "text": "8.4 3 点見積もり\n以上の方法では、作業の所要時間が確定していることを前提としている。しかし、実際には、所要時間の推定は難しい場合が多い。そこで、作業の所要時間を確率変数として扱い、3 点見積もり（Three-Point Estimation）という方法でその作業時間の平均と分散を推定する。\n3 点見積もりでは、次の 3 つの所要時間を事前に与えられたとする。\n\n楽観値（Optimistic Time, \\(a\\)）：予想される最短の所要時間。\n最頻値（Most Likely Time, \\(m\\)）：最も可能性が高い所要時間。\n悲観値（Pessimistic Time, \\(b\\)）：予想される最長の所要時間。\n\n一般に、\\(a \\leq m \\leq b\\) である。\nこの \\(a\\)、\\(m\\)、\\(b\\) に基づいて、所要時間の平均 \\(\\hat{\\mu}\\) と分散 \\(\\hat{\\sigma}^2\\) を次のように推定する。\n\n\n\n\n\n\nノート\n\n\n\n作業の所要時間がベータ分布に従うと仮定した場合は、式 8.1 が \\(\\mu\\) と \\(\\sigma^2\\) の良い推定量となる。これらの式の詳細な導出は省略する。興味のある読者は、Pleguezuelo, Pérez, と Rambaud (2003) を参照されたい。\n\n\n\\[\n\\hat{\\mu} = \\frac{a + 4m + b}{6}, \\quad \\hat{\\sigma}^2 = \\left(\\frac{b - a}{6}\\right)^2\n\\tag{8.1}\\]\nそこで、\\(\\mu(v)\\) と \\(\\sigma^2(v)\\) をそれぞれ作業点 \\(v\\) の所要時間の平均と分散とする。\\(a(v)\\)、\\(m(v)\\)、\\(b(v)\\) をそれぞれ作業点 \\(v\\) の楽観値、最頻値、悲観値とする。このとき、すべての作業点 \\(v \\in V\\) に対して、\n\\[\n\\mu(v) = \\frac{a(v) + 4m(v) + b(v)}{6}, \\quad \\sigma^2(v) = \\left(\\frac{b(v) - a(v)}{6}\\right)^2\n\\]\nで \\(\\mu(v)\\) と \\(\\sigma^2(v)\\) を計算する。\n例 8.2 のプロジェクト・ネットワークに対して、各作業点の楽観値、最頻値、悲観値が次のように与えられたとするとき、平均と分散を求めると、次の表のようになる。\n\n\n\n\\(v\\)\n\\(a\\)\n\\(m\\)\n\\(b\\)\n\\(\\mu\\)\n\\(\\sigma^2\\)\n\n\n\n\ns\n0\n0\n0\n0\n0\n\n\nA\n0.5\n2\n3.5\n2\n0.25\n\n\nB\n1.5\n3\n4.5\n3\n0.25\n\n\nC\n1.5\n3\n4.5\n3\n0.25\n\n\nD\n0.5\n2\n3.5\n2\n0.25\n\n\nE\n1\n5.5\n7\n5\n1\n\n\nF\n5\n8\n17\n9\n4\n\n\nG\n0.5\n2\n3.5\n2\n0.25\n\n\nt\n0\n0\n0\n0\n0",
     "crumbs": [
       "ネットワーク最適化",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>PERT/CPM</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>PERT/CPM</span>"
     ]
   },
   {
     "objectID": "network/pert.html#不確実性を考慮したpertcpm",
     "href": "network/pert.html#不確実性を考慮したpertcpm",
-    "title": "9  PERT/CPM",
-    "section": "9.5 不確実性を考慮したPERT/CPM",
-    "text": "9.5 不確実性を考慮したPERT/CPM\n3 点見積もりを用いて、各作業点 \\(v \\in V\\) の所要時間の平均 \\(\\mu(v)\\) と分散 \\(\\sigma^2(v)\\) を求めたとする。このとき、与えられた時間までにプロジェクトが完了する確率を求めたい。\nプロジェクト・ネットワークにおけるパス \\(P = (s, v_{i_1}, v_{i_2}, \\ldots, v_{i_k}, t)\\) の所要時間の平均 \\(\\mu(P)\\) と分散 \\(\\sigma^2(P)\\) は、それぞれ次のように推定できる。\n\\[\n\\mu(P) = \\sum_{v \\in P} \\mu(v), \\quad \\sigma^2(P) = \\sum_{v \\in P} \\sigma^2(v)\n\\]\nパス \\(P\\) の所要時間の標準偏差 \\(\\sigma(P)\\) は、\n\\[\n\\sigma(P) = \\sqrt{\\sigma^2(P)}\n\\]\nで与えられる。求められたパスの中で、所要時間の平均 \\(\\mu(P)\\) が最大のパスをクリティカルパス \\(P^*\\) とする。セクション 9.3 で述べた方法でクリティカルパスを求めることができる。\nクリティカルパス \\(P^*\\) の所要時間を \\(X\\) とし、与えられた時間 \\(d\\) までにプロジェクトが完了する確率を \\(\\mathbb{P}(X \\leq d)\\) と表す。\n\n\n\n\n\n\nノート\n\n\n\nここでは、計算を簡単にするために、クリティカルパスが最も時間がかかるパスであると仮定している。実際には、平均値から計算されたクリティカルパスが、最も時間がかかるパスであるとは限らないことに注意されたい。\n\n\n\\[\n\\mathbb{P}(X \\leq d) = \\phi\\left(\\frac{d - \\mu(P^*)}{\\sigma(P^*)}\\right)\n\\]\nここで、\\(\\phi(z)\\) は標準正規分布の確率密度関数である。\\(z\\) は次のように計算し、標準正規分布表を用いて \\(\\phi(z)\\) を調べる。\n\\[\nz = \\frac{d - \\mu(P^*)}{\\sigma(P^*)}\n\\]\n例 9.2 では、クリティカルパスは \\(s \\to B \\to E \\to F \\to t\\) であり、このパスの所要時間の平均、分散、標準偏差は次のように計算できる。\n\\[\n\\mu(P^*) = 3 + 5 + 9 = 17\n\\]\n\\[\n\\sigma^2(P^*) = 0.25 + 1 + 4 = 5.25\n\\]\n\\[\n\\sigma(P^*) = \\sqrt{5.25} \\approx 2.29\n\\]\n与えられた時間 \\(d = 20\\) 日までにプロジェクトが完了する確率を求めるには、次のように計算する。\n\\(z\\) を計算すると、\n\\[\nz = \\frac{20 - 17}{2.29} \\approx 1.31\n\\]\n標準正規分布表を用いて、\\(\\phi(1.31) \\approx 0.9049\\) である。したがって、与えられた時間 \\(d = 20\\) 日までにプロジェクトが完了する確率は約 90.49% である。",
+    "title": "8  PERT/CPM",
+    "section": "8.5 不確実性を考慮したPERT/CPM",
+    "text": "8.5 不確実性を考慮したPERT/CPM\n3 点見積もりを用いて、各作業点 \\(v \\in V\\) の所要時間の平均 \\(\\mu(v)\\) と分散 \\(\\sigma^2(v)\\) を求めたとする。このとき、与えられた時間までにプロジェクトが完了する確率を求めたい。\nプロジェクト・ネットワークにおけるパス \\(P = (s, v_{i_1}, v_{i_2}, \\ldots, v_{i_k}, t)\\) の所要時間の平均 \\(\\mu(P)\\) と分散 \\(\\sigma^2(P)\\) は、それぞれ次のように推定できる。\n\\[\n\\mu(P) = \\sum_{v \\in P} \\mu(v), \\quad \\sigma^2(P) = \\sum_{v \\in P} \\sigma^2(v)\n\\]\nパス \\(P\\) の所要時間の標準偏差 \\(\\sigma(P)\\) は、\n\\[\n\\sigma(P) = \\sqrt{\\sigma^2(P)}\n\\]\nで与えられる。求められたパスの中で、所要時間の平均 \\(\\mu(P)\\) が最大のパスをクリティカルパス \\(P^*\\) とする。セクション 8.3 で述べた方法でクリティカルパスを求めることができる。\nクリティカルパス \\(P^*\\) の所要時間を \\(X\\) とし、与えられた時間 \\(d\\) までにプロジェクトが完了する確率を \\(\\mathbb{P}(X \\leq d)\\) と表す。\n\n\n\n\n\n\nノート\n\n\n\nここでは、計算を簡単にするために、クリティカルパスが最も時間がかかるパスであると仮定している。実際には、平均値から計算されたクリティカルパスが、最も時間がかかるパスであるとは限らないことに注意されたい。\n\n\n\\[\n\\mathbb{P}(X \\leq d) = \\phi\\left(\\frac{d - \\mu(P^*)}{\\sigma(P^*)}\\right)\n\\]\nここで、\\(\\phi(z)\\) は標準正規分布の確率密度関数である。\\(z\\) は次のように計算し、標準正規分布表を用いて \\(\\phi(z)\\) を調べる。\n\\[\nz = \\frac{d - \\mu(P^*)}{\\sigma(P^*)}\n\\]\n例 8.2 では、クリティカルパスは \\(s \\to B \\to E \\to F \\to t\\) であり、このパスの所要時間の平均、分散、標準偏差は次のように計算できる。\n\\[\n\\mu(P^*) = 3 + 5 + 9 = 17\n\\]\n\\[\n\\sigma^2(P^*) = 0.25 + 1 + 4 = 5.25\n\\]\n\\[\n\\sigma(P^*) = \\sqrt{5.25} \\approx 2.29\n\\]\n与えられた時間 \\(d = 20\\) 日までにプロジェクトが完了する確率を求めるには、次のように計算する。\n\\(z\\) を計算すると、\n\\[\nz = \\frac{20 - 17}{2.29} \\approx 1.31\n\\]\n標準正規分布表を用いて、\\(\\phi(1.31) \\approx 0.9049\\) である。したがって、与えられた時間 \\(d = 20\\) 日までにプロジェクトが完了する確率は約 90.49% である。",
     "crumbs": [
       "ネットワーク最適化",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>PERT/CPM</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>PERT/CPM</span>"
     ]
   },
   {
     "objectID": "network/pert.html#時間とコストのトレードオフ",
     "href": "network/pert.html#時間とコストのトレードオフ",
-    "title": "9  PERT/CPM",
-    "section": "9.6 時間とコストのトレードオフ",
-    "text": "9.6 時間とコストのトレードオフ\n作業時間を短縮するには、コストがかかる。最小のコストでプロジェクトを短縮する問題を考える。\n\n9.6.1 問題の定式化\n\n\\(c_i\\): 作業 \\(i\\) の単位時間あたりの短縮コスト\n\\(M_i\\): 作業 \\(i\\) の最大短縮時間\n\\(T\\): プロジェクトの完了時間の上限\n\\(\\tau_i\\): 作業 \\(i\\) の標準所要時間\n\\(y_i\\): 作業 \\(i\\) の開始時間\n\\(x_i\\): 作業 \\(i\\) の短縮時間\n\n\\[\\begin{align*}\n\\text{minimize} \\quad & \\sum_{i} c_i x_i &\\\\\n\\text{subject to} \\quad & y_j \\geq y_i + \\tau_i - x_i, \\quad & \\forall (i, j) \\in E \\\\\n& 0 \\leq x_i \\leq M_i, \\quad & \\forall i \\in V \\\\\n& y_t \\leq T \\\\\n& y_s = 0\n\\end{align*}\\]\n\n\n9.6.2 例題\nプロジェクト・ネットワークはグラフ \\(G = (V, E)\\) で表す。作業の集合は\n\\[\nV = \\{s, t, A, B, C, D, E\\}\n\\] であり、辺の集合は\n\\[\nE = \\{(s, A), (s, C), (A, B), (C, D), (B, E), (D, E), (E, t)\\}\n\\] である。ここで、\\(s\\) は始点、\\(t\\) は終点である。プロジェクト全体の所要時間の上限を \\(T = 10\\) とする。\n作業時間、コスト、最大短縮時間は次の表のように与えられる。\n\n\n\n作業\n\\(\\tau_i\\)\n\\(c_i\\)\n\\(M_i\\)\n\n\n\n\nA\n7\n100\n3\n\n\nB\n3\n150\n1\n\n\nC\n6\n200\n2\n\n\nD\n3\n150\n2\n\n\nE\n2\n250\n1\n\n\n\nこの問題を次のように定式化できる。\n\\[\\begin{align*}\n\\text{minimize} \\quad & 100x_A + 150x_B + 200x_C + 150x_D + 250x_E &\\\\\n\\text{subject to} \\quad & y_A \\geq 0 \\\\\n& y_C \\geq 0 \\\\\n& y_B \\geq y_A + 7 - x_A \\\\\n& y_D \\geq y_C + 6 - x_C \\\\\n& y_E \\geq y_B + 3 - x_B \\\\\n& y_E \\geq y_D + 3 - x_D \\\\\n& y_t \\geq y_E + 2 - x_E \\\\\n& 0 \\leq x_A \\leq 3 \\\\\n& 0 \\leq x_B \\leq 1 \\\\\n& 0 \\leq x_C \\leq 2 \\\\\n& 0 \\leq x_D \\leq 2 \\\\\n& 0 \\leq x_E \\leq 1 \\\\\n& y_t \\leq 10 \\\\\n& y_s = 0\n\\end{align*}\\]\nこの線形計画問題は、最適化ソルバーを用いて解くことができる。以下に Gurobi を用いた実装例を示す。\n!pip install gurobipy\nfrom gurobipy import Model, GRB\n\n# データ定義\nV = [\"s\", \"t\", \"A\", \"B\", \"C\", \"D\", \"E\"]\nE = [(\"s\", \"A\"), (\"s\", \"C\"), (\"A\", \"B\"), (\"C\", \"D\"), (\"B\", \"E\"), (\"D\", \"E\"), (\"E\", \"t\")]\n\ntau = {\"A\": 7, \"B\": 3, \"C\": 6, \"D\": 3, \"E\": 2}\ncost = {\"A\": 100, \"B\": 150, \"C\": 200, \"D\": 150, \"E\": 250}\nM = {\"A\": 3, \"B\": 1, \"C\": 2, \"D\": 2, \"E\": 1}\n\nT = 10\n\n# モデル作成\nm = Model(\"Project_Crashing\")\nm.setParam(\"OutputFlag\", 0) \n\n# 変数定義\nx = {i: m.addVar(lb=0, ub=M[i], name=\"x_{}\".format(i)) for i in M}\ny = {i: m.addVar(lb=0, name=\"y_{}\".format(i)) for i in V}\n\n# 目的関数\nm.setObjective(sum(cost[i] * x[i] for i in M), GRB.MINIMIZE)\n\n# 制約\nfor i, j in E:\n    if i == \"s\":\n        m.addConstr(y[j] &gt;= 0)\n    elif i in tau:\n        m.addConstr(y[j] &gt;= y[i] + tau[i] - x[i])\n\n# プロジェクト終了制約\nm.addConstr(y[\"t\"] &lt;= T)\n\n# 開始ノード固定\nm.addConstr(y[\"s\"] == 0)\n\n# 最適化\nm.optimize()\n\n# 結果表示\nprint(\"Objective:\", m.objVal)\nfor i in x:\n    print(\"x_{} =\".format(i), x[i].X)\nfor i in y:\n    print(\"y_{} =\".format(i), y[i].X)\nObjective: 350.0\nx_A = 1.0\nx_B = 0.0\nx_C = 0.0\nx_D = 0.0\nx_E = 1.0\ny_s = 0.0\ny_t = 10.0\ny_A = 0.0\ny_B = 6.0\ny_C = 0.0\ny_D = 6.0\ny_E = 9.0\nこの結果から、作業 A を 1 日、作業 E を 1 日短縮することで、最小コスト 350 でプロジェクトを 10 日以内に完了できることがわかる。\n\n\n\n\nCamm, Jeffrey, James Cochran, Michael Fry, Jeffrey Ohlmann, David Anderson, Dennis Sweeney, と Thomas Williams. 2022. An introduction to management science: Quantitative approaches to decision making. 16th 版. Florence, AL: South-Western College Publishing.\n\n\nEiselt, H A, と Carl-Louis Sandblom. 2022. Operations research: A model-based approach. Cham: Springer International Publishing.\n\n\nHillier, Frederick, と Gerald Lieberman. 2025. ISE introduction to operations research. 11th 版. Columbus, OH: McGraw-Hill Education.\n\n\nPleguezuelo, Rafael Herrerı́as, José Garcı́a Pérez, と Salvador Cruz Rambaud. 2003. 「A note on the reasonableness of PERT hypotheses」. Oper. Res. Lett. 31 (1): 60–62.",
+    "title": "8  PERT/CPM",
+    "section": "8.6 時間とコストのトレードオフ",
+    "text": "8.6 時間とコストのトレードオフ\n作業時間を短縮するには、コストがかかる。最小のコストでプロジェクトを短縮する問題を考える。\n\n8.6.1 問題の定式化\n\n\\(c_i\\): 作業 \\(i\\) の単位時間あたりの短縮コスト\n\\(M_i\\): 作業 \\(i\\) の最大短縮時間\n\\(T\\): プロジェクトの完了時間の上限\n\\(\\tau_i\\): 作業 \\(i\\) の標準所要時間\n\\(y_i\\): 作業 \\(i\\) の開始時間\n\\(x_i\\): 作業 \\(i\\) の短縮時間\n\n\\[\\begin{align*}\n\\text{minimize} \\quad & \\sum_{i} c_i x_i &\\\\\n\\text{subject to} \\quad & y_j \\geq y_i + \\tau_i - x_i, \\quad & \\forall (i, j) \\in E \\\\\n& 0 \\leq x_i \\leq M_i, \\quad & \\forall i \\in V \\\\\n& y_t \\leq T \\\\\n& y_s = 0\n\\end{align*}\\]\n\n\n8.6.2 例題\nプロジェクト・ネットワークはグラフ \\(G = (V, E)\\) で表す。作業の集合は\n\\[\nV = \\{s, t, A, B, C, D, E\\}\n\\] であり、辺の集合は\n\\[\nE = \\{(s, A), (s, C), (A, B), (C, D), (B, E), (D, E), (E, t)\\}\n\\] である。ここで、\\(s\\) は始点、\\(t\\) は終点である。プロジェクト全体の所要時間の上限を \\(T = 10\\) とする。\n作業時間、コスト、最大短縮時間は次の表のように与えられる。\n\n\n\n作業\n\\(\\tau_i\\)\n\\(c_i\\)\n\\(M_i\\)\n\n\n\n\nA\n7\n100\n3\n\n\nB\n3\n150\n1\n\n\nC\n6\n200\n2\n\n\nD\n3\n150\n2\n\n\nE\n2\n250\n1\n\n\n\nこの問題を次のように定式化できる。\n\\[\\begin{align*}\n\\text{minimize} \\quad & 100x_A + 150x_B + 200x_C + 150x_D + 250x_E &\\\\\n\\text{subject to} \\quad & y_A \\geq 0 \\\\\n& y_C \\geq 0 \\\\\n& y_B \\geq y_A + 7 - x_A \\\\\n& y_D \\geq y_C + 6 - x_C \\\\\n& y_E \\geq y_B + 3 - x_B \\\\\n& y_E \\geq y_D + 3 - x_D \\\\\n& y_t \\geq y_E + 2 - x_E \\\\\n& 0 \\leq x_A \\leq 3 \\\\\n& 0 \\leq x_B \\leq 1 \\\\\n& 0 \\leq x_C \\leq 2 \\\\\n& 0 \\leq x_D \\leq 2 \\\\\n& 0 \\leq x_E \\leq 1 \\\\\n& y_t \\leq 10 \\\\\n& y_s = 0\n\\end{align*}\\]\nこの線形計画問題は、最適化ソルバーを用いて解くことができる。以下に Gurobi を用いた実装例を示す。\n!pip install gurobipy\nfrom gurobipy import Model, GRB\n\n# データ定義\nV = [\"s\", \"t\", \"A\", \"B\", \"C\", \"D\", \"E\"]\nE = [(\"s\", \"A\"), (\"s\", \"C\"), (\"A\", \"B\"), (\"C\", \"D\"), (\"B\", \"E\"), (\"D\", \"E\"), (\"E\", \"t\")]\n\ntau = {\"A\": 7, \"B\": 3, \"C\": 6, \"D\": 3, \"E\": 2}\ncost = {\"A\": 100, \"B\": 150, \"C\": 200, \"D\": 150, \"E\": 250}\nM = {\"A\": 3, \"B\": 1, \"C\": 2, \"D\": 2, \"E\": 1}\n\nT = 10\n\n# モデル作成\nm = Model(\"Project_Crashing\")\nm.setParam(\"OutputFlag\", 0) \n\n# 変数定義\nx = {i: m.addVar(lb=0, ub=M[i], name=\"x_{}\".format(i)) for i in M}\ny = {i: m.addVar(lb=0, name=\"y_{}\".format(i)) for i in V}\n\n# 目的関数\nm.setObjective(sum(cost[i] * x[i] for i in M), GRB.MINIMIZE)\n\n# 制約\nfor i, j in E:\n    if i == \"s\":\n        m.addConstr(y[j] &gt;= 0)\n    elif i in tau:\n        m.addConstr(y[j] &gt;= y[i] + tau[i] - x[i])\n\n# プロジェクト終了制約\nm.addConstr(y[\"t\"] &lt;= T)\n\n# 開始ノード固定\nm.addConstr(y[\"s\"] == 0)\n\n# 最適化\nm.optimize()\n\n# 結果表示\nprint(\"Objective:\", m.objVal)\nfor i in x:\n    print(\"x_{} =\".format(i), x[i].X)\nfor i in y:\n    print(\"y_{} =\".format(i), y[i].X)\nObjective: 350.0\nx_A = 1.0\nx_B = 0.0\nx_C = 0.0\nx_D = 0.0\nx_E = 1.0\ny_s = 0.0\ny_t = 10.0\ny_A = 0.0\ny_B = 6.0\ny_C = 0.0\ny_D = 6.0\ny_E = 9.0\nこの結果から、作業 A を 1 日、作業 E を 1 日短縮することで、最小コスト 350 でプロジェクトを 10 日以内に完了できることがわかる。\n\n\n\n\nCamm, Jeffrey, James Cochran, Michael Fry, Jeffrey Ohlmann, David Anderson, Dennis Sweeney, と Thomas Williams. 2022. An introduction to management science: Quantitative approaches to decision making. 16th 版. Florence, AL: South-Western College Publishing.\n\n\nEiselt, H A, と Carl-Louis Sandblom. 2022. Operations research: A model-based approach. Cham: Springer International Publishing.\n\n\nHillier, Frederick, と Gerald Lieberman. 2025. ISE introduction to operations research. 11th 版. Columbus, OH: McGraw-Hill Education.\n\n\nPleguezuelo, Rafael Herrerı́as, José Garcı́a Pérez, と Salvador Cruz Rambaud. 2003. 「A note on the reasonableness of PERT hypotheses」. Oper. Res. Lett. 31 (1): 60–62.",
     "crumbs": [
       "ネットワーク最適化",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>PERT/CPM</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>PERT/CPM</span>"
     ]
   },
   {
@@ -806,7 +728,7 @@
     "href": "references.html",
     "title": "参考文献",
     "section": "",
-    "text": "Arrow, Kenneth J, Theodore Harris, and Jacob Marschak. 1951.\n“Optimal Inventory Policy.” Econometrica 19 (3):\n250.\n\n\nBrunelli, Matteo. 2015. Introduction to the Analytic Hierarchy\nProcess. 2015th ed. SpringerBriefs in Operations Research. Cham:\nSpringer International Publishing.\n\n\nCamm, Jeffrey, James Cochran, Michael Fry, Jeffrey Ohlmann, David\nAnderson, Dennis Sweeney, and Thomas Williams. 2022. An Introduction\nto Management Science: Quantitative Approaches to Decision Making.\n16th ed. Florence, AL: South-Western College Publishing.\n\n\nCrawford, Gordon, and Cindy Williams. 1985. “A Note on the\nAnalysis of Subjective Judgment Matrices.” Journal of\nMathematical Psychology, Some thoughts about the mathematics of the\nanalytic hierarchy process, 29 (4): 387–405.\n\n\nEiselt, H A, and Carl-Louis Sandblom. 2022. Operations Research: A\nModel-Based Approach. Cham: Springer International Publishing.\n\n\nHarris, Ford W. 1990. “How Many Parts to Make at Once.”\nOper. Res. 38 (6): 947–50.\n\n\nHillier, Frederick, and Gerald Lieberman. 2025. ISE\nIntroduction to Operations Research. 11th ed. Columbus, OH:\nMcGraw-Hill Education.\n\n\nHuber, Jakob, Sebastian Müller, Moritz Fleischmann, and Heiner\nStuckenschmidt. 2019. “A Data-Driven Newsvendor Problem: From Data\nto Decision.” Eur. J. Oper. Res. 278 (3): 904–15.\n\n\nPleguezuelo, Rafael Herrerı́as, José Garcı́a Pérez, and Salvador Cruz\nRambaud. 2003. “A Note on the Reasonableness of PERT\nHypotheses.” Oper. Res. Lett. 31 (1): 60–62.\n\n\nQin, Yan, Ruoxuan Wang, Asoo J Vakharia, Yuwen Chen, and Michelle M H\nSeref. 2011. “The Newsvendor Problem: Review and Directions for\nFuture Research.” Eur. J. Oper. Res. 213 (2): 361–74.\n\n\nScarf, Herbert. 1959. “The Optimality of (S, s)\nPolicies in the Dynamic Inventory Problem.”\n\n\nSnyder, Lawrence V, and Zuo-Jun Max Shen. 2019. Fundamentals of\nSupply Chain Theory. 2nd ed. Nashville, TN: John Wiley & Sons.",
+    "text": "Arrow, Kenneth J, Theodore Harris, and Jacob Marschak. 1951.\n“Optimal Inventory Policy.” Econometrica 19 (3):\n250.\n\n\nCamm, Jeffrey, James Cochran, Michael Fry, Jeffrey Ohlmann, David\nAnderson, Dennis Sweeney, and Thomas Williams. 2022. An Introduction\nto Management Science: Quantitative Approaches to Decision Making.\n16th ed. Florence, AL: South-Western College Publishing.\n\n\nEiselt, H A, and Carl-Louis Sandblom. 2022. Operations Research: A\nModel-Based Approach. Cham: Springer International Publishing.\n\n\nHarris, Ford W. 1990. “How Many Parts to Make at Once.”\nOper. Res. 38 (6): 947–50.\n\n\nHillier, Frederick, and Gerald Lieberman. 2025. ISE\nIntroduction to Operations Research. 11th ed. Columbus, OH:\nMcGraw-Hill Education.\n\n\nHuber, Jakob, Sebastian Müller, Moritz Fleischmann, and Heiner\nStuckenschmidt. 2019. “A Data-Driven Newsvendor Problem: From Data\nto Decision.” Eur. J. Oper. Res. 278 (3): 904–15.\n\n\nPleguezuelo, Rafael Herrerı́as, José Garcı́a Pérez, and Salvador Cruz\nRambaud. 2003. “A Note on the Reasonableness of PERT\nHypotheses.” Oper. Res. Lett. 31 (1): 60–62.\n\n\nQin, Yan, Ruoxuan Wang, Asoo J Vakharia, Yuwen Chen, and Michelle M H\nSeref. 2011. “The Newsvendor Problem: Review and Directions for\nFuture Research.” Eur. J. Oper. Res. 213 (2): 361–74.\n\n\nScarf, Herbert. 1959. “The Optimality of (S, s)\nPolicies in the Dynamic Inventory Problem.”\n\n\nSnyder, Lawrence V, and Zuo-Jun Max Shen. 2019. Fundamentals of\nSupply Chain Theory. 2nd ed. Nashville, TN: John Wiley & Sons.",
     "crumbs": [
       "参考文献"
     ]
