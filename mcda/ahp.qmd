@@ -6,20 +6,9 @@ format:
 jupyter: python3
 ---
 
-## 記号
-
-| 記号 | 意味               |
-| ---- | ------------------ |
-| $\mathbf{A}$ | 一対比較行列       |
-| $X$ | 代替案の集合       |
-| $x_i$ | 代替案 $i$         |
-| $a_{ij}$ | 一対比較値       |
-| $\mathbf{w}$ | 重要度ベクトル |
-
-
-## 代替案の重要度
-
 AHPは，複数の代替案の中から一つの代替案を選択するための手法である．
+
+## 代替案
 
 代替案の集合 $X = \{x_1, x_2, \ldots, x_n\}$ とする．代替案の重要度を 
 
@@ -46,6 +35,17 @@ $$
 
 このように，それぞれの代替案の重要度が与えられるならば，望ましい代替案の選択は容易である．しかし，実際には，代替案の重要度を直接決定することは難しい．
 
+## 記号
+
+| 記号 | 意味               |
+| ---- | ------------------ |
+| $\mathbf{A}$ | 一対比較行列       |
+| $X$ | 代替案の集合       |
+| $x_i$ | 代替案 $i$         |
+| $a_{ij}$ | 一対比較値       |
+| $\mathbf{w}$ | 重要度ベクトル |
+
+
 ## 一対比較 
 
 すべての代替案を並べて比較することは難しい．そこで，AHPでは，2つの代替案を比較する**一対比較** (pairwise comparison)を用いる．その理由として，$\{x_1, x_2, \ldots, x_n\}$ の中から最も望ましい代替案を選ぶことは難しいが，2つの代替案 $x_i$ と $x_j$ のどちらが望ましいかを決定することは比較的容易であることが挙げられる．
@@ -53,6 +53,22 @@ $$
 AHPでは，$x_i$ は $x_j$ よりどれくらい望ましいかを**一対比較値**で表す．正式には，一対比較値 $a_{ij}$ は $x_i$ が $x_j$ より $a_{ij}$ 倍望ましいことを表す．
 
 例えば，$a_{ij} = 3$ ならば，$x_i$ は $x_j$ より3倍望ましいことを表す．@exm-weights で，$a_{12} = 3$ ならば，$x_1$ （北海道）は $x_2$ （沖縄）より3倍望ましいことを表す．
+
+Saatyは，一対比較値を以下の尺度で表すことを提案した．
+
+**Table: The fundamental scale of absolute numbers (Saaty, 2008)**
+
+| Importance | Definition        | Explanation                                                                      |
+| ---------- | ----------------- | -------------------------------------------------------------------------------- |
+| 1          | Equal             | Two activities contribute equally to the objective                               |
+| 2          | Weak or slight    | -                                                                                |
+| 3          | Moderate          | Experience and judgment slightly favor one activity over another                 |
+| 4          | Moderate plus     | -                                                                                |
+| 5          | Strong            | Experience and judgment strongly favor one activity over another                 |
+| 6          | Strong plus       | -                                                                                |
+| 7          | Very strong       | An activity is favored very strongly over another activity                       |
+| 8          | Very, very strong | -                                                                                |
+| 9          | Extreme           | The evidence favoring one activity over another is of the highest possible order |
 
 すべての代替案の組み合わせについて一対比較を行い，その結果を**一対比較行列** (pairwise comparison matrix)にまとめる．一対比較行列は $\mathbf{A} = [a_{ij}]_{n \times n}$ と定義され，以下のように表される。
 
@@ -75,8 +91,6 @@ $$
 
 :::{.callout-tip}
 意思決定者が一対比較を行うとき，$\mathbf{w} = (w_1, w_2, \ldots, w_n)^T$ が知らないが，合理的な意思決定者ならば，$a_{ij} \approx w_i/w_j$ を満たすと考えられる．
-
-しかし，人間の評価は必ずしも合理的でないため，一般には $a_{ij} = w_i/w_j$ を満たさない．これについては後述する．
 :::
 
 意思決定者が完全に合理的であるならば，$a_{ij} = w_i/w_j$ を満たす．
@@ -165,6 +179,59 @@ $$
 $$
 w_3 = \frac{1}{6 + 2 + 1} = \frac{1}{9} \approx 0.11
 $$
+
+## 階層
+
+AHPでは，複数の**評価基準**（criterion）を用いて代替案を評価することができる．例えば，旅行先の代替案を評価するとき，費用，距離，環境などの評価基準を用いることができる．
+
+:::{.callout-tip}
+意思決定者が直接代替案を一対比較することは難しいが，評価基準を用いて代替案を評価することは比較的容易であると考えられる．
+:::
+
+AHPでは，評価基準を用いて代替案を評価するために，**階層** (hierarchy) を用いる．階層は，以下の要素から構成される．
+
+- 目的 (goal)
+- 評価基準 (criteria)
+- 代替案 (alternatives)
+
+正式に，評価基準の集合を $C = \{c_1, c_2, \ldots, c_m\}$ とする．
+
+:::{#exm-hierarchy}
+旅行先の代替案を $X = \{\text{北海道}, \text{沖縄}, \text{九州}\}$ とし，評価基準 $C = \{\text{費用}, \text{食事}, \text{環境}\}$ とする．このとき，以下のような階層を考える．
+
+```{mermaid}
+flowchart TD
+    Goal["旅行先の選択"]
+    C1["費用"]
+    C2["食事"]
+    C3["環境"]
+    A1["北海道"]
+    A2["沖縄"]
+    A3["九州"]
+
+    Goal --- C1
+    Goal --- C2
+    Goal --- C3
+
+    C1 --- A1
+    C1 --- A2
+    C1 --- A3
+
+    C2 --- A1
+    C2 --- A2
+    C2 --- A3
+
+    C3 --- A1
+    C3 --- A2
+    C3 --- A3
+```
+:::
+
+このような階層構造を用いることで，評価基準に基づいて代替案を評価することができる．各評価基準 $c_k$ を用いて，代替案の一対比較行列 $\mathbf{A}^{(k)}$ を構築する．
+
+
+
+## 重要度ベクトルと整合性
 
 しかし，人間の評価は必ずしも合理的でないため，一般には $a_{ij} = w_i/w_j$ を満たさない．このとき，他の方法で一対比較行列 $\mathbf{A}$ から重要度ベクトル $\mathbf{w}$ を計算する必要がある．計算する方法として，主に**幾何平均法** (geometric mean method) と**固有ベクトル法** (eigenvector method) の2つがある．
 
@@ -354,11 +421,9 @@ $$
 $\lambda(\lambda - 2) = 0$ より，$\lambda = 0, 2$ が得られる．
 :::
 
-## 整合性
-
 ### GCI
 
-計算された重要度ベクトル $\mathbf{w}$ が一対比較行列 $\mathbf{A}$ とどれくらい整合しているかを評価する指標として，@Aguarón2003-nt が提案した**平均幾何整合度** (geometric consistency index, GCI) がある．
+計算された重要度ベクトル $\mathbf{w}$ が一対比較行列 $\mathbf{A}$ とどれくらい整合しているかを評価する指標として，Aguarón が提案した**平均幾何整合度** (geometric consistency index, GCI) がある．
 
 一対比較値 $a_{ij}$ と重要度ベクトル $\mathbf{w}$ から，以下のように $e_{ij}$ を定義する．
 
@@ -373,8 +438,6 @@ GCIは以下のように定義される．
 $$
 GCI = \frac{2}{(n-1)(n-2)} \sum_{i=1}^{n-1} \sum_{j=i+1}^{n} \left(\ln e_{ij}\right)^2
 $$
-
-## 階層
 
 
 
