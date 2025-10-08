@@ -93,9 +93,6 @@ div.csl-indent {
     "search-label": "サーチ"
   }
 }</script>
-<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -813,41 +810,6 @@ w_3 = \frac{1}{6 + 2 + 1} = \frac{1}{9} \approx 0.11
 <p>正式に，評価基準の集合を <span class="math inline">\(C = \{c_1, c_2, \ldots, c_m\}\)</span> とする．</p>
 <div id="exm-hierarchy" class="theorem example">
 <p><span class="theorem-title"><strong>例 6.3</strong></span> 旅行先の代替案を <span class="math inline">\(X = \{\text{北海道}, \text{沖縄}, \text{九州}\}\)</span> とし，評価基準 <span class="math inline">\(C = \{\text{費用}, \text{食事}, \text{環境}\}\)</span> とする．このとき，以下のような階層を考える．</p>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart TD
-    Goal["旅行先の選択"]
-    C1["費用"]
-    C2["食事"]
-    C3["環境"]
-    A1["北海道"]
-    A2["沖縄"]
-    A3["九州"]
-
-    Goal --- C1
-    Goal --- C2
-    Goal --- C3
-
-    C1 --- A1
-    C1 --- A2
-    C1 --- A3
-
-    C2 --- A1
-    C2 --- A2
-    C2 --- A3
-
-    C3 --- A1
-    C3 --- A2
-    C3 --- A3
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
 </div>
 <p>このような階層構造を用いることで，評価基準に基づいて代替案を評価することができる．各評価基準 <span class="math inline">\(c_k\)</span> を用いて，代替案の一対比較行列 <span class="math inline">\(\mathbf{A}^{(k)}\)</span> を構築する．</p>
 </section>
