@@ -199,33 +199,60 @@ AHPでは，評価基準を用いて代替案を評価するために，**階層
 :::{#exm-hierarchy}
 旅行先の代替案を $X = \{\text{北海道}, \text{沖縄}, \text{九州}\}$ とし，評価基準 $C = \{\text{費用}, \text{食事}, \text{環境}\}$ とする．このとき，以下のような階層を考える．
 
-```{mermaid}
-flowchart TD
-    Goal["旅行先の選択"]
-    C1["費用"]
-    C2["食事"]
-    C3["環境"]
-    A1["北海道"]
-    A2["沖縄"]
-    A3["九州"]
+```{dot}
+graph {
+    rankdir=TB;
+    node [shape=box, style=filled, fillcolor=white, fontname="Helvetica"];
+    edge [color=gray, fontname="Helvetica", arrowhead=vee];
 
-    Goal --- C1
-    Goal --- C2
-    Goal --- C3
+    // Goal
+    Goal [label="旅行先の選択", shape=ellipse, style=filled, fillcolor=lightblue];
 
-    C1 --- A1
-    C1 --- A2
-    C1 --- A3
+    // Criteria cluster
+    subgraph cluster_criteria {
+        label = "評価基準";
+        style = dashed;
+        color = gray;
+        C1 [label="費用", fillcolor=lightyellow];
+        C2 [label="食事", fillcolor=lightyellow];
+        C3 [label="環境", fillcolor=lightyellow];
+    }
 
-    C2 --- A1
-    C2 --- A2
-    C2 --- A3
+    // Alternatives cluster
+    subgraph cluster_alternatives {
+        label = "選択肢";
+        style = dashed;
+        color = gray;
+        A1 [label="北海道", fillcolor=lightgreen];
+        A2 [label="沖縄", fillcolor=lightgreen];
+        A3 [label="九州", fillcolor=lightgreen];
+    }
 
-    C3 --- A1
-    C3 --- A2
-    C3 --- A3
+    { rank = same; C1; C2; C3 }
+    { rank = same; A1; A2; A3 }
+
+    // Edges from Goal to Criteria
+    Goal -- C1;
+    Goal -- C2;
+    Goal -- C3;
+
+    // Edges from Criteria to Alternatives
+    C1 -- A1;
+    C1 -- A2;
+    C1 -- A3;
+
+    C2 -- A1;
+    C2 -- A2;
+    C2 -- A3;
+
+    C3 -- A1;
+    C3 -- A2;
+    C3 -- A3;
+}
 ```
 :::
+
+
 
 このような階層構造を用いることで，評価基準に基づいて代替案を評価することができる．各評価基準 $c_k$ を用いて，代替案の一対比較行列 $\mathbf{A}^{(k)}$ を構築する．
 
