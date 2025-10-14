@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -54,18 +54,19 @@ div.csl-indent {
 <link href="../inventory/safety.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-bc185b5c5bdbcb35c2eb49d8a876ef70.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6437d3b8e7436a5f09bef9d8f13bc7c7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-5aa19e390cac7b777822a3bc5253f7dd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-6437d3b8e7436a5f09bef9d8f13bc7c7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-53aa17af24a9e7d6699f3c9556851bc6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-d2286e263ed5d360b8e2fec6747d8c54.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-53aa17af24a9e7d6699f3c9556851bc6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -108,7 +109,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -313,7 +314,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">オペレーションズ・リサーチ</a> 
         <div class="sidebar-tools-main">
@@ -821,104 +824,104 @@ w_3 = \frac{1}{6 + 2 + 1} = \frac{1}{9} \approx 0.11
 <!-- Goal -->
 <g id="node1" class="node">
 <title>Goal</title>
-<polygon fill="none" stroke="black" points="138.5,-180 59.5,-180 59.5,-144 138.5,-144 138.5,-180"></polygon>
-<text text-anchor="middle" x="99" y="-157.8" font-family="Times,serif" font-size="14.00">旅行先の選択</text>
+<ellipse fill="lightblue" stroke="black" cx="99" cy="-162" rx="59.16" ry="18"></ellipse>
+<text text-anchor="middle" x="99" y="-157.8" font-family="Helvetica,sans-Serif" font-size="14.00">旅行先の選択</text>
 </g>
 <!-- C1 -->
 <g id="node2" class="node">
 <title>C1</title>
-<polygon fill="none" stroke="black" points="54,-108 0,-108 0,-72 54,-72 54,-108"></polygon>
-<text text-anchor="middle" x="27" y="-85.8" font-family="Times,serif" font-size="14.00">費用</text>
+<polygon fill="lightyellow" stroke="black" points="54,-108 0,-108 0,-72 54,-72 54,-108"></polygon>
+<text text-anchor="middle" x="27" y="-85.8" font-family="Helvetica,sans-Serif" font-size="14.00">費用</text>
 </g>
 <!-- Goal&#45;&#45;C1 -->
 <g id="edge1" class="edge">
 <title>Goal--C1</title>
-<path fill="none" stroke="black" d="M81.2,-143.7C70.04,-132.85 55.71,-118.92 44.59,-108.1"></path>
+<path fill="none" stroke="gray" d="M81.94,-144.41C70.71,-133.49 56.05,-119.24 44.69,-108.2"></path>
 </g>
 <!-- C2 -->
 <g id="node3" class="node">
 <title>C2</title>
-<polygon fill="none" stroke="black" points="126,-108 72,-108 72,-72 126,-72 126,-108"></polygon>
-<text text-anchor="middle" x="99" y="-85.8" font-family="Times,serif" font-size="14.00">食事</text>
+<polygon fill="lightyellow" stroke="black" points="126,-108 72,-108 72,-72 126,-72 126,-108"></polygon>
+<text text-anchor="middle" x="99" y="-85.8" font-family="Helvetica,sans-Serif" font-size="14.00">食事</text>
 </g>
 <!-- Goal&#45;&#45;C2 -->
 <g id="edge2" class="edge">
 <title>Goal--C2</title>
-<path fill="none" stroke="black" d="M99,-143.7C99,-132.85 99,-118.92 99,-108.1"></path>
+<path fill="none" stroke="gray" d="M99,-143.7C99,-132.85 99,-118.92 99,-108.1"></path>
 </g>
 <!-- C3 -->
 <g id="node4" class="node">
 <title>C3</title>
-<polygon fill="none" stroke="black" points="198,-108 144,-108 144,-72 198,-72 198,-108"></polygon>
-<text text-anchor="middle" x="171" y="-85.8" font-family="Times,serif" font-size="14.00">環境</text>
+<polygon fill="lightyellow" stroke="black" points="198,-108 144,-108 144,-72 198,-72 198,-108"></polygon>
+<text text-anchor="middle" x="171" y="-85.8" font-family="Helvetica,sans-Serif" font-size="14.00">環境</text>
 </g>
 <!-- Goal&#45;&#45;C3 -->
 <g id="edge3" class="edge">
 <title>Goal--C3</title>
-<path fill="none" stroke="black" d="M116.8,-143.7C127.96,-132.85 142.29,-118.92 153.41,-108.1"></path>
+<path fill="none" stroke="gray" d="M116.06,-144.41C127.29,-133.49 141.95,-119.24 153.31,-108.2"></path>
 </g>
 <!-- A1 -->
 <g id="node5" class="node">
 <title>A1</title>
-<polygon fill="none" stroke="black" points="54,-36 0,-36 0,0 54,0 54,-36"></polygon>
-<text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00">北海道</text>
+<polygon fill="lightgreen" stroke="black" points="54,-36 0,-36 0,0 54,0 54,-36"></polygon>
+<text text-anchor="middle" x="27" y="-13.8" font-family="Helvetica,sans-Serif" font-size="14.00">北海道</text>
 </g>
 <!-- C1&#45;&#45;A1 -->
 <g id="edge4" class="edge">
 <title>C1--A1</title>
-<path fill="none" stroke="black" d="M27,-71.7C27,-60.85 27,-46.92 27,-36.1"></path>
+<path fill="none" stroke="gray" d="M27,-71.7C27,-60.85 27,-46.92 27,-36.1"></path>
 </g>
 <!-- A2 -->
 <g id="node6" class="node">
 <title>A2</title>
-<polygon fill="none" stroke="black" points="126,-36 72,-36 72,0 126,0 126,-36"></polygon>
-<text text-anchor="middle" x="99" y="-13.8" font-family="Times,serif" font-size="14.00">沖縄</text>
+<polygon fill="lightgreen" stroke="black" points="126,-36 72,-36 72,0 126,0 126,-36"></polygon>
+<text text-anchor="middle" x="99" y="-13.8" font-family="Helvetica,sans-Serif" font-size="14.00">沖縄</text>
 </g>
 <!-- C1&#45;&#45;A2 -->
 <g id="edge5" class="edge">
 <title>C1--A2</title>
-<path fill="none" stroke="black" d="M44.8,-71.7C55.96,-60.85 70.29,-46.92 81.41,-36.1"></path>
+<path fill="none" stroke="gray" d="M44.8,-71.7C55.96,-60.85 70.29,-46.92 81.41,-36.1"></path>
 </g>
 <!-- A3 -->
 <g id="node7" class="node">
 <title>A3</title>
-<polygon fill="none" stroke="black" points="198,-36 144,-36 144,0 198,0 198,-36"></polygon>
-<text text-anchor="middle" x="171" y="-13.8" font-family="Times,serif" font-size="14.00">九州</text>
+<polygon fill="lightgreen" stroke="black" points="198,-36 144,-36 144,0 198,0 198,-36"></polygon>
+<text text-anchor="middle" x="171" y="-13.8" font-family="Helvetica,sans-Serif" font-size="14.00">九州</text>
 </g>
 <!-- C1&#45;&#45;A3 -->
 <g id="edge6" class="edge">
 <title>C1--A3</title>
-<path fill="none" stroke="black" d="M54.09,-75.83C79.67,-63.4 117.84,-44.84 143.55,-32.35"></path>
+<path fill="none" stroke="gray" d="M54.09,-75.83C79.67,-63.4 117.84,-44.84 143.55,-32.35"></path>
 </g>
 <!-- C2&#45;&#45;A1 -->
 <g id="edge7" class="edge">
 <title>C2--A1</title>
-<path fill="none" stroke="black" d="M81.2,-71.7C70.04,-60.85 55.71,-46.92 44.59,-36.1"></path>
+<path fill="none" stroke="gray" d="M81.2,-71.7C70.04,-60.85 55.71,-46.92 44.59,-36.1"></path>
 </g>
 <!-- C2&#45;&#45;A2 -->
 <g id="edge8" class="edge">
 <title>C2--A2</title>
-<path fill="none" stroke="black" d="M99,-71.7C99,-60.85 99,-46.92 99,-36.1"></path>
+<path fill="none" stroke="gray" d="M99,-71.7C99,-60.85 99,-46.92 99,-36.1"></path>
 </g>
 <!-- C2&#45;&#45;A3 -->
 <g id="edge9" class="edge">
 <title>C2--A3</title>
-<path fill="none" stroke="black" d="M116.8,-71.7C127.96,-60.85 142.29,-46.92 153.41,-36.1"></path>
+<path fill="none" stroke="gray" d="M116.8,-71.7C127.96,-60.85 142.29,-46.92 153.41,-36.1"></path>
 </g>
 <!-- C3&#45;&#45;A1 -->
 <g id="edge10" class="edge">
 <title>C3--A1</title>
-<path fill="none" stroke="black" d="M143.91,-75.83C118.33,-63.4 80.16,-44.84 54.45,-32.35"></path>
+<path fill="none" stroke="gray" d="M143.91,-75.83C118.33,-63.4 80.16,-44.84 54.45,-32.35"></path>
 </g>
 <!-- C3&#45;&#45;A2 -->
 <g id="edge11" class="edge">
 <title>C3--A2</title>
-<path fill="none" stroke="black" d="M153.2,-71.7C142.04,-60.85 127.71,-46.92 116.59,-36.1"></path>
+<path fill="none" stroke="gray" d="M153.2,-71.7C142.04,-60.85 127.71,-46.92 116.59,-36.1"></path>
 </g>
 <!-- C3&#45;&#45;A3 -->
 <g id="edge12" class="edge">
 <title>C3--A3</title>
-<path fill="none" stroke="black" d="M171,-71.7C171,-60.85 171,-46.92 171,-36.1"></path>
+<path fill="none" stroke="gray" d="M171,-71.7C171,-60.85 171,-46.92 171,-36.1"></path>
 </g>
 </g>
 </svg>
@@ -1060,7 +1063,7 @@ n w_n \\
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-固有値と固有ベクトル（Eigenvalues and Eigenvectors）
+<span class="screen-reader-only">ノート</span>固有値と固有ベクトル（Eigenvalues and Eigenvectors）
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1254,13 +1257,14 @@ Crawford, Gordon, と Cindy Williams. 1985. <span>「A note on the analysis of s
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

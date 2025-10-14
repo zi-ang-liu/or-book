@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -89,18 +89,19 @@ div.csl-indent {
 <link href="../network/shortest-path.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-bc185b5c5bdbcb35c2eb49d8a876ef70.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6437d3b8e7436a5f09bef9d8f13bc7c7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-5aa19e390cac7b777822a3bc5253f7dd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-6437d3b8e7436a5f09bef9d8f13bc7c7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-53aa17af24a9e7d6699f3c9556851bc6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-d2286e263ed5d360b8e2fec6747d8c54.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-53aa17af24a9e7d6699f3c9556851bc6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -143,7 +144,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -351,7 +352,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">オペレーションズ・リサーチ</a> 
         <div class="sidebar-tools-main">
@@ -670,10 +673,10 @@ window.Quarto = {
 <p>辺 <span class="math inline">\((s, v) \in E\)</span> は、作業 <span class="math inline">\(v\)</span> が先行作業を持たないことを意味し、辺 <span class="math inline">\((v, t) \in E\)</span> は、作業 <span class="math inline">\(v\)</span> が後続作業を持たないことを意味する。作業 <span class="math inline">\(v\)</span> の先行作業の集合を <span class="math inline">\(\mathcal{P}(v)\)</span> と表す。作業 <span class="math inline">\(v\)</span> の後続作業の集合を <span class="math inline">\(\mathcal{S}(v)\)</span> と表す。</p>
 <p>作業点 <span class="math inline">\(v \in V\)</span> には、作業時間 <span class="math inline">\(\tau(v)\)</span> が与えられている。始点 <span class="math inline">\(s\)</span> と終点 <span class="math inline">\(t\)</span> の作業時間は <span class="math inline">\(\tau(s) = \tau(t) = 0\)</span> とする。</p>
 <p><a href="#exm-pert-report" class="quarto-xref">例&nbsp;<span>9.1</span></a> のプロジェクト・ネットワークは次の図のようになる。</p>
-<div id="2adf2913" class="cell" data-execution_count="1">
+<div id="34711fff" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -712,7 +715,7 @@ window.Quarto = {
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    edgecolors<span class="op">=</span><span class="st">"black"</span>,</span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>)</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -770,10 +773,10 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<div id="6d19377a" class="cell" data-execution_count="2">
+<div id="f21beb94" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -816,7 +819,7 @@ window.Quarto = {
 <span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    edgecolors<span class="op">=</span><span class="st">"black"</span>,</span>
 <span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>)</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -850,8 +853,8 @@ ES(u) = \max_{v \in \mathcal{P}(u)} EF(v)
 \]</span></p>
 <p>で与えられる。</p>
 <p>最早開始時刻と最早終了時刻を求めるアルゴリズムは下の通りである。ここで、点をトポロジカルオーダー(topological order)で処理するとは、<span class="math inline">\(v\)</span> のすべての先行作業 <span class="math inline">\(u \in \mathcal{P}(v)\)</span> が <span class="math inline">\(v\)</span> より前に処理されるように点を順序付けることである。</p>
-<div id="alg-forward-pass">
-<p><strong>Forward Pass Algorithm</strong></p>
+<div id="alg-forward-pass" class="theorem algorithm">
+<p><span class="theorem-title"><strong>Algorithm 9.1</strong></span> <strong>Forward Pass Algorithm</strong></p>
 <ol type="1">
 <li><span class="math inline">\(ES(s) \leftarrow 0\)</span>, <span class="math inline">\(EF(s) \leftarrow 0\)</span>.</li>
 <li><strong>For each</strong> <span class="math inline">\(v \in V \setminus \{s\}\)</span> in topological order <strong>do</strong>
@@ -1399,7 +1402,7 @@ E = \{(s, A), (s, C), (A, B), (C, D), (B, E), (D, E), (E, t)\}
 &amp; y_s = 0
 \end{align*}\]</span></p>
 <p>この線形計画問題は、最適化ソルバーを用いて解くことができる。以下に Gurobi を用いた実装例を示す。</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install gurobipy</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install gurobipy</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> gurobipy <span class="im">import</span> Model, GRB</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># データ定義</span></span>
@@ -1444,7 +1447,7 @@ E = \{(s, A), (s, C), (A, B), (C, D), (B, E), (D, E), (E, t)\}
 <span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> x:</span>
 <span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x_</span><span class="sc">{}</span><span class="st"> ="</span>.<span class="bu">format</span>(i), x[i].X)</span>
 <span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> y:</span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"y_</span><span class="sc">{}</span><span class="st"> ="</span>.<span class="bu">format</span>(i), y[i].X)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"y_</span><span class="sc">{}</span><span class="st"> ="</span>.<span class="bu">format</span>(i), y[i].X)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="plaintext"><code>Objective: 350.0
 x_A = 1.0
 x_B = 0.0
@@ -1543,13 +1546,14 @@ Pleguezuelo, Rafael Herrerı́as, José Garcı́a Pérez, と Salvador Cruz Ramb
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

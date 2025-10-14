@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -89,18 +89,19 @@ div.csl-indent {
 <link href="../inventory/intro.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-bc185b5c5bdbcb35c2eb49d8a876ef70.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6437d3b8e7436a5f09bef9d8f13bc7c7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-5aa19e390cac7b777822a3bc5253f7dd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-6437d3b8e7436a5f09bef9d8f13bc7c7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-53aa17af24a9e7d6699f3c9556851bc6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-d2286e263ed5d360b8e2fec6747d8c54.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-53aa17af24a9e7d6699f3c9556851bc6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -143,7 +144,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -351,7 +352,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">オペレーションズ・リサーチ</a> 
         <div class="sidebar-tools-main">
@@ -600,10 +603,10 @@ window.Quarto = {
 <li>Constant order sizes. 発注量は一定である。需要率 <span class="math inline">\(d\)</span> が一定であり、在庫量が0のときに発注を行うため、最適発注量も一定である。</li>
 </ol>
 <p>以上の性質から、在庫量の時間的変化は下図のようになる。</p>
-<div id="1de5420a" class="cell" data-execution_count="1">
+<div id="1f51d51c" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
@@ -623,7 +626,7 @@ window.Quarto = {
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"gray"</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>plt.ylim(bottom<span class="op">=</span><span class="dv">0</span>, top<span class="op">=</span>Q <span class="op">+</span> <span class="dv">100</span>)</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -720,7 +723,7 @@ g(Q) = \frac{Kd}{Q} + cd + \frac{hQ}{2}
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-極値（Extremum）
+<span class="screen-reader-only">ノート</span>極値（Extremum）
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -736,7 +739,7 @@ f'(a) = 0
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-凸関数（Convex Function）
+<span class="screen-reader-only">ノート</span>凸関数（Convex Function）
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -781,10 +784,10 @@ T^* = \frac{Q^*}{d} = \sqrt{\frac{2K}{hd}}
 <li><span class="math inline">\(c\)</span> は <span class="math inline">\(Q^*\)</span> に影響しない。購入単価は最適発注量に影響しない。</li>
 </ol>
 <p>次の図は、購入単価を <span class="math inline">\(c = 0\)</span> とするとき、平均コスト <span class="math inline">\(g(Q)\)</span>、発注コスト <span class="math inline">\(\frac{Kd}{Q}\)</span>、保管コスト <span class="math inline">\(\frac{hQ}{2}\)</span> のグラフを示す。</p>
-<div id="d398615a" class="cell" data-execution_count="2">
+<div id="7456cd7c" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>K <span class="op">=</span> <span class="dv">40</span>  <span class="co"># Order cost</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="dv">10</span>  <span class="co"># Holding cost</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> <span class="dv">5</span>  <span class="co"># Demand rate</span></span>
@@ -806,7 +809,7 @@ T^* = \frac{Q^*}{d} = \sqrt{\frac{2K}{hd}}
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>plt.ylim(bottom<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -829,8 +832,8 @@ Q^* = \sqrt{\frac{2 \cdot 5000 \cdot 250}{150}}
 <p>Excel では、下記のように計算できる。</p>
 <pre class="excel"><code>=SQRT(2 * 5000 * 250 / 150)</code></pre>
 <p>Python では、次のように<code>eoq(K, d, h)</code> 関数を定義し、最適発注量を計算できる。</p>
-<div id="d5612d2e" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> eoq(K, d, h):</span>
+<div id="93355b72" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> eoq(K, d, h):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculate the Economic Order Quantity (EOQ).</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -853,7 +856,7 @@ Q^* = \sqrt{\frac{2 \cdot 5000 \cdot 250}{150}}
 <span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    Q_star <span class="op">=</span> eoq(K, d, h)</span>
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    T_star <span class="op">=</span> Q_star <span class="op">/</span> d</span>
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Optimal Order Quantity (Q*): </span><span class="sc">{</span>Q_star<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Optimal Cycle Time (T*): </span><span class="sc">{</span>T_star<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Optimal Cycle Time (T*): </span><span class="sc">{</span>T_star<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Optimal Order Quantity (Q*): 129.10
 Optimal Cycle Time (T*): 0.52</code></pre>
@@ -922,10 +925,10 @@ T = \frac{Q}{d} = \frac{600}{300} = 2 \text{ヶ月}
 </div>
 <div id="sol-eoq-year" class="proof solution">
 <p><span class="proof-title"><em>解答 2.2</em>. </span>需要率は <span class="math inline">\(d = 4000\)</span>、発注費用は <span class="math inline">\(K = 5500\)</span>、保管費用は <span class="math inline">\(h = 275\)</span>、購入単価は <span class="math inline">\(c = 1100\)</span> である。</p>
-<div id="e447cd02" class="cell" data-execution_count="4">
+<div id="ae6447f2" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>コード</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>K <span class="op">=</span> <span class="dv">5500</span>  <span class="co"># Order cost</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>K <span class="op">=</span> <span class="dv">5500</span>  <span class="co"># Order cost</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> <span class="dv">4000</span>  <span class="co"># Demand rate (units per year)</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="dv">275</span>  <span class="co"># Holding cost (per unit per year)</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="dv">1100</span>  <span class="co"># Purchase cost (per unit)</span></span>
@@ -935,7 +938,7 @@ T = \frac{Q}{d} = \frac{600}{300} = 2 \text{ヶ月}
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>g_avg <span class="op">=</span> (K <span class="op">*</span> d <span class="op">/</span> Q_star) <span class="op">+</span> (c <span class="op">*</span> d) <span class="op">+</span> (h <span class="op">*</span> Q_star <span class="op">/</span> <span class="dv">2</span>)</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal Order Quantity (Q*): </span><span class="sc">{</span>Q_star<span class="sc">:.2f}</span><span class="ss"> tons"</span>)</span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal Cycle Time (T*): </span><span class="sc">{</span>T_star<span class="sc">:.2f}</span><span class="ss"> years"</span>)</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Average Annual Cost (g(Q*)): </span><span class="sc">{</span>g_avg<span class="sc">:.2f}</span><span class="ss"> dollars"</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Average Annual Cost (g(Q*)): </span><span class="sc">{</span>g_avg<span class="sc">:.2f}</span><span class="ss"> dollars"</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Optimal Order Quantity (Q*): 400.00 tons
@@ -1027,13 +1030,14 @@ Snyder, Lawrence V, と Zuo-Jun Max Shen. 2019. <em>Fundamentals of supply chain
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
