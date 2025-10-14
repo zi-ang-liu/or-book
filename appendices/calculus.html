@@ -75,8 +75,38 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <meta name="twitter:title" content="付録 A — 微分積分 – オペレーションズ・リサーチ">
+<meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -467,8 +497,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#極値extremum" id="toc-極値extremum" class="nav-link active" data-scroll-target="#極値extremum"><span class="header-section-number">A.1</span> 極値（Extremum）</a></li>
+  <li><a href="#凸関数convex-function" id="toc-凸関数convex-function" class="nav-link" data-scroll-target="#凸関数convex-function"><span class="header-section-number">A.2</span> 凸関数（Convex Function）</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -493,8 +530,24 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="極値extremum" class="level2" data-number="A.1">
+<h2 data-number="A.1" class="anchored" data-anchor-id="極値extremum"><span class="header-section-number">A.1</span> 極値（Extremum）</h2>
+<p>1変数関数 <span class="math inline">\(f(x)\)</span> が点 <span class="math inline">\(x = a\)</span> で極値をとるとき、</p>
+<p><span class="math display">\[
+f'(a) = 0
+\]</span> が成り立つ。 <span class="math inline">\(f''(a) &gt; 0\)</span> のとき、<span class="math inline">\(f(a)\)</span> は極小値をとる。 <span class="math inline">\(f''(a) &lt; 0\)</span> のとき、<span class="math inline">\(f(a)\)</span> は極大値をとる。</p>
+</section>
+<section id="凸関数convex-function" class="level2" data-number="A.2">
+<h2 data-number="A.2" class="anchored" data-anchor-id="凸関数convex-function"><span class="header-section-number">A.2</span> 凸関数（Convex Function）</h2>
+<p>1 変数 2 階微分可能な関数 <span class="math inline">\(f(x)\)</span> が凸関数であることの必要十分条件は、すべての <span class="math inline">\(x\)</span> について</p>
+<p><span class="math display">\[
+f''(x) \geq 0
+\]</span></p>
+<p>が成り立つことである。</p>
+<p>凸関数 <span class="math inline">\(f(x)\)</span> の極小値は、最小値である。</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
