@@ -563,8 +563,8 @@ window.Quarto = {
   <li><a href="#記号" id="toc-記号" class="nav-link active" data-scroll-target="#記号"><span class="header-section-number">2.1</span> 記号</a></li>
   <li><a href="#コスト関数" id="toc-コスト関数" class="nav-link" data-scroll-target="#コスト関数"><span class="header-section-number">2.2</span> コスト関数</a></li>
   <li><a href="#最適発注量" id="toc-最適発注量" class="nav-link" data-scroll-target="#最適発注量"><span class="header-section-number">2.3</span> 最適発注量</a></li>
-  <li><a href="#リードタイム" id="toc-リードタイム" class="nav-link" data-scroll-target="#リードタイム"><span class="header-section-number">2.4</span> リードタイム</a></li>
-  <li><a href="#他のeoqモデル" id="toc-他のeoqモデル" class="nav-link" data-scroll-target="#他のeoqモデル"><span class="header-section-number">2.5</span> 他のEOQモデル</a></li>
+  <li><a href="#リードタイム" id="toc-リードタイム" class="nav-link" data-scroll-target="#リードタイム"><span class="header-section-number">2.4</span> リードタイム*</a></li>
+  <li><a href="#他のeoqモデル" id="toc-他のeoqモデル" class="nav-link" data-scroll-target="#他のeoqモデル"><span class="header-section-number">2.5</span> 他のEOQモデル*</a></li>
   <li><a href="#文献案内" id="toc-文献案内" class="nav-link" data-scroll-target="#文献案内"><span class="header-section-number">2.6</span> 文献案内</a></li>
   <li><a href="#練習問題" id="toc-練習問題" class="nav-link" data-scroll-target="#練習問題"><span class="header-section-number">2.7</span> 練習問題</a></li>
   <li><a href="#解答" id="toc-解答" class="nav-link" data-scroll-target="#解答"><span class="header-section-number">2.8</span> 解答</a></li>
@@ -603,7 +603,7 @@ window.Quarto = {
 <li>Constant order sizes. 発注量は一定である。需要率 <span class="math inline">\(d\)</span> が一定であり、在庫量が0のときに発注を行うため、最適発注量も一定である。</li>
 </ol>
 <p>以上の性質から、在庫量の時間的変化は下図のようになる。</p>
-<div id="e86e756b" class="cell" data-execution_count="1">
+<div id="31621b3d" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -750,7 +750,7 @@ T^* = \frac{Q^*}{d} = \sqrt{\frac{2K}{hd}}
 <li><span class="math inline">\(c\)</span> は <span class="math inline">\(Q^*\)</span> に影響しない。購入単価は最適発注量に影響しない。</li>
 </ol>
 <p>次の図は、購入単価を <span class="math inline">\(c = 0\)</span> とするとき、平均コスト <span class="math inline">\(g(Q)\)</span>、発注コスト <span class="math inline">\(\frac{Kd}{Q}\)</span>、保管コスト <span class="math inline">\(\frac{hQ}{2}\)</span> のグラフを示す。</p>
-<div id="c957ece9" class="cell" data-execution_count="2">
+<div id="2ca6ca84" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
@@ -798,7 +798,7 @@ Q^* = \sqrt{\frac{2 \cdot 5000 \cdot 250}{150}}
 <p>Excel では、下記のように計算できる。</p>
 <pre class="excel"><code>=SQRT(2 * 5000 * 250 / 150)</code></pre>
 <p>Python では、次のように<code>eoq(K, d, h)</code> 関数を定義し、最適発注量を計算できる。</p>
-<div id="ed686a2c" class="cell" data-execution_count="3">
+<div id="583c0984" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> eoq(K, d, h):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculate the Economic Order Quantity (EOQ).</span></span>
@@ -832,7 +832,7 @@ Optimal Cycle Time (T*): 0.52</code></pre>
 </div>
 </section>
 <section id="リードタイム" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="リードタイム"><span class="header-section-number">2.4</span> リードタイム</h2>
+<h2 data-number="2.4" class="anchored" data-anchor-id="リードタイム"><span class="header-section-number">2.4</span> リードタイム*</h2>
 <p>EOQ モデルでは、リードタイムは0と仮定している。リードタイムが <span class="math inline">\(L &gt; 0\)</span> の場合も、最適発注量 <span class="math inline">\(Q^*\)</span> も変換せず、<span class="math inline">\(L\)</span> 期間前に <span class="math inline">\(Q^*\)</span> を発注すればよい。</p>
 <p>ここでは、<span class="math inline">\(r\)</span> を発注点（reorder point）とする。在庫量が <span class="math inline">\(r\)</span> になったときに発注を行う。リードタイム <span class="math inline">\(L\)</span> の間に需要が <span class="math inline">\(dL\)</span> 個あるため、発注点は次のように表される。</p>
 <p><span class="math display">\[
@@ -847,7 +847,7 @@ r = dL = 250 \times \frac{1}{4} = 62.5
 </div>
 </section>
 <section id="他のeoqモデル" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="他のeoqモデル"><span class="header-section-number">2.5</span> 他のEOQモデル</h2>
+<h2 data-number="2.5" class="anchored" data-anchor-id="他のeoqモデル"><span class="header-section-number">2.5</span> 他のEOQモデル*</h2>
 <ul>
 <li>バックオーダーを考慮したEOQモデル</li>
 <li>数量割引（quantity discount）を考慮したEOQモデル
@@ -891,7 +891,7 @@ T = \frac{Q}{d} = \frac{600}{300} = 2 \text{ヶ月}
 </div>
 <div id="sol-eoq-year" class="proof solution">
 <p><span class="proof-title"><em>解答 2.2</em>. </span>需要率は <span class="math inline">\(d = 4000\)</span>、発注費用は <span class="math inline">\(K = 5500\)</span>、保管費用は <span class="math inline">\(h = 275\)</span>、購入単価は <span class="math inline">\(c = 1100\)</span> である。</p>
-<div id="010d5a1e" class="cell" data-execution_count="4">
+<div id="b95f4838" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>K <span class="op">=</span> <span class="dv">5500</span>  <span class="co"># Order cost</span></span>
