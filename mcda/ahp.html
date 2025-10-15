@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -533,17 +568,25 @@ window.Quarto = {
   <ul>
   <li><a href="#代替案" id="toc-代替案" class="nav-link active" data-scroll-target="#代替案"><span class="header-section-number">7.1</span> 代替案</a></li>
   <li><a href="#記号" id="toc-記号" class="nav-link" data-scroll-target="#記号"><span class="header-section-number">7.2</span> 記号</a></li>
-  <li><a href="#一対比較" id="toc-一対比較" class="nav-link" data-scroll-target="#一対比較"><span class="header-section-number">7.3</span> 一対比較</a></li>
-  <li><a href="#重要度ベクトル" id="toc-重要度ベクトル" class="nav-link" data-scroll-target="#重要度ベクトル"><span class="header-section-number">7.4</span> 重要度ベクトル</a></li>
-  <li><a href="#階層" id="toc-階層" class="nav-link" data-scroll-target="#階層"><span class="header-section-number">7.5</span> 階層</a></li>
-  <li><a href="#重要度ベクトルと整合性" id="toc-重要度ベクトルと整合性" class="nav-link" data-scroll-target="#重要度ベクトルと整合性"><span class="header-section-number">7.6</span> 重要度ベクトルと整合性</a>
+  <li><a href="#ahpの基本" id="toc-ahpの基本" class="nav-link" data-scroll-target="#ahpの基本"><span class="header-section-number">7.3</span> AHPの基本</a>
   <ul class="collapse">
-  <li><a href="#幾何平均法" id="toc-幾何平均法" class="nav-link" data-scroll-target="#幾何平均法"><span class="header-section-number">7.6.1</span> 幾何平均法</a></li>
-  <li><a href="#固有ベクトル法" id="toc-固有ベクトル法" class="nav-link" data-scroll-target="#固有ベクトル法"><span class="header-section-number">7.6.2</span> 固有ベクトル法*</a></li>
-  <li><a href="#gci" id="toc-gci" class="nav-link" data-scroll-target="#gci"><span class="header-section-number">7.6.3</span> GCI</a></li>
+  <li><a href="#一対比較行列" id="toc-一対比較行列" class="nav-link" data-scroll-target="#一対比較行列"><span class="header-section-number">7.3.1</span> 一対比較行列</a></li>
+  <li><a href="#重要度ベクトル" id="toc-重要度ベクトル" class="nav-link" data-scroll-target="#重要度ベクトル"><span class="header-section-number">7.3.2</span> 重要度ベクトル</a></li>
+  <li><a href="#階層" id="toc-階層" class="nav-link" data-scroll-target="#階層"><span class="header-section-number">7.3.3</span> 階層</a></li>
   </ul></li>
-  <li><a href="#文献案内" id="toc-文献案内" class="nav-link" data-scroll-target="#文献案内"><span class="header-section-number">7.7</span> 文献案内</a></li>
-  <li><a href="#用語" id="toc-用語" class="nav-link" data-scroll-target="#用語"><span class="header-section-number">7.8</span> 用語</a></li>
+  <li><a href="#重要度ベクトルの推定" id="toc-重要度ベクトルの推定" class="nav-link" data-scroll-target="#重要度ベクトルの推定"><span class="header-section-number">7.4</span> 重要度ベクトルの推定</a>
+  <ul class="collapse">
+  <li><a href="#幾何平均法" id="toc-幾何平均法" class="nav-link" data-scroll-target="#幾何平均法"><span class="header-section-number">7.4.1</span> 幾何平均法</a></li>
+  <li><a href="#固有ベクトル法" id="toc-固有ベクトル法" class="nav-link" data-scroll-target="#固有ベクトル法"><span class="header-section-number">7.4.2</span> 固有ベクトル法*</a></li>
+  </ul></li>
+  <li><a href="#整合性" id="toc-整合性" class="nav-link" data-scroll-target="#整合性"><span class="header-section-number">7.5</span> 整合性*</a>
+  <ul class="collapse">
+  <li><a href="#ci" id="toc-ci" class="nav-link" data-scroll-target="#ci"><span class="header-section-number">7.5.1</span> CI</a></li>
+  <li><a href="#gci" id="toc-gci" class="nav-link" data-scroll-target="#gci"><span class="header-section-number">7.5.2</span> GCI</a></li>
+  </ul></li>
+  <li><a href="#文献案内" id="toc-文献案内" class="nav-link" data-scroll-target="#文献案内"><span class="header-section-number">7.6</span> 文献案内</a></li>
+  <li><a href="#用語" id="toc-用語" class="nav-link" data-scroll-target="#用語"><span class="header-section-number">7.7</span> 用語</a></li>
+  <li><a href="#練習問題" id="toc-練習問題" class="nav-link" data-scroll-target="#練習問題"><span class="header-section-number">7.8</span> 練習問題</a></li>
   </ul>
 </nav>
     </div>
@@ -637,8 +680,8 @@ X = \{\text{北海道}, \text{沖縄}, \text{九州}\}
 </tbody>
 </table>
 </section>
-<section id="一対比較" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="一対比較"><span class="header-section-number">7.3</span> 一対比較</h2>
+<section id="ahpの基本" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="ahpの基本"><span class="header-section-number">7.3</span> AHPの基本</h2>
 <p>すべての代替案を並べて比較することは難しい．そこで，AHPでは，2つの代替案を比較する<strong>一対比較</strong> (pairwise comparison)を用いる．その理由として，<span class="math inline">\(\{x_1, x_2, \ldots, x_n\}\)</span> の中から最も望ましい代替案を選ぶことは難しいが，2つの代替案 <span class="math inline">\(x_i\)</span> と <span class="math inline">\(x_j\)</span> のどちらが望ましいかを決定することは比較的容易であることが挙げられる．</p>
 <p>AHPでは，<span class="math inline">\(x_i\)</span> は <span class="math inline">\(x_j\)</span> よりどれくらい望ましいかを<strong>一対比較値</strong>で表す．正式には，一対比較値 <span class="math inline">\(a_{ij}\)</span> は <span class="math inline">\(x_i\)</span> が <span class="math inline">\(x_j\)</span> より <span class="math inline">\(a_{ij}\)</span> 倍望ましいことを表す．</p>
 <p>例えば，<span class="math inline">\(a_{ij} = 3\)</span> ならば，<span class="math inline">\(x_i\)</span> は <span class="math inline">\(x_j\)</span> より3倍望ましいことを表す．<a href="#exm-weights" class="quarto-xref">例&nbsp;<span>7.1</span></a> で，<span class="math inline">\(a_{12} = 3\)</span> ならば，<span class="math inline">\(x_1\)</span> （北海道）は <span class="math inline">\(x_2\)</span> （沖縄）より3倍望ましいことを表す．</p>
@@ -705,6 +748,8 @@ X = \{\text{北海道}, \text{沖縄}, \text{九州}\}
 </tr>
 </tbody>
 </table>
+<section id="一対比較行列" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="一対比較行列"><span class="header-section-number">7.3.1</span> 一対比較行列</h3>
 <p>すべての代替案の組み合わせについて一対比較を行い，その結果を<strong>一対比較行列</strong> (pairwise comparison matrix)にまとめる．一対比較行列は <span class="math inline">\(\mathbf{A} = [a_{ij}]_{n \times n}\)</span> と定義され，以下のように表される。</p>
 <p><span class="math display">\[
 \mathbf{A} = \begin{bmatrix}
@@ -741,12 +786,12 @@ w_2/w_1 &amp; w_2/w_2 &amp; \cdots &amp; w_2/w_n \\
 w_n/w_1 &amp; w_n/w_2 &amp; \cdots &amp; w_n/w_n \\
 \end{bmatrix}
 \]</span></p>
-<p>このとき，<span class="math inline">\(\mathbf{A}\)</span> は完全に整合性 (consistency) を持つと言う．<span class="math inline">\(\mathbf{A}\)</span> は，以下の性質が成り立つ．</p>
+<p>このとき，<span class="math inline">\(\mathbf{A}\)</span> は完全に<strong>整合性</strong> (consistency) を持つと言う．<span class="math inline">\(\mathbf{A}\)</span> は，以下の性質が成り立つ．</p>
 <ul>
 <li><span class="math inline">\(a_{ii} = 1, \forall i\)</span></li>
 <li><span class="math inline">\(a_{ij} = 1/a_{ji}, \forall i, j\)</span></li>
+<li><span class="math inline">\(a_{ik} = a_{ij} a_{jk}, \forall i, j, k\)</span></li>
 </ul>
-<p>例えば，<span class="math inline">\(a_{12} = 3\)</span> ならば，<span class="math inline">\(x_1\)</span> は <span class="math inline">\(x_2\)</span> より3倍望ましい，かつ，<span class="math inline">\(x_2\)</span> は <span class="math inline">\(x_1\)</span> より <span class="math inline">\(1/3\)</span> 倍望ましいことが分かる．</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -757,15 +802,19 @@ w_n/w_1 &amp; w_n/w_2 &amp; \cdots &amp; w_n/w_n \\
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><span class="math inline">\(a_{ij} = w_i/w_j\)</span> とするとき，この2つの性質は，以下のように導かれる．</p>
+<p><span class="math inline">\(a_{ij} = w_i/w_j\)</span> とするとき，これらの性質は，以下のように導かれる．</p>
 <p><span class="math display">\[
 a_{ii} = \frac{w_i}{w_i} = 1
 \]</span></p>
 <p><span class="math display">\[
 a_{ij} = \frac{w_i}{w_j} = \frac{1}{\frac{w_j}{w_i}} = \frac{1}{a_{ji}}
 \]</span></p>
+<p><span class="math display">\[
+a_{ik} = \frac{w_i}{w_k} = \frac{w_i}{w_j} \times \frac{w_j}{w_k} = a_{ij} a_{jk}
+\]</span></p>
 </div>
 </div>
+<p>例えば，<span class="math inline">\(a_{12} = 3\)</span> ならば，<span class="math inline">\(x_1\)</span> は <span class="math inline">\(x_2\)</span> より3倍望ましく，<span class="math inline">\(x_2\)</span> は <span class="math inline">\(x_1\)</span> より1/3倍望ましいことを表す．また，<span class="math inline">\(a_{12} = 3, a_{23} = 2\)</span> ならば，<span class="math inline">\(x_1\)</span> は <span class="math inline">\(x_3\)</span> より6倍望ましいことがわかる．</p>
 <div id="exm-pairwise" class="theorem example">
 <p><span class="theorem-title"><strong>例 7.2</strong></span> 旅行先の代替案 <span class="math inline">\(X = \{\text{北海道}, \text{沖縄}, \text{九州}\}\)</span> とし，以下の一対比較を行ったとする．</p>
 <ul>
@@ -783,8 +832,8 @@ a_{ij} = \frac{w_i}{w_j} = \frac{1}{\frac{w_j}{w_i}} = \frac{1}{a_{ji}}
 \]</span></p>
 </div>
 </section>
-<section id="重要度ベクトル" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="重要度ベクトル"><span class="header-section-number">7.4</span> 重要度ベクトル</h2>
+<section id="重要度ベクトル" class="level3" data-number="7.3.2">
+<h3 data-number="7.3.2" class="anchored" data-anchor-id="重要度ベクトル"><span class="header-section-number">7.3.2</span> 重要度ベクトル</h3>
 <p>一対比較行列 <span class="math inline">\(\mathbf{A}\)</span> が与えられたとき，重要度ベクトル <span class="math inline">\(\mathbf{w}\)</span> を計算する方法を説明する．</p>
 <p>まず，意思決定者が完全に合理的であるならば，<span class="math inline">\(a_{ij} = w_i/w_j\)</span> を満たすため，<span class="math inline">\(\mathbf{A}\)</span> は</p>
 <p><span class="math display">\[
@@ -812,8 +861,8 @@ w_2 = \frac{2}{6 + 2 + 1} = \frac{2}{9} \approx 0.22
 w_3 = \frac{1}{6 + 2 + 1} = \frac{1}{9} \approx 0.11
 \]</span></p>
 </section>
-<section id="階層" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="階層"><span class="header-section-number">7.5</span> 階層</h2>
+<section id="階層" class="level3" data-number="7.3.3">
+<h3 data-number="7.3.3" class="anchored" data-anchor-id="階層"><span class="header-section-number">7.3.3</span> 階層</h3>
 <p>AHPでは，複数の<strong>評価基準</strong>（criterion）を用いて代替案を評価することができる．例えば，旅行先の代替案を評価するとき，費用，距離，環境などの評価基準を用いることができる．</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -835,29 +884,193 @@ w_3 = \frac{1}{6 + 2 + 1} = \frac{1}{9} \approx 0.11
 <li>代替案 (alternatives)</li>
 </ul>
 <p>正式に，評価基準の集合を <span class="math inline">\(C = \{c_1, c_2, \ldots, c_m\}\)</span> とする．</p>
-<div id="exm-hierarchy" class="theorem example">
-<p><span class="theorem-title"><strong>例 7.3</strong></span> 旅行先の代替案を <span class="math inline">\(X = \{\text{北海道}, \text{沖縄}, \text{九州}\}\)</span> とし，評価基準 <span class="math inline">\(C = \{\text{費用}, \text{食事}, \text{環境}\}\)</span> とする．このとき，以下のような階層を考える．</p>
-</div>
+<p>例えば，旅行先の代替案を <span class="math inline">\(X = \{\text{北海道}, \text{沖縄}, \text{九州}\}\)</span> とし，評価基準 <span class="math inline">\(C = \{\text{気候}, \text{食事}, \text{費用}\}\)</span> とする．このとき，以下のような階層を考える．</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
 <pre class="mermaid mermaid-js">flowchart LR
-  A[Hard edge] --&gt; B(Round edge)
-  B --&gt; C{Decision}
-  C --&gt; D[Result one]
-  C --&gt; E[Result two]
+    A[旅行先の選択]
+    subgraph 評価基準
+        B1[気候]
+        B2[食事]
+        B3[費用]
+    end
+    subgraph 代替案
+        C1[北海道]
+        C2[沖縄]
+        C3[九州]
+    end
+    A --&gt; B1
+    A --&gt; B2
+    A --&gt; B3
+    B1 --&gt; C1
+    B1 --&gt; C2
+    B1 --&gt; C3
+    B2 --&gt; C1
+    B2 --&gt; C2
+    B2 --&gt; C3
+    B3 --&gt; C1
+    B3 --&gt; C2
+    B3 --&gt; C3
+
+    style 評価基準 fill:#eee
+    style 代替案 fill:#eee
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<p>このような階層構造を用いることで，評価基準に基づいて代替案を評価することができる．各評価基準 <span class="math inline">\(c_k\)</span> を用いて，代替案の一対比較行列 <span class="math inline">\(\mathbf{A}^{(k)}\)</span> を構築する．</p>
+<p>このような階層構造を用いることで，評価基準に基づいて代替案を評価することができる．各評価基準 <span class="math inline">\(c_k \in C\)</span> を用いて，代替案の一対比較行列 <span class="math inline">\(\mathbf{A}^{(k)}\)</span> を構築する．</p>
+<p>例えば，<span class="math inline">\(A^{(1)}\)</span>，<span class="math inline">\(A^{(2)}\)</span>，<span class="math inline">\(A^{(3)}\)</span> をそれぞれ評価基準 <span class="math inline">\(c_1\)</span>，<span class="math inline">\(c_2\)</span>，<span class="math inline">\(c_3\)</span> に対応する一対比較行列とする．</p>
+<p><span class="math display">\[
+\mathbf{A}^{(1)} = \begin{bmatrix}
+1 &amp; 1/3 &amp; 3 \\
+3 &amp; 1 &amp; 9 \\
+1/3 &amp; 1/9 &amp; 1 \\
+\end{bmatrix}, \quad
+\mathbf{A}^{(2)} = \begin{bmatrix}
+1 &amp; 1 &amp; 4 \\
+1 &amp; 1 &amp; 4 \\
+1/4 &amp; 1/4 &amp; 1 \\
+\end{bmatrix}, \quad
+\mathbf{A}^{(3)} = \begin{bmatrix}
+1 &amp; 1/2 &amp; 1/6 \\
+2 &amp; 1 &amp; 1/3 \\
+6 &amp; 3 &amp; 1 \\
+\end{bmatrix}
+\]</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+ヒント
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>以上の一対比較行列から見ると，この人は以下のような評価をしていることがわかる．</p>
+<ul>
+<li>気候に関しては，沖縄が最も望ましく，次に北海道，最後に九州である</li>
+<li>食事に関しては，北海道と沖縄が同じくらい望ましく，九州が最も望ましくない</li>
+<li>費用に関しては，九州が最も望ましく，次に沖縄，最後に北海道である</li>
+</ul>
+</div>
+</div>
+<p>重要度ベクトル <span class="math inline">\(\mathbf{w}^{(k)}\)</span> をそれぞれの一対比較行列 <span class="math inline">\(\mathbf{A}^{(k)}\)</span> から計算する．</p>
+<p><span class="math display">\[
+\mathbf{w}^{(1)} = \begin{bmatrix}
+3/13 \\
+9/13 \\
+1/13 \\
+\end{bmatrix}, \quad
+\mathbf{w}^{(2)} = \begin{bmatrix}
+4/9 \\
+4/9 \\
+1/9 \\
+\end{bmatrix}, \quad
+\mathbf{w}^{(3)} = \begin{bmatrix}
+1/9 \\
+2/9 \\
+6/9 \\
+\end{bmatrix}
+\]</span></p>
+<p>各評価基準 <span class="math inline">\(c_k \in C\)</span> において，代替案の重要度ベクトル <span class="math inline">\(\mathbf{w}^{(k)}\)</span> が計算できた．次に，評価基準はどれくらい重要かを評価する．評価基準の一対比較行列 <span class="math inline">\(\mathbf{B}\)</span> を構築する．</p>
+<p>例えば，以下のような一対比較行列 <span class="math inline">\(\mathbf{B}\)</span> を考える．</p>
+<ul>
+<li>評価基準 <span class="math inline">\(c_1\)</span> （気候）は <span class="math inline">\(c_2\)</span> （食事）より1/4倍重要である</li>
+<li>評価基準 <span class="math inline">\(c_1\)</span> （気候）は <span class="math inline">\(c_3\)</span>（費用）より2倍重要である</li>
+<li>評価基準 <span class="math inline">\(c_2\)</span> （食事）は <span class="math inline">\(c_3\)</span>（費用）より8倍重要である</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+ヒント
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>この人は，食事を最も重要視しており，次に気候，最後に費用を重要視していることがわかる．</p>
+</div>
+</div>
+<p><span class="math display">\[
+\mathbf{B} = \begin{bmatrix}
+1 &amp; 1/4 &amp; 2 \\
+4 &amp; 1 &amp; 8 \\
+1/2 &amp; 1/8 &amp; 1 \\
+\end{bmatrix}
+\]</span></p>
+<p>同様に，重要度ベクトル <span class="math inline">\(\mathbf{v}\)</span> を一対比較行列 <span class="math inline">\(\mathbf{B}\)</span> から計算する．</p>
+<p><span class="math display">\[
+\mathbf{v} = \begin{bmatrix}
+2/11 \\
+8/11 \\
+1/11 \\
+\end{bmatrix}
+\]</span></p>
+<p>最終的に，代替案の重要度ベクトル <span class="math inline">\(\mathbf{w}\)</span> は以下のように計算される．</p>
+<p><span class="math display">\[
+\mathbf{w} = \sum_{k=1}^m v_k \mathbf{w}^{(k)}
+= \frac{2}{11} \begin{bmatrix}
+3/13 \\
+9/13 \\
+1/13 \\
+\end{bmatrix}
++ \frac{8}{11} \begin{bmatrix}
+4/9 \\
+4/9 \\
+1/9 \\
+\end{bmatrix}
++ \frac{1}{11} \begin{bmatrix}
+1/9 \\
+2/9 \\
+6/9 \\
+\end{bmatrix}
+\approx \begin{bmatrix}
+0.38 \\
+0.47 \\
+0.16 \\
+\end{bmatrix}
+\]</span></p>
+<div id="035cc7fa" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>コード</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>w1 <span class="op">=</span> np.array([<span class="dv">3</span><span class="op">/</span><span class="dv">13</span>, <span class="dv">9</span><span class="op">/</span><span class="dv">13</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">13</span>])</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>w2 <span class="op">=</span> np.array([<span class="dv">4</span><span class="op">/</span><span class="dv">9</span>, <span class="dv">4</span><span class="op">/</span><span class="dv">9</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">9</span>])</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>w3 <span class="op">=</span> np.array([<span class="dv">1</span><span class="op">/</span><span class="dv">9</span>, <span class="dv">2</span><span class="op">/</span><span class="dv">9</span>, <span class="dv">6</span><span class="op">/</span><span class="dv">9</span>])</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> np.array([<span class="dv">2</span><span class="op">/</span><span class="dv">11</span>, <span class="dv">8</span><span class="op">/</span><span class="dv">11</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">11</span>])</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> v[<span class="dv">0</span>] <span class="op">*</span> w1 <span class="op">+</span> v[<span class="dv">1</span>] <span class="op">*</span> w2 <span class="op">+</span> v[<span class="dv">2</span>] <span class="op">*</span> w3</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>w</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>array([0.37529138, 0.46930847, 0.15540016])</code></pre>
+</div>
+</div>
+<p>このとき，重要度ベクトル <span class="math inline">\(\mathbf{w}\)</span> から，望ましい代替案は <span class="math inline">\(x_2\)</span> （沖縄）であることがわかる．</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">ノート</span>階層の一般化
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>今回は，目標，評価基準，代替案の3層の階層を考えたが，評価基準の下にさらに評価基準を追加するなど，より複雑な階層を考えることもできる．</p>
+</div>
+</div>
 </section>
-<section id="重要度ベクトルと整合性" class="level2" data-number="7.6">
-<h2 data-number="7.6" class="anchored" data-anchor-id="重要度ベクトルと整合性"><span class="header-section-number">7.6</span> 重要度ベクトルと整合性</h2>
+</section>
+<section id="重要度ベクトルの推定" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="重要度ベクトルの推定"><span class="header-section-number">7.4</span> 重要度ベクトルの推定</h2>
 <p>しかし，人間の評価は必ずしも合理的でないため，一般には <span class="math inline">\(a_{ij} = w_i/w_j\)</span> を満たさない．このとき，他の方法で一対比較行列 <span class="math inline">\(\mathbf{A}\)</span> から重要度ベクトル <span class="math inline">\(\mathbf{w}\)</span> を計算する必要がある．計算する方法として，主に<strong>幾何平均法</strong> (geometric mean method) と<strong>固有ベクトル法</strong> (eigenvector method) の2つがある．</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -873,8 +1086,8 @@ w_3 = \frac{1}{6 + 2 + 1} = \frac{1}{9} \approx 0.11
 <p>他にもnormalized columns methodという方法もあるが，理論的根拠がないと言われている．</p>
 </div>
 </div>
-<section id="幾何平均法" class="level3" data-number="7.6.1">
-<h3 data-number="7.6.1" class="anchored" data-anchor-id="幾何平均法"><span class="header-section-number">7.6.1</span> 幾何平均法</h3>
+<section id="幾何平均法" class="level3" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="幾何平均法"><span class="header-section-number">7.4.1</span> 幾何平均法</h3>
 <p><span class="citation" data-cites="Crawford1985-gb">Crawford と Williams (<a href="../references.html#ref-Crawford1985-gb" role="doc-biblioref">1985</a>)</span> は，幾何平均法を提案した．幾何平均法では，重要度ベクトル <span class="math inline">\(\mathbf{w}\)</span> の各要素 <span class="math inline">\(w_k\)</span> を以下のように計算する．</p>
 <p><span class="math display">\[
 w_k = \frac{\left(\prod_{j=1}^n a_{kj}\right)^{1/n}}{\sum_{i=1}^n \left(\prod_{j=1}^n a_{ij}\right)^{1/n}} \quad \forall k
@@ -912,8 +1125,8 @@ w_3 = \frac{(1/6 \times 1/2 \times 1)^{1/3}}{(1 \times 3 \times 6)^{1/3} + (1/3 
 \]</span></p>
 <p>一般に，一対比較行列 <span class="math inline">\(\mathbf{A}\)</span> が整合性を持つならば，幾何平均法で計算した重要度ベクトル <span class="math inline">\(\mathbf{w}\)</span> は理論から計算した重要度ベクトルと一致する．興味があれば，証明してみよう．</p>
 </section>
-<section id="固有ベクトル法" class="level3" data-number="7.6.2">
-<h3 data-number="7.6.2" class="anchored" data-anchor-id="固有ベクトル法"><span class="header-section-number">7.6.2</span> 固有ベクトル法*</h3>
+<section id="固有ベクトル法" class="level3" data-number="7.4.2">
+<h3 data-number="7.4.2" class="anchored" data-anchor-id="固有ベクトル法"><span class="header-section-number">7.4.2</span> 固有ベクトル法*</h3>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1045,9 +1258,20 @@ n w_n \\
 </div>
 </div>
 </section>
-<section id="gci" class="level3" data-number="7.6.3">
-<h3 data-number="7.6.3" class="anchored" data-anchor-id="gci"><span class="header-section-number">7.6.3</span> GCI</h3>
-<p>計算された重要度ベクトル <span class="math inline">\(\mathbf{w}\)</span> が一対比較行列 <span class="math inline">\(\mathbf{A}\)</span> とどれくらい整合しているかを評価する指標として，Aguarón が提案した<strong>平均幾何整合度</strong> (geometric consistency index, GCI) がある．</p>
+</section>
+<section id="整合性" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="整合性"><span class="header-section-number">7.5</span> 整合性*</h2>
+<p>計算された重要度ベクトル <span class="math inline">\(\mathbf{w}\)</span> が一対比較行列 <span class="math inline">\(\mathbf{A}\)</span> とどれくらい整合しているかを評価する指標として，様々な指標が提案されている．．</p>
+<section id="ci" class="level3" data-number="7.5.1">
+<h3 data-number="7.5.1" class="anchored" data-anchor-id="ci"><span class="header-section-number">7.5.1</span> CI</h3>
+<p>Saatyは，一対比較行列 <span class="math inline">\(\mathbf{A}\)</span> の整合性を評価する指標として<strong>整合度</strong> (consistency index, CI) を提案した．</p>
+<p><span class="math display">\[
+CI = \frac{\lambda_{max} - n}{n - 1}
+\]</span></p>
+</section>
+<section id="gci" class="level3" data-number="7.5.2">
+<h3 data-number="7.5.2" class="anchored" data-anchor-id="gci"><span class="header-section-number">7.5.2</span> GCI</h3>
+<p>Aguarón が<strong>平均幾何整合度</strong> (geometric consistency index, GCI) を提案した．</p>
 <p>一対比較値 <span class="math inline">\(a_{ij}\)</span> と重要度ベクトル <span class="math inline">\(\mathbf{w}\)</span> から，以下のように <span class="math inline">\(e_{ij}\)</span> を定義する．</p>
 <p><span class="math display">\[
 e_{ij} = a_{ij} \frac{w_j}{w_i}
@@ -1059,12 +1283,14 @@ GCI = \frac{2}{(n-1)(n-2)} \sum_{i=1}^{n-1} \sum_{j=i+1}^{n} \left(\ln e_{ij}\ri
 \]</span></p>
 </section>
 </section>
-<section id="文献案内" class="level2" data-number="7.7">
-<h2 data-number="7.7" class="anchored" data-anchor-id="文献案内"><span class="header-section-number">7.7</span> 文献案内</h2>
-<p><span class="citation" data-cites="Brunelli2015-mz">Brunelli (<a href="../references.html#ref-Brunelli2015-mz" role="doc-biblioref">2015</a>)</span> はAHPを丁寧に解説した書籍である．</p>
+<section id="文献案内" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="文献案内"><span class="header-section-number">7.6</span> 文献案内</h2>
+<p><span class="citation" data-cites="Saaty1977-bt">Saaty (<a href="../references.html#ref-Saaty1977-bt" role="doc-biblioref">1977</a>)</span> は初めてAHPを提案している．この論文では，固有ベクトル法と整合性の指標CIを提案している．</p>
+<p><span class="citation" data-cites="Crawford1985-gb">Crawford と Williams (<a href="../references.html#ref-Crawford1985-gb" role="doc-biblioref">1985</a>)</span> は幾何平均法を提案している．</p>
+<p><span class="citation" data-cites="Brunelli2015-mz">Brunelli (<a href="../references.html#ref-Brunelli2015-mz" role="doc-biblioref">2015</a>)</span> はAHPを丁寧に解説した書籍である．深く理解したい人にお勧めする．</p>
 </section>
-<section id="用語" class="level2" data-number="7.8">
-<h2 data-number="7.8" class="anchored" data-anchor-id="用語"><span class="header-section-number">7.8</span> 用語</h2>
+<section id="用語" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="用語"><span class="header-section-number">7.7</span> 用語</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1103,6 +1329,193 @@ GCI = \frac{2}{(n-1)(n-2)} \sum_{i=1}^{n-1} \sum_{j=i+1}^{n} \left(\ln e_{ij}\ri
 </tr>
 </tbody>
 </table>
+</section>
+<section id="練習問題" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="練習問題"><span class="header-section-number">7.8</span> 練習問題</h2>
+<div id="exr-priority-vector-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>練習 7.1</strong></span> ある会社が新しい工場の建設場所を選ぶために，3つの都市を代替案として検討している．</p>
+<ul>
+<li>都市Aは都市Bよりも2倍望ましい</li>
+<li>都市Aは都市Cよりも4倍望ましい</li>
+<li>都市Bは都市Cよりも2倍望ましい</li>
+</ul>
+<p>このとき，一対比較行列を構築し，重要度ベクトルを計算せよ．</p>
+</div>
+<div id="sol-priority-vector-1" class="proof solution">
+<p><span class="proof-title"><em>解答 7.1</em>. </span>一対比較行列 <span class="math inline">\(\mathbf{A}\)</span> は以下のようになる．</p>
+<p><span class="math display">\[
+\mathbf{A} = \begin{bmatrix}
+1 &amp; 2 &amp; 4 \\
+1/2 &amp; 1 &amp; 2 \\
+1/4 &amp; 1/2 &amp; 1 \\
+\end{bmatrix}
+\]</span></p>
+<p><span class="math inline">\(\mathbf{A}\)</span> は整合性を持つため，<span class="math inline">\(\mathbf{A}\)</span> の任意の列を正規化することで，重要度ベクトル <span class="math inline">\(\mathbf{w}\)</span> を求めることができる．</p>
+<p><span class="math display">\[
+w = \begin{bmatrix}
+4/7 \\
+2/7 \\
+1/7 \\
+\end{bmatrix}
+\]</span></p>
+</div>
+<div id="exr-priority-vector-2" class="theorem exercise">
+<p><span class="theorem-title"><strong>練習 7.2</strong></span> ある学生が大学を選ぶために，3つの大学を代替案として検討している．</p>
+<ul>
+<li>大学Aは大学Bよりも3倍望ましい</li>
+<li>大学Aは大学Cよりも5倍望ましい</li>
+<li>大学Bは大学Cよりも2倍望ましい</li>
+</ul>
+<p>このとき，一対比較行列を構築し，重要度ベクトルを計算せよ．</p>
+</div>
+<div id="sol-priority-vector-2" class="proof solution">
+<p><span class="proof-title"><em>解答 7.2</em>. </span>一対比較行列 <span class="math inline">\(\mathbf{A}\)</span> は以下のようになる．</p>
+<p><span class="math display">\[
+\mathbf{A} = \begin{bmatrix}
+1 &amp; 3 &amp; 5 \\
+1/3 &amp; 1 &amp; 2 \\
+1/5 &amp; 1/2 &amp; 1 \\
+\end{bmatrix}
+\]</span></p>
+<p><span class="math inline">\(\mathbf{A}\)</span> は整合性を持たないため，幾何平均法で重要度ベクトル <span class="math inline">\(\mathbf{w}\)</span> を求める．</p>
+<p><span class="math display">\[
+w_1 = \frac{(1 \times 3 \times 5)^{1/3}}{(1 \times 3 \times 5)^{1/3} + (1/3 \times 1 \times 2)^{1/3} + (1/5 \times 1/2 \times 1)^{1/3}}  \approx 0.65
+\]</span></p>
+<p><span class="math display">\[
+w_2 = \frac{(1/3 \times 1 \times 2)^{1/3}}{(1 \times 3 \times 5)^{1/3} + (1/3 \times 1 \times 2)^{1/3} + (1/5 \times 1/2 \times 1)^{1/3}}  \approx 0.23
+\]</span></p>
+<p><span class="math display">\[
+w_3 = \frac{(1/5 \times 1/2 \times 1)^{1/3}}{(1 \times 3 \times 5)^{1/3} + (1/3 \times 1 \times 2)^{1/3} + (1/5 \times 1/2 \times 1)^{1/3}}  \approx 0.12
+\]</span></p>
+<div id="5a1ede44" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>コード</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>], [<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="dv">1</span>]])</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>w1 <span class="op">=</span> (np.prod(A[<span class="dv">0</span>, :]))<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>w2 <span class="op">=</span> (np.prod(A[<span class="dv">1</span>, :]))<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>w3 <span class="op">=</span> (np.prod(A[<span class="dv">2</span>, :]))<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> np.array([w1, w2, w3])</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> w <span class="op">/</span> np.<span class="bu">sum</span>(w)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>w</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>array([0.64832901, 0.22965079, 0.12202019])</code></pre>
+</div>
+</div>
+</div>
+<div id="exr-ahp-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>練習 7.3</strong></span> ある学生が就職先を選ぶために，3つの企業を代替案として検討している．評価基準として，給与，勤務地，企業の評判を考える．</p>
+<ul>
+<li>給与に関しては，企業Aは企業Bよりも2倍望ましく，企業Aは企業Cよりも3倍望ましく，企業Bは企業Cよりも2倍望ましい．</li>
+<li>勤務地に関しては，企業Aは企業Bと同じくらい望ましく，企業Aは企業Cよりも4倍望ましく，企業Bは企業Cよりも4倍望ましい．</li>
+<li>企業の評判に関しては，企業Bは企業Aの2倍望ましく，企業Cは企業Bの4倍望ましく，企業Cは企業Aの8倍望ましい．</li>
+</ul>
+<p>また，この学生は，評価基準として，給与は勤務地の2倍，勤務地は企業の評判の2倍重要，給与は企業の評判の4倍重要と考えている．</p>
+<p>このとき，AHPを用いて重要度ベクトルを計算し，最も望ましい企業を選べ．</p>
+</div>
+<div id="sol-ahp-1" class="proof solution">
+<p><span class="proof-title"><em>解答 7.3</em>. </span>給与に関する一対比較行列 <span class="math inline">\(\mathbf{A}^{(1)}\)</span> は以下のようになる．</p>
+<p><span class="math display">\[
+\mathbf{A}^{(1)} = \begin{bmatrix}
+1 &amp; 1 &amp; 4 \\
+1 &amp; 1 &amp; 4 \\
+1/4 &amp; 1/4 &amp; 1 \\
+\end{bmatrix}
+\]</span></p>
+<p>勤務地に関する一対比較行列 <span class="math inline">\(\mathbf{A}^{(2)}\)</span> は以下のようになる．</p>
+<p><span class="math display">\[
+\mathbf{A}^{(2)} = \begin{bmatrix}
+1 &amp; 2 &amp; 6 \\
+1/2 &amp; 1 &amp; 3 \\
+1/6 &amp; 1/3 &amp; 1 \\
+\end{bmatrix}
+\]</span></p>
+<p>企業の評判に関する一対比較行列 <span class="math inline">\(\mathbf{A}^{(3)}\)</span> は以下のようになる．</p>
+<p><span class="math display">\[
+\mathbf{A}^{(3)} = \begin{bmatrix}
+1 &amp; 1/2 &amp; 1/8 \\
+2 &amp; 1 &amp; 1/4 \\
+8 &amp; 4 &amp; 1 \\
+\end{bmatrix}
+\]</span></p>
+<p>重要度ベクトル <span class="math inline">\(\mathbf{w}^{(k)}\)</span> をそれぞれの一対比較行列 <span class="math inline">\(\mathbf{A}^{(k)}\)</span> から計算する．</p>
+<p><span class="math display">\[
+\mathbf{w}^{(1)} = \begin{bmatrix}
+4/9 \\
+4/9 \\
+1/9 \\
+\end{bmatrix}, \quad
+\mathbf{w}^{(2)} = \begin{bmatrix}
+6/10 \\
+3/10 \\
+1/10 \\
+\end{bmatrix}, \quad
+\mathbf{w}^{(3)} = \begin{bmatrix}
+1/11 \\
+2/11 \\
+8/11 \\
+\end{bmatrix}
+\]</span></p>
+<p>評価基準の一対比較行列 <span class="math inline">\(\mathbf{B}\)</span> は以下のようになる．</p>
+<p><span class="math display">\[
+\mathbf{B} = \begin{bmatrix}
+1 &amp; 2 &amp; 4 \\
+1/2 &amp; 1 &amp; 2 \\
+1/4 &amp; 1/2 &amp; 1 \\
+\end{bmatrix}
+\]</span></p>
+<p>重要度ベクトル <span class="math inline">\(\mathbf{v}\)</span> を一対比較行列 <span class="math inline">\(\mathbf{B}\)</span> から計算する．</p>
+<p><span class="math display">\[
+\mathbf{v} = \begin{bmatrix}
+4/7 \\
+2/7 \\
+1/7 \\
+\end{bmatrix}
+\]</span></p>
+<p>最終的に，代替案の重要度ベクトル <span class="math inline">\(\mathbf{w}\)</span> は以下のように計算される．</p>
+<p><span class="math display">\[
+\mathbf{w} = \sum_{k=1}^m v_k \mathbf{w}^{(k)}
+= \frac{4}{7} \begin{bmatrix}
+4/9 \\
+4/9 \\
+1/9 \\
+\end{bmatrix}
++ \frac{2}{7} \begin{bmatrix}
+6/10 \\
+3/10 \\
+1/10 \\
+\end{bmatrix}
++ \frac{1}{7} \begin{bmatrix}
+1/11 \\
+2/11 \\
+8/11 \\
+\end{bmatrix}
+\approx \begin{bmatrix}
+0.44 \\
+0.37 \\
+0.20 \\
+\end{bmatrix}
+\]</span></p>
+<div id="34145d68" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>コード</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>w1 <span class="op">=</span> np.array([<span class="dv">4</span><span class="op">/</span><span class="dv">9</span>, <span class="dv">4</span><span class="op">/</span><span class="dv">9</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">9</span>])</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>w2 <span class="op">=</span> np.array([<span class="dv">6</span><span class="op">/</span><span class="dv">10</span>, <span class="dv">3</span><span class="op">/</span><span class="dv">10</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">10</span>])</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>w3 <span class="op">=</span> np.array([<span class="dv">1</span><span class="op">/</span><span class="dv">11</span>, <span class="dv">2</span><span class="op">/</span><span class="dv">11</span>, <span class="dv">8</span><span class="op">/</span><span class="dv">11</span>])</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> np.array([<span class="dv">4</span><span class="op">/</span><span class="dv">7</span>, <span class="dv">2</span><span class="op">/</span><span class="dv">7</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">7</span>])</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> v[<span class="dv">0</span>] <span class="op">*</span> w1 <span class="op">+</span> v[<span class="dv">1</span>] <span class="op">*</span> w2 <span class="op">+</span> v[<span class="dv">2</span>] <span class="op">*</span> w3</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>w</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>array([0.43838384, 0.36565657, 0.1959596 ])</code></pre>
+</div>
+</div>
+<p>このとき，重要度ベクトル <span class="math inline">\(\mathbf{w}\)</span> から，望ましい代替案は企業Aであることがわかる．</p>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -1111,6 +1524,9 @@ Brunelli, Matteo. 2015. <em>Introduction to the Analytic Hierarchy Process</em>.
 </div>
 <div id="ref-Crawford1985-gb" class="csl-entry" role="listitem">
 Crawford, Gordon, と Cindy Williams. 1985. <span>「A note on the analysis of subjective judgment matrices」</span>. <em>Journal of Mathematical Psychology</em>, Some thoughts about the mathematics of the analytic hierarchy process, 29 (4): 387–405.
+</div>
+<div id="ref-Saaty1977-bt" class="csl-entry" role="listitem">
+Saaty, Thomas L. 1977. <span>「A scaling method for priorities in hierarchical structures」</span>. <em>J. Math. Psychol.</em> 15 (3): 234–81.
 </div>
 </div>
 </section>
