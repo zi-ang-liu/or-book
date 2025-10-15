@@ -737,7 +737,7 @@ P(D \leq S) = F_D(S) = \int_{0}^{S} f_D(d) dd
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="fl">1.1</span>)</span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div id="b2c14eb5" class="cell quarto-layout-panel" data-execution_count="1" data-layout-ncol="2">
+<div id="0715556e" class="cell quarto-layout-panel" data-layout-ncol="2" data-execution_count="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
@@ -963,7 +963,7 @@ F_D(S) = P(D \leq S) = \frac{p}{h + p}
 S^* = F_D^{-1}\left(\frac{p}{h + p}\right) = F_D^{-1}\left(\frac{40}{10 + 40}\right) = F_D^{-1}\left(0.8\right)
 \]</span></p>
 <p>言い換えると，<span class="math inline">\(F_D(S^*) = 0.8\)</span> を満たす <span class="math inline">\(S^*\)</span> を求めればよい。これを図で表すと，面積が 0.8 になるような <span class="math inline">\(S^*\)</span> を求めることに相当する。</p>
-<div id="aa7ffbf0" class="cell" data-execution_count="2">
+<div id="e0269a85" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1023,7 +1023,7 @@ S^* = z \sigma + \mu \approx 0.84 \times 5 + 100 = 104.2
 <section id="python" class="level3" data-number="5.5.3">
 <h3 data-number="5.5.3" class="anchored" data-anchor-id="python"><span class="header-section-number">5.5.3</span> Python</h3>
 <p>Python では，SciPy ライブラリの <code>ppf()</code> 関数を用いて，逆関数を求めることができる。</p>
-<div id="86aa51dc" class="cell" data-execution_count="3">
+<div id="b9f41185" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 正規分布のパラメータ</span></span>
@@ -1183,7 +1183,7 @@ S^* = -0.33 \times \sigma + \mu = -0.33 \times 8 + 50 \approx 47.36
 \]</span></p>
 <p>となる。</p>
 <p>Python を用いて計算すると，以下のようになる。</p>
-<div id="d5c32ec4" class="cell" data-execution_count="4">
+<div id="527273a8" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
