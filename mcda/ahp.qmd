@@ -95,7 +95,7 @@ $$
 が想定されている．
 
 :::{.callout-tip}
-意思決定者が一対比較を行うとき，$\mathbf{w} = (w_1, w_2, \ldots, w_n)^T$ が知らないが，合理的な意思決定者ならば，$a_{ij} \approx w_i/w_j$ を満たすと考えられる．
+意思決定者が一対比較を行うとき，$\mathbf{w} = (w_1, w_2, \ldots, w_n)^T$ が知らないが，合理的な意思決定者ならば，$a_{ij} = w_i/w_j$ を満たすと考えられる．
 :::
 
 意思決定者が完全に合理的であるならば，$a_{ij} = w_i/w_j$ を満たす．
@@ -204,60 +204,35 @@ AHPでは，評価基準を用いて代替案を評価するために，**階層
 :::{#exm-hierarchy}
 旅行先の代替案を $X = \{\text{北海道}, \text{沖縄}, \text{九州}\}$ とし，評価基準 $C = \{\text{費用}, \text{食事}, \text{環境}\}$ とする．このとき，以下のような階層を考える．
 
-```{dot}
-graph {
-    rankdir=TB;
-    node [shape=box, style=filled, fillcolor=white, fontname="Helvetica"];
-    edge [color=gray, fontname="Helvetica", arrowhead=vee];
-
-    // Goal
-    Goal [label="旅行先の選択", shape=ellipse, style=filled, fillcolor=lightblue];
-
-    // Criteria cluster
-    subgraph cluster_criteria {
-        label = "評価基準";
-        style = dashed;
-        color = gray;
-        C1 [label="費用", fillcolor=lightyellow];
-        C2 [label="食事", fillcolor=lightyellow];
-        C3 [label="環境", fillcolor=lightyellow];
-    }
-
-    // Alternatives cluster
-    subgraph cluster_alternatives {
-        label = "選択肢";
-        style = dashed;
-        color = gray;
-        A1 [label="北海道", fillcolor=lightgreen];
-        A2 [label="沖縄", fillcolor=lightgreen];
-        A3 [label="九州", fillcolor=lightgreen];
-    }
-
-    { rank = same; C1; C2; C3 }
-    { rank = same; A1; A2; A3 }
-
-    // Edges from Goal to Criteria
-    Goal -- C1;
-    Goal -- C2;
-    Goal -- C3;
-
-    // Edges from Criteria to Alternatives
-    C1 -- A1;
-    C1 -- A2;
-    C1 -- A3;
-
-    C2 -- A1;
-    C2 -- A2;
-    C2 -- A3;
-
-    C3 -- A1;
-    C3 -- A2;
-    C3 -- A3;
-}
+```{mermaid}
+graph TD
+    A[旅行先の選択]
+    subgraph 評価基準
+        B[費用]
+        C[食事]
+        D[環境]
+    end
+    subgraph 選択肢
+        E[北海道]
+        F[沖縄]
+        G[九州]
+    end
+    A --> B
+    A --> C
+    A --> D
+    B --> E
+    B --> F
+    B --> G
+    C --> E
+    C --> F
+    C --> G
+    D --> E
+    D --> F
+    D --> G
+    style 評価基準 fill:#ccc
+    style 選択肢 fill:#ccc
 ```
 :::
-
-
 
 このような階層構造を用いることで，評価基準に基づいて代替案を評価することができる．各評価基準 $c_k$ を用いて，代替案の一対比較行列 $\mathbf{A}^{(k)}$ を構築する．
 
