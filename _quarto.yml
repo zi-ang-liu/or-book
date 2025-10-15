@@ -49,6 +49,7 @@ book:
         - inventory/safety.qmd
         - inventory/wagner-whitin.qmd
         - inventory/newsvendor.qmd
+        - inventory/summary.qmd
     - part: "多基準意思決定分析"
       chapters:
         - mcda/ahp.qmd
