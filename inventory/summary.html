@@ -492,8 +492,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../appendices/linear_algebra.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">線形代数</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../appendices/opt_problems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Optimization Problems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Optimization Problems</span></span></a>
   </div>
 </li>
       </ul>
@@ -529,36 +535,39 @@ window.Quarto = {
 </header>
 
 
+<ul>
+<li>在庫管理の目的は，<strong>発注量</strong>と<strong>発注時期</strong>を決定し，顧客の需要を満たしつつ，コストを最小化することである．</li>
+<li>科学的在庫管理では，在庫モデルを定式化し，発注量と発注時期を決定する．</li>
+<li><strong>在庫方策</strong>は，在庫の状況に応じて，発注量と発注時期を決定するルールである．<span class="math inline">\((s, S)\)</span> 方策，<span class="math inline">\((r, Q)\)</span> 方策，BSP 方策などがある．</li>
+<li>安全在庫の章では，コストを最小化するのではなく，サービスレベルを満たすための在庫方策を決定する方法を学んだ．</li>
+</ul>
+<p>紹介した在庫モデルを分類すると，次の表のようになる．</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th style="text-align: center;">モデル名</th>
-<th style="text-align: center;">分類</th>
+<th>モデル名</th>
+<th>分類</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;">EOQ モデル</td>
-<td style="text-align: center;">決定論的連続観測モデル</td>
+<td>EOQ モデル</td>
+<td>決定論的連続観測モデル</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">安全在庫</td>
-<td style="text-align: center;">確率的連続観測モデル</td>
+<td>安全在庫</td>
+<td>確率的連続観測モデル</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">Wagner-Whitin モデル</td>
-<td style="text-align: center;">多期間決定論的周期観測モデル</td>
+<td>Wagner-Whitin モデル</td>
+<td>多期間決定論的周期観測モデル</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">新聞売り子問題</td>
-<td style="text-align: center;">単一期間確率的周期観測モデル</td>
+<td>新聞売り子問題</td>
+<td>単一期間確率的周期観測モデル</td>
 </tr>
 </tbody>
 </table>
-<p>科学的在庫管理の目的は，<strong>発注量</strong>と<strong>発注時期</strong>を決定し，顧客の需要を満たしつつ，コストを最小化することである．</p>
-<p><strong>在庫方策</strong>は，在庫の状況に応じて，発注量と発注時期を決定するルールである．<span class="math inline">\((s, S)\)</span> 方策，<span class="math inline">\((r, Q)\)</span> 方策，BSP 方策などがある．</p>
-<p>コスト関数が凸関数である場合，コストを最小化する解が簡単に見つかる．</p>
-<p>また，安全在庫の章では，コストを最小化するのではなく，サービスレベルを満たすための在庫方策を決定する方法を学んだ．</p>
 
 
 

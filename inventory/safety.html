@@ -550,8 +550,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../appendices/linear_algebra.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">線形代数</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../appendices/opt_problems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Optimization Problems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Optimization Problems</span></span></a>
   </div>
 </li>
       </ul>
@@ -624,7 +630,7 @@ window.Quarto = {
 <li>100% のサービスレベルを達成するために必要な初期在庫量を求めよ。</li>
 </ol>
 <p>次の図は、在庫量の時間的変化を示す。灰色の領域は、需要の範囲を示す。赤い領域は、在庫量が0以下になったときの欠品を示す。黒い線は平均需要に基づく在庫量の変化を示す。</p>
-<div id="817f8cf9" class="cell" data-execution_count="1">
+<div id="c53f10dc" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
@@ -711,7 +717,7 @@ Q = \sqrt{\frac{2K \mu}{h}}
 Q = \sqrt{\frac{2K \mu}{h}} = \sqrt{\frac{2 \cdot 200 \cdot 100}{5}} \approx 89.44
 \]</span></p>
 <p>Python では、以下のように計算できる。</p>
-<div id="13bb6485" class="cell" data-execution_count="2">
+<div id="c1c0a1b7" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -830,7 +836,7 @@ r &amp;= \mu_L + s \approx 400 + 65.79 \approx 465.79
 \end{align}\]</span></p>
 <p>したがって、発注点 <span class="math inline">\(r\)</span> は約465.79、必要な安全在庫 <span class="math inline">\(s\)</span> は約65.79となる。</p>
 <p>Python では、以下のように計算できる。</p>
-<div id="11b6528b" class="cell" data-execution_count="3">
+<div id="d4a559b5" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
@@ -891,7 +897,7 @@ s = \sigma_L \Phi^{-1}(0.9) \approx 60 \cdot 1.28155 \approx 76.89
 r = \mu_L + s \approx 600 + 76.89 \approx 676.89
 \]</span></p>
 <p>したがって、発注量 <span class="math inline">\(Q\)</span> は150、発注点 <span class="math inline">\(r\)</span> は約676.89、必要な安全在庫 <span class="math inline">\(s\)</span> は約76.89となる。</p>
-<div id="a6264e45" class="cell" data-execution_count="4">
+<div id="97786f90" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
