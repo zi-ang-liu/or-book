@@ -69,6 +69,7 @@ book:
     - appendices/calculus.qmd
     - appendices/probability.qmd
     - appendices/standard_normal_table.qmd
+    - appendices/linear_algebra.qmd
     - appendices/opt_problems.qmd
 
 

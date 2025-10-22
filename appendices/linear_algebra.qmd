@@ -1,0 +1,72 @@
+# 線形代数
+
+## 固有値と固有ベクトル
+$n \times n$ 行列 $\mathbf{A}$ に対し，ベクトル $\mathbf{x} \neq \mathbf{0}$ とスカラー $\lambda$ が存在して，
+$$
+\mathbf{A} \mathbf{x} = \lambda \mathbf{x}
+$$
+が成り立つとき，$\mathbf{x}$ を $\mathbf{A}$ の**固有ベクトル** (eigenvector)，$\lambda$ を $\mathbf{A}$ の**固有値** (eigenvalue) と呼ぶ．
+
+:::{#exm-eigenvalue}
+次のような $\mathbf{A}, \mathbf{x}, \lambda$ を考える．
+$$
+\mathbf{A} = \begin{bmatrix}
+1 & 2 \\
+1/2 & 1 \\
+\end{bmatrix}, \quad
+\mathbf{x} = \begin{bmatrix}
+2 \\
+1 \\
+\end{bmatrix}, \quad
+\lambda = 2
+$$
+
+このとき，
+
+$$
+\begin{bmatrix}
+1 & 2 \\
+1/2 & 1 \\
+\end{bmatrix} 
+\begin{bmatrix}
+2 \\
+1 \\
+\end{bmatrix}
+= \begin{bmatrix}
+4 \\
+2 \\
+\end{bmatrix}
+= 2 \begin{bmatrix}
+2 \\
+1 \\
+\end{bmatrix}
+$$
+
+が成り立つため，$\mathbf{x}$ は $\mathbf{A}$ の固有ベクトル，$\lambda$ は $\mathbf{A}$ の固有値である．
+:::
+
+$\mathbf{A} \mathbf{x} = \lambda \mathbf{x}$ は単位行列 $\mathbf{I}$ を用いて $(\mathbf{A} - \lambda \mathbf{I}) \mathbf{x} = \mathbf{0}$ と書ける．このとき，$\mathbf{x} \neq \mathbf{0}$ であるため，$\det(\mathbf{A} - \lambda \mathbf{I}) = 0$ が成り立つ．
+
+:::{#exm-eigenvalue-calculation}
+次のような行列 $\mathbf{A}$ を考える．
+$$
+\mathbf{A} = \begin{bmatrix}
+1 & 2 \\
+1/2 & 1 \\
+\end{bmatrix} 
+$$
+
+このとき，$\det(\mathbf{A} - \lambda \mathbf{I})$ は以下のようになる．
+
+\begin{align*}
+\det(\mathbf{A} - \lambda \mathbf{I}) &= \det\begin{bmatrix}
+1 - \lambda & 2 \\
+1/2 & 1 - \lambda \\
+\end{bmatrix} \\
+&= (1 - \lambda)^2 - 1 \\
+&= \lambda^2 - 2\lambda \\
+&= \lambda(\lambda - 2)
+\end{align*}
+
+$\lambda(\lambda - 2) = 0$ より，$\lambda = 0, 2$ が得られる．
+:::
