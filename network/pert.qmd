@@ -17,6 +17,10 @@ jupyter: python3
 
 プロジェクトは、多くの作業からなる。プロジェクトを完遂できるように、作業のスケジュールを作成する必要がある。その方法として、**PERT**（Program Evaluation and Review Technique）と**CPM**（Critical Path Method）がある。現在では、PERTとCPMが統合され、**PERT/CPM**として知られている[@Camm2022-zv; @Hillier2025-cb]。
 
+:::{.callout-note}
+PERT/CPMは「基本情報技術者試験」や「応用情報技術者試験」などで頻出のトピックのようです．他にも，線形計画法，在庫問題，ゲーム理論，データ分析，データベース，データ構造とアルゴリズムなど，様々な経営工学関係のトピックが出題されます．経営工学を学ぶ学生は，受けてみると良いでしょう．
+:::
+
 ## プロジェクト
 
 ここで、ある作業の開始前に完了しなければならない作業を**先行作業**（Immediate Predecessor）と呼ぶ。また、ある作業の完了後に開始できる作業を**後続作業**（Immediate Successor）と呼ぶ。
@@ -191,7 +195,53 @@ $$
 
 で与えられる。
 
-最早開始時刻と最早終了時刻を求めるアルゴリズムは下の通りである。ここで、点をトポロジカルオーダー(topological order)で処理するとは、$v$ のすべての先行作業 $u \in \mathcal{P}(v)$ が $v$ より前に処理されるように点を順序付けることである。
+:::{#exm-ES-EF}
+
+作業点 $D$ の先行作業を $A, B, C$ とする．そのとき，$\mathcal{P}(D) = \{A, B, C\}$ である．$EF(A) = 2$，$EF(B) = 3$，$EF(C) = 6$ とすると，$D$ の最早開始時刻は，
+
+$$
+ES(D) = \max\{EF(A), EF(B), EF(C)\} = \max\{2, 3, 6\} = 6
+$$
+
+である．
+
+```{python}
+import matplotlib.pyplot as plt
+import networkx as nx
+
+# グラフの作成（頂点を番号で定義）
+G = nx.DiGraph()
+edges = [
+    ("A", "D"),
+    ("B", "D"),
+    ("C", "D"),
+]
+G.add_edges_from(edges)
+
+# A, B, C を縦に並べる
+
+pos = {
+    "A": (0, 1),
+    "B": (0, 0),
+    "C": (0, -1),
+    "D": (2, 0),
+}
+# Plotting
+nx.draw_networkx(
+    G,
+    pos=pos,
+    with_labels=True,
+    node_color="white",
+    node_size=500,
+    edgecolors="black",
+)
+plt.axis("off")
+plt.show()
+```
+
+:::
+
+最早開始時刻と最早終了時刻を求めるアルゴリズムは下の通りである。ここで、点を**トポロジカルオーダー**(topological order)で処理するとは、$v$ のすべての先行作業 $u \in \mathcal{P}(v)$ が $v$ より前に処理されるように点を順序付けることである。
 
 ::: {#alg-forward-pass}
 **Forward Pass Algorithm**
@@ -236,6 +286,48 @@ $$
 LF(u) = \min_{v \in \mathcal{S}(u)} LS(v)
 $$
 
+:::{#exm-LS-LF}
+
+作業点 $C$ の後続作業を $D, E, F$ とする．そのとき，$\mathcal{S}(C) = \{D, E, F\}$ である．$LS(D) = 6$，$LS(E) = 3$，$LS(F) = 8$ とすると，$C$ の最遅終了時刻は，
+$$
+LF(C) = \min\{LS(D), LS(E), LS(F)\} = \min\{6, 3, 8\} = 3
+$$
+である．
+
+```{python}
+import matplotlib.pyplot as plt
+
+import networkx as nx
+
+# グラフの作成（頂点を番号で定義）
+G = nx.DiGraph()
+edges = [
+    ("C", "D"),
+    ("C", "E"),
+    ("C", "F"),
+]
+G.add_edges_from(edges)
+
+pos = {
+    "C": (0, 0),
+    "D": (2, 1),
+    "E": (2, 0),
+    "F": (2, -1),
+}
+# Plotting
+nx.draw_networkx(
+    G,
+    pos=pos,
+    with_labels=True,
+    node_color="white",
+    node_size=500,
+    edgecolors="black",
+)
+plt.axis("off")
+plt.show()
+```
+:::
+
 @exm-pert-2 のプロジェクト・ネットワークに対して、最遅開始時刻と最遅終了時刻を求めると、次の表のようになる。
 
 | $v$ | $\mathcal{S}(v)$ | $\tau(v)$ | $LS(v)$ | $LF(v)$ | 
@@ -258,7 +350,7 @@ $$
 SL(v) = LS(v) - ES(v) = LF(v) - EF(v)
 $$
 
-で与えられる。スラックは、作業 $v$ の開始または終了を遅らせることができる時間を示す。スラックが 0 の作業はクリティカル作業である。
+で与えられる。スラックは、作業 $v$ の開始または終了を遅らせることができる時間を示す。
 
 @exm-pert-2 のプロジェクト・ネットワークに対して、スラックを求めると、次の表のようになる。
 
@@ -274,7 +366,7 @@ $$
 | G  | 2      | 8    | 10   | 15   | 17   | 7    |
 | t  | 0      | 17   | 17   | 17   | 17   | 0    |
 
-クリティカルパスは、$s \to B \to E \to F \to t$ であり、このパスの長さは 17 日である。
+スラックが 0 の作業はクリティカル作業である。したがって、@exm-pert-2 のプロジェクト・ネットワークにおけるクリティカルパスは、$s \to B \to E \to F \to t$ であり、このパスの長さは 17 日である。
 
 ## 3 点見積もり
 
