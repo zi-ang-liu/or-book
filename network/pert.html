@@ -622,6 +622,19 @@ window.Quarto = {
 
 -->
 <p>プロジェクトは、多くの作業からなる。プロジェクトを完遂できるように、作業のスケジュールを作成する必要がある。その方法として、<strong>PERT</strong>（Program Evaluation and Review Technique）と<strong>CPM</strong>（Critical Path Method）がある。現在では、PERTとCPMが統合され、<strong>PERT/CPM</strong>として知られている<span class="citation" data-cites="Camm2022-zv Hillier2025-cb">(<a href="../references.html#ref-Camm2022-zv" role="doc-biblioref">Camm ほか 2022</a>; <a href="../references.html#ref-Hillier2025-cb" role="doc-biblioref">Hillier と Lieberman 2025</a>)</span>。</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+ノート
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>PERT/CPMは「基本情報技術者試験」や「応用情報技術者試験」などで頻出のトピックのようです．他にも，線形計画法，在庫問題，ゲーム理論，データ分析，データベース，データ構造とアルゴリズムなど，様々な経営工学関係のトピックが出題されます．経営工学を学ぶ学生は，受けてみると良いでしょう．</p>
+</div>
+</div>
 <section id="プロジェクト" class="level2" data-number="10.1">
 <h2 data-number="10.1" class="anchored" data-anchor-id="プロジェクト"><span class="header-section-number">10.1</span> プロジェクト</h2>
 <p>ここで、ある作業の開始前に完了しなければならない作業を<strong>先行作業</strong>（Immediate Predecessor）と呼ぶ。また、ある作業の完了後に開始できる作業を<strong>後続作業</strong>（Immediate Successor）と呼ぶ。</p>
@@ -685,7 +698,7 @@ window.Quarto = {
 <p>辺 <span class="math inline">\((s, v) \in E\)</span> は、作業 <span class="math inline">\(v\)</span> が先行作業を持たないことを意味し、辺 <span class="math inline">\((v, t) \in E\)</span> は、作業 <span class="math inline">\(v\)</span> が後続作業を持たないことを意味する。作業 <span class="math inline">\(v\)</span> の先行作業の集合を <span class="math inline">\(\mathcal{P}(v)\)</span> と表す。作業 <span class="math inline">\(v\)</span> の後続作業の集合を <span class="math inline">\(\mathcal{S}(v)\)</span> と表す。</p>
 <p>作業点 <span class="math inline">\(v \in V\)</span> には、作業時間 <span class="math inline">\(\tau(v)\)</span> が与えられている。始点 <span class="math inline">\(s\)</span> と終点 <span class="math inline">\(t\)</span> の作業時間は <span class="math inline">\(\tau(s) = \tau(t) = 0\)</span> とする。</p>
 <p><a href="#exm-pert-report" class="quarto-xref">例&nbsp;<span>10.1</span></a> のプロジェクト・ネットワークは次の図のようになる。</p>
-<div id="6b33b4cb" class="cell" data-execution_count="1">
+<div id="914601a2" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -785,7 +798,7 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<div id="81fd336d" class="cell" data-execution_count="2">
+<div id="13f2c68e" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -864,7 +877,57 @@ EF(v) = ES(v) + \tau(v)
 ES(u) = \max_{v \in \mathcal{P}(u)} EF(v)
 \]</span></p>
 <p>で与えられる。</p>
-<p>最早開始時刻と最早終了時刻を求めるアルゴリズムは下の通りである。ここで、点をトポロジカルオーダー(topological order)で処理するとは、<span class="math inline">\(v\)</span> のすべての先行作業 <span class="math inline">\(u \in \mathcal{P}(v)\)</span> が <span class="math inline">\(v\)</span> より前に処理されるように点を順序付けることである。</p>
+<div id="exm-ES-EF" class="theorem example">
+<p><span class="theorem-title"><strong>例 10.3</strong></span> 作業点 <span class="math inline">\(D\)</span> の先行作業を <span class="math inline">\(A, B, C\)</span> とする．そのとき，<span class="math inline">\(\mathcal{P}(D) = \{A, B, C\}\)</span> である．<span class="math inline">\(EF(A) = 2\)</span>，<span class="math inline">\(EF(B) = 3\)</span>，<span class="math inline">\(EF(C) = 6\)</span> とすると，<span class="math inline">\(D\)</span> の最早開始時刻は，</p>
+<p><span class="math display">\[
+ES(D) = \max\{EF(A), EF(B), EF(C)\} = \max\{2, 3, 6\} = 6
+\]</span></p>
+<p>である．</p>
+<div id="da417b1c" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>コード</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># グラフの作成（頂点を番号で定義）</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.DiGraph()</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>edges <span class="op">=</span> [</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"A"</span>, <span class="st">"D"</span>),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"B"</span>, <span class="st">"D"</span>),</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"C"</span>, <span class="st">"D"</span>),</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>G.add_edges_from(edges)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># A, B, C を縦に並べる</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> {</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"A"</span>: (<span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"B"</span>: (<span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"C"</span>: (<span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>),</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"D"</span>: (<span class="dv">2</span>, <span class="dv">0</span>),</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx(</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    G,</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    pos<span class="op">=</span>pos,</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    with_labels<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    node_color<span class="op">=</span><span class="st">"white"</span>,</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    node_size<span class="op">=</span><span class="dv">500</span>,</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    edgecolors<span class="op">=</span><span class="st">"black"</span>,</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>)</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pert_files/figure-html/cell-4-output-1.png" width="540" height="389" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>最早開始時刻と最早終了時刻を求めるアルゴリズムは下の通りである。ここで、点を<strong>トポロジカルオーダー</strong>(topological order)で処理するとは、<span class="math inline">\(v\)</span> のすべての先行作業 <span class="math inline">\(u \in \mathcal{P}(v)\)</span> が <span class="math inline">\(v\)</span> より前に処理されるように点を順序付けることである。</p>
 <div id="alg-forward-pass" class="theorem algorithm">
 <p><span class="theorem-title"><strong>Algorithm 10.1</strong></span> <strong>Forward Pass Algorithm</strong></p>
 <ol type="1">
@@ -967,6 +1030,53 @@ LS(v) = LF(v) - \tau(v)
 <p><span class="math display">\[
 LF(u) = \min_{v \in \mathcal{S}(u)} LS(v)
 \]</span></p>
+<div id="exm-LS-LF" class="theorem example">
+<p><span class="theorem-title"><strong>例 10.4</strong></span> 作業点 <span class="math inline">\(C\)</span> の後続作業を <span class="math inline">\(D, E, F\)</span> とする．そのとき，<span class="math inline">\(\mathcal{S}(C) = \{D, E, F\}\)</span> である．<span class="math inline">\(LS(D) = 6\)</span>，<span class="math inline">\(LS(E) = 3\)</span>，<span class="math inline">\(LS(F) = 8\)</span> とすると，<span class="math inline">\(C\)</span> の最遅終了時刻は， <span class="math display">\[
+LF(C) = \min\{LS(D), LS(E), LS(F)\} = \min\{6, 3, 8\} = 3
+\]</span> である．</p>
+<div id="9728196c" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>コード</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># グラフの作成（頂点を番号で定義）</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.DiGraph()</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>edges <span class="op">=</span> [</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"C"</span>, <span class="st">"D"</span>),</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"C"</span>, <span class="st">"E"</span>),</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"C"</span>, <span class="st">"F"</span>),</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>G.add_edges_from(edges)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> {</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"C"</span>: (<span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"D"</span>: (<span class="dv">2</span>, <span class="dv">1</span>),</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"E"</span>: (<span class="dv">2</span>, <span class="dv">0</span>),</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"F"</span>: (<span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>),</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx(</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    G,</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    pos<span class="op">=</span>pos,</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    with_labels<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    node_color<span class="op">=</span><span class="st">"white"</span>,</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    node_size<span class="op">=</span><span class="dv">500</span>,</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    edgecolors<span class="op">=</span><span class="st">"black"</span>,</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>)</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pert_files/figure-html/cell-5-output-1.png" width="540" height="389" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
 <p><a href="#exm-pert-2" class="quarto-xref">例&nbsp;<span>10.2</span></a> のプロジェクト・ネットワークに対して、最遅開始時刻と最遅終了時刻を求めると、次の表のようになる。</p>
 <table class="caption-top table">
 <thead>
@@ -1051,7 +1161,7 @@ LF(u) = \min_{v \in \mathcal{S}(u)} LS(v)
 <p><span class="math display">\[
 SL(v) = LS(v) - ES(v) = LF(v) - EF(v)
 \]</span></p>
-<p>で与えられる。スラックは、作業 <span class="math inline">\(v\)</span> の開始または終了を遅らせることができる時間を示す。スラックが 0 の作業はクリティカル作業である。</p>
+<p>で与えられる。スラックは、作業 <span class="math inline">\(v\)</span> の開始または終了を遅らせることができる時間を示す。</p>
 <p><a href="#exm-pert-2" class="quarto-xref">例&nbsp;<span>10.2</span></a> のプロジェクト・ネットワークに対して、スラックを求めると、次の表のようになる。</p>
 <table class="caption-top table">
 <thead>
@@ -1149,7 +1259,7 @@ SL(v) = LS(v) - ES(v) = LF(v) - EF(v)
 </tr>
 </tbody>
 </table>
-<p>クリティカルパスは、<span class="math inline">\(s \to B \to E \to F \to t\)</span> であり、このパスの長さは 17 日である。</p>
+<p>スラックが 0 の作業はクリティカル作業である。したがって、<a href="#exm-pert-2" class="quarto-xref">例&nbsp;<span>10.2</span></a> のプロジェクト・ネットワークにおけるクリティカルパスは、<span class="math inline">\(s \to B \to E \to F \to t\)</span> であり、このパスの長さは 17 日である。</p>
 </section>
 </section>
 <section id="点見積もり" class="level2" data-number="10.4">
@@ -1414,52 +1524,52 @@ E = \{(s, A), (s, C), (A, B), (C, D), (B, E), (D, E), (E, t)\}
 &amp; y_s = 0
 \end{align*}\]</span></p>
 <p>この線形計画問題は、最適化ソルバーを用いて解くことができる。以下に Gurobi を用いた実装例を示す。</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install gurobipy</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> gurobipy <span class="im">import</span> Model, GRB</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># データ定義</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>V <span class="op">=</span> [<span class="st">"s"</span>, <span class="st">"t"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>, <span class="st">"E"</span>]</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>E <span class="op">=</span> [(<span class="st">"s"</span>, <span class="st">"A"</span>), (<span class="st">"s"</span>, <span class="st">"C"</span>), (<span class="st">"A"</span>, <span class="st">"B"</span>), (<span class="st">"C"</span>, <span class="st">"D"</span>), (<span class="st">"B"</span>, <span class="st">"E"</span>), (<span class="st">"D"</span>, <span class="st">"E"</span>), (<span class="st">"E"</span>, <span class="st">"t"</span>)]</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>tau <span class="op">=</span> {<span class="st">"A"</span>: <span class="dv">7</span>, <span class="st">"B"</span>: <span class="dv">3</span>, <span class="st">"C"</span>: <span class="dv">6</span>, <span class="st">"D"</span>: <span class="dv">3</span>, <span class="st">"E"</span>: <span class="dv">2</span>}</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>cost <span class="op">=</span> {<span class="st">"A"</span>: <span class="dv">100</span>, <span class="st">"B"</span>: <span class="dv">150</span>, <span class="st">"C"</span>: <span class="dv">200</span>, <span class="st">"D"</span>: <span class="dv">150</span>, <span class="st">"E"</span>: <span class="dv">250</span>}</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> {<span class="st">"A"</span>: <span class="dv">3</span>, <span class="st">"B"</span>: <span class="dv">1</span>, <span class="st">"C"</span>: <span class="dv">2</span>, <span class="st">"D"</span>: <span class="dv">2</span>, <span class="st">"E"</span>: <span class="dv">1</span>}</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># モデル作成</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> Model(<span class="st">"Project_Crashing"</span>)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>m.setParam(<span class="st">"OutputFlag"</span>, <span class="dv">0</span>) </span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 変数定義</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> {i: m.addVar(lb<span class="op">=</span><span class="dv">0</span>, ub<span class="op">=</span>M[i], name<span class="op">=</span><span class="st">"x_</span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(i)) <span class="cf">for</span> i <span class="kw">in</span> M}</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> {i: m.addVar(lb<span class="op">=</span><span class="dv">0</span>, name<span class="op">=</span><span class="st">"y_</span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(i)) <span class="cf">for</span> i <span class="kw">in</span> V}</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 目的関数</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>m.setObjective(<span class="bu">sum</span>(cost[i] <span class="op">*</span> x[i] <span class="cf">for</span> i <span class="kw">in</span> M), GRB.MINIMIZE)</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 制約</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, j <span class="kw">in</span> E:</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="st">"s"</span>:</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>        m.addConstr(y[j] <span class="op">&gt;=</span> <span class="dv">0</span>)</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> i <span class="kw">in</span> tau:</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        m.addConstr(y[j] <span class="op">&gt;=</span> y[i] <span class="op">+</span> tau[i] <span class="op">-</span> x[i])</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="co"># プロジェクト終了制約</span></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>m.addConstr(y[<span class="st">"t"</span>] <span class="op">&lt;=</span> T)</span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="co"># 開始ノード固定</span></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>m.addConstr(y[<span class="st">"s"</span>] <span class="op">==</span> <span class="dv">0</span>)</span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="co"># 最適化</span></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>m.optimize()</span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="co"># 結果表示</span></span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Objective:"</span>, m.objVal)</span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> x:</span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x_</span><span class="sc">{}</span><span class="st"> ="</span>.<span class="bu">format</span>(i), x[i].X)</span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> y:</span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"y_</span><span class="sc">{}</span><span class="st"> ="</span>.<span class="bu">format</span>(i), y[i].X)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install gurobipy</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> gurobipy <span class="im">import</span> Model, GRB</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># データ定義</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>V <span class="op">=</span> [<span class="st">"s"</span>, <span class="st">"t"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>, <span class="st">"E"</span>]</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>E <span class="op">=</span> [(<span class="st">"s"</span>, <span class="st">"A"</span>), (<span class="st">"s"</span>, <span class="st">"C"</span>), (<span class="st">"A"</span>, <span class="st">"B"</span>), (<span class="st">"C"</span>, <span class="st">"D"</span>), (<span class="st">"B"</span>, <span class="st">"E"</span>), (<span class="st">"D"</span>, <span class="st">"E"</span>), (<span class="st">"E"</span>, <span class="st">"t"</span>)]</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>tau <span class="op">=</span> {<span class="st">"A"</span>: <span class="dv">7</span>, <span class="st">"B"</span>: <span class="dv">3</span>, <span class="st">"C"</span>: <span class="dv">6</span>, <span class="st">"D"</span>: <span class="dv">3</span>, <span class="st">"E"</span>: <span class="dv">2</span>}</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>cost <span class="op">=</span> {<span class="st">"A"</span>: <span class="dv">100</span>, <span class="st">"B"</span>: <span class="dv">150</span>, <span class="st">"C"</span>: <span class="dv">200</span>, <span class="st">"D"</span>: <span class="dv">150</span>, <span class="st">"E"</span>: <span class="dv">250</span>}</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> {<span class="st">"A"</span>: <span class="dv">3</span>, <span class="st">"B"</span>: <span class="dv">1</span>, <span class="st">"C"</span>: <span class="dv">2</span>, <span class="st">"D"</span>: <span class="dv">2</span>, <span class="st">"E"</span>: <span class="dv">1</span>}</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># モデル作成</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> Model(<span class="st">"Project_Crashing"</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>m.setParam(<span class="st">"OutputFlag"</span>, <span class="dv">0</span>) </span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 変数定義</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> {i: m.addVar(lb<span class="op">=</span><span class="dv">0</span>, ub<span class="op">=</span>M[i], name<span class="op">=</span><span class="st">"x_</span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(i)) <span class="cf">for</span> i <span class="kw">in</span> M}</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> {i: m.addVar(lb<span class="op">=</span><span class="dv">0</span>, name<span class="op">=</span><span class="st">"y_</span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(i)) <span class="cf">for</span> i <span class="kw">in</span> V}</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 目的関数</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>m.setObjective(<span class="bu">sum</span>(cost[i] <span class="op">*</span> x[i] <span class="cf">for</span> i <span class="kw">in</span> M), GRB.MINIMIZE)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 制約</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, j <span class="kw">in</span> E:</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="st">"s"</span>:</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>        m.addConstr(y[j] <span class="op">&gt;=</span> <span class="dv">0</span>)</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> i <span class="kw">in</span> tau:</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>        m.addConstr(y[j] <span class="op">&gt;=</span> y[i] <span class="op">+</span> tau[i] <span class="op">-</span> x[i])</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="co"># プロジェクト終了制約</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>m.addConstr(y[<span class="st">"t"</span>] <span class="op">&lt;=</span> T)</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="co"># 開始ノード固定</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>m.addConstr(y[<span class="st">"s"</span>] <span class="op">==</span> <span class="dv">0</span>)</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="co"># 最適化</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>m.optimize()</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="co"># 結果表示</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Objective:"</span>, m.objVal)</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> x:</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x_</span><span class="sc">{}</span><span class="st"> ="</span>.<span class="bu">format</span>(i), x[i].X)</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> y:</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"y_</span><span class="sc">{}</span><span class="st"> ="</span>.<span class="bu">format</span>(i), y[i].X)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="plaintext"><code>Objective: 350.0
 x_A = 1.0
 x_B = 0.0
