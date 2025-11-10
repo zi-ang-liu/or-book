@@ -64,6 +64,9 @@ book:
     - part: "動的計画法"
       chapters:
         - dp/intro.qmd
+    - part: "待ち行列理論"
+      chapters:
+        - queuing/intro.qmd
     - part: "OR キャリア"
       chapters:
         - career/intro.qmd
