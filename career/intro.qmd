@@ -1,0 +1,14 @@
+# キャリア
+
+- Informs
+  - [Consider a Career in Operations Research and Analytics!](https://www.informs.org/Resource-Center/INFORMS-Student-Union/Consider-an-Analytics-OR-Career)
+- 日本オペレーションズ・リサーチ学会
+  - [OR キャリアセッション](https://orsj.org/career)
+  - [企業事例交流会](https://orsj.org/meetup)
+  - [OR 実施事例](https://orsj.org/practices)
+- キヤノン
+  - [日本オペレーションズ・リサーチ（OR）学会レポート活動の舞台裏を大公開！](https://www.canon-its.co.jp/column/tech-report/05)
+
+## 学会
+
+- [日本オペレーションズ・リサーチ学会](https://orsj.org/)
