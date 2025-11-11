@@ -980,18 +980,29 @@
     "href": "appendices/probability.html",
     "title": "付録 B — 確率",
     "section": "",
-    "text": "B.1 正規分布\n離散型確率変数 \\(X\\) が特定の値 \\(x\\) をとる確率を\n\\[\nP(X = x) = p_X(x)\n\\]\nと表すとき、\\(p_X(x)\\) を \\(X\\) の確率質量関数 (PMF) という。\n連続型確率変数 \\(X\\) がある区間 \\([a, b]\\) にある値をとる確率を\n\\[\nP(a \\leq X \\leq b) = \\int_a^b f_X(x) dx\n\\]\nと表す。\\(f_X(x)\\) を \\(X\\) の確率密度関数 (PDF) という。\n確率変数 \\(X\\) の累積分布関数 (CDF) を\n\\[\nF_X(x) = P(X \\leq x) = \\begin{cases}\n\\sum_{k \\leq x} p_X(k) & \\text{if } X \\text{ is discrete} \\\\\n\\int_{-\\infty}^x f_X(t) dt & \\text{if } X \\text{ is continuous}\n\\end{cases}\n\\]\nと表す。確率密度関数 \\(f_X(x)\\) は累積分布関数 \\(F_X(x)\\) の微分である。\n\\[\nf_X(x) = \\frac{d}{dx} F_X(x)\n\\]\n連続型確率変数 \\(X\\) は正規分布（normal distribution）に従うとき、\\(X \\sim N(\\mu, \\sigma^2)\\) と表す。ここで \\(\\mu\\) は平均、\\(\\sigma^2\\) は分散である。\\(X\\) の確率密度関数は\n\\[\nf_X(x) = \\frac{1}{\\sqrt{2\\pi} \\sigma} e^{-\\frac{(x - \\mu)^2}{2\\sigma^2}}\n\\]\nと表す。平均は \\(E[X] = \\mu\\)、分散は \\(\\text{Var}(X) = \\sigma^2\\) である。\n\\(X\\) が \\(N(\\mu, \\sigma^2)\\) に従うとき、\\(Y = aX + b\\) は、\\(N(a\\mu + b, a^2\\sigma^2)\\) に従う。特に、\\(Z = \\frac{X - \\mu}{\\sigma}\\) は標準正規分布（standard normal distribution）に従う。すなわち、\\(Z \\sim N(0, 1)\\) である。\n連続型確率変数 \\(Y\\) が標準正規分布に従うとき、\\(Y\\) の累積分布関数は\n\\[\n\\Phi(y) = P(Y \\leq y) = \\frac{1}{\\sqrt{2\\pi}} \\int_{-\\infty}^y e^{-\\frac{t^2}{2}} dt\n\\]\nと表す。標準正規分布表から、\\(y\\) の値に対する \\(\\Phi(y)\\) を調べることができる。\nPython では、以下のように \\(\\Phi(y)\\) を計算できる。\nまた、\\(\\Phi(y)=0.95\\) のときの \\(y\\) の値を求めるには、以下のようにする。\n正規分布は再生性（reproductive property）を持つ。すなわち、\\(X_1, X_2, \\ldots, X_n\\) が独立に \\(N(\\mu_i, \\sigma_i^2)\\) に従うとき、\\(Y = \\sum_{i=1}^n a_i X_i\\) は \\(N\\left(\\sum_{i=1}^n a_i \\mu_i, \\sum_{i=1}^n a_i^2 \\sigma_i^2\\right)\\) に従う。",
+    "text": "B.1 確率変数\n離散型確率変数 \\(X\\) が特定の値 \\(x\\) をとる確率を\n\\[\nP(X = x) = p_X(x)\n\\]\nと表すとき、\\(p_X(x)\\) を \\(X\\) の確率質量関数 (PMF) という。\n連続型確率変数 \\(X\\) がある区間 \\([a, b]\\) にある値をとる確率を\n\\[\nP(a \\leq X \\leq b) = \\int_a^b f_X(x) dx\n\\]\nと表す。\\(f_X(x)\\) を \\(X\\) の確率密度関数 (PDF) という。\n確率変数 \\(X\\) の累積分布関数 (CDF) を\n\\[\nF_X(x) = P(X \\leq x) = \\begin{cases}\n\\sum_{k \\leq x} p_X(k) & \\text{if } X \\text{ is discrete} \\\\\n\\int_{-\\infty}^x f_X(t) dt & \\text{if } X \\text{ is continuous}\n\\end{cases}\n\\]\nと表す。確率密度関数 \\(f_X(x)\\) は累積分布関数 \\(F_X(x)\\) の微分である。\n\\[\nf_X(x) = \\frac{d}{dx} F_X(x)\n\\]",
     "crumbs": [
       "付録",
       "<span class='chapter-number'>B</span>  <span class='chapter-title'>確率</span>"
     ]
   },
   {
-    "objectID": "appendices/probability.html#正規分布",
-    "href": "appendices/probability.html#正規分布",
+    "objectID": "appendices/probability.html#確率分布",
+    "href": "appendices/probability.html#確率分布",
     "title": "付録 B — 確率",
-    "section": "",
-    "text": "from scipy.stats import norm\ndef phi(y):\n    return norm.cdf(y)\n\nphi(0)  # 0.5\n\nfrom scipy.stats import norm\ndef phi_inverse(p):\n    return norm.ppf(p)\n\nphi_inverse(0.95)  # 約1.64485",
+    "section": "B.2 確率分布",
+    "text": "B.2 確率分布",
+    "crumbs": [
+      "付録",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>確率</span>"
+    ]
+  },
+  {
+    "objectID": "appendices/probability.html#指数分布",
+    "href": "appendices/probability.html#指数分布",
+    "title": "付録 B — 確率",
+    "section": "B.3 指数分布",
+    "text": "B.3 指数分布\n連続型確率変数 \\(X\\) は指数分布（exponential distribution）に従うとき、\\(X \\sim \\text{Exp}(\\lambda)\\) と表す。ここで \\(\\lambda &gt; 0\\) は分布のパラメータである。\\(X\\) の確率密度関数は\n\\[\nf_X(x) = \\begin{cases}\n\\lambda e^{-\\lambda x} & x \\geq 0 \\\\\n0 & x &lt; 0\n\\end{cases}\n\\]\nで与えられる。平均は \\(E[X] = \\frac{1}{\\lambda}\\)、分散は \\(\\text{Var}(X) = \\frac{1}{\\lambda^2}\\) である。\n\nB.3.1 正規分布\n連続型確率変数 \\(X\\) は正規分布（normal distribution）に従うとき、\\(X \\sim N(\\mu, \\sigma^2)\\) と表す。ここで \\(\\mu\\) は平均、\\(\\sigma^2\\) は分散である。\\(X\\) の確率密度関数は\n\\[\nf_X(x) = \\frac{1}{\\sqrt{2\\pi} \\sigma} e^{-\\frac{(x - \\mu)^2}{2\\sigma^2}}\n\\]\nと表す。平均は \\(E[X] = \\mu\\)、分散は \\(\\text{Var}(X) = \\sigma^2\\) である。\n\\(X\\) が \\(N(\\mu, \\sigma^2)\\) に従うとき、\\(Y = aX + b\\) は、\\(N(a\\mu + b, a^2\\sigma^2)\\) に従う。特に、\\(Z = \\frac{X - \\mu}{\\sigma}\\) は標準正規分布（standard normal distribution）に従う。すなわち、\\(Z \\sim N(0, 1)\\) である。\n連続型確率変数 \\(Y\\) が標準正規分布に従うとき、\\(Y\\) の累積分布関数は\n\\[\n\\Phi(y) = P(Y \\leq y) = \\frac{1}{\\sqrt{2\\pi}} \\int_{-\\infty}^y e^{-\\frac{t^2}{2}} dt\n\\]\nと表す。標準正規分布表から、\\(y\\) の値に対する \\(\\Phi(y)\\) を調べることができる。\nPython では、以下のように \\(\\Phi(y)\\) を計算できる。\nfrom scipy.stats import norm\ndef phi(y):\n    return norm.cdf(y)\n\nphi(0)  # 0.5\nまた、\\(\\Phi(y)=0.95\\) のときの \\(y\\) の値を求めるには、以下のようにする。\nfrom scipy.stats import norm\ndef phi_inverse(p):\n    return norm.ppf(p)\n\nphi_inverse(0.95)  # 約1.64485\n正規分布は再生性（reproductive property）を持つ。すなわち、\\(X_1, X_2, \\ldots, X_n\\) が独立に \\(N(\\mu_i, \\sigma_i^2)\\) に従うとき、\\(Y = \\sum_{i=1}^n a_i X_i\\) は \\(N\\left(\\sum_{i=1}^n a_i \\mu_i, \\sum_{i=1}^n a_i^2 \\sigma_i^2\\right)\\) に従う。",
     "crumbs": [
       "付録",
       "<span class='chapter-number'>B</span>  <span class='chapter-title'>確率</span>"
