@@ -605,3 +605,72 @@ y_E = 9.0
 ```
 
 この結果から、作業 A を 1 日、作業 E を 1 日短縮することで、最小コスト 350 でプロジェクトを 10 日以内に完了できることがわかる。
+
+## 文献案内
+
+## 練習問題
+
+:::{#exr-pert-1}
+次の作業リストに基づいて、以下の問いに答えよ。
+
+| 作業 | 先行作業 | 時間（日） |
+| ---- | -------- | ---------- |
+| A    | -        | 4          |
+| B    | -        | 3          |
+| C    | A        | 2          |
+| D    | A        | 5          |
+| E    | B        | 6          |
+| F    | C, D     | 4          |
+| G    | E        | 3          |
+
+1. プロジェクト・ネットワークをAONで書け。
+2. 各作業の最早開始時刻、最早終了時刻、最遅開始時刻、最遅終了時刻、スラックを求めよ。
+3. このプロジェクトのクリティカルパスを求めよ。
+:::
+
+:::{#sol-pert-1}
+1. プロジェクト・ネットワークは次のようになる。
+```{python}
+import matplotlib.pyplot as plt
+import networkx as nx
+import numpy as np
+
+# グラフの作成（頂点を番号で定義）
+G = nx.DiGraph()
+edges = [
+    ("s", "A"),
+    ("s", "B"),
+    ("A", "C"),
+    ("A", "D"),
+    ("C", "F"),
+    ("D", "F"),
+    ("B", "E"),
+    ("E", "G"),
+    ("F", "t"),
+    ("G", "t"),
+]
+G.add_edges_from(edges)
+for layer, nodes in enumerate(nx.topological_generations(G)):
+    for node in nodes:
+        G.nodes[node]["layer"] = layer
+pos = nx.multipartite_layout(G, subset_key="layer") 
+label_pos = {}
+for k, (x, y) in pos.items():
+    r = np.sqrt(x**2 + y**2) if np.sqrt(x**2 + y**2) > 0 else 1
+    scale = 1.12
+    label_pos[k] = (x * scale, y * scale)
+# Plotting
+nx.draw_networkx(
+    G,
+    pos=pos,
+    with_labels=True,
+    node_color="white",
+    node_size=500,
+    edgecolors="black",
+)
+plt.axis("off")
+plt.show()
+```
+
+2~3. 省略
+:::

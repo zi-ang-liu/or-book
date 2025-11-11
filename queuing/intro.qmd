@@ -1,14 +1,10 @@
 ---
-title: 待ち行列理論とは
+title: 待ち行列とは
 format:
   html:
     code-fold: true
 jupyter: python3
 ---
-
-
-
-
 
 ## 待ち行列モデルの基本
 
