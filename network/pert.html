@@ -527,7 +527,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../queuing/intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">待ち行列理論とは</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">待ち行列とは</span></span></a>
   </div>
 </li>
       </ul>
@@ -621,6 +621,8 @@ window.Quarto = {
   <li><a href="#問題の定式化" id="toc-問題の定式化" class="nav-link" data-scroll-target="#問題の定式化"><span class="header-section-number">10.6.1</span> 問題の定式化</a></li>
   <li><a href="#例題" id="toc-例題" class="nav-link" data-scroll-target="#例題"><span class="header-section-number">10.6.2</span> 例題</a></li>
   </ul></li>
+  <li><a href="#文献案内" id="toc-文献案内" class="nav-link" data-scroll-target="#文献案内"><span class="header-section-number">10.7</span> 文献案内</a></li>
+  <li><a href="#練習問題" id="toc-練習問題" class="nav-link" data-scroll-target="#練習問題"><span class="header-section-number">10.8</span> 練習問題</a></li>
   </ul>
 </nav>
     </div>
@@ -732,7 +734,7 @@ window.Quarto = {
 <p>辺 <span class="math inline">\((s, v) \in E\)</span> は、作業 <span class="math inline">\(v\)</span> が先行作業を持たないことを意味し、辺 <span class="math inline">\((v, t) \in E\)</span> は、作業 <span class="math inline">\(v\)</span> が後続作業を持たないことを意味する。作業 <span class="math inline">\(v\)</span> の先行作業の集合を <span class="math inline">\(\mathcal{P}(v)\)</span> と表す。作業 <span class="math inline">\(v\)</span> の後続作業の集合を <span class="math inline">\(\mathcal{S}(v)\)</span> と表す。</p>
 <p>作業点 <span class="math inline">\(v \in V\)</span> には、作業時間 <span class="math inline">\(\tau(v)\)</span> が与えられている。始点 <span class="math inline">\(s\)</span> と終点 <span class="math inline">\(t\)</span> の作業時間は <span class="math inline">\(\tau(s) = \tau(t) = 0\)</span> とする。</p>
 <p><a href="#exm-pert-report" class="quarto-xref">例&nbsp;<span>10.1</span></a> のプロジェクト・ネットワークは次の図のようになる。</p>
-<div id="6ae68926" class="cell" data-execution_count="1">
+<div id="5a6b76b6" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -832,7 +834,7 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<div id="56ba8ed5" class="cell" data-execution_count="2">
+<div id="d05362e8" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -917,7 +919,7 @@ ES(u) = \max_{v \in \mathcal{P}(u)} EF(v)
 ES(D) = \max\{EF(A), EF(B), EF(C)\} = \max\{2, 3, 6\} = 6
 \]</span></p>
 <p>である．</p>
-<div id="ff73147f" class="cell" data-execution_count="3">
+<div id="8eea513f" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1068,7 +1070,7 @@ LF(u) = \min_{v \in \mathcal{S}(u)} LS(v)
 <p><span class="theorem-title"><strong>例 10.4</strong></span> 作業点 <span class="math inline">\(C\)</span> の後続作業を <span class="math inline">\(D, E, F\)</span> とする．そのとき，<span class="math inline">\(\mathcal{S}(C) = \{D, E, F\}\)</span> である．<span class="math inline">\(LS(D) = 6\)</span>，<span class="math inline">\(LS(E) = 3\)</span>，<span class="math inline">\(LS(F) = 8\)</span> とすると，<span class="math inline">\(C\)</span> の最遅終了時刻は， <span class="math display">\[
 LF(C) = \min\{LS(D), LS(E), LS(F)\} = \min\{6, 3, 8\} = 3
 \]</span> である．</p>
-<div id="6c605ff6" class="cell" data-execution_count="4">
+<div id="0e1ea3a2" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1618,6 +1620,125 @@ y_C = 0.0
 y_D = 6.0
 y_E = 9.0</code></pre>
 <p>この結果から、作業 A を 1 日、作業 E を 1 日短縮することで、最小コスト 350 でプロジェクトを 10 日以内に完了できることがわかる。</p>
+</section>
+</section>
+<section id="文献案内" class="level2" data-number="10.7">
+<h2 data-number="10.7" class="anchored" data-anchor-id="文献案内"><span class="header-section-number">10.7</span> 文献案内</h2>
+</section>
+<section id="練習問題" class="level2" data-number="10.8">
+<h2 data-number="10.8" class="anchored" data-anchor-id="練習問題"><span class="header-section-number">10.8</span> 練習問題</h2>
+<div id="exr-pert-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>練習 10.1</strong></span> 次の作業リストに基づいて、以下の問いに答えよ。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>作業</th>
+<th>先行作業</th>
+<th>時間（日）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>-</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>-</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>A</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td>A</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>E</td>
+<td>B</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>C, D</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>G</td>
+<td>E</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li>プロジェクト・ネットワークをAONで書け。</li>
+<li>各作業の最早開始時刻、最早終了時刻、最遅開始時刻、最遅終了時刻、スラックを求めよ。</li>
+<li>このプロジェクトのクリティカルパスを求めよ。</li>
+</ol>
+</div>
+<div id="sol-pert-1" class="proof solution">
+<p><span class="proof-title"><em>解答 10.1</em>. </span></p>
+<ol type="1">
+<li>プロジェクト・ネットワークは次のようになる。</li>
+</ol>
+<div id="6b390898" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>コード</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># グラフの作成（頂点を番号で定義）</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.DiGraph()</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>edges <span class="op">=</span> [</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"s"</span>, <span class="st">"A"</span>),</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"s"</span>, <span class="st">"B"</span>),</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"A"</span>, <span class="st">"C"</span>),</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"A"</span>, <span class="st">"D"</span>),</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"C"</span>, <span class="st">"F"</span>),</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"D"</span>, <span class="st">"F"</span>),</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"B"</span>, <span class="st">"E"</span>),</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"E"</span>, <span class="st">"G"</span>),</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"F"</span>, <span class="st">"t"</span>),</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"G"</span>, <span class="st">"t"</span>),</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>G.add_edges_from(edges)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> layer, nodes <span class="kw">in</span> <span class="bu">enumerate</span>(nx.topological_generations(G)):</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> node <span class="kw">in</span> nodes:</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        G.nodes[node][<span class="st">"layer"</span>] <span class="op">=</span> layer</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> nx.multipartite_layout(G, subset_key<span class="op">=</span><span class="st">"layer"</span>) </span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>label_pos <span class="op">=</span> {}</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k, (x, y) <span class="kw">in</span> pos.items():</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    r <span class="op">=</span> np.sqrt(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> y<span class="op">**</span><span class="dv">2</span>) <span class="cf">if</span> np.sqrt(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> y<span class="op">**</span><span class="dv">2</span>) <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="dv">1</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    scale <span class="op">=</span> <span class="fl">1.12</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    label_pos[k] <span class="op">=</span> (x <span class="op">*</span> scale, y <span class="op">*</span> scale)</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx(</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>    G,</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    pos<span class="op">=</span>pos,</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>    with_labels<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>    node_color<span class="op">=</span><span class="st">"white"</span>,</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>    node_size<span class="op">=</span><span class="dv">500</span>,</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>    edgecolors<span class="op">=</span><span class="st">"black"</span>,</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>)</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pert_files/figure-html/cell-6-output-1.png" width="540" height="389" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>2~3. 省略</p>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -1634,7 +1755,6 @@ Hillier, Frederick, と Gerald Lieberman. 2025. <em><span>ISE</span> introductio
 Pleguezuelo, Rafael Herrerı́as, José Garcı́a Pérez, と Salvador Cruz Rambaud. 2003. <span>「A note on the reasonableness of <span>PERT</span> hypotheses」</span>. <em>Oper. Res. Lett.</em> 31 (1): 60–62.
 </div>
 </div>
-</section>
 </section>
 
 </main> <!-- /main -->
