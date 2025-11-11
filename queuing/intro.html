@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>付録 B — 確率 – オペレーションズ・リサーチ</title>
+<title>13&nbsp; 待ち行列理論とは – オペレーションズ・リサーチ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -65,8 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../appendices/standard_normal_table.html" rel="next">
-<link href="../appendices/calculus.html" rel="prev">
+<link href="../career/intro.html" rel="next">
+<link href="../dp/intro.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -140,7 +105,7 @@ window.Quarto = {
 };
 </script>
 
-<meta name="twitter:title" content="付録 B — 確率 – オペレーションズ・リサーチ">
+<meta name="twitter:title" content="13&nbsp; 待ち行列理論とは – オペレーションズ・リサーチ">
 <meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
@@ -316,7 +281,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendices/calculus.html">付録</a></li><li class="breadcrumb-item"><a href="../appendices/probability.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">確率</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../queuing/intro.html">待ち行列理論</a></li><li class="breadcrumb-item"><a href="../queuing/intro.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">待ち行列理論とは</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
@@ -503,7 +468,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../queuing/intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../queuing/intro.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">待ち行列理論とは</span></span></a>
   </div>
 </li>
@@ -549,7 +514,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../appendices/probability.html" class="sidebar-item-text sidebar-link active">
+  <a href="../appendices/probability.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">確率</span></span></a>
   </div>
 </li>
@@ -583,7 +548,10 @@ window.Quarto = {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#正規分布" id="toc-正規分布" class="nav-link active" data-scroll-target="#正規分布"><span class="header-section-number">B.1</span> 正規分布</a></li>
+  <li><a href="#待ち行列モデルの基本" id="toc-待ち行列モデルの基本" class="nav-link active" data-scroll-target="#待ち行列モデルの基本"><span class="header-section-number">13.1</span> 待ち行列モデルの基本</a>
+  <ul class="collapse">
+  <li><a href="#用語集" id="toc-用語集" class="nav-link" data-scroll-target="#用語集"><span class="header-section-number">13.1.1</span> 用語集</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -591,9 +559,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendices/calculus.html">付録</a></li><li class="breadcrumb-item"><a href="../appendices/probability.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">確率</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../queuing/intro.html">待ち行列理論</a></li><li class="breadcrumb-item"><a href="../queuing/intro.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">待ち行列理論とは</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">付録 B — 確率</h1>
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">待ち行列理論とは</span></h1>
 </div>
 
 
@@ -610,55 +578,139 @@ window.Quarto = {
 </header>
 
 
-<p>離散型確率変数 <span class="math inline">\(X\)</span> が特定の値 <span class="math inline">\(x\)</span> をとる確率を</p>
+<section id="待ち行列モデルの基本" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="待ち行列モデルの基本"><span class="header-section-number">13.1</span> 待ち行列モデルの基本</h2>
+<p>待ち行列モデルを分類するのに，<strong>ケンドールの記号</strong>（Kendall’s notation）を用いる。ケンドールの記号は，次の形式で表される。</p>
 <p><span class="math display">\[
-P(X = x) = p_X(x)
+A/B/C
 \]</span></p>
-<p>と表すとき、<span class="math inline">\(p_X(x)\)</span> を <span class="math inline">\(X\)</span> の<strong>確率質量関数</strong> (PMF) という。</p>
-<p>連続型確率変数 <span class="math inline">\(X\)</span> がある区間 <span class="math inline">\([a, b]\)</span> にある値をとる確率を</p>
+<p>ここで，<span class="math inline">\(A\)</span> は</p>
+<p><span class="math inline">\(C\)</span> はサーバ数を表す。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>記号</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\lambda\)</span></td>
+<td>平均到着率，単位時間あたりの到着客数の平均</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mu\)</span></td>
+<td>平均サービス率，単位時間あたりに処理できる客数の平均</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\rho\)</span></td>
+<td>利用率</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(s\)</span></td>
+<td>サーバ数</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(1/\lambda\)</span> は平均到着間隔，<span class="math inline">\(1/\mu\)</span> は平均サービス時間を表す．利用率 <span class="math inline">\(\rho\)</span> は，次の式で定義される．</p>
 <p><span class="math display">\[
-P(a \leq X \leq b) = \int_a^b f_X(x) dx
+\rho = \frac{\lambda}{s \mu}
 \]</span></p>
-<p>と表す。<span class="math inline">\(f_X(x)\)</span> を <span class="math inline">\(X\)</span> の<strong>確率密度関数</strong> (PDF) という。</p>
-<p>確率変数 <span class="math inline">\(X\)</span> の<strong>累積分布関数</strong> (CDF) を</p>
+<div id="exm-ice-cream" class="theorem example">
+<p><span class="theorem-title"><strong>例 13.1</strong></span> あるアイスクリーム屋さんでは，1名の店員が客の注文を受け付け，アイスクリームを提供している．平均して，1時間に30人の客が来店している．店員は，1時間に60人の客に対応できる．このとき，平均到着率 <span class="math inline">\(\lambda\)</span> は30人/時間，平均サービス率 <span class="math inline">\(\mu\)</span> は60人/時間である．サーバ数 <span class="math inline">\(s = 1\)</span> であるため，利用率は</p>
 <p><span class="math display">\[
-F_X(x) = P(X \leq x) = \begin{cases}
-\sum_{k \leq x} p_X(k) &amp; \text{if } X \text{ is discrete} \\
-\int_{-\infty}^x f_X(t) dt &amp; \text{if } X \text{ is continuous}
-\end{cases}
-\]</span></p>
-<p>と表す。確率密度関数 <span class="math inline">\(f_X(x)\)</span> は累積分布関数 <span class="math inline">\(F_X(x)\)</span> の微分である。</p>
+\rho = \frac{30}{1 \times 60} = 0.5
+\]</span> となる．また，1時間あたりの到着率が30人であるため，平均到着間隔は <span class="math inline">\(1/\lambda = 1/30\)</span> 時間，平均サービス時間は <span class="math inline">\(1/\mu = 1/60\)</span> 時間である．これを分単位で表すと，平均到着間隔は2分，平均サービス時間は1分となる．</p>
+</div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>記号</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(L\)</span></td>
+<td>平均系内客数</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(W\)</span></td>
+<td>平均滞在時間</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(L_q\)</span></td>
+<td>平均待ち行列長</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(W_q\)</span></td>
+<td>平均待ち時間</td>
+</tr>
+</tbody>
+</table>
+<p><strong>平均系内客数</strong> <span class="math inline">\(L\)</span> は，待ち行列システム内にいる客数の平均を表す．<strong>平均滞在時間</strong> <span class="math inline">\(W\)</span> は，客がシステムに到着してサービスを受け，システムを退出するまでにかかる平均時間を表す．</p>
+<p><strong>平均待ち行列長</strong> <span class="math inline">\(L_q\)</span> は，待ち行列にいる客数の平均を表す．<strong>平均待ち時間</strong> <span class="math inline">\(W_q\)</span> は，客がシステムに到着してからサービスを受けるまでにかかる平均時間を表す．</p>
+<p><strong>リトルの法則</strong>（Little’s Law）により，次の式が成り立つ．</p>
 <p><span class="math display">\[
-f_X(x) = \frac{d}{dx} F_X(x)
+L = \lambda W
 \]</span></p>
-<section id="正規分布" class="level2" data-number="B.1">
-<h2 data-number="B.1" class="anchored" data-anchor-id="正規分布"><span class="header-section-number">B.1</span> 正規分布</h2>
-<p>連続型確率変数 <span class="math inline">\(X\)</span> は<strong>正規分布</strong>（normal distribution）に従うとき、<span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span> と表す。ここで <span class="math inline">\(\mu\)</span> は平均、<span class="math inline">\(\sigma^2\)</span> は分散である。<span class="math inline">\(X\)</span> の確率密度関数は</p>
 <p><span class="math display">\[
-f_X(x) = \frac{1}{\sqrt{2\pi} \sigma} e^{-\frac{(x - \mu)^2}{2\sigma^2}}
+L_q = \lambda W_q
 \]</span></p>
-<p>と表す。平均は <span class="math inline">\(E[X] = \mu\)</span>、分散は <span class="math inline">\(\text{Var}(X) = \sigma^2\)</span> である。</p>
-<p><span class="math inline">\(X\)</span> が <span class="math inline">\(N(\mu, \sigma^2)\)</span> に従うとき、<span class="math inline">\(Y = aX + b\)</span> は、<span class="math inline">\(N(a\mu + b, a^2\sigma^2)\)</span> に従う。特に、<span class="math inline">\(Z = \frac{X - \mu}{\sigma}\)</span> は標準正規分布（standard normal distribution）に従う。すなわち、<span class="math inline">\(Z \sim N(0, 1)\)</span> である。</p>
-<p>連続型確率変数 <span class="math inline">\(Y\)</span> が標準正規分布に従うとき、<span class="math inline">\(Y\)</span> の累積分布関数は</p>
+<p>さらに，平均滞在時間 <span class="math inline">\(W\)</span> は，平均待ち時間 <span class="math inline">\(W_q\)</span> と平均サービス時間 <span class="math inline">\(1/\mu\)</span> の和であるから，次の式で表される．</p>
 <p><span class="math display">\[
-\Phi(y) = P(Y \leq y) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^y e^{-\frac{t^2}{2}} dt
+W = W_q + \frac{1}{\mu}
 \]</span></p>
-<p>と表す。<strong>標準正規分布表</strong>から、<span class="math inline">\(y\)</span> の値に対する <span class="math inline">\(\Phi(y)\)</span> を調べることができる。</p>
-<p>Python では、以下のように <span class="math inline">\(\Phi(y)\)</span> を計算できる。</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> phi(y):</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> norm.cdf(y)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>phi(<span class="dv">0</span>)  <span class="co"># 0.5</span></span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
-<p>また、<span class="math inline">\(\Phi(y)=0.95\)</span> のときの <span class="math inline">\(y\)</span> の値を求めるには、以下のようにする。</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> phi_inverse(p):</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> norm.ppf(p)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>phi_inverse(<span class="fl">0.95</span>)  <span class="co"># 約1.64485</span></span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
-<p>正規分布は<strong>再生性</strong>（reproductive property）を持つ。すなわち、<span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> が独立に <span class="math inline">\(N(\mu_i, \sigma_i^2)\)</span> に従うとき、<span class="math inline">\(Y = \sum_{i=1}^n a_i X_i\)</span> は <span class="math inline">\(N\left(\sum_{i=1}^n a_i \mu_i, \sum_{i=1}^n a_i^2 \sigma_i^2\right)\)</span> に従う。</p>
+<div id="exm-bank" class="theorem example">
+<p><span class="theorem-title"><strong>例 13.2</strong></span> ある銀行では，1時間に平均20人の客が来店し，各客が銀行に滞在する平均時間は12分である．このとき，平均系内客数 <span class="math inline">\(L\)</span> は</p>
+<p><span class="math display">\[
+L = \lambda W = 20 \times \frac{12}{60} = 4 \text{ 人}
+\]</span></p>
+<p>となる．つまり，銀行内には平均4人の客がいることになる．平均滞在時間 <span class="math inline">\(W\)</span> や平均到着率 <span class="math inline">\(\lambda\)</span> が増加すると，平均系内客数 <span class="math inline">\(L\)</span> も増加することがわかる．</p>
+<p>さらに，平均サービス時間は6分であるとすると，平均待ち時間 <span class="math inline">\(W_q\)</span> と平均待ち行列長 <span class="math inline">\(L_q\)</span> はそれぞれ</p>
+<p><span class="math display">\[
+W_q = W - \frac{1}{\mu} = 12 - 6 = 6 \text{ 分}
+\]</span></p>
+<p><span class="math display">\[
+L_q = \lambda W_q = 20 \times \frac{6}{60} = 2 \text{ 人}
+\]</span></p>
+<p>となる．つまり，客が行列で待つ平均時間は6分，1時間あたり平均2人の客が行列で待っていることになる．</p>
+</div>
+<section id="用語集" class="level3" data-number="13.1.1">
+<h3 data-number="13.1.1" class="anchored" data-anchor-id="用語集"><span class="header-section-number">13.1.1</span> 用語集</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>英語</th>
+<th>日本語</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>service facility</td>
+<td>サービス施設</td>
+</tr>
+<tr class="even">
+<td>server</td>
+<td>サーバ</td>
+</tr>
+<tr class="odd">
+<td>number of servers</td>
+<td>サーバ数</td>
+</tr>
+<tr class="even">
+<td>interarrival time</td>
+<td>到着間隔</td>
+</tr>
+<tr class="odd">
+<td>service time</td>
+<td>サービス時間</td>
+</tr>
+</tbody>
+</table>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1077,13 +1129,13 @@ f_X(x) = \frac{1}{\sqrt{2\pi} \sigma} e^{-\frac{(x - \mu)^2}{2\sigma^2}}
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../appendices/calculus.html" class="pagination-link" aria-label="微分積分">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">微分積分</span></span>
+      <a href="../dp/intro.html" class="pagination-link" aria-label="動的計画法">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">動的計画法</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../appendices/standard_normal_table.html" class="pagination-link" aria-label="標準正規分布表">
-        <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">標準正規分布表</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../career/intro.html" class="pagination-link" aria-label="キャリア">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">キャリア</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
