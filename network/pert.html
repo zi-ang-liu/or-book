@@ -734,7 +734,7 @@ window.Quarto = {
 <p>辺 <span class="math inline">\((s, v) \in E\)</span> は、作業 <span class="math inline">\(v\)</span> が先行作業を持たないことを意味し、辺 <span class="math inline">\((v, t) \in E\)</span> は、作業 <span class="math inline">\(v\)</span> が後続作業を持たないことを意味する。作業 <span class="math inline">\(v\)</span> の先行作業の集合を <span class="math inline">\(\mathcal{P}(v)\)</span> と表す。作業 <span class="math inline">\(v\)</span> の後続作業の集合を <span class="math inline">\(\mathcal{S}(v)\)</span> と表す。</p>
 <p>作業点 <span class="math inline">\(v \in V\)</span> には、作業時間 <span class="math inline">\(\tau(v)\)</span> が与えられている。始点 <span class="math inline">\(s\)</span> と終点 <span class="math inline">\(t\)</span> の作業時間は <span class="math inline">\(\tau(s) = \tau(t) = 0\)</span> とする。</p>
 <p><a href="#exm-pert-report" class="quarto-xref">例&nbsp;<span>10.1</span></a> のプロジェクト・ネットワークは次の図のようになる。</p>
-<div id="a41a9cf3" class="cell" data-execution_count="1">
+<div id="b19aa00e" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -834,7 +834,7 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<div id="8d651dab" class="cell" data-execution_count="2">
+<div id="bb2e9d22" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -919,7 +919,7 @@ ES(u) = \max_{v \in \mathcal{P}(u)} EF(v)
 ES(D) = \max\{EF(A), EF(B), EF(C)\} = \max\{2, 3, 6\} = 6
 \]</span></p>
 <p>である．</p>
-<div id="e53423a6" class="cell" data-execution_count="3">
+<div id="cab0df66" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1070,7 +1070,7 @@ LF(u) = \min_{v \in \mathcal{S}(u)} LS(v)
 <p><span class="theorem-title"><strong>例 10.4</strong></span> 作業点 <span class="math inline">\(C\)</span> の後続作業を <span class="math inline">\(D, E, F\)</span> とする．そのとき，<span class="math inline">\(\mathcal{S}(C) = \{D, E, F\}\)</span> である．<span class="math inline">\(LS(D) = 6\)</span>，<span class="math inline">\(LS(E) = 3\)</span>，<span class="math inline">\(LS(F) = 8\)</span> とすると，<span class="math inline">\(C\)</span> の最遅終了時刻は， <span class="math display">\[
 LF(C) = \min\{LS(D), LS(E), LS(F)\} = \min\{6, 3, 8\} = 3
 \]</span> である．</p>
-<div id="d8064a73" class="cell" data-execution_count="4">
+<div id="700f8f4e" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1420,7 +1420,7 @@ SL(v) = LS(v) - ES(v) = LF(v) - EF(v)
 </section>
 <section id="不確実性を考慮したpertcpm" class="level2" data-number="10.5">
 <h2 data-number="10.5" class="anchored" data-anchor-id="不確実性を考慮したpertcpm"><span class="header-section-number">10.5</span> 不確実性を考慮したPERT/CPM</h2>
-<p>3 点見積もりを用いて、各作業点 <span class="math inline">\(v \in V\)</span> の所要時間の平均 <span class="math inline">\(\mu(v)\)</span> と分散 <span class="math inline">\(\sigma^2(v)\)</span> を求めたとする。このとき、与えられた時間までにプロジェクトが完了する確率を求めたい。</p>
+<p>3 点見積もりを用いて、各作業点 <span class="math inline">\(v \in V\)</span> の所要時間の平均 <span class="math inline">\(\mu(v)\)</span> と分散 <span class="math inline">\(\sigma^2(v)\)</span> を求めたとする。このとき、与えられた時間までにプロジェクトが完了する確率を求めたい。例えば，「プロジェクトが 30 日以内に完了する確率はどれくらいか？」という問いである。</p>
 <p>プロジェクト・ネットワークにおけるパス <span class="math inline">\(P = (s, v_{i_1}, v_{i_2}, \ldots, v_{i_k}, t)\)</span> の所要時間の平均 <span class="math inline">\(\mu(P)\)</span> と分散 <span class="math inline">\(\sigma^2(P)\)</span> は、それぞれ次のように推定できる。</p>
 <p><span class="math display">\[
 \mu(P) = \sum_{v \in P} \mu(v), \quad \sigma^2(P) = \sum_{v \in P} \sigma^2(v)
@@ -1441,7 +1441,8 @@ SL(v) = LS(v) - ES(v) = LF(v) - EF(v)
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>ここでは、計算を簡単にするために、クリティカルパスが最も時間がかかるパスであると仮定している。実際には、平均値から計算されたクリティカルパスが、最も時間がかかるパスであるとは限らないことに注意されたい。</p>
+<p>ここでは、計算を簡単にするために、クリティカルパスが最も時間がかかるパスであると仮定している。しかし，実際には、平均値から計算されたクリティカルパスが、最も時間がかかるパスであるとは限らない。これにより，クリティカルパスをを用いて計算された確率は，実際の確率よりも過大評価される可能性がある。</p>
+<p>ここで述べる方法をすべてのパスに適用し、各パスの確率を計算すれば、より正確な確率を得ることができる</p>
 </div>
 </div>
 <p><span class="math display">\[
@@ -1473,16 +1474,39 @@ z = \frac{20 - 17}{2.29} \approx 1.31
 <p>プロジェクトの所要時間を短縮するために、追加のコストをかけて作業時間を短縮することができる場合がある。このような場合、決められた時間までにプロジェクトを完了するために、どの作業をどれだけ短縮すればよいかを決定する問題を考える。</p>
 <section id="問題の定式化" class="level3" data-number="10.6.1">
 <h3 data-number="10.6.1" class="anchored" data-anchor-id="問題の定式化"><span class="header-section-number">10.6.1</span> 問題の定式化</h3>
+<p>プロジェクト・ネットワーク <span class="math inline">\(G = (V, E)\)</span> に対して、各作業点 <span class="math inline">\(i \in V\)</span> に次のパラメータが与えられるとする。</p>
 <ul>
 <li><span class="math inline">\(c_i\)</span>: 作業 <span class="math inline">\(i\)</span> の単位時間あたりの短縮コスト</li>
 <li><span class="math inline">\(M_i\)</span>: 作業 <span class="math inline">\(i\)</span> の最大短縮時間</li>
 <li><span class="math inline">\(T\)</span>: プロジェクトの完了時間の上限</li>
 <li><span class="math inline">\(\tau_i\)</span>: 作業 <span class="math inline">\(i\)</span> の標準所要時間</li>
+</ul>
+<p>決定変数は次の通りである。</p>
+<ul>
 <li><span class="math inline">\(y_i\)</span>: 作業 <span class="math inline">\(i\)</span> の開始時間</li>
 <li><span class="math inline">\(x_i\)</span>: 作業 <span class="math inline">\(i\)</span> の短縮時間</li>
 </ul>
+<p>プロジェクトの所要時間を短縮するためのコストは</p>
+<p><span class="math display">\[
+\sum_{i \in V} c_i x_i
+\]</span></p>
+<p>で与えられる。<span class="math inline">\(j\)</span> が <span class="math inline">\(i\)</span> の後続作業である場合，作業 <span class="math inline">\(j\)</span> はすべての先行作業 <span class="math inline">\(i\)</span> が完了した後に開始できるため，</p>
+<p><span class="math display">\[
+y_j \geq y_i + \tau_i - x_i , \quad \forall (i, j) \in E
+\]</span></p>
+<p>がある．また、各作業の最大短縮時間 <span class="math inline">\(M_i\)</span> により、すべての作業 <span class="math inline">\(i \in V\)</span> について、</p>
+<p><span class="math display">\[
+0 \leq x_i \leq M_i
+\]</span></p>
+<p>である。プロジェクト全体の完了時間は終点 <span class="math inline">\(t\)</span> の終了時間 <span class="math inline">\(y_t\)</span> であり、これが上限 <span class="math inline">\(T\)</span> 以下である必要があるから、</p>
+<p><span class="math display">\[
+y_t \leq T
+\]</span> である。始点 <span class="math inline">\(s\)</span> の開始時間は 0 とするから、 <span class="math display">\[
+y_s = 0
+\]</span> である。</p>
+<p>このとき、この問題は次の線形計画問題として定式化できる。</p>
 <p><span class="math display">\[\begin{align*}
-\text{minimize} \quad &amp; \sum_{i} c_i x_i &amp;\\
+\text{minimize} \quad &amp; \sum_{i \in V} c_i x_i &amp;\\
 \text{subject to} \quad &amp; y_j \geq y_i + \tau_i - x_i, \quad &amp; \forall (i, j) \in E \\
 &amp; 0 \leq x_i \leq M_i, \quad &amp; \forall i \in V \\
 &amp; y_t \leq T \\
@@ -1686,7 +1710,7 @@ y_E = 9.0</code></pre>
 <ol type="1">
 <li>プロジェクト・ネットワークは次のようになる。</li>
 </ol>
-<div id="d2d6590a" class="cell" data-execution_count="5">
+<div id="99eda9a2" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
