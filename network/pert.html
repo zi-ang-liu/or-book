@@ -734,7 +734,7 @@ window.Quarto = {
 <p>辺 <span class="math inline">\((s, v) \in E\)</span> は、作業 <span class="math inline">\(v\)</span> が先行作業を持たないことを意味し、辺 <span class="math inline">\((v, t) \in E\)</span> は、作業 <span class="math inline">\(v\)</span> が後続作業を持たないことを意味する。作業 <span class="math inline">\(v\)</span> の先行作業の集合を <span class="math inline">\(\mathcal{P}(v)\)</span> と表す。作業 <span class="math inline">\(v\)</span> の後続作業の集合を <span class="math inline">\(\mathcal{S}(v)\)</span> と表す。</p>
 <p>作業点 <span class="math inline">\(v \in V\)</span> には、作業時間 <span class="math inline">\(\tau(v)\)</span> が与えられている。始点 <span class="math inline">\(s\)</span> と終点 <span class="math inline">\(t\)</span> の作業時間は <span class="math inline">\(\tau(s) = \tau(t) = 0\)</span> とする。</p>
 <p><a href="#exm-pert-report" class="quarto-xref">例&nbsp;<span>10.1</span></a> のプロジェクト・ネットワークは次の図のようになる。</p>
-<div id="b19aa00e" class="cell" data-execution_count="1">
+<div id="973a7596" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -834,7 +834,7 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<div id="bb2e9d22" class="cell" data-execution_count="2">
+<div id="c4e7a86b" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -919,7 +919,7 @@ ES(u) = \max_{v \in \mathcal{P}(u)} EF(v)
 ES(D) = \max\{EF(A), EF(B), EF(C)\} = \max\{2, 3, 6\} = 6
 \]</span></p>
 <p>である．</p>
-<div id="cab0df66" class="cell" data-execution_count="3">
+<div id="37c2eb9e" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1070,7 +1070,7 @@ LF(u) = \min_{v \in \mathcal{S}(u)} LS(v)
 <p><span class="theorem-title"><strong>例 10.4</strong></span> 作業点 <span class="math inline">\(C\)</span> の後続作業を <span class="math inline">\(D, E, F\)</span> とする．そのとき，<span class="math inline">\(\mathcal{S}(C) = \{D, E, F\}\)</span> である．<span class="math inline">\(LS(D) = 6\)</span>，<span class="math inline">\(LS(E) = 3\)</span>，<span class="math inline">\(LS(F) = 8\)</span> とすると，<span class="math inline">\(C\)</span> の最遅終了時刻は， <span class="math display">\[
 LF(C) = \min\{LS(D), LS(E), LS(F)\} = \min\{6, 3, 8\} = 3
 \]</span> である．</p>
-<div id="700f8f4e" class="cell" data-execution_count="4">
+<div id="4ebee216" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1190,6 +1190,18 @@ LF(C) = \min\{LS(D), LS(E), LS(F)\} = \min\{6, 3, 8\} = 3
 </tr>
 </tbody>
 </table>
+<p>最遅開始時刻と最遅終了時刻を求めるアルゴリズムは下の通りである。ここで、点を逆トポロジカルオーダー（reverse topological order）で処理するとは、<span class="math inline">\(v\)</span> のすべての後続作業 <span class="math inline">\(u \in \mathcal{S}(v)\)</span> が <span class="math inline">\(v\)</span> より前に処理されるように点を順序付けることである。</p>
+<div id="alg-backward-pass" class="theorem algorithm">
+<p><span class="theorem-title"><strong>Algorithm 10.2</strong></span> <strong>Backward Pass Algorithm</strong></p>
+<ol type="1">
+<li><span class="math inline">\(LF(t) \leftarrow EF(t)\)</span>, <span class="math inline">\(LS(t) \leftarrow EF(t)\)</span>.</li>
+<li><strong>For each</strong> <span class="math inline">\(v \in V \setminus \{t\}\)</span> in reverse topological order <strong>do</strong>
+<ol type="1">
+<li><span class="math inline">\(LF(v) \leftarrow \min_{u \in \mathcal{S}(v)} LS(u)\)</span>.</li>
+<li><span class="math inline">\(LS(v) \leftarrow LF(v) - \tau(v)\)</span>.</li>
+</ol></li>
+</ol>
+</div>
 </section>
 <section id="スラック" class="level3" data-number="10.3.3">
 <h3 data-number="10.3.3" class="anchored" data-anchor-id="スラック"><span class="header-section-number">10.3.3</span> スラック</h3>
@@ -1710,7 +1722,7 @@ y_E = 9.0</code></pre>
 <ol type="1">
 <li>プロジェクト・ネットワークは次のようになる。</li>
 </ol>
-<div id="99eda9a2" class="cell" data-execution_count="5">
+<div id="5c1bbf28" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
