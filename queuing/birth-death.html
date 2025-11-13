@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>12&nbsp; 動的計画法 – オペレーションズ・リサーチ</title>
+<title>14&nbsp; 出生死滅過程 – オペレーションズ・リサーチ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../queuing/intro.html" rel="next">
-<link href="../lp_app/dea.html" rel="prev">
+<link href="../career/intro.html" rel="next">
+<link href="../queuing/intro.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -74,9 +74,42 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "サーチ"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta name="twitter:title" content="12&nbsp; 動的計画法 – オペレーションズ・リサーチ">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta name="twitter:title" content="14&nbsp; 出生死滅過程 – オペレーションズ・リサーチ">
+<meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -251,7 +284,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../dp/intro.html">動的計画法</a></li><li class="breadcrumb-item"><a href="../dp/intro.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">動的計画法</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../queuing/intro.html">待ち行列理論</a></li><li class="breadcrumb-item"><a href="../queuing/birth-death.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">出生死滅過程</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
@@ -421,7 +454,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../dp/intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="../dp/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">動的計画法</span></span></a>
   </div>
 </li>
@@ -444,7 +477,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../queuing/birth-death.html" class="sidebar-item-text sidebar-link">
+  <a href="../queuing/birth-death.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">出生死滅過程</span></span></a>
   </div>
 </li>
@@ -526,9 +559,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../dp/intro.html">動的計画法</a></li><li class="breadcrumb-item"><a href="../dp/intro.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">動的計画法</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../queuing/intro.html">待ち行列理論</a></li><li class="breadcrumb-item"><a href="../queuing/birth-death.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">出生死滅過程</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">動的計画法</span></h1>
+<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">出生死滅過程</span></h1>
 </div>
 
 
@@ -545,7 +578,41 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<!-- Taha hillier algorithm intro -->
+<p>時刻 <span class="math inline">\(t\)</span> における生物集団の個体数を <span class="math inline">\(N(t)\)</span> で表す．これを<strong>状態</strong>（state）とも呼ぶ．状態は非負の整数であるため，<span class="math inline">\(N(t) \in \{0, 1, 2, \ldots\}\)</span> となる．</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js"> flowchart LR
+  %% Define states
+  n0((0))
+  n1((1))
+  n2((2))
+  n3((3))
+  n4((...))
+
+  %% Forward (birth) transitions
+  n0 --&gt;|$$\lambda_0$$| n1
+  n1 --&gt;|$$\lambda_1$$| n2
+  n2 --&gt;|$$\lambda_2$$| n3
+  n3 --&gt;|$$\lambda_3$$| n4
+
+  %% Backward (death) transitions
+  n1 --&gt;|$$\mu_1$$| n0
+  n2 --&gt;|$$\mu_2$$| n1
+  n3 --&gt;|$$\mu_3$$| n2
+  n4 --&gt;|$$\mu_4$$| n3
+
+  %% Style for clarity
+  classDef state fill:#e8f0ff,stroke:#3366cc,stroke-width:2px,color:#000;
+  class n0,n1,n2,n3,n4 state;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 
 
 
@@ -965,13 +1032,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../lp_app/dea.html" class="pagination-link" aria-label="包絡分析法">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">包絡分析法</span></span>
+      <a href="../queuing/intro.html" class="pagination-link" aria-label="待ち行列とは">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">待ち行列とは</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../queuing/intro.html" class="pagination-link" aria-label="待ち行列とは">
-        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">待ち行列とは</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../career/intro.html" class="pagination-link" aria-label="キャリア">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">キャリア</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

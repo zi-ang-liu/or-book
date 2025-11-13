@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zi-ang-liu.github.io/or-book/index.html</loc>
-    <lastmod>2025-10-21T13:48:26.113Z</lastmod>
+    <lastmod>2025-11-12T13:36:34.134Z</lastmod>
   </url>
   <url>
     <loc>https://zi-ang-liu.github.io/or-book/course-info.html</loc>
@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>https://zi-ang-liu.github.io/or-book/network/pert.html</loc>
-    <lastmod>2025-11-12T00:27:58.164Z</lastmod>
+    <lastmod>2025-11-12T05:24:34.944Z</lastmod>
   </url>
   <url>
     <loc>https://zi-ang-liu.github.io/or-book/lp_app/dea.html</loc>
@@ -63,6 +63,10 @@
   <url>
     <loc>https://zi-ang-liu.github.io/or-book/queuing/intro.html</loc>
     <lastmod>2025-11-11T12:45:49.660Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zi-ang-liu.github.io/or-book/queuing/birth-death.html</loc>
+    <lastmod>2025-11-13T03:50:13.155Z</lastmod>
   </url>
   <url>
     <loc>https://zi-ang-liu.github.io/or-book/career/intro.html</loc>
@@ -94,6 +98,6 @@
   </url>
   <url>
     <loc>https://zi-ang-liu.github.io/or-book/オペレーションズ・リサーチ.pdf</loc>
-    <lastmod>2025-11-12T00:31:01.735Z</lastmod>
+    <lastmod>2025-11-13T11:32:05.668Z</lastmod>
   </url>
 </urlset>

@@ -911,36 +911,47 @@
     ]
   },
   {
+    "objectID": "queuing/birth-death.html",
+    "href": "queuing/birth-death.html",
+    "title": "14  出生死滅過程",
+    "section": "",
+    "text": "時刻 \\(t\\) における生物集団の個体数を \\(N(t)\\) で表す．これを状態（state）とも呼ぶ．状態は非負の整数であるため，\\(N(t) \\in \\{0, 1, 2, \\ldots\\}\\) となる．\n\n\n\n\n\n flowchart LR\n  %% Define states\n  n0((0))\n  n1((1))\n  n2((2))\n  n3((3))\n  n4((...))\n\n  %% Forward (birth) transitions\n  n0 --&gt;|$$\\lambda_0$$| n1\n  n1 --&gt;|$$\\lambda_1$$| n2\n  n2 --&gt;|$$\\lambda_2$$| n3\n  n3 --&gt;|$$\\lambda_3$$| n4\n\n  %% Backward (death) transitions\n  n1 --&gt;|$$\\mu_1$$| n0\n  n2 --&gt;|$$\\mu_2$$| n1\n  n3 --&gt;|$$\\mu_3$$| n2\n  n4 --&gt;|$$\\mu_4$$| n3\n\n  %% Style for clarity\n  classDef state fill:#e8f0ff,stroke:#3366cc,stroke-width:2px,color:#000;\n  class n0,n1,n2,n3,n4 state;",
+    "crumbs": [
+      "待ち行列理論",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>出生死滅過程</span>"
+    ]
+  },
+  {
     "objectID": "career/intro.html",
     "href": "career/intro.html",
-    "title": "14  キャリア",
+    "title": "15  キャリア",
     "section": "",
-    "text": "14.1 リンク",
+    "text": "15.1 リンク",
     "crumbs": [
       "OR キャリア",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>キャリア</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>キャリア</span>"
     ]
   },
   {
     "objectID": "career/intro.html#リンク",
     "href": "career/intro.html#リンク",
-    "title": "14  キャリア",
+    "title": "15  キャリア",
     "section": "",
     "text": "Informs\n\nConsider a Career in Operations Research and Analytics!\n\n日本オペレーションズ・リサーチ学会\n\nOR キャリアセッション\n企業事例交流会\nOR 実施事例\n\n日本経営工学会\n\n産学連携研究交流会\n\nキヤノン\n\n日本オペレーションズ・リサーチ（OR）学会レポート活動の舞台裏を大公開！",
     "crumbs": [
       "OR キャリア",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>キャリア</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>キャリア</span>"
     ]
   },
   {
     "objectID": "career/intro.html#関連学会",
     "href": "career/intro.html#関連学会",
-    "title": "14  キャリア",
-    "section": "14.2 関連学会",
-    "text": "14.2 関連学会\n\n日本オペレーションズ・リサーチ学会\n日本経営工学会",
+    "title": "15  キャリア",
+    "section": "15.2 関連学会",
+    "text": "15.2 関連学会\n\n日本オペレーションズ・リサーチ学会\n日本経営工学会",
     "crumbs": [
       "OR キャリア",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>キャリア</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>キャリア</span>"
     ]
   },
   {
