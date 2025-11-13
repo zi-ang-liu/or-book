@@ -1,0 +1,33 @@
+---
+title: 出生死滅過程
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
+
+時刻 $t$ における生物集団の個体数を $N(t)$ で表す．これを**状態**（state）とも呼ぶ．状態は非負の整数であるため，$N(t) \in \{0, 1, 2, \ldots\}$ となる．
+
+$N(T) = n$ のとき，次の出生はパラメータ $\lambda_n$ を持つ指数分布に従い，次の死滅はパラメータ $\mu_n$ を持つ指数分布に従うとする．$n \geq 0$ のとき，一つの個体が出生すると，状態は $n$ から $n+1$ に遷移する．$n \geq 1$ のとき，一つの個体が死滅すると，状態は $n$ から $n-1$ に遷移する．
+
+
+```{mermaid}
+ flowchart LR
+  %% Define states
+  n0((0))
+  n1((1))
+  n2((2))
+  nn((...))
+
+  %% Forward (birth) transitions
+  n0 -->|$$\lambda_0$$| n1
+  n1 -->|$$\lambda_1$$| n2
+  n2 --> nn
+
+
+  %% Backward (death) transitions
+  n1 -->|$$\mu_1$$| n0
+  n2 -->|$$\mu_2$$| n1
+  nn --> n2
+```

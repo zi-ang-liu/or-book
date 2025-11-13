@@ -67,6 +67,7 @@ book:
     - part: "待ち行列理論"
       chapters:
         - queuing/intro.qmd
+        - queuing/birth-death.qmd
     - part: "OR キャリア"
       chapters:
         - career/intro.qmd
