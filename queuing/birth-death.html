@@ -579,6 +579,7 @@ window.Quarto = {
 
 
 <p>時刻 <span class="math inline">\(t\)</span> における生物集団の個体数を <span class="math inline">\(N(t)\)</span> で表す．これを<strong>状態</strong>（state）とも呼ぶ．状態は非負の整数であるため，<span class="math inline">\(N(t) \in \{0, 1, 2, \ldots\}\)</span> となる．</p>
+<p><span class="math inline">\(N(T) = n\)</span> のとき，次の出生はパラメータ <span class="math inline">\(\lambda_n\)</span> を持つ指数分布に従い，次の死滅はパラメータ <span class="math inline">\(\mu_n\)</span> を持つ指数分布に従うとする．<span class="math inline">\(n \geq 0\)</span> のとき，一つの個体が出生すると，状態は <span class="math inline">\(n\)</span> から <span class="math inline">\(n+1\)</span> に遷移する．<span class="math inline">\(n \geq 1\)</span> のとき，一つの個体が死滅すると，状態は <span class="math inline">\(n\)</span> から <span class="math inline">\(n-1\)</span> に遷移する．</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -589,24 +590,18 @@ window.Quarto = {
   n0((0))
   n1((1))
   n2((2))
-  n3((3))
-  n4((...))
+  nn((...))
 
   %% Forward (birth) transitions
   n0 --&gt;|$$\lambda_0$$| n1
   n1 --&gt;|$$\lambda_1$$| n2
-  n2 --&gt;|$$\lambda_2$$| n3
-  n3 --&gt;|$$\lambda_3$$| n4
+  n2 --&gt; nn
+
 
   %% Backward (death) transitions
   n1 --&gt;|$$\mu_1$$| n0
   n2 --&gt;|$$\mu_2$$| n1
-  n3 --&gt;|$$\mu_3$$| n2
-  n4 --&gt;|$$\mu_4$$| n3
-
-  %% Style for clarity
-  classDef state fill:#e8f0ff,stroke:#3366cc,stroke-width:2px,color:#000;
-  class n0,n1,n2,n3,n4 state;
+  nn --&gt; n2
 </pre>
 </div>
 <p></p></figure><p></p>

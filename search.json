@@ -889,6 +889,39 @@
     ]
   },
   {
+    "objectID": "dp/intro.html",
+    "href": "dp/intro.html",
+    "title": "12  動的計画法",
+    "section": "",
+    "text": "12.1 最短路問題\n動的計画法（dynamic programming, DP）は Richard E. Bellman によって提案された，多段階決定過程（multi-stage decision process）に対する最適化手法である．\n多段階決定過程は，複数の段階にわたって行われる一連の意思決定を行う問題である．各段階 \\(t\\) において，意思決定者は現在の状態を観測し，意思決定を行う．その意思決定は，将来の状態に影響を与える．目的として，状態に関するある目的関数を最小化（または最大化）することである．動的計画法は，多段階決定過程における最適方策（optimal policy）を求めるための一般的な手法である．\n最適化，制御，オペレーションズ・リサーチなどの分野において，多数の応用例が知られている．現在では，強化学習の基礎理論としても重要な役割を果たしている．\nここでは，動的計画法の基本的な考え方を理解するために，最短路問題（shortest path problem）とナップサック問題（knapsack problem）を取り上げる．\n多段階の有向グラフ \\(G = (V, E)\\) における最短路問題を考える。 各辺 \\((v, u) \\in E\\) に非負の重み \\(w(v, u)\\) が与えられているとする。始点 \\(s \\in V\\) から終点 \\(t \\in V\\) への最短路を求める問題である。\\(s\\) と \\(t\\) 以外の頂点を段階 \\(D = \\{ 1, 2, \\ldots, n \\}\\) に分けることができるとする。結果として，\\(n\\) 回の意思決定を行い，最適解は \\((s, v_1, v_2, \\ldots, v_n, t)\\) の形になる。\n\\(P^* = (s, v_1, v_2, \\ldots, v_n, t)\\) は最短路であれば，任意の \\(1 \\leq k \\leq n\\) に対して，パス \\((v_k, v_{k+1}, \\ldots, v_n, t)\\) も \\(v_k\\) から \\(t\\) への最短路である。これは，もし \\((v_k, v_{k+1}, \\ldots, v_n, t)\\) が最短路でないとすると，より短いパスが存在し，\\(P^*\\) も最短路でなくなるためである。この性質は最適性の原理（Principle of Optimality）と呼ばれる。\n点 \\(v\\) から点 \\(t\\) までの最短路の長さ（またはコスト）を \\(d(v)\\) と定義する。最適性の原理により，任意の点 \\(v \\in V\\) に対して，\n\\[\nd(v) = \\min_{u \\in \\mathcal{P}(v)} \\{ w(v, u) + d(u) \\}\n\\]\nが成り立つ。ここで，\\(\\mathcal{P}(v) = \\{ u \\mid (v, u) \\in E \\}\\) とする。\n動的計画法による最短路問題の解法を以下に示す。\nまず，\\(d(t) = 0\\) とし，第 4 段の点 \\(j\\)，\\(k\\)，\\(l\\)，\\(m\\) について，\\(d(j)\\)，\\(d(k)\\)，\\(d(l)\\)，\\(d(m)\\) を計算する。\n\\[\\begin{align*}\nd(j) &= \\min \\{ w(j, t) + d(t) \\} = \\min \\{ 5 + 0 \\} = 5 \\\\\nd(k) &= \\min \\{ w(k, t) + d(t) \\} = \\min \\{ 1 + 0 \\} = 1 \\\\\nd(l) &= \\min \\{ w(l, t) + d(t) \\} = \\min \\{ 4 + 0 \\} = 4 \\\\\nd(m) &= \\min \\{ w(m, t) + d(t) \\} = \\min \\{ 2 + 0 \\} = 2 \\\\\n\\end{align*}\\]\n次に，第 3 段の点 \\(g\\)，\\(h\\)，\\(i\\) について，\\(d(g)\\)，\\(d(h)\\)，\\(d(i)\\) を計算する。\n\\[\\begin{align*}\nd(g) &= \\min \\{ w(g, j) + d(j), w(g, k) + d(k) \\} = \\min \\{ 4 + 5, 2 + 1 \\} = \\min \\{ 9, 3 \\} = 3 \\\\\nd(h) &= \\min \\{ w(h, k) + d(k), w(h, l) + d(l) \\} = \\min \\{ 3 + 1, 2 + 4 \\} = \\min \\{ 4, 6 \\} = 4 \\\\\nd(i) &= \\min \\{ w(i, l) + d(l), w(i, m) + d(m) \\} = \\min \\{ 4 + 4, 3 + 2 \\} = \\min \\{ 8, 5 \\} = 5 \\\\\n\\end{align*}\\]\n第 2 段の点 \\(d\\)，\\(e\\)，\\(f\\) について，\\(d(d)\\)，\\(d(e)\\)，\\(d(f)\\) を計算する。\n\\[\\begin{align*}\nd(d) &= \\min \\{ w(d, g) + d(g), w(d, h) + d(h) \\} = \\min \\{ 7 + 3, 2 + 4 \\} = \\min \\{ 10, 6 \\} = 6 \\\\\nd(e) &= \\min \\{ w(e, h) + d(h), w(e, i) + d(i) \\} = \\min \\{ 1 + 4, 3 + 5 \\} = \\min \\{ 5, 8 \\} = 5 \\\\\nd(f) &= \\min \\{ w(f, h) + d(h), w(f, i) + d(i) \\} = \\min \\{ 2 + 4, 2 + 5 \\} = \\min \\{ 6, 7 \\} = 6 \\\\\n\\end{align*}\\]\n第 1 段の点 \\(a\\)，\\(b\\)，\\(c\\) について，\\(d(a)\\)，\\(d(b)\\)，\\(d(c)\\) を計算する。\n\\[\\begin{align*}\nd(a) &= \\min \\{ w(a, d) + d(d), w(a, e) + d(e) \\} = \\min \\{ 2 + 6, 5 + 5 \\} = \\min \\{ 8, 10 \\} = 8 \\\\\nd(b) &= \\min \\{ w(b, d) + d(d), w(b, e) + d(e) \\} = \\min \\{ 1 + 6, 3 + 5 \\} = \\min \\{ 7, 8 \\} = 7 \\\\\nd(c) &= \\min \\{ w(c, e) + d(e), w(c, f) + d(f) \\} = \\min \\{ 4 + 5, 1 + 6 \\} = \\min \\{ 9, 7 \\} = 7 \\\\\n\\end{align*}\\]\n最後に，始点 \\(s\\) について，\\(d(s)\\) を計算する。\n\\[\\begin{align*}\nd(s) &= \\min \\{ w(s, a) + d(a), w(s, b) + d(b), w(s, c) + d(c) \\} \\\\\n     &= \\min \\{ 5 + 8, 6 + 7, 4 + 7 \\} \\\\\n     &= \\min \\{ 13, 13, 11 \\} \\\\\n     &= 11\n\\end{align*}\\]\n最短路 \\(P^*\\) は，\\(d(s)\\) の計算過程を逆にたどることで求めることができる。点 \\(v\\) に対して，次の点 \\(u\\) を\n\\[\nu = \\arg\\min_{u' \\in \\mathcal{P}(v)} \\{ w(v, u') + d(u') \\}\n\\]\nと定義する。始点 \\(s\\) から始めて，次の点を順にたどることで，最短路 \\(P^*\\) を構築できる。この問題において，最短路は \\(P^* = (s, c, f, h, k, t)\\) であり，その長さは 11 である。",
+    "crumbs": [
+      "動的計画法",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>動的計画法</span>"
+    ]
+  },
+  {
+    "objectID": "dp/intro.html#最短路問題",
+    "href": "dp/intro.html#最短路問題",
+    "title": "12  動的計画法",
+    "section": "",
+    "text": "例 12.1 下のグラフにおいて，\\(d(a)\\)，\\(d(b)\\)，\\(d(c)\\) が与えられたとき，\\(d(s)\\) を計算せよ。\n\n\\(d(a) = 8\\)\n\\(d(b) = 7\\)\n\\(d(c) = 7\\)\n\n\n\nコード\nimport networkx as nx\nimport matplotlib.pyplot as plt\n\nG = nx.DiGraph()\nedges = [\n    (\"s\", \"a\", 5),\n    (\"s\", \"b\", 6),\n    (\"s\", \"c\", 4),\n    (\"a\", \"d\", 2),\n    (\"a\", \"e\", 5),\n    (\"b\", \"d\", 1),\n    (\"b\", \"e\", 3),\n    (\"c\", \"e\", 4),\n    (\"c\", \"f\", 1),\n    (\"d\", \"g\", 7),\n    (\"d\", \"h\", 2),\n    (\"e\", \"h\", 1),\n    (\"e\", \"i\", 3),\n    (\"f\", \"h\", 2),\n    (\"f\", \"i\", 2),\n    (\"g\", \"j\", 4),\n    (\"g\", \"k\", 2),\n    (\"h\", \"k\", 3),\n    (\"h\", \"l\", 2),\n    (\"i\", \"l\", 4),\n    (\"i\", \"m\", 3),\n    (\"j\", \"t\", 5),\n    (\"k\", \"t\", 1),\n    (\"l\", \"t\", 4),\n    (\"m\", \"t\", 2),\n]\nG.add_weighted_edges_from(edges)\n\n# for layer, nodes in enumerate(nx.topological_generations(G)):\n#     for node in nodes:\n#         G.nodes[node][\"layer\"] = layer\n\npos = {\n    \"s\": (0, 0),\n    \"a\": (1, 1),\n    \"b\": (1, 0),\n    \"c\": (1, -1),\n    \"d\": (2, 1),\n    \"e\": (2, 0),\n    \"f\": (2, -1),\n    \"g\": (3, 1),\n    \"h\": (3, 0),\n    \"i\": (3, -1),\n    \"j\": (4, 1.5),\n    \"k\": (4, 0.5),\n    \"l\": (4, -0.5),\n    \"m\": (4, -1.5),\n    \"t\": (5, 0),\n}\n\nnx.draw(G, pos, with_labels=True, node_size=700, node_color=\"lightblue\", font_size=10)\nedge_labels = nx.get_edge_attributes(G, \"weight\")\nnx.draw_networkx_edge_labels(\n    G, pos, edge_labels=edge_labels, label_pos=0.3, font_size=8, rotate=False\n)\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\nコード\n# find shortest path from s to t\nsource = \"s\"\ntarget = \"t\"\nshortest_path = nx.shortest_path(G, source=source, target=target, weight=\"weight\")\nshortest_path_length = nx.shortest_path_length(\n    G, source=source, target=target, weight=\"weight\"\n)\nshortest_path, shortest_path_length\n\n\n(['s', 'c', 'f', 'h', 'k', 't'], 11)\n\n\n\\[\\begin{align*}\nd(s) &= \\min \\{ w(s, a) + d(a), w(s, b) + d(b), w(s, c) + d(c) \\} \\\\\n     &= \\min \\{ 5 + 8, 6 + 7, 4 + 7 \\} \\\\\n     &= \\min \\{ 13, 13, 11 \\} \\\\\n     &= 11\n\\end{align*}\\]\n\n\n\nAlgorithm 12.1  \n\nInput: 有向グラフ \\(G = (V, E)\\)，重み関数 \\(w: E \\to \\mathbb{R}_{\\geq 0}\\)，始点 \\(s \\in V\\)，終点 \\(t \\in V\\)\n\nOutput: \\(s\\) から \\(t\\) への最短路の長さ \\(d(s)\\)\n\n\n\\(d(t) \\leftarrow 0\\)\n\\(d(v) \\leftarrow \\infty\\) for all \\(v \\in V \\setminus \\{ t \\}\\)\n段階 \\(k \\leftarrow n\\)\nwhile \\(k \\geq 0\\) do\n\nfor each \\(v \\in D_k\\) do\n\n\\(d(v) \\leftarrow \\min_{u \\in \\mathcal{P}(v)} \\{ w(v, u) + d(u) \\}\\)\n\n\\(k \\leftarrow k - 1\\)\n\nreturn \\(d(s)\\)",
+    "crumbs": [
+      "動的計画法",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>動的計画法</span>"
+    ]
+  },
+  {
+    "objectID": "dp/intro.html#ナップサック問題",
+    "href": "dp/intro.html#ナップサック問題",
+    "title": "12  動的計画法",
+    "section": "12.2 ナップサック問題",
+    "text": "12.2 ナップサック問題",
+    "crumbs": [
+      "動的計画法",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>動的計画法</span>"
+    ]
+  },
+  {
     "objectID": "queuing/intro.html",
     "href": "queuing/intro.html",
     "title": "13  待ち行列とは",
@@ -915,7 +948,7 @@
     "href": "queuing/birth-death.html",
     "title": "14  出生死滅過程",
     "section": "",
-    "text": "時刻 \\(t\\) における生物集団の個体数を \\(N(t)\\) で表す．これを状態（state）とも呼ぶ．状態は非負の整数であるため，\\(N(t) \\in \\{0, 1, 2, \\ldots\\}\\) となる．\n\n\n\n\n\n flowchart LR\n  %% Define states\n  n0((0))\n  n1((1))\n  n2((2))\n  n3((3))\n  n4((...))\n\n  %% Forward (birth) transitions\n  n0 --&gt;|$$\\lambda_0$$| n1\n  n1 --&gt;|$$\\lambda_1$$| n2\n  n2 --&gt;|$$\\lambda_2$$| n3\n  n3 --&gt;|$$\\lambda_3$$| n4\n\n  %% Backward (death) transitions\n  n1 --&gt;|$$\\mu_1$$| n0\n  n2 --&gt;|$$\\mu_2$$| n1\n  n3 --&gt;|$$\\mu_3$$| n2\n  n4 --&gt;|$$\\mu_4$$| n3\n\n  %% Style for clarity\n  classDef state fill:#e8f0ff,stroke:#3366cc,stroke-width:2px,color:#000;\n  class n0,n1,n2,n3,n4 state;",
+    "text": "時刻 \\(t\\) における生物集団の個体数を \\(N(t)\\) で表す．これを状態（state）とも呼ぶ．状態は非負の整数であるため，\\(N(t) \\in \\{0, 1, 2, \\ldots\\}\\) となる．\n\\(N(T) = n\\) のとき，次の出生はパラメータ \\(\\lambda_n\\) を持つ指数分布に従い，次の死滅はパラメータ \\(\\mu_n\\) を持つ指数分布に従うとする．\\(n \\geq 0\\) のとき，一つの個体が出生すると，状態は \\(n\\) から \\(n+1\\) に遷移する．\\(n \\geq 1\\) のとき，一つの個体が死滅すると，状態は \\(n\\) から \\(n-1\\) に遷移する．\n\n\n\n\n\n flowchart LR\n  %% Define states\n  n0((0))\n  n1((1))\n  n2((2))\n  nn((...))\n\n  %% Forward (birth) transitions\n  n0 --&gt;|$$\\lambda_0$$| n1\n  n1 --&gt;|$$\\lambda_1$$| n2\n  n2 --&gt; nn\n\n\n  %% Backward (death) transitions\n  n1 --&gt;|$$\\mu_1$$| n0\n  n2 --&gt;|$$\\mu_2$$| n1\n  nn --&gt; n2",
     "crumbs": [
       "待ち行列理論",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>出生死滅過程</span>"

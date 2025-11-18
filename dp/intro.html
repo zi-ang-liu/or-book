@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -75,9 +110,42 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <meta name="twitter:title" content="12&nbsp; 動的計画法 – オペレーションズ・リサーチ">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://zi-ang-liu.github.io/or-book/dp/intro_files/figure-html/cell-2-output-1.png">
+<meta name="twitter:image-height" content="998">
+<meta name="twitter:image-width" content="1382">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -519,8 +587,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#最短路問題" id="toc-最短路問題" class="nav-link active" data-scroll-target="#最短路問題"><span class="header-section-number">12.1</span> 最短路問題</a></li>
+  <li><a href="#ナップサック問題" id="toc-ナップサック問題" class="nav-link" data-scroll-target="#ナップサック問題"><span class="header-section-number">12.2</span> ナップサック問題</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -545,9 +620,200 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<!-- Taha hillier algorithm intro -->
+<blockquote class="blockquote">
+<p><strong>Principle of Optimality</strong>: An optimal policy has the property that whatever the initial state and initial decision are, the remaining decisions must constitute an optimal policy with regard to the state resulting from the first decision.</p>
+<p><strong>最適性の原理</strong>（Principle of Optimality）：最適な方策は、初期状態と初期決定がどんなものであれ、その結果得られる次の状態に関して、以降の決定が必ず最適方策になっているという性質をもつ。</p>
+<p>– Richard Bellman, 1957</p>
+</blockquote>
+<p><strong>動的計画法</strong>（dynamic programming, DP）は Richard E. Bellman によって提案された，<strong>多段階決定過程</strong>（multi-stage decision process）に対する最適化手法である．</p>
+<p>多段階決定過程は，複数の段階にわたって行われる一連の意思決定を行う問題である．各段階 <span class="math inline">\(t\)</span> において，意思決定者は現在の<strong>状態</strong>を観測し，意思決定を行う．その意思決定は，将来の状態に影響を与える．目的として，状態に関するある目的関数を最小化（または最大化）することである．動的計画法は，多段階決定過程における<strong>最適方策</strong>（optimal policy）を求めるための一般的な手法である．</p>
+<p>最適化，制御，オペレーションズ・リサーチなどの分野において，多数の応用例が知られている．現在では，強化学習の基礎理論としても重要な役割を果たしている．</p>
+<ul>
+<li>在庫管理問題</li>
+<li>自動運転</li>
+<li>ロボット制御</li>
+<li>ビデオゲームAI</li>
+<li>…</li>
+</ul>
+<p>ここでは，動的計画法の基本的な考え方を理解するために，<strong>最短路問題</strong>（shortest path problem）と<strong>ナップサック問題</strong>（knapsack problem）を取り上げる．</p>
+<section id="最短路問題" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="最短路問題"><span class="header-section-number">12.1</span> 最短路問題</h2>
+<p>多段階の有向グラフ <span class="math inline">\(G = (V, E)\)</span> における最短路問題を考える。 各辺 <span class="math inline">\((v, u) \in E\)</span> に非負の重み <span class="math inline">\(w(v, u)\)</span> が与えられているとする。始点 <span class="math inline">\(s \in V\)</span> から終点 <span class="math inline">\(t \in V\)</span> への最短路を求める問題である。<span class="math inline">\(s\)</span> と <span class="math inline">\(t\)</span> 以外の頂点を段階 <span class="math inline">\(D = \{ 1, 2, \ldots, n \}\)</span> に分けることができるとする。結果として，<span class="math inline">\(n\)</span> 回の意思決定を行い，最適解は <span class="math inline">\((s, v_1, v_2, \ldots, v_n, t)\)</span> の形になる。</p>
+<p><span class="math inline">\(P^* = (s, v_1, v_2, \ldots, v_n, t)\)</span> は最短路であれば，任意の <span class="math inline">\(1 \leq k \leq n\)</span> に対して，パス <span class="math inline">\((v_k, v_{k+1}, \ldots, v_n, t)\)</span> も <span class="math inline">\(v_k\)</span> から <span class="math inline">\(t\)</span> への最短路である。これは，もし <span class="math inline">\((v_k, v_{k+1}, \ldots, v_n, t)\)</span> が最短路でないとすると，より短いパスが存在し，<span class="math inline">\(P^*\)</span> も最短路でなくなるためである。この性質は<strong>最適性の原理</strong>（Principle of Optimality）と呼ばれる。</p>
+<p>点 <span class="math inline">\(v\)</span> から点 <span class="math inline">\(t\)</span> までの最短路の長さ（またはコスト）を <span class="math inline">\(d(v)\)</span> と定義する。最適性の原理により，任意の点 <span class="math inline">\(v \in V\)</span> に対して，</p>
+<p><span class="math display">\[
+d(v) = \min_{u \in \mathcal{P}(v)} \{ w(v, u) + d(u) \}
+\]</span></p>
+<p>が成り立つ。ここで，<span class="math inline">\(\mathcal{P}(v) = \{ u \mid (v, u) \in E \}\)</span> とする。</p>
+<div id="exm-dp-spp-1" class="theorem example">
+<p><span class="theorem-title"><strong>例 12.1</strong></span> 下のグラフにおいて，<span class="math inline">\(d(a)\)</span>，<span class="math inline">\(d(b)\)</span>，<span class="math inline">\(d(c)\)</span> が与えられたとき，<span class="math inline">\(d(s)\)</span> を計算せよ。</p>
+<ul>
+<li><span class="math inline">\(d(a) = 8\)</span></li>
+<li><span class="math inline">\(d(b) = 7\)</span></li>
+<li><span class="math inline">\(d(c) = 7\)</span></li>
+</ul>
+<div id="852abde2" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>コード</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.DiGraph()</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>edges <span class="op">=</span> [</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"s"</span>, <span class="st">"a"</span>, <span class="dv">5</span>),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"s"</span>, <span class="st">"b"</span>, <span class="dv">6</span>),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"s"</span>, <span class="st">"c"</span>, <span class="dv">4</span>),</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"a"</span>, <span class="st">"d"</span>, <span class="dv">2</span>),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"a"</span>, <span class="st">"e"</span>, <span class="dv">5</span>),</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"b"</span>, <span class="st">"d"</span>, <span class="dv">1</span>),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"b"</span>, <span class="st">"e"</span>, <span class="dv">3</span>),</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"c"</span>, <span class="st">"e"</span>, <span class="dv">4</span>),</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"c"</span>, <span class="st">"f"</span>, <span class="dv">1</span>),</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"d"</span>, <span class="st">"g"</span>, <span class="dv">7</span>),</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"d"</span>, <span class="st">"h"</span>, <span class="dv">2</span>),</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"e"</span>, <span class="st">"h"</span>, <span class="dv">1</span>),</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"e"</span>, <span class="st">"i"</span>, <span class="dv">3</span>),</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"f"</span>, <span class="st">"h"</span>, <span class="dv">2</span>),</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"f"</span>, <span class="st">"i"</span>, <span class="dv">2</span>),</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"g"</span>, <span class="st">"j"</span>, <span class="dv">4</span>),</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"g"</span>, <span class="st">"k"</span>, <span class="dv">2</span>),</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"h"</span>, <span class="st">"k"</span>, <span class="dv">3</span>),</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"h"</span>, <span class="st">"l"</span>, <span class="dv">2</span>),</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"i"</span>, <span class="st">"l"</span>, <span class="dv">4</span>),</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"i"</span>, <span class="st">"m"</span>, <span class="dv">3</span>),</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"j"</span>, <span class="st">"t"</span>, <span class="dv">5</span>),</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"k"</span>, <span class="st">"t"</span>, <span class="dv">1</span>),</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"l"</span>, <span class="st">"t"</span>, <span class="dv">4</span>),</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"m"</span>, <span class="st">"t"</span>, <span class="dv">2</span>),</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>G.add_weighted_edges_from(edges)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co"># for layer, nodes in enumerate(nx.topological_generations(G)):</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co">#     for node in nodes:</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="co">#         G.nodes[node]["layer"] = layer</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> {</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    <span class="st">"s"</span>: (<span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    <span class="st">"a"</span>: (<span class="dv">1</span>, <span class="dv">1</span>),</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    <span class="st">"b"</span>: (<span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    <span class="st">"c"</span>: (<span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>),</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    <span class="st">"d"</span>: (<span class="dv">2</span>, <span class="dv">1</span>),</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    <span class="st">"e"</span>: (<span class="dv">2</span>, <span class="dv">0</span>),</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    <span class="st">"f"</span>: (<span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>),</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    <span class="st">"g"</span>: (<span class="dv">3</span>, <span class="dv">1</span>),</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    <span class="st">"h"</span>: (<span class="dv">3</span>, <span class="dv">0</span>),</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    <span class="st">"i"</span>: (<span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span>),</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    <span class="st">"j"</span>: (<span class="dv">4</span>, <span class="fl">1.5</span>),</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>    <span class="st">"k"</span>: (<span class="dv">4</span>, <span class="fl">0.5</span>),</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    <span class="st">"l"</span>: (<span class="dv">4</span>, <span class="op">-</span><span class="fl">0.5</span>),</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>    <span class="st">"m"</span>: (<span class="dv">4</span>, <span class="op">-</span><span class="fl">1.5</span>),</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>    <span class="st">"t"</span>: (<span class="dv">5</span>, <span class="dv">0</span>),</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>nx.draw(G, pos, with_labels<span class="op">=</span><span class="va">True</span>, node_size<span class="op">=</span><span class="dv">700</span>, node_color<span class="op">=</span><span class="st">"lightblue"</span>, font_size<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>edge_labels <span class="op">=</span> nx.get_edge_attributes(G, <span class="st">"weight"</span>)</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx_edge_labels(</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>    G, pos, edge_labels<span class="op">=</span>edge_labels, label_pos<span class="op">=</span><span class="fl">0.3</span>, font_size<span class="op">=</span><span class="dv">8</span>, rotate<span class="op">=</span><span class="va">False</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="intro_files/figure-html/cell-2-output-1.png" width="691" height="499" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="47ae2808" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>コード</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># find shortest path from s to t</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>source <span class="op">=</span> <span class="st">"s"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>target <span class="op">=</span> <span class="st">"t"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>shortest_path <span class="op">=</span> nx.shortest_path(G, source<span class="op">=</span>source, target<span class="op">=</span>target, weight<span class="op">=</span><span class="st">"weight"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>shortest_path_length <span class="op">=</span> nx.shortest_path_length(</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    G, source<span class="op">=</span>source, target<span class="op">=</span>target, weight<span class="op">=</span><span class="st">"weight"</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>shortest_path, shortest_path_length</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>(['s', 'c', 'f', 'h', 'k', 't'], 11)</code></pre>
+</div>
+</div>
+<p><span class="math display">\[\begin{align*}
+d(s) &amp;= \min \{ w(s, a) + d(a), w(s, b) + d(b), w(s, c) + d(c) \} \\
+     &amp;= \min \{ 5 + 8, 6 + 7, 4 + 7 \} \\
+     &amp;= \min \{ 13, 13, 11 \} \\
+     &amp;= 11
+\end{align*}\]</span></p>
+</div>
+<p>動的計画法による最短路問題の解法を以下に示す。</p>
+<div id="alg-dp-spp" class="theorem algorithm">
+<p><span class="theorem-title"><strong>Algorithm 12.1</strong></span> &nbsp;</p>
+<ul>
+<li><strong>Input</strong>: 有向グラフ <span class="math inline">\(G = (V, E)\)</span>，重み関数 <span class="math inline">\(w: E \to \mathbb{R}_{\geq 0}\)</span>，始点 <span class="math inline">\(s \in V\)</span>，終点 <span class="math inline">\(t \in V\)</span><br>
+</li>
+<li><strong>Output</strong>: <span class="math inline">\(s\)</span> から <span class="math inline">\(t\)</span> への最短路の長さ <span class="math inline">\(d(s)\)</span></li>
+</ul>
+<ol type="1">
+<li><span class="math inline">\(d(t) \leftarrow 0\)</span></li>
+<li><span class="math inline">\(d(v) \leftarrow \infty\)</span> for all <span class="math inline">\(v \in V \setminus \{ t \}\)</span></li>
+<li>段階 <span class="math inline">\(k \leftarrow n\)</span></li>
+<li>while <span class="math inline">\(k \geq 0\)</span> do
+<ol type="1">
+<li>for each <span class="math inline">\(v \in D_k\)</span> do
+<ol type="1">
+<li><span class="math inline">\(d(v) \leftarrow \min_{u \in \mathcal{P}(v)} \{ w(v, u) + d(u) \}\)</span></li>
+</ol></li>
+<li><span class="math inline">\(k \leftarrow k - 1\)</span></li>
+</ol></li>
+<li>return <span class="math inline">\(d(s)\)</span></li>
+</ol>
+</div>
+<p>まず，<span class="math inline">\(d(t) = 0\)</span> とし，第 4 段の点 <span class="math inline">\(j\)</span>，<span class="math inline">\(k\)</span>，<span class="math inline">\(l\)</span>，<span class="math inline">\(m\)</span> について，<span class="math inline">\(d(j)\)</span>，<span class="math inline">\(d(k)\)</span>，<span class="math inline">\(d(l)\)</span>，<span class="math inline">\(d(m)\)</span> を計算する。</p>
+<p><span class="math display">\[\begin{align*}
+d(j) &amp;= \min \{ w(j, t) + d(t) \} = \min \{ 5 + 0 \} = 5 \\
+d(k) &amp;= \min \{ w(k, t) + d(t) \} = \min \{ 1 + 0 \} = 1 \\
+d(l) &amp;= \min \{ w(l, t) + d(t) \} = \min \{ 4 + 0 \} = 4 \\
+d(m) &amp;= \min \{ w(m, t) + d(t) \} = \min \{ 2 + 0 \} = 2 \\
+\end{align*}\]</span></p>
+<p>次に，第 3 段の点 <span class="math inline">\(g\)</span>，<span class="math inline">\(h\)</span>，<span class="math inline">\(i\)</span> について，<span class="math inline">\(d(g)\)</span>，<span class="math inline">\(d(h)\)</span>，<span class="math inline">\(d(i)\)</span> を計算する。</p>
+<p><span class="math display">\[\begin{align*}
+d(g) &amp;= \min \{ w(g, j) + d(j), w(g, k) + d(k) \} = \min \{ 4 + 5, 2 + 1 \} = \min \{ 9, 3 \} = 3 \\
+d(h) &amp;= \min \{ w(h, k) + d(k), w(h, l) + d(l) \} = \min \{ 3 + 1, 2 + 4 \} = \min \{ 4, 6 \} = 4 \\
+d(i) &amp;= \min \{ w(i, l) + d(l), w(i, m) + d(m) \} = \min \{ 4 + 4, 3 + 2 \} = \min \{ 8, 5 \} = 5 \\
+\end{align*}\]</span></p>
+<p>第 2 段の点 <span class="math inline">\(d\)</span>，<span class="math inline">\(e\)</span>，<span class="math inline">\(f\)</span> について，<span class="math inline">\(d(d)\)</span>，<span class="math inline">\(d(e)\)</span>，<span class="math inline">\(d(f)\)</span> を計算する。</p>
+<p><span class="math display">\[\begin{align*}
+d(d) &amp;= \min \{ w(d, g) + d(g), w(d, h) + d(h) \} = \min \{ 7 + 3, 2 + 4 \} = \min \{ 10, 6 \} = 6 \\
+d(e) &amp;= \min \{ w(e, h) + d(h), w(e, i) + d(i) \} = \min \{ 1 + 4, 3 + 5 \} = \min \{ 5, 8 \} = 5 \\
+d(f) &amp;= \min \{ w(f, h) + d(h), w(f, i) + d(i) \} = \min \{ 2 + 4, 2 + 5 \} = \min \{ 6, 7 \} = 6 \\
+\end{align*}\]</span></p>
+<p>第 1 段の点 <span class="math inline">\(a\)</span>，<span class="math inline">\(b\)</span>，<span class="math inline">\(c\)</span> について，<span class="math inline">\(d(a)\)</span>，<span class="math inline">\(d(b)\)</span>，<span class="math inline">\(d(c)\)</span> を計算する。</p>
+<p><span class="math display">\[\begin{align*}
+d(a) &amp;= \min \{ w(a, d) + d(d), w(a, e) + d(e) \} = \min \{ 2 + 6, 5 + 5 \} = \min \{ 8, 10 \} = 8 \\
+d(b) &amp;= \min \{ w(b, d) + d(d), w(b, e) + d(e) \} = \min \{ 1 + 6, 3 + 5 \} = \min \{ 7, 8 \} = 7 \\
+d(c) &amp;= \min \{ w(c, e) + d(e), w(c, f) + d(f) \} = \min \{ 4 + 5, 1 + 6 \} = \min \{ 9, 7 \} = 7 \\
+\end{align*}\]</span></p>
+<p>最後に，始点 <span class="math inline">\(s\)</span> について，<span class="math inline">\(d(s)\)</span> を計算する。</p>
+<p><span class="math display">\[\begin{align*}
+d(s) &amp;= \min \{ w(s, a) + d(a), w(s, b) + d(b), w(s, c) + d(c) \} \\
+     &amp;= \min \{ 5 + 8, 6 + 7, 4 + 7 \} \\
+     &amp;= \min \{ 13, 13, 11 \} \\
+     &amp;= 11
+\end{align*}\]</span></p>
+<p>最短路 <span class="math inline">\(P^*\)</span> は，<span class="math inline">\(d(s)\)</span> の計算過程を逆にたどることで求めることができる。点 <span class="math inline">\(v\)</span> に対して，次の点 <span class="math inline">\(u\)</span> を</p>
+<p><span class="math display">\[
+u = \arg\min_{u' \in \mathcal{P}(v)} \{ w(v, u') + d(u') \}
+\]</span></p>
+<p>と定義する。始点 <span class="math inline">\(s\)</span> から始めて，次の点を順にたどることで，最短路 <span class="math inline">\(P^*\)</span> を構築できる。この問題において，最短路は <span class="math inline">\(P^* = (s, c, f, h, k, t)\)</span> であり，その長さは 11 である。</p>
+</section>
+<section id="ナップサック問題" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="ナップサック問題"><span class="header-section-number">12.2</span> ナップサック問題</h2>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
