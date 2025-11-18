@@ -1,3 +1,143 @@
-# 動的計画法
+---
+title: 動的計画法
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
 
 <!-- Taha hillier algorithm intro -->
+
+
+> **Principle of Optimality**: An optimal policy has the property that whatever the initial state and initial decision are, the remaining decisions must constitute an optimal policy with regard to the state resulting from the first decision. 
+>
+> **最適性の原理**（Principle of Optimality）：最適な方策は、初期状態と初期決定がどんなものであれ、その結果得られる次の状態に関して、以降の決定が必ず最適方策になっているという性質をもつ。
+> 
+> -- Richard Bellman, 1957
+
+## 最短路問題
+
+下の図のような多階層の有向グラフ $G = (V, E)$ が与えられているとする。各辺 $(v, u) \in E$ に非負の重み $w(v, u)$ が与えられている。始点 $s$ から終点 $t$ への最短路を求める問題を考える。
+
+```{python}
+import networkx as nx
+import matplotlib.pyplot as plt
+
+G = nx.DiGraph()
+edges = [
+    ("s", "a", 5),
+    ("s", "b", 6),
+    ("s", "c", 4),
+    ("a", "d", 2),
+    ("a", "e", 5),
+    ("b", "d", 1),
+    ("b", "e", 3),
+    ("c", "e", 4),
+    ("c", "f", 1),
+    ("d", "g", 7),
+    ("d", "h", 2),
+    ("e", "h", 1),
+    ("e", "i", 3),
+    ("f", "h", 2),
+    ("f", "i", 2),
+    ("g", "j", 4),
+    ("g", "k", 2),
+    ("h", "k", 3),
+    ("h", "l", 2),
+    ("i", "l", 4),
+    ("i", "m", 3),
+    ("j", "t", 5),
+    ("k", "t", 1),
+    ("l", "t", 4),
+    ("m", "t", 2),
+]
+G.add_weighted_edges_from(edges)
+
+# for layer, nodes in enumerate(nx.topological_generations(G)):
+#     for node in nodes:
+#         G.nodes[node]["layer"] = layer
+
+pos = {
+    "s": (0, 0),
+    "a": (1, 1),
+    "b": (1, 0),
+    "c": (1, -1),
+    "d": (2, 1),
+    "e": (2, 0),
+    "f": (2, -1),
+    "g": (3, 1),
+    "h": (3, 0),
+    "i": (3, -1),
+    "j": (4, 1.5),
+    "k": (4, 0.5),
+    "l": (4, -0.5),
+    "m": (4, -1.5),
+    "t": (5, 0),
+}
+
+nx.draw(G, pos, with_labels=True, node_size=700, node_color="lightblue", font_size=10)
+edge_labels = nx.get_edge_attributes(G, "weight")
+nx.draw_networkx_edge_labels(
+    G, pos, edge_labels=edge_labels, label_pos=0.3, font_size=8, rotate=False
+)
+plt.show()
+```
+
+```{python}
+# find shortest path from a to t
+source = "c"
+target = "t"
+shortest_path = nx.shortest_path(G, source=source, target=target, weight="weight")
+shortest_path_length = nx.shortest_path_length(
+    G, source=source, target=target, weight="weight"
+)
+shortest_path, shortest_path_length
+```
+
+点 $v$ から点 $t$ までの最短路の長さを $d(v)$ とする。特に、$d(t) = 0$ と定義する。任意の点 $v$ について、点 $v$ から出る各辺 $(v, u)$ に対して、$d(u)$ は既に計算されているとする。
+このとき、点 $v$ から点 $t$ までの最短路の長さ $d(v)$ は次のように計算できる。
+
+$$
+d(v) = \min_{(v, u) \in E} \{ w(v, u) + d(u) \}
+$$
+
+点 $v$ から点 $t$ までの最短路の長さ $d(v)$ は、点 $v$ から出る各辺 $(v, u)$ に対して、辺の重み $w(v, u)$ と点 $u$ から点 $t$ までの最短路の長さ $d(u)$ の和の最小値として計算できる。
+
+:::{#exm-dp-spp-1}
+
+以下のように，$d(a)$，$d(b)$，$d(c)$ が与えられたとき，$d(s)$ を計算せよ。
+
+- $d(a) = 8$
+- $d(b) = 7$
+- $d(c) = 7$
+
+\begin{align*}
+d(s) &= \min \{ w(s, a) + d(a), w(s, b) + d(b), w(s, c) + d(c) \} \\
+     &= \min \{ 5 + 8, 6 + 7, 4 + 7 \} \\
+     &= \min \{ 13, 13, 11 \} \\
+     &= 11
+\end{align*}
+:::
+
+この関係式を用いて、始点 $s$ から終点 $t$ までの最短路の長さ $d(s)$ を計算する手続きを考える。まず、終点 $t$ について、$d(t) = 0$ と定義する。次に、点 $t$ に直接つながる点について、上の関係式を用いて $d(v)$ を計算する。この操作を繰り返し、始点 $s$ まで到達したときに、$d(s)$ が求まる。
+
+まず，点 $j$，$k$，$l$，$m$ について，$d(j)$，$d(k)$，$d(l)$，$d(m)$ を計算する。
+
+\begin{align*}
+d(j) &= \min \{ w(j, t) + d(t) \} = \min \{ 5 + 0 \} = 5 \\
+d(k) &= \min \{ w(k, t) + d(t) \} = \min \{ 1 + 0 \} = 1 \\
+d(l) &= \min \{ w(l, t) + d(t) \} = \min \{ 4 + 0 \} = 4 \\
+d(m) &= \min \{ w(m, t) + d(t) \} = \min \{ 2 + 0 \} = 2 \\
+\end{align*}
+
+次に，点 $g$，$h$，$i$ について，$d(g)$，$d(h)$，$d(i)$ を計算する。
+
+\begin{align*}
+d(g) &= \min \{ w(g, j) + d(j), w(g, k) + d(k) \} = \min \{ 7 + 5, 2 + 1 \} = \min \{ 12, 3 \} = 3 \\
+d(h) &= \min \{ w(h, k) + d(k), w(h, l) + d(l) \} = \min \{ 3 + 1, 2 + 4 \} = \min \{ 4, 6 \} = 4 \\
+d(i) &= \min \{ w(i, l) + d(l), w(i, m) + d(m) \} = \min \{ 4 + 4, 3 + 2 \} = \min \{ 8, 5 \} = 5 \\
+\end{align*}
+
+このようにして，始点 $s$ まで到達したときに，$d(s)$ を求める。
+
+## ナップサック問題
