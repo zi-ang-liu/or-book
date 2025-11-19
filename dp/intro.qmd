@@ -199,8 +199,10 @@ def dp_shortest_path(G):
     return d["s"]
 
 
-shortest_path_length_dp = dp_shortest_path(G)
-shortest_path_length_dp
+if __name__ == "__main__":
+
+    shortest_path_length_dp = dp_shortest_path(G)
+    print(shortest_path_length_dp)
 ```
 
 まず，$d(t) = 0$ とし，第 4 段の点 $j$，$k$，$l$，$m$ について，$d(j)$，$d(k)$，$d(l)$，$d(m)$ を計算する。
@@ -305,6 +307,49 @@ v_{i+1}(w) & \text{if } w_i > w \\
 $$
 
 まず，$v_{n+1}(w) = 0$ を設定し，次に $i = n, n-1, \ldots, 1$ の順に $v_i(w)$ を計算する。最終的に，$v_1(W)$ が最適値となる。
+
+:::{#alg-dp-knapsack}
+
+- **Input**: 品物の集合 $I = \{ 1, 2, \ldots, n \}$，品物 $i$ の重量 $w_i$，品物 $i$ の価値 $v_i$，ナップサックの容量 $W$  
+- **Output**: 最適値 $v_1(W)$
+
+1. for all $w = 0, 1, \ldots, W$ do
+    1. $v_{n+1}(w) \leftarrow 0$
+2. for $i = n, n-1, \ldots, 1$ do
+    1. for all $w = 0, 1, \ldots, W$ do
+        1. if $w_i > w$ then
+            1. $v_i(w) \leftarrow v_{i+1}(w)$
+        2. else
+            1. $v_i(w) \leftarrow \max \{ v_{i+1}(w), v_{i+1}(w - w_i) + v_i \}$
+3. return $v_1(W)$
+:::
+
+```{python}
+# | code-fold: false
+
+
+def dp_knapsack(weights, values, W):
+    n = len(weights)
+    # Initialize value table
+    v = [[0 for _ in range(W + 1)] for _ in range(n + 2)]
+
+    # Fill the table in reverse order
+    for i in range(n, 0, -1):
+        for w in range(W + 1):
+            if weights[i - 1] > w:
+                v[i][w] = v[i + 1][w]
+            else:
+                v[i][w] = max(v[i + 1][w], v[i + 1][w - weights[i - 1]] + values[i - 1])
+    return v[1][W]
+
+
+if __name__ == "__main__":
+    weights = [12, 2, 1, 1]
+    values = [4, 2, 1, 2]
+    W = 15
+    optimal_value = dp_knapsack(weights, values, W)
+    print(optimal_value)  # Output: 8
+```
 
 容量 $W = 2$ のときの計算過程を以下に示す。
 
