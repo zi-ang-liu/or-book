@@ -669,6 +669,9 @@ window.Quarto = {
 <li>…</li>
 </ul>
 <p>さらに，現在では，強化学習の基礎理論としても重要な役割を果たしている．</p>
+<!-- :::{.callout-note}
+知能システム研究室では，動的計画法の考え方を用い，AIエージェントを開発し，在庫管理，経路計画，ロボット制御，ビデオゲームなどの分野で応用している．
+::: -->
 <p>ここでは，動的計画法の基本的な考え方を理解するために，<strong>最短路問題</strong>（shortest path problem）と<strong>ナップサック問題</strong>（knapsack problem）を取り上げる．</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -702,7 +705,7 @@ d(v) = \min_{u \in \mathcal{P}(v)} \{ w(v, u) + d(u) \}
 <li><span class="math inline">\(d(b) = 7\)</span></li>
 <li><span class="math inline">\(d(c) = 7\)</span></li>
 </ul>
-<div id="c7d8bedc" class="cell" data-execution_count="1">
+<div id="4fbb0720" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
@@ -775,7 +778,7 @@ d(v) = \min_{u \in \mathcal{P}(v)} \{ w(v, u) + d(u) \}
 </div>
 </div>
 </div>
-<div id="c4c317d4" class="cell" data-execution_count="2">
+<div id="55aa2a5a" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># find shortest path from s to t</span></span>
@@ -821,7 +824,7 @@ d(s) &amp;= \min \{ w(s, a) + d(a), w(s, b) + d(b), w(s, c) + d(c) \} \\
 <li>return <span class="math inline">\(d(s)\)</span></li>
 </ol>
 </div>
-<div id="5d261601" class="cell" data-execution_count="3">
+<div id="0f9f566c" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dp_shortest_path(G):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initialize distances</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> {v: <span class="bu">float</span>(<span class="st">"inf"</span>) <span class="cf">for</span> v <span class="kw">in</span> G.nodes()}</span>
@@ -839,9 +842,11 @@ d(s) &amp;= \min \{ w(s, a) + d(a), w(s, b) + d(b), w(s, c) + d(c) \} \\
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> d[<span class="st">"s"</span>]</span>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>shortest_path_length_dp <span class="op">=</span> dp_shortest_path(G)</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>shortest_path_length_dp</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    shortest_path_length_dp <span class="op">=</span> dp_shortest_path(G)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(shortest_path_length_dp)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
 <pre><code>11</code></pre>
 </div>
 </div>
@@ -948,6 +953,61 @@ v_{i+1}(w) &amp; \text{if } w_i &gt; w \\
 \end{cases}
 \]</span></p>
 <p>まず，<span class="math inline">\(v_{n+1}(w) = 0\)</span> を設定し，次に <span class="math inline">\(i = n, n-1, \ldots, 1\)</span> の順に <span class="math inline">\(v_i(w)\)</span> を計算する。最終的に，<span class="math inline">\(v_1(W)\)</span> が最適値となる。</p>
+<div id="alg-dp-knapsack" class="theorem algorithm">
+<p><span class="theorem-title"><strong>Algorithm 12.2</strong></span> &nbsp;</p>
+<ul>
+<li><strong>Input</strong>: 品物の集合 <span class="math inline">\(I = \{ 1, 2, \ldots, n \}\)</span>，品物 <span class="math inline">\(i\)</span> の重量 <span class="math inline">\(w_i\)</span>，品物 <span class="math inline">\(i\)</span> の価値 <span class="math inline">\(v_i\)</span>，ナップサックの容量 <span class="math inline">\(W\)</span><br>
+</li>
+<li><strong>Output</strong>: 最適値 <span class="math inline">\(v_1(W)\)</span></li>
+</ul>
+<ol type="1">
+<li>for all <span class="math inline">\(w = 0, 1, \ldots, W\)</span> do
+<ol type="1">
+<li><span class="math inline">\(v_{n+1}(w) \leftarrow 0\)</span></li>
+</ol></li>
+<li>for <span class="math inline">\(i = n, n-1, \ldots, 1\)</span> do
+<ol type="1">
+<li>for all <span class="math inline">\(w = 0, 1, \ldots, W\)</span> do
+<ol type="1">
+<li>if <span class="math inline">\(w_i &gt; w\)</span> then
+<ol type="1">
+<li><span class="math inline">\(v_i(w) \leftarrow v_{i+1}(w)\)</span></li>
+</ol></li>
+<li>else
+<ol type="1">
+<li><span class="math inline">\(v_i(w) \leftarrow \max \{ v_{i+1}(w), v_{i+1}(w - w_i) + v_i \}\)</span></li>
+</ol></li>
+</ol></li>
+</ol></li>
+<li>return <span class="math inline">\(v_1(W)\)</span></li>
+</ol>
+</div>
+<div id="2c67ab1a" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dp_knapsack(weights, values, W):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(weights)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initialize value table</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    v <span class="op">=</span> [[<span class="dv">0</span> <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(W <span class="op">+</span> <span class="dv">1</span>)] <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(n <span class="op">+</span> <span class="dv">2</span>)]</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Fill the table in reverse order</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> w <span class="kw">in</span> <span class="bu">range</span>(W <span class="op">+</span> <span class="dv">1</span>):</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> weights[i <span class="op">-</span> <span class="dv">1</span>] <span class="op">&gt;</span> w:</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>                v[i][w] <span class="op">=</span> v[i <span class="op">+</span> <span class="dv">1</span>][w]</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>                v[i][w] <span class="op">=</span> <span class="bu">max</span>(v[i <span class="op">+</span> <span class="dv">1</span>][w], v[i <span class="op">+</span> <span class="dv">1</span>][w <span class="op">-</span> weights[i <span class="op">-</span> <span class="dv">1</span>]] <span class="op">+</span> values[i <span class="op">-</span> <span class="dv">1</span>])</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> v[<span class="dv">1</span>][W]</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    weights <span class="op">=</span> [<span class="dv">12</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>]</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    values <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>]</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    W <span class="op">=</span> <span class="dv">15</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    optimal_value <span class="op">=</span> dp_knapsack(weights, values, W)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(optimal_value)  <span class="co"># Output: 8</span></span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>8</code></pre>
+</div>
+</div>
 <p>容量 <span class="math inline">\(W = 2\)</span> のときの計算過程を以下に示す。</p>
 <p><span class="math inline">\(v_5(w) = 0, \forall w\)</span> であり，次に <span class="math inline">\(i = 4\)</span> について，</p>
 <p><span class="math display">\[\begin{align*}
