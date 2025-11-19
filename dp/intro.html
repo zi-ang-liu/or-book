@@ -655,7 +655,7 @@ window.Quarto = {
 </div>
 <div class="callout-body-container callout-body">
 <p>動的計画法を algorithmic paradigm の一つとして扱う場合もあるが，本書では最適化手法として説明する．</p>
-<p>大学では，情報，制御，経営工学など，様々な分野で動的計画法が教えられている．</p>
+<p>大学では，情報，制御工学，経営工学など，様々な分野で動的計画法が教えられている．</p>
 </div>
 </div>
 <p>多段階決定過程は，複数の段階にわたって行われる一連の意思決定を行う問題である．各段階 <span class="math inline">\(t\)</span> において，意思決定者は現在の<strong>状態</strong>を観測し，意思決定を行う．その意思決定は，将来の状態に影響を与える．目的として，状態に関するある目的関数を最小化（または最大化）することである．動的計画法は，多段階決定過程における<strong>最適方策</strong>（optimal policy）を求めるための一般的な手法である．</p>
@@ -705,7 +705,7 @@ d(v) = \min_{u \in \mathcal{P}(v)} \{ w(v, u) + d(u) \}
 <li><span class="math inline">\(d(b) = 7\)</span></li>
 <li><span class="math inline">\(d(c) = 7\)</span></li>
 </ul>
-<div id="4fbb0720" class="cell" data-execution_count="1">
+<div id="06b4496c" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
@@ -778,7 +778,7 @@ d(v) = \min_{u \in \mathcal{P}(v)} \{ w(v, u) + d(u) \}
 </div>
 </div>
 </div>
-<div id="55aa2a5a" class="cell" data-execution_count="2">
+<div id="2ded07bd" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># find shortest path from s to t</span></span>
@@ -824,7 +824,7 @@ d(s) &amp;= \min \{ w(s, a) + d(a), w(s, b) + d(b), w(s, c) + d(c) \} \\
 <li>return <span class="math inline">\(d(s)\)</span></li>
 </ol>
 </div>
-<div id="0f9f566c" class="cell" data-execution_count="3">
+<div id="d811112a" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dp_shortest_path(G):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initialize distances</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> {v: <span class="bu">float</span>(<span class="st">"inf"</span>) <span class="cf">for</span> v <span class="kw">in</span> G.nodes()}</span>
@@ -937,14 +937,14 @@ d(v) = \max_{u \in \mathcal{P}(v)} \{ w(v, u) + d(u) \}
 </table>
 <p><span class="math inline">\(\mathbf{x} = (x_1, x_2, x_3, x_4)\)</span> とすると，最適解は <span class="math inline">\(\mathbf{x^*} = (1, 1, 0, 1)\)</span> であり，価値の総和は 8 である。</p>
 </div>
-<p>品物 <span class="math inline">\(1, 2, \ldots, n\)</span> を取るか取らないかを順に決定していく多段階決定過程として 0/1 ナップサック問題を定式化できる。</p>
-<ul>
-<li>段階 <span class="math inline">\(i\)</span> において，品物 <span class="math inline">\(i\)</span> を取るか取らないかを決定する。</li>
-<li>利用可能な容量を <span class="math inline">\(w\)</span> とする。</li>
-<li><span class="math inline">\(v_i(w)\)</span> を，品物 <span class="math inline">\(i, i+1, \ldots, n\)</span> から利用可能な容量 <span class="math inline">\(w\)</span> の範囲で選んだときの最大価値の総和とする。</li>
-<li><span class="math inline">\(v_{n+1}(w) = 0, \forall w\)</span> とする。</li>
-</ul>
-<p>以下の再帰方程式により，<span class="math inline">\(v_i(w)\)</span> を計算できる。</p>
+<p>品物 <span class="math inline">\(1, 2, \ldots, n\)</span> を取るか取らないかを順に決定していく多段階決定過程として 0/1 ナップサック問題を定式化できる。段階 <span class="math inline">\(i\)</span> において，品物 <span class="math inline">\(i\)</span> を取るか取らないかを決定する。<span class="math inline">\(v_i(w)\)</span> を，品物 <span class="math inline">\(i, i+1, \ldots, n\)</span> から選んで，利用可能な容量が <span class="math inline">\(w\)</span> のときの最大価値と定義する。すなわち，<span class="math inline">\(v_i(w)\)</span> は，以下の最適化問題の最適値である。</p>
+<p><span class="math display">\[\begin{align*}
+\text{maximize} \quad &amp; \sum_{j = i}^{n} v_j x_j \\
+\text{subject to} \quad &amp; \sum_{j = i}^{n} w_j x_j \leq w \\
+&amp; x_j \in \{ 0, 1 \} \quad \forall j = i, i+1, \ldots, n
+\end{align*}\]</span></p>
+<p><span class="math inline">\(\mathbf{x^*} = (x_1, x_2, \ldots, x_n)\)</span> は最適解であれば，<span class="math inline">\((x_i, x_{i+1}, \ldots, x_n)\)</span> は，利用可能な容量が <span class="math inline">\(W - \sum_{j=1}^{i-1} w_j x_j\)</span> のときの品物 <span class="math inline">\(i, i+1, \ldots, n\)</span> に対する最適解である。これは，もし <span class="math inline">\((x_i, x_{i+1}, \ldots, x_n)\)</span> が最適解でないとすると，より価値の高い解が存在し，<span class="math inline">\(\mathbf{x^*}\)</span> も最適解でなくなるためである。</p>
+<p>以上の性質により，<span class="math inline">\(v_i(w)\)</span> は以下の再帰式で与えられる。</p>
 <p><span class="math display">\[
 v_i(w) =
 \begin{cases}
@@ -952,7 +952,22 @@ v_{i+1}(w) &amp; \text{if } w_i &gt; w \\
 \max \{ v_{i+1}(w), v_{i+1}(w - w_i) + v_i \} &amp; \text{if } w_i \leq w
 \end{cases}
 \]</span></p>
-<p>まず，<span class="math inline">\(v_{n+1}(w) = 0\)</span> を設定し，次に <span class="math inline">\(i = n, n-1, \ldots, 1\)</span> の順に <span class="math inline">\(v_i(w)\)</span> を計算する。最終的に，<span class="math inline">\(v_1(W)\)</span> が最適値となる。</p>
+<p>また，<span class="math inline">\(n+1\)</span> 段階目では品物が存在しないため，すべての容量 <span class="math inline">\(w\)</span> に対して <span class="math inline">\(v_{n+1}(w) = 0\)</span> となる。</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+ヒント
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(v_{i+1}(w)\)</span> は，すべての <span class="math inline">\(w = 0, 1, \ldots, W\)</span> に対して，品物 <span class="math inline">\(i+1, i+2, \ldots, n\)</span> から選んで利用可能な容量が <span class="math inline">\(w\)</span> のときの最大価値を表す。これを用いて，<span class="math inline">\(v_i(w), \forall w = 0, 1, \ldots, W\)</span> を計算する。最適性の原理により，<span class="math inline">\(v_i(w)\)</span> は部分問題の最適値である。</p>
+<p>品物 <span class="math inline">\(i\)</span> の重量 <span class="math inline">\(w_i\)</span> が利用可能な容量 <span class="math inline">\(w\)</span> を超える場合，品物 <span class="math inline">\(i\)</span> は取れないため，<span class="math inline">\(v_i(w) = v_{i+1}(w)\)</span> となる。</p>
+<p><span class="math inline">\(w_i \leq w\)</span> の場合，品物 <span class="math inline">\(i\)</span> を取らない場合と取る場合のうち，価値の高い方を選ぶ．ただし，品物 <span class="math inline">\(i\)</span> を取る場合は，利用可能な容量が <span class="math inline">\(w - w_i\)</span> になり，価値が <span class="math inline">\(v_i\)</span> 増加する．</p>
+</div>
+</div>
 <div id="alg-dp-knapsack" class="theorem algorithm">
 <p><span class="theorem-title"><strong>Algorithm 12.2</strong></span> &nbsp;</p>
 <ul>
@@ -982,7 +997,7 @@ v_{i+1}(w) &amp; \text{if } w_i &gt; w \\
 <li>return <span class="math inline">\(v_1(W)\)</span></li>
 </ol>
 </div>
-<div id="2c67ab1a" class="cell" data-execution_count="4">
+<div id="6936d756" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dp_knapsack(weights, values, W):</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(weights)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initialize value table</span></span>
@@ -1046,7 +1061,7 @@ v_1(2) &amp;= v_2(2) = 3 \\
 <h2 data-number="12.3" class="anchored" data-anchor-id="ベルマン方程式確定的場合"><span class="header-section-number">12.3</span> ベルマン方程式（確定的場合）*</h2>
 <p>動的計画法における最適性の原理は，<strong>ベルマン方程式</strong>（Bellman equation）として知られる再帰方程式により表現される。状態 <span class="math inline">\(s\)</span> におけるの価値関数 <span class="math inline">\(v(s)\)</span> は，以下のように定義される。</p>
 <p><span class="math display">\[
-v(s) = \max_{a \in A(s)} \{ R(s, a) + \gamma V^*(s') \}
+v(s) = \max_{a \in A(s)} \{ r(s, a) + \gamma v(s') \}
 \]</span></p>
 <p>ここで，<span class="math inline">\(A(s)\)</span> は状態 <span class="math inline">\(s\)</span> における可能な行動の集合，<span class="math inline">\(R(s, a)\)</span> は状態 <span class="math inline">\(s\)</span> で行動 <span class="math inline">\(a\)</span> を取ったときの報酬，<span class="math inline">\(\gamma\)</span> は割引率，<span class="math inline">\(s'\)</span> は行動 <span class="math inline">\(a\)</span> を取った後の次の状態である。</p>
 <table class="caption-top table">
