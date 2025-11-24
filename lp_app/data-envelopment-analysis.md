@@ -55,12 +55,5 @@ $$
 1. W. W. Cooper, L. M. Seiford, and J. Zhu, Eds., Handbook on data envelopment analysis, 2nd ed. New York, NY: Springer, 2010.
 2. W. W. Cooper, L. M. Seiford, and K. Tone, Data envelopment analysis: A comprehensive text with models, applications, references and DEA-solver software, 2nd ed. New York, NY: Springer, 2006.
   
-## 
 
-| English                         | Japanese   |
-| ------------------------------- | ---------- |
-| Data Envelopment Analysis (DEA) | 包絡分析法 |
-| Decision Making Unit (DMU)      |            |
-| Reference Set                   |            |
-| Efficient                       |            |
 
