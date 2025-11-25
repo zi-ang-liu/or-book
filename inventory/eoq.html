@@ -484,7 +484,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">線形計画法の応用</span></a>
+ <span class="menu-text">データ包絡分析</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -492,8 +492,14 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lp_app/dea.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">包絡分析法</span></span></a>
+  <a href="../dea/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">はじめに</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../dea/ccr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">CCRモデル</span></span></a>
   </div>
 </li>
       </ul>
@@ -510,7 +516,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../dp/intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">動的計画法</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">動的計画法</span></span></a>
   </div>
 </li>
       </ul>
@@ -527,13 +533,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../queuing/intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">待ち行列とは</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">待ち行列とは</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../queuing/birth-death.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">出生死滅過程</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">出生死滅過程</span></span></a>
   </div>
 </li>
       </ul>
@@ -550,7 +556,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../career/intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">キャリア</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">キャリア</span></span></a>
   </div>
 </li>
       </ul>
@@ -619,7 +625,6 @@ window.Quarto = {
   <li><a href="#他のeoqモデル" id="toc-他のeoqモデル" class="nav-link" data-scroll-target="#他のeoqモデル"><span class="header-section-number">2.5</span> 他のEOQモデル*</a></li>
   <li><a href="#文献案内" id="toc-文献案内" class="nav-link" data-scroll-target="#文献案内"><span class="header-section-number">2.6</span> 文献案内</a></li>
   <li><a href="#練習問題" id="toc-練習問題" class="nav-link" data-scroll-target="#練習問題"><span class="header-section-number">2.7</span> 練習問題</a></li>
-  <li><a href="#解答" id="toc-解答" class="nav-link" data-scroll-target="#解答"><span class="header-section-number">2.8</span> 解答</a></li>
   </ul>
 </nav>
     </div>
@@ -655,7 +660,7 @@ window.Quarto = {
 <li>Constant order sizes. 発注量は一定である。需要率 <span class="math inline">\(d\)</span> が一定であり、在庫量が0のときに発注を行うため、最適発注量も一定である。</li>
 </ol>
 <p>以上の性質から、在庫量の時間的変化は下図のようになる。</p>
-<div id="8386ad97" class="cell" data-execution_count="1">
+<div id="839a99b3" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -802,7 +807,7 @@ T^* = \frac{Q^*}{d} = \sqrt{\frac{2K}{hd}}
 <li><span class="math inline">\(c\)</span> は <span class="math inline">\(Q^*\)</span> に影響しない。購入単価は最適発注量に影響しない。</li>
 </ol>
 <p>次の図は、購入単価を <span class="math inline">\(c = 0\)</span> とするとき、平均コスト <span class="math inline">\(g(Q)\)</span>、発注コスト <span class="math inline">\(\frac{Kd}{Q}\)</span>、保管コスト <span class="math inline">\(\frac{hQ}{2}\)</span> のグラフを示す。</p>
-<div id="01c67382" class="cell" data-execution_count="2">
+<div id="b32293d5" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
@@ -850,7 +855,7 @@ Q^* = \sqrt{\frac{2 \cdot 5000 \cdot 250}{150}}
 <p>Excel では、下記のように計算できる。</p>
 <pre class="excel"><code>=SQRT(2 * 5000 * 250 / 150)</code></pre>
 <p>Python では、次のように<code>eoq(K, d, h)</code> 関数を定義し、最適発注量を計算できる。</p>
-<div id="bf78f13e" class="cell" data-execution_count="3">
+<div id="8e2cb69b" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> eoq(K, d, h):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculate the Economic Order Quantity (EOQ).</span></span>
@@ -924,6 +929,12 @@ r = dL = 250 \times \frac{1}{4} = 62.5
 <div id="exr-eoq-cycle" class="theorem exercise">
 <p><span class="theorem-title"><strong>練習 2.1</strong></span> ある会社は、毎月300個の需要がある商品を取り扱っている。一回の発注量は600個とし、サイクル期間 <span class="math inline">\(T\)</span> を求めよ。</p>
 </div>
+<div id="sol-eoq-cycle" class="proof solution">
+<p><span class="proof-title"><em>解答 2.1</em>. </span>需要率は <span class="math inline">\(d = 300\)</span>、発注量は <span class="math inline">\(Q = 600\)</span> である。したがって、サイクル期間 <span class="math inline">\(T\)</span> は以下のように求められる。</p>
+<p><span class="math display">\[
+T = \frac{Q}{d} = \frac{600}{300} = 2 \text{ヶ月}
+\]</span></p>
+</div>
 <div id="exr-eoq-year" class="theorem exercise">
 <p><span class="theorem-title"><strong>練習 2.2</strong></span> ある工場は、鋼材を毎日16トン消費し、年間250日稼働している。鋼材の購入単価は1トンあたり1100ドル、1回の発注にかかる固定費は5500ドル、保管費は鋼材1トンあたり年間は275ドルである。EOQモデルにより以下を求めよ。</p>
 <ol type="1">
@@ -932,31 +943,24 @@ r = dL = 250 \times \frac{1}{4} = 62.5
 <li>年間平均コスト</li>
 </ol>
 </div>
-</section>
-<section id="解答" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="解答"><span class="header-section-number">2.8</span> 解答</h2>
-<div id="sol-eoq-cycle" class="proof solution">
-<p><span class="proof-title"><em>解答 2.1</em>. </span>需要率は <span class="math inline">\(d = 300\)</span>、発注量は <span class="math inline">\(Q = 600\)</span> である。したがって、サイクル期間 <span class="math inline">\(T\)</span> は以下のように求められる。</p>
-<p><span class="math display">\[
-T = \frac{Q}{d} = \frac{600}{300} = 2 \text{ヶ月}
-\]</span></p>
-</div>
 <div id="sol-eoq-year" class="proof solution">
 <p><span class="proof-title"><em>解答 2.2</em>. </span>需要率は <span class="math inline">\(d = 4000\)</span>、発注費用は <span class="math inline">\(K = 5500\)</span>、保管費用は <span class="math inline">\(h = 275\)</span>、購入単価は <span class="math inline">\(c = 1100\)</span> である。</p>
-<div id="f4b909d0" class="cell" data-execution_count="4">
+<div id="86e410a6" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>コード</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>K <span class="op">=</span> <span class="dv">5500</span>  <span class="co"># Order cost</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> <span class="dv">4000</span>  <span class="co"># Demand rate (units per year)</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="dv">275</span>  <span class="co"># Holding cost (per unit per year)</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="dv">1100</span>  <span class="co"># Purchase cost (per unit)</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>Q_star <span class="op">=</span> np.sqrt(<span class="dv">2</span> <span class="op">*</span> K <span class="op">*</span> d <span class="op">/</span> h)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>T_star <span class="op">=</span> Q_star <span class="op">/</span> d</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>g_avg <span class="op">=</span> (K <span class="op">*</span> d <span class="op">/</span> Q_star) <span class="op">+</span> (c <span class="op">*</span> d) <span class="op">+</span> (h <span class="op">*</span> Q_star <span class="op">/</span> <span class="dv">2</span>)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal Order Quantity (Q*): </span><span class="sc">{</span>Q_star<span class="sc">:.2f}</span><span class="ss"> tons"</span>)</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal Cycle Time (T*): </span><span class="sc">{</span>T_star<span class="sc">:.2f}</span><span class="ss"> years"</span>)</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Average Annual Cost (g(Q*)): </span><span class="sc">{</span>g_avg<span class="sc">:.2f}</span><span class="ss"> dollars"</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>K <span class="op">=</span> <span class="dv">5500</span>  <span class="co"># Order cost</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> <span class="dv">4000</span>  <span class="co"># Demand rate (units per year)</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="dv">275</span>  <span class="co"># Holding cost (per unit per year)</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="dv">1100</span>  <span class="co"># Purchase cost (per unit)</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>Q_star <span class="op">=</span> np.sqrt(<span class="dv">2</span> <span class="op">*</span> K <span class="op">*</span> d <span class="op">/</span> h)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>T_star <span class="op">=</span> Q_star <span class="op">/</span> d</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>g_avg <span class="op">=</span> (K <span class="op">*</span> d <span class="op">/</span> Q_star) <span class="op">+</span> (c <span class="op">*</span> d) <span class="op">+</span> (h <span class="op">*</span> Q_star <span class="op">/</span> <span class="dv">2</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal Order Quantity (Q*): </span><span class="sc">{</span>Q_star<span class="sc">:.2f}</span><span class="ss"> tons"</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal Cycle Time (T*): </span><span class="sc">{</span>T_star<span class="sc">:.2f}</span><span class="ss"> years"</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Average Annual Cost (g(Q*)): </span><span class="sc">{</span>g_avg<span class="sc">:.2f}</span><span class="ss"> dollars"</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Optimal Order Quantity (Q*): 400.00 tons
