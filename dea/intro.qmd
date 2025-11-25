@@ -1,0 +1,285 @@
+---
+title: はじめに
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
+:::{.callout-tip}
+## 予備知識
+- 線形代数
+- 線形計画法
+:::
+
+<!-- :::{#exm-thinking-experiment}
+### 思考実験
+
+::: -->
+
+**データ包絡分析**（DEA: Data Envelopment Analysis）は，分析対象の効率性を評価するための手法である．DEAでは，分析対象のことを**DMU**（Decision Making Unit）と呼ばれ，複数の**入力**（input）から複数の**出力**（output）への変換を行うものである．
+
+下の表は，いくつかのDMUの例を示している．
+
+|DMU|入力|出力|
+|--|--|--|
+|店舗|店員数，面積|売上高，顧客数|
+|大学|教員数，研究費|卒業生数，論文数，特許数|
+|病院|医師数，看護師数，ベッド数|患者数，手術件数，治癒率|
+
+## 1入力1出力
+
+$n$ 個のDMUがあり，$\text{DMU}_j$ ($j=1,2,\ldots,n$) は1つの入力 $x_j$ と1つの出力 $y_j$ を持つとする．そのとき，$\text{DMU}_j$ の効率性は
+
+$$
+\frac{y_j}{x_j}
+$$
+
+で評価できる．単位入力あたりの出力を表している．この値が大きいほど，効率的であると評価できる．
+
+:::{#exm-one-input-one-output}
+
+### 1入力1出力の問題例
+
+ある会社は，以下の6つの店舗を運営している．効率的である店舗はどれか．
+
+|店舗|A|B|C|D|E|F|
+|--|--|--|--|--|--|--|
+|店員数（$x$）|2|3|3|4|2|5|
+|売上高（$y$）|1|3|2|3|2|2|
+
+$\text{DMU}_j$ の店員数を $x_j$，売上高を $y_j$ とすると，店舗 $j$ の効率性は $y_j/x_j$ で計算できる．結果から，$B, E$ が最も効率的であることがわかる．
+
+```{python}
+import matplotlib.pyplot as plt
+import pandas as pd
+
+data = {
+    "store": ["A", "B", "C", "D", "E", "F"],
+    "employee": [2, 3, 3, 4, 2, 5],
+    "sale": [1, 3, 2, 3, 2, 2],
+}
+df = pd.DataFrame(data)
+df["theta"] = df["sale"] / df["employee"]
+print(df)
+```
+
+横軸に店員数，縦軸に売上高をとって，点 $(x_j, y_j)$ をプロットした散布図を下の図に示す．原点から点 $(x_j, y_j)$ を結ぶ直線の傾きは，$y_j/x_j$ に等しい．
+
+```{python}
+plt.scatter(df["employee"], df["sale"])
+for i in range(len(df)):
+    plt.text(df["employee"][i] + 0.1, df["sale"][i], df["store"][i])
+plt.plot([0, 4], [0, 4], color="red", linestyle="--", label="efficient frontier")
+plt.xlabel("Employee")
+plt.ylabel("Sale")
+plt.xlim(0, 6)
+plt.ylim(0, 4)
+plt.legend()
+plt.grid()
+plt.show()
+```
+
+店舗BとEは，**効率的**（efficient）と言える．また，原点から店舗B（または店舗E）を結ぶ直線を**効率的フロンティア**（efficient frontier）と呼ぶ．
+
+:::
+
+## 2入力1出力
+
+:::{#exm-two-input-one-output}
+### 2入力1出力の問題例
+
+ある会社は，以下の6つの店舗を運営している．効率的である店舗はどれか．
+
+|店舗|A|B|C|D|E|F|
+|--|--|--|--|--|--|--|
+|店員数|4|7|8|4|2|5|
+|面積|3|3|1|2|4|2|
+|売上高|1|1|1|1|1|1|
+
+$\text{DMU}_j$ の店員数を $x_{j}$，面積を $y_{j}$，売上高を $z_{j}$ とする．それぞれの店舗に対して，次の2つの比率を計算する．
+
+$$
+\frac{x_{j}}{z_{j}},\quad \frac{y_{j}}{z_{j}}
+$$
+
+これらの値が小さいほど，効率的であると評価できる．
+
+$x_{j}/z_{j}$ と $y_{j}/z_{j}$ を横軸と縦軸にとった散布図を下の図に示す．
+
+```{python}
+import matplotlib.pyplot as plt
+import pandas as pd
+
+data = {
+    "store": ["A", "B", "C", "D", "E", "F"],
+    "employee": [4, 7, 8, 4, 2, 5],
+    "area": [3, 3, 1, 2, 4, 2],
+    "sale": [1, 1, 1, 1, 1, 1],
+}
+df = pd.DataFrame(data)
+plt.figure(figsize=(8, 6))
+plt.scatter(df["employee"], df["area"])
+for i in range(len(df)):
+    plt.text(df["employee"][i] + 0.1, df["area"][i], df["store"][i])
+plt.plot(
+    [2, 2, 4, 8, 11],
+    [5, 4, 2, 1, 1],
+    color="red",
+    linestyle="--",
+    label="efficient frontier",
+)
+plt.xlabel("Employee/Sale")
+plt.ylabel("Area/Sale")
+plt.xlim(0, 11)
+plt.ylim(0, 5)
+plt.legend()
+plt.grid()
+plt.show()
+```
+
+DEAでは，任意の両点の線分上の点が実現可能であると仮定する．例えば，点 $D$ と点 $E$ を用いて，$(wx_D + (1-w)x_E, wy_D + (1-w)y_E)$ で表される点は，実現可能であると仮定する．
+
+$C, D, E$ は効率的で，これらの点を結ぶ折れ線が効率的フロンティアとなる．
+:::
+
+## 1入力2出力
+
+:::{#exm-one-input-two-output}
+### 1入力2出力の問題例
+ある会社は，以下の6つの店舗を運営している．効率的である店舗はどれか．
+
+|店舗|A|B|C|D|E|F|
+|--|--|--|--|--|--|--|
+|店員数|1 | 1 | 1 | 1 | 1 | 1 |
+|売上高|1 | 2 | 3 | 4 | 4 | 6 |
+|顧客数|5 | 7 | 4 | 3 | 6 | 2 |
+
+$\text{DMU}_j$ の店員数を $x_{j}$，売上高を $y_{j}$，顧客数を $z_{j}$ とする．それぞれの店舗に対して，次の2つの比率を計算する．
+
+$$
+\frac{y_{j}}{x_{j}},\quad \frac{z_{j}}{x_{j}}
+$$
+
+これらの値が大きいほど，効率的であると評価できる．
+
+```{python}
+import matplotlib.pyplot as plt
+import pandas as pd
+
+data = {
+    "store": ["A", "B", "C", "D", "E", "F"],
+    "employee": [1, 1, 1, 1, 1, 1],
+    "sale": [1, 2, 3, 4, 4, 6],
+    "customer": [5, 7, 4, 3, 6, 2],
+}
+df = pd.DataFrame(data)
+plt.figure(figsize=(8, 6))
+plt.scatter(df["sale"], df["customer"])
+for i in range(len(df)):
+    plt.text(df["sale"][i] + 0.1, df["customer"][i], df["store"][i])
+plt.plot(
+    [0, 2, 4, 6, 6],
+    [7, 7, 6, 2, 0],
+    color="red",
+    linestyle="--",
+    label="efficient frontier",
+)
+plt.xlabel("sale/employee")
+plt.ylabel("customer/employee")
+plt.xlim(0, 7)
+plt.ylim(0, 8)
+plt.legend()
+plt.grid()
+plt.show()
+```
+
+店舗B，E，Fは効率的で，これらの点を結ぶ折れ線が効率的フロンティアとなる．
+:::
+
+## 用語集
+
+| English                         | Japanese   |
+| ------------------------------- | ---------- |
+| Data Envelopment Analysis (DEA) | データ包絡分析 |
+| Decision Making Unit (DMU)      |  意思決定主体；意思決定単位  |
+| Reference Set                   | 参照集合     |
+| Efficient                       |   効率的      |
+| Efficient Frontier                |   効率的フロンティア    |
+
+## 練習問題
+
+:::{#exr-dea-intro-1-1}
+### 1入力1出力
+
+次の表のような入力と出力が与えられたとき，効率的なDMUを求めよ．効率性を $[0,1]$ の範囲で評価せよ．
+
+| DMU | A | B | C | D | E |
+|-----|---|---|---|---|---|
+| 入力 | 4 | 7 | 8 | 5 | 6 |
+| 出力 | 2 | 7 | 9 | 4 | 5 |
+
+:::
+
+:::{#sol-exr-dea-intro-1-1}
+```{python}
+import pandas as pd
+
+data = {
+    "DMU": ["A", "B", "C", "D", "E"],
+    "input": [4, 7, 8, 5, 6],
+    "output": [2, 7, 9, 4, 5],
+}
+df = pd.DataFrame(data)
+df["efficiency"] = df["output"] / df["input"]
+print(df)
+```
+:::
+
+:::{#exr-dea-intro-2-1}
+### 2入力1出力
+
+次の表のような入力と出力が与えられたとき，効率的なDMUを求めよ．
+
+| DMU | A | B | C | D | E |
+|-----|---|---|---|---|---|
+| 入力1 | 6 | 6 | 12 | 4 | 15 |
+| 入力2 | 4 | 12 | 9 | 8 | 5 |
+| 出力 | 2 | 6 | 3 | 2 | 5 |
+:::
+
+:::{#sol-exr-dea-intro-2-1}
+下の図より，DMU B，Dが効率的であることがわかる．
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt
+
+data = {
+    "DMU": ["A", "B", "C", "D", "E"],
+    "input1": [6, 6, 12, 4, 15],
+    "input2": [4, 12, 9, 8, 5],
+    "output": [2, 6, 3, 2, 5],
+}
+df = pd.DataFrame(data)
+x = df["input1"] / df["output"]
+y = df["input2"] / df["output"]
+plt.scatter(x, y)
+for i in range(len(df)):
+    plt.text(x[i] + 0.1, y[i], df["DMU"][i])
+# 効率的フロンティアの描画 B-E
+plt.plot(
+    [1, 1, 3, 6],
+    [6, 2, 1, 1],
+    color="red",
+    linestyle="--",
+    label="efficient frontier",
+)
+plt.xlabel("input1/output")
+plt.ylabel("input2/output")
+plt.xlim(0, 6)
+plt.ylim(0, 6)
+plt.grid()
+plt.show()
+```
+:::
+

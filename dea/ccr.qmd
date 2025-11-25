@@ -1,0 +1,549 @@
+---
+title: CCRモデル
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
+CCRモデルは，1978年にCharnes, Cooper, and Rhodesによって提案されたもので，DEAの基本的なモデルである．
+
+$n$ 個のDMUを評価する．各DMUは $m$ 個の入力と $s$ 個の出力を持つとする．$\text{DMU}_j$ ($j=1,2,\ldots,n$) の $i$ 番目の入力を $x_{ij}$，$r$ 番目の出力を $y_{rj}$ と表す．このとき，入力データと出力データはそれぞれ次のような行列で表される．
+
+$$
+\mathbf{X} =
+\begin{pmatrix}
+x_{11} & x_{12} & \cdots & x_{1n} \\
+x_{21} & x_{22} & \cdots & x_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+x_{m1} & x_{m2} & \cdots & x_{mn}
+\end{pmatrix}
+$$
+
+$$
+\mathbf{Y} =
+\begin{pmatrix}
+y_{11} & y_{12} & \cdots & y_{1n} \\
+y_{21} & y_{22} & \cdots & y_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+y_{s1} & y_{s2} & \cdots & y_{sn}
+\end{pmatrix}
+$$
+
+入力の重み $\mathbf{v}$ と出力の重み $\mathbf{u}$ を
+$$
+\mathbf{v} =
+\begin{pmatrix}
+v_1 \\ v_2 \\ \vdots \\ v_m
+\end{pmatrix},\quad
+\mathbf{u} =
+\begin{pmatrix}
+u_1 \\ u_2 \\ \vdots \\ u_s
+\end{pmatrix}
+$$
+
+とし，$\text{DMU}_o$ の効率性 $\theta$ は
+
+$$
+\theta = \frac{\sum_{r=1}^{s} u_r y_{ro}}{\sum_{i=1}^{m} v_i x_{io}} = \frac{u_1 y_{1o} + u_2 y_{2o} + \cdots + u_s y_{so}}{v_1 x_{1o} + v_2 x_{2o} + \cdots + v_m x_{mo}}
+$$
+
+として計算できる．
+
+CCRモデルの考え方は，$\text{DMU}_o$ の効率性を最大化するような重み $\mathbf{u}$ と $\mathbf{v}$ を選ぶことである．$\text{DMU}_o$ は最適な重みを用いたとき，他のDMUとの比較を行う．
+
+### CCRモデルの定式化
+
+CCRモデルは次の分数計画問題として定式化できる．
+
+\begin{align*}
+\text{maximize} \quad & \theta = \frac{\sum_{r=1}^{s} u_r y_{ro}}{\sum_{i=1}^{m} v_i x_{io}} & \\
+\text{subject to} \quad & \frac{\sum_{r=1}^{s} u_r y_{rj}}{\sum_{i=1}^{m} v_i x_{ij}} \leq 1, \quad & \forall j = 1, \ldots, n & \\
+& u_r \geq 0, \quad & \forall r = 1, \ldots, s & \\
+& v_i \geq 0, \quad & \forall i = 1, \ldots, m 
+\end{align*}
+
+この分数計画問題は，$\theta$ を最大化する重み $\mathbf{u}$ と $\mathbf{v}$ を求めるものである．制約条件は，すべてのDMUの効率性が1以下であることを保証している．
+
+:::{.callout-note}
+厳密に，制約条件は
+
+$$
+\frac{u_r}{\sum_{i=1}^{m} v_i x_{io}} \geq \epsilon > 0, \quad \forall r = 1, \ldots, s
+$$
+
+$$
+\frac{v_i}{\sum_{i=1}^{m} v_i x_{io}} \geq \epsilon > 0, \quad \forall i = 1, \ldots, m
+$$
+
+とする必要がある．
+:::
+
+この分数計画問題において，任意の $\alpha > 0$ に対して，$(\mathbf{u}^*, \mathbf{v}^*)$ を最適解とすると，$(\alpha \mathbf{u}^*, \alpha \mathbf{v}^*)$ も最適解となる．
+したがって，この分数計画問題は無限に多くの最適解を持つ．この問題を解決するために，分母を1に固定することで，次の線形計画問題に変換できる．
+
+\begin{align*}
+\text{maximize} \quad & \theta = \sum_{r=1}^{s} u_r y_{ro} & \\
+\text{subject to} \quad & \sum_{i=1}^{m} v_i x_{io} = 1 & \\
+& \sum_{r=1}^{s} u_r y_{rj} - \sum_{i=1}^{m} v_i x_{ij} \leq 0, \quad & \forall j = 1, \ldots, n & \\
+& u_r \geq 0, \quad & \forall r = 1, \ldots, s & \\
+& v_i \geq 0, \quad & \forall i = 1, \ldots, m 
+\end{align*}
+
+:::{#def-dea-ccr}
+1. $\theta^* = 1$ かつ最適解 $\mathbf{u}^* > \mathbf{0}$，$\mathbf{v}^* > \mathbf{0}$ を満たすとき，$\text{DMU}_o$ は効率的である．
+2. $\theta^* < 1$ のとき，$\text{DMU}_o$ は非効率的である．
+:::
+
+$\theta^* < 1$ のとき，少なくとも1つの $j \in \{1,2,\ldots,n\}$ に対して，次の式が成り立つ．
+$$
+\sum_{r=1}^{s} u_r^* y_{rj} - \sum_{i=1}^{m} v_i^* x_{ij} = 0
+$$
+
+そうでなければ，$\theta^*$ を増加させることができる．また，$\theta^* < 1$ から，$j \neq o$ であることがわかる．
+
+正式に，$\text{DMU}_o$ における $\theta^* < 1$ のとき，次の集合を$\text{DMU}_o$ の**参照集合**（reference set）と呼ぶ．
+
+$$
+\mathcal{R}_o = \{ j \mid \sum_{r=1}^{s} u_r^* y_{rj} - \sum_{i=1}^{m} v_i^* x_{ij} = 0 \}
+$$
+
+参照集合 $\mathcal{R}_o$ は，$\text{DMU}_o$ を非効率的にしているDMUの集合である．
+
+
+### PythonによるCCRモデルの実装
+
+以下に，PythonでCCRモデルを解く関数を示す．Gurobiをソルバーとして使用している．
+
+```python
+!pip install gurobipy
+from gurobipy import Model, GRB
+import numpy as np
+
+def ccr(inputs, outputs, dmu_index):
+    num_dmu = inputs.shape[1]
+    num_inputs = inputs.shape[0]
+    num_outputs = outputs.shape[0]
+    model = Model("DEA_CCR")
+    # 変数の定義
+    u = [model.addVar(name=f"u_{r}", lb=0) for r in range(num_outputs)]
+    v = [model.addVar(name=f"v_{i}", lb=0) for i in range(num_inputs)]
+    # 目的関数の定義
+    model.setObjective(
+        sum(u[r] * outputs[r, dmu_index] for r in range(num_outputs)),
+        GRB.MAXIMIZE,
+    )
+    # 制約条件の定義
+    model.addConstr(
+        sum(v[i] * inputs[i, dmu_index] for i in range(num_inputs)) == 1,
+        "input_normalization",
+    )
+    for j in range(num_dmu):
+        model.addConstr(
+            sum(u[r] * outputs[r, j] for r in range(num_outputs))
+            - sum(v[i] * inputs[i, j] for i in range(num_inputs))
+            <= 0,
+            f"theta_constraint_{j}",
+        )
+    # 最適化の実行
+    model.optimize()
+    if model.status == GRB.OPTIMAL:
+        theta = model.objVal
+        output_weights = [u[r].X for r in range(num_outputs)]
+        input_weights = [v[i].X for i in range(num_inputs)]
+        ref_set = []
+        for j in range(num_dmu):
+            constr = model.getConstrByName(f"theta_constraint_{j}")
+            if abs(constr.Slack) == 0:
+                ref_set.append(j)
+        return theta, output_weights, input_weights, ref_set
+    else:
+        return None
+```
+
+`ccr()`関数を用いて，すべてのDMUについてCCRモデルを解く関数を以下に示す．
+
+```python
+def solve_all_ccr(inputs, outputs):
+    inputs = np.atleast_2d(inputs)
+    outputs = np.atleast_2d(outputs)
+
+    num_dmu = inputs.shape[1]
+    dmu_names = [chr(65 + i) for i in range(num_dmu)]
+
+    results = []
+    u_list = []
+    v_list = []
+    ref_sets = []
+
+    for i in range(num_dmu):
+        theta, u_val, v_val, ref_set = ccr(inputs, outputs, i)
+        results.append(theta)
+        u_list.append(u_val)
+        v_list.append(v_val)
+        ref_sets.append([dmu_names[j] for j in ref_set])
+
+    for i in range(num_dmu):
+        name = dmu_names[i]
+        theta = results[i]
+        u_val = u_list[i]
+        v_val = v_list[i]
+        ref_set = ref_sets[i]
+        
+        formatted_u = ", ".join(f"{w:.4f}" for w in u_val)
+        formatted_v = ", ".join(f"{w:.4f}" for w in v_val)
+        formatted_ref_set = ", ".join(ref_set)
+
+        print(f"DMU {name}")
+        print(f"  theta            : {theta:.4f}")
+        print(f"  Output Weights u : [{formatted_u}]")
+        print(f"  Input Weights  v : [{formatted_v}]")
+        print(f"  Reference Set    : [{formatted_ref_set}]")
+        print("-" * 50)
+```
+
+## CCRモデルの例題
+
+### 1入力1出力のCCRモデル
+
+|DMU|A|B|C|D|E|F|
+|--|--|--|--|--|--|--|
+|Input|2|3|3|4|2|5|
+|Output|1|3|2|3|2|2|
+
+入力に対する重みを $v$，出力に対する重みを $u$ とする． $\text{DMU}_A$ の効率性を評価するCCRモデルは次のようになる．
+
+\begin{align*}
+\text{maximize} \quad & u & \\
+\text{subject to} \quad & 2v = 1 & \\
+& u - 2v \leq 0 & (A)\\
+& 3u - 3v \leq 0 & (B)\\
+& 2u - 3v \leq 0 & (C)\\
+& 3u - 4v \leq 0 & (D)\\
+& 2u - 2v \leq 0 & (E)\\
+& 2u - 5v \leq 0 & (F)\\
+& u \geq 0 & \\
+& v \geq 0 &
+\end{align*}
+
+$2v = 1$ より，$v = 0.5$ であるから，この等式を用いて，この線形計画問題は簡単に解ける．最適値は $\theta^* = 0.5$，重みは $u^* = 0.5$，$v^* = 0.5$ である．
+
+$\theta^* = 0.5 < 1$ から，$\text{DMU}_A$ は非効率的であることがわかる．また，$u^*$ と $v^*$ を代入し，制約条件 (B) と (E) が等号で成り立っているため，$\text{DMU}_A$ の参照集合は $\mathcal{R}_A = \{B, E\}$ となる．さらに，
+
+$$
+\theta = \frac{u^* y_A}{v^* x_A} = 0.5
+$$
+
+であるから，$A$ の出力 $y_A$ を 2 倍するか，入力 $x_A$ を 0.5 倍すれば，効率的になることがわかる．
+
+同様にして，すべてのDMUについてCCRモデルを解くと，次の結果が得られる．
+
+```python
+X = np.array([[2, 3, 3, 4, 2, 5]])
+Y = np.array([1, 3, 2, 3, 2, 2])
+solve_all_ccr(X, Y)
+```
+
+```
+DMU A
+  theta            : 0.5000
+  Output Weights u : [0.5000]
+  Input Weights  v : [0.5000]
+  Reference Set    : [B, E]
+--------------------------------------------------
+DMU B
+  theta            : 1.0000
+  Output Weights u : [0.3333]
+  Input Weights  v : [0.3333]
+  Reference Set    : [B, E]
+--------------------------------------------------
+DMU C
+  theta            : 0.6667
+  Output Weights u : [0.3333]
+  Input Weights  v : [0.3333]
+  Reference Set    : [B, E]
+--------------------------------------------------
+DMU D
+  theta            : 0.7500
+  Output Weights u : [0.2500]
+  Input Weights  v : [0.2500]
+  Reference Set    : [B, E]
+--------------------------------------------------
+DMU E
+  theta            : 1.0000
+  Output Weights u : [0.5000]
+  Input Weights  v : [0.5000]
+  Reference Set    : [B, E]
+--------------------------------------------------
+DMU F
+  theta            : 0.4000
+  Output Weights u : [0.2000]
+  Input Weights  v : [0.2000]
+  Reference Set    : [B, E]
+--------------------------------------------------
+```
+
+$\{B, E\}$ が他のDMUの参照集合となっていることもわかる． 
+
+1入力1出力の分数計画問題において，目的関数は
+
+$$
+\frac{u y_o}{v x_o} = \frac{u}{v} \frac{y_o}{x_o}
+$$
+
+となり，$y_o/x_o$ に比例する．したがって，1入力1出力のCCRモデルの最適化問題を解くことは，すべてのDMUについて $y_j/x_j$ を計算し，$[0,1]$ に正規化することと同じである．今回の例題では，DMU BとEの $\theta^*=1$ で最大であるため，$u/v = 1$ となる．
+
+```{python}
+import matplotlib.pyplot as plt
+import pandas as pd
+
+data = {
+    "store": ["A", "B", "C", "D", "E", "F"],
+    "employee": [2, 3, 3, 4, 2, 5],
+    "sale": [1, 3, 2, 3, 2, 2],
+}
+df = pd.DataFrame(data)
+df["theta"] = [0.5, 1.0, 0.67, 0.75, 1.0, 0.4]
+df["u"] = [0.5, 0.33, 0.33, 0.25, 0.5, 0.2]
+df["v"] = [0.5, 0.33, 0.33, 0.25, 0.5, 0.2]
+plt.figure(figsize=(8, 6))
+plt.scatter(df["employee"], df["sale"])
+for i in range(len(df)):
+    plt.text(df["employee"][i] + 0.1, df["sale"][i], df["store"][i])
+plt.plot([0, 6], [0, 6], color="red", linestyle="--", label="efficient frontier")
+plt.xlabel("Employee")
+plt.ylabel("Sale")
+plt.xlim(0, 6)
+plt.ylim(0, 6)
+plt.legend()
+plt.grid()
+plt.show()
+```
+
+### 2入力1出力のCCRモデル
+
+|DMU|A|B|C|D|E|F|
+|--|--|--|--|--|--|--|
+|Input 1|4|7|8|4|2|10|
+|Input 2|3|3|1|2|4|1|
+|Output|1|1|1|1|1|1|
+
+入力1に対する重みを $v_1$，入力2に対する重みを $v_2$，出力に対する重みを $u$ とする． $\text{DMU}_A$ の効率性を評価するCCRモデルは次のようになる．
+
+\begin{align*}
+\text{maximize} \quad & u & \\
+\text{subject to} \quad & 4v_1 + 3v_2 = 1 & \\
+& u - 4v_1 - 3v_2 \leq 0 & (A)\\
+& u - 7v_1 - 3v_2 \leq 0 & (B)\\
+& u - 8v_1 - 1v_2 \leq 0 & (C)\\
+& u - 4v_1 - 2v_2 \leq 0 & (D)\\
+& u - 2v_1 - 4v_2 \leq 0 & (E)\\
+& u - 10v_1 - 1v_2 \leq 0 & (F)\\
+& u \geq 0 & \\
+& v_1 \geq 0 & \\
+& v_2 \geq 0 &
+\end{align*}
+
+ソルバーでこの線形計画問題を解くと，最適値は $\theta^* = 0.8571$，重みは $u^* = 0.8571$，$v_1^* = 0.1429$，$v_2^* = 0.1429$ である．また，$u^*, v_1^*, v_2^*$ を制約条件に代入し，$A$ の参照集合は $\mathcal{R}_A = \{D, E\}$ となる．
+
+<!-- ```{python}
+import matplotlib.pyplot as plt
+import pandas as pd
+
+data = {
+    "DMU": ["A", "B", "C", "D", "E", "F"],
+    "input_1": [4, 7, 8, 4, 2, 10],
+    "input_2": [3, 3, 1, 2, 4, 1],
+    "output": [1, 1, 1, 1, 1, 1],
+}
+opt_weights = {
+    "u": 0.8571,
+    "v_1": 0.1429,
+    "v_2": 0.1429,
+}
+df = pd.DataFrame(data)
+df["x_ratio"] = df["input_1"] / df["output"]
+df["y_ratio"] = df["input_2"] / df["output"]
+plt.figure(figsize=(8, 6))
+plt.scatter(df["x_ratio"], df["y_ratio"])
+for i in range(len(df)):
+    plt.text(df["x_ratio"][i] + 0.1, df["y_ratio"][i], df["DMU"][i])
+plt.xlabel("Input 1 / Output")
+plt.ylabel("Input 2 / Output")
+plt.xlim(0, 12)
+plt.ylim(0, 6)
+plt.grid()
+plt.show()
+``` -->
+
+
+
+<!-- すべてのDMUについてCCRモデルを解くと，次の結果が得られる．
+
+```python
+X = np.array([
+    [4, 7, 8, 4, 2, 10],
+    [3, 3, 1, 2, 4, 1],
+])
+Y = np.array([1, 1, 1, 1, 1, 1])
+solve_all_ccr(X, Y)
+```
+
+```
+DMU A
+  theta            : 0.8571
+  Output Weights u : [0.8571]
+  Input Weights  v : [0.1429, 0.1429]
+  Reference Set    : [D, E]
+--------------------------------------------------
+DMU B
+  theta            : 0.6316
+  Output Weights u : [0.6316]
+  Input Weights  v : [0.0526, 0.2105]
+  Reference Set    : [C, D]
+--------------------------------------------------
+DMU C
+  theta            : 1.0000
+  Output Weights u : [1.0000]
+  Input Weights  v : [0.0000, 1.0000]
+  Reference Set    : [C, F]
+--------------------------------------------------
+DMU D
+  theta            : 1.0000
+  Output Weights u : [1.0000]
+  Input Weights  v : [0.1667, 0.1667]
+  Reference Set    : [D, E]
+--------------------------------------------------
+DMU E
+  theta            : 1.0000
+  Output Weights u : [1.0000]
+  Input Weights  v : [0.5000, 0.0000]
+  Reference Set    : [E]
+--------------------------------------------------
+DMU F
+  theta            : 1.0000
+  Output Weights u : [1.0000]
+  Input Weights  v : [0.0000, 1.0000]
+  Reference Set    : [C, F]
+--------------------------------------------------
+```
+
+複数の最適解を持つ DMUも存在するが，ここでは議論しない． -->
+
+### 2入力2出力のCCRモデル
+
+
+|DMU|A|B|C|D|E|F|G|H|I|J|K|L|
+|--|--|--|--|--|--|--|--|--|--|--|--|--|
+|Input 1|20|19|25|27|22|55|33|31|30|50|53|38|
+|Input 2|151|131|160|168|158|255|235|206|244|268|306|284|
+|Output 1|100|150|160|180|94|230|220|152|190|250|260|250|
+|Output 2|90|50|55|72|66|90|88|80|100|100|147|120|
+
+$\text{DMU}_A$ の効率性を評価するCCRモデルは次のようになる．
+
+\begin{align*}
+\text{maximize} \quad & 100 u_1 + 90 u_2 & \\
+\text{subject to} \quad & 20 v_1 + 151 v_2 = 1 & \\
+& 100 u_1 + 90 u_2 - 20 v_1 - 151 v_2 \leq 0 & \\
+& 150 u_1 + 50 u_2 - 19 v_1 - 131 v_2 \leq 0 & \\
+& 160 u_1 + 55 u_2 - 25 v_1 - 160 v_2 \leq 0 & \\
+& 180 u_1 + 72 u_2 - 27 v_1 - 168 v_2 \leq 0 & \\
+& 94 u_1 + 66 u_2 - 22 v_1 - 158 v_2 \leq 0 & \\
+& 230 u_1 + 90 u_2 - 55 v_1 - 255 v_2 \leq 0 & \\
+& 220 u_1 + 88 u_2 - 33 v_1 - 235 v_2 \leq 0 & \\
+& 152 u_1 + 80 u_2 - 31 v_1 - 206 v_2 \leq 0 & \\
+& 190 u_1 + 100 u_2 - 30 v_1 - 244 v_2 \leq 0 & \\
+& 250 u_1 + 100 u_2 - 50 v_1 - 268 v_2 \leq 0 & \\
+& 260 u_1 + 147 u_2 - 53 v_1 - 306 v_2 \leq 0 & \\
+& 250 u_1 + 120 u_2 - 38 v_1 - 284 v_2 \leq 0 & \\
+& u_r \geq 0, \quad \forall r = 1, 2 & \\
+& v_i \geq 0, \quad \forall i = 1, 2 &
+\end{align*}
+
+<!-- ```python  
+X = np.array([
+    [20, 19, 25, 27, 22, 55, 33, 31, 30, 50, 53, 38],
+    [151, 131, 160, 168, 158, 255, 235, 206, 244, 268, 306, 284]
+])
+Y = np.array([
+    [100, 150, 160, 180, 94, 230, 220, 152, 190, 250, 260, 250],
+    [90, 50, 55, 72, 66, 90, 88, 80, 100, 100, 147, 120]
+])
+solve_all_ccr(X, Y)
+```
+
+```
+DMU A
+  theta            : 1.0000
+  Output Weights u : [0.0031, 0.0076]
+  Input Weights  v : [0.0000, 0.0066]
+  Reference Set    : [A, D]
+--------------------------------------------------
+DMU B
+  theta            : 1.0000
+  Output Weights u : [0.0067, 0.0000]
+  Input Weights  v : [0.0526, 0.0000]
+  Reference Set    : [B]
+--------------------------------------------------
+DMU C
+  theta            : 0.8827
+  Output Weights u : [0.0036, 0.0056]
+  Input Weights  v : [0.0000, 0.0063]
+  Reference Set    : [B, D]
+--------------------------------------------------
+DMU D
+  theta            : 1.0000
+  Output Weights u : [0.0028, 0.0069]
+  Input Weights  v : [0.0000, 0.0060]
+  Reference Set    : [A, D]
+--------------------------------------------------
+DMU E
+  theta            : 0.7635
+  Output Weights u : [0.0032, 0.0070]
+  Input Weights  v : [0.0056, 0.0055]
+  Reference Set    : [A, B, D]
+--------------------------------------------------
+DMU F
+  theta            : 0.8348
+  Output Weights u : [0.0022, 0.0035]
+  Input Weights  v : [0.0000, 0.0039]
+  Reference Set    : [B, D]
+--------------------------------------------------
+DMU G
+  theta            : 0.9020
+  Output Weights u : [0.0025, 0.0039]
+  Input Weights  v : [0.0303, 0.0000]
+  Reference Set    : [A, B]
+--------------------------------------------------
+DMU H
+  theta            : 0.7963
+  Output Weights u : [0.0025, 0.0053]
+  Input Weights  v : [0.0043, 0.0042]
+  Reference Set    : [A, B, D]
+--------------------------------------------------
+DMU I
+  theta            : 0.9604
+  Output Weights u : [0.0028, 0.0043]
+  Input Weights  v : [0.0333, 0.0000]
+  Reference Set    : [A, B]
+--------------------------------------------------
+DMU J
+  theta            : 0.8706
+  Output Weights u : [0.0018, 0.0043]
+  Input Weights  v : [0.0000, 0.0037]
+  Reference Set    : [A, D]
+--------------------------------------------------
+DMU K
+  theta            : 0.9551
+  Output Weights u : [0.0015, 0.0038]
+  Input Weights  v : [0.0000, 0.0033]
+  Reference Set    : [A, D]
+--------------------------------------------------
+DMU L
+  theta            : 0.9582
+  Output Weights u : [0.0022, 0.0034]
+  Input Weights  v : [0.0263, 0.0000]
+  Reference Set    : [A, B]
+--------------------------------------------------
+``` -->

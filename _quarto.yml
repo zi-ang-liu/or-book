@@ -58,9 +58,10 @@ book:
         - network/graph.qmd
         - network/shortest-path.qmd
         - network/pert.qmd
-    - part: "線形計画法の応用"
+    - part: "データ包絡分析"
       chapters:
-        - lp_app/dea.qmd
+        - dea/intro.qmd
+        - dea/ccr.qmd
     - part: "動的計画法"
       chapters:
         - dp/intro.qmd
