@@ -473,7 +473,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../dea/intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">はじめに</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">入力と出力</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -668,16 +668,86 @@ u_1 \\ u_2 \\ \vdots \\ u_s
 \]</span></p>
 <p>として計算できる．</p>
 <p>CCRモデルの考え方は，<span class="math inline">\(\text{DMU}_o\)</span> の効率性を最大化するような重み <span class="math inline">\(\mathbf{u}\)</span> と <span class="math inline">\(\mathbf{v}\)</span> を選ぶことである．<span class="math inline">\(\text{DMU}_o\)</span> は最適な重みを用いたとき，他のDMUとの比較を行う．</p>
+<div id="exm-dea-ccr-theta" class="theorem example">
+<p><span class="theorem-title"><strong>例 12.1</strong></span> 以下の表は，3つのDMUの入力と出力を示している．</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>DMU</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Input 1</td>
+<td>20</td>
+<td>19</td>
+<td>25</td>
+</tr>
+<tr class="even">
+<td>Input 2</td>
+<td>151</td>
+<td>131</td>
+<td>160</td>
+</tr>
+<tr class="odd">
+<td>Output 1</td>
+<td>100</td>
+<td>150</td>
+<td>160</td>
+</tr>
+<tr class="even">
+<td>Output 2</td>
+<td>90</td>
+<td>50</td>
+<td>55</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(\text{DMU}_1\)</span> の効率性 <span class="math inline">\(\theta\)</span> は，入力に対する重みを <span class="math inline">\(v_1, v_2\)</span>，出力に対する重みを <span class="math inline">\(u_1, u_2\)</span> とすると，次のように表される．</p>
+<p><span class="math display">\[\begin{align*}
+\theta &amp;= \frac{\sum_{r=1}^{s} u_r y_{r1}}{\sum_{i=1}^{m} v_i x_{i1}} \\
+&amp;= \frac{u_1 y_{11} + u_2 y_{21}}{v_1 x_{11} + v_2 x_{21}} \\
+&amp;= \frac{100 u_1 + 90 u_2}{20 v_1 + 151 v_2}
+\end{align*}\]</span></p>
+<p>同様にして，<span class="math inline">\(\text{DMU}_2\)</span> と <span class="math inline">\(\text{DMU}_3\)</span> の効率性は次のようになる． <span class="math display">\[\begin{align*}
+\text{DMU}_2: \quad &amp; \theta = \frac{\sum_{r=1}^{s} u_r y_{r2}}{\sum_{i=1}^{m} v_i x_{i2}} = \frac{150 u_1 + 50 u_2}{19 v_1 + 131 v_2} \\
+\text{DMU}_3: \quad &amp; \theta = \frac{\sum_{r=1}^{s} u_r y_{r3}}{\sum_{i=1}^{m} v_i x_{i3}} = \frac{160 u_1 + 55 u_2}{25 v_1 + 160 v_2}
+\end{align*}\]</span></p>
+<p><span class="math inline">\(\mathbf{u}\)</span> と <span class="math inline">\(\mathbf{v}\)</span> が与えられたとき，<span class="math inline">\(\text{DMU}_1\)</span> の効率性 <span class="math inline">\(\theta\)</span> を計算できる．例えば， <span class="math display">\[
+\mathbf{u} =
+\begin{pmatrix}
+0.003 \\ 0.007
+\end{pmatrix},\quad
+\mathbf{v} =
+\begin{pmatrix}
+0.005 \\ 0.006
+\end{pmatrix}
+\]</span> とすると，<span class="math inline">\(\text{DMU}_1\)</span> の効率性は <span class="math display">\[\begin{align*}
+\theta &amp;= \frac{100 \times 0.003 + 90 \times 0.007}{20 \times 0.005 + 151 \times 0.006}
+\end{align*}\]</span> である．</p>
+</div>
 <section id="ccrモデルの定式化" class="level3" data-number="12.0.1">
 <h3 data-number="12.0.1" class="anchored" data-anchor-id="ccrモデルの定式化"><span class="header-section-number">12.0.1</span> CCRモデルの定式化</h3>
-<p>CCRモデルは次の分数計画問題として定式化できる．</p>
+<p>CCRモデルは，<span class="math inline">\(\text{DMU}_o\)</span> の効率性 <span class="math inline">\(\theta\)</span> を最大化する重み <span class="math inline">\(\mathbf{u^*}\)</span> と <span class="math inline">\(\mathbf{v^*}\)</span> を求める．目的関数は，以下のようになる．</p>
+<p><span class="math display">\[
+\text{maximize} \quad \theta = \frac{\sum_{r=1}^{s} u_r y_{ro}}{\sum_{i=1}^{m} v_i x_{io}}
+\]</span></p>
+<p>そこで，制約条件として，すべてのDMUの効率性が1以下であることを課す．すなわち，すべての <span class="math inline">\(j = 1, 2, \ldots, n\)</span> について，次の不等式を満たす必要がある．</p>
+<p><span class="math display">\[
+\frac{\sum_{r=1}^{s} u_r y_{rj}}{\sum_{i=1}^{m} v_i x_{ij}} \leq 1, \quad \forall j = 1, 2, \ldots, n
+\]</span></p>
+<p>また，重みは非負である必要があるため，<span class="math inline">\(\mathbf{u} \geq \mathbf{0}\)</span>，<span class="math inline">\(\mathbf{v} \geq \mathbf{0}\)</span> とする．</p>
+<p>したがって，CCRモデルは次の分数計画問題として定式化できる．</p>
 <p><span class="math display">\[\begin{align*}
 \text{maximize} \quad &amp; \theta = \frac{\sum_{r=1}^{s} u_r y_{ro}}{\sum_{i=1}^{m} v_i x_{io}} &amp; \\
 \text{subject to} \quad &amp; \frac{\sum_{r=1}^{s} u_r y_{rj}}{\sum_{i=1}^{m} v_i x_{ij}} \leq 1, \quad &amp; \forall j = 1, \ldots, n &amp; \\
 &amp; u_r \geq 0, \quad &amp; \forall r = 1, \ldots, s &amp; \\
 &amp; v_i \geq 0, \quad &amp; \forall i = 1, \ldots, m
 \end{align*}\]</span></p>
-<p>この分数計画問題は，<span class="math inline">\(\theta\)</span> を最大化する重み <span class="math inline">\(\mathbf{u}\)</span> と <span class="math inline">\(\mathbf{v}\)</span> を求めるものである．制約条件は，すべてのDMUの効率性が1以下であることを保証している．</p>
+<p>この分数計画問題は，<span class="math inline">\(\text{DMU}_o\)</span> の効率性 <span class="math inline">\(\theta\)</span> を最大化する重み <span class="math inline">\(\mathbf{u^*}\)</span> と <span class="math inline">\(\mathbf{v^*}\)</span> を求めるものである．制約条件は，すべてのDMUの効率性が1以下であることを保証している．</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -698,7 +768,8 @@ u_1 \\ u_2 \\ \vdots \\ u_s
 <p>とする必要がある．</p>
 </div>
 </div>
-<p>この分数計画問題において，任意の <span class="math inline">\(\alpha &gt; 0\)</span> に対して，<span class="math inline">\((\mathbf{u}^*, \mathbf{v}^*)\)</span> を最適解とすると，<span class="math inline">\((\alpha \mathbf{u}^*, \alpha \mathbf{v}^*)\)</span> も最適解となる． したがって，この分数計画問題は無限に多くの最適解を持つ．この問題を解決するために，分母を1に固定することで，次の線形計画問題に変換できる．</p>
+<p>この分数計画問題において，任意の <span class="math inline">\(\alpha &gt; 0\)</span> に対して，<span class="math inline">\((\mathbf{u}^*, \mathbf{v}^*)\)</span> を最適解とすると，<span class="math inline">\((\alpha \mathbf{u}^*, \alpha \mathbf{v}^*)\)</span> も最適解となる．</p>
+<p>したがって，この分数計画問題は無限に多くの最適解を持つ．この問題を解決するために，分母を1に固定することで，次の線形計画問題に変換できる．</p>
 <p><span class="math display">\[\begin{align*}
 \text{maximize} \quad &amp; \theta = \sum_{r=1}^{s} u_r y_{ro} &amp; \\
 \text{subject to} \quad &amp; \sum_{i=1}^{m} v_i x_{io} = 1 &amp; \\
@@ -713,11 +784,11 @@ u_1 \\ u_2 \\ \vdots \\ u_s
 <li><span class="math inline">\(\theta^* &lt; 1\)</span> のとき，<span class="math inline">\(\text{DMU}_o\)</span> は非効率的である．</li>
 </ol>
 </div>
-<p><span class="math inline">\(\theta^* &lt; 1\)</span> のとき，少なくとも1つの <span class="math inline">\(j \in \{1,2,\ldots,n\}\)</span> に対して，次の式が成り立つ． <span class="math display">\[
+<p><span class="math inline">\(\theta^* &lt; 1\)</span> のとき，少なくとも1つの <span class="math inline">\(j \in \{1,2,\ldots,n\} \setminus \{o\}\)</span> について，次の式が成り立つ．</p>
+<p><span class="math display">\[
 \sum_{r=1}^{s} u_r^* y_{rj} - \sum_{i=1}^{m} v_i^* x_{ij} = 0
 \]</span></p>
-<p>そうでなければ，<span class="math inline">\(\theta^*\)</span> を増加させることができる．また，<span class="math inline">\(\theta^* &lt; 1\)</span> から，<span class="math inline">\(j \neq o\)</span> であることがわかる．</p>
-<p>正式に，<span class="math inline">\(\text{DMU}_o\)</span> における <span class="math inline">\(\theta^* &lt; 1\)</span> のとき，次の集合を<span class="math inline">\(\text{DMU}_o\)</span> の<strong>参照集合</strong>（reference set）と呼ぶ．</p>
+<p>そうでなければ，<span class="math inline">\(\theta\)</span> を増加させることができる．正式に，<span class="math inline">\(\text{DMU}_o\)</span> における <span class="math inline">\(\theta^* &lt; 1\)</span> のとき，次の集合を<span class="math inline">\(\text{DMU}_o\)</span> の<strong>参照集合</strong>（reference set）と呼ぶ．</p>
 <p><span class="math display">\[
 \mathcal{R}_o = \{ j \mid \sum_{r=1}^{s} u_r^* y_{rj} - \sum_{i=1}^{m} v_i^* x_{ij} = 0 \}
 \]</span></p>
@@ -909,7 +980,7 @@ DMU F
 \frac{u y_o}{v x_o} = \frac{u}{v} \frac{y_o}{x_o}
 \]</span></p>
 <p>となり，<span class="math inline">\(y_o/x_o\)</span> に比例する．したがって，1入力1出力のCCRモデルの最適化問題を解くことは，すべてのDMUについて <span class="math inline">\(y_j/x_j\)</span> を計算し，<span class="math inline">\([0,1]\)</span> に正規化することと同じである．今回の例題では，DMU BとEの <span class="math inline">\(\theta^*=1\)</span> で最大であるため，<span class="math inline">\(u/v = 1\)</span> となる．</p>
-<div id="106dc8cc" class="cell" data-execution_count="1">
+<div id="e0c688c2" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1695,8 +1766,8 @@ DMU L
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../dea/intro.html" class="pagination-link" aria-label="はじめに">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">はじめに</span></span>
+      <a href="../dea/intro.html" class="pagination-link" aria-label="入力と出力">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">入力と出力</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

@@ -880,67 +880,67 @@
   {
     "objectID": "dea/intro.html",
     "href": "dea/intro.html",
-    "title": "11  はじめに",
+    "title": "11  入力と出力",
     "section": "",
     "text": "11.1 1入力1出力\nデータ包絡分析（DEA: Data Envelopment Analysis）は，分析対象の効率性を評価するための手法である．DEAでは，分析対象のことをDMU（Decision Making Unit）と呼ばれ，複数の入力（input）から複数の出力（output）への変換を行うものである．\n下の表は，いくつかのDMUの例を示している．\n\\(n\\) 個のDMUがあり，\\(\\text{DMU}_j\\) (\\(j=1,2,\\ldots,n\\)) は1つの入力 \\(x_j\\) と1つの出力 \\(y_j\\) を持つとする．そのとき，\\(\\text{DMU}_j\\) の効率性は\n\\[\n\\frac{y_j}{x_j}\n\\]\nで評価できる．単位入力あたりの出力を表している．この値が大きいほど，効率的であると評価できる．",
     "crumbs": [
       "データ包絡分析",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>はじめに</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>入力と出力</span>"
     ]
   },
   {
     "objectID": "dea/intro.html#入力1出力",
     "href": "dea/intro.html#入力1出力",
-    "title": "11  はじめに",
+    "title": "11  入力と出力",
     "section": "",
     "text": "例 11.1 (1入力1出力の問題例) ある会社は，以下の6つの店舗を運営している．効率的である店舗はどれか．\n\n\n\n店舗\nA\nB\nC\nD\nE\nF\n\n\n\n\n店員数（\\(x\\)）\n2\n3\n3\n4\n2\n5\n\n\n売上高（\\(y\\)）\n1\n3\n2\n3\n2\n2\n\n\n\n\\(\\text{DMU}_j\\) の店員数を \\(x_j\\)，売上高を \\(y_j\\) とすると，店舗 \\(j\\) の効率性は \\(y_j/x_j\\) で計算できる．結果から，\\(B, E\\) が最も効率的であることがわかる．\n\n\nコード\nimport matplotlib.pyplot as plt\nimport pandas as pd\n\ndata = {\n    \"store\": [\"A\", \"B\", \"C\", \"D\", \"E\", \"F\"],\n    \"employee\": [2, 3, 3, 4, 2, 5],\n    \"sale\": [1, 3, 2, 3, 2, 2],\n}\ndf = pd.DataFrame(data)\ndf[\"theta\"] = df[\"sale\"] / df[\"employee\"]\nprint(df)\n\n\n  store  employee  sale     theta\n0     A         2     1  0.500000\n1     B         3     3  1.000000\n2     C         3     2  0.666667\n3     D         4     3  0.750000\n4     E         2     2  1.000000\n5     F         5     2  0.400000\n\n\n横軸に店員数，縦軸に売上高をとって，点 \\((x_j, y_j)\\) をプロットした散布図を下の図に示す．原点から点 \\((x_j, y_j)\\) を結ぶ直線の傾きは，\\(y_j/x_j\\) に等しい．\n\n\nコード\nplt.scatter(df[\"employee\"], df[\"sale\"])\nfor i in range(len(df)):\n    plt.text(df[\"employee\"][i] + 0.1, df[\"sale\"][i], df[\"store\"][i])\nplt.plot([0, 4], [0, 4], color=\"red\", linestyle=\"--\", label=\"efficient frontier\")\nplt.xlabel(\"Employee\")\nplt.ylabel(\"Sale\")\nplt.xlim(0, 6)\nplt.ylim(0, 4)\nplt.legend()\nplt.grid()\nplt.show()\n\n\n\n\n\n\n\n\n\n店舗BとEは，効率的（efficient）と言える．また，原点から店舗B（または店舗E）を結ぶ直線を効率的フロンティア（efficient frontier）と呼ぶ．",
     "crumbs": [
       "データ包絡分析",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>はじめに</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>入力と出力</span>"
     ]
   },
   {
     "objectID": "dea/intro.html#入力1出力-1",
     "href": "dea/intro.html#入力1出力-1",
-    "title": "11  はじめに",
+    "title": "11  入力と出力",
     "section": "11.2 2入力1出力",
     "text": "11.2 2入力1出力\n\n例 11.2 (2入力1出力の問題例) ある会社は，以下の6つの店舗を運営している．効率的である店舗はどれか．\n\n\n\n店舗\nA\nB\nC\nD\nE\nF\n\n\n\n\n店員数\n4\n7\n8\n4\n2\n5\n\n\n面積\n3\n3\n1\n2\n4\n2\n\n\n売上高\n1\n1\n1\n1\n1\n1\n\n\n\n\\(\\text{DMU}_j\\) の店員数を \\(x_{j}\\)，面積を \\(y_{j}\\)，売上高を \\(z_{j}\\) とする．それぞれの店舗に対して，次の2つの比率を計算する．\n\\[\n\\frac{x_{j}}{z_{j}},\\quad \\frac{y_{j}}{z_{j}}\n\\]\nこれらの値が小さいほど，効率的であると評価できる．\n\\(x_{j}/z_{j}\\) と \\(y_{j}/z_{j}\\) を横軸と縦軸にとった散布図を下の図に示す．\n\n\nコード\nimport matplotlib.pyplot as plt\nimport pandas as pd\n\ndata = {\n    \"store\": [\"A\", \"B\", \"C\", \"D\", \"E\", \"F\"],\n    \"employee\": [4, 7, 8, 4, 2, 5],\n    \"area\": [3, 3, 1, 2, 4, 2],\n    \"sale\": [1, 1, 1, 1, 1, 1],\n}\ndf = pd.DataFrame(data)\nplt.figure(figsize=(8, 6))\nplt.scatter(df[\"employee\"], df[\"area\"])\nfor i in range(len(df)):\n    plt.text(df[\"employee\"][i] + 0.1, df[\"area\"][i], df[\"store\"][i])\nplt.plot(\n    [2, 2, 4, 8, 11],\n    [5, 4, 2, 1, 1],\n    color=\"red\",\n    linestyle=\"--\",\n    label=\"efficient frontier\",\n)\nplt.xlabel(\"Employee/Sale\")\nplt.ylabel(\"Area/Sale\")\nplt.xlim(0, 11)\nplt.ylim(0, 5)\nplt.legend()\nplt.grid()\nplt.show()\n\n\n\n\n\n\n\n\n\nDEAでは，任意の両点の線分上の点が実現可能であると仮定する．例えば，点 \\(D\\) と点 \\(E\\) を用いて，\\((wx_D + (1-w)x_E, wy_D + (1-w)y_E)\\) で表される点は，実現可能であると仮定する．\n\\(C, D, E\\) は効率的で，これらの点を結ぶ折れ線が効率的フロンティアとなる．",
     "crumbs": [
       "データ包絡分析",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>はじめに</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>入力と出力</span>"
     ]
   },
   {
     "objectID": "dea/intro.html#入力2出力",
     "href": "dea/intro.html#入力2出力",
-    "title": "11  はじめに",
+    "title": "11  入力と出力",
     "section": "11.3 1入力2出力",
     "text": "11.3 1入力2出力\n\n例 11.3 (1入力2出力の問題例) ある会社は，以下の6つの店舗を運営している．効率的である店舗はどれか．\n\n\n\n店舗\nA\nB\nC\nD\nE\nF\n\n\n\n\n店員数\n1\n1\n1\n1\n1\n1\n\n\n売上高\n1\n2\n3\n4\n4\n6\n\n\n顧客数\n5\n7\n4\n3\n6\n2\n\n\n\n\\(\\text{DMU}_j\\) の店員数を \\(x_{j}\\)，売上高を \\(y_{j}\\)，顧客数を \\(z_{j}\\) とする．それぞれの店舗に対して，次の2つの比率を計算する．\n\\[\n\\frac{y_{j}}{x_{j}},\\quad \\frac{z_{j}}{x_{j}}\n\\]\nこれらの値が大きいほど，効率的であると評価できる．\n\n\nコード\nimport matplotlib.pyplot as plt\nimport pandas as pd\n\ndata = {\n    \"store\": [\"A\", \"B\", \"C\", \"D\", \"E\", \"F\"],\n    \"employee\": [1, 1, 1, 1, 1, 1],\n    \"sale\": [1, 2, 3, 4, 4, 6],\n    \"customer\": [5, 7, 4, 3, 6, 2],\n}\ndf = pd.DataFrame(data)\nplt.figure(figsize=(8, 6))\nplt.scatter(df[\"sale\"], df[\"customer\"])\nfor i in range(len(df)):\n    plt.text(df[\"sale\"][i] + 0.1, df[\"customer\"][i], df[\"store\"][i])\nplt.plot(\n    [0, 2, 4, 6, 6],\n    [7, 7, 6, 2, 0],\n    color=\"red\",\n    linestyle=\"--\",\n    label=\"efficient frontier\",\n)\nplt.xlabel(\"sale/employee\")\nplt.ylabel(\"customer/employee\")\nplt.xlim(0, 7)\nplt.ylim(0, 8)\nplt.legend()\nplt.grid()\nplt.show()\n\n\n\n\n\n\n\n\n\n店舗B，E，Fは効率的で，これらの点を結ぶ折れ線が効率的フロンティアとなる．",
     "crumbs": [
       "データ包絡分析",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>はじめに</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>入力と出力</span>"
     ]
   },
   {
     "objectID": "dea/intro.html#用語集",
     "href": "dea/intro.html#用語集",
-    "title": "11  はじめに",
+    "title": "11  入力と出力",
     "section": "11.4 用語集",
     "text": "11.4 用語集\n\n\n\nEnglish\nJapanese\n\n\n\n\nData Envelopment Analysis (DEA)\nデータ包絡分析\n\n\nDecision Making Unit (DMU)\n意思決定主体；意思決定単位\n\n\nReference Set\n参照集合\n\n\nEfficient\n効率的\n\n\nEfficient Frontier\n効率的フロンティア",
     "crumbs": [
       "データ包絡分析",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>はじめに</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>入力と出力</span>"
     ]
   },
   {
     "objectID": "dea/intro.html#練習問題",
     "href": "dea/intro.html#練習問題",
-    "title": "11  はじめに",
+    "title": "11  入力と出力",
     "section": "11.5 練習問題",
     "text": "11.5 練習問題\n\n練習 11.1 (1入力1出力) 次の表のような入力と出力が与えられたとき，効率的なDMUを求めよ．効率性を \\([0,1]\\) の範囲で評価せよ．\n\n\n\nDMU\nA\nB\nC\nD\nE\n\n\n\n\n入力\n4\n7\n8\n5\n6\n\n\n出力\n2\n7\n9\n4\n5\n\n\n\n\n\n解答 11.1. \n\n\nコード\nimport pandas as pd\n\ndata = {\n    \"DMU\": [\"A\", \"B\", \"C\", \"D\", \"E\"],\n    \"input\": [4, 7, 8, 5, 6],\n    \"output\": [2, 7, 9, 4, 5],\n}\ndf = pd.DataFrame(data)\ndf[\"efficiency\"] = df[\"output\"] / df[\"input\"]\nprint(df)\n\n\n  DMU  input  output  efficiency\n0   A      4       2    0.500000\n1   B      7       7    1.000000\n2   C      8       9    1.125000\n3   D      5       4    0.800000\n4   E      6       5    0.833333\n\n\n\n\n練習 11.2 (2入力1出力) 次の表のような入力と出力が与えられたとき，効率的なDMUを求めよ．\n\n\n\nDMU\nA\nB\nC\nD\nE\n\n\n\n\n入力1\n6\n6\n12\n4\n15\n\n\n入力2\n4\n12\n9\n8\n5\n\n\n出力\n2\n6\n3\n2\n5\n\n\n\n\n\n解答 11.2. 下の図より，DMU B，Dが効率的であることがわかる．\n\n\nコード\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\ndata = {\n    \"DMU\": [\"A\", \"B\", \"C\", \"D\", \"E\"],\n    \"input1\": [6, 6, 12, 4, 15],\n    \"input2\": [4, 12, 9, 8, 5],\n    \"output\": [2, 6, 3, 2, 5],\n}\ndf = pd.DataFrame(data)\nx = df[\"input1\"] / df[\"output\"]\ny = df[\"input2\"] / df[\"output\"]\nplt.scatter(x, y)\nfor i in range(len(df)):\n    plt.text(x[i] + 0.1, y[i], df[\"DMU\"][i])\n# 効率的フロンティアの描画 B-E\nplt.plot(\n    [1, 1, 3, 6],\n    [6, 2, 1, 1],\n    color=\"red\",\n    linestyle=\"--\",\n    label=\"efficient frontier\",\n)\nplt.xlabel(\"input1/output\")\nplt.ylabel(\"input2/output\")\nplt.xlim(0, 6)\nplt.ylim(0, 6)\nplt.grid()\nplt.show()",
     "crumbs": [
       "データ包絡分析",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>はじめに</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>入力と出力</span>"
     ]
   },
   {
@@ -948,7 +948,7 @@
     "href": "dea/ccr.html",
     "title": "12  CCRモデル",
     "section": "",
-    "text": "12.0.1 CCRモデルの定式化\nCCRモデルは，1978年にCharnes, Cooper, and Rhodesによって提案されたもので，DEAの基本的なモデルである．\n\\(n\\) 個のDMUを評価する．各DMUは \\(m\\) 個の入力と \\(s\\) 個の出力を持つとする．\\(\\text{DMU}_j\\) (\\(j=1,2,\\ldots,n\\)) の \\(i\\) 番目の入力を \\(x_{ij}\\)，\\(r\\) 番目の出力を \\(y_{rj}\\) と表す．このとき，入力データと出力データはそれぞれ次のような行列で表される．\n\\[\n\\mathbf{X} =\n\\begin{pmatrix}\nx_{11} & x_{12} & \\cdots & x_{1n} \\\\\nx_{21} & x_{22} & \\cdots & x_{2n} \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\nx_{m1} & x_{m2} & \\cdots & x_{mn}\n\\end{pmatrix}\n\\]\n\\[\n\\mathbf{Y} =\n\\begin{pmatrix}\ny_{11} & y_{12} & \\cdots & y_{1n} \\\\\ny_{21} & y_{22} & \\cdots & y_{2n} \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\ny_{s1} & y_{s2} & \\cdots & y_{sn}\n\\end{pmatrix}\n\\]\n入力の重み \\(\\mathbf{v}\\) と出力の重み \\(\\mathbf{u}\\) を \\[\n\\mathbf{v} =\n\\begin{pmatrix}\nv_1 \\\\ v_2 \\\\ \\vdots \\\\ v_m\n\\end{pmatrix},\\quad\n\\mathbf{u} =\n\\begin{pmatrix}\nu_1 \\\\ u_2 \\\\ \\vdots \\\\ u_s\n\\end{pmatrix}\n\\]\nとし，\\(\\text{DMU}_o\\) の効率性 \\(\\theta\\) は\n\\[\n\\theta = \\frac{\\sum_{r=1}^{s} u_r y_{ro}}{\\sum_{i=1}^{m} v_i x_{io}} = \\frac{u_1 y_{1o} + u_2 y_{2o} + \\cdots + u_s y_{so}}{v_1 x_{1o} + v_2 x_{2o} + \\cdots + v_m x_{mo}}\n\\]\nとして計算できる．\nCCRモデルの考え方は，\\(\\text{DMU}_o\\) の効率性を最大化するような重み \\(\\mathbf{u}\\) と \\(\\mathbf{v}\\) を選ぶことである．\\(\\text{DMU}_o\\) は最適な重みを用いたとき，他のDMUとの比較を行う．\nCCRモデルは次の分数計画問題として定式化できる．\n\\[\\begin{align*}\n\\text{maximize} \\quad & \\theta = \\frac{\\sum_{r=1}^{s} u_r y_{ro}}{\\sum_{i=1}^{m} v_i x_{io}} & \\\\\n\\text{subject to} \\quad & \\frac{\\sum_{r=1}^{s} u_r y_{rj}}{\\sum_{i=1}^{m} v_i x_{ij}} \\leq 1, \\quad & \\forall j = 1, \\ldots, n & \\\\\n& u_r \\geq 0, \\quad & \\forall r = 1, \\ldots, s & \\\\\n& v_i \\geq 0, \\quad & \\forall i = 1, \\ldots, m\n\\end{align*}\\]\nこの分数計画問題は，\\(\\theta\\) を最大化する重み \\(\\mathbf{u}\\) と \\(\\mathbf{v}\\) を求めるものである．制約条件は，すべてのDMUの効率性が1以下であることを保証している．\nこの分数計画問題において，任意の \\(\\alpha &gt; 0\\) に対して，\\((\\mathbf{u}^*, \\mathbf{v}^*)\\) を最適解とすると，\\((\\alpha \\mathbf{u}^*, \\alpha \\mathbf{v}^*)\\) も最適解となる． したがって，この分数計画問題は無限に多くの最適解を持つ．この問題を解決するために，分母を1に固定することで，次の線形計画問題に変換できる．\n\\[\\begin{align*}\n\\text{maximize} \\quad & \\theta = \\sum_{r=1}^{s} u_r y_{ro} & \\\\\n\\text{subject to} \\quad & \\sum_{i=1}^{m} v_i x_{io} = 1 & \\\\\n& \\sum_{r=1}^{s} u_r y_{rj} - \\sum_{i=1}^{m} v_i x_{ij} \\leq 0, \\quad & \\forall j = 1, \\ldots, n & \\\\\n& u_r \\geq 0, \\quad & \\forall r = 1, \\ldots, s & \\\\\n& v_i \\geq 0, \\quad & \\forall i = 1, \\ldots, m\n\\end{align*}\\]\n\\(\\theta^* &lt; 1\\) のとき，少なくとも1つの \\(j \\in \\{1,2,\\ldots,n\\}\\) に対して，次の式が成り立つ． \\[\n\\sum_{r=1}^{s} u_r^* y_{rj} - \\sum_{i=1}^{m} v_i^* x_{ij} = 0\n\\]\nそうでなければ，\\(\\theta^*\\) を増加させることができる．また，\\(\\theta^* &lt; 1\\) から，\\(j \\neq o\\) であることがわかる．\n正式に，\\(\\text{DMU}_o\\) における \\(\\theta^* &lt; 1\\) のとき，次の集合を\\(\\text{DMU}_o\\) の参照集合（reference set）と呼ぶ．\n\\[\n\\mathcal{R}_o = \\{ j \\mid \\sum_{r=1}^{s} u_r^* y_{rj} - \\sum_{i=1}^{m} v_i^* x_{ij} = 0 \\}\n\\]\n参照集合 \\(\\mathcal{R}_o\\) は，\\(\\text{DMU}_o\\) を非効率的にしているDMUの集合である．",
+    "text": "12.0.1 CCRモデルの定式化\nCCRモデルは，1978年にCharnes, Cooper, and Rhodesによって提案されたもので，DEAの基本的なモデルである．\n\\(n\\) 個のDMUを評価する．各DMUは \\(m\\) 個の入力と \\(s\\) 個の出力を持つとする．\\(\\text{DMU}_j\\) (\\(j=1,2,\\ldots,n\\)) の \\(i\\) 番目の入力を \\(x_{ij}\\)，\\(r\\) 番目の出力を \\(y_{rj}\\) と表す．このとき，入力データと出力データはそれぞれ次のような行列で表される．\n\\[\n\\mathbf{X} =\n\\begin{pmatrix}\nx_{11} & x_{12} & \\cdots & x_{1n} \\\\\nx_{21} & x_{22} & \\cdots & x_{2n} \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\nx_{m1} & x_{m2} & \\cdots & x_{mn}\n\\end{pmatrix}\n\\]\n\\[\n\\mathbf{Y} =\n\\begin{pmatrix}\ny_{11} & y_{12} & \\cdots & y_{1n} \\\\\ny_{21} & y_{22} & \\cdots & y_{2n} \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\ny_{s1} & y_{s2} & \\cdots & y_{sn}\n\\end{pmatrix}\n\\]\n入力の重み \\(\\mathbf{v}\\) と出力の重み \\(\\mathbf{u}\\) を \\[\n\\mathbf{v} =\n\\begin{pmatrix}\nv_1 \\\\ v_2 \\\\ \\vdots \\\\ v_m\n\\end{pmatrix},\\quad\n\\mathbf{u} =\n\\begin{pmatrix}\nu_1 \\\\ u_2 \\\\ \\vdots \\\\ u_s\n\\end{pmatrix}\n\\]\nとし，\\(\\text{DMU}_o\\) の効率性 \\(\\theta\\) は\n\\[\n\\theta = \\frac{\\sum_{r=1}^{s} u_r y_{ro}}{\\sum_{i=1}^{m} v_i x_{io}} = \\frac{u_1 y_{1o} + u_2 y_{2o} + \\cdots + u_s y_{so}}{v_1 x_{1o} + v_2 x_{2o} + \\cdots + v_m x_{mo}}\n\\]\nとして計算できる．\nCCRモデルの考え方は，\\(\\text{DMU}_o\\) の効率性を最大化するような重み \\(\\mathbf{u}\\) と \\(\\mathbf{v}\\) を選ぶことである．\\(\\text{DMU}_o\\) は最適な重みを用いたとき，他のDMUとの比較を行う．\nCCRモデルは，\\(\\text{DMU}_o\\) の効率性 \\(\\theta\\) を最大化する重み \\(\\mathbf{u^*}\\) と \\(\\mathbf{v^*}\\) を求める．目的関数は，以下のようになる．\n\\[\n\\text{maximize} \\quad \\theta = \\frac{\\sum_{r=1}^{s} u_r y_{ro}}{\\sum_{i=1}^{m} v_i x_{io}}\n\\]\nそこで，制約条件として，すべてのDMUの効率性が1以下であることを課す．すなわち，すべての \\(j = 1, 2, \\ldots, n\\) について，次の不等式を満たす必要がある．\n\\[\n\\frac{\\sum_{r=1}^{s} u_r y_{rj}}{\\sum_{i=1}^{m} v_i x_{ij}} \\leq 1, \\quad \\forall j = 1, 2, \\ldots, n\n\\]\nまた，重みは非負である必要があるため，\\(\\mathbf{u} \\geq \\mathbf{0}\\)，\\(\\mathbf{v} \\geq \\mathbf{0}\\) とする．\nしたがって，CCRモデルは次の分数計画問題として定式化できる．\n\\[\\begin{align*}\n\\text{maximize} \\quad & \\theta = \\frac{\\sum_{r=1}^{s} u_r y_{ro}}{\\sum_{i=1}^{m} v_i x_{io}} & \\\\\n\\text{subject to} \\quad & \\frac{\\sum_{r=1}^{s} u_r y_{rj}}{\\sum_{i=1}^{m} v_i x_{ij}} \\leq 1, \\quad & \\forall j = 1, \\ldots, n & \\\\\n& u_r \\geq 0, \\quad & \\forall r = 1, \\ldots, s & \\\\\n& v_i \\geq 0, \\quad & \\forall i = 1, \\ldots, m\n\\end{align*}\\]\nこの分数計画問題は，\\(\\text{DMU}_o\\) の効率性 \\(\\theta\\) を最大化する重み \\(\\mathbf{u^*}\\) と \\(\\mathbf{v^*}\\) を求めるものである．制約条件は，すべてのDMUの効率性が1以下であることを保証している．\nこの分数計画問題において，任意の \\(\\alpha &gt; 0\\) に対して，\\((\\mathbf{u}^*, \\mathbf{v}^*)\\) を最適解とすると，\\((\\alpha \\mathbf{u}^*, \\alpha \\mathbf{v}^*)\\) も最適解となる．\nしたがって，この分数計画問題は無限に多くの最適解を持つ．この問題を解決するために，分母を1に固定することで，次の線形計画問題に変換できる．\n\\[\\begin{align*}\n\\text{maximize} \\quad & \\theta = \\sum_{r=1}^{s} u_r y_{ro} & \\\\\n\\text{subject to} \\quad & \\sum_{i=1}^{m} v_i x_{io} = 1 & \\\\\n& \\sum_{r=1}^{s} u_r y_{rj} - \\sum_{i=1}^{m} v_i x_{ij} \\leq 0, \\quad & \\forall j = 1, \\ldots, n & \\\\\n& u_r \\geq 0, \\quad & \\forall r = 1, \\ldots, s & \\\\\n& v_i \\geq 0, \\quad & \\forall i = 1, \\ldots, m\n\\end{align*}\\]\n\\(\\theta^* &lt; 1\\) のとき，少なくとも1つの \\(j \\in \\{1,2,\\ldots,n\\} \\setminus \\{o\\}\\) について，次の式が成り立つ．\n\\[\n\\sum_{r=1}^{s} u_r^* y_{rj} - \\sum_{i=1}^{m} v_i^* x_{ij} = 0\n\\]\nそうでなければ，\\(\\theta\\) を増加させることができる．正式に，\\(\\text{DMU}_o\\) における \\(\\theta^* &lt; 1\\) のとき，次の集合を\\(\\text{DMU}_o\\) の参照集合（reference set）と呼ぶ．\n\\[\n\\mathcal{R}_o = \\{ j \\mid \\sum_{r=1}^{s} u_r^* y_{rj} - \\sum_{i=1}^{m} v_i^* x_{ij} = 0 \\}\n\\]\n参照集合 \\(\\mathcal{R}_o\\) は，\\(\\text{DMU}_o\\) を非効率的にしているDMUの集合である．",
     "crumbs": [
       "データ包絡分析",
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>CCRモデル</span>"
