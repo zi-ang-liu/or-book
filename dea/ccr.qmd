@@ -52,9 +52,66 @@ $$
 
 CCRモデルの考え方は，$\text{DMU}_o$ の効率性を最大化するような重み $\mathbf{u}$ と $\mathbf{v}$ を選ぶことである．$\text{DMU}_o$ は最適な重みを用いたとき，他のDMUとの比較を行う．
 
+:::{#exm-dea-ccr-theta}
+以下の表は，3つのDMUの入力と出力を示している．
+
+|DMU|1|2|3|
+|--|--|--|--|
+|Input 1|20|19|25|
+|Input 2|151|131|160|
+|Output 1|100|150|160|
+|Output 2|90|50|55|
+
+$\text{DMU}_1$ の効率性 $\theta$ は，入力に対する重みを $v_1, v_2$，出力に対する重みを $u_1, u_2$ とすると，次のように表される．
+
+\begin{align*}
+\theta &= \frac{\sum_{r=1}^{s} u_r y_{r1}}{\sum_{i=1}^{m} v_i x_{i1}} \\
+&= \frac{u_1 y_{11} + u_2 y_{21}}{v_1 x_{11} + v_2 x_{21}} \\
+&= \frac{100 u_1 + 90 u_2}{20 v_1 + 151 v_2}
+\end{align*}
+
+同様にして，$\text{DMU}_2$ と $\text{DMU}_3$ の効率性は次のようになる．
+\begin{align*}
+\text{DMU}_2: \quad & \theta = \frac{\sum_{r=1}^{s} u_r y_{r2}}{\sum_{i=1}^{m} v_i x_{i2}} = \frac{150 u_1 + 50 u_2}{19 v_1 + 131 v_2} \\
+\text{DMU}_3: \quad & \theta = \frac{\sum_{r=1}^{s} u_r y_{r3}}{\sum_{i=1}^{m} v_i x_{i3}} = \frac{160 u_1 + 55 u_2}{25 v_1 + 160 v_2}
+\end{align*}
+
+$\mathbf{u}$ と $\mathbf{v}$ が与えられたとき，$\text{DMU}_1$ の効率性 $\theta$ を計算できる．例えば，
+$$
+\mathbf{u} =
+\begin{pmatrix}
+0.003 \\ 0.007
+\end{pmatrix},\quad
+\mathbf{v} =
+\begin{pmatrix}
+0.005 \\ 0.006
+\end{pmatrix}
+$$
+とすると，$\text{DMU}_1$ の効率性は
+\begin{align*}
+\theta &= \frac{100 \times 0.003 + 90 \times 0.007}{20 \times 0.005 + 151 \times 0.006} 
+\end{align*}
+である．
+
+:::
+
 ### CCRモデルの定式化
 
-CCRモデルは次の分数計画問題として定式化できる．
+CCRモデルは，$\text{DMU}_o$ の効率性 $\theta$ を最大化する重み $\mathbf{u^*}$ と $\mathbf{v^*}$ を求める．目的関数は，以下のようになる．
+
+$$
+\text{maximize} \quad \theta = \frac{\sum_{r=1}^{s} u_r y_{ro}}{\sum_{i=1}^{m} v_i x_{io}}
+$$
+
+そこで，制約条件として，すべてのDMUの効率性が1以下であることを課す．すなわち，すべての $j = 1, 2, \ldots, n$ について，次の不等式を満たす必要がある．
+
+$$
+\frac{\sum_{r=1}^{s} u_r y_{rj}}{\sum_{i=1}^{m} v_i x_{ij}} \leq 1, \quad \forall j = 1, 2, \ldots, n
+$$
+
+また，重みは非負である必要があるため，$\mathbf{u} \geq \mathbf{0}$，$\mathbf{v} \geq \mathbf{0}$ とする．
+
+したがって，CCRモデルは次の分数計画問題として定式化できる．
 
 \begin{align*}
 \text{maximize} \quad & \theta = \frac{\sum_{r=1}^{s} u_r y_{ro}}{\sum_{i=1}^{m} v_i x_{io}} & \\
@@ -63,7 +120,7 @@ CCRモデルは次の分数計画問題として定式化できる．
 & v_i \geq 0, \quad & \forall i = 1, \ldots, m 
 \end{align*}
 
-この分数計画問題は，$\theta$ を最大化する重み $\mathbf{u}$ と $\mathbf{v}$ を求めるものである．制約条件は，すべてのDMUの効率性が1以下であることを保証している．
+この分数計画問題は，$\text{DMU}_o$ の効率性 $\theta$ を最大化する重み $\mathbf{u^*}$ と $\mathbf{v^*}$ を求めるものである．制約条件は，すべてのDMUの効率性が1以下であることを保証している．
 
 :::{.callout-note}
 厳密に，制約条件は
@@ -80,6 +137,7 @@ $$
 :::
 
 この分数計画問題において，任意の $\alpha > 0$ に対して，$(\mathbf{u}^*, \mathbf{v}^*)$ を最適解とすると，$(\alpha \mathbf{u}^*, \alpha \mathbf{v}^*)$ も最適解となる．
+
 したがって，この分数計画問題は無限に多くの最適解を持つ．この問題を解決するために，分母を1に固定することで，次の線形計画問題に変換できる．
 
 \begin{align*}
@@ -90,19 +148,20 @@ $$
 & v_i \geq 0, \quad & \forall i = 1, \ldots, m 
 \end{align*}
 
+
+
 :::{#def-dea-ccr}
 1. $\theta^* = 1$ かつ最適解 $\mathbf{u}^* > \mathbf{0}$，$\mathbf{v}^* > \mathbf{0}$ を満たすとき，$\text{DMU}_o$ は効率的である．
 2. $\theta^* < 1$ のとき，$\text{DMU}_o$ は非効率的である．
 :::
 
-$\theta^* < 1$ のとき，少なくとも1つの $j \in \{1,2,\ldots,n\}$ に対して，次の式が成り立つ．
+$\theta^* < 1$ のとき，少なくとも1つの $j \in \{1,2,\ldots,n\} \setminus \{o\}$ について，次の式が成り立つ．
+
 $$
 \sum_{r=1}^{s} u_r^* y_{rj} - \sum_{i=1}^{m} v_i^* x_{ij} = 0
 $$
 
-そうでなければ，$\theta^*$ を増加させることができる．また，$\theta^* < 1$ から，$j \neq o$ であることがわかる．
-
-正式に，$\text{DMU}_o$ における $\theta^* < 1$ のとき，次の集合を$\text{DMU}_o$ の**参照集合**（reference set）と呼ぶ．
+そうでなければ，$\theta$ を増加させることができる．正式に，$\text{DMU}_o$ における $\theta^* < 1$ のとき，次の集合を$\text{DMU}_o$ の**参照集合**（reference set）と呼ぶ．
 
 $$
 \mathcal{R}_o = \{ j \mid \sum_{r=1}^{s} u_r^* y_{rj} - \sum_{i=1}^{m} v_i^* x_{ij} = 0 \}
