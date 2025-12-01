@@ -8,7 +8,7 @@ jupyter: python3
 
 @fig-typical-queueing-system は，典型的な待ち行列システムを示している．一般に，待ち行列システムは待ち行列とサーバから構成される．これ以降は，待ち行列システムを単に**システム**と呼ぶことにする．図に示すように，**客**（customer）はシステムに**到着**（arrival）し，**待ち行列**（queue）に並び，サービスを受け，最後にシステムを**退出**（departure）する．
 
-![A typical queueing system](images/typical_queueing.svg){#fig-typical-queueing-system}
+![A typical queueing system](images/typical_queueing.png){#fig-typical-queueing-system}
 
 ## ケンドールの記号
 
