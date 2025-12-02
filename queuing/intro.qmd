@@ -70,7 +70,7 @@ $$
 時刻 $t$ までに累積到着客数を $A(t)$ とする．時刻 $t$ における系内客数を $N(t)$ とする．客 $k$ の滞在時間を $W^(k)$ とする．$t \to \infty$ とすると，極限が存在するとき，平均到着率 $\lambda$，平均系内客数 $L$，平均滞在時間 $W$ はそれぞれ次の式で定義される．
 
 $$
-\lambda = \lim_{t \to \infty} \frac{A(t)}{t} , \quad L = \lim_{T \to \infty} \frac{1}{T} \int_0^T N(t) dt, \quad W = \lim_{k \to \infty} \frac{1}{k} \sum_{i=1}^k W^{(k)}
+\lambda = \lim_{t \to \infty} \frac{A(t)}{t} , \quad L = \lim_{T \to \infty} \frac{1}{T} \int_0^T N(t) dt, \quad W = \lim_{k \to \infty} \frac{1}{k} \sum_{i=1}^k W^{(i)}
 $$
 
 <!-- :::{#thm-littles-law}
