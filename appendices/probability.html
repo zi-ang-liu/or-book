@@ -515,8 +515,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../queuing/stochastic-process.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">確率過程</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../queuing/birth-death.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">出生死滅過程</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">出生死滅過程</span></span></a>
   </div>
 </li>
       </ul>
@@ -533,7 +539,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../career/intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">キャリア</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">キャリア</span></span></a>
   </div>
 </li>
       </ul>
@@ -596,10 +602,9 @@ window.Quarto = {
    
   <ul>
   <li><a href="#確率変数" id="toc-確率変数" class="nav-link active" data-scroll-target="#確率変数"><span class="header-section-number">B.1</span> 確率変数</a></li>
-  <li><a href="#確率分布" id="toc-確率分布" class="nav-link" data-scroll-target="#確率分布"><span class="header-section-number">B.2</span> 確率分布</a></li>
-  <li><a href="#指数分布" id="toc-指数分布" class="nav-link" data-scroll-target="#指数分布"><span class="header-section-number">B.3</span> 指数分布</a>
+  <li><a href="#確率分布" id="toc-確率分布" class="nav-link" data-scroll-target="#確率分布"><span class="header-section-number">B.2</span> 確率分布</a>
   <ul class="collapse">
-  <li><a href="#正規分布" id="toc-正規分布" class="nav-link" data-scroll-target="#正規分布"><span class="header-section-number">B.3.1</span> 正規分布</a></li>
+  <li><a href="#正規分布" id="toc-正規分布" class="nav-link" data-scroll-target="#正規分布"><span class="header-section-number">B.2.1</span> 正規分布</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -653,19 +658,8 @@ f_X(x) = \frac{d}{dx} F_X(x)
 </section>
 <section id="確率分布" class="level2" data-number="B.2">
 <h2 data-number="B.2" class="anchored" data-anchor-id="確率分布"><span class="header-section-number">B.2</span> 確率分布</h2>
-</section>
-<section id="指数分布" class="level2" data-number="B.3">
-<h2 data-number="B.3" class="anchored" data-anchor-id="指数分布"><span class="header-section-number">B.3</span> 指数分布</h2>
-<p>連続型確率変数 <span class="math inline">\(X\)</span> は<strong>指数分布</strong>（exponential distribution）に従うとき、<span class="math inline">\(X \sim \text{Exp}(\lambda)\)</span> と表す。ここで <span class="math inline">\(\lambda &gt; 0\)</span> は分布のパラメータである。<span class="math inline">\(X\)</span> の確率密度関数は</p>
-<p><span class="math display">\[
-f_X(x) = \begin{cases}
-\lambda e^{-\lambda x} &amp; x \geq 0 \\
-0 &amp; x &lt; 0
-\end{cases}
-\]</span></p>
-<p>で与えられる。平均は <span class="math inline">\(E[X] = \frac{1}{\lambda}\)</span>、分散は <span class="math inline">\(\text{Var}(X) = \frac{1}{\lambda^2}\)</span> である。</p>
-<section id="正規分布" class="level3" data-number="B.3.1">
-<h3 data-number="B.3.1" class="anchored" data-anchor-id="正規分布"><span class="header-section-number">B.3.1</span> 正規分布</h3>
+<section id="正規分布" class="level3" data-number="B.2.1">
+<h3 data-number="B.2.1" class="anchored" data-anchor-id="正規分布"><span class="header-section-number">B.2.1</span> 正規分布</h3>
 <p>連続型確率変数 <span class="math inline">\(X\)</span> は<strong>正規分布</strong>（normal distribution）に従うとき、<span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span> と表す。ここで <span class="math inline">\(\mu\)</span> は平均、<span class="math inline">\(\sigma^2\)</span> は分散である。<span class="math inline">\(X\)</span> の確率密度関数は</p>
 <p><span class="math display">\[
 f_X(x) = \frac{1}{\sqrt{2\pi} \sigma} e^{-\frac{(x - \mu)^2}{2\sigma^2}}

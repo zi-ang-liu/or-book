@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../queuing/birth-death.html" rel="next">
+<link href="../queuing/stochastic-process.html" rel="next">
 <link href="../dp/intro.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -483,8 +483,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../queuing/stochastic-process.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">確率過程</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../queuing/birth-death.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">出生死滅過程</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">出生死滅過程</span></span></a>
   </div>
 </li>
       </ul>
@@ -501,7 +507,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../career/intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">キャリア</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">キャリア</span></span></a>
   </div>
 </li>
       </ul>
@@ -616,7 +622,7 @@ window.Quarto = {
 <p><span class="math display">\[
 A/B/X
 \]</span></p>
-<p>ここで，<span class="math inline">\(A\)</span> は到着時間間隔分布の種類，<span class="math inline">\(B\)</span> はサービス時間分布の種類，<span class="math inline">\(X\)</span> はサーバ数を表す．<span class="math inline">\(A\)</span> と <span class="math inline">\(B\)</span> には以下の記号が用いられる．</p>
+<p>ここで，<span class="math inline">\(A\)</span> は到着間隔分布の種類，<span class="math inline">\(B\)</span> はサービス時間分布の種類，<span class="math inline">\(X\)</span> はサーバ数を表す．<span class="math inline">\(A\)</span> と <span class="math inline">\(B\)</span> には以下の記号が用いられる．</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -647,7 +653,7 @@ A/B/X
 </tr>
 </tbody>
 </table>
-<p>例えば，客の到着時間間隔が指数分布に従い，サービス時間が一定であり，サーバ数が1である場合，その待ち行列モデルは <span class="math inline">\(M/D/1\)</span> と表される．本章の最後では，<span class="math inline">\(G/G/1\)</span> 待ち行列と <span class="math inline">\(G/G/c\)</span> 待ち行列について説明する．これらのモデルから得られた一般的な結論は，他の多くの待ち行列モデルにも適用できる．</p>
+<p>例えば，客の到着間隔が指数分布に従い，サービス時間が一定であり，サーバ数が1である場合，その待ち行列モデルは <span class="math inline">\(M/D/1\)</span> と表される．本章の最後では，<span class="math inline">\(G/G/1\)</span> 待ち行列と <span class="math inline">\(G/G/c\)</span> 待ち行列について説明する．これらのモデルから得られた一般的な結論は，他の多くの待ち行列モデルにも適用できる．</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -790,6 +796,19 @@ L_q = \lambda W_q = 20 \times \frac{6}{60} = 2 \text{ 人}
 <p><span class="math inline">\(S\)</span> をサービス時間を表す確率変数とする．<strong>平均サービス時間</strong>を <span class="math inline">\(E[S]\)</span> と表す．単位時間あたりに一つのサーバが処理できる客数の平均は <span class="math display">\[
 \mu = \frac{1}{E[S]}
 \]</span> で計算する．<span class="math inline">\(\mu\)</span> を<strong>平均サービス率</strong>（average service rate）と呼ぶ．</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+ノート
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>平均サービス時間は客がサービスを受けるのにかかる時間の平均であり，平均サービス率は単位時間あたりに処理できる客数の平均である．</p>
+</div>
+</div>
 <p><strong>利用率</strong> <span class="math inline">\(\rho\)</span> は，次の式で定義される．</p>
 <p><span class="math display">\[
 \rho = \frac{\lambda}{c \mu}
@@ -1338,8 +1357,8 @@ L_q = \lambda W_q = 30 \times \frac{5}{60} = 2.5 \text{ 人}
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../queuing/birth-death.html" class="pagination-link" aria-label="出生死滅過程">
-        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">出生死滅過程</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../queuing/stochastic-process.html" class="pagination-link" aria-label="確率過程">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">確率過程</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

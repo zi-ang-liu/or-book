@@ -1014,7 +1014,7 @@
     "href": "queuing/intro.html",
     "title": "14  待ち行列モデルの基礎",
     "section": "",
-    "text": "14.1 ケンドールの記号\n図 14.1 は，典型的な待ち行列システムを示している．一般に，待ち行列システムは待ち行列とサーバから構成される．これ以降は，待ち行列システムを単にシステムと呼ぶことにする．図に示すように，客（customer）はシステムに到着（arrival）し，待ち行列（queue）に並び，サービスを受け，最後にシステムを退出（departure）する．\n待ち行列モデルは，ケンドールの記号（Kendall’s notation）により表現する．\n\\[\nA/B/X\n\\]\nここで，\\(A\\) は到着時間間隔分布の種類，\\(B\\) はサービス時間分布の種類，\\(X\\) はサーバ数を表す．\\(A\\) と \\(B\\) には以下の記号が用いられる．\n例えば，客の到着時間間隔が指数分布に従い，サービス時間が一定であり，サーバ数が1である場合，その待ち行列モデルは \\(M/D/1\\) と表される．本章の最後では，\\(G/G/1\\) 待ち行列と \\(G/G/c\\) 待ち行列について説明する．これらのモデルから得られた一般的な結論は，他の多くの待ち行列モデルにも適用できる．",
+    "text": "14.1 ケンドールの記号\n図 14.1 は，典型的な待ち行列システムを示している．一般に，待ち行列システムは待ち行列とサーバから構成される．これ以降は，待ち行列システムを単にシステムと呼ぶことにする．図に示すように，客（customer）はシステムに到着（arrival）し，待ち行列（queue）に並び，サービスを受け，最後にシステムを退出（departure）する．\n待ち行列モデルは，ケンドールの記号（Kendall’s notation）により表現する．\n\\[\nA/B/X\n\\]\nここで，\\(A\\) は到着間隔分布の種類，\\(B\\) はサービス時間分布の種類，\\(X\\) はサーバ数を表す．\\(A\\) と \\(B\\) には以下の記号が用いられる．\n例えば，客の到着間隔が指数分布に従い，サービス時間が一定であり，サーバ数が1である場合，その待ち行列モデルは \\(M/D/1\\) と表される．本章の最後では，\\(G/G/1\\) 待ち行列と \\(G/G/c\\) 待ち行列について説明する．これらのモデルから得られた一般的な結論は，他の多くの待ち行列モデルにも適用できる．",
     "crumbs": [
       "待ち行列理論",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>待ち行列モデルの基礎</span>"
@@ -1058,7 +1058,7 @@
     "href": "queuing/intro.html#gg1ggc-待ち行列",
     "title": "14  待ち行列モデルの基礎",
     "section": "14.4 \\(G/G/1\\)，\\(G/G/c\\) 待ち行列",
-    "text": "14.4 \\(G/G/1\\)，\\(G/G/c\\) 待ち行列\nここでは，\\(G/G/1\\) と \\(G/G/c\\) 待ち行列における一般的な結論を説明する．記号のまとめを以下に示す．\n\n\n\n記号\n意味\n\n\n\n\n\\(\\lambda\\)\n平均到着率，単位時間あたりの到着客数の平均\n\n\n\\(L\\)\n平均系内客数\n\n\n\\(W\\)\n平均滞在時間\n\n\n\\(L_q\\)\n平均待ち行列長\n\n\n\\(W_q\\)\n平均待ち時間\n\n\n\\(S\\)\nサービス時間を表す確率変数\n\n\n\\(\\mu\\)\n平均サービス率，単位時間あたりに処理できる客数の平均\n\n\n\\(c\\)\nサーバ数\n\n\n\\(\\rho\\)\n利用率\n\n\n\n\n14.4.1 サービス率と利用率\n\\(S\\) をサービス時間を表す確率変数とする．平均サービス時間を \\(E[S]\\) と表す．単位時間あたりに一つのサーバが処理できる客数の平均は \\[\n\\mu = \\frac{1}{E[S]}\n\\] で計算する．\\(\\mu\\) を平均サービス率（average service rate）と呼ぶ．\n利用率 \\(\\rho\\) は，次の式で定義される．\n\\[\n\\rho = \\frac{\\lambda}{c \\mu}\n\\]\nここで，\\(c\\) はサーバ数を表す．利用率 \\(\\rho\\) は，到着率 \\(\\lambda\\) がシステムの処理能力 \\(c \\mu\\) に対してどの程度であるかを示す指標である．システムの忙しさを表す．\nシステムの使用を開始するとき，システムの状態（系内客数など）は初期状態に大きく依存する．時間が十分に経過すると，システムの状態は初期状態の影響を受けなくなり，一定の条件下で定常状態（steady state）にある．定常状態において，システムの状態は一定の確率分布に従い，時間が経過しても変化しない．定常状態が存在するためには，\\(\\rho &lt; 1\\) である必要がある．\n\\(\\lambda\\) と \\(\\mu\\) が与えられたとき，\\(\\rho &lt; 1\\) という条件を用いて，システムが定常状態に達するためのサーバ数 \\(c\\) の最小値を求めることができる．すなわち，\n\\[\n\\rho = \\frac{\\lambda}{c \\mu} &lt; 1\n\\]\nを満たす最小の整数 \\(c\\) を求めればよい．\n\n例 14.3 あるコールセンターでは，オペレーター10人が勤務している．1件の電話対応に平均して10分かかる．1時間あたり30件の電話がかかってくるとする．\n\n社員一人1時間あたりに対応できる電話の平均件数を求めよ．\nこのコールセンターの利用率を求めよ．\n安定した運用のために必要な最小のサーバ数を求めよ．\n\n平均サービス時間 \\(E[S] = 10 \\text{ 分} = 1/6 \\text{ 時間}\\) である．平均サービス率 \\(\\mu\\) は \\[\n\\mu = \\frac{1}{E[S]} = \\frac{1}{1/6} = 6 \\text{ 件/時間}\n\\] となる．すなわち，社員一人は1時間あたり平均6件の電話に対応できることになる．\n平均到着率 \\(\\lambda\\) は30件/時間，平均サービス率 \\(\\mu\\) は6件/時間，サーバ数 \\(c\\) は10である．利用率 \\(\\rho\\) は次のように計算される．\n\\[\n\\rho = \\frac{30}{10 \\times 6} = \\frac{30}{60} = 0.5\n\\]\nよって，このコールセンターの利用率は0.5である．\n安定した運用のためには，\\(\\rho &lt; 1\\) を満たす必要がある．すなわち，\n\\[\\begin{align*}\nc & &gt; \\frac{\\lambda}{\\mu} \\\\\nc & &gt; 5\n\\end{align*}\\]\nしたがって，必要な最小のサーバ数は6である．\n\n\n\n14.4.2 \\(L\\)，\\(W\\)，\\(L_q\\)，\\(W_q\\) の関係\n客がシステムに到着してから退出するまでの平均滞在時間 \\(W\\) は，平均待ち時間 \\(W_q\\) と平均サービス時間 \\(E[S]\\) の和で表される．すなわち，\n\\[\nW = W_q + E[S] = W_q + \\frac{1}{\\mu}\n\\]\nである．リトルの法則により，\n\\[\nL = \\lambda W = \\lambda \\left( W_q + \\frac{1}{\\mu} \\right) =\\lambda W_q + \\frac{\\lambda}{\\mu} = L_q + \\frac{\\lambda}{\\mu}\n\\]\nが成り立つ．\\(L = L_q + \\lambda / \\mu\\) が成り立つから，\\(\\lambda/ \\mu\\) はサービスを受けている客数の平均を表していると言える．また，\\(\\lambda/ \\mu = L - L_q\\) であるから，稼働中のサーバ数の平均を表しているとも言える．\n以上の関係式をまとめると，次のようになる．\n\\[\\begin{align*}\nL & = \\lambda W \\\\\nW & = W_q + \\frac{1}{\\mu} \\\\\nL_q & = \\lambda W_q \\\\\nL & = L_q + \\frac{\\lambda}{\\mu}\n\\end{align*}\\]\nこれらの関係式は4つの指標 \\(L\\)，\\(W\\)，\\(L_q\\)，\\(W_q\\) のうち，1つがわかれば，他の3つを計算できることを示している．",
+    "text": "14.4 \\(G/G/1\\)，\\(G/G/c\\) 待ち行列\nここでは，\\(G/G/1\\) と \\(G/G/c\\) 待ち行列における一般的な結論を説明する．記号のまとめを以下に示す．\n\n\n\n記号\n意味\n\n\n\n\n\\(\\lambda\\)\n平均到着率，単位時間あたりの到着客数の平均\n\n\n\\(L\\)\n平均系内客数\n\n\n\\(W\\)\n平均滞在時間\n\n\n\\(L_q\\)\n平均待ち行列長\n\n\n\\(W_q\\)\n平均待ち時間\n\n\n\\(S\\)\nサービス時間を表す確率変数\n\n\n\\(\\mu\\)\n平均サービス率，単位時間あたりに処理できる客数の平均\n\n\n\\(c\\)\nサーバ数\n\n\n\\(\\rho\\)\n利用率\n\n\n\n\n14.4.1 サービス率と利用率\n\\(S\\) をサービス時間を表す確率変数とする．平均サービス時間を \\(E[S]\\) と表す．単位時間あたりに一つのサーバが処理できる客数の平均は \\[\n\\mu = \\frac{1}{E[S]}\n\\] で計算する．\\(\\mu\\) を平均サービス率（average service rate）と呼ぶ．\n\n\n\n\n\n\nノート\n\n\n\n平均サービス時間は客がサービスを受けるのにかかる時間の平均であり，平均サービス率は単位時間あたりに処理できる客数の平均である．\n\n\n利用率 \\(\\rho\\) は，次の式で定義される．\n\\[\n\\rho = \\frac{\\lambda}{c \\mu}\n\\]\nここで，\\(c\\) はサーバ数を表す．利用率 \\(\\rho\\) は，到着率 \\(\\lambda\\) がシステムの処理能力 \\(c \\mu\\) に対してどの程度であるかを示す指標である．システムの忙しさを表す．\nシステムの使用を開始するとき，システムの状態（系内客数など）は初期状態に大きく依存する．時間が十分に経過すると，システムの状態は初期状態の影響を受けなくなり，一定の条件下で定常状態（steady state）にある．定常状態において，システムの状態は一定の確率分布に従い，時間が経過しても変化しない．定常状態が存在するためには，\\(\\rho &lt; 1\\) である必要がある．\n\\(\\lambda\\) と \\(\\mu\\) が与えられたとき，\\(\\rho &lt; 1\\) という条件を用いて，システムが定常状態に達するためのサーバ数 \\(c\\) の最小値を求めることができる．すなわち，\n\\[\n\\rho = \\frac{\\lambda}{c \\mu} &lt; 1\n\\]\nを満たす最小の整数 \\(c\\) を求めればよい．\n\n例 14.3 あるコールセンターでは，オペレーター10人が勤務している．1件の電話対応に平均して10分かかる．1時間あたり30件の電話がかかってくるとする．\n\n社員一人1時間あたりに対応できる電話の平均件数を求めよ．\nこのコールセンターの利用率を求めよ．\n安定した運用のために必要な最小のサーバ数を求めよ．\n\n平均サービス時間 \\(E[S] = 10 \\text{ 分} = 1/6 \\text{ 時間}\\) である．平均サービス率 \\(\\mu\\) は \\[\n\\mu = \\frac{1}{E[S]} = \\frac{1}{1/6} = 6 \\text{ 件/時間}\n\\] となる．すなわち，社員一人は1時間あたり平均6件の電話に対応できることになる．\n平均到着率 \\(\\lambda\\) は30件/時間，平均サービス率 \\(\\mu\\) は6件/時間，サーバ数 \\(c\\) は10である．利用率 \\(\\rho\\) は次のように計算される．\n\\[\n\\rho = \\frac{30}{10 \\times 6} = \\frac{30}{60} = 0.5\n\\]\nよって，このコールセンターの利用率は0.5である．\n安定した運用のためには，\\(\\rho &lt; 1\\) を満たす必要がある．すなわち，\n\\[\\begin{align*}\nc & &gt; \\frac{\\lambda}{\\mu} \\\\\nc & &gt; 5\n\\end{align*}\\]\nしたがって，必要な最小のサーバ数は6である．\n\n\n\n14.4.2 \\(L\\)，\\(W\\)，\\(L_q\\)，\\(W_q\\) の関係\n客がシステムに到着してから退出するまでの平均滞在時間 \\(W\\) は，平均待ち時間 \\(W_q\\) と平均サービス時間 \\(E[S]\\) の和で表される．すなわち，\n\\[\nW = W_q + E[S] = W_q + \\frac{1}{\\mu}\n\\]\nである．リトルの法則により，\n\\[\nL = \\lambda W = \\lambda \\left( W_q + \\frac{1}{\\mu} \\right) =\\lambda W_q + \\frac{\\lambda}{\\mu} = L_q + \\frac{\\lambda}{\\mu}\n\\]\nが成り立つ．\\(L = L_q + \\lambda / \\mu\\) が成り立つから，\\(\\lambda/ \\mu\\) はサービスを受けている客数の平均を表していると言える．また，\\(\\lambda/ \\mu = L - L_q\\) であるから，稼働中のサーバ数の平均を表しているとも言える．\n以上の関係式をまとめると，次のようになる．\n\\[\\begin{align*}\nL & = \\lambda W \\\\\nW & = W_q + \\frac{1}{\\mu} \\\\\nL_q & = \\lambda W_q \\\\\nL & = L_q + \\frac{\\lambda}{\\mu}\n\\end{align*}\\]\nこれらの関係式は4つの指標 \\(L\\)，\\(W\\)，\\(L_q\\)，\\(W_q\\) のうち，1つがわかれば，他の3つを計算できることを示している．",
     "crumbs": [
       "待ち行列理論",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>待ち行列モデルの基礎</span>"
@@ -1087,47 +1087,80 @@
     ]
   },
   {
+    "objectID": "queuing/stochastic-process.html",
+    "href": "queuing/stochastic-process.html",
+    "title": "15  確率過程",
+    "section": "",
+    "text": "15.1 指数分布\n待ち行列理論において，到着間隔とサービス時間は確率変数として扱うことが多い．最も一般的に用いられる確率分布は指数分布である．\n連続型確率変数 \\(X\\) が指数分布（exponential distribution）に従うとき，\\(X\\) の確率密度関数は\n\\[\nf_X(x) = \\begin{cases}\n\\lambda e^{-\\lambda x} & x \\geq 0 \\\\\n0 & x &lt; 0\n\\end{cases}\n\\]\nで与えられ，\\(X \\sim \\text{Exp}(\\lambda)\\) と表す。ここで \\(\\lambda &gt; 0\\) は分布のパラメータである。\n指数分布に従う確率変数 \\(X\\) の平均と分散は \\[\nE[X] = \\frac{1}{\\lambda}, \\quad \\text{Var}(X) = \\frac{1}{\\lambda^2}\n\\] である。\n累積分布関数は \\[\nF_X(x) = P(X \\leq x) = \\begin{cases}\n1 - e^{-\\lambda x} & x \\geq 0 \\\\\n0 & x &lt; 0\n\\end{cases}\n\\] である。\n次の図は，パラメータ \\(\\lambda = 0.5, 1.0, 1.5, 2.0\\) の場合における指数分布の確率密度関数を示している．確率密度関数 \\(f_X(x)\\) は \\(x\\) の増加に伴い単調減少する．\nコード\nimport matplotlib.pyplot as plt\nimport numpy as np\nfrom scipy.stats import expon\n\nx = np.linspace(0, 8, 100)\nlambda_params = [0.5, 1.0, 1.5, 2.0]\nfor lam in lambda_params:\n    pdf = expon.pdf(x, scale=1 / lam)\n    plt.plot(x, pdf, label=f\"λ={lam}\")\nplt.title(\"Exponential Distribution PDF\")\nplt.xlabel(\"x\")\nplt.ylabel(\"$f_X(x)$\")\nplt.xlim(0, 8)\nplt.ylim(0, 2.5)\nplt.legend()\nplt.grid()\nplt.show()",
+    "crumbs": [
+      "待ち行列理論",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>確率過程</span>"
+    ]
+  },
+  {
+    "objectID": "queuing/stochastic-process.html#指数分布",
+    "href": "queuing/stochastic-process.html#指数分布",
+    "title": "15  確率過程",
+    "section": "",
+    "text": "15.1.1 到着間隔とサービス時間\n待ち行列理論において，到着とサービス時間が指数分布に従うと仮定することはよくある．確率変数 \\(T\\) を到着間隔を表すことを考える．このとき，\\(P(T \\leq t)\\) は，時間 \\(t\\) 以内に次の客が到着する確率を表す．\\(E(T)\\) は，到着間隔の平均であり，到着という事象が発生するまでの平均時間を示す．\\(\\lambda = 1/E(T)\\) は，単位時間あたりの到着する客数の平均を表す．この \\(\\lambda\\) は，前の章で説明した平均到着率である．\n同様に，確率変数 \\(T\\) をサービス時間を表す場合は，\\(E(T)\\) はサービス時間の平均を示し，\\(\\mu = 1/E(T)\\) は単位時間あたりに処理できる客数の平均を表す．この \\(\\mu\\) は，前の章で説明した平均サービス率である．\n\n例 15.1 ある店舗では，1時間あたり平均12人の客が来店する．到着間隔 \\(T\\) が指数分布に従うと仮定する．次の問いに答えよ． 1. 平均到着間隔 \\(E[T]\\) を求めよ． 2. 2分以内に次の客が到着する確率を求めよ．\n平均到着率は \\(\\lambda = 12\\) 人/時間である．平均到着間隔は\n\\[\nE[T] = 1/\\lambda = 1/12 \\text{ 時間} = 5 \\text{ 分}\n\\] である．\n単位を時間に揃えると，\\(T \\sim \\text{Exp}(12)\\) に従う．\\(P(T \\leq 1/30)\\) を計算する． \\[\nP(T \\leq 1/30) = F_T(1/30) = 1 - e^{-12 \\times (1/30)} \\approx 0.3297\n\\] よって，2分以内に次の客が到着する確率は約0.3297である．\n\n次の図は，例 15.1 で説明した到着間隔のシミュレーション例を示している．平均到着率 \\(\\lambda = 12\\) 人/時間であるとき，15人の到着時間をシミュレーションした．横軸は時間を表し，青い線は各客の到着時間を示している．\n\n\nコード\nfrom scipy.stats import expon\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nnp.random.seed(0)\nlambda_param = 12  # 平均到着率（人/時間）\nnum_arrivals = 15  # シミュレーションする到着数\ninter_arrival_times = expon.rvs(scale=1 / lambda_param, size=num_arrivals)\narrival_times = np.cumsum(inter_arrival_times)\nplt.figure(figsize=(10, 2))\nplt.eventplot(arrival_times, orientation=\"horizontal\", colors=\"blue\")\nplt.title(\"Simulated Arrival Times\")\nplt.xlabel(\"Time (hours)\")\nplt.yticks([])\nplt.xlim(0, max(arrival_times) + 0.15)\nplt.show()\n\n\n\n\n\n\n\n\n\n\n例 15.2 あるコールセンターでは，1時間あたり平均6人の客を処理できる．サービス時間 \\(T\\) が指数分布に従うと仮定する．次の問いに答えよ．\n\n単位時間あたり処理できる客数の平均を求めよ．\n平均サービス時間 \\(E[T]\\) を求めよ．\n3分以内にサービスが完了する確率を求めよ．\n\n単位時間あたり処理できる客数の平均は \\(6\\) である．すなわち，平均サービス率は \\(\\mu = 6\\) である．\n平均サービス時間 \\(E[T] = 1/\\mu\\) であるから，平均サービス時間は次のように計算される． \\[\nE[T] = \\frac{1}{\\mu} = \\frac{1}{6} \\text{ 時間} = 10 \\text{ 分}\n\\]\n以上から，\\(T \\sim \\text{Exp}(6)\\) に従う．累積分布関数を用いて，\\(P(T \\leq 0.05)\\) を計算する． \\[\nP(T \\leq 0.05) = F_T(0.05) = 1 - e^{-6 \\times 0.05} \\approx 0.2592\n\\] よって，3分以内にサービスが完了する確率は約0.2592である．\n\n\n\n15.1.2 無記憶性\n\n定義 15.1 確率変数 \\(T\\) が無記憶性（memoryless）を持つとは，任意の非負実数 \\(s, t\\) に対して \\[\nP(T &gt; s + t \\mid T &gt; s) = P(T &gt; t), \\quad (s, t \\geq 0)\n\\] が成り立つことをいう．\n\n確率変数 \\(T\\) が次の事象が発生するまでの時間と考える．このとき，無記憶性とは，すでに時間 \\(s\\) が経過している場合（\\(T &gt; s\\)）において，さらに時間 \\(t\\) 経過するまでに事象が発生する確率 \\(P(T &gt; s + t \\mid T &gt; s)\\) が，最初から時間 \\(t\\) 経過するまでに事象が発生する確率 \\(P(T &gt; t)\\) と等しいことを意味する．次の事象が発生する確率は，過去の経過時間に依存しない．\n\n定理 15.1 指数分布に従う確率変数は無記憶性を持つ．\n\n\n証明. \\[\\begin{align*}\nP(T &gt; s + t \\mid T &gt; s) & = \\frac{P(T &gt; s + t, T &gt; s)}{P(T &gt; s)} \\\\\n& = \\frac{P(T &gt; s + t)}{P(T &gt; s)} \\\\\n& = \\frac{e^{-\\lambda (s + t)}}{e^{-\\lambda s}} \\\\\n& = e^{-\\lambda t}\n\\end{align*}\\]\n\n指数分布が無記憶性を持つ唯一の連続分布である．",
+    "crumbs": [
+      "待ち行列理論",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>確率過程</span>"
+    ]
+  },
+  {
+    "objectID": "queuing/stochastic-process.html#ポアソン過程",
+    "href": "queuing/stochastic-process.html#ポアソン過程",
+    "title": "15  確率過程",
+    "section": "15.2 ポアソン過程",
+    "text": "15.2 ポアソン過程\n確率過程 \\(\\{N(t), t \\geq 0\\}\\) とは，時間 \\(t\\) とともに変化する確率変数 \\(N(t)\\) の集まりである．\n計数過程（counting process）とは，次の条件を満たす確率過程 \\(\\{N(t), t \\geq 0\\}\\) である．\n\n\\(N(t) \\geq 0\\)\n\\(N(t) \\in \\mathbb{Z}\\)\n\\(N(t)\\) は単調増加である\n\n計数過程は，時刻 \\(t\\) までに発生した事象の回数を表す．例として，客の到着数，機械の故障回数などが挙げられる．\n\n定義 15.2 以下の性質を満たす計数過程 \\(\\{N(t), t \\geq 0\\}\\) を パラメータ \\(\\lambda &gt; 0\\) のポアソン過程（Poisson process）という．\n\n\\(N(0) = 0\\)\n\\(P(N(t + \\Delta t) - N(t) = 1) = \\lambda \\Delta t + o(\\Delta t)\\)\n\\(P(N(t + \\Delta t) - N(t) \\geq 2) = o(\\Delta t)\\)\n独立増分\n定常増分\n\nここで，\\(o(\\Delta t)\\) は \\[\n\\lim_{\\Delta t \\to 0} \\frac{o(\\Delta t)}{\\Delta t} = 0\n\\] を満たす関数である．\n\n\\(N(0) = 0\\) は，時刻 \\(0\\) では事象が発生していないことを表す．\n\\(P(N(t + \\Delta t) - N(t) = 1) = \\lambda \\Delta t + o(\\Delta t)\\) は，時間区間 \\([t, t + \\Delta t]\\) に1回事象が発生する確率を表す．\\(\\Delta t\\) が十分小さいとき，この確率は \\(\\lambda \\Delta t\\) で近似できる．\n\\(P(N(t + \\Delta t) - N(t) \\geq 2) = o(\\Delta t)\\) は，時間区間 \\([t, t + \\Delta t]\\) に2回以上の事象が発生する確率を表す．\\(\\Delta t\\) が十分小さいとき，この確率は無視できるほど小さい．\n独立増分（independent increments）とは，任意の \\(0 \\leq t_1 &lt; t_2 &lt; \\cdots &lt; t_n\\) に対して， \\[\nN(t_2) - N(t_1), N(t_3) - N(t_2), \\ldots, N(t_n) - N(t_{n-1})\n\\] が互いに独立であることを意味する．\n定常増分（stationary increments）とは，\\(t &gt; s\\) に対して，\\(N(t) - N(s)\\) と \\(N(t + h) - N(s + h)\\) が同一の分布に従うことを意味する．\n\n定義 15.3 離散型確率変数 \\(X\\) がポアソン分布（Poisson distribution）に従うとは，次の確率質量関数を持つことをいう． \\[\np_X(k) = P(X = k) = e^{-\\lambda} \\frac{\\lambda^k}{k!}, \\quad k = 0, 1, 2, \\ldots\n\\] ここで，\\(\\lambda &gt; 0\\) は分布のパラメータである．\n\nポアソン分布の平均と分散は \\[\nE[X] = \\lambda, \\quad \\text{Var}(X) = \\lambda\n\\] である．\n\n定理 15.2 パラメータ \\(\\lambda &gt; 0\\) のポアソン過程 \\(\\{N(t), t \\geq 0\\}\\) に対して，\\(N(t)\\) はパラメータ \\(\\lambda t\\) のポアソン分布に従う．すなわち， \\[\nP(N(t) = k) = e^{-\\lambda t} \\frac{(\\lambda t)^k}{k!}, \\quad k = 0, 1, 2, \\ldots.\n\\]\n\n\n証明. 省略する．\n\n\n例 15.3 ある店舗では，1分間あたり平均5人の客が来店する．\\(\\{N(t), t \\geq 0\\}\\) を時刻 \\(t\\) までに到着した客数を表すポアソン過程とする．次の問いに答えよ．\n\n時刻 \\(t = 3\\) 分までに2人の客が到着する確率を求めよ．\n時間区間 \\([2, 5]\\) 分に2人の客が到着する確率を求めよ．\n\n平均到着率は \\(\\lambda = 5\\) 人/分である．時刻 \\(t = 3\\) 分までに到着した客数 \\(N(3)\\) は，パラメータ \\(\\lambda t = 5 \\times 3 = 15\\) のポアソン分布に従う．\\(P(N(3) = 2)\\) を計算する． \\[\nP(N(3) = 2) = e^{-15} \\frac{15^2}{2!}\n\\]\n独立増分と定常増分の性質から，時間区間 \\([2, 5]\\) 分に2人の客が到着する確率は，時刻 \\(t = 3\\) 分までに2人の客が到着する確率と等しい．",
+    "crumbs": [
+      "待ち行列理論",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>確率過程</span>"
+    ]
+  },
+  {
     "objectID": "queuing/birth-death.html",
     "href": "queuing/birth-death.html",
-    "title": "15  出生死滅過程",
+    "title": "16  出生死滅過程",
     "section": "",
     "text": "時刻 \\(t\\) における生物集団の個体数を \\(N(t)\\) で表す．これを状態（state）とも呼ぶ．状態は非負の整数であるため，\\(N(t) \\in \\{0, 1, 2, \\ldots\\}\\) となる．\n\\(N(T) = n\\) のとき，次の出生はパラメータ \\(\\lambda_n\\) を持つ指数分布に従い，次の死滅はパラメータ \\(\\mu_n\\) を持つ指数分布に従うとする．\\(n \\geq 0\\) のとき，一つの個体が出生すると，状態は \\(n\\) から \\(n+1\\) に遷移する．\\(n \\geq 1\\) のとき，一つの個体が死滅すると，状態は \\(n\\) から \\(n-1\\) に遷移する．\n\n\n\n\n\n flowchart LR\n  %% Define states\n  n0((0))\n  n1((1))\n  n2((2))\n  nn((...))\n\n  %% Forward (birth) transitions\n  n0 --&gt;|$$\\lambda_0$$| n1\n  n1 --&gt;|$$\\lambda_1$$| n2\n  n2 --&gt; nn\n\n\n  %% Backward (death) transitions\n  n1 --&gt;|$$\\mu_1$$| n0\n  n2 --&gt;|$$\\mu_2$$| n1\n  nn --&gt; n2",
     "crumbs": [
       "待ち行列理論",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>出生死滅過程</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>出生死滅過程</span>"
     ]
   },
   {
     "objectID": "career/intro.html",
     "href": "career/intro.html",
-    "title": "16  キャリア",
+    "title": "17  キャリア",
     "section": "",
-    "text": "16.1 リンク",
+    "text": "17.1 リンク",
     "crumbs": [
       "OR キャリア",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>キャリア</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>キャリア</span>"
     ]
   },
   {
     "objectID": "career/intro.html#リンク",
     "href": "career/intro.html#リンク",
-    "title": "16  キャリア",
+    "title": "17  キャリア",
     "section": "",
     "text": "Informs\n\nConsider a Career in Operations Research and Analytics!\n\n日本オペレーションズ・リサーチ学会\n\nOR キャリアセッション\n企業事例交流会\nOR 実施事例\n\n日本経営工学会\n\n産学連携研究交流会\n\nキヤノン\n\n日本オペレーションズ・リサーチ（OR）学会レポート活動の舞台裏を大公開！",
     "crumbs": [
       "OR キャリア",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>キャリア</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>キャリア</span>"
     ]
   },
   {
     "objectID": "career/intro.html#関連学会",
     "href": "career/intro.html#関連学会",
-    "title": "16  キャリア",
-    "section": "16.2 関連学会",
-    "text": "16.2 関連学会\n\n日本オペレーションズ・リサーチ学会\n日本経営工学会",
+    "title": "17  キャリア",
+    "section": "17.2 関連学会",
+    "text": "17.2 関連学会\n\n日本オペレーションズ・リサーチ学会\n日本経営工学会",
     "crumbs": [
       "OR キャリア",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>キャリア</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>キャリア</span>"
     ]
   },
   {
@@ -1178,18 +1211,7 @@
     "href": "appendices/probability.html#確率分布",
     "title": "付録 B — 確率",
     "section": "B.2 確率分布",
-    "text": "B.2 確率分布",
-    "crumbs": [
-      "付録",
-      "<span class='chapter-number'>B</span>  <span class='chapter-title'>確率</span>"
-    ]
-  },
-  {
-    "objectID": "appendices/probability.html#指数分布",
-    "href": "appendices/probability.html#指数分布",
-    "title": "付録 B — 確率",
-    "section": "B.3 指数分布",
-    "text": "B.3 指数分布\n連続型確率変数 \\(X\\) は指数分布（exponential distribution）に従うとき、\\(X \\sim \\text{Exp}(\\lambda)\\) と表す。ここで \\(\\lambda &gt; 0\\) は分布のパラメータである。\\(X\\) の確率密度関数は\n\\[\nf_X(x) = \\begin{cases}\n\\lambda e^{-\\lambda x} & x \\geq 0 \\\\\n0 & x &lt; 0\n\\end{cases}\n\\]\nで与えられる。平均は \\(E[X] = \\frac{1}{\\lambda}\\)、分散は \\(\\text{Var}(X) = \\frac{1}{\\lambda^2}\\) である。\n\nB.3.1 正規分布\n連続型確率変数 \\(X\\) は正規分布（normal distribution）に従うとき、\\(X \\sim N(\\mu, \\sigma^2)\\) と表す。ここで \\(\\mu\\) は平均、\\(\\sigma^2\\) は分散である。\\(X\\) の確率密度関数は\n\\[\nf_X(x) = \\frac{1}{\\sqrt{2\\pi} \\sigma} e^{-\\frac{(x - \\mu)^2}{2\\sigma^2}}\n\\]\nと表す。平均は \\(E[X] = \\mu\\)、分散は \\(\\text{Var}(X) = \\sigma^2\\) である。\n\\(X\\) が \\(N(\\mu, \\sigma^2)\\) に従うとき、\\(Y = aX + b\\) は、\\(N(a\\mu + b, a^2\\sigma^2)\\) に従う。特に、\\(Z = \\frac{X - \\mu}{\\sigma}\\) は標準正規分布（standard normal distribution）に従う。すなわち、\\(Z \\sim N(0, 1)\\) である。\n連続型確率変数 \\(Y\\) が標準正規分布に従うとき、\\(Y\\) の累積分布関数は\n\\[\n\\Phi(y) = P(Y \\leq y) = \\frac{1}{\\sqrt{2\\pi}} \\int_{-\\infty}^y e^{-\\frac{t^2}{2}} dt\n\\]\nと表す。標準正規分布表から、\\(y\\) の値に対する \\(\\Phi(y)\\) を調べることができる。\nPython では、以下のように \\(\\Phi(y)\\) を計算できる。\nfrom scipy.stats import norm\ndef phi(y):\n    return norm.cdf(y)\n\nphi(0)  # 0.5\nまた、\\(\\Phi(y)=0.95\\) のときの \\(y\\) の値を求めるには、以下のようにする。\nfrom scipy.stats import norm\ndef phi_inverse(p):\n    return norm.ppf(p)\n\nphi_inverse(0.95)  # 約1.64485\n正規分布は再生性（reproductive property）を持つ。すなわち、\\(X_1, X_2, \\ldots, X_n\\) が独立に \\(N(\\mu_i, \\sigma_i^2)\\) に従うとき、\\(Y = \\sum_{i=1}^n a_i X_i\\) は \\(N\\left(\\sum_{i=1}^n a_i \\mu_i, \\sum_{i=1}^n a_i^2 \\sigma_i^2\\right)\\) に従う。",
+    "text": "B.2 確率分布\n\nB.2.1 正規分布\n連続型確率変数 \\(X\\) は正規分布（normal distribution）に従うとき、\\(X \\sim N(\\mu, \\sigma^2)\\) と表す。ここで \\(\\mu\\) は平均、\\(\\sigma^2\\) は分散である。\\(X\\) の確率密度関数は\n\\[\nf_X(x) = \\frac{1}{\\sqrt{2\\pi} \\sigma} e^{-\\frac{(x - \\mu)^2}{2\\sigma^2}}\n\\]\nと表す。平均は \\(E[X] = \\mu\\)、分散は \\(\\text{Var}(X) = \\sigma^2\\) である。\n\\(X\\) が \\(N(\\mu, \\sigma^2)\\) に従うとき、\\(Y = aX + b\\) は、\\(N(a\\mu + b, a^2\\sigma^2)\\) に従う。特に、\\(Z = \\frac{X - \\mu}{\\sigma}\\) は標準正規分布（standard normal distribution）に従う。すなわち、\\(Z \\sim N(0, 1)\\) である。\n連続型確率変数 \\(Y\\) が標準正規分布に従うとき、\\(Y\\) の累積分布関数は\n\\[\n\\Phi(y) = P(Y \\leq y) = \\frac{1}{\\sqrt{2\\pi}} \\int_{-\\infty}^y e^{-\\frac{t^2}{2}} dt\n\\]\nと表す。標準正規分布表から、\\(y\\) の値に対する \\(\\Phi(y)\\) を調べることができる。\nPython では、以下のように \\(\\Phi(y)\\) を計算できる。\nfrom scipy.stats import norm\ndef phi(y):\n    return norm.cdf(y)\n\nphi(0)  # 0.5\nまた、\\(\\Phi(y)=0.95\\) のときの \\(y\\) の値を求めるには、以下のようにする。\nfrom scipy.stats import norm\ndef phi_inverse(p):\n    return norm.ppf(p)\n\nphi_inverse(0.95)  # 約1.64485\n正規分布は再生性（reproductive property）を持つ。すなわち、\\(X_1, X_2, \\ldots, X_n\\) が独立に \\(N(\\mu_i, \\sigma_i^2)\\) に従うとき、\\(Y = \\sum_{i=1}^n a_i X_i\\) は \\(N\\left(\\sum_{i=1}^n a_i \\mu_i, \\sum_{i=1}^n a_i^2 \\sigma_i^2\\right)\\) に従う。",
     "crumbs": [
       "付録",
       "<span class='chapter-number'>B</span>  <span class='chapter-title'>確率</span>"
