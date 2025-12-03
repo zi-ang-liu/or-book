@@ -610,6 +610,7 @@ window.Quarto = {
   <li><a href="#無記憶性" id="toc-無記憶性" class="nav-link" data-scroll-target="#無記憶性"><span class="header-section-number">15.1.2</span> 無記憶性</a></li>
   </ul></li>
   <li><a href="#ポアソン過程" id="toc-ポアソン過程" class="nav-link" data-scroll-target="#ポアソン過程"><span class="header-section-number">15.2</span> ポアソン過程</a></li>
+  <li><a href="#ポアソン過程の到着間隔" id="toc-ポアソン過程の到着間隔" class="nav-link" data-scroll-target="#ポアソン過程の到着間隔"><span class="header-section-number">15.3</span> ポアソン過程の到着間隔</a></li>
   </ul>
 </nav>
     </div>
@@ -636,7 +637,7 @@ window.Quarto = {
 </header>
 
 
-<p>待ち行列理論において，到着間隔とサービス時間は確率変数として扱うことが多い．最も一般的に用いられる確率分布は<strong>指数分布</strong>である．</p>
+<p>ここでは，確率過程の基礎的な概念について説明する．特に，待ち行列理論で重要な役割を果たす<strong>指数分布</strong>と<strong>ポアソン過程</strong>について解説する．前の章で説明した到着間隔とサービス時間が指数分布に従うと仮定している．</p>
 <section id="指数分布" class="level2" data-number="15.1">
 <h2 data-number="15.1" class="anchored" data-anchor-id="指数分布"><span class="header-section-number">15.1</span> 指数分布</h2>
 <p>連続型確率変数 <span class="math inline">\(X\)</span> が<strong>指数分布</strong>（exponential distribution）に従うとき，<span class="math inline">\(X\)</span> の確率密度関数は</p>
@@ -657,7 +658,7 @@ F_X(x) = P(X \leq x) = \begin{cases}
 \end{cases}
 \]</span> である。</p>
 <p>次の図は，パラメータ <span class="math inline">\(\lambda = 0.5, 1.0, 1.5, 2.0\)</span> の場合における指数分布の確率密度関数を示している．確率密度関数 <span class="math inline">\(f_X(x)\)</span> は <span class="math inline">\(x\)</span> の増加に伴い単調減少する．</p>
-<div id="c189c19b" class="cell" data-execution_count="1">
+<div id="f1ad2111" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -701,7 +702,7 @@ P(T \leq 1/30) = F_T(1/30) = 1 - e^{-12 \times (1/30)} \approx 0.3297
 \]</span> よって，2分以内に次の客が到着する確率は約0.3297である．</p>
 </div>
 <p>次の図は，<a href="#exm-exp-basic-arrival" class="quarto-xref">例&nbsp;<span>15.1</span></a> で説明した到着間隔のシミュレーション例を示している．平均到着率 <span class="math inline">\(\lambda = 12\)</span> 人/時間であるとき，15人の到着時間をシミュレーションした．横軸は時間を表し，青い線は各客の到着時間を示している．</p>
-<div id="5a5a27fc" class="cell" data-execution_count="2">
+<div id="a653be95" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> expon</span>
@@ -823,6 +824,20 @@ P(N(t) = k) = e^{-\lambda t} \frac{(\lambda t)^k}{k!}, \quad k = 0, 1, 2, \ldots
 P(N(3) = 2) = e^{-15} \frac{15^2}{2!}
 \]</span></p>
 <p>独立増分と定常増分の性質から，時間区間 <span class="math inline">\([2, 5]\)</span> 分に2人の客が到着する確率は，時刻 <span class="math inline">\(t = 3\)</span> 分までに2人の客が到着する確率と等しい．</p>
+</div>
+</section>
+<section id="ポアソン過程の到着間隔" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="ポアソン過程の到着間隔"><span class="header-section-number">15.3</span> ポアソン過程の到着間隔</h2>
+<p><span class="math inline">\(Y_k\)</span> を <span class="math inline">\(k\)</span> 回目の事象が発生するまでの時間とし，<span class="math inline">\(T_k\)</span> は <span class="math inline">\((k-1)\)</span> 回目から <span class="math inline">\(k\)</span> 回目の事象が起こるまでの時間とする．<span class="math inline">\(k = 1, 2, \ldots\)</span> に対して， <span class="math display">\[
+T_1 = Y_1, \quad T_k = Y_k - Y_{k-1} \quad (k = 2, 3, \ldots)
+\]</span> と定義する．また， <span class="math display">\[
+Y_k = \sum_{i=1}^k T_i = T_1 + T_2 + \cdots + T_k
+\]</span> である．</p>
+<div id="thm-poisson-exp" class="theorem">
+<p><span class="theorem-title"><strong>定理 15.3</strong></span> <span class="math inline">\(\{N(t), t \geq 0\}\)</span> をパラメータ <span class="math inline">\(\lambda &gt; 0\)</span> のポアソン過程とする．このとき，<span class="math inline">\(k = 1, 2, \ldots\)</span> に対して，時間間隔 <span class="math inline">\(T_k \sim \text{Exp}(\lambda)\)</span> に従い，<span class="math inline">\(T_1, T_2, \ldots\)</span> は互いに独立である．</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>証明</em>. </span>省略する．</p>
 </div>
 
 

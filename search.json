@@ -1036,7 +1036,7 @@
     "href": "queuing/intro.html#評価指標",
     "title": "14  待ち行列モデルの基礎",
     "section": "14.2 評価指標",
-    "text": "14.2 評価指標\n待ち行列理論の代表的な性能評価指標を紹介する．\n滞在時間は客がシステムに到着してサービスを受け，システムを退出するまでにかかる時間である．平均待ち時間は，客がシステムに到着してからサービスを受けるまでの時間である．平均滞在時間は \\(W\\)，平均待ち時間は \\(W_q\\) で表す．\n系内客数は待ち行列システム内にいる客数である．待ち行列長は待ち行列にいる客数である．平均系内客数は \\(L\\)，平均待ち行列長は \\(L_q\\) で表す．\n\n\n\n\nシステム\n待ち行列\n\n\n\n\n客数\n系内客数\n待ち行列長\n\n\n時間\n滞在時間\n待ち時間",
+    "text": "14.2 評価指標\n待ち行列理論の代表的な性能評価指標を紹介する．\n滞在時間は客がシステムに到着してサービスを受け，システムを退出するまでにかかる時間である．待ち時間は，客がシステムに到着してからサービスを受けるまでの時間である．平均滞在時間は \\(W\\)，平均待ち時間は \\(W_q\\) で表す．\n系内客数は待ち行列システム内にいる客数である．待ち行列長は待ち行列にいる客数である．平均系内客数は \\(L\\)，平均待ち行列長は \\(L_q\\) で表す．\n\n\n\n\nシステム\n待ち行列\n\n\n\n\n客数\n系内客数\n待ち行列長\n\n\n時間\n滞在時間\n待ち時間",
     "crumbs": [
       "待ち行列理論",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>待ち行列モデルの基礎</span>"
@@ -1091,7 +1091,7 @@
     "href": "queuing/stochastic-process.html",
     "title": "15  確率過程",
     "section": "",
-    "text": "15.1 指数分布\n待ち行列理論において，到着間隔とサービス時間は確率変数として扱うことが多い．最も一般的に用いられる確率分布は指数分布である．\n連続型確率変数 \\(X\\) が指数分布（exponential distribution）に従うとき，\\(X\\) の確率密度関数は\n\\[\nf_X(x) = \\begin{cases}\n\\lambda e^{-\\lambda x} & x \\geq 0 \\\\\n0 & x &lt; 0\n\\end{cases}\n\\]\nで与えられ，\\(X \\sim \\text{Exp}(\\lambda)\\) と表す。ここで \\(\\lambda &gt; 0\\) は分布のパラメータである。\n指数分布に従う確率変数 \\(X\\) の平均と分散は \\[\nE[X] = \\frac{1}{\\lambda}, \\quad \\text{Var}(X) = \\frac{1}{\\lambda^2}\n\\] である。\n累積分布関数は \\[\nF_X(x) = P(X \\leq x) = \\begin{cases}\n1 - e^{-\\lambda x} & x \\geq 0 \\\\\n0 & x &lt; 0\n\\end{cases}\n\\] である。\n次の図は，パラメータ \\(\\lambda = 0.5, 1.0, 1.5, 2.0\\) の場合における指数分布の確率密度関数を示している．確率密度関数 \\(f_X(x)\\) は \\(x\\) の増加に伴い単調減少する．\nコード\nimport matplotlib.pyplot as plt\nimport numpy as np\nfrom scipy.stats import expon\n\nx = np.linspace(0, 8, 100)\nlambda_params = [0.5, 1.0, 1.5, 2.0]\nfor lam in lambda_params:\n    pdf = expon.pdf(x, scale=1 / lam)\n    plt.plot(x, pdf, label=f\"λ={lam}\")\nplt.title(\"Exponential Distribution PDF\")\nplt.xlabel(\"x\")\nplt.ylabel(\"$f_X(x)$\")\nplt.xlim(0, 8)\nplt.ylim(0, 2.5)\nplt.legend()\nplt.grid()\nplt.show()",
+    "text": "15.1 指数分布\nここでは，確率過程の基礎的な概念について説明する．特に，待ち行列理論で重要な役割を果たす指数分布とポアソン過程について解説する．前の章で説明した到着間隔とサービス時間が指数分布に従うと仮定している．\n連続型確率変数 \\(X\\) が指数分布（exponential distribution）に従うとき，\\(X\\) の確率密度関数は\n\\[\nf_X(x) = \\begin{cases}\n\\lambda e^{-\\lambda x} & x \\geq 0 \\\\\n0 & x &lt; 0\n\\end{cases}\n\\]\nで与えられ，\\(X \\sim \\text{Exp}(\\lambda)\\) と表す。ここで \\(\\lambda &gt; 0\\) は分布のパラメータである。\n指数分布に従う確率変数 \\(X\\) の平均と分散は \\[\nE[X] = \\frac{1}{\\lambda}, \\quad \\text{Var}(X) = \\frac{1}{\\lambda^2}\n\\] である。\n累積分布関数は \\[\nF_X(x) = P(X \\leq x) = \\begin{cases}\n1 - e^{-\\lambda x} & x \\geq 0 \\\\\n0 & x &lt; 0\n\\end{cases}\n\\] である。\n次の図は，パラメータ \\(\\lambda = 0.5, 1.0, 1.5, 2.0\\) の場合における指数分布の確率密度関数を示している．確率密度関数 \\(f_X(x)\\) は \\(x\\) の増加に伴い単調減少する．\nコード\nimport matplotlib.pyplot as plt\nimport numpy as np\nfrom scipy.stats import expon\n\nx = np.linspace(0, 8, 100)\nlambda_params = [0.5, 1.0, 1.5, 2.0]\nfor lam in lambda_params:\n    pdf = expon.pdf(x, scale=1 / lam)\n    plt.plot(x, pdf, label=f\"λ={lam}\")\nplt.title(\"Exponential Distribution PDF\")\nplt.xlabel(\"x\")\nplt.ylabel(\"$f_X(x)$\")\nplt.xlim(0, 8)\nplt.ylim(0, 2.5)\nplt.legend()\nplt.grid()\nplt.show()",
     "crumbs": [
       "待ち行列理論",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>確率過程</span>"
@@ -1114,6 +1114,17 @@
     "title": "15  確率過程",
     "section": "15.2 ポアソン過程",
     "text": "15.2 ポアソン過程\n確率過程 \\(\\{N(t), t \\geq 0\\}\\) とは，時間 \\(t\\) とともに変化する確率変数 \\(N(t)\\) の集まりである．\n計数過程（counting process）とは，次の条件を満たす確率過程 \\(\\{N(t), t \\geq 0\\}\\) である．\n\n\\(N(t) \\geq 0\\)\n\\(N(t) \\in \\mathbb{Z}\\)\n\\(N(t)\\) は単調増加である\n\n計数過程は，時刻 \\(t\\) までに発生した事象の回数を表す．例として，客の到着数，機械の故障回数などが挙げられる．\n\n定義 15.2 以下の性質を満たす計数過程 \\(\\{N(t), t \\geq 0\\}\\) を パラメータ \\(\\lambda &gt; 0\\) のポアソン過程（Poisson process）という．\n\n\\(N(0) = 0\\)\n\\(P(N(t + \\Delta t) - N(t) = 1) = \\lambda \\Delta t + o(\\Delta t)\\)\n\\(P(N(t + \\Delta t) - N(t) \\geq 2) = o(\\Delta t)\\)\n独立増分\n定常増分\n\nここで，\\(o(\\Delta t)\\) は \\[\n\\lim_{\\Delta t \\to 0} \\frac{o(\\Delta t)}{\\Delta t} = 0\n\\] を満たす関数である．\n\n\\(N(0) = 0\\) は，時刻 \\(0\\) では事象が発生していないことを表す．\n\\(P(N(t + \\Delta t) - N(t) = 1) = \\lambda \\Delta t + o(\\Delta t)\\) は，時間区間 \\([t, t + \\Delta t]\\) に1回事象が発生する確率を表す．\\(\\Delta t\\) が十分小さいとき，この確率は \\(\\lambda \\Delta t\\) で近似できる．\n\\(P(N(t + \\Delta t) - N(t) \\geq 2) = o(\\Delta t)\\) は，時間区間 \\([t, t + \\Delta t]\\) に2回以上の事象が発生する確率を表す．\\(\\Delta t\\) が十分小さいとき，この確率は無視できるほど小さい．\n独立増分（independent increments）とは，任意の \\(0 \\leq t_1 &lt; t_2 &lt; \\cdots &lt; t_n\\) に対して， \\[\nN(t_2) - N(t_1), N(t_3) - N(t_2), \\ldots, N(t_n) - N(t_{n-1})\n\\] が互いに独立であることを意味する．\n定常増分（stationary increments）とは，\\(t &gt; s\\) に対して，\\(N(t) - N(s)\\) と \\(N(t + h) - N(s + h)\\) が同一の分布に従うことを意味する．\n\n定義 15.3 離散型確率変数 \\(X\\) がポアソン分布（Poisson distribution）に従うとは，次の確率質量関数を持つことをいう． \\[\np_X(k) = P(X = k) = e^{-\\lambda} \\frac{\\lambda^k}{k!}, \\quad k = 0, 1, 2, \\ldots\n\\] ここで，\\(\\lambda &gt; 0\\) は分布のパラメータである．\n\nポアソン分布の平均と分散は \\[\nE[X] = \\lambda, \\quad \\text{Var}(X) = \\lambda\n\\] である．\n\n定理 15.2 パラメータ \\(\\lambda &gt; 0\\) のポアソン過程 \\(\\{N(t), t \\geq 0\\}\\) に対して，\\(N(t)\\) はパラメータ \\(\\lambda t\\) のポアソン分布に従う．すなわち， \\[\nP(N(t) = k) = e^{-\\lambda t} \\frac{(\\lambda t)^k}{k!}, \\quad k = 0, 1, 2, \\ldots.\n\\]\n\n\n証明. 省略する．\n\n\n例 15.3 ある店舗では，1分間あたり平均5人の客が来店する．\\(\\{N(t), t \\geq 0\\}\\) を時刻 \\(t\\) までに到着した客数を表すポアソン過程とする．次の問いに答えよ．\n\n時刻 \\(t = 3\\) 分までに2人の客が到着する確率を求めよ．\n時間区間 \\([2, 5]\\) 分に2人の客が到着する確率を求めよ．\n\n平均到着率は \\(\\lambda = 5\\) 人/分である．時刻 \\(t = 3\\) 分までに到着した客数 \\(N(3)\\) は，パラメータ \\(\\lambda t = 5 \\times 3 = 15\\) のポアソン分布に従う．\\(P(N(3) = 2)\\) を計算する． \\[\nP(N(3) = 2) = e^{-15} \\frac{15^2}{2!}\n\\]\n独立増分と定常増分の性質から，時間区間 \\([2, 5]\\) 分に2人の客が到着する確率は，時刻 \\(t = 3\\) 分までに2人の客が到着する確率と等しい．",
+    "crumbs": [
+      "待ち行列理論",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>確率過程</span>"
+    ]
+  },
+  {
+    "objectID": "queuing/stochastic-process.html#ポアソン過程の到着間隔",
+    "href": "queuing/stochastic-process.html#ポアソン過程の到着間隔",
+    "title": "15  確率過程",
+    "section": "15.3 ポアソン過程の到着間隔",
+    "text": "15.3 ポアソン過程の到着間隔\n\\(Y_k\\) を \\(k\\) 回目の事象が発生するまでの時間とし，\\(T_k\\) は \\((k-1)\\) 回目から \\(k\\) 回目の事象が起こるまでの時間とする．\\(k = 1, 2, \\ldots\\) に対して， \\[\nT_1 = Y_1, \\quad T_k = Y_k - Y_{k-1} \\quad (k = 2, 3, \\ldots)\n\\] と定義する．また， \\[\nY_k = \\sum_{i=1}^k T_i = T_1 + T_2 + \\cdots + T_k\n\\] である．\n\n定理 15.3 \\(\\{N(t), t \\geq 0\\}\\) をパラメータ \\(\\lambda &gt; 0\\) のポアソン過程とする．このとき，\\(k = 1, 2, \\ldots\\) に対して，時間間隔 \\(T_k \\sim \\text{Exp}(\\lambda)\\) に従い，\\(T_1, T_2, \\ldots\\) は互いに独立である．\n\n\n証明. 省略する．",
     "crumbs": [
       "待ち行列理論",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>確率過程</span>"

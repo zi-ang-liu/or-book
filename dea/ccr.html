@@ -712,7 +712,30 @@ u_1 \\ u_2 \\ \vdots \\ u_s
 </tr>
 </tbody>
 </table>
-<p><span class="math inline">\(\text{DMU}_1\)</span> の効率性 <span class="math inline">\(\theta\)</span> は，入力に対する重みを <span class="math inline">\(v_1, v_2\)</span>，出力に対する重みを <span class="math inline">\(u_1, u_2\)</span> とすると，次のように表される．</p>
+<p>入力データ <span class="math inline">\(\mathbf{X}\)</span> と出力データ <span class="math inline">\(\mathbf{Y}\)</span> は次のようになる． <span class="math display">\[
+\mathbf{X} =
+\begin{pmatrix}
+20 &amp; 19 &amp; 25 \\
+151 &amp; 131 &amp; 160
+\end{pmatrix}, \quad
+\mathbf{Y} =
+\begin{pmatrix}
+100 &amp; 150 &amp; 160 \\
+90 &amp; 50 &amp; 55
+\end{pmatrix}
+\]</span></p>
+<p>入力に対する重みを <span class="math inline">\(\mathbf{v}\)</span>，出力に対する重みを <span class="math inline">\(\mathbf{u}\)</span> とする．すなわち，</p>
+<p><span class="math display">\[
+\mathbf{v} =
+\begin{pmatrix}
+v_1 \\ v_2
+\end{pmatrix}, \quad
+\mathbf{u} =
+\begin{pmatrix}
+u_1 \\ u_2
+\end{pmatrix}.
+\]</span></p>
+<p><span class="math inline">\(\text{DMU}_1\)</span> の効率性 <span class="math inline">\(\theta\)</span> は，次のように表される．</p>
 <p><span class="math display">\[\begin{align*}
 \theta &amp;= \frac{\sum_{r=1}^{s} u_r y_{r1}}{\sum_{i=1}^{m} v_i x_{i1}} \\
 &amp;= \frac{u_1 y_{11} + u_2 y_{21}}{v_1 x_{11} + v_2 x_{21}} \\
@@ -986,7 +1009,7 @@ DMU F
 \frac{u y_o}{v x_o} = \frac{u}{v} \frac{y_o}{x_o}
 \]</span></p>
 <p>となり，<span class="math inline">\(y_o/x_o\)</span> に比例する．したがって，1入力1出力のCCRモデルの最適化問題を解くことは，すべてのDMUについて <span class="math inline">\(y_j/x_j\)</span> を計算し，<span class="math inline">\([0,1]\)</span> に正規化することと同じである．今回の例題では，DMU BとEの <span class="math inline">\(\theta^*=1\)</span> で最大であるため，<span class="math inline">\(u/v = 1\)</span> となる．</p>
-<div id="492b7884" class="cell" data-execution_count="1">
+<div id="07178c95" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
