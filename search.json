@@ -180,6 +180,16 @@
     ]
   },
   {
+    "objectID": "course-info.html#期末試験",
+    "href": "course-info.html#期末試験",
+    "title": "講義",
+    "section": "期末試験",
+    "text": "期末試験\n\n試験時間：90分\n試験範囲：講義で扱ったすべての内容\n参照・使用できるもの\n\n電卓\n公認カンニングペーパー（自筆）\n\n\n\n注意事項\n\n学生証：\n\n試験を受けるためには学生証の提示が必要です。\n\n携帯電話・スマートウォッチ等の通信機器：\n\nいかなる形態でも通信機器の使用は禁止しますので、電源を切り必ずかばん等にしまってください。\n時計や電卓の代用として使用することも出来ません。",
+    "crumbs": [
+      "講義"
+    ]
+  },
+  {
     "objectID": "notation.html",
     "href": "notation.html",
     "title": "記号",
@@ -300,17 +310,6 @@
     "title": "1  在庫管理とは",
     "section": "1.5 練習問題",
     "text": "1.5 練習問題\n\n在庫管理の目的は、_を満たしつつ、_を最小化することである。\n在庫管理の決定すべき二つの問題は、_と_である。\n在庫量 \\(I = -30\\)，需要 \\(d = 10\\) のとき、手持ち在庫 \\(OH\\) とバックオーダー \\(BO\\) を計算せよ。\n1回の発注にかかる費用 \\(K = 1000\\)、単位あたりの購入費用 \\(c = 50\\)、発注量 \\(Q = 200\\) のとき、3回の発注にかかる総費用を計算せよ。",
-    "crumbs": [
-      "在庫モデル",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>在庫管理とは</span>"
-    ]
-  },
-  {
-    "objectID": "inventory/intro.html#挑戦",
-    "href": "inventory/intro.html#挑戦",
-    "title": "1  在庫管理とは",
-    "section": "1.6 挑戦",
-    "text": "1.6 挑戦\n\nPython に関する入門書やビデオを参考にして、Python の基礎を学び、簡単なプログラムを書けるようにせよ。\n\nYouTube で “Python 入門” などのキーワードで検索すると、多くの2-3時間入門のビデオが見つかる。",
     "crumbs": [
       "在庫モデル",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>在庫管理とは</span>"
@@ -1091,7 +1090,7 @@
     "href": "queuing/stochastic-process.html",
     "title": "15  確率過程",
     "section": "",
-    "text": "15.1 指数分布\nここでは，確率過程の基礎的な概念について説明する．特に，待ち行列理論で重要な役割を果たす指数分布とポアソン過程について解説する．前の章で説明した到着間隔とサービス時間が指数分布に従うと仮定している．\n連続型確率変数 \\(X\\) が指数分布（exponential distribution）に従うとき，\\(X\\) の確率密度関数は\n\\[\nf_X(x) = \\begin{cases}\n\\lambda e^{-\\lambda x} & x \\geq 0 \\\\\n0 & x &lt; 0\n\\end{cases}\n\\]\nで与えられ，\\(X \\sim \\text{Exp}(\\lambda)\\) と表す。ここで \\(\\lambda &gt; 0\\) は分布のパラメータである。\n指数分布に従う確率変数 \\(X\\) の平均と分散は \\[\nE[X] = \\frac{1}{\\lambda}, \\quad \\text{Var}(X) = \\frac{1}{\\lambda^2}\n\\] である。\n累積分布関数は \\[\nF_X(x) = P(X \\leq x) = \\begin{cases}\n1 - e^{-\\lambda x} & x \\geq 0 \\\\\n0 & x &lt; 0\n\\end{cases}\n\\] である。\n次の図は，パラメータ \\(\\lambda = 0.5, 1.0, 1.5, 2.0\\) の場合における指数分布の確率密度関数を示している．確率密度関数 \\(f_X(x)\\) は \\(x\\) の増加に伴い単調減少する．\nコード\nimport matplotlib.pyplot as plt\nimport numpy as np\nfrom scipy.stats import expon\n\nx = np.linspace(0, 8, 100)\nlambda_params = [0.5, 1.0, 1.5, 2.0]\nfor lam in lambda_params:\n    pdf = expon.pdf(x, scale=1 / lam)\n    plt.plot(x, pdf, label=f\"λ={lam}\")\nplt.title(\"Exponential Distribution PDF\")\nplt.xlabel(\"x\")\nplt.ylabel(\"$f_X(x)$\")\nplt.xlim(0, 8)\nplt.ylim(0, 2.5)\nplt.legend()\nplt.grid()\nplt.show()",
+    "text": "15.1 指数分布\n\\(M/M/c\\) と \\(M/M/1\\) 待ち行列は，待ち行列理論において最も基本的なモデルである．これらのモデルでは，到着間隔とサービス時間が指数分布に従うと仮定する．\n連続型確率変数 \\(X\\) が指数分布（exponential distribution）に従うとき，\\(X\\) の確率密度関数は\n\\[\nf_X(x) = \\begin{cases}\n\\lambda e^{-\\lambda x} & x \\geq 0 \\\\\n0 & x &lt; 0\n\\end{cases}\n\\]\nで与えられ，\\(X \\sim \\text{Exp}(\\lambda)\\) と表す。ここで \\(\\lambda &gt; 0\\) は分布のパラメータである。\n指数分布に従う確率変数 \\(X\\) の平均と分散は \\[\nE[X] = \\frac{1}{\\lambda}, \\quad \\text{Var}(X) = \\frac{1}{\\lambda^2}\n\\] である。\n累積分布関数は \\[\nF_X(x) = P(X \\leq x) = \\begin{cases}\n1 - e^{-\\lambda x} & x \\geq 0 \\\\\n0 & x &lt; 0\n\\end{cases}\n\\] である。\n次の図は，パラメータ \\(\\lambda = 0.5, 1.0, 1.5, 2.0\\) の場合における指数分布の確率密度関数を示している．確率密度関数 \\(f_X(x)\\) は \\(x\\) の増加に伴い単調減少する．\nコード\nimport matplotlib.pyplot as plt\nimport numpy as np\nfrom scipy.stats import expon\n\nx = np.linspace(0, 8, 100)\nlambda_params = [0.5, 1.0, 1.5, 2.0]\nfor lam in lambda_params:\n    pdf = expon.pdf(x, scale=1 / lam)\n    plt.plot(x, pdf, label=f\"λ={lam}\")\nplt.title(\"Exponential Distribution PDF\")\nplt.xlabel(\"x\")\nplt.ylabel(\"$f_X(x)$\")\nplt.xlim(0, 8)\nplt.ylim(0, 2.5)\nplt.legend()\nplt.grid()\nplt.show()",
     "crumbs": [
       "待ち行列理論",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>確率過程</span>"
@@ -1135,7 +1134,7 @@
     "href": "queuing/birth-death.html",
     "title": "16  出生死滅過程",
     "section": "",
-    "text": "時刻 \\(t\\) における生物集団の個体数を \\(N(t)\\) で表す．これを状態（state）とも呼ぶ．状態は非負の整数であるため，\\(N(t) \\in \\{0, 1, 2, \\ldots\\}\\) となる．\n\\(N(T) = n\\) のとき，次の出生はパラメータ \\(\\lambda_n\\) を持つ指数分布に従い，次の死滅はパラメータ \\(\\mu_n\\) を持つ指数分布に従うとする．\\(n \\geq 0\\) のとき，一つの個体が出生すると，状態は \\(n\\) から \\(n+1\\) に遷移する．\\(n \\geq 1\\) のとき，一つの個体が死滅すると，状態は \\(n\\) から \\(n-1\\) に遷移する．\n\n\n\n\n\n flowchart LR\n  %% Define states\n  n0((0))\n  n1((1))\n  n2((2))\n  nn((...))\n\n  %% Forward (birth) transitions\n  n0 --&gt;|$$\\lambda_0$$| n1\n  n1 --&gt;|$$\\lambda_1$$| n2\n  n2 --&gt; nn\n\n\n  %% Backward (death) transitions\n  n1 --&gt;|$$\\mu_1$$| n0\n  n2 --&gt;|$$\\mu_2$$| n1\n  nn --&gt; n2",
+    "text": "出生死滅過程（birth-death process）は，個体群の成長と減少をモデル化するために用いられる確率過程の一種である．この過程では，個体の出生と死滅がランダムに発生し，これらのイベントが個体数に影響を与える様子を記述する．多くの待ち行列モデルは，この出生死滅過程を基礎として構築されている．\n出生死滅過程では，時刻 \\(t\\) における生物集団の個体数を \\(X_t\\) で表す．これを状態（state）とも呼ぶ．状態 \\(X_t\\) は状態空間 \\(\\{0, 1, 2, \\ldots\\}\\) 上に値をとる．状態遷移（state transition）は，個体の出生または死滅によって引き起こされる．状態 \\(X_t = i\\) から，次の状態 \\(X_{t+1} = j\\) に遷移する確率は，遷移確率（transition probability）と呼ばれる．\n出生死滅過程においては，状態遷移は隣接する状態間でのみ発生し，具体的には状態 \\(i\\) から \\(i+1\\)（出生）または \\(i-1\\)（死滅）への遷移が可能である．特に．\n\\[\n\\lambda_i = P(X_{t+1} = i+1 | X_t = i).\n\\] \\[\n\\mu_i = P(X_{t+1} = i-1 | X_t = i).\n\\]\nここで，\\(\\lambda_i\\) は状態 \\(i\\) から \\(i+1\\) への出生遷移確率，\\(\\mu_i\\) は状態 \\(i\\) から \\(i-1\\) への死滅遷移確率を表す．\n\n\n\n\n\n flowchart LR\n  %% Define states\n  n0((0))\n  n1((1))\n  n2((2))\n  nn((...))\n\n  %% Forward (birth) transitions\n  n0 --&gt;|$$\\lambda_0$$| n1\n  n1 --&gt;|$$\\lambda_1$$| n2\n  n2 --&gt; nn\n\n\n  %% Backward (death) transitions\n  n1 --&gt;|$$\\mu_1$$| n0\n  n2 --&gt;|$$\\mu_2$$| n1\n  nn --&gt; n2\n\n\n\n\n\n\n\\(\\pi_j\\) を状態 \\(j\\) における定常分布（stationary distribution）とする．出生死滅過程は， 次の式が成り立つ．\n\\[\n\\lambda_{0} \\pi_0 = \\mu_1 \\pi_1,\n\\] \\[\n\\lambda_{i-1} \\pi_{i-1} + \\mu_{i+1} \\pi_{i+1} = (\\lambda_i + \\mu_i) \\pi_i, \\quad i \\geq 1.\n\\]",
     "crumbs": [
       "待ち行列理論",
       "<span class='chapter-number'>16</span>  <span class='chapter-title'>出生死滅過程</span>"

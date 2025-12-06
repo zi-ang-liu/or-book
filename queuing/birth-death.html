@@ -590,8 +590,15 @@ window.Quarto = {
 </header>
 
 
-<p>時刻 <span class="math inline">\(t\)</span> における生物集団の個体数を <span class="math inline">\(N(t)\)</span> で表す．これを<strong>状態</strong>（state）とも呼ぶ．状態は非負の整数であるため，<span class="math inline">\(N(t) \in \{0, 1, 2, \ldots\}\)</span> となる．</p>
-<p><span class="math inline">\(N(T) = n\)</span> のとき，次の出生はパラメータ <span class="math inline">\(\lambda_n\)</span> を持つ指数分布に従い，次の死滅はパラメータ <span class="math inline">\(\mu_n\)</span> を持つ指数分布に従うとする．<span class="math inline">\(n \geq 0\)</span> のとき，一つの個体が出生すると，状態は <span class="math inline">\(n\)</span> から <span class="math inline">\(n+1\)</span> に遷移する．<span class="math inline">\(n \geq 1\)</span> のとき，一つの個体が死滅すると，状態は <span class="math inline">\(n\)</span> から <span class="math inline">\(n-1\)</span> に遷移する．</p>
+<p><strong>出生死滅過程</strong>（birth-death process）は，個体群の成長と減少をモデル化するために用いられる確率過程の一種である．この過程では，個体の出生と死滅がランダムに発生し，これらのイベントが個体数に影響を与える様子を記述する．多くの待ち行列モデルは，この出生死滅過程を基礎として構築されている．</p>
+<p>出生死滅過程では，時刻 <span class="math inline">\(t\)</span> における生物集団の個体数を <span class="math inline">\(X_t\)</span> で表す．これを<strong>状態</strong>（state）とも呼ぶ．状態 <span class="math inline">\(X_t\)</span> は<strong>状態空間</strong> <span class="math inline">\(\{0, 1, 2, \ldots\}\)</span> 上に値をとる．<strong>状態遷移</strong>（state transition）は，個体の出生または死滅によって引き起こされる．状態 <span class="math inline">\(X_t = i\)</span> から，次の状態 <span class="math inline">\(X_{t+1} = j\)</span> に遷移する確率は，<strong>遷移確率</strong>（transition probability）と呼ばれる．</p>
+<p>出生死滅過程においては，状態遷移は隣接する状態間でのみ発生し，具体的には状態 <span class="math inline">\(i\)</span> から <span class="math inline">\(i+1\)</span>（出生）または <span class="math inline">\(i-1\)</span>（死滅）への遷移が可能である．特に．</p>
+<p><span class="math display">\[
+\lambda_i = P(X_{t+1} = i+1 | X_t = i).
+\]</span> <span class="math display">\[
+\mu_i = P(X_{t+1} = i-1 | X_t = i).
+\]</span></p>
+<p>ここで，<span class="math inline">\(\lambda_i\)</span> は状態 <span class="math inline">\(i\)</span> から <span class="math inline">\(i+1\)</span> への出生遷移確率，<span class="math inline">\(\mu_i\)</span> は状態 <span class="math inline">\(i\)</span> から <span class="math inline">\(i-1\)</span> への死滅遷移確率を表す．</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -620,6 +627,12 @@ window.Quarto = {
 </div>
 </div>
 </div>
+<p><span class="math inline">\(\pi_j\)</span> を状態 <span class="math inline">\(j\)</span> における<strong>定常分布</strong>（stationary distribution）とする．出生死滅過程は， 次の式が成り立つ．</p>
+<p><span class="math display">\[
+\lambda_{0} \pi_0 = \mu_1 \pi_1,
+\]</span> <span class="math display">\[
+\lambda_{i-1} \pi_{i-1} + \mu_{i+1} \pi_{i+1} = (\lambda_i + \mu_i) \pi_i, \quad i \geq 1.
+\]</span></p>
 
 
 
