@@ -1,0 +1,254 @@
+---
+title: 演習問題
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
+## 在庫管理
+
+### EOQ
+
+:::{#exr-eoq-icecream}
+
+あるアイスクリーム店では，毎月1300個のアイスクリームが販売されている．発注にかかる費用は1回あたり8ドル，アイスクリームの仕入れ単価は1個あたり0.75ドル，保管費用は1個あたり月0.225ドルである．アイスクリームの発注量は整数でなければならない．EOQモデルを用いて，最適発注量と最適サイクル期間を求めよ．
+:::
+
+:::{#sol-eoq-icecream}
+需要率は $d = 1300$ で，発注費用は $K = 8$，保管費用は $h = 0.225$，購入単価は $c = 0.75$ である．
+経済的発注量 $Q^*$ は
+$$
+Q^* = \sqrt{\frac{2Kd}{h}} = \sqrt{\frac{2 \cdot 8 \cdot 1300}{0.225}} \approx 304.05 \text{ 個}
+$$
+となる．アイスクリームの場合は，注文量が整数である必要があるため，$g(304)$ と $g(305)$ を比較して最適発注量を決定する．
+$$
+g(304) = \frac{8 \cdot 1300}{304} + 0.225 \cdot 304 / 2 \approx 68.4105
+$$
+$$
+g(305) = \frac{8 \cdot 1300}{305} + 0.225 \cdot 305 / 2 \approx 68.4109
+$$
+$g(304) < g(305)$ であるため，最適発注量は $Q^* = 304$ 個となる．
+サイクル期間 $T^*$ は
+$$
+T^* = \frac{Q^*}{d} = \frac{304}{1300} \approx 0.23 \text{ 月}
+$$
+となる．
+```{python}
+import numpy as np
+
+K = 8  # Order cost
+d = 1300  # Demand rate (units per month)
+h = 0.225  # Holding cost (per unit per month)
+c = 0.75  # Purchase cost (per unit)
+Q_star = np.sqrt(2 * K * d / h)
+print(f"EOQ (Q*): {Q_star:.4f} units")
+
+
+# Since order quantity must be an integer, compare g(304) and g(305)
+def g(Q):
+    return (K * d / Q) + (h * Q / 2)
+
+
+g_304 = g(304)
+g_305 = g(305)
+optimal_Q = 304 if g_304 < g_305 else 305
+T_star = optimal_Q / d
+print(f"Optimal Order Quantity (Q*): {optimal_Q} units")
+print(f"Optimal Cycle Time (T*): {T_star:.3f} months")
+```
+:::
+
+### 新聞売子問題
+
+:::{#exr-newsvendor-boy}
+新聞売り子が新聞を仕入れ，販売する問題を考える。新聞 1 部の在庫不足費用を $p = 0.7$，在庫超過費用を $h = 0.18$ とする。新聞の需要 $D$ は，正規分布 $N(50, 8^2)$ に従うとする。このとき，最適な発注量を求めよ。
+
+なお，標準正規分布 $Z \sim N(0,1)$ の累積分布関数を $\Phi(z)$ とし，$\Phi(0.82) \approx 0.795$ を用いてよい．
+:::
+
+:::{#sol-newsvendor-boy}
+在庫超過費用 $h$，在庫不足費用 $p$ は以下のように与えられる。
+$$
+h = 0.18, \quad p = 0.7
+$$
+
+したがって，$S^*$ は以下のように求められる。
+$$
+S^* = F_D^{-1}\left(\frac{p}{h + p}\right) = F_D^{-1}\left(\frac{0.7}{0.18 + 0.7}\right) \approx F_D^{-1}\left(0.795\right)
+$$
+
+標準正規分布表を調べると，$\Phi(z) = 0.795$ のとき，$z$ は約 0.82 である。したがって，$S^*$ は
+$$
+S^* = 0.82 \times \sigma + \mu = 0.82 \times 8 + 50 \approx 56.56
+$$
+となる。
+:::
+
+## AHP
+
+:::{#exr-ahp-car}
+田中さんは，新しく自動車の購入を検討している。候補としてA車，B車，C車の三つがある。田中さんは，デザイン，安全性，価格の3つの評価基準で自動車を評価したいと考え，次の一対比較表を作成した。以下の問いに答えよ。
+
+1. それぞれの一対比較表から，重要度ベクトルを求めよ。なお，整合性のもたない一対比較行列については，幾何平均法を用いて重要度ベクトルを算出すること．
+2. A車，B車，C車の総合評価を求め，最も評価の高い自動車を答えよ。
+
+| 評価基準 | デザイン | 安全性 | 価格 |
+|----------|----------|--------|------|
+| デザイン | 1        | 3      | 5    |
+| 安全性   | 1/3      | 1      | 2    |
+| 価格     | 1/5      | 1/2    | 1    |
+
+| デザイン | A | B | C |
+|----------|---|---|---|
+| A        | 1 | 1 | 4 |
+| B        | 1 | 1 | 4 |
+| C        | 1/4 | 1/4 | 1 |
+
+| 安全性 | A | B | C |
+|--------|---|---|---|
+| A      | 1 | 2 | 6 |
+| B      | 1/2 | 1 | 3 |
+| C      | 1/6 | 1/3 | 1 |
+
+| 価格 | A | B | C |
+|------|---|---|---|
+| A    | 1 | 1/2 | 1/8 |
+| B    | 2 | 1   | 1/4 |
+| C    | 8 | 4   | 1   |
+:::
+
+:::{#sol-ahp-car}
+
+評価基準の一対比較行列は以下の通りである。
+
+$$
+\mathbf{B} = \begin{bmatrix}
+1 & 3 & 5 \\
+1/3 & 1 & 2 \\
+1/5 & 1/2 & 1
+\end{bmatrix}
+$$
+
+$\mathbf{B}$ の重要度ベクトルは，幾何平均法を用いて以下のように求められる。
+$$
+\mathbf{w}= \begin{bmatrix}
+0.65 \\
+0.23 \\
+0.12
+\end{bmatrix}
+$$
+
+各自動車の一対比較行列は以下の通りである。
+$$
+\mathbf{A}_{\text{1}} = \begin{bmatrix}
+1 & 1 & 4 \\
+1 & 1 & 4 \\
+1/4 & 1/4 & 1
+\end{bmatrix}, \quad
+\mathbf{A}_{\text{2}} = \begin{bmatrix}
+1 & 2 & 6 \\
+1/2 & 1 & 3 \\
+1/6 & 1/3 & 1
+\end{bmatrix}, \quad
+\mathbf{A}_{\text{3}} = \begin{bmatrix}
+1 & 1/2 & 1/8 \\
+2 & 1 & 1/4 \\
+8 & 4 & 1
+\end{bmatrix}
+$$
+
+それぞれの重要度ベクトルは，以下のように求められる。
+
+$$
+\mathbf{w}_{\text{1}} = \begin{bmatrix}
+4/9 \\
+4/9 \\
+1/9
+\end{bmatrix}, \quad
+\mathbf{w}_{\text{2}} = \begin{bmatrix}
+6/10 \\
+3/10 \\
+1/10
+\end{bmatrix}, \quad
+\mathbf{w}_{\text{3}} = \begin{bmatrix}
+1/11 \\
+2/11 \\
+8/11
+\end{bmatrix}
+$$
+
+田中さんの総合評価ベクトル $\mathbf{v}$ は，以下のように求められる。
+$$
+\mathbf{v} = 0.65 \cdot \mathbf{w}_{\text{1}} + 0.23 \cdot \mathbf{w}_{\text{2}} + 0.12 \cdot \mathbf{w}_{\text{3}} = \mathbf{v} = \begin{bmatrix}
+0.44\\
+0.38\\
+0.18
+\end{bmatrix}
+$$
+
+これより，田中さんはA車を購入するのが最も良いと判断できる。
+
+```{python}
+import numpy as np
+w = np.array([0.65, 0.23, 0.12])
+w1 = np.array([4/9, 4/9, 1/9])
+w2 = np.array([6/10, 3/10, 1/10])
+w3 = np.array([1/11, 2/11, 8/11])
+v = w[0] * w1 + w[1] * w2 + w[2] * w3
+print("Overall evaluation vector v:", v)
+```
+
+:::
+## CCR モデル
+
+:::{#exr-ccr-production}
+ある会社は，以下の4つの店舗を運営している。CCRモデルを用いて，以下の問いに答えよ。ただし，効率性を $\theta$，従業員数に対する重みを $v$，売上高に対する重みを $u$ とする。データは以下の通りである。
+
+| 店舗 | A | B | C | D |
+|------|---|---|---|---|
+| 従業員数 | 40 | 60 |  60 | 80 |
+| 売上高| 200 | 600| 400 | 600 |
+
+1. 店舗 A の効率性を判定するCCRモデルを線形計画問題として定式化せよ。
+2. 上記の線形計画問題を解き，最適値 $\theta^*$，最適解 $v^*$，$u^*$ を求めよ。
+3. 店舗 A は効率的か非効率的かを判定せよ．非効率的であれば参照集合を示し，改善案を一つ提示せよ。 
+:::
+
+:::{#sol-ccr-production}
+1. 店舗 A の効率性を判定するCCRモデルは，以下のように定式化される。
+
+$$
+\begin{align*}
+\text{minimize} \quad & 200 u \\
+\text{subject to} \quad & 40 v = 1 \\
+& 600 u - 60 v \leq 0 \\
+& 400 u - 60 v \leq 0 \\
+& 600 u - 80 v \leq 0 \\
+& u, v \geq 0
+\end{align*}
+$$
+
+2. 上記の線形計画問題を解く．
+
+$$
+\begin{align*}
+\text{minimize} \quad & 200 u \\
+\text{subject to} \quad & v = \frac{1}{40} \\
+& 600 u - \frac{60}{40} \leq 0 \\
+& 400 u - \frac{60}{40} \leq 0 \\
+& 600 u - \frac{80}{40} \leq 0 \\
+& u, v \geq 0
+\end{align*}
+$$
+
+$$
+\begin{align*}
+\text{minimize} \quad & 200 u \\
+\text{subject to} \quad & v = \frac{1}{40} \\
+& u \leq \frac{1}{400} \\
+& u \leq \frac{3}{2000} \\
+& u \leq \frac{1}{300} \\
+& u, v \geq 0
+\end{align*}
+$$

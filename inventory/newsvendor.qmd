@@ -597,3 +597,4 @@ print(f"Optimal order quantity S*: {S_star:.4f}")
 ```
 
 :::
+
