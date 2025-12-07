@@ -64,10 +64,10 @@ $P^* = (s, v_1, v_2, \ldots, v_n, t)$ は最短路であれば，任意の $1 \l
 点 $v$ から点 $t$ までの最短路の長さ（またはコスト）を $d(v)$ と定義する。最適性の原理により，点 $v \in V \setminus \{ t \}$ に対して，
 
 $$
-d(v) = \min_{u \in \mathcal{P}(v)} \{ w(v, u) + d(u) \}
+d(v) = \min_{u \in \mathcal{S}(v)} \{ w(v, u) + d(u) \}
 $$
 
-が成り立つ。ここで，$\mathcal{P}(v) = \{ u \mid (v, u) \in E \}$ とする。
+が成り立つ。ここで，$\mathcal{S}(v) = \{ u \mid (v, u) \in E \}$ とする．
 
 :::{#exm-dp-spp-1}
 
