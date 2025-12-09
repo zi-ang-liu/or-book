@@ -657,16 +657,16 @@ window.Quarto = {
 </header>
 
 
-<p><strong>経済的発注量</strong>（EOQ: Economic Order Quantity）モデルは、最も基本的な在庫管理モデルの一つである。<span class="citation" data-cites="Harris1990-gh">Harris (<a href="../references.html#ref-Harris1990-gh" role="doc-biblioref">1990</a>)</span> がこのモデルを最初に提案した。</p>
-<p>EOQモデルは、単位時間あたりの需要量は決定論的で、一定であると仮定する。すなわち、需要量は事前に分かっており、時間とともに変化しない。単位時間あたりの需要量は需要率（demand rate）と呼ばれ、記号 <span class="math inline">\(d\)</span> で表される。リードタイムは0とし、発注から納品までの時間はないと仮定する。一回の発注量を <span class="math inline">\(Q\)</span> とし、一定であるとする。欠品は許せないとする。全ての需要は満されなければならない。また、EOQモデルでは、在庫量は連続的に観測され、いつでも発注が可能であるとする。</p>
-<p>在庫に関わる費用は、1回あたりの発注費用 <span class="math inline">\(K\)</span>、単位時間あたりの1単位の保管費用 <span class="math inline">\(h\)</span> と、購入単価 <span class="math inline">\(c\)</span> がある。</p>
+<p><strong>経済的発注量</strong>（EOQ: Economic Order Quantity）モデルは，最も基本的な在庫管理モデルの一つである．<span class="citation" data-cites="Harris1990-gh">Harris (<a href="../references.html#ref-Harris1990-gh" role="doc-biblioref">1990</a>)</span> がこのモデルを最初に提案した．</p>
+<p>EOQモデルは，単位時間あたりの需要量は決定論的で，一定であると仮定する．すなわち，需要量は事前に分かっており，時間とともに変化しない．単位時間あたりの需要量は需要率（demand rate）と呼ばれ，記号 <span class="math inline">\(d\)</span> で表される．リードタイムは0とし，発注から納品までの時間はないと仮定する．一回の発注量を <span class="math inline">\(Q\)</span> とし，一定であるとする．欠品は許せないとする．全ての需要は満されなければならない．また，EOQモデルでは，在庫量は連続的に観測され，いつでも発注が可能であるとする．</p>
+<p>在庫に関わる費用は，1回あたりの発注費用 <span class="math inline">\(K\)</span>，単位時間あたりの1単位の保管費用 <span class="math inline">\(h\)</span> と，購入単価 <span class="math inline">\(c\)</span> がある．</p>
 <p>EOQモデルの最適解は次の二つの性質を持つ<span class="citation" data-cites="Snyder2019-cy">(<a href="../references.html#ref-Snyder2019-cy" role="doc-biblioref">Snyder と Shen 2019</a>)</span>：</p>
 <ol type="1">
-<li>Zero-inventory ordering (ZIO). 在庫量が0のときに発注を行う。リードタイムは0であるため、在庫量が0でないときに発注すると、保管費用が発生する。</li>
-<li>Constant order sizes. 発注量は一定である。需要率 <span class="math inline">\(d\)</span> が一定であり、在庫量が0のときに発注を行うため、最適発注量も一定である。</li>
+<li>Zero-inventory ordering (ZIO). 在庫量が0のときに発注を行う．リードタイムは0であるため，在庫量が0でないときに発注すると，保管費用が発生する．</li>
+<li>Constant order sizes. 発注量は一定である．需要率 <span class="math inline">\(d\)</span> が一定であり，在庫量が0のときに発注を行うため，最適発注量も一定である．</li>
 </ol>
-<p>以上の性質から、在庫量の時間的変化は下図のようになる。</p>
-<div id="b904519e" class="cell" data-execution_count="1">
+<p>以上の性質から，在庫量の時間的変化は下図のようになる．</p>
+<div id="1571292e" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -699,17 +699,17 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>発注の間隔を<strong>サイクル</strong>(cycle)と呼び、サイクル期間は</p>
+<p>発注の間隔を<strong>サイクル</strong>(cycle)と呼び，サイクル期間は</p>
 <p><span class="math display">\[
 T = \frac{Q}{d}
 \]</span></p>
-<p>で与えられる。</p>
+<p>で与えられる．</p>
 <div id="exm-cycle" class="theorem example">
-<p><span class="theorem-title"><strong>例 2.1</strong></span> A社は、毎月250個の需要がある商品を取り扱っている。一回の発注量は500個とし、サイクル期間は</p>
+<p><span class="theorem-title"><strong>例 2.1</strong></span> A社は，毎月250個の需要がある商品を取り扱っている．一回の発注量は500個とし，サイクル期間は</p>
 <p><span class="math display">\[
 T = \frac{500}{250} = 2 \text{ヶ月}
 \]</span></p>
-<p>となる。</p>
+<p>となる．</p>
 </div>
 <section id="記号" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="記号"><span class="header-section-number">2.1</span> 記号</h2>
@@ -754,66 +754,66 @@ T = \frac{500}{250} = 2 \text{ヶ月}
 </section>
 <section id="コスト関数" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="コスト関数"><span class="header-section-number">2.2</span> コスト関数</h2>
-<p>ここでは、1サイクルあたりのコストを考える。</p>
-<p><strong>発注費用</strong>：発注は1回だけ行うため、発注費用は <span class="math inline">\(K\)</span> である。</p>
-<p><strong>購入費用</strong>：<span class="math inline">\(Q\)</span> 個の商品を単価 <span class="math inline">\(c\)</span> で購入するため、購入費用は <span class="math inline">\(cQ\)</span> である。</p>
-<p><strong>保管費用</strong>：サイクル期間 <span class="math inline">\(T\)</span> は <span class="math inline">\(\frac{Q}{d}\)</span> であるため、1サイクルあたりの保管費用は</p>
+<p>ここでは，1サイクルあたりのコストを考える．</p>
+<p><strong>発注費用</strong>：発注は1回だけ行うため，発注費用は <span class="math inline">\(K\)</span> である．</p>
+<p><strong>購入費用</strong>：<span class="math inline">\(Q\)</span> 個の商品を単価 <span class="math inline">\(c\)</span> で購入するため，購入費用は <span class="math inline">\(cQ\)</span> である．</p>
+<p><strong>保管費用</strong>：サイクル期間 <span class="math inline">\(T\)</span> は <span class="math inline">\(\frac{Q}{d}\)</span> であるため，1サイクルあたりの保管費用は</p>
 <p><span class="math display">\[
 \frac{TQ}{2} h = \frac{hQ^2}{2d}
 \]</span></p>
-<p>となる。</p>
-<p>以上より、1サイクルあたりのコストは次のように表される。</p>
+<p>となる．</p>
+<p>以上より，1サイクルあたりのコストは次のように表される．</p>
 <p><span class="math display">\[
 K + cQ + \frac{hQ^2}{2d}
 \]</span></p>
-<p><strong>平均コスト</strong>は、これをサイクル期間 <span class="math inline">\(T\)</span> で割ったものとして定義される。したがって、平均コスト <span class="math inline">\(g(Q)\)</span> は次のように表される。</p>
+<p><strong>平均コスト</strong>は，これをサイクル期間 <span class="math inline">\(T\)</span> で割ったものとして定義される．したがって，平均コスト <span class="math inline">\(g(Q)\)</span> は次のように表される．</p>
 <p><span class="math display">\[\begin{align*}
 g(Q) &amp;= \frac{1}{T} \left( K + cQ + \frac{hQ^2}{2d} \right) \\
 &amp;= \frac{d}{Q} \left( K + cQ + \frac{hQ^2}{2d} \right) \\
 &amp;= \frac{Kd}{Q} + c d + \frac{hQ}{2}
 \end{align*}\]</span></p>
-<p>以上より、平均コストは発注量 <span class="math inline">\(Q\)</span> の関数として次のように表される。</p>
+<p>以上より，平均コストは発注量 <span class="math inline">\(Q\)</span> の関数として次のように表される．</p>
 <p><span class="math display">\[
 g(Q) = \frac{Kd}{Q} + cd + \frac{hQ}{2}
 \]</span></p>
 </section>
 <section id="最適発注量" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="最適発注量"><span class="header-section-number">2.3</span> 最適発注量</h2>
-<p>EOQモデルの目的は、平均コスト <span class="math inline">\(g(Q)\)</span> を最小化する発注量 <span class="math inline">\(Q\)</span> を求めることである。</p>
-<p>平均コストの導関数 <span class="math inline">\(g'(Q)\)</span> が 0 となる点を求めることで、最適発注量 <span class="math inline">\(Q^*\)</span> を求めることができる。</p>
+<p>EOQモデルの目的は，平均コスト <span class="math inline">\(g(Q)\)</span> を最小化する発注量 <span class="math inline">\(Q\)</span> を求めることである．</p>
+<p>平均コストの導関数 <span class="math inline">\(g'(Q)\)</span> が 0 となる点を求めることで，最適発注量 <span class="math inline">\(Q^*\)</span> を求めることができる．</p>
 <p><span class="math display">\[
 g'(Q) = -\frac{Kd}{Q^2} + \frac{h}{2} = 0
 \]</span></p>
-<p>これを解くと、最適発注量</p>
+<p>これを解くと，最適発注量</p>
 <p><span class="math display">\[
 Q^* = \sqrt{\frac{2Kd}{h}}
 \]</span></p>
-<p>を得る。これを<strong>EOQ公式</strong>（EOQ formula）と呼ぶ。<span class="math inline">\(Q^*\)</span> を経済的発注量と呼ぶ（経済的は最適という意味である）。</p>
-<p>二階導関数 <span class="math inline">\(g''(Q)\)</span> を求めて、最適発注量が最小値を与えることを確認する。</p>
+<p>を得る．これを<strong>EOQ公式</strong>（EOQ formula）と呼ぶ．<span class="math inline">\(Q^*\)</span> を経済的発注量と呼ぶ（経済的は最適という意味である）．</p>
+<p>二階導関数 <span class="math inline">\(g''(Q)\)</span> を求めて，最適発注量が最小値を与えることを確認する．</p>
 <p><span class="math display">\[
 g''(Q) = \frac{2Kd}{Q^3} &gt; 0
 \]</span></p>
-<p><span class="math inline">\(g''(Q) &gt; 0\)</span> であるため、<span class="math inline">\(Q^*\)</span> は最小値を与える。</p>
-<p>最適発注量 <span class="math inline">\(Q^*\)</span> を次の定理にまとめる。</p>
+<p><span class="math inline">\(g''(Q) &gt; 0\)</span> であるため，<span class="math inline">\(Q^*\)</span> は最小値を与える．</p>
+<p>最適発注量 <span class="math inline">\(Q^*\)</span> を次の定理にまとめる．</p>
 <div id="thm-eoq" class="theorem">
-<p><span class="theorem-title"><strong>定理 2.1</strong></span> EOQモデルにおいて、最適発注量 <span class="math inline">\(Q^*\)</span> は <span id="eq-eoq"><span class="math display">\[
+<p><span class="theorem-title"><strong>定理 2.1</strong></span> EOQモデルにおいて，最適発注量 <span class="math inline">\(Q^*\)</span> は <span id="eq-eoq"><span class="math display">\[
 Q^* = \sqrt{\frac{2Kd}{h}}
 \tag{2.1}\]</span></span></p>
-<p>で与えられる。</p>
+<p>で与えられる．</p>
 </div>
-<p><span class="math inline">\(Q^*\)</span> を用いて、最適なサイクル期間 <span class="math inline">\(T^*\)</span> を求めることができる。</p>
+<p><span class="math inline">\(Q^*\)</span> を用いて，最適なサイクル期間 <span class="math inline">\(T^*\)</span> を求めることができる．</p>
 <p><span id="eq-eoq-cycle"><span class="math display">\[
 T^* = \frac{Q^*}{d} = \sqrt{\frac{2K}{hd}}
 \tag{2.2}\]</span></span></p>
-<p><a href="#eq-eoq" class="quarto-xref">式&nbsp;<span>2.1</span></a> と <a href="#eq-eoq-cycle" class="quarto-xref">式&nbsp;<span>2.2</span></a> から、以下の性質がわかる。</p>
+<p><a href="#eq-eoq" class="quarto-xref">式&nbsp;<span>2.1</span></a> と <a href="#eq-eoq-cycle" class="quarto-xref">式&nbsp;<span>2.2</span></a> から，以下の性質がわかる．</p>
 <ol type="1">
-<li><span class="math inline">\(h\)</span> の増加に伴い、<span class="math inline">\(Q^*\)</span> は減少する。保管費用が高い場合は、少量で高い頻度で発注することが望ましい。</li>
-<li><span class="math inline">\(K\)</span> の増加に伴い、<span class="math inline">\(Q^*\)</span> は増加する。発注費用が高い場合は、多量で低い頻度で発注することが望ましい。</li>
-<li><span class="math inline">\(d\)</span> の増加に伴い、<span class="math inline">\(Q^*\)</span> は増加する。</li>
-<li><span class="math inline">\(c\)</span> は <span class="math inline">\(Q^*\)</span> に影響しない。購入単価は最適発注量に影響しない。</li>
+<li><span class="math inline">\(h\)</span> の増加に伴い，<span class="math inline">\(Q^*\)</span> は減少する．保管費用が高い場合は，少量で高い頻度で発注することが望ましい．</li>
+<li><span class="math inline">\(K\)</span> の増加に伴い，<span class="math inline">\(Q^*\)</span> は増加する．発注費用が高い場合は，多量で低い頻度で発注することが望ましい．</li>
+<li><span class="math inline">\(d\)</span> の増加に伴い，<span class="math inline">\(Q^*\)</span> は増加する．</li>
+<li><span class="math inline">\(c\)</span> は <span class="math inline">\(Q^*\)</span> に影響しない．購入単価は最適発注量に影響しない．</li>
 </ol>
-<p>次の図は、購入単価を <span class="math inline">\(c = 0\)</span> とするとき、平均コスト <span class="math inline">\(g(Q)\)</span>、発注コスト <span class="math inline">\(\frac{Kd}{Q}\)</span>、保管コスト <span class="math inline">\(\frac{hQ}{2}\)</span> のグラフを示す。</p>
-<div id="842e79a0" class="cell" data-execution_count="2">
+<p>次の図は，購入単価を <span class="math inline">\(c = 0\)</span> とするとき，平均コスト <span class="math inline">\(g(Q)\)</span>，発注コスト <span class="math inline">\(\frac{Kd}{Q}\)</span>，保管コスト <span class="math inline">\(\frac{hQ}{2}\)</span> のグラフを示す．</p>
+<div id="7006b1f4" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
@@ -848,20 +848,20 @@ T^* = \frac{Q^*}{d} = \sqrt{\frac{2K}{hd}}
 </div>
 </div>
 </div>
-<p>平均コストが最小となる発注量 <span class="math inline">\(Q^*\)</span> は、発注コストと保管コストの交差点である。すなわち、発注コストと保管コストを等しくする発注量は最適な発注量 <span class="math inline">\(Q^*\)</span> である。この性質は以下の式からわかる。</p>
+<p>平均コストが最小となる発注量 <span class="math inline">\(Q^*\)</span> は，発注コストと保管コストの交差点である．すなわち，発注コストと保管コストを等しくする発注量は最適な発注量 <span class="math inline">\(Q^*\)</span> である．この性質は以下の式からわかる．</p>
 <p><span class="math display">\[
 \frac{Kd}{Q^*} = \frac{hQ^*}{2} \Longrightarrow Q^* = \sqrt{\frac{2Kd}{h}}
 \]</span></p>
-<p>また、この図からもわかるように、<span class="math inline">\(Q\)</span> の増加に伴い、平均発注コストは減少し、平均保管コストは増加する。逆もまた然りである。</p>
+<p>また，この図からもわかるように，<span class="math inline">\(Q\)</span> の増加に伴い，平均発注コストは減少し，平均保管コストは増加する．逆もまた然りである．</p>
 <div id="exm-eoq" class="theorem example">
-<p><span class="theorem-title"><strong>例 2.2</strong></span> ある電気量販店では、毎月250台のPCが販売されている。発注費用は5000円、保管費用は1台あたり月150円、購入単価は10万円とする。このとき、最適発注量 <span class="math inline">\(Q^*\)</span> は次のように求められる。</p>
+<p><span class="theorem-title"><strong>例 2.2</strong></span> ある電気量販店では，毎月250台のPCが販売されている．発注費用は5000円，保管費用は1台あたり月150円，購入単価は10万円とする．このとき，最適発注量 <span class="math inline">\(Q^*\)</span> は次のように求められる．</p>
 <p><span class="math display">\[
 Q^* = \sqrt{\frac{2 \cdot 5000 \cdot 250}{150}}
 \]</span></p>
-<p>Excel では、下記のように計算できる。</p>
+<p>Excel では，下記のように計算できる．</p>
 <pre class="excel"><code>=SQRT(2 * 5000 * 250 / 150)</code></pre>
-<p>Python では、次のように<code>eoq(K, d, h)</code> 関数を定義し、最適発注量を計算できる。</p>
-<div id="22e2d9c9" class="cell" data-execution_count="3">
+<p>Python では，次のように<code>eoq(K, d, h)</code> 関数を定義し，最適発注量を計算できる．</p>
+<div id="3e0c647b" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> eoq(K, d, h):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculate the Economic Order Quantity (EOQ).</span></span>
@@ -891,22 +891,22 @@ Q^* = \sqrt{\frac{2 \cdot 5000 \cdot 250}{150}}
 Optimal Cycle Time (T*): 0.52</code></pre>
 </div>
 </div>
-<p>PCの場合は、注文量が整数である必要があるため、<span class="math inline">\(g(129)\)</span> と <span class="math inline">\(g(130)\)</span> を比較して最適発注量を決定する。</p>
+<p>PCの場合は，注文量が整数である必要があるため，<span class="math inline">\(g(129)\)</span> と <span class="math inline">\(g(130)\)</span> を比較して最適発注量を決定する．</p>
 </div>
 </section>
 <section id="リードタイム" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="リードタイム"><span class="header-section-number">2.4</span> リードタイム*</h2>
-<p>EOQ モデルでは、リードタイムは0と仮定している。リードタイムが <span class="math inline">\(L &gt; 0\)</span> の場合も、最適発注量 <span class="math inline">\(Q^*\)</span> も変換せず、<span class="math inline">\(L\)</span> 期間前に <span class="math inline">\(Q^*\)</span> を発注すればよい。</p>
-<p>ここでは、<span class="math inline">\(r\)</span> を発注点（reorder point）とする。在庫量が <span class="math inline">\(r\)</span> になったときに発注を行う。リードタイム <span class="math inline">\(L\)</span> の間に需要が <span class="math inline">\(dL\)</span> 個あるため、発注点は次のように表される。</p>
+<p>EOQ モデルでは，リードタイムは0と仮定している．リードタイムが <span class="math inline">\(L &gt; 0\)</span> の場合も，最適発注量 <span class="math inline">\(Q^*\)</span> も変換せず，<span class="math inline">\(L\)</span> 期間前に <span class="math inline">\(Q^*\)</span> を発注すればよい．</p>
+<p>ここでは，<span class="math inline">\(r\)</span> を発注点（reorder point）とする．在庫量が <span class="math inline">\(r\)</span> になったときに発注を行う．リードタイム <span class="math inline">\(L\)</span> の間に需要が <span class="math inline">\(dL\)</span> 個あるため，発注点は次のように表される．</p>
 <p><span class="math display">\[
 r = dL
 \]</span></p>
 <div id="exm-reorder-point" class="theorem example">
-<p><span class="theorem-title"><strong>例 2.3</strong></span> 上の例で、リードタイムが一週間とし、一か月を4週間とすると、リードタイムは <span class="math inline">\(L = 1/4\)</span> となる。したがって、発注点は次のように求められる。</p>
+<p><span class="theorem-title"><strong>例 2.3</strong></span> 上の例で，リードタイムが一週間とし，一か月を4週間とすると，リードタイムは <span class="math inline">\(L = 1/4\)</span> となる．したがって，発注点は次のように求められる．</p>
 <p><span class="math display">\[
 r = dL = 250 \times \frac{1}{4} = 62.5
 \]</span></p>
-<p>PCの在庫量が63台になったときに発注を行う。</p>
+<p>PCの在庫量が63台になったときに発注を行う．</p>
 </div>
 </section>
 <section id="他のeoqモデル" class="level2" data-number="2.5">
@@ -920,38 +920,40 @@ r = dL = 250 \times \frac{1}{4} = 62.5
 </ul></li>
 </ul>
 <!-- 1. 
-2. 需要率を $d$、発注費用を $K$、保管費用を $h$，購入単価を $c$ とする。EOQモデルにおける平均コスト $g(Q)$ を発注量 $Q$ の関数として導出せよ。
-3. $g(Q)$ を最小化する発注量 $Q^*$ を導出せよ。なぜ $Q^*$ が最小値を与えるのか説明せよ。 -->
+2. 需要率を $d$，発注費用を $K$，保管費用を $h$，購入単価を $c$ とする．EOQモデルにおける平均コスト $g(Q)$ を発注量 $Q$ の関数として導出せよ．
+3. $g(Q)$ を最小化する発注量 $Q^*$ を導出せよ．なぜ $Q^*$ が最小値を与えるのか説明せよ． -->
 </section>
 <section id="文献案内" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="文献案内"><span class="header-section-number">2.6</span> 文献案内</h2>
-<p>オペレーションズ・リサーチに関する教科書の多くは、EOQモデルを取り扱っている。モデルの分類から、「deterministic continuous-review inventory models」などの章で説明されていることが多い。</p>
-<p>リードタイムを考慮したEOQモデルについては、<span class="citation" data-cites="Snyder2019-cy">Snyder と Shen (<a href="../references.html#ref-Snyder2019-cy" role="doc-biblioref">2019</a>)</span> で説明されている。</p>
-<p>数量割引を考慮したEOQモデルについては、<span class="citation" data-cites="Snyder2019-cy">Snyder と Shen (<a href="../references.html#ref-Snyder2019-cy" role="doc-biblioref">2019</a>)</span> 、<span class="citation" data-cites="Camm2022-zv">Camm ほか (<a href="../references.html#ref-Camm2022-zv" role="doc-biblioref">2022</a>)</span> で説明されている。</p>
-<p>バックオーダーを考慮したEOQモデルについては、<span class="citation" data-cites="Snyder2019-cy">Snyder と Shen (<a href="../references.html#ref-Snyder2019-cy" role="doc-biblioref">2019</a>)</span> 、<span class="citation" data-cites="Camm2022-zv">Camm ほか (<a href="../references.html#ref-Camm2022-zv" role="doc-biblioref">2022</a>)</span> 、<span class="citation" data-cites="Hillier2025-cb">Hillier と Lieberman (<a href="../references.html#ref-Hillier2025-cb" role="doc-biblioref">2025</a>)</span> で説明されている。</p>
+<p>オペレーションズ・リサーチに関する教科書の多くは，EOQモデルを取り扱っている．モデルの分類から，「deterministic continuous-review inventory models」などの章で説明されていることが多い．</p>
+<p>リードタイムを考慮したEOQモデルについては，<span class="citation" data-cites="Snyder2019-cy">Snyder と Shen (<a href="../references.html#ref-Snyder2019-cy" role="doc-biblioref">2019</a>)</span> で説明されている．</p>
+<p>数量割引を考慮したEOQモデルについては，<span class="citation" data-cites="Snyder2019-cy">Snyder と Shen (<a href="../references.html#ref-Snyder2019-cy" role="doc-biblioref">2019</a>)</span> ，<span class="citation" data-cites="Camm2022-zv">Camm ほか (<a href="../references.html#ref-Camm2022-zv" role="doc-biblioref">2022</a>)</span> で説明されている．</p>
+<p>バックオーダーを考慮したEOQモデルについては，<span class="citation" data-cites="Snyder2019-cy">Snyder と Shen (<a href="../references.html#ref-Snyder2019-cy" role="doc-biblioref">2019</a>)</span> ，<span class="citation" data-cites="Camm2022-zv">Camm ほか (<a href="../references.html#ref-Camm2022-zv" role="doc-biblioref">2022</a>)</span> ，<span class="citation" data-cites="Hillier2025-cb">Hillier と Lieberman (<a href="../references.html#ref-Hillier2025-cb" role="doc-biblioref">2025</a>)</span> で説明されている．</p>
 </section>
 <section id="練習問題" class="level2" data-number="2.7">
 <h2 data-number="2.7" class="anchored" data-anchor-id="練習問題"><span class="header-section-number">2.7</span> 練習問題</h2>
-<div id="exr-eoq-cycle" class="theorem exercise">
-<p><span class="theorem-title"><strong>練習 2.1</strong></span> ある会社は、毎月300個の需要がある商品を取り扱っている。一回の発注量は600個とし、サイクル期間 <span class="math inline">\(T\)</span> を求めよ。</p>
-</div>
-<div id="sol-eoq-cycle" class="proof solution">
-<p><span class="proof-title"><em>解答 2.1</em>. </span>需要率は <span class="math inline">\(d = 300\)</span>、発注量は <span class="math inline">\(Q = 600\)</span> である。したがって、サイクル期間 <span class="math inline">\(T\)</span> は以下のように求められる。</p>
-<p><span class="math display">\[
-T = \frac{Q}{d} = \frac{600}{300} = 2 \text{ヶ月}
-\]</span></p>
-</div>
 <div id="exr-eoq-year" class="theorem exercise">
-<p><span class="theorem-title"><strong>練習 2.2</strong></span> ある工場は、鋼材を毎日16トン消費し、年間250日稼働している。鋼材の購入単価は1トンあたり1100ドル、1回の発注にかかる固定費は5500ドル、保管費は鋼材1トンあたり年間は275ドルである。EOQモデルにより以下を求めよ。</p>
+<p><span class="theorem-title"><strong>練習 2.1</strong></span> ある工場は，鋼材を毎日16トン消費し，年間250日稼働している．鋼材の購入単価は1トンあたり1100ドル，1回の発注にかかる固定費は5500ドル，保管費は鋼材1トンあたり年間は275ドルである．EOQモデルを用いて，次の問いに答えよ．</p>
 <ol type="1">
-<li>最適な発注量</li>
-<li>サイクル期間</li>
-<li>年間平均コスト</li>
+<li>最適な発注量を求めよ．</li>
+<li>最適なサイクル期間を求めよ．</li>
+<li>年間の平均費用を求めよ．</li>
 </ol>
 </div>
 <div id="sol-eoq-year" class="proof solution">
-<p><span class="proof-title"><em>解答 2.2</em>. </span>需要率は <span class="math inline">\(d = 4000\)</span>、発注費用は <span class="math inline">\(K = 5500\)</span>、保管費用は <span class="math inline">\(h = 275\)</span>、購入単価は <span class="math inline">\(c = 1100\)</span> である。</p>
-<div id="830dff22" class="cell" data-execution_count="4">
+<p><span class="proof-title"><em>解答 2.1</em>. </span>需要率は <span class="math inline">\(d = 4000\)</span> で，発注費用は <span class="math inline">\(K = 5500\)</span>，保管費用は <span class="math inline">\(h = 275\)</span>，購入単価は <span class="math inline">\(c = 1100\)</span> である．</p>
+<p>経済的発注量 <span class="math inline">\(Q^*\)</span> は</p>
+<p><span class="math display">\[
+Q^* = \sqrt{\frac{2Kd}{h}} = \sqrt{\frac{2 \cdot 5500 \cdot 4000}{275}} = 400 \text{ トン}
+\]</span></p>
+<p>となる．<a href="#eq-eoq-cycle" class="quarto-xref">式&nbsp;<span>2.2</span></a> より，サイクル期間 <span class="math inline">\(T^*\)</span> は</p>
+<p><span class="math display">\[
+T^* = \frac{Q^*}{d} = \frac{400}{4000} = 0.1 \text{ 年}
+\]</span></p>
+<p>となる．年間平均コスト <span class="math inline">\(g(Q^*)\)</span> は <span class="math display">\[
+g(Q^*) = \frac{Kd}{Q^*} + cd + \frac{hQ^*}{2} = 4510000 \text{ ドル}
+\]</span> となる．</p>
+<div id="340640b3" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -972,6 +974,55 @@ T = \frac{Q}{d} = \frac{600}{300} = 2 \text{ヶ月}
 <pre><code>Optimal Order Quantity (Q*): 400.00 tons
 Optimal Cycle Time (T*): 0.10 years
 Average Annual Cost (g(Q*)): 4510000.00 dollars</code></pre>
+</div>
+</div>
+</div>
+<div id="exr-eoq-phone" class="theorem exercise">
+<p><span class="theorem-title"><strong>練習 2.2</strong></span> ある家電量販店では，あるスマートフォンを毎週50台販売している．店舗はスマートフォンを1台あたりメーカーに10万円で購入している．毎回の発注には発注処理や配送などで5000円の固定費がかかる．また，スマートフォン1台あたりの保管費用は1週間で100円である．EOQモデルを用いて，次の問いに答えよ．</p>
+<ol type="1">
+<li>最適な発注量を求めよ．</li>
+<li>最適なサイクル期間を求めよ．</li>
+</ol>
+</div>
+<div id="sol-eoq-phone" class="proof solution">
+<p><span class="proof-title"><em>解答 2.2</em>. </span>需要率は <span class="math inline">\(d = 50\)</span> で，発注費用は <span class="math inline">\(K = 5000\)</span>，保管費用は <span class="math inline">\(h = 100\)</span> である．</p>
+<p>経済的発注量 <span class="math inline">\(Q^*\)</span> は <span class="math display">\[
+Q^* = \sqrt{\frac{2Kd}{h}} = \sqrt{\frac{2 \cdot 5000 \cdot 50}{100}} \approx 70.71 \text{ 台}
+\]</span> となる．スマートフォンの場合は，注文量が整数である必要があるため，<span class="math inline">\(g(70)\)</span> と <span class="math inline">\(g(71)\)</span> を比較して最適発注量を決定する．</p>
+<p><span class="math display">\[
+g(70) = \frac{5000 \cdot 50}{70} + 100 \cdot 70 / 2 \approx 7071.43
+\]</span> <span class="math display">\[
+g(71) = \frac{5000 \cdot 50}{71} + 100 \cdot 71 / 2 \approx 7071.13
+\]</span> <span class="math inline">\(g(71) &lt; g(70)\)</span> であるため，最適発注量は <span class="math inline">\(Q^* = 71\)</span> 台となる．</p>
+<p>サイクル期間 <span class="math inline">\(T^*\)</span> は <span class="math display">\[
+T^* = \frac{Q^*}{d} = \frac{71}{50} = 1.42 \text{ 週間}
+\]</span> となる．</p>
+<div id="95811b30" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>コード</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>K <span class="op">=</span> <span class="dv">5000</span>  <span class="co"># Order cost</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> <span class="dv">50</span>  <span class="co"># Demand rate (units per week)</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="dv">100</span>  <span class="co"># Holding cost (per unit per week)</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>Q_star <span class="op">=</span> np.sqrt(<span class="dv">2</span> <span class="op">*</span> K <span class="op">*</span> d <span class="op">/</span> h)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Since order quantity must be an integer, compare g(70) and g(71)</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> g(Q):</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (K <span class="op">*</span> d <span class="op">/</span> Q) <span class="op">+</span> (h <span class="op">*</span> Q <span class="op">/</span> <span class="dv">2</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>g_70 <span class="op">=</span> g(<span class="dv">70</span>)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>g_71 <span class="op">=</span> g(<span class="dv">71</span>)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>optimal_Q <span class="op">=</span> <span class="dv">70</span> <span class="cf">if</span> g_70 <span class="op">&lt;</span> g_71 <span class="cf">else</span> <span class="dv">71</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>T_star <span class="op">=</span> optimal_Q <span class="op">/</span> d</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal Order Quantity (Q*): </span><span class="sc">{</span>optimal_Q<span class="sc">}</span><span class="ss"> units"</span>)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optimal Cycle Time (T*): </span><span class="sc">{</span>T_star<span class="sc">:.2f}</span><span class="ss"> weeks"</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Optimal Order Quantity (Q*): 71 units
+Optimal Cycle Time (T*): 1.42 weeks</code></pre>
 </div>
 </div>
 </div>

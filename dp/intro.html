@@ -707,9 +707,9 @@ window.Quarto = {
 <p><span class="math inline">\(P^* = (s, v_1, v_2, \ldots, v_n, t)\)</span> は最短路であれば，任意の <span class="math inline">\(1 \leq k \leq n\)</span> に対して，パス <span class="math inline">\((v_k, v_{k+1}, \ldots, v_n, t)\)</span> も <span class="math inline">\(v_k\)</span> から <span class="math inline">\(t\)</span> への最短路である。これは，もし <span class="math inline">\((v_k, v_{k+1}, \ldots, v_n, t)\)</span> が最短路でないとすると，より短いパスが存在し，<span class="math inline">\(P^*\)</span> も最短路でなくなるためである。この性質は<strong>最適性の原理</strong>（Principle of Optimality）と呼ばれる。</p>
 <p>点 <span class="math inline">\(v\)</span> から点 <span class="math inline">\(t\)</span> までの最短路の長さ（またはコスト）を <span class="math inline">\(d(v)\)</span> と定義する。最適性の原理により，点 <span class="math inline">\(v \in V \setminus \{ t \}\)</span> に対して，</p>
 <p><span class="math display">\[
-d(v) = \min_{u \in \mathcal{P}(v)} \{ w(v, u) + d(u) \}
+d(v) = \min_{u \in \mathcal{S}(v)} \{ w(v, u) + d(u) \}
 \]</span></p>
-<p>が成り立つ。ここで，<span class="math inline">\(\mathcal{P}(v) = \{ u \mid (v, u) \in E \}\)</span> とする。</p>
+<p>が成り立つ。ここで，<span class="math inline">\(\mathcal{S}(v) = \{ u \mid (v, u) \in E \}\)</span> とする．</p>
 <div id="exm-dp-spp-1" class="theorem example">
 <p><span class="theorem-title"><strong>例 13.1</strong></span> 下のグラフにおいて，<span class="math inline">\(d(a)\)</span>，<span class="math inline">\(d(b)\)</span>，<span class="math inline">\(d(c)\)</span> が与えられたとき，<span class="math inline">\(d(s)\)</span> を計算せよ。</p>
 <ul>
@@ -717,7 +717,7 @@ d(v) = \min_{u \in \mathcal{P}(v)} \{ w(v, u) + d(u) \}
 <li><span class="math inline">\(d(b) = 7\)</span></li>
 <li><span class="math inline">\(d(c) = 7\)</span></li>
 </ul>
-<div id="1474c342" class="cell" data-execution_count="1">
+<div id="63082fa9" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
@@ -790,7 +790,7 @@ d(v) = \min_{u \in \mathcal{P}(v)} \{ w(v, u) + d(u) \}
 </div>
 </div>
 </div>
-<div id="f0d2aa8b" class="cell" data-execution_count="2">
+<div id="0a6fe06f" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># find shortest path from s to t</span></span>
@@ -836,7 +836,7 @@ d(s) &amp;= \min \{ w(s, a) + d(a), w(s, b) + d(b), w(s, c) + d(c) \} \\
 <li>return <span class="math inline">\(d(s)\)</span></li>
 </ol>
 </div>
-<div id="f63b2b08" class="cell" data-execution_count="3">
+<div id="02f72c26" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dp_shortest_path(G):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initialize distances</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> {v: <span class="bu">float</span>(<span class="st">"inf"</span>) <span class="cf">for</span> v <span class="kw">in</span> G.nodes()}</span>
@@ -1009,7 +1009,7 @@ v_{i+1}(w) &amp; \text{if } w_i &gt; w \\
 <li>return <span class="math inline">\(v_1(W)\)</span></li>
 </ol>
 </div>
-<div id="62e73e2f" class="cell" data-execution_count="4">
+<div id="d12efc46" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dp_knapsack(weights, values, W):</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(weights)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initialize value table</span></span>
