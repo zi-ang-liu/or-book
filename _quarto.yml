@@ -73,7 +73,6 @@ book:
     - part: "OR キャリア"
       chapters:
         - career/intro.qmd
-    - problems.qmd
     - references.qmd
   appendices:
     - appendices/calculus.qmd
