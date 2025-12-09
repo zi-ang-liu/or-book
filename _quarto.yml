@@ -68,7 +68,7 @@ book:
     - part: "待ち行列理論"
       chapters:
         - queuing/intro.qmd
-        - queuing/stochastic-process.qmd
+        - queuing/poisson_process.qmd
         - queuing/birth-death.qmd
     - part: "OR キャリア"
       chapters:
