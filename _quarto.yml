@@ -50,26 +50,26 @@ book:
         - inventory/wagner-whitin.qmd
         - inventory/newsvendor.qmd
         - inventory/summary.qmd
-    - part: "多基準意思決定分析"
-      chapters:
-        - mcda/ahp.qmd
-    - part: "ネットワーク最適化"
-      chapters:
-        - network/graph.qmd
-        - network/shortest-path.qmd
-        - network/pert.qmd
-    - part: "データ包絡分析"
-      chapters:
-        - dea/intro.qmd
-        - dea/ccr.qmd
-    - part: "動的計画法"
-      chapters:
-        - dp/intro.qmd
+    # - part: "多基準意思決定分析"
+    #   chapters:
+    #     - mcda/ahp.qmd
+    # - part: "ネットワーク最適化"
+    #   chapters:
+    #     - network/graph.qmd
+    #     - network/shortest-path.qmd
+    #     - network/pert.qmd
+    # - part: "データ包絡分析"
+    #   chapters:
+    #     - dea/intro.qmd
+    #     - dea/ccr.qmd
+    # - part: "動的計画法"
+    #   chapters:
+    #     - dp/intro.qmd
     - part: "待ち行列理論"
       chapters:
         - queuing/intro.qmd
-        # - queuing/poisson_process.qmd
-        - queuing/birth-death.qmd
+        - queuing/poisson_process.qmd
+        # - queuing/birth-death.qmd
     - part: "OR キャリア"
       chapters:
         - career/intro.qmd
