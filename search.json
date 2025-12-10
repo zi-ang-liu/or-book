@@ -589,5 +589,126 @@
       "在庫モデル",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>まとめ</span>"
     ]
+  },
+  {
+    "objectID": "queuing/intro.html",
+    "href": "queuing/intro.html",
+    "title": "7  待ち行列モデルの基礎",
+    "section": "",
+    "text": "7.1 ケンドールの記号\n図 7.1 は，典型的な待ち行列システムを示している．待ち行列システムは待ち行列とサーバから構成される．これ以降は，待ち行列システムを単にシステムと呼ぶことにする．図に示すように，客（customer）はシステムに到着（arrival）し，待ち行列（queue）に並び，サービスを受け，最後にシステムを退出（departure）する．\n待ち行列モデルは，ケンドールの記号（Kendall’s notation）により表現する．\n\\[\nA/B/X\n\\]\nここで，\\(A\\) は到着間隔分布の種類，\\(B\\) はサービス時間分布の種類，\\(X\\) はサーバ数を表す．\\(A\\) と \\(B\\) には以下の記号が用いられる．\n例えば，客の到着間隔が指数分布に従い，サービス時間が一定であり，サーバ数が1である場合，その待ち行列モデルは \\(M/D/1\\) と表される．本章の最後では，\\(G/G/1\\) 待ち行列と \\(G/G/c\\) 待ち行列について説明する．これらのモデルから得られた一般的な結論は，他の多くの待ち行列モデルにも適用できる．",
+    "crumbs": [
+      "待ち行列理論",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>待ち行列モデルの基礎</span>"
+    ]
+  },
+  {
+    "objectID": "queuing/intro.html#ケンドールの記号",
+    "href": "queuing/intro.html#ケンドールの記号",
+    "title": "7  待ち行列モデルの基礎",
+    "section": "",
+    "text": "記号\n意味\n\n\n\n\n\\(M\\)\n指数分布\n\n\n\\(D\\)\n決定論的\n\n\n\\(G\\)\n一般分布\n\n\n\\(E_k\\)\n\\(k\\) 次アーラン分布\n\n\n\\(H_k\\)\n\\(k\\) 次超指数分布\n\n\n\n\n\n\n\n\n\n\nノートなぜ指数分布は \\(M\\) と書くのか\n\n\n\n\nアーラン分布 \\(E_k\\) と間違えないようにするため．\n指数分布のマルコフ性（Markovian property）と無記憶性（memoryless property）に由来する．",
+    "crumbs": [
+      "待ち行列理論",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>待ち行列モデルの基礎</span>"
+    ]
+  },
+  {
+    "objectID": "queuing/intro.html#評価指標",
+    "href": "queuing/intro.html#評価指標",
+    "title": "7  待ち行列モデルの基礎",
+    "section": "7.2 評価指標",
+    "text": "7.2 評価指標\n待ち行列理論の代表的な性能評価指標を紹介する．\n滞在時間は客がシステムに到着してサービスを受け，システムを退出するまでにかかる時間である．待ち時間は，客がシステムに到着してからサービスを受けるまでの時間である．平均滞在時間は \\(W\\)，平均待ち時間は \\(W_q\\) で表す．\n系内客数は待ち行列システム内にいる客数である．待ち行列長は待ち行列にいる客数である．平均系内客数は \\(L\\)，平均待ち行列長は \\(L_q\\) で表す．\n\n\n\n\nシステム\n待ち行列\n\n\n\n\n客数\n系内客数\n待ち行列長\n\n\n時間\n滞在時間\n待ち時間",
+    "crumbs": [
+      "待ち行列理論",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>待ち行列モデルの基礎</span>"
+    ]
+  },
+  {
+    "objectID": "queuing/intro.html#リトルの法則",
+    "href": "queuing/intro.html#リトルの法則",
+    "title": "7  待ち行列モデルの基礎",
+    "section": "7.3 リトルの法則",
+    "text": "7.3 リトルの法則\nリトルの法則（Little’s Law）は，待ち行列理論における基本的な関係式であり，平均系内客数 \\(L\\)，平均到着率 \\(\\lambda\\)，平均滞在時間 \\(W\\) の関係を示すものである．リトルの法則は \\(L = \\lambda W\\) と表される．すなわち，平均系内客数 \\(L\\) は，平均到着率 \\(\\lambda\\) と平均滞在時間 \\(W\\) の積に等しい．\n\n例 7.1 (大学の在籍学生数) ある大学の経営システム系では，毎年80人の新入生が入学し，卒業までに4年間在籍する．このとき，経営システム系に在籍している学生の平均人数を求めよ．\n平均到着率 \\(\\lambda\\) は80人/年，平均滞在時間 \\(W\\) は4年である．リトルの法則により，平均系内客数 \\(L\\) は次のように求められる．\n\\[\nL = \\lambda W = 80 \\times 4 = 320 \\text{ 人}\n\\]\nよって，経営システム系には320人の学生が在籍していることになる．\n\n\n例 7.2 ある銀行では，1時間に平均20人の客が来店し，各客が銀行に滞在する平均時間は12分である．このとき，この銀行には平均何人の客がいるか．\n平均到着率 \\(\\lambda\\) は20人/時間，平均滞在時間 \\(W = 12 \\text{ 分} = 12/60 \\text{ 時間}\\) である．リトルの法則から，平均系内客数 \\(L\\) は\n\\[\nL = \\lambda W = 20 \\times \\frac{12}{60} = 4 \\text{ 人}\n\\]\nとなる．すなわち，銀行内には平均して4人の客が滞在する．平均滞在時間 \\(W\\) や平均到着率 \\(\\lambda\\) が増加すると，平均系内客数 \\(L\\) も増加することがわかる．\n\n時刻 \\(t\\) までに累積到着客数を \\(A(t)\\) とする．時刻 \\(t\\) における系内客数を \\(N(t)\\) とする．客 \\(k\\) の滞在時間を \\(W^(k)\\) とする．\\(t \\to \\infty\\) とすると，極限が存在するとき，平均到着率 \\(\\lambda\\)，平均系内客数 \\(L\\)，平均滞在時間 \\(W\\) はそれぞれ次の式で定義される．\n\\[\n\\lambda = \\lim_{t \\to \\infty} \\frac{A(t)}{t} , \\quad L = \\lim_{T \\to \\infty} \\frac{1}{T} \\int_0^T N(t) dt, \\quad W = \\lim_{k \\to \\infty} \\frac{1}{k} \\sum_{i=1}^k W^{(i)}\n\\]\n\nこれまでは，システム全体に関するリトルの法則を紹介したが，待ち行列を「システム」として考えた場合にも同様の関係が成り立つ．平均待ち行列長を \\(L_q\\)，平均待ち時間を \\(W_q\\)，平均到着率を \\(\\lambda\\) とすると，\n\\[\nL_q = \\lambda W_q\n\\]\nが成り立つ．",
+    "crumbs": [
+      "待ち行列理論",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>待ち行列モデルの基礎</span>"
+    ]
+  },
+  {
+    "objectID": "queuing/intro.html#gg1ggc-待ち行列",
+    "href": "queuing/intro.html#gg1ggc-待ち行列",
+    "title": "7  待ち行列モデルの基礎",
+    "section": "7.4 \\(G/G/1\\)，\\(G/G/c\\) 待ち行列",
+    "text": "7.4 \\(G/G/1\\)，\\(G/G/c\\) 待ち行列\n\\(G/G/1\\) と \\(G/G/c\\) 待ち行列における一般的な結論を説明する．記号のまとめを以下に示す．\n\n\n\n記号\n意味\n\n\n\n\n\\(\\lambda\\)\n平均到着率，単位時間あたりの到着客数の平均\n\n\n\\(L\\)\n平均系内客数\n\n\n\\(W\\)\n平均滞在時間\n\n\n\\(L_q\\)\n平均待ち行列長\n\n\n\\(W_q\\)\n平均待ち時間\n\n\n\\(S\\)\nサービス時間を表す確率変数\n\n\n\\(\\mu\\)\n平均サービス率，単位時間あたりに処理できる客数の平均\n\n\n\\(c\\)\nサーバ数\n\n\n\\(\\rho\\)\n利用率\n\n\n\n\n7.4.1 サービス率と利用率\n\\(S\\) をサービス時間を表す確率変数とする．平均サービス時間を \\(E[S]\\) と表す．単位時間あたりに一つのサーバが処理できる客数の平均は \\[\n\\mu = \\frac{1}{E[S]}\n\\] で計算する．\\(\\mu\\) を平均サービス率（average service rate）と呼ぶ．\n\n\n\n\n\n\nノート\n\n\n\n平均サービス時間は客がサービスを受けるのにかかる時間の平均であり，平均サービス率は単位時間あたりに処理できる客数の平均である．\n\n\n利用率 \\(\\rho\\) は，次の式で定義される．\n\\[\n\\rho = \\frac{\\lambda}{c \\mu}\n\\]\nここで，\\(c\\) はサーバ数を表す．利用率 \\(\\rho\\) は，到着率 \\(\\lambda\\) がシステムの処理能力 \\(c \\mu\\) に対してどの程度であるかを示す指標である．システムの忙しさを表す．\nシステムの使用を開始するとき，システムの状態（系内客数など）は初期状態に大きく依存する．時間が十分に経過すると，システムの状態は初期状態の影響を受けなくなり，一定の条件下で定常状態（steady state）にある．定常状態において，システムの状態は一定の確率分布に従い，時間が経過しても変化しない．定常状態が存在するためには，\\(\\rho &lt; 1\\) である必要がある．\n\\(\\lambda\\) と \\(\\mu\\) が与えられたとき，\\(\\rho &lt; 1\\) という条件を用いて，システムが定常状態に達するためのサーバ数 \\(c\\) の最小値を求めることができる．すなわち，\n\\[\n\\rho = \\frac{\\lambda}{c \\mu} &lt; 1\n\\]\nを満たす最小の整数 \\(c\\) を求めればよい．\n\n例 7.3 あるコールセンターでは，オペレーター10人が勤務している．1件の電話対応に平均して10分かかる．1時間あたり30件の電話がかかってくるとする．\n\n社員一人1時間あたりに対応できる電話の平均件数を求めよ．\nこのコールセンターの利用率を求めよ．\n安定した運用のために必要な最小のサーバ数を求めよ．\n\n平均サービス時間 \\(E[S] = 10 \\text{ 分} = 1/6 \\text{ 時間}\\) である．平均サービス率 \\(\\mu\\) は \\[\n\\mu = \\frac{1}{E[S]} = \\frac{1}{1/6} = 6 \\text{ 件/時間}\n\\] となる．すなわち，社員一人は1時間あたり平均6件の電話に対応できることになる．\n平均到着率 \\(\\lambda\\) は30件/時間，平均サービス率 \\(\\mu\\) は6件/時間，サーバ数 \\(c\\) は10である．利用率 \\(\\rho\\) は次のように計算される．\n\\[\n\\rho = \\frac{30}{10 \\times 6} = \\frac{30}{60} = 0.5\n\\]\nよって，このコールセンターの利用率は0.5である．\n安定した運用のためには，\\(\\rho &lt; 1\\) を満たす必要がある．すなわち，\n\\[\\begin{align*}\nc & &gt; \\frac{\\lambda}{\\mu} \\\\\nc & &gt; 5\n\\end{align*}\\]\nしたがって，必要な最小のサーバ数は6である．\n\n\n\n7.4.2 \\(L\\)，\\(W\\)，\\(L_q\\)，\\(W_q\\) の関係\n客がシステムに到着してから退出するまでの平均滞在時間 \\(W\\) は，平均待ち時間 \\(W_q\\) と平均サービス時間 \\(E[S]\\) の和で表される．すなわち，\n\\[\nW = W_q + E[S] = W_q + \\frac{1}{\\mu}\n\\]\nである．リトルの法則により，\n\\[\nL = \\lambda W = \\lambda \\left( W_q + \\frac{1}{\\mu} \\right) =\\lambda W_q + \\frac{\\lambda}{\\mu} = L_q + \\frac{\\lambda}{\\mu}\n\\]\nが成り立つ．\\(L = L_q + \\lambda / \\mu\\) が成り立つから，\\(\\lambda/ \\mu\\) はサービスを受けている客数の平均を表していると言える．また，\\(\\lambda/ \\mu = L - L_q\\) であるから，稼働中のサーバ数の平均を表しているとも言える．\n以上の関係式をまとめると，次のようになる．\n\\[\\begin{align*}\nL & = \\lambda W \\\\\nW & = W_q + \\frac{1}{\\mu} \\\\\nL_q & = \\lambda W_q \\\\\nL & = L_q + \\frac{\\lambda}{\\mu}\n\\end{align*}\\]\nこれらの関係式は4つの指標 \\(L\\)，\\(W\\)，\\(L_q\\)，\\(W_q\\) のうち，1つがわかれば，他の3つを計算できることを示している．",
+    "crumbs": [
+      "待ち行列理論",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>待ち行列モデルの基礎</span>"
+    ]
+  },
+  {
+    "objectID": "queuing/intro.html#用語集",
+    "href": "queuing/intro.html#用語集",
+    "title": "7  待ち行列モデルの基礎",
+    "section": "7.5 用語集",
+    "text": "7.5 用語集\n\n\n\n英語\n日本語\n\n\n\n\nservice facility\nサービス施設\n\n\nserver\nサーバ\n\n\nnumber of servers\nサーバ数\n\n\ninterarrival time\n到着間隔\n\n\nservice time\nサービス時間\n\n\narrival rate\n到着率\n\n\nservice rate\nサービス率\n\n\noffered load",
+    "crumbs": [
+      "待ち行列理論",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>待ち行列モデルの基礎</span>"
+    ]
+  },
+  {
+    "objectID": "queuing/intro.html#演習問題",
+    "href": "queuing/intro.html#演習問題",
+    "title": "7  待ち行列モデルの基礎",
+    "section": "7.6 演習問題",
+    "text": "7.6 演習問題\n\n練習 7.1 (アイスクリーム屋さん) あるアイスクリーム屋さんでは，1名の店員が客の注文を受け付け，アイスクリームを提供している．平均して，1時間に30人の客が来店している．店員は，1時間に60人の客に対応できる．客の平均待ち時間を \\(5\\) 分とする．\n\nこのアイスクリーム屋さんの利用率を求めよ．\n客の平均滞在時間，平均系内客数，平均待ち行列長を求めよ．\n\n\n\n解答 7.1. 平均到着率 \\(\\lambda\\) は30人/時間，平均サービス率 \\(\\mu\\) は60人/時間である．サーバ数 \\(c = 1\\) であるため，利用率は\n\\[\n\\rho = \\frac{30}{1 \\times 60} = 0.5\n\\] となる．\n平均サービス時間 \\(E[S] = 1 \\text{ 分}\\)，平均待ち時間 \\(W_q = 5 \\text{ 分}\\) であるから，平均滞在時間 \\(W\\) は\n\\[\nW = W_q + E[S] = 5 + 1 = 6 \\text{ 分}\n\\] となる．リトルの法則により，平均系内客数 \\(L\\) は \\[\nL = \\lambda W = 30 \\times \\frac{6}{60} = 3 \\text{ 人}\n\\] となる．同様に，平均待ち行列長 \\(L_q\\) は \\[\nL_q = \\lambda W_q = 30 \\times \\frac{5}{60} = 2.5 \\text{ 人}\n\\] となる．",
+    "crumbs": [
+      "待ち行列理論",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>待ち行列モデルの基礎</span>"
+    ]
+  },
+  {
+    "objectID": "queuing/poisson_process.html",
+    "href": "queuing/poisson_process.html",
+    "title": "8  ポアソン過程",
+    "section": "",
+    "text": "8.1 指数分布\n\\(M/M/c\\) と \\(M/M/1\\) 待ち行列は，待ち行列理論において最も基本的なモデルである．これらのモデルでは，到着間隔とサービス時間が指数分布に従う．\n連続型確率変数 \\(X\\) が指数分布（exponential distribution）に従うとき，\\(X\\) の確率密度関数は\n\\[\nf_X(x) = \\begin{cases}\n\\lambda e^{-\\lambda x} & x \\geq 0 \\\\\n0 & x &lt; 0\n\\end{cases}\n\\]\nで与えられる．ここで \\(\\lambda &gt; 0\\) は分布のパラメータである．\n指数分布に従う確率変数 \\(X\\) の平均と分散は \\[\nE[X] = \\frac{1}{\\lambda}, \\quad \\text{Var}(X) = \\frac{1}{\\lambda^2}\n\\] である．\n\\(X\\) の累積分布関数は \\[\nF_X(x) = P(X \\leq x) = \\begin{cases}\n1 - e^{-\\lambda x} & x \\geq 0 \\\\\n0 & x &lt; 0\n\\end{cases}\n\\] である．\n次の図は，パラメータ \\(\\lambda = 0.5, 1.0, 1.5, 2.0\\) の場合における指数分布の確率密度関数を示している．確率密度関数 \\(f_X(x)\\) は \\(x\\) の増加に伴い単調減少する．\nコード\nimport matplotlib.pyplot as plt\nimport numpy as np\nfrom scipy.stats import expon\n\nx = np.linspace(0, 8, 100)\nlambda_params = [0.5, 1.0, 1.5, 2.0]\nfor lam in lambda_params:\n    pdf = expon.pdf(x, scale=1 / lam)\n    plt.plot(x, pdf, label=f\"λ={lam}\")\nplt.title(\"Exponential Distribution PDF\")\nplt.xlabel(\"x\")\nplt.ylabel(\"$f_X(x)$\")\nplt.xlim(0, 8)\nplt.ylim(0, 2.5)\nplt.legend()\nplt.grid()\nplt.show()\n指数分布に従う確率変数は，時間を表すことが多い．パラメータ \\(\\lambda\\) は，単位時間あたりの事象の発生回数の平均を表す．",
+    "crumbs": [
+      "待ち行列理論",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>ポアソン過程</span>"
+    ]
+  },
+  {
+    "objectID": "queuing/poisson_process.html#指数分布",
+    "href": "queuing/poisson_process.html#指数分布",
+    "title": "8  ポアソン過程",
+    "section": "",
+    "text": "8.1.1 到着間隔とサービス時間\n\\(M/M/1\\) と \\(M/M/c\\) 待ち行列では，到着間隔とサービス時間が指数分布に従う．確率変数 \\(T\\) を到着間隔を表すとする．このとき，\\(P(T \\leq t)\\) は，時間 \\(t\\) 以内に次の客が到着する確率を表す．\\(E(T)\\) は，到着間隔の平均を表す．\\(\\lambda = 1/E(T)\\) は，単位時間あたりの到着する客数の平均を表す．この \\(\\lambda\\) は，前の章で説明した平均到着率である．\n\n例 8.1 ある店舗では，1時間あたり平均12人の客が来店する．到着間隔 \\(T\\) が指数分布に従うと仮定する．次の問いに答えよ．\n\n平均到着間隔 \\(E[T]\\) を求めよ．\n2分以内に次の客が到着する確率を求めよ．\n\n平均到着率は \\(\\lambda = 12\\) 人/時間である．平均到着間隔は\n\\[\nE[T] = 1/\\lambda = 1/12 \\text{ 時間} = 5 \\text{ 分}\n\\] である．\n単位を時間に揃え，\\(P(T \\leq 1/30)\\) を計算する． \\[\nP(T \\leq 1/30) = F_T(1/30) = 1 - e^{-12 \\times (1/30)} \\approx 0.3297\n\\] よって，2分以内に次の客が到着する確率は約0.3297である．\n\n次の図は，例 8.1 で説明した到着間隔のシミュレーション例を示している．平均到着率 \\(\\lambda = 12\\) 人/時間であるとき，15人の到着時間をシミュレーションした．横軸は時間を表し，青い線は各客の到着時間を示している．\n\n\nコード\nfrom scipy.stats import expon\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nnp.random.seed(0)\nlambda_param = 12  # 平均到着率（人/時間）\nnum_arrivals = 15  # シミュレーションする到着数\ninter_arrival_times = expon.rvs(scale=1 / lambda_param, size=num_arrivals)\narrival_times = np.cumsum(inter_arrival_times)\nplt.figure(figsize=(10, 2))\nplt.eventplot(arrival_times, orientation=\"horizontal\", colors=\"blue\")\nplt.title(\"Simulated Arrival Times\")\nplt.xlabel(\"Time (hours)\")\nplt.yticks([])\nplt.xlim(0, max(arrival_times) + 0.15)\nplt.show()\n\n\n\n\n\n\n\n\n\n\n例 8.2 あるコールセンターでは，1時間あたり平均6人の客を処理できる．サービス時間 \\(T\\) が指数分布に従うと仮定する．次の問いに答えよ．\n\n平均サービス時間 \\(E[T]\\) を求めよ．\n3分以内にサービスが完了する確率を求めよ．\n\n平均サービス率は \\(\\mu = 6\\) である．平均サービス時間は次のように計算される． \\[\nE[T] = \\frac{1}{\\mu} = \\frac{1}{6} \\text{ 時間} = 10 \\text{ 分}\n\\]\n\\(P(T \\leq 0.05)\\) を計算する． \\[\nP(T \\leq 0.05) = F_T(0.05) = 1 - e^{-6 \\times 0.05} \\approx 0.2592\n\\] よって，3分以内にサービスが完了する確率は約0.2592である．\n\n\n\n8.1.2 無記憶性\n\n定義 8.1 確率変数 \\(T\\) が無記憶性（memoryless）を持つとは，任意の非負実数 \\(s, t\\) に対して \\[\nP(T &gt; s + t \\mid T &gt; s) = P(T &gt; t), \\quad (s, t \\geq 0)\n\\] が成り立つことをいう．\n\n確率変数 \\(T\\)　を到着間隔とする．無記憶性とは，すでに時間 \\(s\\) が経過している場合（\\(T &gt; s\\)），さらに時間 \\(t\\) 経過した後に到着が発生していない確率（\\(T &gt; s + t\\)）が，最初から時間 \\(t\\) 経過した後に到着が発生していない確率と等しいことを意味する．\n\n例 8.3 仮に，バスの到着間隔が指数分布に従うのであれば，「すでに10分待っていたので，そろそろバスが来るだろう」という考え方は成り立たない．\n\n\n定理 8.1 指数分布に従う確率変数は無記憶性を持つ．\n\n\n証明. \\[\\begin{align*}\nP(T &gt; s + t \\mid T &gt; s) & = \\frac{P(T &gt; s + t, T &gt; s)}{P(T &gt; s)} \\\\\n& = \\frac{P(T &gt; s + t)}{P(T &gt; s)} \\\\\n& = \\frac{e^{-\\lambda (s + t)}}{e^{-\\lambda s}} \\\\\n& = e^{-\\lambda t}\n\\end{align*}\\]\n\n指数分布が無記憶性を持つ唯一の連続分布である．",
+    "crumbs": [
+      "待ち行列理論",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>ポアソン過程</span>"
+    ]
+  },
+  {
+    "objectID": "queuing/poisson_process.html#ポアソン過程",
+    "href": "queuing/poisson_process.html#ポアソン過程",
+    "title": "8  ポアソン過程",
+    "section": "8.2 ポアソン過程",
+    "text": "8.2 ポアソン過程\n確率過程 \\(\\{N(t), t \\geq 0\\}\\) とは，時間 \\(t\\) とともに変化する確率変数 \\(N(t)\\) の集まりである．\n計数過程（counting process）とは，次の条件を満たす確率過程 \\(\\{N(t), t \\geq 0\\}\\) である．\n\n\\(N(t) \\geq 0\\)\n\\(N(t) \\in \\mathbb{Z}\\)\n\\(N(t)\\) は単調増加である\n\n\\(N(t)\\) は，時刻 \\(t\\) までに発生した事象の回数を表す．例として，客の到着数，機械の故障回数などが挙げられる．\n\n定義 8.2 確率過程 \\(\\{N(t), t \\geq 0\\}\\) が独立増分（independent increments）を持つとは，任意の \\(0 \\leq t_1 &lt; t_2 &lt; \\cdots &lt; t_n\\) に対して， \\[\nN(t_2) - N(t_1), N(t_3) - N(t_2), \\ldots, N(t_n) - N(t_{n-1})\n\\] が互いに独立であることをいう．\n\n計数過程では，\\(N(t_i) - N(t_{i-1})\\) は時間区間 \\((t_{i-1}, t_i]\\) に発生した事象の回数を表す．計数過程が独立増分を持つとは，重なりのない時間区間における事象の発生回数が互いに独立であることを意味する．\n\n例 8.4 ある店舗での客の到着数を表す計数過程 \\(\\{N(t), t \\geq 0\\}\\) を考える．この計数過程が独立増分を持つとは，例えば，時間区間 \\((0, 1]\\) に到着した客数と時間区間 \\((3, 6]\\) に到着した客数が独立であることを意味する．\n\n\n定義 8.3 確率過程 \\(\\{N(t), t \\geq 0\\}\\) が定常増分（stationary increments）を持つとは，任意の \\(t &gt; s \\geq 0\\) と \\(h \\geq 0\\) に対して，\\(N(t) - N(s)\\) と \\(N(t + h) - N(s + h)\\) が同一の分布に従うことをいう．\n\n計数過程が定常増分を持つとは，事象の発生回数は時間区間の長さのみに依存し，時間の位置には依存しないことを意味する．\n\n定義 8.4 以下の性質を満たす計数過程 \\(\\{N(t), t \\geq 0\\}\\) を パラメータ \\(\\lambda &gt; 0\\) のポアソン過程（Poisson process）という．\n\n\\(N(0) = 0\\)\n\\(P(N(t + \\Delta t) - N(t) = 1) = \\lambda \\Delta t + o(\\Delta t)\\)\n\\(P(N(t + \\Delta t) - N(t) \\geq 2) = o(\\Delta t)\\)\n独立増分を持つ\n\nここで，\\(o(\\Delta t)\\) は \\[\n\\lim_{\\Delta t \\to 0} \\frac{o(\\Delta t)}{\\Delta t} = 0\n\\] を満たす関数である．\n\n\\(N(0) = 0\\) は，時刻 \\(0\\) では事象が発生していないことを表す．\n\\(P(N(t + \\Delta t) - N(t) = 1) = \\lambda \\Delta t + o(\\Delta t)\\) は，時間区間 \\([t, t + \\Delta t]\\) に事象が1回発生する確率を表す．\\(\\Delta t\\) が十分小さいとき，事象が1回発生する確率は \\(\\lambda \\Delta t\\) に近似できる．\n\\(P(N(t + \\Delta t) - N(t) \\geq 2) = o(\\Delta t)\\) は，時間区間 \\([t, t + \\Delta t]\\) に事象が2回以上発生する確率を表す．\\(\\Delta t\\) が十分小さいとき，事象が2回以上発生する確率は無視できるほど小さい．\n\n定義 8.5 離散型確率変数 \\(X\\) がポアソン分布（Poisson distribution）に従うとは，次の確率質量関数を持つことをいう． \\[\np_X(k) = P(X = k) = e^{-\\lambda} \\frac{\\lambda^k}{k!}, \\quad k = 0, 1, 2, \\ldots\n\\] ここで，\\(\\lambda &gt; 0\\) は分布のパラメータである．\n\nポアソン分布の平均と分散は \\[\nE[X] = \\lambda, \\quad \\text{Var}(X) = \\lambda\n\\] である．\n次の定理は，ポアソン過程 \\(\\{N(t), t \\geq 0\\}\\) における \\(N(t)\\) はポアソン分布に従うことを示している．\n\n定理 8.2 パラメータ \\(\\lambda &gt; 0\\) のポアソン過程 \\(\\{N(t), t \\geq 0\\}\\) に対して，\\(N(t)\\) はパラメータ \\(\\lambda t\\) のポアソン分布に従う．すなわち， \\[\nP(N(t) = k) = e^{-\\lambda t} \\frac{(\\lambda t)^k}{k!}, \\quad k = 0, 1, 2, \\ldots.\n\\]\n\n\n証明. 省略する．\n\n\n例 8.5 ある店舗では，1分間あたり平均5人の客が来店する．\\(\\{N(t), t \\geq 0\\}\\) を時刻 \\(t\\) までに到着した客数を表すポアソン過程とする．次の問いに答えよ．\n\n時刻 \\(t = 3\\) 分までに2人の客が到着する確率を求めよ．\n時間区間 \\([2, 5]\\) 分に2人の客が到着する確率を求めよ．\n\n平均到着率は \\(\\lambda = 5\\) 人/分である．時刻 \\(t = 3\\) 分までに到着した客数 \\(N(3)\\) は，パラメータ \\(\\lambda t = 5 \\times 3 = 15\\) のポアソン分布に従う．\\(P(N(3) = 2)\\) を計算する． \\[\nP(N(3) = 2) = e^{-15} \\frac{15^2}{2!}\n\\]\n独立増分と定常増分の性質から，時間区間 \\([2, 5]\\) 分に2人の客が到着する確率は，時刻 \\(t = 3\\) 分までに2人の客が到着する確率と等しい．",
+    "crumbs": [
+      "待ち行列理論",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>ポアソン過程</span>"
+    ]
+  },
+  {
+    "objectID": "queuing/poisson_process.html#ポアソン過程の到着間隔",
+    "href": "queuing/poisson_process.html#ポアソン過程の到着間隔",
+    "title": "8  ポアソン過程",
+    "section": "8.3 ポアソン過程の到着間隔",
+    "text": "8.3 ポアソン過程の到着間隔\n\\(Y_k\\) を \\(k\\) 回目の事象が発生するまでの時間とし，\\(T_k\\) は \\((k-1)\\) 回目から \\(k\\) 回目の事象が起こるまでの時間とする．\\(k = 1, 2, \\ldots\\) に対して， \\[\nT_1 = Y_1, \\quad T_k = Y_k - Y_{k-1} \\quad (k = 2, 3, \\ldots)\n\\] と定義する．また， \\[\nY_k = \\sum_{i=1}^k T_i = T_1 + T_2 + \\cdots + T_k\n\\] である．\n\n定理 8.3 \\(\\{N(t), t \\geq 0\\}\\) をパラメータ \\(\\lambda &gt; 0\\) のポアソン過程とする．このとき，\\(k = 1, 2, \\ldots\\) に対して，時間間隔 \\(T_k \\sim \\text{Exp}(\\lambda)\\) に従い，\\(T_1, T_2, \\ldots\\) は互いに独立である．\n\n\n証明. 省略する．",
+    "crumbs": [
+      "待ち行列理論",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>ポアソン過程</span>"
+    ]
   }
 ]
