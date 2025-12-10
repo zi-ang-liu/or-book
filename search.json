@@ -710,5 +710,125 @@
       "待ち行列理論",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>ポアソン過程</span>"
     ]
+  },
+  {
+    "objectID": "career/intro.html",
+    "href": "career/intro.html",
+    "title": "9  キャリア",
+    "section": "",
+    "text": "9.1 リンク",
+    "crumbs": [
+      "OR キャリア",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>キャリア</span>"
+    ]
+  },
+  {
+    "objectID": "career/intro.html#リンク",
+    "href": "career/intro.html#リンク",
+    "title": "9  キャリア",
+    "section": "",
+    "text": "Informs\n\nConsider a Career in Operations Research and Analytics!\n\n日本オペレーションズ・リサーチ学会\n\nOR キャリアセッション\n企業事例交流会\nOR 実施事例\n\n日本経営工学会\n\n産学連携研究交流会\n\nキヤノン\n\n日本オペレーションズ・リサーチ（OR）学会レポート活動の舞台裏を大公開！",
+    "crumbs": [
+      "OR キャリア",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>キャリア</span>"
+    ]
+  },
+  {
+    "objectID": "career/intro.html#関連学会",
+    "href": "career/intro.html#関連学会",
+    "title": "9  キャリア",
+    "section": "9.2 関連学会",
+    "text": "9.2 関連学会\n\n日本オペレーションズ・リサーチ学会\n日本経営工学会",
+    "crumbs": [
+      "OR キャリア",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>キャリア</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "参考文献",
+    "section": "",
+    "text": "Arrow, Kenneth J, Theodore Harris, and Jacob Marschak. 1951.\n“Optimal Inventory Policy.” Econometrica 19 (3):\n250.\n\n\nCamm, Jeffrey, James Cochran, Michael Fry, Jeffrey Ohlmann, David\nAnderson, Dennis Sweeney, and Thomas Williams. 2022. An Introduction\nto Management Science: Quantitative Approaches to Decision Making.\n16th ed. Florence, AL: South-Western College Publishing.\n\n\nHarris, Ford W. 1990. “How Many Parts to Make at Once.”\nOper. Res. 38 (6): 947–50.\n\n\nHillier, Frederick, and Gerald Lieberman. 2025. ISE\nIntroduction to Operations Research. 11th ed. Columbus, OH:\nMcGraw-Hill Education.\n\n\nHuber, Jakob, Sebastian Müller, Moritz Fleischmann, and Heiner\nStuckenschmidt. 2019. “A Data-Driven Newsvendor Problem: From Data\nto Decision.” Eur. J. Oper. Res. 278 (3): 904–15.\n\n\nQin, Yan, Ruoxuan Wang, Asoo J Vakharia, Yuwen Chen, and Michelle M H\nSeref. 2011. “The Newsvendor Problem: Review and Directions for\nFuture Research.” Eur. J. Oper. Res. 213 (2): 361–74.\n\n\nScarf, Herbert. 1959. “The Optimality of (S, s)\nPolicies in the Dynamic Inventory Problem.”\n\n\nSnyder, Lawrence V, and Zuo-Jun Max Shen. 2019. Fundamentals of\nSupply Chain Theory. 2nd ed. Nashville, TN: John Wiley & Sons.",
+    "crumbs": [
+      "参考文献"
+    ]
+  },
+  {
+    "objectID": "appendices/calculus.html",
+    "href": "appendices/calculus.html",
+    "title": "付録 A — 微分積分",
+    "section": "",
+    "text": "A.1 極値（Extremum）\n1変数関数 \\(f(x)\\) が点 \\(x = a\\) で極値をとるとき、\n\\[\nf'(a) = 0\n\\] が成り立つ。 \\(f''(a) &gt; 0\\) のとき、\\(f(a)\\) は極小値をとる。 \\(f''(a) &lt; 0\\) のとき、\\(f(a)\\) は極大値をとる。",
+    "crumbs": [
+      "付録",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>微分積分</span>"
+    ]
+  },
+  {
+    "objectID": "appendices/calculus.html#凸関数convex-function",
+    "href": "appendices/calculus.html#凸関数convex-function",
+    "title": "付録 A — 微分積分",
+    "section": "A.2 凸関数（Convex Function）",
+    "text": "A.2 凸関数（Convex Function）\n1 変数 2 階微分可能な関数 \\(f(x)\\) が凸関数であることの必要十分条件は、すべての \\(x\\) について\n\\[\nf''(x) \\geq 0\n\\]\nが成り立つことである。\n凸関数 \\(f(x)\\) の極小値は、最小値である。",
+    "crumbs": [
+      "付録",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>微分積分</span>"
+    ]
+  },
+  {
+    "objectID": "appendices/probability.html",
+    "href": "appendices/probability.html",
+    "title": "付録 B — 確率",
+    "section": "",
+    "text": "B.1 確率変数\n離散型確率変数 \\(X\\) が特定の値 \\(x\\) をとる確率を\n\\[\nP(X = x) = p_X(x)\n\\]\nと表すとき、\\(p_X(x)\\) を \\(X\\) の確率質量関数 (PMF) という。\n連続型確率変数 \\(X\\) がある区間 \\([a, b]\\) にある値をとる確率を\n\\[\nP(a \\leq X \\leq b) = \\int_a^b f_X(x) dx\n\\]\nと表す。\\(f_X(x)\\) を \\(X\\) の確率密度関数 (PDF) という。\n確率変数 \\(X\\) の累積分布関数 (CDF) を\n\\[\nF_X(x) = P(X \\leq x) = \\begin{cases}\n\\sum_{k \\leq x} p_X(k) & \\text{if } X \\text{ is discrete} \\\\\n\\int_{-\\infty}^x f_X(t) dt & \\text{if } X \\text{ is continuous}\n\\end{cases}\n\\]\nと表す。確率密度関数 \\(f_X(x)\\) は累積分布関数 \\(F_X(x)\\) の微分である。\n\\[\nf_X(x) = \\frac{d}{dx} F_X(x)\n\\]",
+    "crumbs": [
+      "付録",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>確率</span>"
+    ]
+  },
+  {
+    "objectID": "appendices/probability.html#確率分布",
+    "href": "appendices/probability.html#確率分布",
+    "title": "付録 B — 確率",
+    "section": "B.2 確率分布",
+    "text": "B.2 確率分布\n\nB.2.1 正規分布\n連続型確率変数 \\(X\\) は正規分布（normal distribution）に従うとき、\\(X \\sim N(\\mu, \\sigma^2)\\) と表す。ここで \\(\\mu\\) は平均、\\(\\sigma^2\\) は分散である。\\(X\\) の確率密度関数は\n\\[\nf_X(x) = \\frac{1}{\\sqrt{2\\pi} \\sigma} e^{-\\frac{(x - \\mu)^2}{2\\sigma^2}}\n\\]\nと表す。平均は \\(E[X] = \\mu\\)、分散は \\(\\text{Var}(X) = \\sigma^2\\) である。\n\\(X\\) が \\(N(\\mu, \\sigma^2)\\) に従うとき、\\(Y = aX + b\\) は、\\(N(a\\mu + b, a^2\\sigma^2)\\) に従う。特に、\\(Z = \\frac{X - \\mu}{\\sigma}\\) は標準正規分布（standard normal distribution）に従う。すなわち、\\(Z \\sim N(0, 1)\\) である。\n連続型確率変数 \\(Y\\) が標準正規分布に従うとき、\\(Y\\) の累積分布関数は\n\\[\n\\Phi(y) = P(Y \\leq y) = \\frac{1}{\\sqrt{2\\pi}} \\int_{-\\infty}^y e^{-\\frac{t^2}{2}} dt\n\\]\nと表す。標準正規分布表から、\\(y\\) の値に対する \\(\\Phi(y)\\) を調べることができる。\nPython では、以下のように \\(\\Phi(y)\\) を計算できる。\nfrom scipy.stats import norm\ndef phi(y):\n    return norm.cdf(y)\n\nphi(0)  # 0.5\nまた、\\(\\Phi(y)=0.95\\) のときの \\(y\\) の値を求めるには、以下のようにする。\nfrom scipy.stats import norm\ndef phi_inverse(p):\n    return norm.ppf(p)\n\nphi_inverse(0.95)  # 約1.64485\n正規分布は再生性（reproductive property）を持つ。すなわち、\\(X_1, X_2, \\ldots, X_n\\) が独立に \\(N(\\mu_i, \\sigma_i^2)\\) に従うとき、\\(Y = \\sum_{i=1}^n a_i X_i\\) は \\(N\\left(\\sum_{i=1}^n a_i \\mu_i, \\sum_{i=1}^n a_i^2 \\sigma_i^2\\right)\\) に従う。",
+    "crumbs": [
+      "付録",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>確率</span>"
+    ]
+  },
+  {
+    "objectID": "appendices/standard_normal_table.html",
+    "href": "appendices/standard_normal_table.html",
+    "title": "付録 C — 標準正規分布表",
+    "section": "",
+    "text": "下表は、標準正規分布 \\(N(0, 1)\\) の累積分布関数\n\\[\n\\phi(z) = P(Z \\leq z) = \\frac{1}{\\sqrt{2\\pi}} \\int_{-\\infty}^{z} e^{-\\frac{t^2}{2}} dt\n\\]\nの値を示すものである。\n\n例 C.1 \\(z = 1.23\\) のとき、\\(\\phi(1.23)\\) の値を求めよ。\n表の行から \\(1.2\\)、列から \\(+0.03\\) を選ぶ。交差する値は \\(0.89065\\) である。したがって、\\(\\phi(1.23) = 0.89065\\) である。\n\n\n例 C.2 \\(\\phi(z) = 0.89065\\) のとき、\\(z\\) の値を求めよ。\n表の中から \\(0.89065\\) を探す。行から \\(1.2\\)、列から \\(+0.03\\) を選ぶ。したがって、\\(z = 1.23\\) である。\n\n\n例 C.3 \\(X \\sim N(100, 15^2)\\) のとき、\\(P(X \\leq 120)\\) の値を求めよ。\n\\[\\begin{align}\nP(X \\leq 120) &= \\phi\\left(\\frac{120 - 100}{15}\\right) \\\\\n&= \\phi\\left(\\frac{20}{15}\\right) \\\\\n&\\approx \\phi(1.33) \\\\\n\\end{align}\\]\n\n表から \\(\\phi(1.33) \\approx 0.90824\\) である。\n\n例 C.4 \\(X \\sim N(100, 15^2)\\) のとき、\\(P(X \\leq x) = 0.9\\) のとき、\\(x\\)の値を求めよ。\n\\[\\begin{align}\nP(X \\leq x) &= 0.9 \\\\\n\\phi\\left(\\frac{x - 100}{15}\\right) &= 0.9 \\\\\n\\frac{x - 100}{15} &\\approx 1.28 \\\\\nx - 100 &\\approx 19.2 \\\\\nx &\\approx 119.2 \\\\\n\\end{align}\\]\nしたがって、\\(x \\approx 119.2\\) である。\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nz\n−0.00\n−0.01\n−0.02\n−0.03\n−0.04\n−0.05\n−0.06\n−0.07\n−0.08\n−0.09\n\n\n\n\n-3.9\n0.00005\n0.00005\n0.00004\n0.00004\n0.00004\n0.00004\n0.00004\n0.00004\n0.00003\n0.00003\n\n\n-3.8\n0.00007\n0.00007\n0.00007\n0.00006\n0.00006\n0.00006\n0.00006\n0.00005\n0.00005\n0.00005\n\n\n-3.7\n0.00011\n0.00010\n0.00010\n0.00010\n0.00009\n0.00009\n0.00008\n0.00008\n0.00008\n0.00008\n\n\n-3.6\n0.00016\n0.00015\n0.00015\n0.00014\n0.00014\n0.00013\n0.00013\n0.00012\n0.00012\n0.00011\n\n\n-3.5\n0.00023\n0.00022\n0.00022\n0.00021\n0.00020\n0.00019\n0.00019\n0.00018\n0.00017\n0.00017\n\n\n-3.4\n0.00034\n0.00032\n0.00031\n0.00030\n0.00029\n0.00028\n0.00027\n0.00026\n0.00025\n0.00024\n\n\n-3.3\n0.00048\n0.00047\n0.00045\n0.00043\n0.00042\n0.00040\n0.00039\n0.00038\n0.00036\n0.00035\n\n\n-3.2\n0.00069\n0.00066\n0.00064\n0.00062\n0.00060\n0.00058\n0.00056\n0.00054\n0.00052\n0.00050\n\n\n-3.1\n0.00097\n0.00094\n0.00090\n0.00087\n0.00084\n0.00082\n0.00079\n0.00076\n0.00074\n0.00071\n\n\n-3.0\n0.00135\n0.00131\n0.00126\n0.00122\n0.00118\n0.00114\n0.00111\n0.00107\n0.00104\n0.00100\n\n\n-2.9\n0.00187\n0.00181\n0.00175\n0.00169\n0.00164\n0.00159\n0.00154\n0.00149\n0.00144\n0.00139\n\n\n-2.8\n0.00256\n0.00248\n0.00240\n0.00233\n0.00226\n0.00219\n0.00212\n0.00205\n0.00199\n0.00193\n\n\n-2.7\n0.00347\n0.00336\n0.00326\n0.00317\n0.00307\n0.00298\n0.00289\n0.00280\n0.00272\n0.00264\n\n\n-2.6\n0.00466\n0.00453\n0.00440\n0.00427\n0.00415\n0.00402\n0.00391\n0.00379\n0.00368\n0.00357\n\n\n-2.5\n0.00621\n0.00604\n0.00587\n0.00570\n0.00554\n0.00539\n0.00523\n0.00508\n0.00494\n0.00480\n\n\n-2.4\n0.00820\n0.00798\n0.00776\n0.00755\n0.00734\n0.00714\n0.00695\n0.00676\n0.00657\n0.00639\n\n\n-2.3\n0.01072\n0.01044\n0.01017\n0.00990\n0.00964\n0.00939\n0.00914\n0.00889\n0.00866\n0.00842\n\n\n-2.2\n0.01390\n0.01355\n0.01321\n0.01287\n0.01255\n0.01222\n0.01191\n0.01160\n0.01130\n0.01101\n\n\n-2.1\n0.01786\n0.01743\n0.01700\n0.01659\n0.01618\n0.01578\n0.01539\n0.01500\n0.01463\n0.01426\n\n\n-2.0\n0.02275\n0.02222\n0.02169\n0.02118\n0.02068\n0.02018\n0.01970\n0.01923\n0.01876\n0.01831\n\n\n-1.9\n0.02872\n0.02807\n0.02743\n0.02680\n0.02619\n0.02559\n0.02500\n0.02442\n0.02385\n0.02330\n\n\n-1.8\n0.03593\n0.03515\n0.03438\n0.03362\n0.03288\n0.03216\n0.03144\n0.03074\n0.03005\n0.02938\n\n\n-1.7\n0.04457\n0.04363\n0.04272\n0.04182\n0.04093\n0.04006\n0.03920\n0.03836\n0.03754\n0.03673\n\n\n-1.6\n0.05480\n0.05370\n0.05262\n0.05155\n0.05050\n0.04947\n0.04846\n0.04746\n0.04648\n0.04551\n\n\n-1.5\n0.06681\n0.06552\n0.06426\n0.06301\n0.06178\n0.06057\n0.05938\n0.05821\n0.05705\n0.05592\n\n\n-1.4\n0.08076\n0.07927\n0.07780\n0.07636\n0.07493\n0.07353\n0.07215\n0.07078\n0.06944\n0.06811\n\n\n-1.3\n0.09680\n0.09510\n0.09342\n0.09176\n0.09012\n0.08851\n0.08692\n0.08534\n0.08379\n0.08226\n\n\n-1.2\n0.11507\n0.11314\n0.11123\n0.10935\n0.10749\n0.10565\n0.10383\n0.10204\n0.10027\n0.09853\n\n\n-1.1\n0.13567\n0.13350\n0.13136\n0.12924\n0.12714\n0.12507\n0.12302\n0.12100\n0.11900\n0.11702\n\n\n-1.0\n0.15866\n0.15625\n0.15386\n0.15151\n0.14917\n0.14686\n0.14457\n0.14231\n0.14007\n0.13786\n\n\n-0.9\n0.18406\n0.18141\n0.17879\n0.17619\n0.17361\n0.17106\n0.16853\n0.16602\n0.16354\n0.16109\n\n\n-0.8\n0.21186\n0.20897\n0.20611\n0.20327\n0.20045\n0.19766\n0.19489\n0.19215\n0.18943\n0.18673\n\n\n-0.7\n0.24196\n0.23885\n0.23576\n0.23270\n0.22965\n0.22663\n0.22363\n0.22065\n0.21770\n0.21476\n\n\n-0.6\n0.27425\n0.27093\n0.26763\n0.26435\n0.26109\n0.25785\n0.25463\n0.25143\n0.24825\n0.24510\n\n\n-0.5\n0.30854\n0.30503\n0.30153\n0.29806\n0.29460\n0.29116\n0.28774\n0.28434\n0.28096\n0.27760\n\n\n-0.4\n0.34458\n0.34090\n0.33724\n0.33360\n0.32997\n0.32636\n0.32276\n0.31918\n0.31561\n0.31207\n\n\n-0.3\n0.38209\n0.37828\n0.37448\n0.37070\n0.36693\n0.36317\n0.35942\n0.35569\n0.35197\n0.34827\n\n\n-0.2\n0.42074\n0.41683\n0.41294\n0.40905\n0.40517\n0.40129\n0.39743\n0.39358\n0.38974\n0.38591\n\n\n-0.1\n0.46017\n0.45620\n0.45224\n0.44828\n0.44433\n0.44038\n0.43644\n0.43251\n0.42858\n0.42465\n\n\n-0.0\n0.50000\n0.49601\n0.49202\n0.48803\n0.48405\n0.48006\n0.47608\n0.47210\n0.46812\n0.46414\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nz\n+0.00\n+0.01\n+0.02\n+0.03\n+0.04\n+0.05\n+0.06\n+0.07\n+0.08\n+0.09\n\n\n\n\n0.0\n0.50000\n0.50399\n0.50798\n0.51197\n0.51595\n0.51994\n0.52392\n0.52790\n0.53188\n0.53586\n\n\n0.1\n0.53983\n0.54380\n0.54776\n0.55172\n0.55567\n0.55962\n0.56360\n0.56749\n0.57142\n0.57535\n\n\n0.2\n0.57926\n0.58317\n0.58706\n0.59095\n0.59483\n0.59871\n0.60257\n0.60642\n0.61026\n0.61409\n\n\n0.3\n0.61791\n0.62172\n0.62552\n0.62930\n0.63307\n0.63683\n0.64058\n0.64431\n0.64803\n0.65173\n\n\n0.4\n0.65542\n0.65910\n0.66276\n0.66640\n0.67003\n0.67364\n0.67724\n0.68082\n0.68439\n0.68793\n\n\n0.5\n0.69146\n0.69497\n0.69847\n0.70194\n0.70540\n0.70884\n0.71226\n0.71566\n0.71904\n0.72240\n\n\n0.6\n0.72575\n0.72907\n0.73237\n0.73565\n0.73891\n0.74215\n0.74537\n0.74857\n0.75175\n0.75490\n\n\n0.7\n0.75804\n0.76115\n0.76424\n0.76730\n0.77035\n0.77337\n0.77637\n0.77935\n0.78230\n0.78524\n\n\n0.8\n0.78814\n0.79103\n0.79389\n0.79673\n0.79955\n0.80234\n0.80511\n0.80785\n0.81057\n0.81327\n\n\n0.9\n0.81594\n0.81859\n0.82121\n0.82381\n0.82639\n0.82894\n0.83147\n0.83398\n0.83646\n0.83891\n\n\n1.0\n0.84134\n0.84375\n0.84614\n0.84849\n0.85083\n0.85314\n0.85543\n0.85769\n0.85993\n0.86214\n\n\n1.1\n0.86433\n0.86650\n0.86864\n0.87076\n0.87286\n0.87493\n0.87698\n0.87900\n0.88100\n0.88298\n\n\n1.2\n0.88493\n0.88686\n0.88877\n0.89065\n0.89251\n0.89435\n0.89617\n0.89796\n0.89973\n0.90147\n\n\n1.3\n0.90320\n0.90490\n0.90658\n0.90824\n0.90988\n0.91149\n0.91308\n0.91466\n0.91621\n0.91774\n\n\n1.4\n0.91924\n0.92073\n0.92220\n0.92364\n0.92507\n0.92647\n0.92785\n0.92922\n0.93056\n0.93189\n\n\n1.5\n0.93319\n0.93448\n0.93574\n0.93699\n0.93822\n0.93943\n0.94062\n0.94179\n0.94295\n0.94408\n\n\n1.6\n0.94520\n0.94630\n0.94738\n0.94845\n0.94950\n0.95053\n0.95154\n0.95254\n0.95352\n0.95449\n\n\n1.7\n0.95543\n0.95637\n0.95728\n0.95818\n0.95907\n0.95994\n0.96080\n0.96164\n0.96246\n0.96327\n\n\n1.8\n0.96407\n0.96485\n0.96562\n0.96638\n0.96712\n0.96784\n0.96856\n0.96926\n0.96995\n0.97062\n\n\n1.9\n0.97128\n0.97193\n0.97257\n0.97320\n0.97381\n0.97441\n0.97500\n0.97558\n0.97615\n0.97670\n\n\n2.0\n0.97725\n0.97778\n0.97831\n0.97882\n0.97932\n0.97982\n0.98030\n0.98077\n0.98124\n0.98169\n\n\n2.1\n0.98214\n0.98257\n0.98300\n0.98341\n0.98382\n0.98422\n0.98461\n0.98500\n0.98537\n0.98574\n\n\n2.2\n0.98610\n0.98645\n0.98679\n0.98713\n0.98745\n0.98778\n0.98809\n0.98840\n0.98870\n0.98899\n\n\n2.3\n0.98928\n0.98956\n0.98983\n0.99010\n0.99036\n0.99061\n0.99086\n0.99111\n0.99134\n0.99158\n\n\n2.4\n0.99180\n0.99202\n0.99224\n0.99245\n0.99266\n0.99286\n0.99305\n0.99324\n0.99343\n0.99361\n\n\n2.5\n0.99379\n0.99396\n0.99413\n0.99430\n0.99446\n0.99461\n0.99477\n0.99492\n0.99506\n0.99520\n\n\n2.6\n0.99534\n0.99547\n0.99560\n0.99573\n0.99585\n0.99598\n0.99609\n0.99621\n0.99632\n0.99643\n\n\n2.7\n0.99653\n0.99664\n0.99674\n0.99683\n0.99693\n0.99702\n0.99711\n0.99720\n0.99728\n0.99736\n\n\n2.8\n0.99744\n0.99752\n0.99760\n0.99767\n0.99774\n0.99781\n0.99788\n0.99795\n0.99801\n0.99807\n\n\n2.9\n0.99813\n0.99819\n0.99825\n0.99831\n0.99836\n0.99841\n0.99846\n0.99851\n0.99856\n0.99861\n\n\n3.0\n0.99865\n0.99869\n0.99874\n0.99878\n0.99882\n0.99886\n0.99889\n0.99893\n0.99896\n0.99900\n\n\n3.1\n0.99903\n0.99906\n0.99910\n0.99913\n0.99916\n0.99918\n0.99921\n0.99924\n0.99926\n0.99929\n\n\n3.2\n0.99931\n0.99934\n0.99936\n0.99938\n0.99940\n0.99942\n0.99944\n0.99946\n0.99948\n0.99950\n\n\n3.3\n0.99952\n0.99953\n0.99955\n0.99957\n0.99958\n0.99960\n0.99961\n0.99962\n0.99964\n0.99965\n\n\n3.4\n0.99966\n0.99968\n0.99969\n0.99970\n0.99971\n0.99972\n0.99973\n0.99974\n0.99975\n0.99976\n\n\n3.5\n0.99977\n0.99978\n0.99978\n0.99979\n0.99980\n0.99981\n0.99981\n0.99982\n0.99983\n0.99983\n\n\n3.6\n0.99984\n0.99985\n0.99985\n0.99986\n0.99986\n0.99987\n0.99987\n0.99988\n0.99988\n0.99989\n\n\n3.7\n0.99989\n0.99990\n0.99990\n0.99990\n0.99991\n0.99991\n0.99992\n0.99992\n0.99992\n0.99992\n\n\n3.8\n0.99993\n0.99993\n0.99993\n0.99994\n0.99994\n0.99994\n0.99994\n0.99995\n0.99995\n0.99995\n\n\n3.9\n0.99995\n0.99995\n0.99996\n0.99996\n0.99996\n0.99996\n0.99996\n0.99996\n0.99997\n0.99997",
+    "crumbs": [
+      "付録",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>標準正規分布表</span>"
+    ]
+  },
+  {
+    "objectID": "appendices/linear_algebra.html",
+    "href": "appendices/linear_algebra.html",
+    "title": "付録 D — 線形代数",
+    "section": "",
+    "text": "D.1 固有値と固有ベクトル\n\\(n \\times n\\) 行列 \\(\\mathbf{A}\\) に対し，ベクトル \\(\\mathbf{x} \\neq \\mathbf{0}\\) とスカラー \\(\\lambda\\) が存在して， \\[\n\\mathbf{A} \\mathbf{x} = \\lambda \\mathbf{x}\n\\] が成り立つとき，\\(\\mathbf{x}\\) を \\(\\mathbf{A}\\) の固有ベクトル (eigenvector)，\\(\\lambda\\) を \\(\\mathbf{A}\\) の固有値 (eigenvalue) と呼ぶ．\n\\(\\mathbf{A} \\mathbf{x} = \\lambda \\mathbf{x}\\) は単位行列 \\(\\mathbf{I}\\) を用いて \\((\\mathbf{A} - \\lambda \\mathbf{I}) \\mathbf{x} = \\mathbf{0}\\) と書ける．このとき，\\(\\mathbf{x} \\neq \\mathbf{0}\\) であるため，\\(\\det(\\mathbf{A} - \\lambda \\mathbf{I}) = 0\\) が成り立つ．",
+    "crumbs": [
+      "付録",
+      "<span class='chapter-number'>D</span>  <span class='chapter-title'>線形代数</span>"
+    ]
+  },
+  {
+    "objectID": "appendices/linear_algebra.html#固有値と固有ベクトル",
+    "href": "appendices/linear_algebra.html#固有値と固有ベクトル",
+    "title": "付録 D — 線形代数",
+    "section": "",
+    "text": "例 D.1 次のような \\(\\mathbf{A}, \\mathbf{x}, \\lambda\\) を考える． \\[\n\\mathbf{A} = \\begin{bmatrix}\n1 & 2 \\\\\n1/2 & 1 \\\\\n\\end{bmatrix}, \\quad\n\\mathbf{x} = \\begin{bmatrix}\n2 \\\\\n1 \\\\\n\\end{bmatrix}, \\quad\n\\lambda = 2\n\\]\nこのとき，\n\\[\n\\begin{bmatrix}\n1 & 2 \\\\\n1/2 & 1 \\\\\n\\end{bmatrix}\n\\begin{bmatrix}\n2 \\\\\n1 \\\\\n\\end{bmatrix}\n= \\begin{bmatrix}\n4 \\\\\n2 \\\\\n\\end{bmatrix}\n= 2 \\begin{bmatrix}\n2 \\\\\n1 \\\\\n\\end{bmatrix}\n\\]\nが成り立つため，\\(\\mathbf{x}\\) は \\(\\mathbf{A}\\) の固有ベクトル，\\(\\lambda\\) は \\(\\mathbf{A}\\) の固有値である．\n\n\n\n例 D.2 次のような行列 \\(\\mathbf{A}\\) を考える． \\[\n\\mathbf{A} = \\begin{bmatrix}\n1 & 2 \\\\\n1/2 & 1 \\\\\n\\end{bmatrix}\n\\]\nこのとき，\\(\\det(\\mathbf{A} - \\lambda \\mathbf{I})\\) は以下のようになる．\n\\[\\begin{align*}\n\\det(\\mathbf{A} - \\lambda \\mathbf{I}) &= \\det\\begin{bmatrix}\n1 - \\lambda & 2 \\\\\n1/2 & 1 - \\lambda \\\\\n\\end{bmatrix} \\\\\n&= (1 - \\lambda)^2 - 1 \\\\\n&= \\lambda^2 - 2\\lambda \\\\\n&= \\lambda(\\lambda - 2)\n\\end{align*}\\]\n\\(\\lambda(\\lambda - 2) = 0\\) より，\\(\\lambda = 0, 2\\) が得られる．",
+    "crumbs": [
+      "付録",
+      "<span class='chapter-number'>D</span>  <span class='chapter-title'>線形代数</span>"
+    ]
   }
 ]
