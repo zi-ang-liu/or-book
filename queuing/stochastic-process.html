@@ -658,7 +658,7 @@ F_X(x) = P(X \leq x) = \begin{cases}
 \end{cases}
 \]</span> である。</p>
 <p>次の図は，パラメータ <span class="math inline">\(\lambda = 0.5, 1.0, 1.5, 2.0\)</span> の場合における指数分布の確率密度関数を示している．確率密度関数 <span class="math inline">\(f_X(x)\)</span> は <span class="math inline">\(x\)</span> の増加に伴い単調減少する．</p>
-<div id="d835eb91" class="cell" data-execution_count="1">
+<div id="15857624" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -702,7 +702,7 @@ P(T \leq 1/30) = F_T(1/30) = 1 - e^{-12 \times (1/30)} \approx 0.3297
 \]</span> よって，2分以内に次の客が到着する確率は約0.3297である．</p>
 </div>
 <p>次の図は，<a href="#exm-exp-basic-arrival" class="quarto-xref">例&nbsp;<span>15.1</span></a> で説明した到着間隔のシミュレーション例を示している．平均到着率 <span class="math inline">\(\lambda = 12\)</span> 人/時間であるとき，15人の到着時間をシミュレーションした．横軸は時間を表し，青い線は各客の到着時間を示している．</p>
-<div id="e95b3f1e" class="cell" data-execution_count="2">
+<div id="04969b47" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> expon</span>

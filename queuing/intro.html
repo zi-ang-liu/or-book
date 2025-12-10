@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../queuing/stochastic-process.html" rel="next">
+<link href="../queuing/birth-death.html" rel="next">
 <link href="../dp/intro.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -483,14 +483,8 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../queuing/stochastic-process.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">確率過程</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../queuing/birth-death.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">出生死滅過程</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">出生死滅過程</span></span></a>
   </div>
 </li>
       </ul>
@@ -507,7 +501,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../career/intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">キャリア</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">キャリア</span></span></a>
   </div>
 </li>
       </ul>
@@ -605,7 +599,25 @@ window.Quarto = {
 </header>
 
 
-<p><a href="#fig-typical-queueing-system" class="quarto-xref">図&nbsp;<span>14.1</span></a> は，典型的な待ち行列システムを示している．一般に，待ち行列システムは待ち行列とサーバから構成される．これ以降は，待ち行列システムを単に<strong>システム</strong>と呼ぶことにする．図に示すように，<strong>客</strong>（customer）はシステムに<strong>到着</strong>（arrival）し，<strong>待ち行列</strong>（queue）に並び，サービスを受け，最後にシステムを<strong>退出</strong>（departure）する．</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">ノート</span>学習目標
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>ケンドールの記号を理解する．</li>
+<li>滞在時間，待ち時間，系内客数，待ち行列長などの評価指標を理解する．</li>
+<li>リトルの法則を理解し，適用できる．</li>
+<li><span class="math inline">\(G/G/1\)</span>，<span class="math inline">\(G/G/c\)</span> 待ち行列の基本的な関係式を理解する．</li>
+</ul>
+</div>
+</div>
+<p><a href="#fig-typical-queueing-system" class="quarto-xref">図&nbsp;<span>14.1</span></a> は，典型的な待ち行列システムを示している．待ち行列システムは待ち行列とサーバから構成される．これ以降は，待ち行列システムを単に<strong>システム</strong>と呼ぶことにする．図に示すように，<strong>客</strong>（customer）はシステムに<strong>到着</strong>（arrival）し，<strong>待ち行列</strong>（queue）に並び，サービスを受け，最後にシステムを<strong>退出</strong>（departure）する．</p>
 <div id="fig-typical-queueing-system" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-typical-queueing-system-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -709,6 +721,14 @@ L = \lambda W = 80 \times 4 = 320 \text{ 人}
 \]</span></p>
 <p>よって，経営システム系には320人の学生が在籍していることになる．</p>
 </div>
+<div id="exm-bank" class="theorem example">
+<p><span class="theorem-title"><strong>例 14.2</strong></span> ある銀行では，1時間に平均20人の客が来店し，各客が銀行に滞在する平均時間は12分である．このとき，この銀行には平均何人の客がいるか．</p>
+<p>平均到着率 <span class="math inline">\(\lambda\)</span> は20人/時間，平均滞在時間 <span class="math inline">\(W = 12 \text{ 分} = 12/60 \text{ 時間}\)</span> である．リトルの法則から，平均系内客数 <span class="math inline">\(L\)</span> は</p>
+<p><span class="math display">\[
+L = \lambda W = 20 \times \frac{12}{60} = 4 \text{ 人}
+\]</span></p>
+<p>となる．すなわち，銀行内には平均して4人の客が滞在する．平均滞在時間 <span class="math inline">\(W\)</span> や平均到着率 <span class="math inline">\(\lambda\)</span> が増加すると，平均系内客数 <span class="math inline">\(L\)</span> も増加することがわかる．</p>
+</div>
 <p>時刻 <span class="math inline">\(t\)</span> までに累積到着客数を <span class="math inline">\(A(t)\)</span> とする．時刻 <span class="math inline">\(t\)</span> における系内客数を <span class="math inline">\(N(t)\)</span> とする．客 <span class="math inline">\(k\)</span> の滞在時間を <span class="math inline">\(W^(k)\)</span> とする．<span class="math inline">\(t \to \infty\)</span> とすると，極限が存在するとき，平均到着率 <span class="math inline">\(\lambda\)</span>，平均系内客数 <span class="math inline">\(L\)</span>，平均滞在時間 <span class="math inline">\(W\)</span> はそれぞれ次の式で定義される．</p>
 <p><span class="math display">\[
 \lambda = \lim_{t \to \infty} \frac{A(t)}{t} , \quad L = \lim_{T \to \infty} \frac{1}{T} \int_0^T N(t) dt, \quad W = \lim_{k \to \infty} \frac{1}{k} \sum_{i=1}^k W^{(i)}
@@ -725,26 +745,10 @@ $$
 L_q = \lambda W_q
 \]</span></p>
 <p>が成り立つ．</p>
-<div id="exm-bank" class="theorem example">
-<p><span class="theorem-title"><strong>例 14.2</strong></span> ある銀行では，1時間に平均20人の客が来店し，各客が銀行に滞在する平均時間は12分である．このとき，この銀行には平均何人の客がいるか．</p>
-<p>平均到着率 <span class="math inline">\(\lambda\)</span> は20人/時間，平均滞在時間 <span class="math inline">\(W = 12 \text{ 分} = 12/60 \text{ 時間}\)</span> である．リトルの法則から，平均系内客数 <span class="math inline">\(L\)</span> は</p>
-<p><span class="math display">\[
-L = \lambda W = 20 \times \frac{12}{60} = 4 \text{ 人}
-\]</span></p>
-<p>となる．すなわち，銀行内には平均して4人の客が滞在する．平均滞在時間 <span class="math inline">\(W\)</span> や平均到着率 <span class="math inline">\(\lambda\)</span> が増加すると，平均系内客数 <span class="math inline">\(L\)</span> も増加することがわかる．</p>
-<p>さらに，平均サービス時間は6分であるとすると，平均待ち時間 <span class="math inline">\(W_q\)</span> と平均待ち行列長 <span class="math inline">\(L_q\)</span> はそれぞれ</p>
-<p><span class="math display">\[
-W_q = W - \frac{1}{\mu} = 12 - 6 = 6 \text{ 分}
-\]</span></p>
-<p><span class="math display">\[
-L_q = \lambda W_q = 20 \times \frac{6}{60} = 2 \text{ 人}
-\]</span></p>
-<p>となる．つまり，客が行列で待つ平均時間は6分，1時間あたり平均2人の客が行列で待っていることになる．</p>
-</div>
 </section>
 <section id="gg1ggc-待ち行列" class="level2" data-number="14.4">
 <h2 data-number="14.4" class="anchored" data-anchor-id="gg1ggc-待ち行列"><span class="header-section-number">14.4</span> <span class="math inline">\(G/G/1\)</span>，<span class="math inline">\(G/G/c\)</span> 待ち行列</h2>
-<p>ここでは，<span class="math inline">\(G/G/1\)</span> と <span class="math inline">\(G/G/c\)</span> 待ち行列における一般的な結論を説明する．記号のまとめを以下に示す．</p>
+<p><span class="math inline">\(G/G/1\)</span> と <span class="math inline">\(G/G/c\)</span> 待ち行列における一般的な結論を説明する．記号のまとめを以下に示す．</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1357,8 +1361,8 @@ L_q = \lambda W_q = 30 \times \frac{5}{60} = 2.5 \text{ 人}
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../queuing/stochastic-process.html" class="pagination-link" aria-label="確率過程">
-        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">確率過程</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../queuing/birth-death.html" class="pagination-link" aria-label="出生死滅過程">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">出生死滅過程</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
