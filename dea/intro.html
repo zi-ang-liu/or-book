@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>11&nbsp; 入力と出力 – オペレーションズ・リサーチ</title>
+<title>7&nbsp; 入力と出力 – オペレーションズ・リサーチ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../dea/ccr.html" rel="next">
-<link href="../network/pert.html" rel="prev">
+<link href="../inventory/summary.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -74,9 +74,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-53aa17af24a9e7d6699f3c9556851bc6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
@@ -140,7 +140,7 @@ window.Quarto = {
 };
 </script>
 
-<meta name="twitter:title" content="11&nbsp; 入力と出力 – オペレーションズ・リサーチ">
+<meta name="twitter:title" content="7&nbsp; 入力と出力 – オペレーションズ・リサーチ">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://zi-ang-liu.github.io/or-book/dea/intro_files/figure-html/cell-3-output-1.png">
 <meta name="twitter:image-height" content="868">
@@ -319,7 +319,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../dea/intro.html">データ包絡分析</a></li><li class="breadcrumb-item"><a href="../dea/intro.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">入力と出力</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../dea/intro.html">データ包絡分析</a></li><li class="breadcrumb-item"><a href="../dea/intro.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">入力と出力</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
@@ -332,9 +332,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">オペレーションズ・リサーチ</a> 
         <div class="sidebar-tools-main">
@@ -418,7 +416,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">多基準意思決定分析</span></a>
+ <span class="menu-text">データ包絡分析</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -426,8 +424,14 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mcda/ahp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">階層分析法</span></span></a>
+  <a href="../dea/intro.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">入力と出力</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../dea/ccr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">CCRモデル</span></span></a>
   </div>
 </li>
       </ul>
@@ -435,7 +439,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">ネットワーク最適化</span></a>
+ <span class="menu-text">動的計画法</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -443,20 +447,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../network/graph.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">グラフ理論</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../network/shortest-path.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">最短路問題</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../network/pert.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">PERT/CPM</span></span></a>
+  <a href="../dp/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">動的計画法</span></span></a>
   </div>
 </li>
       </ul>
@@ -464,7 +456,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">データ包絡分析</span></a>
+ <span class="menu-text">待ち行列理論</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -472,14 +464,14 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../dea/intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">入力と出力</span></span></a>
+  <a href="../queuing/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">待ち行列モデルの基礎</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../dea/ccr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">CCRモデル</span></span></a>
+  <a href="../queuing/poisson_process.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ポアソン過程</span></span></a>
   </div>
 </li>
       </ul>
@@ -487,7 +479,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">動的計画法</span></a>
+ <span class="menu-text">OR キャリア</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -495,48 +487,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../dp/intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">動的計画法</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">待ち行列理論</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../queuing/intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">待ち行列モデルの基礎</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../queuing/poisson_process.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">ポアソン過程</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">OR キャリア</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../career/intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">キャリア</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">キャリア</span></span></a>
   </div>
 </li>
       </ul>
@@ -549,13 +501,13 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
  <span class="menu-text">付録</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/calculus.html" class="sidebar-item-text sidebar-link">
@@ -598,11 +550,11 @@ window.Quarto = {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#入力1出力" id="toc-入力1出力" class="nav-link active" data-scroll-target="#入力1出力"><span class="header-section-number">11.1</span> 1入力1出力</a></li>
-  <li><a href="#入力1出力-1" id="toc-入力1出力-1" class="nav-link" data-scroll-target="#入力1出力-1"><span class="header-section-number">11.2</span> 2入力1出力</a></li>
-  <li><a href="#入力2出力" id="toc-入力2出力" class="nav-link" data-scroll-target="#入力2出力"><span class="header-section-number">11.3</span> 1入力2出力</a></li>
-  <li><a href="#用語集" id="toc-用語集" class="nav-link" data-scroll-target="#用語集"><span class="header-section-number">11.4</span> 用語集</a></li>
-  <li><a href="#練習問題" id="toc-練習問題" class="nav-link" data-scroll-target="#練習問題"><span class="header-section-number">11.5</span> 練習問題</a></li>
+  <li><a href="#入力1出力" id="toc-入力1出力" class="nav-link active" data-scroll-target="#入力1出力"><span class="header-section-number">7.1</span> 1入力1出力</a></li>
+  <li><a href="#入力1出力-1" id="toc-入力1出力-1" class="nav-link" data-scroll-target="#入力1出力-1"><span class="header-section-number">7.2</span> 2入力1出力</a></li>
+  <li><a href="#入力2出力" id="toc-入力2出力" class="nav-link" data-scroll-target="#入力2出力"><span class="header-section-number">7.3</span> 1入力2出力</a></li>
+  <li><a href="#用語集" id="toc-用語集" class="nav-link" data-scroll-target="#用語集"><span class="header-section-number">7.4</span> 用語集</a></li>
+  <li><a href="#練習問題" id="toc-練習問題" class="nav-link" data-scroll-target="#練習問題"><span class="header-section-number">7.5</span> 練習問題</a></li>
   </ul>
 </nav>
     </div>
@@ -610,9 +562,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../dea/intro.html">データ包絡分析</a></li><li class="breadcrumb-item"><a href="../dea/intro.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">入力と出力</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../dea/intro.html">データ包絡分析</a></li><li class="breadcrumb-item"><a href="../dea/intro.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">入力と出力</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">入力と出力</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">入力と出力</span></h1>
 </div>
 
 
@@ -677,15 +629,15 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<section id="入力1出力" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="入力1出力"><span class="header-section-number">11.1</span> 1入力1出力</h2>
+<section id="入力1出力" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="入力1出力"><span class="header-section-number">7.1</span> 1入力1出力</h2>
 <p><span class="math inline">\(n\)</span> 個のDMUがあり，<span class="math inline">\(\text{DMU}_j\)</span> (<span class="math inline">\(j=1,2,\ldots,n\)</span>) は1つの入力 <span class="math inline">\(x_j\)</span> と1つの出力 <span class="math inline">\(y_j\)</span> を持つとする．そのとき，<span class="math inline">\(\text{DMU}_j\)</span> の効率性は</p>
 <p><span class="math display">\[
 \frac{y_j}{x_j}
 \]</span></p>
 <p>で評価できる．単位入力あたりの出力を表している．この値が大きいほど，効率的であると評価できる．</p>
 <div id="exm-one-input-one-output" class="theorem example">
-<p><span class="theorem-title"><strong>例 11.1 (1入力1出力の問題例)</strong></span> ある会社は，以下の6つの店舗を運営している．効率的である店舗はどれか．</p>
+<p><span class="theorem-title"><strong>例 7.1 (1入力1出力の問題例)</strong></span> ある会社は，以下の6つの店舗を運営している．効率的である店舗はどれか．</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -720,7 +672,7 @@ window.Quarto = {
 </tbody>
 </table>
 <p><span class="math inline">\(\text{DMU}_j\)</span> の店員数を <span class="math inline">\(x_j\)</span>，売上高を <span class="math inline">\(y_j\)</span> とすると，店舗 <span class="math inline">\(j\)</span> の効率性は <span class="math inline">\(y_j/x_j\)</span> で計算できる．結果から，<span class="math inline">\(B, E\)</span> が最も効率的であることがわかる．</p>
-<div id="b136f6ca" class="cell" data-execution_count="1">
+<div id="c183210b" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -746,7 +698,7 @@ window.Quarto = {
 </div>
 </div>
 <p>横軸に店員数，縦軸に売上高をとって，点 <span class="math inline">\((x_j, y_j)\)</span> をプロットした散布図を下の図に示す．原点から点 <span class="math inline">\((x_j, y_j)\)</span> を結ぶ直線の傾きは，<span class="math inline">\(y_j/x_j\)</span> に等しい．</p>
-<div id="fc782ec9" class="cell" data-execution_count="2">
+<div id="5bdd932e" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plt.scatter(df[<span class="st">"employee"</span>], df[<span class="st">"sale"</span>])</span>
@@ -772,10 +724,10 @@ window.Quarto = {
 <p>店舗BとEは，<strong>効率的</strong>（efficient）と言える．また，原点から店舗B（または店舗E）を結ぶ直線を<strong>効率的フロンティア</strong>（efficient frontier）と呼ぶ．</p>
 </div>
 </section>
-<section id="入力1出力-1" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="入力1出力-1"><span class="header-section-number">11.2</span> 2入力1出力</h2>
+<section id="入力1出力-1" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="入力1出力-1"><span class="header-section-number">7.2</span> 2入力1出力</h2>
 <div id="exm-two-input-one-output" class="theorem example">
-<p><span class="theorem-title"><strong>例 11.2 (2入力1出力の問題例)</strong></span> ある会社は，以下の6つの店舗を運営している．効率的である店舗はどれか．</p>
+<p><span class="theorem-title"><strong>例 7.2 (2入力1出力の問題例)</strong></span> ある会社は，以下の6つの店舗を運営している．効率的である店舗はどれか．</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -824,7 +776,7 @@ window.Quarto = {
 \]</span></p>
 <p>これらの値が小さいほど，効率的であると評価できる．</p>
 <p><span class="math inline">\(x_{j}/z_{j}\)</span> と <span class="math inline">\(y_{j}/z_{j}\)</span> を横軸と縦軸にとった散布図を下の図に示す．</p>
-<div id="97ca0a8c" class="cell" data-execution_count="3">
+<div id="b81f29e6" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -868,10 +820,10 @@ window.Quarto = {
 <p><span class="math inline">\(C, D, E\)</span> は効率的で，これらの点を結ぶ折れ線が効率的フロンティアとなる．</p>
 </div>
 </section>
-<section id="入力2出力" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="入力2出力"><span class="header-section-number">11.3</span> 1入力2出力</h2>
+<section id="入力2出力" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="入力2出力"><span class="header-section-number">7.3</span> 1入力2出力</h2>
 <div id="exm-one-input-two-output" class="theorem example">
-<p><span class="theorem-title"><strong>例 11.3 (1入力2出力の問題例)</strong></span> ある会社は，以下の6つの店舗を運営している．効率的である店舗はどれか．</p>
+<p><span class="theorem-title"><strong>例 7.3 (1入力2出力の問題例)</strong></span> ある会社は，以下の6つの店舗を運営している．効率的である店舗はどれか．</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -919,7 +871,7 @@ window.Quarto = {
 \frac{y_{j}}{x_{j}},\quad \frac{z_{j}}{x_{j}}
 \]</span></p>
 <p>これらの値が大きいほど，効率的であると評価できる．</p>
-<div id="b04c1965" class="cell" data-execution_count="4">
+<div id="94cd1579" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -962,8 +914,8 @@ window.Quarto = {
 <p>店舗B，E，Fは効率的で，これらの点を結ぶ折れ線が効率的フロンティアとなる．</p>
 </div>
 </section>
-<section id="用語集" class="level2" data-number="11.4">
-<h2 data-number="11.4" class="anchored" data-anchor-id="用語集"><span class="header-section-number">11.4</span> 用語集</h2>
+<section id="用語集" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="用語集"><span class="header-section-number">7.4</span> 用語集</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -995,10 +947,10 @@ window.Quarto = {
 </tbody>
 </table>
 </section>
-<section id="練習問題" class="level2" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="練習問題"><span class="header-section-number">11.5</span> 練習問題</h2>
+<section id="練習問題" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="練習問題"><span class="header-section-number">7.5</span> 練習問題</h2>
 <div id="exr-dea-intro-1-1" class="theorem exercise">
-<p><span class="theorem-title"><strong>練習 11.1 (1入力1出力)</strong></span> 次の表のような入力と出力が与えられたとき，効率的なDMUを求めよ．効率性を <span class="math inline">\([0,1]\)</span> の範囲で評価せよ．</p>
+<p><span class="theorem-title"><strong>練習 7.1 (1入力1出力)</strong></span> 次の表のような入力と出力が与えられたとき，効率的なDMUを求めよ．効率性を <span class="math inline">\([0,1]\)</span> の範囲で評価せよ．</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1031,8 +983,8 @@ window.Quarto = {
 </table>
 </div>
 <div id="sol-exr-dea-intro-1-1" class="proof solution">
-<p><span class="proof-title"><em>解答 11.1</em>. </span></p>
-<div id="a0adfce0" class="cell" data-execution_count="5">
+<p><span class="proof-title"><em>解答 7.1</em>. </span></p>
+<div id="b87ec07b" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -1057,7 +1009,7 @@ window.Quarto = {
 </div>
 </div>
 <div id="exr-dea-intro-2-1" class="theorem exercise">
-<p><span class="theorem-title"><strong>練習 11.2 (2入力1出力)</strong></span> 次の表のような入力と出力が与えられたとき，効率的なDMUを求めよ．</p>
+<p><span class="theorem-title"><strong>練習 7.2 (2入力1出力)</strong></span> 次の表のような入力と出力が与えられたとき，効率的なDMUを求めよ．</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1098,8 +1050,8 @@ window.Quarto = {
 </table>
 </div>
 <div id="sol-exr-dea-intro-2-1" class="proof solution">
-<p><span class="proof-title"><em>解答 11.2</em>. </span>下の図より，DMU B，Dが効率的であることがわかる．</p>
-<div id="5b770787" class="cell" data-execution_count="6">
+<p><span class="proof-title"><em>解答 7.2</em>. </span>下の図より，DMU B，Dが効率的であることがわかる．</p>
+<div id="401a83de" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -1561,13 +1513,13 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../network/pert.html" class="pagination-link" aria-label="PERT/CPM">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">PERT/CPM</span></span>
+      <a href="../inventory/summary.html" class="pagination-link" aria-label="まとめ">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">まとめ</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../dea/ccr.html" class="pagination-link" aria-label="CCRモデル">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">CCRモデル</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">CCRモデル</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
