@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>16&nbsp; ポアソン過程 – オペレーションズ・リサーチ</title>
+<title>11&nbsp; 時間とコストのトレードオフ – オペレーションズ・リサーチ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../career/intro.html" rel="next">
-<link href="../queuing/intro.html" rel="prev">
+<link href="../dea/intro.html" rel="next">
+<link href="../pert/uncertain.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -140,11 +140,11 @@ window.Quarto = {
 };
 </script>
 
-<meta name="twitter:title" content="16&nbsp; ポアソン過程 – オペレーションズ・リサーチ">
+<meta name="twitter:title" content="11&nbsp; 時間とコストのトレードオフ – オペレーションズ・リサーチ">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://zi-ang-liu.github.io/or-book/queuing/poisson_process_files/figure-html/cell-2-output-1.png">
-<meta name="twitter:image-height" content="898">
-<meta name="twitter:image-width" content="1188">
+<meta name="twitter:image" content="https://zi-ang-liu.github.io/or-book/pert/tradeoff_files/figure-html/cell-2-output-1.png">
+<meta name="twitter:image-height" content="777">
+<meta name="twitter:image-width" content="1080">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -319,7 +319,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../queuing/intro.html">待ち行列理論</a></li><li class="breadcrumb-item"><a href="../queuing/poisson_process.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ポアソン過程</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pert/project.html">PERT/CPM</a></li><li class="breadcrumb-item"><a href="../pert/tradeoff.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">時間とコストのトレードオフ</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
@@ -470,7 +470,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../pert/tradeoff.html" class="sidebar-item-text sidebar-link">
+  <a href="../pert/tradeoff.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">時間とコストのトレードオフ</span></span></a>
   </div>
 </li>
@@ -533,7 +533,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../queuing/poisson_process.html" class="sidebar-item-text sidebar-link active">
+  <a href="../queuing/poisson_process.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ポアソン過程</span></span></a>
   </div>
 </li>
@@ -613,13 +613,13 @@ window.Quarto = {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#指数分布" id="toc-指数分布" class="nav-link active" data-scroll-target="#指数分布"><span class="header-section-number">16.1</span> 指数分布</a>
+  <li><a href="#時間とコストのトレードオフ" id="toc-時間とコストのトレードオフ" class="nav-link active" data-scroll-target="#時間とコストのトレードオフ"><span class="header-section-number">11.1</span> 時間とコストのトレードオフ</a>
   <ul class="collapse">
-  <li><a href="#到着間隔とサービス時間" id="toc-到着間隔とサービス時間" class="nav-link" data-scroll-target="#到着間隔とサービス時間"><span class="header-section-number">16.1.1</span> 到着間隔とサービス時間</a></li>
-  <li><a href="#無記憶性" id="toc-無記憶性" class="nav-link" data-scroll-target="#無記憶性"><span class="header-section-number">16.1.2</span> 無記憶性</a></li>
+  <li><a href="#問題の定式化" id="toc-問題の定式化" class="nav-link" data-scroll-target="#問題の定式化"><span class="header-section-number">11.1.1</span> 問題の定式化</a></li>
+  <li><a href="#例題" id="toc-例題" class="nav-link" data-scroll-target="#例題"><span class="header-section-number">11.1.2</span> 例題</a></li>
   </ul></li>
-  <li><a href="#ポアソン過程" id="toc-ポアソン過程" class="nav-link" data-scroll-target="#ポアソン過程"><span class="header-section-number">16.2</span> ポアソン過程</a></li>
-  <li><a href="#ポアソン過程の到着間隔" id="toc-ポアソン過程の到着間隔" class="nav-link" data-scroll-target="#ポアソン過程の到着間隔"><span class="header-section-number">16.3</span> ポアソン過程の到着間隔</a></li>
+  <li><a href="#文献案内" id="toc-文献案内" class="nav-link" data-scroll-target="#文献案内"><span class="header-section-number">11.2</span> 文献案内</a></li>
+  <li><a href="#練習問題" id="toc-練習問題" class="nav-link" data-scroll-target="#練習問題"><span class="header-section-number">11.3</span> 練習問題</a></li>
   </ul>
 </nav>
     </div>
@@ -627,9 +627,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../queuing/intro.html">待ち行列理論</a></li><li class="breadcrumb-item"><a href="../queuing/poisson_process.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ポアソン過程</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pert/project.html">PERT/CPM</a></li><li class="breadcrumb-item"><a href="../pert/tradeoff.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">時間とコストのトレードオフ</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ポアソン過程</span></h1>
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">時間とコストのトレードオフ</span></h1>
 </div>
 
 
@@ -646,228 +646,299 @@ window.Quarto = {
 </header>
 
 
-<p><span class="math inline">\(M/M/c\)</span> と <span class="math inline">\(M/M/1\)</span> 待ち行列は，待ち行列理論において最も基本的なモデルである．これらのモデルでは，到着間隔とサービス時間が指数分布に従う．</p>
-<section id="指数分布" class="level2" data-number="16.1">
-<h2 data-number="16.1" class="anchored" data-anchor-id="指数分布"><span class="header-section-number">16.1</span> 指数分布</h2>
-<p>連続型確率変数 <span class="math inline">\(X\)</span> が<strong>指数分布</strong>（exponential distribution）に従うとき，<span class="math inline">\(X\)</span> の確率密度関数は</p>
+<section id="時間とコストのトレードオフ" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="時間とコストのトレードオフ"><span class="header-section-number">11.1</span> 時間とコストのトレードオフ</h2>
+<p>プロジェクトの所要時間を短縮するために、追加のコストをかけて作業時間を短縮することができる場合がある。このような場合、決められた時間までにプロジェクトを完了するために、どの作業をどれだけ短縮すればよいかを決定する問題を考える。</p>
+<section id="問題の定式化" class="level3" data-number="11.1.1">
+<h3 data-number="11.1.1" class="anchored" data-anchor-id="問題の定式化"><span class="header-section-number">11.1.1</span> 問題の定式化</h3>
+<p>プロジェクト・ネットワーク <span class="math inline">\(G = (V, E)\)</span> に対して、各作業点 <span class="math inline">\(i \in V\)</span> に次のパラメータが与えられるとする。</p>
+<ul>
+<li><span class="math inline">\(c_i\)</span>: 作業 <span class="math inline">\(i\)</span> の単位時間あたりの短縮コスト</li>
+<li><span class="math inline">\(M_i\)</span>: 作業 <span class="math inline">\(i\)</span> の最大短縮時間</li>
+<li><span class="math inline">\(T\)</span>: プロジェクトの完了時間の上限</li>
+<li><span class="math inline">\(\tau_i\)</span>: 作業 <span class="math inline">\(i\)</span> の標準所要時間</li>
+</ul>
+<p>決定変数は次の通りである。</p>
+<ul>
+<li><span class="math inline">\(y_i\)</span>: 作業 <span class="math inline">\(i\)</span> の開始時間</li>
+<li><span class="math inline">\(x_i\)</span>: 作業 <span class="math inline">\(i\)</span> の短縮時間</li>
+</ul>
+<p>プロジェクトの所要時間を短縮するためのコストは</p>
 <p><span class="math display">\[
-f_X(x) = \begin{cases}
-\lambda e^{-\lambda x} &amp; x \geq 0 \\
-0 &amp; x &lt; 0
-\end{cases}
+\sum_{i \in V} c_i x_i
 \]</span></p>
-<p>で与えられる．ここで <span class="math inline">\(\lambda &gt; 0\)</span> は分布のパラメータである．</p>
-<p>指数分布に従う確率変数 <span class="math inline">\(X\)</span> の平均と分散は <span class="math display">\[
-E[X] = \frac{1}{\lambda}, \quad \text{Var}(X) = \frac{1}{\lambda^2}
-\]</span> である．</p>
-<p><span class="math inline">\(X\)</span> の累積分布関数は <span class="math display">\[
-F_X(x) = P(X \leq x) = \begin{cases}
-1 - e^{-\lambda x} &amp; x \geq 0 \\
-0 &amp; x &lt; 0
-\end{cases}
-\]</span> である．</p>
-<p>次の図は，パラメータ <span class="math inline">\(\lambda = 0.5, 1.0, 1.5, 2.0\)</span> の場合における指数分布の確率密度関数を示している．確率密度関数 <span class="math inline">\(f_X(x)\)</span> は <span class="math inline">\(x\)</span> の増加に伴い単調減少する．</p>
-<div id="1e50a472" class="cell" data-execution_count="1">
-<details class="code-fold">
-<summary>コード</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> expon</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">8</span>, <span class="dv">100</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>lambda_params <span class="op">=</span> [<span class="fl">0.5</span>, <span class="fl">1.0</span>, <span class="fl">1.5</span>, <span class="fl">2.0</span>]</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> lam <span class="kw">in</span> lambda_params:</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    pdf <span class="op">=</span> expon.pdf(x, scale<span class="op">=</span><span class="dv">1</span> <span class="op">/</span> lam)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    plt.plot(x, pdf, label<span class="op">=</span><span class="ss">f"λ=</span><span class="sc">{</span>lam<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Exponential Distribution PDF"</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"x"</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"$f_X(x)$"</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, <span class="dv">8</span>)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="fl">2.5</span>)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="poisson_process_files/figure-html/cell-2-output-1.png" width="594" height="449" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>指数分布に従う確率変数は，時間を表すことが多い．パラメータ <span class="math inline">\(\lambda\)</span> は，単位時間あたりの事象の発生回数の平均を表す．</p>
-<section id="到着間隔とサービス時間" class="level3" data-number="16.1.1">
-<h3 data-number="16.1.1" class="anchored" data-anchor-id="到着間隔とサービス時間"><span class="header-section-number">16.1.1</span> 到着間隔とサービス時間</h3>
-<p><span class="math inline">\(M/M/1\)</span> と <span class="math inline">\(M/M/c\)</span> 待ち行列では，到着間隔とサービス時間が指数分布に従う．確率変数 <span class="math inline">\(T\)</span> を到着間隔を表すとする．このとき，<span class="math inline">\(P(T \leq t)\)</span> は，時間 <span class="math inline">\(t\)</span> 以内に次の客が到着する確率を表す．<span class="math inline">\(E(T)\)</span> は，到着間隔の平均を表す．<span class="math inline">\(\lambda = 1/E(T)\)</span> は，単位時間あたりの到着する客数の平均を表す．この <span class="math inline">\(\lambda\)</span> は，前の章で説明した<strong>平均到着率</strong>である．</p>
-<div id="exm-exp-basic-arrival" class="theorem example">
-<p><span class="theorem-title"><strong>例 16.1</strong></span> ある店舗では，1時間あたり平均12人の客が来店する．到着間隔 <span class="math inline">\(T\)</span> が指数分布に従うと仮定する．次の問いに答えよ．</p>
-<ol type="1">
-<li>平均到着間隔 <span class="math inline">\(E[T]\)</span> を求めよ．</li>
-<li>2分以内に次の客が到着する確率を求めよ．</li>
-</ol>
-<p>平均到着率は <span class="math inline">\(\lambda = 12\)</span> 人/時間である．平均到着間隔は</p>
+<p>で与えられる。<span class="math inline">\(j\)</span> が <span class="math inline">\(i\)</span> の後続作業である場合，作業 <span class="math inline">\(j\)</span> はすべての先行作業 <span class="math inline">\(i\)</span> が完了した後に開始できるため，</p>
 <p><span class="math display">\[
-E[T] = 1/\lambda = 1/12 \text{ 時間} = 5 \text{ 分}
-\]</span> である．</p>
-<p>単位を時間に揃え，<span class="math inline">\(P(T \leq 1/30)\)</span> を計算する． <span class="math display">\[
-P(T \leq 1/30) = F_T(1/30) = 1 - e^{-12 \times (1/30)} \approx 0.3297
-\]</span> よって，2分以内に次の客が到着する確率は約0.3297である．</p>
-</div>
-<p>次の図は，<a href="#exm-exp-basic-arrival" class="quarto-xref">例&nbsp;<span>16.1</span></a> で説明した到着間隔のシミュレーション例を示している．平均到着率 <span class="math inline">\(\lambda = 12\)</span> 人/時間であるとき，15人の到着時間をシミュレーションした．横軸は時間を表し，青い線は各客の到着時間を示している．</p>
-<div id="d49e7733" class="cell" data-execution_count="2">
-<details class="code-fold">
-<summary>コード</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> expon</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">0</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>lambda_param <span class="op">=</span> <span class="dv">12</span>  <span class="co"># 平均到着率（人/時間）</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>num_arrivals <span class="op">=</span> <span class="dv">15</span>  <span class="co"># シミュレーションする到着数</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>inter_arrival_times <span class="op">=</span> expon.rvs(scale<span class="op">=</span><span class="dv">1</span> <span class="op">/</span> lambda_param, size<span class="op">=</span>num_arrivals)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>arrival_times <span class="op">=</span> np.cumsum(inter_arrival_times)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">2</span>))</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>plt.eventplot(arrival_times, orientation<span class="op">=</span><span class="st">"horizontal"</span>, colors<span class="op">=</span><span class="st">"blue"</span>)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Simulated Arrival Times"</span>)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Time (hours)"</span>)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>plt.yticks([])</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, <span class="bu">max</span>(arrival_times) <span class="op">+</span> <span class="fl">0.15</span>)</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="poisson_process_files/figure-html/cell-3-output-1.png" width="774" height="228" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<div id="exm-exp-basic-service" class="theorem example">
-<p><span class="theorem-title"><strong>例 16.2</strong></span> あるコールセンターでは，1時間あたり平均6人の客を処理できる．サービス時間 <span class="math inline">\(T\)</span> が指数分布に従うと仮定する．次の問いに答えよ．</p>
-<ol type="1">
-<li>平均サービス時間 <span class="math inline">\(E[T]\)</span> を求めよ．</li>
-<li>3分以内にサービスが完了する確率を求めよ．</li>
-</ol>
-<p>平均サービス率は <span class="math inline">\(\mu = 6\)</span> である．平均サービス時間は次のように計算される． <span class="math display">\[
-E[T] = \frac{1}{\mu} = \frac{1}{6} \text{ 時間} = 10 \text{ 分}
+y_j \geq y_i + \tau_i - x_i , \quad \forall (i, j) \in E
 \]</span></p>
-<p><span class="math inline">\(P(T \leq 0.05)\)</span> を計算する． <span class="math display">\[
-P(T \leq 0.05) = F_T(0.05) = 1 - e^{-6 \times 0.05} \approx 0.2592
-\]</span> よって，3分以内にサービスが完了する確率は約0.2592である．</p>
-</div>
-</section>
-<section id="無記憶性" class="level3" data-number="16.1.2">
-<h3 data-number="16.1.2" class="anchored" data-anchor-id="無記憶性"><span class="header-section-number">16.1.2</span> 無記憶性</h3>
-<div id="def-memoryless" class="theorem definition">
-<p><span class="theorem-title"><strong>定義 16.1</strong></span> 確率変数 <span class="math inline">\(T\)</span> が<strong>無記憶性</strong>（memoryless）を持つとは，任意の非負実数 <span class="math inline">\(s, t\)</span> に対して <span class="math display">\[
-P(T &gt; s + t \mid T &gt; s) = P(T &gt; t), \quad (s, t \geq 0)
-\]</span> が成り立つことをいう．</p>
-</div>
-<p>確率変数 <span class="math inline">\(T\)</span>　を到着間隔とする．無記憶性とは，すでに時間 <span class="math inline">\(s\)</span> が経過している場合（<span class="math inline">\(T &gt; s\)</span>），さらに時間 <span class="math inline">\(t\)</span> 経過した後に到着が発生していない確率（<span class="math inline">\(T &gt; s + t\)</span>）が，最初から時間 <span class="math inline">\(t\)</span> 経過した後に到着が発生していない確率と等しいことを意味する．</p>
-<div id="exm-memoryless-bus" class="theorem example">
-<p><span class="theorem-title"><strong>例 16.3</strong></span> 仮に，バスの到着間隔が指数分布に従うのであれば，「すでに10分待っていたので，そろそろバスが来るだろう」という考え方は成り立たない．</p>
-</div>
-<div id="thm-exp-memoryless" class="theorem">
-<p><span class="theorem-title"><strong>定理 16.1</strong></span> 指数分布に従う確率変数は無記憶性を持つ．</p>
-</div>
-<div class="proof">
-<p><span class="proof-title"><em>証明</em>. </span><span class="math display">\[\begin{align*}
-P(T &gt; s + t \mid T &gt; s) &amp; = \frac{P(T &gt; s + t, T &gt; s)}{P(T &gt; s)} \\
-&amp; = \frac{P(T &gt; s + t)}{P(T &gt; s)} \\
-&amp; = \frac{e^{-\lambda (s + t)}}{e^{-\lambda s}} \\
-&amp; = e^{-\lambda t} \\
-&amp; = P(T &gt; t)
+<p>がある．また、各作業の最大短縮時間 <span class="math inline">\(M_i\)</span> により、すべての作業 <span class="math inline">\(i \in V\)</span> について、</p>
+<p><span class="math display">\[
+0 \leq x_i \leq M_i
+\]</span></p>
+<p>である。プロジェクト全体の完了時間は終点 <span class="math inline">\(t\)</span> の終了時間 <span class="math inline">\(y_t\)</span> であり、これが上限 <span class="math inline">\(T\)</span> 以下である必要があるから、</p>
+<p><span class="math display">\[
+y_t \leq T
+\]</span> である。始点 <span class="math inline">\(s\)</span> の開始時間は 0 とするから、 <span class="math display">\[
+y_s = 0
+\]</span> である。</p>
+<p>このとき、この問題は次の線形計画問題として定式化できる。</p>
+<p><span class="math display">\[\begin{align*}
+\text{minimize} \quad &amp; \sum_{i \in V} c_i x_i &amp;\\
+\text{subject to} \quad &amp; y_j \geq y_i + \tau_i - x_i, \quad &amp; \forall (i, j) \in E \\
+&amp; 0 \leq x_i \leq M_i, \quad &amp; \forall i \in V \\
+&amp; y_t \leq T \\
+&amp; y_s = 0
 \end{align*}\]</span></p>
-</div>
-<p>指数分布が無記憶性を持つ唯一の連続分布である．</p>
 </section>
-</section>
-<section id="ポアソン過程" class="level2" data-number="16.2">
-<h2 data-number="16.2" class="anchored" data-anchor-id="ポアソン過程"><span class="header-section-number">16.2</span> ポアソン過程</h2>
-<p>確率過程 <span class="math inline">\(\{N(t), t \geq 0\}\)</span> とは，時間 <span class="math inline">\(t\)</span> とともに変化する確率変数 <span class="math inline">\(N(t)\)</span> の集まりである．</p>
-<p><strong>計数過程</strong>（counting process）とは，次の条件を満たす確率過程 <span class="math inline">\(\{N(t), t \geq 0\}\)</span> である．</p>
-<ol type="1">
-<li><span class="math inline">\(N(t) \geq 0\)</span></li>
-<li><span class="math inline">\(N(t) \in \mathbb{Z}\)</span></li>
-<li><span class="math inline">\(N(t)\)</span> は単調増加である</li>
-</ol>
-<p><span class="math inline">\(N(t)\)</span> は，時刻 <span class="math inline">\(t\)</span> までに発生した事象の回数を表す．例として，客の到着数，機械の故障回数などが挙げられる．</p>
-<div id="def-independent-increments" class="theorem definition">
-<p><span class="theorem-title"><strong>定義 16.2</strong></span> 確率過程 <span class="math inline">\(\{N(t), t \geq 0\}\)</span> が<strong>独立増分</strong>（independent increments）を持つとは，任意の <span class="math inline">\(0 \leq t_1 &lt; t_2 &lt; \cdots &lt; t_n\)</span> に対して， <span class="math display">\[
-N(t_2) - N(t_1), N(t_3) - N(t_2), \ldots, N(t_n) - N(t_{n-1})
-\]</span> が互いに独立であることをいう．</p>
-</div>
-<p>計数過程では，<span class="math inline">\(N(t_i) - N(t_{i-1})\)</span> は時間区間 <span class="math inline">\((t_{i-1}, t_i]\)</span> に発生した事象の回数を表す．計数過程が独立増分を持つとは，重なりのない時間区間における事象の発生回数が互いに独立であることを意味する．</p>
-<div id="exm-independent-increments" class="theorem example">
-<p><span class="theorem-title"><strong>例 16.4</strong></span> ある店舗での客の到着数を表す計数過程 <span class="math inline">\(\{N(t), t \geq 0\}\)</span> を考える．この計数過程が独立増分を持つとは，例えば，時間区間 <span class="math inline">\((0, 1]\)</span> に到着した客数と時間区間 <span class="math inline">\((3, 6]\)</span> に到着した客数が独立であることを意味する．</p>
-</div>
-<div id="def-stationary-increments" class="theorem definition">
-<p><span class="theorem-title"><strong>定義 16.3</strong></span> 確率過程 <span class="math inline">\(\{N(t), t \geq 0\}\)</span> が<strong>定常増分</strong>（stationary increments）を持つとは，任意の <span class="math inline">\(t &gt; s \geq 0\)</span> と <span class="math inline">\(h \geq 0\)</span> に対して，<span class="math inline">\(N(t) - N(s)\)</span> と <span class="math inline">\(N(t + h) - N(s + h)\)</span> が同一の分布に従うことをいう．</p>
-</div>
-<p>計数過程が定常増分を持つとは，事象の発生回数は時間区間の長さのみに依存し，時間の位置には依存しないことを意味する．</p>
-<div id="exm-stationary-increments" class="theorem example">
-<p><span class="theorem-title"><strong>例 16.5</strong></span> ある店舗での客の到着数を表す計数過程 <span class="math inline">\(\{N(t), t \geq 0\}\)</span> を考える．この計数過程が定常増分を持つとは，例えば，12時から13時の間に到着した客数と、14時から15時の間に到着した客数が同じ分布に従うことを意味する．</p>
-</div>
-<div id="def-poisson-process" class="theorem definition">
-<p><span class="theorem-title"><strong>定義 16.4</strong></span> 以下の性質を満たす計数過程 <span class="math inline">\(\{N(t), t \geq 0\}\)</span> を パラメータ <span class="math inline">\(\lambda &gt; 0\)</span> の<strong>ポアソン過程</strong>（Poisson process）という．</p>
-<ol type="1">
-<li><span class="math inline">\(N(0) = 0\)</span></li>
-<li><span class="math inline">\(P(N(t + \Delta t) - N(t) = 1) = \lambda \Delta t + o(\Delta t)\)</span></li>
-<li><span class="math inline">\(P(N(t + \Delta t) - N(t) \geq 2) = o(\Delta t)\)</span></li>
-<li>独立増分を持つ</li>
-</ol>
-<p>ここで，<span class="math inline">\(o(\Delta t)\)</span> は <span class="math display">\[
-\lim_{\Delta t \to 0} \frac{o(\Delta t)}{\Delta t} = 0
-\]</span> を満たす関数である．</p>
-</div>
-<p><span class="math inline">\(N(0) = 0\)</span> は，時刻 <span class="math inline">\(0\)</span> では事象が発生していないことを表す．</p>
-<p><span class="math inline">\(P(N(t + \Delta t) - N(t) = 1) = \lambda \Delta t + o(\Delta t)\)</span> は，時間区間 <span class="math inline">\([t, t + \Delta t]\)</span> に事象が1回発生する確率を表す．<span class="math inline">\(\Delta t\)</span> が十分小さいとき，事象が1回発生する確率は <span class="math inline">\(\lambda \Delta t\)</span> に近似できる．</p>
-<p><span class="math inline">\(P(N(t + \Delta t) - N(t) \geq 2) = o(\Delta t)\)</span> は，時間区間 <span class="math inline">\([t, t + \Delta t]\)</span> に事象が2回以上発生する確率を表す．<span class="math inline">\(\Delta t\)</span> が十分小さいとき，事象が2回以上発生する確率は無視できるほど小さい．</p>
-<div id="def-poisson-distribution" class="theorem definition">
-<p><span class="theorem-title"><strong>定義 16.5</strong></span> 離散型確率変数 <span class="math inline">\(X\)</span> が<strong>ポアソン分布</strong>（Poisson distribution）に従うとは，次の確率質量関数を持つことをいう． <span class="math display">\[
-p_X(k) = P(X = k) = e^{-\lambda} \frac{\lambda^k}{k!}, \quad k = 0, 1, 2, \ldots
-\]</span> ここで，<span class="math inline">\(\lambda &gt; 0\)</span> は分布のパラメータである．</p>
-</div>
-<p>ポアソン分布の平均と分散は <span class="math display">\[
-E[X] = \lambda, \quad \text{Var}(X) = \lambda
-\]</span> である．</p>
-<p>次の定理は，ポアソン過程 <span class="math inline">\(\{N(t), t \geq 0\}\)</span> とポアソン分布の関係を示している．</p>
-<div id="thm-poisson-process" class="theorem">
-<p><span class="theorem-title"><strong>定理 16.2</strong></span> <span class="math inline">\(\{N(t), t \geq 0\}\)</span> をパラメータ <span class="math inline">\(\lambda &gt; 0\)</span> のポアソン過程とする．このとき，<span class="math inline">\(N(t)\)</span> は時刻 <span class="math inline">\(t\)</span> までに発生した事象の回数を表し，パラメータ <span class="math inline">\(\lambda t\)</span> のポアソン分布に従う．すなわち， <span class="math display">\[
-P(N(t) = k) = e^{-\lambda t} \frac{(\lambda t)^k}{k!}, \quad k = 0, 1, 2, \ldots.
-\]</span></p>
-</div>
-<div class="proof">
-<p><span class="proof-title"><em>証明</em>. </span>省略する．</p>
-</div>
-<div id="exm-poisson-process-arrival" class="theorem example">
-<p><span class="theorem-title"><strong>例 16.6</strong></span> ある店舗での客の到着数を表すポアソン過程 <span class="math inline">\(\{N(t), t \geq 0\}\)</span> を考える．平均到着率は <span class="math inline">\(\lambda = 5\)</span> 人/分である．営業時間は10:00から18:00までの8時間である．次の問いに答えよ．</p>
-<ol type="1">
-<li>10:00から10:03までの3分間に到着する客数の分布を求めよ．</li>
-<li>11:00から11:03までの3分間に2人の客が到着する確率を求めよ．</li>
-</ol>
-<p>開店から3分間の到着数は，<span class="math inline">\(N(3)\)</span> と表される．<span class="math inline">\(N(3)\)</span> はパラメータ <span class="math inline">\(\lambda t\)</span> のポアソン分布に従う． <span class="math display">\[
-P(N(3) = k) = e^{-5 \cdot 3} \frac{(5 \cdot 3)^k}{k!}, \quad k = 0, 1, 2, \ldots
-\]</span></p>
-<p>独立増分を持つため，11:00から11:03までの到着数も同じ分布に従う．</p>
+<section id="例題" class="level3" data-number="11.1.2">
+<h3 data-number="11.1.2" class="anchored" data-anchor-id="例題"><span class="header-section-number">11.1.2</span> 例題</h3>
+<p>プロジェクト・ネットワークはグラフ <span class="math inline">\(G = (V, E)\)</span> で表す。作業の集合は</p>
 <p><span class="math display">\[
-P(N(3) = 2) = e^{-5 \cdot 3} \frac{(5 \cdot 3)^2}{2!}
-\]</span></p>
-</div>
+V = \{s, t, A, B, C, D, E\}
+\]</span> であり、辺の集合は</p>
+<p><span class="math display">\[
+E = \{(s, A), (s, C), (A, B), (C, D), (B, E), (D, E), (E, t)\}
+\]</span> である。ここで、<span class="math inline">\(s\)</span> は始点、<span class="math inline">\(t\)</span> は終点である。プロジェクト全体の所要時間の上限を <span class="math inline">\(T = 10\)</span> とする。</p>
+<p>作業時間、コスト、最大短縮時間は次の表のように与えられる。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>作業</th>
+<th><span class="math inline">\(\tau_i\)</span></th>
+<th><span class="math inline">\(c_i\)</span></th>
+<th><span class="math inline">\(M_i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>7</td>
+<td>100</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>3</td>
+<td>150</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>6</td>
+<td>200</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td>3</td>
+<td>150</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>E</td>
+<td>2</td>
+<td>250</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>この問題を次のように定式化できる。</p>
+<p><span class="math display">\[\begin{align*}
+\text{minimize} \quad &amp; 100x_A + 150x_B + 200x_C + 150x_D + 250x_E &amp;\\
+\text{subject to} \quad &amp; y_A \geq 0 \\
+&amp; y_C \geq 0 \\
+&amp; y_B \geq y_A + 7 - x_A \\
+&amp; y_D \geq y_C + 6 - x_C \\
+&amp; y_E \geq y_B + 3 - x_B \\
+&amp; y_E \geq y_D + 3 - x_D \\
+&amp; y_t \geq y_E + 2 - x_E \\
+&amp; 0 \leq x_A \leq 3 \\
+&amp; 0 \leq x_B \leq 1 \\
+&amp; 0 \leq x_C \leq 2 \\
+&amp; 0 \leq x_D \leq 2 \\
+&amp; 0 \leq x_E \leq 1 \\
+&amp; y_t \leq 10 \\
+&amp; y_s = 0
+\end{align*}\]</span></p>
+<p>この線形計画問題は、最適化ソルバーを用いて解くことができる。以下に Gurobi を用いた実装例を示す。</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install gurobipy</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> gurobipy <span class="im">import</span> Model, GRB</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># データ定義</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>V <span class="op">=</span> [<span class="st">"s"</span>, <span class="st">"t"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>, <span class="st">"E"</span>]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>E <span class="op">=</span> [(<span class="st">"s"</span>, <span class="st">"A"</span>), (<span class="st">"s"</span>, <span class="st">"C"</span>), (<span class="st">"A"</span>, <span class="st">"B"</span>), (<span class="st">"C"</span>, <span class="st">"D"</span>), (<span class="st">"B"</span>, <span class="st">"E"</span>), (<span class="st">"D"</span>, <span class="st">"E"</span>), (<span class="st">"E"</span>, <span class="st">"t"</span>)]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>tau <span class="op">=</span> {<span class="st">"A"</span>: <span class="dv">7</span>, <span class="st">"B"</span>: <span class="dv">3</span>, <span class="st">"C"</span>: <span class="dv">6</span>, <span class="st">"D"</span>: <span class="dv">3</span>, <span class="st">"E"</span>: <span class="dv">2</span>}</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>cost <span class="op">=</span> {<span class="st">"A"</span>: <span class="dv">100</span>, <span class="st">"B"</span>: <span class="dv">150</span>, <span class="st">"C"</span>: <span class="dv">200</span>, <span class="st">"D"</span>: <span class="dv">150</span>, <span class="st">"E"</span>: <span class="dv">250</span>}</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> {<span class="st">"A"</span>: <span class="dv">3</span>, <span class="st">"B"</span>: <span class="dv">1</span>, <span class="st">"C"</span>: <span class="dv">2</span>, <span class="st">"D"</span>: <span class="dv">2</span>, <span class="st">"E"</span>: <span class="dv">1</span>}</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># モデル作成</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> Model(<span class="st">"Project_Crashing"</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>m.setParam(<span class="st">"OutputFlag"</span>, <span class="dv">0</span>) </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 変数定義</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> {i: m.addVar(lb<span class="op">=</span><span class="dv">0</span>, ub<span class="op">=</span>M[i], name<span class="op">=</span><span class="st">"x_</span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(i)) <span class="cf">for</span> i <span class="kw">in</span> M}</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> {i: m.addVar(lb<span class="op">=</span><span class="dv">0</span>, name<span class="op">=</span><span class="st">"y_</span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(i)) <span class="cf">for</span> i <span class="kw">in</span> V}</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 目的関数</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>m.setObjective(<span class="bu">sum</span>(cost[i] <span class="op">*</span> x[i] <span class="cf">for</span> i <span class="kw">in</span> M), GRB.MINIMIZE)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 制約</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, j <span class="kw">in</span> E:</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="st">"s"</span>:</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        m.addConstr(y[j] <span class="op">&gt;=</span> <span class="dv">0</span>)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> i <span class="kw">in</span> tau:</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        m.addConstr(y[j] <span class="op">&gt;=</span> y[i] <span class="op">+</span> tau[i] <span class="op">-</span> x[i])</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co"># プロジェクト終了制約</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>m.addConstr(y[<span class="st">"t"</span>] <span class="op">&lt;=</span> T)</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co"># 開始ノード固定</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>m.addConstr(y[<span class="st">"s"</span>] <span class="op">==</span> <span class="dv">0</span>)</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="co"># 最適化</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>m.optimize()</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="co"># 結果表示</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Objective:"</span>, m.objVal)</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> x:</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x_</span><span class="sc">{}</span><span class="st"> ="</span>.<span class="bu">format</span>(i), x[i].X)</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> y:</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"y_</span><span class="sc">{}</span><span class="st"> ="</span>.<span class="bu">format</span>(i), y[i].X)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="plaintext"><code>Objective: 350.0
+x_A = 1.0
+x_B = 0.0
+x_C = 0.0
+x_D = 0.0
+x_E = 1.0
+y_s = 0.0
+y_t = 10.0
+y_A = 0.0
+y_B = 6.0
+y_C = 0.0
+y_D = 6.0
+y_E = 9.0</code></pre>
+<p>この結果から、作業 A を 1 日、作業 E を 1 日短縮することで、最小コスト 350 でプロジェクトを 10 日以内に完了できることがわかる。</p>
 </section>
-<section id="ポアソン過程の到着間隔" class="level2" data-number="16.3">
-<h2 data-number="16.3" class="anchored" data-anchor-id="ポアソン過程の到着間隔"><span class="header-section-number">16.3</span> ポアソン過程の到着間隔</h2>
-<p><span class="math inline">\(Y_k\)</span> を <span class="math inline">\(k\)</span> 回目の事象が発生するまでの時間とし，<span class="math inline">\(T_k\)</span> は <span class="math inline">\((k-1)\)</span> 回目から <span class="math inline">\(k\)</span> 回目の事象が起こるまでの時間とする．<span class="math inline">\(k = 1, 2, \ldots\)</span> に対して， <span class="math display">\[
-T_1 = Y_1, \quad T_k = Y_k - Y_{k-1} \quad (k = 2, 3, \ldots)
-\]</span> と定義する．また， <span class="math display">\[
-Y_k = \sum_{i=1}^k T_i = T_1 + T_2 + \cdots + T_k
-\]</span> である．</p>
-<div id="thm-poisson-exp" class="theorem">
-<p><span class="theorem-title"><strong>定理 16.3</strong></span> <span class="math inline">\(\{N(t), t \geq 0\}\)</span> をパラメータ <span class="math inline">\(\lambda &gt; 0\)</span> のポアソン過程とする．このとき，<span class="math inline">\(k = 1, 2, \ldots\)</span> に対して，時間間隔 <span class="math inline">\(T_k \sim \text{Exp}(\lambda)\)</span> に従い，<span class="math inline">\(T_1, T_2, \ldots\)</span> は互いに独立である．</p>
+</section>
+<section id="文献案内" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="文献案内"><span class="header-section-number">11.2</span> 文献案内</h2>
+</section>
+<section id="練習問題" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="練習問題"><span class="header-section-number">11.3</span> 練習問題</h2>
+<div id="exr-pert-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>練習 11.1</strong></span> 次の作業リストに基づいて、以下の問いに答えよ。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>作業</th>
+<th>先行作業</th>
+<th>時間（日）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>-</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>-</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>A</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td>A</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>E</td>
+<td>B</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>C, D</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>G</td>
+<td>E</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li>プロジェクト・ネットワークをAONで書け。</li>
+<li>各作業の最早開始時刻、最早終了時刻、最遅開始時刻、最遅終了時刻、スラックを求めよ。</li>
+<li>このプロジェクトのクリティカルパスを求めよ。</li>
+</ol>
 </div>
-<div class="proof">
-<p><span class="proof-title"><em>証明</em>. </span>省略する．</p>
+<div id="sol-pert-1" class="proof solution">
+<p><span class="proof-title"><em>解答 11.1</em>. </span></p>
+<ol type="1">
+<li>プロジェクト・ネットワークは次のようになる。</li>
+</ol>
+<div id="59d17e8e" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>コード</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># グラフの作成（頂点を番号で定義）</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.DiGraph()</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>edges <span class="op">=</span> [</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"s"</span>, <span class="st">"A"</span>),</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"s"</span>, <span class="st">"B"</span>),</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"A"</span>, <span class="st">"C"</span>),</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"A"</span>, <span class="st">"D"</span>),</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"C"</span>, <span class="st">"F"</span>),</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"D"</span>, <span class="st">"F"</span>),</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"B"</span>, <span class="st">"E"</span>),</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"E"</span>, <span class="st">"G"</span>),</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"F"</span>, <span class="st">"t"</span>),</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"G"</span>, <span class="st">"t"</span>),</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>G.add_edges_from(edges)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> layer, nodes <span class="kw">in</span> <span class="bu">enumerate</span>(nx.topological_generations(G)):</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> node <span class="kw">in</span> nodes:</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        G.nodes[node][<span class="st">"layer"</span>] <span class="op">=</span> layer</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> nx.multipartite_layout(G, subset_key<span class="op">=</span><span class="st">"layer"</span>) </span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>label_pos <span class="op">=</span> {}</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k, (x, y) <span class="kw">in</span> pos.items():</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    r <span class="op">=</span> np.sqrt(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> y<span class="op">**</span><span class="dv">2</span>) <span class="cf">if</span> np.sqrt(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> y<span class="op">**</span><span class="dv">2</span>) <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="dv">1</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    scale <span class="op">=</span> <span class="fl">1.12</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    label_pos[k] <span class="op">=</span> (x <span class="op">*</span> scale, y <span class="op">*</span> scale)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx(</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    G,</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    pos<span class="op">=</span>pos,</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    with_labels<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    node_color<span class="op">=</span><span class="st">"white"</span>,</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    node_size<span class="op">=</span><span class="dv">500</span>,</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    edgecolors<span class="op">=</span><span class="st">"black"</span>,</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>)</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tradeoff_files/figure-html/cell-2-output-1.png" width="540" height="389" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>2~3. 省略</p>
 </div>
 
 
@@ -1289,13 +1360,13 @@ Y_k = \sum_{i=1}^k T_i = T_1 + T_2 + \cdots + T_k
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../queuing/intro.html" class="pagination-link" aria-label="待ち行列モデルの基礎">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">待ち行列モデルの基礎</span></span>
+      <a href="../pert/uncertain.html" class="pagination-link" aria-label="不確実性を考慮したPERT/CPM">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">不確実性を考慮したPERT/CPM</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../career/intro.html" class="pagination-link" aria-label="キャリア">
-        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">キャリア</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../dea/intro.html" class="pagination-link" aria-label="入力と出力">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">入力と出力</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

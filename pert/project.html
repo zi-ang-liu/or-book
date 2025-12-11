@@ -85,7 +85,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../dea/intro.html" rel="next">
+<link href="../pert/uncertain.html" rel="next">
 <link href="../network/graph.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -482,6 +482,18 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">クリティカルパス</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pert/uncertain.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">不確実性を考慮したPERT/CPM</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pert/tradeoff.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">時間とコストのトレードオフ</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -496,13 +508,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../dea/intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">入力と出力</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">入力と出力</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../dea/ccr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">CCRモデル</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">CCRモデル</span></span></a>
   </div>
 </li>
       </ul>
@@ -519,7 +531,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../dp/intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">動的計画法</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">動的計画法</span></span></a>
   </div>
 </li>
       </ul>
@@ -536,13 +548,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../queuing/intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">待ち行列モデルの基礎</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">待ち行列モデルの基礎</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../queuing/poisson_process.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">ポアソン過程</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ポアソン過程</span></span></a>
   </div>
 </li>
       </ul>
@@ -559,7 +571,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../career/intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">キャリア</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">キャリア</span></span></a>
   </div>
 </li>
       </ul>
@@ -740,7 +752,7 @@ window.Quarto = {
 <p>辺 <span class="math inline">\((s, v) \in E\)</span> は、作業 <span class="math inline">\(v\)</span> が先行作業を持たないことを意味し、辺 <span class="math inline">\((v, t) \in E\)</span> は、作業 <span class="math inline">\(v\)</span> が後続作業を持たないことを意味する。作業 <span class="math inline">\(v\)</span> の先行作業の集合を <span class="math inline">\(\mathcal{P}(v)\)</span> と表す。作業 <span class="math inline">\(v\)</span> の後続作業の集合を <span class="math inline">\(\mathcal{S}(v)\)</span> と表す。</p>
 <p>作業点 <span class="math inline">\(v \in V\)</span> には、作業時間 <span class="math inline">\(\tau(v)\)</span> が与えられている。始点 <span class="math inline">\(s\)</span> と終点 <span class="math inline">\(t\)</span> の作業時間は <span class="math inline">\(\tau(s) = \tau(t) = 0\)</span> とする。</p>
 <p><a href="#exm-pert-report" class="quarto-xref">例&nbsp;<span>9.1</span></a> のプロジェクト・ネットワークは次の図のようになる。</p>
-<div id="438498a6" class="cell" data-execution_count="1">
+<div id="912bb21f" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -840,7 +852,7 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<div id="2e04f469" class="cell" data-execution_count="2">
+<div id="90c5671a" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -925,7 +937,7 @@ ES(u) = \max_{v \in \mathcal{P}(u)} EF(v)
 ES(D) = \max\{EF(A), EF(B), EF(C)\} = \max\{2, 3, 6\} = 6
 \]</span></p>
 <p>である．</p>
-<div id="aff4d9c7" class="cell" data-execution_count="3">
+<div id="1ce06f47" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1076,7 +1088,7 @@ LF(u) = \min_{v \in \mathcal{S}(u)} LS(v)
 <p><span class="theorem-title"><strong>例 9.4</strong></span> 作業点 <span class="math inline">\(C\)</span> の後続作業を <span class="math inline">\(D, E, F\)</span> とする．そのとき，<span class="math inline">\(\mathcal{S}(C) = \{D, E, F\}\)</span> である．<span class="math inline">\(LS(D) = 6\)</span>，<span class="math inline">\(LS(E) = 3\)</span>，<span class="math inline">\(LS(F) = 8\)</span> とすると，<span class="math inline">\(C\)</span> の最遅終了時刻は， <span class="math display">\[
 LF(C) = \min\{LS(D), LS(E), LS(F)\} = \min\{6, 3, 8\} = 3
 \]</span> である．</p>
-<div id="7e68b985" class="cell" data-execution_count="4">
+<div id="37d50f8e" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1751,8 +1763,8 @@ Hillier, Frederick, と Gerald Lieberman. 2025. <em><span>ISE</span> introductio
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../dea/intro.html" class="pagination-link" aria-label="入力と出力">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">入力と出力</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../pert/uncertain.html" class="pagination-link" aria-label="不確実性を考慮したPERT/CPM">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">不確実性を考慮したPERT/CPM</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

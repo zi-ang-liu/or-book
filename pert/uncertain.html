@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>16&nbsp; ポアソン過程 – オペレーションズ・リサーチ</title>
+<title>10&nbsp; 不確実性を考慮したPERT/CPM – オペレーションズ・リサーチ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,42 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
 }
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
 }
-</style>
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -65,8 +50,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../career/intro.html" rel="next">
-<link href="../queuing/intro.html" rel="prev">
+<link href="../pert/tradeoff.html" rel="next">
+<link href="../pert/project.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -140,12 +125,9 @@ window.Quarto = {
 };
 </script>
 
-<meta name="twitter:title" content="16&nbsp; ポアソン過程 – オペレーションズ・リサーチ">
+<meta name="twitter:title" content="10&nbsp; 不確実性を考慮したPERT/CPM – オペレーションズ・リサーチ">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://zi-ang-liu.github.io/or-book/queuing/poisson_process_files/figure-html/cell-2-output-1.png">
-<meta name="twitter:image-height" content="898">
-<meta name="twitter:image-width" content="1188">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -319,7 +301,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../queuing/intro.html">待ち行列理論</a></li><li class="breadcrumb-item"><a href="../queuing/poisson_process.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ポアソン過程</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pert/project.html">PERT/CPM</a></li><li class="breadcrumb-item"><a href="../pert/uncertain.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">不確実性を考慮したPERT/CPM</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
@@ -464,7 +446,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../pert/uncertain.html" class="sidebar-item-text sidebar-link">
+  <a href="../pert/uncertain.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">不確実性を考慮したPERT/CPM</span></span></a>
   </div>
 </li>
@@ -533,7 +515,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../queuing/poisson_process.html" class="sidebar-item-text sidebar-link active">
+  <a href="../queuing/poisson_process.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ポアソン過程</span></span></a>
   </div>
 </li>
@@ -613,13 +595,8 @@ window.Quarto = {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#指数分布" id="toc-指数分布" class="nav-link active" data-scroll-target="#指数分布"><span class="header-section-number">16.1</span> 指数分布</a>
-  <ul class="collapse">
-  <li><a href="#到着間隔とサービス時間" id="toc-到着間隔とサービス時間" class="nav-link" data-scroll-target="#到着間隔とサービス時間"><span class="header-section-number">16.1.1</span> 到着間隔とサービス時間</a></li>
-  <li><a href="#無記憶性" id="toc-無記憶性" class="nav-link" data-scroll-target="#無記憶性"><span class="header-section-number">16.1.2</span> 無記憶性</a></li>
-  </ul></li>
-  <li><a href="#ポアソン過程" id="toc-ポアソン過程" class="nav-link" data-scroll-target="#ポアソン過程"><span class="header-section-number">16.2</span> ポアソン過程</a></li>
-  <li><a href="#ポアソン過程の到着間隔" id="toc-ポアソン過程の到着間隔" class="nav-link" data-scroll-target="#ポアソン過程の到着間隔"><span class="header-section-number">16.3</span> ポアソン過程の到着間隔</a></li>
+  <li><a href="#点見積もり" id="toc-点見積もり" class="nav-link active" data-scroll-target="#点見積もり"><span class="header-section-number">10.1</span> 3 点見積もり</a></li>
+  <li><a href="#不確実性を考慮したpertcpm" id="toc-不確実性を考慮したpertcpm" class="nav-link" data-scroll-target="#不確実性を考慮したpertcpm"><span class="header-section-number">10.2</span> 不確実性を考慮したPERT/CPM</a></li>
   </ul>
 </nav>
     </div>
@@ -627,9 +604,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../queuing/intro.html">待ち行列理論</a></li><li class="breadcrumb-item"><a href="../queuing/poisson_process.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ポアソン過程</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pert/project.html">PERT/CPM</a></li><li class="breadcrumb-item"><a href="../pert/uncertain.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">不確実性を考慮したPERT/CPM</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ポアソン過程</span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">不確実性を考慮したPERT/CPM</span></h1>
 </div>
 
 
@@ -646,231 +623,183 @@ window.Quarto = {
 </header>
 
 
-<p><span class="math inline">\(M/M/c\)</span> と <span class="math inline">\(M/M/1\)</span> 待ち行列は，待ち行列理論において最も基本的なモデルである．これらのモデルでは，到着間隔とサービス時間が指数分布に従う．</p>
-<section id="指数分布" class="level2" data-number="16.1">
-<h2 data-number="16.1" class="anchored" data-anchor-id="指数分布"><span class="header-section-number">16.1</span> 指数分布</h2>
-<p>連続型確率変数 <span class="math inline">\(X\)</span> が<strong>指数分布</strong>（exponential distribution）に従うとき，<span class="math inline">\(X\)</span> の確率密度関数は</p>
+<section id="点見積もり" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="点見積もり"><span class="header-section-number">10.1</span> 3 点見積もり</h2>
+<p>以上の方法では、作業の所要時間が確定していることを前提としている。しかし、実際には、所要時間の推定は難しい場合が多い。そこで、作業の所要時間を確率変数として扱い、3 点見積もり（Three-Point Estimation）という方法でその作業時間の平均と分散を推定する。</p>
+<p>3 点見積もりでは、次の 3 つの所要時間を事前に与えられたとする。</p>
+<ul>
+<li>楽観値（Optimistic Time, <span class="math inline">\(a\)</span>）：予想される最短の所要時間。</li>
+<li>最頻値（Most Likely Time, <span class="math inline">\(m\)</span>）：最も可能性が高い所要時間。</li>
+<li>悲観値（Pessimistic Time, <span class="math inline">\(b\)</span>）：予想される最長の所要時間。</li>
+</ul>
+<p>一般に、<span class="math inline">\(a \leq m \leq b\)</span> である。</p>
+<p>この <span class="math inline">\(a\)</span>、<span class="math inline">\(m\)</span>、<span class="math inline">\(b\)</span> に基づいて、所要時間の平均 <span class="math inline">\(\hat{\mu}\)</span> と分散 <span class="math inline">\(\hat{\sigma}^2\)</span> を次のように推定する。</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+ノート
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>作業の所要時間がベータ分布に従うと仮定した場合は、<a href="#eq-pert-3point" class="quarto-xref">式&nbsp;<span>10.1</span></a> が <span class="math inline">\(\mu\)</span> と <span class="math inline">\(\sigma^2\)</span> の良い推定量となる。これらの式の詳細な導出は省略する。興味のある読者は、<span class="citation" data-cites="Pleguezuelo2003-uf">Pleguezuelo, Pérez, と Rambaud (<a href="../references.html#ref-Pleguezuelo2003-uf" role="doc-biblioref">2003</a>)</span> を参照されたい。</p>
+</div>
+</div>
+<p><span id="eq-pert-3point"><span class="math display">\[
+\hat{\mu} = \frac{a + 4m + b}{6}, \quad \hat{\sigma}^2 = \left(\frac{b - a}{6}\right)^2
+\tag{10.1}\]</span></span></p>
+<p>そこで、<span class="math inline">\(\mu(v)\)</span> と <span class="math inline">\(\sigma^2(v)\)</span> をそれぞれ作業点 <span class="math inline">\(v\)</span> の所要時間の平均と分散とする。<span class="math inline">\(a(v)\)</span>、<span class="math inline">\(m(v)\)</span>、<span class="math inline">\(b(v)\)</span> をそれぞれ作業点 <span class="math inline">\(v\)</span> の楽観値、最頻値、悲観値とする。このとき、すべての作業点 <span class="math inline">\(v \in V\)</span> に対して、</p>
 <p><span class="math display">\[
-f_X(x) = \begin{cases}
-\lambda e^{-\lambda x} &amp; x \geq 0 \\
-0 &amp; x &lt; 0
-\end{cases}
+\mu(v) = \frac{a(v) + 4m(v) + b(v)}{6}, \quad \sigma^2(v) = \left(\frac{b(v) - a(v)}{6}\right)^2
 \]</span></p>
-<p>で与えられる．ここで <span class="math inline">\(\lambda &gt; 0\)</span> は分布のパラメータである．</p>
-<p>指数分布に従う確率変数 <span class="math inline">\(X\)</span> の平均と分散は <span class="math display">\[
-E[X] = \frac{1}{\lambda}, \quad \text{Var}(X) = \frac{1}{\lambda^2}
-\]</span> である．</p>
-<p><span class="math inline">\(X\)</span> の累積分布関数は <span class="math display">\[
-F_X(x) = P(X \leq x) = \begin{cases}
-1 - e^{-\lambda x} &amp; x \geq 0 \\
-0 &amp; x &lt; 0
-\end{cases}
-\]</span> である．</p>
-<p>次の図は，パラメータ <span class="math inline">\(\lambda = 0.5, 1.0, 1.5, 2.0\)</span> の場合における指数分布の確率密度関数を示している．確率密度関数 <span class="math inline">\(f_X(x)\)</span> は <span class="math inline">\(x\)</span> の増加に伴い単調減少する．</p>
-<div id="1e50a472" class="cell" data-execution_count="1">
-<details class="code-fold">
-<summary>コード</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> expon</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">8</span>, <span class="dv">100</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>lambda_params <span class="op">=</span> [<span class="fl">0.5</span>, <span class="fl">1.0</span>, <span class="fl">1.5</span>, <span class="fl">2.0</span>]</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> lam <span class="kw">in</span> lambda_params:</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    pdf <span class="op">=</span> expon.pdf(x, scale<span class="op">=</span><span class="dv">1</span> <span class="op">/</span> lam)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    plt.plot(x, pdf, label<span class="op">=</span><span class="ss">f"λ=</span><span class="sc">{</span>lam<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Exponential Distribution PDF"</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"x"</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"$f_X(x)$"</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, <span class="dv">8</span>)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="fl">2.5</span>)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="poisson_process_files/figure-html/cell-2-output-1.png" width="594" height="449" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>指数分布に従う確率変数は，時間を表すことが多い．パラメータ <span class="math inline">\(\lambda\)</span> は，単位時間あたりの事象の発生回数の平均を表す．</p>
-<section id="到着間隔とサービス時間" class="level3" data-number="16.1.1">
-<h3 data-number="16.1.1" class="anchored" data-anchor-id="到着間隔とサービス時間"><span class="header-section-number">16.1.1</span> 到着間隔とサービス時間</h3>
-<p><span class="math inline">\(M/M/1\)</span> と <span class="math inline">\(M/M/c\)</span> 待ち行列では，到着間隔とサービス時間が指数分布に従う．確率変数 <span class="math inline">\(T\)</span> を到着間隔を表すとする．このとき，<span class="math inline">\(P(T \leq t)\)</span> は，時間 <span class="math inline">\(t\)</span> 以内に次の客が到着する確率を表す．<span class="math inline">\(E(T)\)</span> は，到着間隔の平均を表す．<span class="math inline">\(\lambda = 1/E(T)\)</span> は，単位時間あたりの到着する客数の平均を表す．この <span class="math inline">\(\lambda\)</span> は，前の章で説明した<strong>平均到着率</strong>である．</p>
-<div id="exm-exp-basic-arrival" class="theorem example">
-<p><span class="theorem-title"><strong>例 16.1</strong></span> ある店舗では，1時間あたり平均12人の客が来店する．到着間隔 <span class="math inline">\(T\)</span> が指数分布に従うと仮定する．次の問いに答えよ．</p>
-<ol type="1">
-<li>平均到着間隔 <span class="math inline">\(E[T]\)</span> を求めよ．</li>
-<li>2分以内に次の客が到着する確率を求めよ．</li>
-</ol>
-<p>平均到着率は <span class="math inline">\(\lambda = 12\)</span> 人/時間である．平均到着間隔は</p>
+<p>で <span class="math inline">\(\mu(v)\)</span> と <span class="math inline">\(\sigma^2(v)\)</span> を計算する。</p>
+<p><a href="project.html#exm-pert-2" class="quarto-xref">例&nbsp;<span>9.2</span></a> のプロジェクト・ネットワークに対して、各作業点の楽観値、最頻値、悲観値が次のように与えられたとするとき、平均と分散を求めると、次の表のようになる。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(v\)</span></th>
+<th><span class="math inline">\(a\)</span></th>
+<th><span class="math inline">\(m\)</span></th>
+<th><span class="math inline">\(b\)</span></th>
+<th><span class="math inline">\(\mu\)</span></th>
+<th><span class="math inline">\(\sigma^2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>s</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>A</td>
+<td>0.5</td>
+<td>2</td>
+<td>3.5</td>
+<td>2</td>
+<td>0.25</td>
+</tr>
+<tr class="odd">
+<td>B</td>
+<td>1.5</td>
+<td>3</td>
+<td>4.5</td>
+<td>3</td>
+<td>0.25</td>
+</tr>
+<tr class="even">
+<td>C</td>
+<td>1.5</td>
+<td>3</td>
+<td>4.5</td>
+<td>3</td>
+<td>0.25</td>
+</tr>
+<tr class="odd">
+<td>D</td>
+<td>0.5</td>
+<td>2</td>
+<td>3.5</td>
+<td>2</td>
+<td>0.25</td>
+</tr>
+<tr class="even">
+<td>E</td>
+<td>1</td>
+<td>5.5</td>
+<td>7</td>
+<td>5</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>F</td>
+<td>5</td>
+<td>8</td>
+<td>17</td>
+<td>9</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>G</td>
+<td>0.5</td>
+<td>2</td>
+<td>3.5</td>
+<td>2</td>
+<td>0.25</td>
+</tr>
+<tr class="odd">
+<td>t</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="不確実性を考慮したpertcpm" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="不確実性を考慮したpertcpm"><span class="header-section-number">10.2</span> 不確実性を考慮したPERT/CPM</h2>
+<p>3 点見積もりを用いて、各作業点 <span class="math inline">\(v \in V\)</span> の所要時間の平均 <span class="math inline">\(\mu(v)\)</span> と分散 <span class="math inline">\(\sigma^2(v)\)</span> を求めたとする。このとき、与えられた時間までにプロジェクトが完了する確率を求めたい。例えば，「プロジェクトが 30 日以内に完了する確率はどれくらいか？」という問いである。</p>
+<p>プロジェクト・ネットワークにおけるパス <span class="math inline">\(P = (s, v_{i_1}, v_{i_2}, \ldots, v_{i_k}, t)\)</span> の所要時間の平均 <span class="math inline">\(\mu(P)\)</span> と分散 <span class="math inline">\(\sigma^2(P)\)</span> は、それぞれ次のように推定できる。</p>
 <p><span class="math display">\[
-E[T] = 1/\lambda = 1/12 \text{ 時間} = 5 \text{ 分}
-\]</span> である．</p>
-<p>単位を時間に揃え，<span class="math inline">\(P(T \leq 1/30)\)</span> を計算する． <span class="math display">\[
-P(T \leq 1/30) = F_T(1/30) = 1 - e^{-12 \times (1/30)} \approx 0.3297
-\]</span> よって，2分以内に次の客が到着する確率は約0.3297である．</p>
-</div>
-<p>次の図は，<a href="#exm-exp-basic-arrival" class="quarto-xref">例&nbsp;<span>16.1</span></a> で説明した到着間隔のシミュレーション例を示している．平均到着率 <span class="math inline">\(\lambda = 12\)</span> 人/時間であるとき，15人の到着時間をシミュレーションした．横軸は時間を表し，青い線は各客の到着時間を示している．</p>
-<div id="d49e7733" class="cell" data-execution_count="2">
-<details class="code-fold">
-<summary>コード</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> expon</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">0</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>lambda_param <span class="op">=</span> <span class="dv">12</span>  <span class="co"># 平均到着率（人/時間）</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>num_arrivals <span class="op">=</span> <span class="dv">15</span>  <span class="co"># シミュレーションする到着数</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>inter_arrival_times <span class="op">=</span> expon.rvs(scale<span class="op">=</span><span class="dv">1</span> <span class="op">/</span> lambda_param, size<span class="op">=</span>num_arrivals)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>arrival_times <span class="op">=</span> np.cumsum(inter_arrival_times)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">2</span>))</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>plt.eventplot(arrival_times, orientation<span class="op">=</span><span class="st">"horizontal"</span>, colors<span class="op">=</span><span class="st">"blue"</span>)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Simulated Arrival Times"</span>)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Time (hours)"</span>)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>plt.yticks([])</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, <span class="bu">max</span>(arrival_times) <span class="op">+</span> <span class="fl">0.15</span>)</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="poisson_process_files/figure-html/cell-3-output-1.png" width="774" height="228" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<div id="exm-exp-basic-service" class="theorem example">
-<p><span class="theorem-title"><strong>例 16.2</strong></span> あるコールセンターでは，1時間あたり平均6人の客を処理できる．サービス時間 <span class="math inline">\(T\)</span> が指数分布に従うと仮定する．次の問いに答えよ．</p>
-<ol type="1">
-<li>平均サービス時間 <span class="math inline">\(E[T]\)</span> を求めよ．</li>
-<li>3分以内にサービスが完了する確率を求めよ．</li>
-</ol>
-<p>平均サービス率は <span class="math inline">\(\mu = 6\)</span> である．平均サービス時間は次のように計算される． <span class="math display">\[
-E[T] = \frac{1}{\mu} = \frac{1}{6} \text{ 時間} = 10 \text{ 分}
+\mu(P) = \sum_{v \in P} \mu(v), \quad \sigma^2(P) = \sum_{v \in P} \sigma^2(v)
 \]</span></p>
-<p><span class="math inline">\(P(T \leq 0.05)\)</span> を計算する． <span class="math display">\[
-P(T \leq 0.05) = F_T(0.05) = 1 - e^{-6 \times 0.05} \approx 0.2592
-\]</span> よって，3分以内にサービスが完了する確率は約0.2592である．</p>
-</div>
-</section>
-<section id="無記憶性" class="level3" data-number="16.1.2">
-<h3 data-number="16.1.2" class="anchored" data-anchor-id="無記憶性"><span class="header-section-number">16.1.2</span> 無記憶性</h3>
-<div id="def-memoryless" class="theorem definition">
-<p><span class="theorem-title"><strong>定義 16.1</strong></span> 確率変数 <span class="math inline">\(T\)</span> が<strong>無記憶性</strong>（memoryless）を持つとは，任意の非負実数 <span class="math inline">\(s, t\)</span> に対して <span class="math display">\[
-P(T &gt; s + t \mid T &gt; s) = P(T &gt; t), \quad (s, t \geq 0)
-\]</span> が成り立つことをいう．</p>
-</div>
-<p>確率変数 <span class="math inline">\(T\)</span>　を到着間隔とする．無記憶性とは，すでに時間 <span class="math inline">\(s\)</span> が経過している場合（<span class="math inline">\(T &gt; s\)</span>），さらに時間 <span class="math inline">\(t\)</span> 経過した後に到着が発生していない確率（<span class="math inline">\(T &gt; s + t\)</span>）が，最初から時間 <span class="math inline">\(t\)</span> 経過した後に到着が発生していない確率と等しいことを意味する．</p>
-<div id="exm-memoryless-bus" class="theorem example">
-<p><span class="theorem-title"><strong>例 16.3</strong></span> 仮に，バスの到着間隔が指数分布に従うのであれば，「すでに10分待っていたので，そろそろバスが来るだろう」という考え方は成り立たない．</p>
-</div>
-<div id="thm-exp-memoryless" class="theorem">
-<p><span class="theorem-title"><strong>定理 16.1</strong></span> 指数分布に従う確率変数は無記憶性を持つ．</p>
-</div>
-<div class="proof">
-<p><span class="proof-title"><em>証明</em>. </span><span class="math display">\[\begin{align*}
-P(T &gt; s + t \mid T &gt; s) &amp; = \frac{P(T &gt; s + t, T &gt; s)}{P(T &gt; s)} \\
-&amp; = \frac{P(T &gt; s + t)}{P(T &gt; s)} \\
-&amp; = \frac{e^{-\lambda (s + t)}}{e^{-\lambda s}} \\
-&amp; = e^{-\lambda t} \\
-&amp; = P(T &gt; t)
-\end{align*}\]</span></p>
-</div>
-<p>指数分布が無記憶性を持つ唯一の連続分布である．</p>
-</section>
-</section>
-<section id="ポアソン過程" class="level2" data-number="16.2">
-<h2 data-number="16.2" class="anchored" data-anchor-id="ポアソン過程"><span class="header-section-number">16.2</span> ポアソン過程</h2>
-<p>確率過程 <span class="math inline">\(\{N(t), t \geq 0\}\)</span> とは，時間 <span class="math inline">\(t\)</span> とともに変化する確率変数 <span class="math inline">\(N(t)\)</span> の集まりである．</p>
-<p><strong>計数過程</strong>（counting process）とは，次の条件を満たす確率過程 <span class="math inline">\(\{N(t), t \geq 0\}\)</span> である．</p>
-<ol type="1">
-<li><span class="math inline">\(N(t) \geq 0\)</span></li>
-<li><span class="math inline">\(N(t) \in \mathbb{Z}\)</span></li>
-<li><span class="math inline">\(N(t)\)</span> は単調増加である</li>
-</ol>
-<p><span class="math inline">\(N(t)\)</span> は，時刻 <span class="math inline">\(t\)</span> までに発生した事象の回数を表す．例として，客の到着数，機械の故障回数などが挙げられる．</p>
-<div id="def-independent-increments" class="theorem definition">
-<p><span class="theorem-title"><strong>定義 16.2</strong></span> 確率過程 <span class="math inline">\(\{N(t), t \geq 0\}\)</span> が<strong>独立増分</strong>（independent increments）を持つとは，任意の <span class="math inline">\(0 \leq t_1 &lt; t_2 &lt; \cdots &lt; t_n\)</span> に対して， <span class="math display">\[
-N(t_2) - N(t_1), N(t_3) - N(t_2), \ldots, N(t_n) - N(t_{n-1})
-\]</span> が互いに独立であることをいう．</p>
-</div>
-<p>計数過程では，<span class="math inline">\(N(t_i) - N(t_{i-1})\)</span> は時間区間 <span class="math inline">\((t_{i-1}, t_i]\)</span> に発生した事象の回数を表す．計数過程が独立増分を持つとは，重なりのない時間区間における事象の発生回数が互いに独立であることを意味する．</p>
-<div id="exm-independent-increments" class="theorem example">
-<p><span class="theorem-title"><strong>例 16.4</strong></span> ある店舗での客の到着数を表す計数過程 <span class="math inline">\(\{N(t), t \geq 0\}\)</span> を考える．この計数過程が独立増分を持つとは，例えば，時間区間 <span class="math inline">\((0, 1]\)</span> に到着した客数と時間区間 <span class="math inline">\((3, 6]\)</span> に到着した客数が独立であることを意味する．</p>
-</div>
-<div id="def-stationary-increments" class="theorem definition">
-<p><span class="theorem-title"><strong>定義 16.3</strong></span> 確率過程 <span class="math inline">\(\{N(t), t \geq 0\}\)</span> が<strong>定常増分</strong>（stationary increments）を持つとは，任意の <span class="math inline">\(t &gt; s \geq 0\)</span> と <span class="math inline">\(h \geq 0\)</span> に対して，<span class="math inline">\(N(t) - N(s)\)</span> と <span class="math inline">\(N(t + h) - N(s + h)\)</span> が同一の分布に従うことをいう．</p>
-</div>
-<p>計数過程が定常増分を持つとは，事象の発生回数は時間区間の長さのみに依存し，時間の位置には依存しないことを意味する．</p>
-<div id="exm-stationary-increments" class="theorem example">
-<p><span class="theorem-title"><strong>例 16.5</strong></span> ある店舗での客の到着数を表す計数過程 <span class="math inline">\(\{N(t), t \geq 0\}\)</span> を考える．この計数過程が定常増分を持つとは，例えば，12時から13時の間に到着した客数と、14時から15時の間に到着した客数が同じ分布に従うことを意味する．</p>
-</div>
-<div id="def-poisson-process" class="theorem definition">
-<p><span class="theorem-title"><strong>定義 16.4</strong></span> 以下の性質を満たす計数過程 <span class="math inline">\(\{N(t), t \geq 0\}\)</span> を パラメータ <span class="math inline">\(\lambda &gt; 0\)</span> の<strong>ポアソン過程</strong>（Poisson process）という．</p>
-<ol type="1">
-<li><span class="math inline">\(N(0) = 0\)</span></li>
-<li><span class="math inline">\(P(N(t + \Delta t) - N(t) = 1) = \lambda \Delta t + o(\Delta t)\)</span></li>
-<li><span class="math inline">\(P(N(t + \Delta t) - N(t) \geq 2) = o(\Delta t)\)</span></li>
-<li>独立増分を持つ</li>
-</ol>
-<p>ここで，<span class="math inline">\(o(\Delta t)\)</span> は <span class="math display">\[
-\lim_{\Delta t \to 0} \frac{o(\Delta t)}{\Delta t} = 0
-\]</span> を満たす関数である．</p>
-</div>
-<p><span class="math inline">\(N(0) = 0\)</span> は，時刻 <span class="math inline">\(0\)</span> では事象が発生していないことを表す．</p>
-<p><span class="math inline">\(P(N(t + \Delta t) - N(t) = 1) = \lambda \Delta t + o(\Delta t)\)</span> は，時間区間 <span class="math inline">\([t, t + \Delta t]\)</span> に事象が1回発生する確率を表す．<span class="math inline">\(\Delta t\)</span> が十分小さいとき，事象が1回発生する確率は <span class="math inline">\(\lambda \Delta t\)</span> に近似できる．</p>
-<p><span class="math inline">\(P(N(t + \Delta t) - N(t) \geq 2) = o(\Delta t)\)</span> は，時間区間 <span class="math inline">\([t, t + \Delta t]\)</span> に事象が2回以上発生する確率を表す．<span class="math inline">\(\Delta t\)</span> が十分小さいとき，事象が2回以上発生する確率は無視できるほど小さい．</p>
-<div id="def-poisson-distribution" class="theorem definition">
-<p><span class="theorem-title"><strong>定義 16.5</strong></span> 離散型確率変数 <span class="math inline">\(X\)</span> が<strong>ポアソン分布</strong>（Poisson distribution）に従うとは，次の確率質量関数を持つことをいう． <span class="math display">\[
-p_X(k) = P(X = k) = e^{-\lambda} \frac{\lambda^k}{k!}, \quad k = 0, 1, 2, \ldots
-\]</span> ここで，<span class="math inline">\(\lambda &gt; 0\)</span> は分布のパラメータである．</p>
-</div>
-<p>ポアソン分布の平均と分散は <span class="math display">\[
-E[X] = \lambda, \quad \text{Var}(X) = \lambda
-\]</span> である．</p>
-<p>次の定理は，ポアソン過程 <span class="math inline">\(\{N(t), t \geq 0\}\)</span> とポアソン分布の関係を示している．</p>
-<div id="thm-poisson-process" class="theorem">
-<p><span class="theorem-title"><strong>定理 16.2</strong></span> <span class="math inline">\(\{N(t), t \geq 0\}\)</span> をパラメータ <span class="math inline">\(\lambda &gt; 0\)</span> のポアソン過程とする．このとき，<span class="math inline">\(N(t)\)</span> は時刻 <span class="math inline">\(t\)</span> までに発生した事象の回数を表し，パラメータ <span class="math inline">\(\lambda t\)</span> のポアソン分布に従う．すなわち， <span class="math display">\[
-P(N(t) = k) = e^{-\lambda t} \frac{(\lambda t)^k}{k!}, \quad k = 0, 1, 2, \ldots.
-\]</span></p>
-</div>
-<div class="proof">
-<p><span class="proof-title"><em>証明</em>. </span>省略する．</p>
-</div>
-<div id="exm-poisson-process-arrival" class="theorem example">
-<p><span class="theorem-title"><strong>例 16.6</strong></span> ある店舗での客の到着数を表すポアソン過程 <span class="math inline">\(\{N(t), t \geq 0\}\)</span> を考える．平均到着率は <span class="math inline">\(\lambda = 5\)</span> 人/分である．営業時間は10:00から18:00までの8時間である．次の問いに答えよ．</p>
-<ol type="1">
-<li>10:00から10:03までの3分間に到着する客数の分布を求めよ．</li>
-<li>11:00から11:03までの3分間に2人の客が到着する確率を求めよ．</li>
-</ol>
-<p>開店から3分間の到着数は，<span class="math inline">\(N(3)\)</span> と表される．<span class="math inline">\(N(3)\)</span> はパラメータ <span class="math inline">\(\lambda t\)</span> のポアソン分布に従う． <span class="math display">\[
-P(N(3) = k) = e^{-5 \cdot 3} \frac{(5 \cdot 3)^k}{k!}, \quad k = 0, 1, 2, \ldots
-\]</span></p>
-<p>独立増分を持つため，11:00から11:03までの到着数も同じ分布に従う．</p>
+<p>パス <span class="math inline">\(P\)</span> の所要時間の標準偏差 <span class="math inline">\(\sigma(P)\)</span> は、</p>
 <p><span class="math display">\[
-P(N(3) = 2) = e^{-5 \cdot 3} \frac{(5 \cdot 3)^2}{2!}
+\sigma(P) = \sqrt{\sigma^2(P)}
 \]</span></p>
+<p>で与えられる。求められたパスの中で、所要時間の平均 <span class="math inline">\(\mu(P)\)</span> が最大のパスをクリティカルパス <span class="math inline">\(P^*\)</span> とする。<a href="project.html#sec-critical-path" class="quarto-xref"><span>セクション 9.3</span></a> で述べた方法でクリティカルパスを求めることができる。</p>
+<p>クリティカルパス <span class="math inline">\(P^*\)</span> の所要時間を <span class="math inline">\(X\)</span> とし、与えられた時間 <span class="math inline">\(d\)</span> までにプロジェクトが完了する確率を <span class="math inline">\(\mathbb{P}(X \leq d)\)</span> と表す。</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-</section>
-<section id="ポアソン過程の到着間隔" class="level2" data-number="16.3">
-<h2 data-number="16.3" class="anchored" data-anchor-id="ポアソン過程の到着間隔"><span class="header-section-number">16.3</span> ポアソン過程の到着間隔</h2>
-<p><span class="math inline">\(Y_k\)</span> を <span class="math inline">\(k\)</span> 回目の事象が発生するまでの時間とし，<span class="math inline">\(T_k\)</span> は <span class="math inline">\((k-1)\)</span> 回目から <span class="math inline">\(k\)</span> 回目の事象が起こるまでの時間とする．<span class="math inline">\(k = 1, 2, \ldots\)</span> に対して， <span class="math display">\[
-T_1 = Y_1, \quad T_k = Y_k - Y_{k-1} \quad (k = 2, 3, \ldots)
-\]</span> と定義する．また， <span class="math display">\[
-Y_k = \sum_{i=1}^k T_i = T_1 + T_2 + \cdots + T_k
-\]</span> である．</p>
-<div id="thm-poisson-exp" class="theorem">
-<p><span class="theorem-title"><strong>定理 16.3</strong></span> <span class="math inline">\(\{N(t), t \geq 0\}\)</span> をパラメータ <span class="math inline">\(\lambda &gt; 0\)</span> のポアソン過程とする．このとき，<span class="math inline">\(k = 1, 2, \ldots\)</span> に対して，時間間隔 <span class="math inline">\(T_k \sim \text{Exp}(\lambda)\)</span> に従い，<span class="math inline">\(T_1, T_2, \ldots\)</span> は互いに独立である．</p>
+<div class="callout-title-container flex-fill">
+ノート
 </div>
-<div class="proof">
-<p><span class="proof-title"><em>証明</em>. </span>省略する．</p>
 </div>
+<div class="callout-body-container callout-body">
+<p>ここでは、計算を簡単にするために、クリティカルパスが最も時間がかかるパスであると仮定している。しかし，実際には、平均値から計算されたクリティカルパスが、最も時間がかかるパスであるとは限らない。これにより，クリティカルパスをを用いて計算された確率は，実際の確率よりも過大評価される可能性がある。</p>
+<p>ここで述べる方法をすべてのパスに適用し、各パスの確率を計算すれば、より正確な確率を得ることができる</p>
+</div>
+</div>
+<p><span class="math display">\[
+\mathbb{P}(X \leq d) = \phi\left(\frac{d - \mu(P^*)}{\sigma(P^*)}\right)
+\]</span></p>
+<p>ここで、<span class="math inline">\(\phi(z)\)</span> は標準正規分布の確率密度関数である。<span class="math inline">\(z\)</span> は次のように計算し、標準正規分布表を用いて <span class="math inline">\(\phi(z)\)</span> を調べる。</p>
+<p><span class="math display">\[
+z = \frac{d - \mu(P^*)}{\sigma(P^*)}
+\]</span></p>
+<p><a href="project.html#exm-pert-2" class="quarto-xref">例&nbsp;<span>9.2</span></a> では、クリティカルパスは <span class="math inline">\(s \to B \to E \to F \to t\)</span> であり、このパスの所要時間の平均、分散、標準偏差は次のように計算できる。</p>
+<p><span class="math display">\[
+\mu(P^*) = 3 + 5 + 9 = 17
+\]</span></p>
+<p><span class="math display">\[
+\sigma^2(P^*) = 0.25 + 1 + 4 = 5.25
+\]</span></p>
+<p><span class="math display">\[
+\sigma(P^*) = \sqrt{5.25} \approx 2.29
+\]</span></p>
+<p>与えられた時間 <span class="math inline">\(d = 20\)</span> 日までにプロジェクトが完了する確率を求めるには、次のように計算する。</p>
+<p><span class="math inline">\(z\)</span> を計算すると、</p>
+<p><span class="math display">\[
+z = \frac{20 - 17}{2.29} \approx 1.31
+\]</span></p>
+<p>標準正規分布表を用いて、<span class="math inline">\(\phi(1.31) \approx 0.9049\)</span> である。したがって、与えられた時間 <span class="math inline">\(d = 20\)</span> 日までにプロジェクトが完了する確率は約 90.49% である。</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Pleguezuelo2003-uf" class="csl-entry" role="listitem">
+Pleguezuelo, Rafael Herrerı́as, José Garcı́a Pérez, と Salvador Cruz Rambaud. 2003. <span>「A note on the reasonableness of <span>PERT</span> hypotheses」</span>. <em>Oper. Res. Lett.</em> 31 (1): 60–62.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -1289,13 +1218,13 @@ Y_k = \sum_{i=1}^k T_i = T_1 + T_2 + \cdots + T_k
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../queuing/intro.html" class="pagination-link" aria-label="待ち行列モデルの基礎">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">待ち行列モデルの基礎</span></span>
+      <a href="../pert/project.html" class="pagination-link" aria-label="クリティカルパス">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">クリティカルパス</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../career/intro.html" class="pagination-link" aria-label="キャリア">
-        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">キャリア</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../pert/tradeoff.html" class="pagination-link" aria-label="時間とコストのトレードオフ">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">時間とコストのトレードオフ</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
