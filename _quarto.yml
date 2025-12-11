@@ -57,9 +57,11 @@ book:
       chapters:
         - network/graph.qmd
         # - network/shortest-path.qmd
-    # - part: "PERT/CPM"
-    #   chapters:
-    #     - pert/project.qmd
+    - part: "PERT/CPM"
+      chapters:
+        - pert/project.qmd
+        - pert/uncertain.qmd
+        - pert/tradeoff.qmd
     - part: "データ包絡分析"
       chapters:
         - dea/intro.qmd

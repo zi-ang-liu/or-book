@@ -1,0 +1,248 @@
+---
+title: 時間とコストのトレードオフ
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
+## 時間とコストのトレードオフ
+
+プロジェクトの所要時間を短縮するために、追加のコストをかけて作業時間を短縮することができる場合がある。このような場合、決められた時間までにプロジェクトを完了するために、どの作業をどれだけ短縮すればよいかを決定する問題を考える。
+
+### 問題の定式化
+
+プロジェクト・ネットワーク $G = (V, E)$ に対して、各作業点 $i \in V$ に次のパラメータが与えられるとする。
+
+- $c_i$: 作業 $i$ の単位時間あたりの短縮コスト
+- $M_i$: 作業 $i$ の最大短縮時間
+- $T$: プロジェクトの完了時間の上限
+- $\tau_i$: 作業 $i$ の標準所要時間
+
+決定変数は次の通りである。
+
+- $y_i$: 作業 $i$ の開始時間
+- $x_i$: 作業 $i$ の短縮時間
+
+プロジェクトの所要時間を短縮するためのコストは
+
+$$
+\sum_{i \in V} c_i x_i
+$$
+
+で与えられる。$j$ が $i$ の後続作業である場合，作業 $j$ はすべての先行作業 $i$ が完了した後に開始できるため，
+
+$$
+y_j \geq y_i + \tau_i - x_i , \quad \forall (i, j) \in E
+$$
+
+がある．また、各作業の最大短縮時間 $M_i$ により、すべての作業 $i \in V$ について、
+
+$$
+0 \leq x_i \leq M_i
+$$
+
+である。プロジェクト全体の完了時間は終点 $t$ の終了時間 $y_t$ であり、これが上限 $T$ 以下である必要があるから、
+
+$$
+y_t \leq T
+$$
+である。始点 $s$ の開始時間は 0 とするから、
+$$
+y_s = 0
+$$
+である。
+
+このとき、この問題は次の線形計画問題として定式化できる。
+
+\begin{align*}
+\text{minimize} \quad & \sum_{i \in V} c_i x_i &\\
+\text{subject to} \quad & y_j \geq y_i + \tau_i - x_i, \quad & \forall (i, j) \in E \\
+& 0 \leq x_i \leq M_i, \quad & \forall i \in V \\
+& y_t \leq T \\
+& y_s = 0
+\end{align*}
+
+
+
+### 例題
+
+プロジェクト・ネットワークはグラフ $G = (V, E)$ で表す。作業の集合は
+
+$$
+V = \{s, t, A, B, C, D, E\}
+$$
+であり、辺の集合は
+
+$$
+E = \{(s, A), (s, C), (A, B), (C, D), (B, E), (D, E), (E, t)\} 
+$$
+である。ここで、$s$ は始点、$t$ は終点である。プロジェクト全体の所要時間の上限を $T = 10$ とする。
+
+作業時間、コスト、最大短縮時間は次の表のように与えられる。
+
+| 作業 | $\tau_i$ | $c_i$ | $M_i$ |
+| ---- | -------- | ----- | ----- |
+| A    | 7        | 100   | 3     |
+| B    | 3        | 150   | 1     |
+| C    | 6        | 200   | 2     |
+| D    | 3        | 150   | 2     |
+| E    | 2        | 250   | 1     |
+
+この問題を次のように定式化できる。
+
+\begin{align*}
+\text{minimize} \quad & 100x_A + 150x_B + 200x_C + 150x_D + 250x_E &\\
+\text{subject to} \quad & y_A \geq 0 \\
+& y_C \geq 0 \\
+& y_B \geq y_A + 7 - x_A \\
+& y_D \geq y_C + 6 - x_C \\
+& y_E \geq y_B + 3 - x_B \\
+& y_E \geq y_D + 3 - x_D \\
+& y_t \geq y_E + 2 - x_E \\
+& 0 \leq x_A \leq 3 \\
+& 0 \leq x_B \leq 1 \\
+& 0 \leq x_C \leq 2 \\
+& 0 \leq x_D \leq 2 \\
+& 0 \leq x_E \leq 1 \\
+& y_t \leq 10 \\
+& y_s = 0
+\end{align*}
+
+この線形計画問題は、最適化ソルバーを用いて解くことができる。以下に Gurobi を用いた実装例を示す。
+
+```python
+!pip install gurobipy
+from gurobipy import Model, GRB
+
+# データ定義
+V = ["s", "t", "A", "B", "C", "D", "E"]
+E = [("s", "A"), ("s", "C"), ("A", "B"), ("C", "D"), ("B", "E"), ("D", "E"), ("E", "t")]
+
+tau = {"A": 7, "B": 3, "C": 6, "D": 3, "E": 2}
+cost = {"A": 100, "B": 150, "C": 200, "D": 150, "E": 250}
+M = {"A": 3, "B": 1, "C": 2, "D": 2, "E": 1}
+
+T = 10
+
+# モデル作成
+m = Model("Project_Crashing")
+m.setParam("OutputFlag", 0) 
+
+# 変数定義
+x = {i: m.addVar(lb=0, ub=M[i], name="x_{}".format(i)) for i in M}
+y = {i: m.addVar(lb=0, name="y_{}".format(i)) for i in V}
+
+# 目的関数
+m.setObjective(sum(cost[i] * x[i] for i in M), GRB.MINIMIZE)
+
+# 制約
+for i, j in E:
+    if i == "s":
+        m.addConstr(y[j] >= 0)
+    elif i in tau:
+        m.addConstr(y[j] >= y[i] + tau[i] - x[i])
+
+# プロジェクト終了制約
+m.addConstr(y["t"] <= T)
+
+# 開始ノード固定
+m.addConstr(y["s"] == 0)
+
+# 最適化
+m.optimize()
+
+# 結果表示
+print("Objective:", m.objVal)
+for i in x:
+    print("x_{} =".format(i), x[i].X)
+for i in y:
+    print("y_{} =".format(i), y[i].X)
+```
+
+```plaintext
+Objective: 350.0
+x_A = 1.0
+x_B = 0.0
+x_C = 0.0
+x_D = 0.0
+x_E = 1.0
+y_s = 0.0
+y_t = 10.0
+y_A = 0.0
+y_B = 6.0
+y_C = 0.0
+y_D = 6.0
+y_E = 9.0
+```
+
+この結果から、作業 A を 1 日、作業 E を 1 日短縮することで、最小コスト 350 でプロジェクトを 10 日以内に完了できることがわかる。
+
+## 文献案内
+
+## 練習問題
+
+:::{#exr-pert-1}
+次の作業リストに基づいて、以下の問いに答えよ。
+
+| 作業 | 先行作業 | 時間（日） |
+| ---- | -------- | ---------- |
+| A    | -        | 4          |
+| B    | -        | 3          |
+| C    | A        | 2          |
+| D    | A        | 5          |
+| E    | B        | 6          |
+| F    | C, D     | 4          |
+| G    | E        | 3          |
+
+1. プロジェクト・ネットワークをAONで書け。
+2. 各作業の最早開始時刻、最早終了時刻、最遅開始時刻、最遅終了時刻、スラックを求めよ。
+3. このプロジェクトのクリティカルパスを求めよ。
+:::
+
+:::{#sol-pert-1}
+1. プロジェクト・ネットワークは次のようになる。
+```{python}
+import matplotlib.pyplot as plt
+import networkx as nx
+import numpy as np
+
+# グラフの作成（頂点を番号で定義）
+G = nx.DiGraph()
+edges = [
+    ("s", "A"),
+    ("s", "B"),
+    ("A", "C"),
+    ("A", "D"),
+    ("C", "F"),
+    ("D", "F"),
+    ("B", "E"),
+    ("E", "G"),
+    ("F", "t"),
+    ("G", "t"),
+]
+G.add_edges_from(edges)
+for layer, nodes in enumerate(nx.topological_generations(G)):
+    for node in nodes:
+        G.nodes[node]["layer"] = layer
+pos = nx.multipartite_layout(G, subset_key="layer") 
+label_pos = {}
+for k, (x, y) in pos.items():
+    r = np.sqrt(x**2 + y**2) if np.sqrt(x**2 + y**2) > 0 else 1
+    scale = 1.12
+    label_pos[k] = (x * scale, y * scale)
+# Plotting
+nx.draw_networkx(
+    G,
+    pos=pos,
+    with_labels=True,
+    node_color="white",
+    node_size=500,
+    edgecolors="black",
+)
+plt.axis("off")
+plt.show()
+```
+
+2~3. 省略
+:::
