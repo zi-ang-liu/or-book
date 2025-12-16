@@ -58,7 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -109,6 +109,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "サーチ"
   }
 }</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<script type="text/javascript">
+window.PlotlyConfig = {MathJaxConfig: 'local'};
+if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+</script>
+<script type="module">import "https://cdn.plot.ly/plotly-3.3.0.min"</script>
+
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -949,22 +958,23 @@ W_q = \frac{\lambda}{\mu (\mu - \lambda)}.
 </div>
 </div>
 <p>下図は，<span class="math inline">\(M/M/1\)</span> モデルにおける利用率 <span class="math inline">\(\rho\)</span> と平均系内客数 <span class="math inline">\(L\)</span> の関係を示している．</p>
-<div id="5bb0e639" class="cell" data-execution_count="1">
+<div id="277d23e9" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># rho vs L plot for M/M/1 model</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>rho <span class="op">=</span> np.linspace(<span class="fl">0.01</span>, <span class="fl">0.99</span>, <span class="dv">100</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>L <span class="op">=</span> rho <span class="op">/</span> (<span class="dv">1</span> <span class="op">-</span> rho)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>plt.plot(rho, L)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="dv">50</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, <span class="fl">1.1</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Utilization ρ"</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Average number of customers in system L"</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"M/M/1 Model: Utilization vs Average Number of Customers in System"</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>rho <span class="op">=</span> np.linspace(<span class="fl">0.01</span>, <span class="fl">0.99</span>, <span class="dv">100</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>L <span class="op">=</span> rho <span class="op">/</span> (<span class="dv">1</span> <span class="op">-</span> rho)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>plt.plot(rho, L)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="dv">50</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, <span class="fl">1.1</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Utilization ρ"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Average number of customers in system L"</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"M/M/1 Model: Utilization vs Average Number of Customers in System"</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -972,6 +982,54 @@ W_q = \frac{\lambda}{\mu (\mu - \lambda)}.
 <p><img src="birth-death_files/figure-html/cell-2-output-1.png" width="600" height="449" class="figure-img"></p>
 </figure>
 </div>
+</div>
+</div>
+<div id="a8929cdd" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>コード</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># rho vs Lq plot for M/M/1 model using plotly</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>rho <span class="op">=</span> np.linspace(<span class="fl">0.01</span>, <span class="fl">0.99</span>, <span class="dv">100</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>Lq <span class="op">=</span> rho<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> (<span class="dv">1</span> <span class="op">-</span> rho)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.line(</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>rho,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>Lq,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    labels<span class="op">=</span>{<span class="st">"x"</span>: <span class="st">"利用率 ρ"</span>, <span class="st">"y"</span>: <span class="st">"平均待ち行列長 Lq"</span>},</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"M/M/1 モデル: 利用率 vs 平均待ち行列長"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>fig.update_yaxes(<span class="bu">range</span><span class="op">=</span>[<span class="dv">0</span>, <span class="dv">50</span>])</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>fig.update_xaxes(<span class="bu">range</span><span class="op">=</span>[<span class="dv">0</span>, <span class="fl">1.1</span>])</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.3.0.min.js" integrity="sha256-bO3dS6yCpk9aK4gUpNELtCiDeSYvGYnK7jFI58NQnHI=" crossorigin="anonymous"></script>                <div id="e57e4318-37c6-4dcd-a714-2c8ce5ea9e06" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("e57e4318-37c6-4dcd-a714-2c8ce5ea9e06")) {                    Plotly.newPlot(                        "e57e4318-37c6-4dcd-a714-2c8ce5ea9e06",                        [{"hovertemplate":"\u5229\u7528\u7387 \u03c1=%{x}\u003cbr\u003e\u5e73\u5747\u5f85\u3061\u884c\u5217\u9577 Lq=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"","line":{"color":"#636efa","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines","name":"","orientation":"v","showlegend":false,"x":{"dtype":"f8","bdata":"exSuR+F6hD8Lv1ubZmCUP9hz4JJcg54\u002fU5QyRSlTpD+67vRApGSpPyFJtzwfdq4\u002fw9E8HM3DsT\u002f3\u002fh2aiky0Pyos\u002fxdI1bY\u002fXVnglQVeuT+RhsETw+a7P8SzopGAb74\u002ffPDBBx98wD8Wh7LGfcDBP7Ado4XcBMM\u002fSbSTRDtJxD\u002fjSoQDmo3FP33hdML40cY\u002fFnhlgVcWyD+wDlZAtlrJP0qlRv8Un8o\u002f4zs3vnPjyz990id90ifNPxdpGDwxbM4\u002fsP8I+4+wzz8ly\u002fxcd3rQP3IWdbymHNE\u002fv2HtG9a+0T8MrWV7BWHSP1j43do0A9M\u002fpUNWOmSl0z\u002fyjs6Zk0fUPz\u002faRvnC6dQ\u002fjCW\u002fWPKL1T\u002fZcDe4IS7WPya8rxdR0NY\u002fcgcod4By1z+\u002fUqDWrxTYPwyeGDbfttg\u002fWemQlQ5Z2T+mNAn1PfvZP\u002fN\u002fgVRtndo\u002fP8v5s5w\u002f2z+MFnITzOHbP9lh6nL7g9w\u002fJq1i0iom3T9z+NoxWsjdP8BDU5GJat4\u002fDI\u002fL8LgM3z9Z2kNQ6K7fP9MS3teLKOA\u002fejiah6N54D8gXlY3u8rgP8aDEufSG+E\u002fbanOlups4T8Tz4pGAr7hP7r0RvYZD+I\u002fYBoDpjFg4j8GQL9VSbHiP61lewVhAuM\u002fU4s3tXhT4z\u002f6sPNkkKTjP6DWrxSo9eM\u002fR\u002fxrxL9G5D\u002ftISh015fkP5NH5CPv6OQ\u002fOm2g0wY65T\u002fgklyDHovlP4e4GDM23OU\u002fLd7U4k0t5j\u002fUA5GSZX7mP3opTUJ9z+Y\u002fIE8J8pQg5z\u002fHdMWhrHHnP22agVHEwuc\u002fFMA9AdwT6D+65fmw82ToP2ALtmALtug\u002fBzFyECMH6T+tVi7AOljpP1R86m9Sqek\u002f+qGmH2r66T+hx2LPgUvqP0ftHn+ZnOo\u002f7RLbLrHt6j+UOJfeyD7rPzpeU47gj+s\u002f4YMPPvjg6z+HqcvtDzLsPy7Ph50ng+w\u002f1PRDTT\u002fU7D96GgD9ViXtPyFAvKxudu0\u002fx2V4XIbH7T9uizQMnhjuPxSx8Lu1ae4\u002futasa8267j9h\u002fGgb5QvvPwciJcv8XO8\u002frkfhehSu7z8="},"xaxis":"x","y":{"dtype":"f8","bdata":"0G9VUqx6Gj\u002fXFfMvJno6P2ynbnks\u002fU0\u002f8WqxiNHiWj92jmoQrjNlP4+cyu7C1G4\u002fZIKid\u002fcxdT+jsBTtkPh7P1qwHzU\u002f44E\u002fs\u002fOfBzdShj9eqhdeuE2LP+ODTOc\u002fbZA\u002flcXVhcB+kz\u002fNL4QH9d2WP2KRcj6TjZo\u002fS6I6onGQnj9T7q6gxHShP1wjUev7zaM\u002fdGS6AoFVpj+KH1jgCg2pP6Vhv29m9qs\u002f6Gk18ncTrz9KTMg+HjOxP9kEd8xl+LI\u002fGJL9fKzatD+6s+4yG9u2PyJxi9zq+rg\u002f3B4SjWU7uz\u002fJyn2t5529PwzIgqPwEcA\u002fknX3tGtnwT+RRsnZMtDCPwLaZPsfTcQ\u002frRYuBRrfxT\u002fYV7vgFYfHP\u002fMUWIkXRsk\u002fHLtaOTMdyz\u002fwLSy0jg3NP4IlPrBiGM8\u002fhC1NMn6f0D9tvxifX8HRPzqH0GCT8tI\u002fDcxmT+Qz1D9Y3Dd+K4bVP5zrSIFR6tY\u002fvXkA1k9h2D80R\u002fFzMuzZP7Z6AosZjNs\u002fNfoPdTtC3T8eGhPi5g\u002ffP++BgqNCe+A\u002fQEiBzM574T+Y7ueva4riP\u002foeXxb\u002fp+M\u002fkSedwoLV5D\u002fSZ3+pBhTmP1r5lnezZOc\u002ff4DDcM3I6D8jkt24t0HqP5t3Xxf40Os\u002fZAaRSzt47T998yQLWjnvP2qcVWUvi\u002fA\u002fE4sCO8aI8T9TIsEjs5byP5UQfHtctvM\u002fR3jPw1Lp9D\u002fk4FQGVzH2P61jRGlikPc\u002fF0WRO68I+T++JxfQw5z6P2X+k5d\u002fT\u002fw\u002floYUCSsk\u002fj85c4KJRQ8AQGvPLYR8IQFA56CaJUBLAkBZQqSwgY8DQEQAxlm18QRAC\u002fsfBvB1BkBzxiWJDSEIQDw5tVni+AlA0gp493wEDEBL6ZEZfUwOQM6f4c7EbRBAJuIAVXnfEUBpX4JOyoMTQL4TmheOZRVAkx5NB\u002fCSF0A8PqaK0x4aQBFItcP4Ih1AoYNt\u002f7RhIEAE86y7GJoiQIH35QSrYSVAVKYwFbL1KECK3YThO7wtQMLvvUhoNjJAQu1pcwQ7N0CYPriR0JY\u002fQECWJs0II0hAaj0K16OAWEA="},"yaxis":"y","type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"\u5229\u7528\u7387 \u03c1"},"range":[0,1.1]},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"\u5e73\u5747\u5f85\u3061\u884c\u5217\u9577 Lq"},"range":[0,50]},"legend":{"tracegroupgap":0},"title":{"text":"M\u002fM\u002f1 \u30e2\u30c7\u30eb: \u5229\u7528\u7387 vs \u5e73\u5747\u5f85\u3061\u884c\u5217\u9577"}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('e57e4318-37c6-4dcd-a714-2c8ce5ea9e06');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };            </script>        </div>
 </div>
 </div>
 
