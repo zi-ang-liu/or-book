@@ -6,48 +6,259 @@ format:
 jupyter: python3
 ---
 
-**出生死滅過程**（birth-death process）は，個体群の成長と減少をモデル化するために用いられる確率過程の一種である．この過程では，個体の出生と死滅がランダムに発生し，これらのイベントが個体数に影響を与える様子を記述する．多くの待ち行列モデルは，この出生死滅過程を基礎として構築されている．
-
-
-出生死滅過程では，時刻 $t$ における生物集団の個体数を $X_t$ で表す．これを**状態**（state）とも呼ぶ．状態 $X_t$ は**状態空間** $\{0, 1, 2, \ldots\}$ 上に値をとる．**状態遷移**（state transition）は，個体の出生または死滅によって引き起こされる．状態 $X_t = i$ から，次の状態 $X_{t+1} = j$ に遷移する確率は，**遷移確率**（transition probability）と呼ばれる．
-
-出生死滅過程においては，状態遷移は隣接する状態間でのみ発生し，具体的には状態 $i$ から $i+1$（出生）または $i-1$（死滅）への遷移が可能である．特に．
+出生死滅過程では，時刻 $t$ における生物集団の個体数を $X_t$ で表す．これを**状態**（state）とも呼ぶ．状態 $X_t$ は**状態空間** $\{0, 1, 2, \ldots\}$ 上に値をとる．**状態遷移**（state transition）は，個体の出生または死滅によって引き起こされる．出生死滅過程では，状態遷移は隣接する状態間でのみ発生する．状態 $i$ から状態 $i+1$ に遷移する確率を $\lambda_n$，状態 $n \geq 1$ から状態 $n-1$ に遷移する確率を $\mu_n $ と表す．すなわち，
 
 $$
-\lambda_i = P(X_{t+1} = i+1 | X_t = i).
+\lambda_n = P(X_{t+1} = n+1 | X_t = n),
 $$
 $$
-\mu_i = P(X_{t+1} = i-1 | X_t = i).
+\mu_n = P(X_{t+1} = n-1 | X_t = n).
 $$
 
-ここで，$\lambda_i$ は状態 $i$ から $i+1$ への出生遷移確率，$\mu_i$ は状態 $i$ から $i-1$ への死滅遷移確率を表す．
+出生死滅過程の遷移確率図は以下に示す．
 
-```{mermaid}
- flowchart LR
-  %% Define states
-  n0((0))
-  n1((1))
-  n2((2))
-  nn((...))
+```{dot}
+//| fig-width: 5
+//| fig-height: 1
 
-  %% Forward (birth) transitions
-  n0 -->|$$\lambda_0$$| n1
-  n1 -->|$$\lambda_1$$| n2
-  n2 --> nn
-
-
-  %% Backward (death) transitions
-  n1 -->|$$\mu_1$$| n0
-  n2 -->|$$\mu_2$$| n1
-  nn --> n2
+digraph BirthDeathProcess {
+    rankdir="LR";
+    node [shape = circle];
+    0 -> 1 [label = "λ₀"];
+    1 -> 0 [label = "μ₁"];
+    1 -> 2 [label = "λ₁"];
+    2 -> 1 [label = "μ₂"];
+    2 -> 3 [label = "λ₂"];
+    3 -> 2 [label = "μ₃"];
+    3 -> 4 [label = "λ₃"];
+    4 -> 3 [label = "μ₄"];
+    // Add more states as needed
+}
 ```
 
-$\pi_j$ を状態 $j$ における**定常分布**（stationary distribution）とする．出生死滅過程は，
-次の式が成り立つ．
+
+:::{.callout-tip}
+### 出生死滅過程とマルコフ連鎖
+
+出生死滅過程はマルコフ連鎖の一種である．
+
+:::
+
+## 定常状態
+
+時刻 $t$ においてに，状態 $n$ に入る回数を $E_n(t)$，状態 $n$ を出る回数を $L_n(t)$ と表すとき，
+$$
+|E_n(t) - L_n(t)| \leq 1
+$$
+が成り立つ．これを $t$ で割ると，
+$$
+\left| \frac{E_n(t)}{t} - \frac{L_n(t)}{t} \right| \leq \frac{1}{t}
+$$
+となる．$t \to \infty$ としたとき，
 
 $$
-\lambda_{0} \pi_0 = \mu_1 \pi_1,
+\lim_{t \to \infty} \frac{E_n(t)}{t} - \lim_{t \to \infty} \frac{L_n(t)}{t} = 0
+$$
+が得られる．すなわち，$t \to \infty$ としたとき，状態 $i$ に入る遷移率と状態 $i$ を出る遷移率は等しい．
+
+システムが状態 $i$ に滞在する確率（あるいは，時間比）を $\pi_n$ と表すとき，
+
+\begin{align*}
+\pi_0 \lambda_0 & = \pi_1 \mu_1 \\
+\pi_1 (\lambda_1 + \mu_1) & = \pi_0 \lambda_0 + \pi_2 \mu_2 \\
+\pi_2 (\lambda_2 + \mu_2) & = \pi_1 \lambda_1 + \pi_3 \mu_3 \\
+& \vdots
+\end{align*}
+
+が成り立つ．これらの式は，一般に次のようにまとめられる．
+
+\begin{align*}
+\pi_0 \lambda_0 & = \pi_1 \mu_1 & \\
+\pi_n (\lambda_n + \mu_n) & = \pi_{i-1} \lambda_{i-1} + \pi_{i+1} \mu_{i+1} & (i = 1, 2, \ldots)
+\end{align*}
+
+これらの方程式を**大域平衡方程式**（global balance equation）と呼ぶ．
+
+さらに，$\pi_0 \lambda_0 = \pi_1 \mu_1$ を $\pi_1 (\lambda_1 + \mu_1) = \pi_0 \lambda_0 + \pi_2 \mu_2$ に代入して整理すると，$\pi_1 \lambda_1 = \pi_2 \mu_2$ が得られる．同様にして，他の状態についてもこのような変形を行うと，一般に，
+
+$$
+\pi_n \lambda_n = \pi_{n+1} \mu_{n+1}, \quad (n = 0, 1, 2, \ldots)
+$$
+が得られる．これらの方程式を**局所平衡方程式**（local balance equation）と呼ぶ．
+
+局所平衡方程式より，$pi_0$ を用いて，$i \geq 1$ に対して，
+
+$$
+\pi_n = \pi_0 \frac{\lambda_0 \lambda_1 \cdots \lambda_{n-1}}{\mu_1 \mu_2 \cdots \mu_n}, \quad (n = 1, 2, \ldots)
+$$
+
+が得られる．また，$\sum_{n=0}^{\infty} \pi_n = 1$ であるから，
+
+$$
+\pi_0 + \sum_{n=1}^{\infty} \pi_0 \frac{\lambda_0 \lambda_1 \cdots \lambda_{n-1}}{\mu_1 \mu_2 \cdots \mu_n} = 1
+$$
+となる．これにより，$\pi_0$ は次のように与えられる．
+
+$$
+\pi_0 = \left( 1 + \sum_{n=1}^{\infty} \frac{\lambda_0 \lambda_1 \cdots \lambda_{n-1}}{\mu_1 \mu_2 \cdots \mu_n} \right)^{-1}
+$$
+
+## 評価指標
+
+出生死滅過程に基づいた待ち行列モデルにおいて，状態はシステム内の客数を表す．$\pi_n$ は，システム内に $n$ 人の客が存在する確率を表す．平均系内客数 $L$，平均待ち行列長 $L_q$ は，それぞれ次のように与えられる．
+
+$$
+L = \sum_{n=0}^{\infty} n \pi_n, \quad L_q = \sum_{n=c}^{\infty} (n - c) \pi_n.
+$$
+
+平均滞在時間 $W$，平均待ち時間 $W_q$ は，リトルの法則により，次のように与えられる．
+$$
+W = \frac{L}{\bar{\lambda}}, \quad W_q = \frac{L_q}{\bar{\lambda}},
+$$
+
+ここで，$\bar{\lambda}$ は平均到着率であり，
+$$
+\bar{\lambda} = \sum_{n=0}^{\infty} \lambda_n \pi_n
+$$
+で与えられる．
+
+## $M/M/1$ モデル
+
+$M/M/1$ モデルを考える．到着間隔が指数分布に従い，平均到着率が $\lambda$ である．サービス時間も指数分布に従い，平均サービス率が $\mu$ である．サーバ数は1である．
+
+$M/M/1$ モデルを出生死滅過程として表すと，すべての状態において，出生率が $\lambda$，死滅率が $\mu$ となる．すなわち，$M/M/1$ モデルは $n \geq 0$ に対して，$\lambda_n = \lambda$，$\mu_n = \mu$ で表される出生死滅過程である．
+
+### $M/M/1$ モデルの定常状態
+
+$M/M/1$ モデルにおいて，$\rho = \lambda / \mu < 1$ のとき，定常状態が存在する．このとき，$\pi_0$ は
+$$
+\pi_0 = \left( 1 + \sum_{n=1}^{\infty} \frac{\lambda^n}{\mu^n} \right)^{-1} = \left( 1 + \sum_{n=1}^{\infty} \rho^n \right)^{-1} = \left( 1 + \frac{\rho}{1-\rho} \right)^{-1} = 1 - \rho
+$$
+
+で与えられる．
+
+:::{.callout-tip}
+$|x| < 1$ に対して，次の式が成り立つ．
+
+$$
+\sum_{n=0}^{\infty} x^n = \frac{1}{1-x} \quad (|x| < 1)
+$$
+
+これを用いると，
+
+$$
+\sum_{n=1}^{\infty} x^n = \sum_{n=0}^{\infty} x^n - 1 = \frac{1}{1-x} - 1 = \frac{x}{1-x} \quad (|x| < 1)
+$$
+
+が得られる．
+:::
+
+$\pi_0$ を用いると，任意の $n \geq 0$ に対して，
+$$
+\pi_n = \pi_0 \frac{\lambda^n}{\mu^n} = (1 - \rho) \rho^n, \quad (n = 0, 1, 2, \ldots)
+$$
+が得られる．
+
+結論として，$M/M/1$ モデルにおいて，$\rho = \lambda / \mu < 1$ のとき，$\pi_n$ は
+$$
+\pi_n = (1 - \rho) \rho^n, \quad (n = 0, 1, 2, \ldots)
+$$
+である．
+
+### $M/M/1$ モデルの評価指標
+
+$M/M/1$ モデルにおける平均系内客数 $L$ は次のように計算される．
+
+\begin{align*}
+L & = \sum_{n=0}^{\infty} n \pi_n \\
+  & = \sum_{n=0}^{\infty} n (1 - \rho) \rho^n \\
+  & = (1 - \rho) \sum_{n=0}^{\infty} n \rho^n \\
+  & = (1 - \rho) \cdot \frac{\rho}{(1 - \rho)^2} \\
+  & = \frac{\rho}{1 - \rho} \\
+  & = \frac{\lambda}{\mu - \lambda}
+\end{align*}
+
+:::{.callout-tip}
+
+$\sum_{n=0}^{\infty} n \rho^n = \frac{\rho}{(1 - \rho)^2}$ の導出を示す．
+
+\begin{align*}
+\sum_{n=0}^{\infty} n x^n & = x + 2x^2 + 3x^3 + \cdots \\
+& = x (1 + 2x + 3x^2 + \cdots) \\
+& = x \sum_{n=1}^{\infty} n x^{n-1} \\
+& = x \sum_{n=1}^{\infty} \frac{d}{dx} x^n \\
+& = x \frac{d}{dx} \sum_{n=1}^{\infty} x^n \\
+& = x \frac{d}{dx} \left(\frac{x}{1-x}\right) \\
+& = x \cdot \frac{1}{(1-x)^2} \\
+& = \frac{x}{(1-x)^2}
+\end{align*}
+:::
+
+同様にして，平均待ち行列長 $L_q$ は次のように計算される．
+
+\begin{align*}
+L_q & = \sum_{n=1}^{\infty} (n - 1) \pi_n \\
+    & = \sum_{n=1}^{\infty} n \pi_n - \sum_{n=1}^{\infty} \pi_n \\
+    & = L - (1 - \pi_0) \\
+    & = \frac{\rho}{1 - \rho} - \rho \\
+    & = \frac{\rho^2}{1 - \rho} \\
+    & = \frac{\lambda^2}{\mu (\mu - \lambda)}
+\end{align*}
+
+:::{.callout-tip}
+ここでは，
+$$
+\sum_{n=1}^{\infty} n \pi_n = \sum_{n=0}^{\infty} n \pi_n = L
+$$
+および，
+$$
+\sum_{n=1}^{\infty} \pi_n = 1 - \pi_0 = 1 - (1 - \rho) = \rho
+$$
+を用いている．
+:::
+
+$M/M/1$ モデルにおける平均滞在時間 $W$，平均待ち時間 $W_q$ は，リトルの法則により，次のように与えられる．
+$$
+W = \frac{L}{\lambda} = \frac{1}{\mu - \lambda}, \quad W_q = \frac{L_q}{\lambda} = \frac{\lambda}{\mu (\mu - \lambda)}
+$$
+
+:::{.callout-note}
+
+### $M/M/1$ モデル
+
+$M/M/1$ モデルにおいて，$\rho = \lambda / \mu < 1$ のとき，$L$，$L_q$，$W$，$W_q$ はそれぞれ次のように与えられる．
+$$
+L = \frac{\rho}{1 - \rho} = \frac{\lambda}{\mu - \lambda},
 $$
 $$
-\lambda_{i-1} \pi_{i-1} + \mu_{i+1} \pi_{i+1} = (\lambda_i + \mu_i) \pi_i, \quad i \geq 1.
+L_q = \frac{\rho^2}{1 - \rho} = \frac{\lambda^2}{\mu (\mu - \lambda)},
 $$
+$$
+W = \frac{1}{\mu - \lambda},
+$$
+$$
+W_q = \frac{\lambda}{\mu (\mu - \lambda)}.
+$$
+:::
+
+下図は，$M/M/1$ モデルにおける利用率 $\rho$ と平均系内客数 $L$ の関係を示している．
+
+```{python}
+
+# rho vs L plot for M/M/1 model
+import numpy as np
+import matplotlib.pyplot as plt
+
+rho = np.linspace(0.01, 0.99, 100)
+L = rho / (1 - rho)
+plt.plot(rho, L)
+plt.ylim(0, 50)
+plt.xlim(0, 1.1)
+plt.xlabel("Utilization ρ")
+plt.ylabel("Average number of customers in system L")
+plt.title("M/M/1 Model: Utilization vs Average Number of Customers in System")
+plt.grid()
+plt.show()
+```
+
+
