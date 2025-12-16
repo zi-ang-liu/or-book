@@ -1141,36 +1141,69 @@
     ]
   },
   {
+    "objectID": "queuing/birth-death.html",
+    "href": "queuing/birth-death.html",
+    "title": "17  出生死滅過程",
+    "section": "",
+    "text": "17.1 定常状態\n出生死滅過程では，時刻 \\(t\\) における生物集団の個体数を \\(X_t\\) で表す．これを状態（state）とも呼ぶ．状態 \\(X_t\\) は状態空間 \\(\\{0, 1, 2, \\ldots\\}\\) 上に値をとる．状態遷移（state transition）は，個体の出生または死滅によって引き起こされる．出生死滅過程では，状態遷移は隣接する状態間でのみ発生する．状態 \\(i\\) から状態 \\(i+1\\) に遷移する確率を \\(\\lambda_n\\)，状態 \\(n \\geq 1\\) から状態 \\(n-1\\) に遷移する確率を $_n $ と表す．すなわち，\n\\[\n\\lambda_n = P(X_{t+1} = n+1 | X_t = n),\n\\] \\[\n\\mu_n = P(X_{t+1} = n-1 | X_t = n).\n\\]\n出生死滅過程の遷移確率図は以下に示す．\n時刻 \\(t\\) においてに，状態 \\(n\\) に入る回数を \\(E_n(t)\\)，状態 \\(n\\) を出る回数を \\(L_n(t)\\) と表すとき， \\[\n|E_n(t) - L_n(t)| \\leq 1\n\\] が成り立つ．これを \\(t\\) で割ると， \\[\n\\left| \\frac{E_n(t)}{t} - \\frac{L_n(t)}{t} \\right| \\leq \\frac{1}{t}\n\\] となる．\\(t \\to \\infty\\) としたとき，\n\\[\n\\lim_{t \\to \\infty} \\frac{E_n(t)}{t} - \\lim_{t \\to \\infty} \\frac{L_n(t)}{t} = 0\n\\] が得られる．すなわち，\\(t \\to \\infty\\) としたとき，状態 \\(i\\) に入る遷移率と状態 \\(i\\) を出る遷移率は等しい．\nシステムが状態 \\(i\\) に滞在する確率（あるいは，時間比）を \\(\\pi_n\\) と表すとき，\n\\[\\begin{align*}\n\\pi_0 \\lambda_0 & = \\pi_1 \\mu_1 \\\\\n\\pi_1 (\\lambda_1 + \\mu_1) & = \\pi_0 \\lambda_0 + \\pi_2 \\mu_2 \\\\\n\\pi_2 (\\lambda_2 + \\mu_2) & = \\pi_1 \\lambda_1 + \\pi_3 \\mu_3 \\\\\n& \\vdots\n\\end{align*}\\]\nが成り立つ．これらの式は，一般に次のようにまとめられる．\n\\[\\begin{align*}\n\\pi_0 \\lambda_0 & = \\pi_1 \\mu_1 & \\\\\n\\pi_n (\\lambda_n + \\mu_n) & = \\pi_{i-1} \\lambda_{i-1} + \\pi_{i+1} \\mu_{i+1} & (i = 1, 2, \\ldots)\n\\end{align*}\\]\nこれらの方程式を大域平衡方程式（global balance equation）と呼ぶ．\nさらに，\\(\\pi_0 \\lambda_0 = \\pi_1 \\mu_1\\) を \\(\\pi_1 (\\lambda_1 + \\mu_1) = \\pi_0 \\lambda_0 + \\pi_2 \\mu_2\\) に代入して整理すると，\\(\\pi_1 \\lambda_1 = \\pi_2 \\mu_2\\) が得られる．同様にして，他の状態についてもこのような変形を行うと，一般に，\n\\[\n\\pi_n \\lambda_n = \\pi_{n+1} \\mu_{n+1}, \\quad (n = 0, 1, 2, \\ldots)\n\\] が得られる．これらの方程式を局所平衡方程式（local balance equation）と呼ぶ．\n局所平衡方程式より，\\(pi_0\\) を用いて，\\(i \\geq 1\\) に対して，\n\\[\n\\pi_n = \\pi_0 \\frac{\\lambda_0 \\lambda_1 \\cdots \\lambda_{n-1}}{\\mu_1 \\mu_2 \\cdots \\mu_n}, \\quad (n = 1, 2, \\ldots)\n\\]\nが得られる．また，\\(\\sum_{n=0}^{\\infty} \\pi_n = 1\\) であるから，\n\\[\n\\pi_0 + \\sum_{n=1}^{\\infty} \\pi_0 \\frac{\\lambda_0 \\lambda_1 \\cdots \\lambda_{n-1}}{\\mu_1 \\mu_2 \\cdots \\mu_n} = 1\n\\] となる．これにより，\\(\\pi_0\\) は次のように与えられる．\n\\[\n\\pi_0 = \\left( 1 + \\sum_{n=1}^{\\infty} \\frac{\\lambda_0 \\lambda_1 \\cdots \\lambda_{n-1}}{\\mu_1 \\mu_2 \\cdots \\mu_n} \\right)^{-1}\n\\]",
+    "crumbs": [
+      "待ち行列理論",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>出生死滅過程</span>"
+    ]
+  },
+  {
+    "objectID": "queuing/birth-death.html#評価指標",
+    "href": "queuing/birth-death.html#評価指標",
+    "title": "17  出生死滅過程",
+    "section": "17.2 評価指標",
+    "text": "17.2 評価指標\n出生死滅過程に基づいた待ち行列モデルにおいて，状態はシステム内の客数を表す．\\(\\pi_n\\) は，システム内に \\(n\\) 人の客が存在する確率を表す．平均系内客数 \\(L\\)，平均待ち行列長 \\(L_q\\) は，それぞれ次のように与えられる．\n\\[\nL = \\sum_{n=0}^{\\infty} n \\pi_n, \\quad L_q = \\sum_{n=c}^{\\infty} (n - c) \\pi_n.\n\\]\n平均滞在時間 \\(W\\)，平均待ち時間 \\(W_q\\) は，リトルの法則により，次のように与えられる． \\[\nW = \\frac{L}{\\bar{\\lambda}}, \\quad W_q = \\frac{L_q}{\\bar{\\lambda}},\n\\]\nここで，\\(\\bar{\\lambda}\\) は平均到着率であり， \\[\n\\bar{\\lambda} = \\sum_{n=0}^{\\infty} \\lambda_n \\pi_n\n\\] で与えられる．",
+    "crumbs": [
+      "待ち行列理論",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>出生死滅過程</span>"
+    ]
+  },
+  {
+    "objectID": "queuing/birth-death.html#mm1-モデル",
+    "href": "queuing/birth-death.html#mm1-モデル",
+    "title": "17  出生死滅過程",
+    "section": "17.3 \\(M/M/1\\) モデル",
+    "text": "17.3 \\(M/M/1\\) モデル\n\\(M/M/1\\) モデルを考える．到着間隔が指数分布に従い，平均到着率が \\(\\lambda\\) である．サービス時間も指数分布に従い，平均サービス率が \\(\\mu\\) である．サーバ数は1である．\n\\(M/M/1\\) モデルを出生死滅過程として表すと，すべての状態において，出生率が \\(\\lambda\\)，死滅率が \\(\\mu\\) となる．すなわち，\\(M/M/1\\) モデルは \\(n \\geq 0\\) に対して，\\(\\lambda_n = \\lambda\\)，\\(\\mu_n = \\mu\\) で表される出生死滅過程である．\n\n17.3.1 \\(M/M/1\\) モデルの定常状態\n\\(M/M/1\\) モデルにおいて，\\(\\rho = \\lambda / \\mu &lt; 1\\) のとき，定常状態が存在する．このとき，\\(\\pi_0\\) は \\[\n\\pi_0 = \\left( 1 + \\sum_{n=1}^{\\infty} \\frac{\\lambda^n}{\\mu^n} \\right)^{-1} = \\left( 1 + \\sum_{n=1}^{\\infty} \\rho^n \\right)^{-1} = \\left( 1 + \\frac{\\rho}{1-\\rho} \\right)^{-1} = 1 - \\rho\n\\]\nで与えられる．\n\n\n\n\n\n\nヒント\n\n\n\n\\(|x| &lt; 1\\) に対して，次の式が成り立つ．\n\\[\n\\sum_{n=0}^{\\infty} x^n = \\frac{1}{1-x} \\quad (|x| &lt; 1)\n\\]\nこれを用いると，\n\\[\n\\sum_{n=1}^{\\infty} x^n = \\sum_{n=0}^{\\infty} x^n - 1 = \\frac{1}{1-x} - 1 = \\frac{x}{1-x} \\quad (|x| &lt; 1)\n\\]\nが得られる．\n\n\n\\(\\pi_0\\) を用いると，任意の \\(n \\geq 0\\) に対して， \\[\n\\pi_n = \\pi_0 \\frac{\\lambda^n}{\\mu^n} = (1 - \\rho) \\rho^n, \\quad (n = 0, 1, 2, \\ldots)\n\\] が得られる．\n結論として，\\(M/M/1\\) モデルにおいて，\\(\\rho = \\lambda / \\mu &lt; 1\\) のとき，\\(\\pi_n\\) は \\[\n\\pi_n = (1 - \\rho) \\rho^n, \\quad (n = 0, 1, 2, \\ldots)\n\\] である．\n\n\n17.3.2 \\(M/M/1\\) モデルの評価指標\n\\(M/M/1\\) モデルにおける平均系内客数 \\(L\\) は次のように計算される．\n\\[\\begin{align*}\nL & = \\sum_{n=0}^{\\infty} n \\pi_n \\\\\n  & = \\sum_{n=0}^{\\infty} n (1 - \\rho) \\rho^n \\\\\n  & = (1 - \\rho) \\sum_{n=0}^{\\infty} n \\rho^n \\\\\n  & = (1 - \\rho) \\cdot \\frac{\\rho}{(1 - \\rho)^2} \\\\\n  & = \\frac{\\rho}{1 - \\rho} \\\\\n  & = \\frac{\\lambda}{\\mu - \\lambda}\n\\end{align*}\\]\n\n\n\n\n\n\nヒント\n\n\n\n\\(\\sum_{n=0}^{\\infty} n \\rho^n = \\frac{\\rho}{(1 - \\rho)^2}\\) の導出を示す．\n\\[\\begin{align*}\n\\sum_{n=0}^{\\infty} n x^n & = x + 2x^2 + 3x^3 + \\cdots \\\\\n& = x (1 + 2x + 3x^2 + \\cdots) \\\\\n& = x \\sum_{n=1}^{\\infty} n x^{n-1} \\\\\n& = x \\sum_{n=1}^{\\infty} \\frac{d}{dx} x^n \\\\\n& = x \\frac{d}{dx} \\sum_{n=1}^{\\infty} x^n \\\\\n& = x \\frac{d}{dx} \\left(\\frac{x}{1-x}\\right) \\\\\n& = x \\cdot \\frac{1}{(1-x)^2} \\\\\n& = \\frac{x}{(1-x)^2}\n\\end{align*}\\]\n\n\n同様にして，平均待ち行列長 \\(L_q\\) は次のように計算される．\n\\[\\begin{align*}\nL_q & = \\sum_{n=1}^{\\infty} (n - 1) \\pi_n \\\\\n    & = \\sum_{n=1}^{\\infty} n \\pi_n - \\sum_{n=1}^{\\infty} \\pi_n \\\\\n    & = L - (1 - \\pi_0) \\\\\n    & = \\frac{\\rho}{1 - \\rho} - \\rho \\\\\n    & = \\frac{\\rho^2}{1 - \\rho} \\\\\n    & = \\frac{\\lambda^2}{\\mu (\\mu - \\lambda)}\n\\end{align*}\\]\n\n\n\n\n\n\nヒント\n\n\n\nここでは， \\[\n\\sum_{n=1}^{\\infty} n \\pi_n = \\sum_{n=0}^{\\infty} n \\pi_n = L\n\\] および， \\[\n\\sum_{n=1}^{\\infty} \\pi_n = 1 - \\pi_0 = 1 - (1 - \\rho) = \\rho\n\\] を用いている．\n\n\n\\(M/M/1\\) モデルにおける平均滞在時間 \\(W\\)，平均待ち時間 \\(W_q\\) は，リトルの法則により，次のように与えられる． \\[\nW = \\frac{L}{\\lambda} = \\frac{1}{\\mu - \\lambda}, \\quad W_q = \\frac{L_q}{\\lambda} = \\frac{\\lambda}{\\mu (\\mu - \\lambda)}\n\\]\n\n\n\n\n\n\nノート\\(M/M/1\\) モデル\n\n\n\n\\(M/M/1\\) モデルにおいて，\\(\\rho = \\lambda / \\mu &lt; 1\\) のとき，\\(L\\)，\\(L_q\\)，\\(W\\)，\\(W_q\\) はそれぞれ次のように与えられる． \\[\nL = \\frac{\\rho}{1 - \\rho} = \\frac{\\lambda}{\\mu - \\lambda},\n\\] \\[\nL_q = \\frac{\\rho^2}{1 - \\rho} = \\frac{\\lambda^2}{\\mu (\\mu - \\lambda)},\n\\] \\[\nW = \\frac{1}{\\mu - \\lambda},\n\\] \\[\nW_q = \\frac{\\lambda}{\\mu (\\mu - \\lambda)}.\n\\]\n\n\n下図は，\\(M/M/1\\) モデルにおける利用率 \\(\\rho\\) と平均系内客数 \\(L\\) の関係を示している．\n\n\nコード\n# rho vs L plot for M/M/1 model\nimport numpy as np\nimport matplotlib.pyplot as plt\nrho = np.linspace(0.01, 0.99, 100)\nL = rho / (1 - rho)\nplt.plot(rho, L)\nplt.ylim(0, 50)\nplt.xlim(0, 1.1)\nplt.xlabel(\"Utilization ρ\")\nplt.ylabel(\"Average number of customers in system L\")\nplt.title(\"M/M/1 Model: Utilization vs Average Number of Customers in System\")\nplt.grid()\nplt.show()",
+    "crumbs": [
+      "待ち行列理論",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>出生死滅過程</span>"
+    ]
+  },
+  {
     "objectID": "career/intro.html",
     "href": "career/intro.html",
-    "title": "17  キャリア",
+    "title": "18  キャリア",
     "section": "",
-    "text": "17.1 リンク",
+    "text": "18.1 リンク",
     "crumbs": [
       "OR キャリア",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>キャリア</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>キャリア</span>"
     ]
   },
   {
     "objectID": "career/intro.html#リンク",
     "href": "career/intro.html#リンク",
-    "title": "17  キャリア",
+    "title": "18  キャリア",
     "section": "",
     "text": "Informs\n\nConsider a Career in Operations Research and Analytics!\n\n日本オペレーションズ・リサーチ学会\n\nOR キャリアセッション\n企業事例交流会\nOR 実施事例\n\n日本経営工学会\n\n産学連携研究交流会\n\nキヤノン\n\n日本オペレーションズ・リサーチ（OR）学会レポート活動の舞台裏を大公開！",
     "crumbs": [
       "OR キャリア",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>キャリア</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>キャリア</span>"
     ]
   },
   {
     "objectID": "career/intro.html#関連学会",
     "href": "career/intro.html#関連学会",
-    "title": "17  キャリア",
-    "section": "17.2 関連学会",
-    "text": "17.2 関連学会\n\n日本オペレーションズ・リサーチ学会\n日本経営工学会",
+    "title": "18  キャリア",
+    "section": "18.2 関連学会",
+    "text": "18.2 関連学会\n\n日本オペレーションズ・リサーチ学会\n日本経営工学会",
     "crumbs": [
       "OR キャリア",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>キャリア</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>キャリア</span>"
     ]
   },
   {

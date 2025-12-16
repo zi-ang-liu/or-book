@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../career/intro.html" rel="next">
+<link href="../queuing/birth-death.html" rel="next">
 <link href="../queuing/intro.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -537,6 +537,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ポアソン過程</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../queuing/birth-death.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">出生死滅過程</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -551,7 +557,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../career/intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">キャリア</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">キャリア</span></span></a>
   </div>
 </li>
       </ul>
@@ -667,7 +673,7 @@ F_X(x) = P(X \leq x) = \begin{cases}
 \end{cases}
 \]</span> である．</p>
 <p>次の図は，パラメータ <span class="math inline">\(\lambda = 0.5, 1.0, 1.5, 2.0\)</span> の場合における指数分布の確率密度関数を示している．確率密度関数 <span class="math inline">\(f_X(x)\)</span> は <span class="math inline">\(x\)</span> の増加に伴い単調減少する．</p>
-<div id="1e50a472" class="cell" data-execution_count="1">
+<div id="8bcbfafa" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -715,7 +721,7 @@ P(T \leq 1/30) = F_T(1/30) = 1 - e^{-12 \times (1/30)} \approx 0.3297
 \]</span> よって，2分以内に次の客が到着する確率は約0.3297である．</p>
 </div>
 <p>次の図は，<a href="#exm-exp-basic-arrival" class="quarto-xref">例&nbsp;<span>16.1</span></a> で説明した到着間隔のシミュレーション例を示している．平均到着率 <span class="math inline">\(\lambda = 12\)</span> 人/時間であるとき，15人の到着時間をシミュレーションした．横軸は時間を表し，青い線は各客の到着時間を示している．</p>
-<div id="d49e7733" class="cell" data-execution_count="2">
+<div id="82b7fbf5" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> expon</span>
@@ -1294,8 +1300,8 @@ Y_k = \sum_{i=1}^k T_i = T_1 + T_2 + \cdots + T_k
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../career/intro.html" class="pagination-link" aria-label="キャリア">
-        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">キャリア</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../queuing/birth-death.html" class="pagination-link" aria-label="出生死滅過程">
+        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">出生死滅過程</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

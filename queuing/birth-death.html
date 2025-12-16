@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>9&nbsp; 出生死滅過程 – オペレーションズ・リサーチ</title>
+<title>17&nbsp; 出生死滅過程 – オペレーションズ・リサーチ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,6 +65,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../career/intro.html" rel="next">
 <link href="../queuing/poisson_process.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -38,9 +74,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-53aa17af24a9e7d6699f3c9556851bc6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
@@ -73,9 +109,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "サーチ"
   }
 }</script>
-<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -107,9 +140,12 @@ window.Quarto = {
 };
 </script>
 
-<meta name="twitter:title" content="9&nbsp; 出生死滅過程 – オペレーションズ・リサーチ">
+<meta name="twitter:title" content="17&nbsp; 出生死滅過程 – オペレーションズ・リサーチ">
 <meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zi-ang-liu.github.io/or-book/queuing/birth-death_files/figure-html/cell-2-output-1.png">
+<meta name="twitter:image-height" content="898">
+<meta name="twitter:image-width" content="1199">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -283,7 +319,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../queuing/intro.html">待ち行列理論</a></li><li class="breadcrumb-item"><a href="../queuing/birth-death.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">出生死滅過程</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../queuing/intro.html">待ち行列理論</a></li><li class="breadcrumb-item"><a href="../queuing/birth-death.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">出生死滅過程</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
@@ -296,9 +332,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">オペレーションズ・リサーチ</a> 
         <div class="sidebar-tools-main">
@@ -382,7 +416,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">待ち行列理論</span></a>
+ <span class="menu-text">多基準意思決定分析</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -390,20 +424,187 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../mcda/ahp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">階層分析法</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">ネットワーク最適化</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../network/graph.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">グラフ理論</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">PERT/CPM</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pert/project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">クリティカルパス</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pert/uncertain.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">不確実性を考慮したPERT/CPM</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pert/tradeoff.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">時間とコストのトレードオフ</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">データ包絡分析</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../dea/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">入力と出力</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../dea/ccr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">CCRモデル</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">動的計画法</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../dp/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">動的計画法</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">待ち行列理論</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../queuing/intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">待ち行列モデルの基礎</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">待ち行列モデルの基礎</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../queuing/poisson_process.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">ポアソン過程</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ポアソン過程</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../queuing/birth-death.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">出生死滅過程</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">出生死滅過程</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">OR キャリア</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../career/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">キャリア</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">参考文献</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">付録</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="セクションを切り替え">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/calculus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">微分積分</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/probability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">確率</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/standard_normal_table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">標準正規分布表</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/linear_algebra.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">線形代数</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/opt_problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">最適化問題</span></span></a>
   </div>
 </li>
       </ul>
@@ -413,16 +614,28 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#定常状態" id="toc-定常状態" class="nav-link active" data-scroll-target="#定常状態"><span class="header-section-number">17.1</span> 定常状態</a></li>
+  <li><a href="#評価指標" id="toc-評価指標" class="nav-link" data-scroll-target="#評価指標"><span class="header-section-number">17.2</span> 評価指標</a></li>
+  <li><a href="#mm1-モデル" id="toc-mm1-モデル" class="nav-link" data-scroll-target="#mm1-モデル"><span class="header-section-number">17.3</span> <span class="math inline">\(M/M/1\)</span> モデル</a>
+  <ul class="collapse">
+  <li><a href="#mm1-モデルの定常状態" id="toc-mm1-モデルの定常状態" class="nav-link" data-scroll-target="#mm1-モデルの定常状態"><span class="header-section-number">17.3.1</span> <span class="math inline">\(M/M/1\)</span> モデルの定常状態</a></li>
+  <li><a href="#mm1-モデルの評価指標" id="toc-mm1-モデルの評価指標" class="nav-link" data-scroll-target="#mm1-モデルの評価指標"><span class="header-section-number">17.3.2</span> <span class="math inline">\(M/M/1\)</span> モデルの評価指標</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../queuing/intro.html">待ち行列理論</a></li><li class="breadcrumb-item"><a href="../queuing/birth-death.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">出生死滅過程</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../queuing/intro.html">待ち行列理論</a></li><li class="breadcrumb-item"><a href="../queuing/birth-death.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">出生死滅過程</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">出生死滅過程</span></h1>
+<h1 class="title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">出生死滅過程</span></h1>
 </div>
 
 
@@ -439,51 +652,230 @@ window.Quarto = {
 </header>
 
 
-<p><strong>出生死滅過程</strong>（birth-death process）は，個体群の成長と減少をモデル化するために用いられる確率過程の一種である．この過程では，個体の出生と死滅がランダムに発生し，これらのイベントが個体数に影響を与える様子を記述する．多くの待ち行列モデルは，この出生死滅過程を基礎として構築されている．</p>
-<p>出生死滅過程では，時刻 <span class="math inline">\(t\)</span> における生物集団の個体数を <span class="math inline">\(X_t\)</span> で表す．これを<strong>状態</strong>（state）とも呼ぶ．状態 <span class="math inline">\(X_t\)</span> は<strong>状態空間</strong> <span class="math inline">\(\{0, 1, 2, \ldots\}\)</span> 上に値をとる．<strong>状態遷移</strong>（state transition）は，個体の出生または死滅によって引き起こされる．状態 <span class="math inline">\(X_t = i\)</span> から，次の状態 <span class="math inline">\(X_{t+1} = j\)</span> に遷移する確率は，<strong>遷移確率</strong>（transition probability）と呼ばれる．</p>
-<p>出生死滅過程においては，状態遷移は隣接する状態間でのみ発生し，具体的には状態 <span class="math inline">\(i\)</span> から <span class="math inline">\(i+1\)</span>（出生）または <span class="math inline">\(i-1\)</span>（死滅）への遷移が可能である．特に．</p>
+<p>出生死滅過程では，時刻 <span class="math inline">\(t\)</span> における生物集団の個体数を <span class="math inline">\(X_t\)</span> で表す．これを<strong>状態</strong>（state）とも呼ぶ．状態 <span class="math inline">\(X_t\)</span> は<strong>状態空間</strong> <span class="math inline">\(\{0, 1, 2, \ldots\}\)</span> 上に値をとる．<strong>状態遷移</strong>（state transition）は，個体の出生または死滅によって引き起こされる．出生死滅過程では，状態遷移は隣接する状態間でのみ発生する．状態 <span class="math inline">\(i\)</span> から状態 <span class="math inline">\(i+1\)</span> に遷移する確率を <span class="math inline">\(\lambda_n\)</span>，状態 <span class="math inline">\(n \geq 1\)</span> から状態 <span class="math inline">\(n-1\)</span> に遷移する確率を $_n $ と表す．すなわち，</p>
 <p><span class="math display">\[
-\lambda_i = P(X_{t+1} = i+1 | X_t = i).
+\lambda_n = P(X_{t+1} = n+1 | X_t = n),
 \]</span> <span class="math display">\[
-\mu_i = P(X_{t+1} = i-1 | X_t = i).
+\mu_n = P(X_{t+1} = n-1 | X_t = n).
 \]</span></p>
-<p>ここで，<span class="math inline">\(\lambda_i\)</span> は状態 <span class="math inline">\(i\)</span> から <span class="math inline">\(i+1\)</span> への出生遷移確率，<span class="math inline">\(\mu_i\)</span> は状態 <span class="math inline">\(i\)</span> から <span class="math inline">\(i-1\)</span> への死滅遷移確率を表す．</p>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js"> flowchart LR
-  %% Define states
-  n0((0))
-  n1((1))
-  n2((2))
-  nn((...))
-
-  %% Forward (birth) transitions
-  n0 --&gt;|$$\lambda_0$$| n1
-  n1 --&gt;|$$\lambda_1$$| n2
-  n2 --&gt; nn
-
-
-  %% Backward (death) transitions
-  n1 --&gt;|$$\mu_1$$| n0
-  n2 --&gt;|$$\mu_2$$| n1
-  nn --&gt; n2
-</pre>
+<p>出生死滅過程の遷移確率図は以下に示す．</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p></p></figure><p></p>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">ヒント</span>出生死滅過程とマルコフ連鎖
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p>出生死滅過程はマルコフ連鎖の一種である．</p>
 </div>
-<p><span class="math inline">\(\pi_j\)</span> を状態 <span class="math inline">\(j\)</span> における<strong>定常分布</strong>（stationary distribution）とする．出生死滅過程は， 次の式が成り立つ．</p>
+</div>
+<section id="定常状態" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="定常状態"><span class="header-section-number">17.1</span> 定常状態</h2>
+<p>時刻 <span class="math inline">\(t\)</span> においてに，状態 <span class="math inline">\(n\)</span> に入る回数を <span class="math inline">\(E_n(t)\)</span>，状態 <span class="math inline">\(n\)</span> を出る回数を <span class="math inline">\(L_n(t)\)</span> と表すとき， <span class="math display">\[
+|E_n(t) - L_n(t)| \leq 1
+\]</span> が成り立つ．これを <span class="math inline">\(t\)</span> で割ると， <span class="math display">\[
+\left| \frac{E_n(t)}{t} - \frac{L_n(t)}{t} \right| \leq \frac{1}{t}
+\]</span> となる．<span class="math inline">\(t \to \infty\)</span> としたとき，</p>
 <p><span class="math display">\[
-\lambda_{0} \pi_0 = \mu_1 \pi_1,
-\]</span> <span class="math display">\[
-\lambda_{i-1} \pi_{i-1} + \mu_{i+1} \pi_{i+1} = (\lambda_i + \mu_i) \pi_i, \quad i \geq 1.
+\lim_{t \to \infty} \frac{E_n(t)}{t} - \lim_{t \to \infty} \frac{L_n(t)}{t} = 0
+\]</span> が得られる．すなわち，<span class="math inline">\(t \to \infty\)</span> としたとき，状態 <span class="math inline">\(i\)</span> に入る遷移率と状態 <span class="math inline">\(i\)</span> を出る遷移率は等しい．</p>
+<p>システムが状態 <span class="math inline">\(i\)</span> に滞在する確率（あるいは，時間比）を <span class="math inline">\(\pi_n\)</span> と表すとき，</p>
+<p><span class="math display">\[\begin{align*}
+\pi_0 \lambda_0 &amp; = \pi_1 \mu_1 \\
+\pi_1 (\lambda_1 + \mu_1) &amp; = \pi_0 \lambda_0 + \pi_2 \mu_2 \\
+\pi_2 (\lambda_2 + \mu_2) &amp; = \pi_1 \lambda_1 + \pi_3 \mu_3 \\
+&amp; \vdots
+\end{align*}\]</span></p>
+<p>が成り立つ．これらの式は，一般に次のようにまとめられる．</p>
+<p><span class="math display">\[\begin{align*}
+\pi_0 \lambda_0 &amp; = \pi_1 \mu_1 &amp; \\
+\pi_n (\lambda_n + \mu_n) &amp; = \pi_{i-1} \lambda_{i-1} + \pi_{i+1} \mu_{i+1} &amp; (i = 1, 2, \ldots)
+\end{align*}\]</span></p>
+<p>これらの方程式を<strong>大域平衡方程式</strong>（global balance equation）と呼ぶ．</p>
+<p>さらに，<span class="math inline">\(\pi_0 \lambda_0 = \pi_1 \mu_1\)</span> を <span class="math inline">\(\pi_1 (\lambda_1 + \mu_1) = \pi_0 \lambda_0 + \pi_2 \mu_2\)</span> に代入して整理すると，<span class="math inline">\(\pi_1 \lambda_1 = \pi_2 \mu_2\)</span> が得られる．同様にして，他の状態についてもこのような変形を行うと，一般に，</p>
+<p><span class="math display">\[
+\pi_n \lambda_n = \pi_{n+1} \mu_{n+1}, \quad (n = 0, 1, 2, \ldots)
+\]</span> が得られる．これらの方程式を<strong>局所平衡方程式</strong>（local balance equation）と呼ぶ．</p>
+<p>局所平衡方程式より，<span class="math inline">\(pi_0\)</span> を用いて，<span class="math inline">\(i \geq 1\)</span> に対して，</p>
+<p><span class="math display">\[
+\pi_n = \pi_0 \frac{\lambda_0 \lambda_1 \cdots \lambda_{n-1}}{\mu_1 \mu_2 \cdots \mu_n}, \quad (n = 1, 2, \ldots)
 \]</span></p>
+<p>が得られる．また，<span class="math inline">\(\sum_{n=0}^{\infty} \pi_n = 1\)</span> であるから，</p>
+<p><span class="math display">\[
+\pi_0 + \sum_{n=1}^{\infty} \pi_0 \frac{\lambda_0 \lambda_1 \cdots \lambda_{n-1}}{\mu_1 \mu_2 \cdots \mu_n} = 1
+\]</span> となる．これにより，<span class="math inline">\(\pi_0\)</span> は次のように与えられる．</p>
+<p><span class="math display">\[
+\pi_0 = \left( 1 + \sum_{n=1}^{\infty} \frac{\lambda_0 \lambda_1 \cdots \lambda_{n-1}}{\mu_1 \mu_2 \cdots \mu_n} \right)^{-1}
+\]</span></p>
+</section>
+<section id="評価指標" class="level2" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="評価指標"><span class="header-section-number">17.2</span> 評価指標</h2>
+<p>出生死滅過程に基づいた待ち行列モデルにおいて，状態はシステム内の客数を表す．<span class="math inline">\(\pi_n\)</span> は，システム内に <span class="math inline">\(n\)</span> 人の客が存在する確率を表す．平均系内客数 <span class="math inline">\(L\)</span>，平均待ち行列長 <span class="math inline">\(L_q\)</span> は，それぞれ次のように与えられる．</p>
+<p><span class="math display">\[
+L = \sum_{n=0}^{\infty} n \pi_n, \quad L_q = \sum_{n=c}^{\infty} (n - c) \pi_n.
+\]</span></p>
+<p>平均滞在時間 <span class="math inline">\(W\)</span>，平均待ち時間 <span class="math inline">\(W_q\)</span> は，リトルの法則により，次のように与えられる． <span class="math display">\[
+W = \frac{L}{\bar{\lambda}}, \quad W_q = \frac{L_q}{\bar{\lambda}},
+\]</span></p>
+<p>ここで，<span class="math inline">\(\bar{\lambda}\)</span> は平均到着率であり， <span class="math display">\[
+\bar{\lambda} = \sum_{n=0}^{\infty} \lambda_n \pi_n
+\]</span> で与えられる．</p>
+</section>
+<section id="mm1-モデル" class="level2" data-number="17.3">
+<h2 data-number="17.3" class="anchored" data-anchor-id="mm1-モデル"><span class="header-section-number">17.3</span> <span class="math inline">\(M/M/1\)</span> モデル</h2>
+<p><span class="math inline">\(M/M/1\)</span> モデルを考える．到着間隔が指数分布に従い，平均到着率が <span class="math inline">\(\lambda\)</span> である．サービス時間も指数分布に従い，平均サービス率が <span class="math inline">\(\mu\)</span> である．サーバ数は1である．</p>
+<p><span class="math inline">\(M/M/1\)</span> モデルを出生死滅過程として表すと，すべての状態において，出生率が <span class="math inline">\(\lambda\)</span>，死滅率が <span class="math inline">\(\mu\)</span> となる．すなわち，<span class="math inline">\(M/M/1\)</span> モデルは <span class="math inline">\(n \geq 0\)</span> に対して，<span class="math inline">\(\lambda_n = \lambda\)</span>，<span class="math inline">\(\mu_n = \mu\)</span> で表される出生死滅過程である．</p>
+<section id="mm1-モデルの定常状態" class="level3" data-number="17.3.1">
+<h3 data-number="17.3.1" class="anchored" data-anchor-id="mm1-モデルの定常状態"><span class="header-section-number">17.3.1</span> <span class="math inline">\(M/M/1\)</span> モデルの定常状態</h3>
+<p><span class="math inline">\(M/M/1\)</span> モデルにおいて，<span class="math inline">\(\rho = \lambda / \mu &lt; 1\)</span> のとき，定常状態が存在する．このとき，<span class="math inline">\(\pi_0\)</span> は <span class="math display">\[
+\pi_0 = \left( 1 + \sum_{n=1}^{\infty} \frac{\lambda^n}{\mu^n} \right)^{-1} = \left( 1 + \sum_{n=1}^{\infty} \rho^n \right)^{-1} = \left( 1 + \frac{\rho}{1-\rho} \right)^{-1} = 1 - \rho
+\]</span></p>
+<p>で与えられる．</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+ヒント
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(|x| &lt; 1\)</span> に対して，次の式が成り立つ．</p>
+<p><span class="math display">\[
+\sum_{n=0}^{\infty} x^n = \frac{1}{1-x} \quad (|x| &lt; 1)
+\]</span></p>
+<p>これを用いると，</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty} x^n = \sum_{n=0}^{\infty} x^n - 1 = \frac{1}{1-x} - 1 = \frac{x}{1-x} \quad (|x| &lt; 1)
+\]</span></p>
+<p>が得られる．</p>
+</div>
+</div>
+<p><span class="math inline">\(\pi_0\)</span> を用いると，任意の <span class="math inline">\(n \geq 0\)</span> に対して， <span class="math display">\[
+\pi_n = \pi_0 \frac{\lambda^n}{\mu^n} = (1 - \rho) \rho^n, \quad (n = 0, 1, 2, \ldots)
+\]</span> が得られる．</p>
+<p>結論として，<span class="math inline">\(M/M/1\)</span> モデルにおいて，<span class="math inline">\(\rho = \lambda / \mu &lt; 1\)</span> のとき，<span class="math inline">\(\pi_n\)</span> は <span class="math display">\[
+\pi_n = (1 - \rho) \rho^n, \quad (n = 0, 1, 2, \ldots)
+\]</span> である．</p>
+</section>
+<section id="mm1-モデルの評価指標" class="level3" data-number="17.3.2">
+<h3 data-number="17.3.2" class="anchored" data-anchor-id="mm1-モデルの評価指標"><span class="header-section-number">17.3.2</span> <span class="math inline">\(M/M/1\)</span> モデルの評価指標</h3>
+<p><span class="math inline">\(M/M/1\)</span> モデルにおける平均系内客数 <span class="math inline">\(L\)</span> は次のように計算される．</p>
+<p><span class="math display">\[\begin{align*}
+L &amp; = \sum_{n=0}^{\infty} n \pi_n \\
+  &amp; = \sum_{n=0}^{\infty} n (1 - \rho) \rho^n \\
+  &amp; = (1 - \rho) \sum_{n=0}^{\infty} n \rho^n \\
+  &amp; = (1 - \rho) \cdot \frac{\rho}{(1 - \rho)^2} \\
+  &amp; = \frac{\rho}{1 - \rho} \\
+  &amp; = \frac{\lambda}{\mu - \lambda}
+\end{align*}\]</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+ヒント
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(\sum_{n=0}^{\infty} n \rho^n = \frac{\rho}{(1 - \rho)^2}\)</span> の導出を示す．</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=0}^{\infty} n x^n &amp; = x + 2x^2 + 3x^3 + \cdots \\
+&amp; = x (1 + 2x + 3x^2 + \cdots) \\
+&amp; = x \sum_{n=1}^{\infty} n x^{n-1} \\
+&amp; = x \sum_{n=1}^{\infty} \frac{d}{dx} x^n \\
+&amp; = x \frac{d}{dx} \sum_{n=1}^{\infty} x^n \\
+&amp; = x \frac{d}{dx} \left(\frac{x}{1-x}\right) \\
+&amp; = x \cdot \frac{1}{(1-x)^2} \\
+&amp; = \frac{x}{(1-x)^2}
+\end{align*}\]</span></p>
+</div>
+</div>
+<p>同様にして，平均待ち行列長 <span class="math inline">\(L_q\)</span> は次のように計算される．</p>
+<p><span class="math display">\[\begin{align*}
+L_q &amp; = \sum_{n=1}^{\infty} (n - 1) \pi_n \\
+    &amp; = \sum_{n=1}^{\infty} n \pi_n - \sum_{n=1}^{\infty} \pi_n \\
+    &amp; = L - (1 - \pi_0) \\
+    &amp; = \frac{\rho}{1 - \rho} - \rho \\
+    &amp; = \frac{\rho^2}{1 - \rho} \\
+    &amp; = \frac{\lambda^2}{\mu (\mu - \lambda)}
+\end{align*}\]</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+ヒント
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>ここでは， <span class="math display">\[
+\sum_{n=1}^{\infty} n \pi_n = \sum_{n=0}^{\infty} n \pi_n = L
+\]</span> および， <span class="math display">\[
+\sum_{n=1}^{\infty} \pi_n = 1 - \pi_0 = 1 - (1 - \rho) = \rho
+\]</span> を用いている．</p>
+</div>
+</div>
+<p><span class="math inline">\(M/M/1\)</span> モデルにおける平均滞在時間 <span class="math inline">\(W\)</span>，平均待ち時間 <span class="math inline">\(W_q\)</span> は，リトルの法則により，次のように与えられる． <span class="math display">\[
+W = \frac{L}{\lambda} = \frac{1}{\mu - \lambda}, \quad W_q = \frac{L_q}{\lambda} = \frac{\lambda}{\mu (\mu - \lambda)}
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">ノート</span><span class="math inline">\(M/M/1\)</span> モデル
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(M/M/1\)</span> モデルにおいて，<span class="math inline">\(\rho = \lambda / \mu &lt; 1\)</span> のとき，<span class="math inline">\(L\)</span>，<span class="math inline">\(L_q\)</span>，<span class="math inline">\(W\)</span>，<span class="math inline">\(W_q\)</span> はそれぞれ次のように与えられる． <span class="math display">\[
+L = \frac{\rho}{1 - \rho} = \frac{\lambda}{\mu - \lambda},
+\]</span> <span class="math display">\[
+L_q = \frac{\rho^2}{1 - \rho} = \frac{\lambda^2}{\mu (\mu - \lambda)},
+\]</span> <span class="math display">\[
+W = \frac{1}{\mu - \lambda},
+\]</span> <span class="math display">\[
+W_q = \frac{\lambda}{\mu (\mu - \lambda)}.
+\]</span></p>
+</div>
+</div>
+<p>下図は，<span class="math inline">\(M/M/1\)</span> モデルにおける利用率 <span class="math inline">\(\rho\)</span> と平均系内客数 <span class="math inline">\(L\)</span> の関係を示している．</p>
+<div id="ac141667" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>コード</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># rho vs L plot for M/M/1 model</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>rho <span class="op">=</span> np.linspace(<span class="fl">0.01</span>, <span class="fl">0.99</span>, <span class="dv">100</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>L <span class="op">=</span> rho <span class="op">/</span> (<span class="dv">1</span> <span class="op">-</span> rho)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>plt.plot(rho, L)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="dv">50</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, <span class="fl">1.1</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Utilization ρ"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Average number of customers in system L"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"M/M/1 Model: Utilization vs Average Number of Customers in System"</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="birth-death_files/figure-html/cell-2-output-1.png" width="600" height="449" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -902,10 +1294,13 @@ window.Quarto = {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../queuing/poisson_process.html" class="pagination-link" aria-label="ポアソン過程">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">ポアソン過程</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ポアソン過程</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../career/intro.html" class="pagination-link" aria-label="キャリア">
+        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">キャリア</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
