@@ -278,3 +278,28 @@ $\{N(t), t \geq 0\}$ をパラメータ $\lambda > 0$ のポアソン過程と�
 省略する．
 :::
 
+$Y_k$ の期待値と分散は
+$$
+\mathbb{E}[Y_k] = \mathbb{E}[T_1] + \mathbb{E}[T_2] + \cdots + \mathbb{E}[T_k] = \frac{k}{\lambda},
+$$
+$$
+\text{Var}(Y_k) = \text{Var}(T_1) + \text{Var}(T_2) + \cdots + \text{Var}(T_k) = \frac{k}{\lambda^2}
+$$
+である．
+
+$Y_k$ の確率密度関数は
+$$
+f_{Y_k}(y) = \frac{\lambda^k y^{k-1} e^{-\lambda y}}{(k-1)!}, \quad y \geq 0
+$$
+である．これのとき，$Y_k$ は**アーラン分布**（Erlang distribution）に従う．
+
+:::{#exm-Erlang-arrival}
+あるコールセンターではの電話の到着はポアソン過程に従うとする．田中さんが電話したとき，$11$ 人の客が
+すでに待っていた．オペレーターが1人で，平均サービス率は $\mu = 2$ 人/分であるとする．田中さんがサービスを受け始めるまでの待ち時間の期待値を求めよ．
+
+サービスを受けている客のサービス時間もパラメータ $\mu$ の指数分布に従う．
+$$
+\mathbb{E}[Y] = \frac{12}{\lambda} = \frac{12}{2} = 6 \text{ 分}
+$$
+:::
+

@@ -6,7 +6,7 @@ format:
 jupyter: python3
 ---
 
-出生死滅過程では，時刻 $t$ における生物集団の個体数を $X_t$ で表す．これを**状態**（state）とも呼ぶ．状態 $X_t$ は**状態空間** $\{0, 1, 2, \ldots\}$ 上に値をとる．**状態遷移**（state transition）は，個体の出生または死滅によって引き起こされる．出生死滅過程では，状態遷移は隣接する状態間でのみ発生する．状態 $i$ から状態 $i+1$ に遷移する確率を $\lambda_n$，状態 $n \geq 1$ から状態 $n-1$ に遷移する確率を $\mu_n $ と表す．すなわち，
+出生死滅過程では，時刻 $t$ における生物集団の個体数を $X_t$ で表す．これを**状態**（state）とも呼ぶ．状態 $X_t$ は**状態空間** $\{0, 1, 2, \ldots\}$ 上に値をとる．**状態遷移**（state transition）は，個体の出生または死滅によって引き起こされる．出生死滅過程では，状態遷移は隣接する状態間でのみ発生する．状態 $n$ から状態 $n+1$ に遷移する確率を $\lambda_n$，状態 $n \geq 1$ から状態 $n-1$ に遷移する確率を $\mu_n$ と表す．すなわち，
 
 $$
 \lambda_n = P(X_{t+1} = n+1 | X_t = n),
@@ -59,9 +59,9 @@ $$
 $$
 \lim_{t \to \infty} \frac{E_n(t)}{t} - \lim_{t \to \infty} \frac{L_n(t)}{t} = 0
 $$
-が得られる．すなわち，$t \to \infty$ としたとき，状態 $i$ に入る遷移率と状態 $i$ を出る遷移率は等しい．
+が得られる．すなわち，$t \to \infty$ としたとき，状態 $n$ に入る遷移率と状態 $n$ を出る遷移率は等しい．
 
-システムが状態 $i$ に滞在する確率（あるいは，時間比）を $\pi_n$ と表すとき，
+システムが状態 $n$ に滞在する確率（あるいは，時間比）を $\pi_n$ と表すとき，
 
 \begin{align*}
 \pi_0 \lambda_0 & = \pi_1 \mu_1 \\
@@ -86,7 +86,7 @@ $$
 $$
 が得られる．これらの方程式を**局所平衡方程式**（local balance equation）と呼ぶ．
 
-局所平衡方程式より，$pi_0$ を用いて，$i \geq 1$ に対して，
+局所平衡方程式より，$\pi_0$ を用いて，$n \geq 1$ に対して，
 
 $$
 \pi_n = \pi_0 \frac{\lambda_0 \lambda_1 \cdots \lambda_{n-1}}{\mu_1 \mu_2 \cdots \mu_n}, \quad (n = 1, 2, \ldots)
@@ -105,15 +105,15 @@ $$
 
 ## 評価指標
 
-出生死滅過程に基づいた待ち行列モデルにおいて，状態はシステム内の客数を表す．$\pi_n$ は，システム内に $n$ 人の客が存在する確率を表す．平均系内客数 $L$，平均待ち行列長 $L_q$ は，それぞれ次のように与えられる．
+出生死滅過程に基づいた待ち行列モデルにおいて，状態はシステム内の客数を表す．$\pi_n$ は，システム内に $n$ 人の客が存在する確率を表す．平均系内客数 $\mathbb{E}(L)$，平均待ち行列長 $\mathbb{E}(L_q)$ は，それぞれ次のように与えられる．
 
 $$
-L = \sum_{n=0}^{\infty} n \pi_n, \quad L_q = \sum_{n=c}^{\infty} (n - c) \pi_n.
+\mathbb{E}[L] = \sum_{n=0}^{\infty} n \pi_n, \quad \mathbb{E}[L_q] = \sum_{n=c}^{\infty} (n - c) \pi_n.
 $$
 
-平均滞在時間 $W$，平均待ち時間 $W_q$ は，リトルの法則により，次のように与えられる．
+平均滞在時間 $\mathbb{E}[W]$，平均待ち時間 $\mathbb{E}[W_q]$ は，リトルの法則により，次のように与えられる．
 $$
-W = \frac{L}{\bar{\lambda}}, \quad W_q = \frac{L_q}{\bar{\lambda}},
+\mathbb{E}[W] = \frac{\mathbb{E}[L]}{\bar{\lambda}}, \quad \mathbb{E}[W_q] = \frac{\mathbb{E}[L_q]}{\bar{\lambda}},
 $$
 
 ここで，$\bar{\lambda}$ は平均到着率であり，
@@ -167,10 +167,10 @@ $$
 
 ### $M/M/1$ モデルの評価指標
 
-$M/M/1$ モデルにおける平均系内客数 $L$ は次のように計算される．
+$M/M/1$ モデルにおける平均系内客数 $\mathbb{E}[L]$ は次のように計算される．
 
 \begin{align*}
-L & = \sum_{n=0}^{\infty} n \pi_n \\
+\mathbb{E}[L] & = \sum_{n=0}^{\infty} n \pi_n \\
   & = \sum_{n=0}^{\infty} n (1 - \rho) \rho^n \\
   & = (1 - \rho) \sum_{n=0}^{\infty} n \rho^n \\
   & = (1 - \rho) \cdot \frac{\rho}{(1 - \rho)^2} \\
@@ -194,12 +194,12 @@ $\sum_{n=0}^{\infty} n \rho^n = \frac{\rho}{(1 - \rho)^2}$ の導出を示す．
 \end{align*}
 :::
 
-同様にして，平均待ち行列長 $L_q$ は次のように計算される．
+同様にして，平均待ち行列長 $\mathbb{E}[L_q]$ は次のように計算される．
 
 \begin{align*}
-L_q & = \sum_{n=1}^{\infty} (n - 1) \pi_n \\
+\mathbb{E}[L_q] & = \sum_{n=1}^{\infty} (n - 1) \pi_n \\
     & = \sum_{n=1}^{\infty} n \pi_n - \sum_{n=1}^{\infty} \pi_n \\
-    & = L - (1 - \pi_0) \\
+    & = \mathbb{E}[L] - (1 - \pi_0) \\
     & = \frac{\rho}{1 - \rho} - \rho \\
     & = \frac{\rho^2}{1 - \rho} \\
     & = \frac{\lambda^2}{\mu (\mu - \lambda)}
@@ -208,7 +208,7 @@ L_q & = \sum_{n=1}^{\infty} (n - 1) \pi_n \\
 :::{.callout-tip}
 ここでは，
 $$
-\sum_{n=1}^{\infty} n \pi_n = \sum_{n=0}^{\infty} n \pi_n = L
+\sum_{n=1}^{\infty} n \pi_n = \sum_{n=0}^{\infty} n \pi_n = \mathbb{E}[L]
 $$
 および，
 $$
@@ -217,32 +217,31 @@ $$
 を用いている．
 :::
 
-$M/M/1$ モデルにおける平均滞在時間 $W$，平均待ち時間 $W_q$ は，リトルの法則により，次のように与えられる．
+$M/M/1$ モデルにおける平均滞在時間 $\mathbb{E}[W]$，平均待ち時間 $\mathbb{E}[W_q]$ は，リトルの法則により，次のように与えられる．
 $$
-W = \frac{L}{\lambda} = \frac{1}{\mu - \lambda}, \quad W_q = \frac{L_q}{\lambda} = \frac{\lambda}{\mu (\mu - \lambda)}
+\mathbb{E}[W] = \frac{\mathbb{E}[L]}{\lambda} = \frac{1}{\mu - \lambda}, \quad \mathbb{E}[W_q] = \frac{\mathbb{E}[L_q]}{\lambda} = \frac{\lambda}{\mu (\mu - \lambda)}
 $$
 
 :::{.callout-note}
 
 ### $M/M/1$ モデル
 
-$M/M/1$ モデルにおいて，$\rho = \lambda / \mu < 1$ のとき，$L$，$L_q$，$W$，$W_q$ はそれぞれ次のように与えられる．
+$M/M/1$ モデルにおいて，$\rho = \lambda / \mu < 1$ のとき，$\mathbb{E}[L]$，$\mathbb{E}[L_q]$，$\mathbb{E}[W]$，$\mathbb{E}[W_q]$ はそれぞれ次のように与えられる．
 $$
-L = \frac{\rho}{1 - \rho} = \frac{\lambda}{\mu - \lambda},
-$$
-$$
-L_q = \frac{\rho^2}{1 - \rho} = \frac{\lambda^2}{\mu (\mu - \lambda)},
+\mathbb{E}[L] = \frac{\rho}{1 - \rho} = \frac{\lambda}{\mu - \lambda},
 $$
 $$
-W = \frac{1}{\mu - \lambda},
+\mathbb{E}[L_q] = \frac{\rho^2}{1 - \rho} = \frac{\lambda^2}{\mu (\mu - \lambda)},
 $$
 $$
-W_q = \frac{\lambda}{\mu (\mu - \lambda)}.
+\mathbb{E}[W] = \frac{1}{\mu - \lambda},
+$$
+$$
+\mathbb{E}[W_q] = \frac{\lambda}{\mu (\mu - \lambda)}.
 $$
 :::
 
-下図は，$M/M/1$ モデルにおける利用率 $\rho$ と平均系内客数 $L$ の関係を示している．
-
+下図は，$M/M/1$ モデルにおける利用率 $\rho$ と平均系内客数 $\mathbb{E}[L]$ の関係を示している．
 ```{python}
 
 # rho vs L plot for M/M/1 model
@@ -261,4 +260,30 @@ plt.grid()
 plt.show()
 ```
 
+### 待ち時間分布
 
+客の滞在時間 $W$ と待ち時間 $W_q$ の確率分布を分析する．ここで，サービス規律は FCFS （First-Come, First-Served）と仮定する．
+
+$T_1, T_2, \ldots, T_n$ を，サービス時間を表す確率変数とする．ある客が到着したときに，システム内に $n$ 人の客が存在するとする．このとき，この客の待ち時間は
+$$
+Y_n = T_1 + T_2 + \cdots + T_n
+$$
+であり，滞在時間は
+$$
+Y_{n+1} = T_1 + T_2 + \cdots + T_n + T_{n+1}
+$$
+である．
+
+<!-- $Y_n$ は，パラメータ $\mu$ のアーラン分布に従う．すなわち，$t \geq 0$ に対して，滞在時間 $W$ が $t$ を超える確率は，
+
+$$
+\mathbb{P}(W > t) = \sum_{n=0}^{\infty} \pi_n \mathbb{P}(Y_{n+1} > t) 
+$$
+
+で与えられる． -->
+
+## 文献案内
+
+@Bertsekas2008-ps の「Introduction to Probability」では，確率過程とマルコフ連鎖を含めた確率論の基礎が解説されている．
+
+もっと詳しく待ち行列理論を学びたい場合は，@Shortle2018-vm の「Fundamentals of Queueing Theory」が参考になる．
