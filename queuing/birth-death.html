@@ -55,7 +55,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -625,7 +645,9 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#mm1-モデルの定常状態" id="toc-mm1-モデルの定常状態" class="nav-link" data-scroll-target="#mm1-モデルの定常状態"><span class="header-section-number">17.3.1</span> <span class="math inline">\(M/M/1\)</span> モデルの定常状態</a></li>
   <li><a href="#mm1-モデルの評価指標" id="toc-mm1-モデルの評価指標" class="nav-link" data-scroll-target="#mm1-モデルの評価指標"><span class="header-section-number">17.3.2</span> <span class="math inline">\(M/M/1\)</span> モデルの評価指標</a></li>
+  <li><a href="#待ち時間分布" id="toc-待ち時間分布" class="nav-link" data-scroll-target="#待ち時間分布"><span class="header-section-number">17.3.3</span> 待ち時間分布</a></li>
   </ul></li>
+  <li><a href="#文献案内" id="toc-文献案内" class="nav-link" data-scroll-target="#文献案内"><span class="header-section-number">17.4</span> 文献案内</a></li>
   </ul>
 </nav>
     </div>
@@ -815,12 +837,12 @@ window.Quarto = {
 </section>
 <section id="評価指標" class="level2" data-number="17.2">
 <h2 data-number="17.2" class="anchored" data-anchor-id="評価指標"><span class="header-section-number">17.2</span> 評価指標</h2>
-<p>出生死滅過程に基づいた待ち行列モデルにおいて，状態はシステム内の客数を表す．<span class="math inline">\(\pi_n\)</span> は，システム内に <span class="math inline">\(n\)</span> 人の客が存在する確率を表す．平均系内客数 <span class="math inline">\(L\)</span>，平均待ち行列長 <span class="math inline">\(L_q\)</span> は，それぞれ次のように与えられる．</p>
+<p>出生死滅過程に基づいた待ち行列モデルにおいて，状態はシステム内の客数を表す．<span class="math inline">\(\pi_n\)</span> は，システム内に <span class="math inline">\(n\)</span> 人の客が存在する確率を表す．平均系内客数 <span class="math inline">\(\mathbb{E}(L)\)</span>，平均待ち行列長 <span class="math inline">\(\mathbb{E}(L_q)\)</span> は，それぞれ次のように与えられる．</p>
 <p><span class="math display">\[
-L = \sum_{n=0}^{\infty} n \pi_n, \quad L_q = \sum_{n=c}^{\infty} (n - c) \pi_n.
+\mathbb{E}[L] = \sum_{n=0}^{\infty} n \pi_n, \quad \mathbb{E}[L_q] = \sum_{n=c}^{\infty} (n - c) \pi_n.
 \]</span></p>
-<p>平均滞在時間 <span class="math inline">\(W\)</span>，平均待ち時間 <span class="math inline">\(W_q\)</span> は，リトルの法則により，次のように与えられる． <span class="math display">\[
-W = \frac{L}{\bar{\lambda}}, \quad W_q = \frac{L_q}{\bar{\lambda}},
+<p>平均滞在時間 <span class="math inline">\(\mathbb{E}[W]\)</span>，平均待ち時間 <span class="math inline">\(\mathbb{E}[W_q]\)</span> は，リトルの法則により，次のように与えられる． <span class="math display">\[
+\mathbb{E}[W] = \frac{\mathbb{E}[L]}{\bar{\lambda}}, \quad \mathbb{E}[W_q] = \frac{\mathbb{E}[L_q]}{\bar{\lambda}},
 \]</span></p>
 <p>ここで，<span class="math inline">\(\bar{\lambda}\)</span> は平均到着率であり， <span class="math display">\[
 \bar{\lambda} = \sum_{n=0}^{\infty} \lambda_n \pi_n
@@ -866,9 +888,9 @@ W = \frac{L}{\bar{\lambda}}, \quad W_q = \frac{L_q}{\bar{\lambda}},
 </section>
 <section id="mm1-モデルの評価指標" class="level3" data-number="17.3.2">
 <h3 data-number="17.3.2" class="anchored" data-anchor-id="mm1-モデルの評価指標"><span class="header-section-number">17.3.2</span> <span class="math inline">\(M/M/1\)</span> モデルの評価指標</h3>
-<p><span class="math inline">\(M/M/1\)</span> モデルにおける平均系内客数 <span class="math inline">\(L\)</span> は次のように計算される．</p>
+<p><span class="math inline">\(M/M/1\)</span> モデルにおける平均系内客数 <span class="math inline">\(\mathbb{E}[L]\)</span> は次のように計算される．</p>
 <p><span class="math display">\[\begin{align*}
-L &amp; = \sum_{n=0}^{\infty} n \pi_n \\
+\mathbb{E}[L] &amp; = \sum_{n=0}^{\infty} n \pi_n \\
   &amp; = \sum_{n=0}^{\infty} n (1 - \rho) \rho^n \\
   &amp; = (1 - \rho) \sum_{n=0}^{\infty} n \rho^n \\
   &amp; = (1 - \rho) \cdot \frac{\rho}{(1 - \rho)^2} \\
@@ -898,11 +920,11 @@ L &amp; = \sum_{n=0}^{\infty} n \pi_n \\
 \end{align*}\]</span></p>
 </div>
 </div>
-<p>同様にして，平均待ち行列長 <span class="math inline">\(L_q\)</span> は次のように計算される．</p>
+<p>同様にして，平均待ち行列長 <span class="math inline">\(\mathbb{E}[L_q]\)</span> は次のように計算される．</p>
 <p><span class="math display">\[\begin{align*}
-L_q &amp; = \sum_{n=1}^{\infty} (n - 1) \pi_n \\
+\mathbb{E}[L_q] &amp; = \sum_{n=1}^{\infty} (n - 1) \pi_n \\
     &amp; = \sum_{n=1}^{\infty} n \pi_n - \sum_{n=1}^{\infty} \pi_n \\
-    &amp; = L - (1 - \pi_0) \\
+    &amp; = \mathbb{E}[L] - (1 - \pi_0) \\
     &amp; = \frac{\rho}{1 - \rho} - \rho \\
     &amp; = \frac{\rho^2}{1 - \rho} \\
     &amp; = \frac{\lambda^2}{\mu (\mu - \lambda)}
@@ -918,14 +940,14 @@ L_q &amp; = \sum_{n=1}^{\infty} (n - 1) \pi_n \\
 </div>
 <div class="callout-body-container callout-body">
 <p>ここでは， <span class="math display">\[
-\sum_{n=1}^{\infty} n \pi_n = \sum_{n=0}^{\infty} n \pi_n = L
+\sum_{n=1}^{\infty} n \pi_n = \sum_{n=0}^{\infty} n \pi_n = \mathbb{E}[L]
 \]</span> および， <span class="math display">\[
 \sum_{n=1}^{\infty} \pi_n = 1 - \pi_0 = 1 - (1 - \rho) = \rho
 \]</span> を用いている．</p>
 </div>
 </div>
-<p><span class="math inline">\(M/M/1\)</span> モデルにおける平均滞在時間 <span class="math inline">\(W\)</span>，平均待ち時間 <span class="math inline">\(W_q\)</span> は，リトルの法則により，次のように与えられる． <span class="math display">\[
-W = \frac{L}{\lambda} = \frac{1}{\mu - \lambda}, \quad W_q = \frac{L_q}{\lambda} = \frac{\lambda}{\mu (\mu - \lambda)}
+<p><span class="math inline">\(M/M/1\)</span> モデルにおける平均滞在時間 <span class="math inline">\(\mathbb{E}[W]\)</span>，平均待ち時間 <span class="math inline">\(\mathbb{E}[W_q]\)</span> は，リトルの法則により，次のように与えられる． <span class="math display">\[
+\mathbb{E}[W] = \frac{\mathbb{E}[L]}{\lambda} = \frac{1}{\mu - \lambda}, \quad \mathbb{E}[W_q] = \frac{\mathbb{E}[L_q]}{\lambda} = \frac{\lambda}{\mu (\mu - \lambda)}
 \]</span></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -937,19 +959,19 @@ W = \frac{L}{\lambda} = \frac{1}{\mu - \lambda}, \quad W_q = \frac{L_q}{\lambda}
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><span class="math inline">\(M/M/1\)</span> モデルにおいて，<span class="math inline">\(\rho = \lambda / \mu &lt; 1\)</span> のとき，<span class="math inline">\(L\)</span>，<span class="math inline">\(L_q\)</span>，<span class="math inline">\(W\)</span>，<span class="math inline">\(W_q\)</span> はそれぞれ次のように与えられる． <span class="math display">\[
-L = \frac{\rho}{1 - \rho} = \frac{\lambda}{\mu - \lambda},
+<p><span class="math inline">\(M/M/1\)</span> モデルにおいて，<span class="math inline">\(\rho = \lambda / \mu &lt; 1\)</span> のとき，<span class="math inline">\(\mathbb{E}[L]\)</span>，<span class="math inline">\(\mathbb{E}[L_q]\)</span>，<span class="math inline">\(\mathbb{E}[W]\)</span>，<span class="math inline">\(\mathbb{E}[W_q]\)</span> はそれぞれ次のように与えられる． <span class="math display">\[
+\mathbb{E}[L] = \frac{\rho}{1 - \rho} = \frac{\lambda}{\mu - \lambda},
 \]</span> <span class="math display">\[
-L_q = \frac{\rho^2}{1 - \rho} = \frac{\lambda^2}{\mu (\mu - \lambda)},
+\mathbb{E}[L_q] = \frac{\rho^2}{1 - \rho} = \frac{\lambda^2}{\mu (\mu - \lambda)},
 \]</span> <span class="math display">\[
-W = \frac{1}{\mu - \lambda},
+\mathbb{E}[W] = \frac{1}{\mu - \lambda},
 \]</span> <span class="math display">\[
-W_q = \frac{\lambda}{\mu (\mu - \lambda)}.
+\mathbb{E}[W_q] = \frac{\lambda}{\mu (\mu - \lambda)}.
 \]</span></p>
 </div>
 </div>
-<p>下図は，<span class="math inline">\(M/M/1\)</span> モデルにおける利用率 <span class="math inline">\(\rho\)</span> と平均系内客数 <span class="math inline">\(L\)</span> の関係を示している．</p>
-<div id="c99e6e35" class="cell" data-execution_count="1">
+<p>下図は，<span class="math inline">\(M/M/1\)</span> モデルにおける利用率 <span class="math inline">\(\rho\)</span> と平均系内客数 <span class="math inline">\(\mathbb{E}[L]\)</span> の関係を示している．</p>
+<div id="0d2be792" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># rho vs L plot for M/M/1 model</span></span>
@@ -975,9 +997,38 @@ W_q = \frac{\lambda}{\mu (\mu - \lambda)}.
 </div>
 </div>
 </div>
-
-
 </section>
+<section id="待ち時間分布" class="level3" data-number="17.3.3">
+<h3 data-number="17.3.3" class="anchored" data-anchor-id="待ち時間分布"><span class="header-section-number">17.3.3</span> 待ち時間分布</h3>
+<p>客の滞在時間 <span class="math inline">\(W\)</span> と待ち時間 <span class="math inline">\(W_q\)</span> の確率分布を分析する．ここで，サービス規律は FCFS （First-Come, First-Served）と仮定する．</p>
+<p><span class="math inline">\(T_1, T_2, \ldots, T_n\)</span> を，サービス時間を表す確率変数とする．ある客が到着したときに，システム内に <span class="math inline">\(n\)</span> 人の客が存在するとする．このとき，この客の待ち時間は <span class="math display">\[
+Y_n = T_1 + T_2 + \cdots + T_n
+\]</span> であり，滞在時間は <span class="math display">\[
+Y_{n+1} = T_1 + T_2 + \cdots + T_n + T_{n+1}
+\]</span> である．</p>
+<!-- $Y_n$ は，パラメータ $\mu$ のアーラン分布に従う．すなわち，$t \geq 0$ に対して，滞在時間 $W$ が $t$ を超える確率は，
+
+$$
+\mathbb{P}(W > t) = \sum_{n=0}^{\infty} \pi_n \mathbb{P}(Y_{n+1} > t) 
+$$
+
+で与えられる． -->
+</section>
+</section>
+<section id="文献案内" class="level2" data-number="17.4">
+<h2 data-number="17.4" class="anchored" data-anchor-id="文献案内"><span class="header-section-number">17.4</span> 文献案内</h2>
+<p><span class="citation" data-cites="Bertsekas2008-ps">Bertsekas と Tsitsiklis (<a href="../references.html#ref-Bertsekas2008-ps" role="doc-biblioref">2008</a>)</span> の「Introduction to Probability」では，確率過程とマルコフ連鎖を含めた確率論の基礎が解説されている．</p>
+<p>もっと詳しく待ち行列理論を学びたい場合は，<span class="citation" data-cites="Shortle2018-vm">Shortle ほか (<a href="../references.html#ref-Shortle2018-vm" role="doc-biblioref">2018</a>)</span> の「Fundamentals of Queueing Theory」が参考になる．</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Bertsekas2008-ps" class="csl-entry" role="listitem">
+Bertsekas, Dimitri, と John N Tsitsiklis. 2008. <em>Introduction to probability</em>. Athena Scientific.
+</div>
+<div id="ref-Shortle2018-vm" class="csl-entry" role="listitem">
+Shortle, John F, James M Thompson, Donald Gross, と Carl M Harris. 2018. <em>Fundamentals of queueing theory</em>. Wiley Series in Probability and Statistics. Nashville, TN: John Wiley &amp; Sons.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
