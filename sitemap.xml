@@ -18,7 +18,7 @@
   </url>
   <url>
     <loc>https://zi-ang-liu.github.io/or-book/inventory/eoq.html</loc>
-    <lastmod>2025-12-06T12:03:20.754Z</lastmod>
+    <lastmod>2025-12-21T04:03:10.122Z</lastmod>
   </url>
   <url>
     <loc>https://zi-ang-liu.github.io/or-book/inventory/safety.html</loc>
@@ -70,7 +70,7 @@
   </url>
   <url>
     <loc>https://zi-ang-liu.github.io/or-book/queuing/intro.html</loc>
-    <lastmod>2025-12-09T10:48:57.863Z</lastmod>
+    <lastmod>2025-12-23T01:35:10.385Z</lastmod>
   </url>
   <url>
     <loc>https://zi-ang-liu.github.io/or-book/queuing/poisson_process.html</loc>
@@ -79,6 +79,18 @@
   <url>
     <loc>https://zi-ang-liu.github.io/or-book/queuing/birth-death.html</loc>
     <lastmod>2025-12-17T01:19:18.135Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zi-ang-liu.github.io/or-book/nlp/intro.html</loc>
+    <lastmod>2025-12-23T01:28:37.103Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zi-ang-liu.github.io/or-book/ip/intro.html</loc>
+    <lastmod>2025-12-23T01:29:48.296Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zi-ang-liu.github.io/or-book/ip/branch-and-bound.html</loc>
+    <lastmod>2025-12-23T01:29:48.294Z</lastmod>
   </url>
   <url>
     <loc>https://zi-ang-liu.github.io/or-book/career/intro.html</loc>
@@ -110,6 +122,6 @@
   </url>
   <url>
     <loc>https://zi-ang-liu.github.io/or-book/オペレーションズ・リサーチ.pdf</loc>
-    <lastmod>2025-12-17T01:20:59.848Z</lastmod>
+    <lastmod>2025-12-23T01:38:17.754Z</lastmod>
   </url>
 </urlset>
