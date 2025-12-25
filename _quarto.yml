@@ -74,6 +74,13 @@ book:
         - queuing/intro.qmd
         - queuing/poisson_process.qmd
         - queuing/birth-death.qmd
+    - part: "非線形計画法"
+      chapters:
+        - nlp/intro.qmd
+    - part: "整数計画法"
+      chapters:
+        - ip/intro.qmd
+        - ip/branch-and-bound.qmd
     - part: "OR キャリア"
       chapters:
         - career/intro.qmd
