@@ -721,7 +721,7 @@ window.Quarto = {
 <li>Constant order sizes. 発注量は一定である．需要率 <span class="math inline">\(d\)</span> が一定であり，在庫量が0のときに発注を行うため，最適発注量も一定である．</li>
 </ol>
 <p>以上の性質から，在庫量の時間的変化は下図のようになる．</p>
-<div id="10bfcbb8" class="cell" data-execution_count="1">
+<div id="6953b06f" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -868,7 +868,7 @@ T^* = \frac{Q^*}{d} = \sqrt{\frac{2K}{hd}}
 <li><span class="math inline">\(c\)</span> は <span class="math inline">\(Q^*\)</span> に影響しない．購入単価は最適発注量に影響しない．</li>
 </ol>
 <p>次の図は，購入単価を <span class="math inline">\(c = 0\)</span> とするとき，平均コスト <span class="math inline">\(g(Q)\)</span>，発注コスト <span class="math inline">\(\frac{Kd}{Q}\)</span>，保管コスト <span class="math inline">\(\frac{hQ}{2}\)</span> のグラフを示す．</p>
-<div id="4647bc64" class="cell" data-execution_count="2">
+<div id="41437574" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
@@ -916,7 +916,7 @@ Q^* = \sqrt{\frac{2 \cdot 5000 \cdot 250}{150}}
 <p>Excel では，下記のように計算できる．</p>
 <pre class="excel"><code>=SQRT(2 * 5000 * 250 / 150)</code></pre>
 <p>Python では，次のように<code>eoq(K, d, h)</code> 関数を定義し，最適発注量を計算できる．</p>
-<div id="659be452" class="cell" data-execution_count="3">
+<div id="d495d0fb" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> eoq(K, d, h):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculate the Economic Order Quantity (EOQ).</span></span>
@@ -1008,7 +1008,7 @@ T^* = \frac{Q^*}{d} = \frac{400}{4000} = 0.1 \text{ 年}
 <p>となる．年間平均コスト <span class="math inline">\(g(Q^*)\)</span> は <span class="math display">\[
 g(Q^*) = \frac{Kd}{Q^*} + cd + \frac{hQ^*}{2} = 4510000 \text{ ドル}
 \]</span> となる．</p>
-<div id="13757581" class="cell" data-execution_count="4">
+<div id="8361aded" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1052,7 +1052,7 @@ g(71) = \frac{5000 \cdot 50}{71} + 100 \cdot 71 / 2 \approx 7071.13
 <p>サイクル期間 <span class="math inline">\(T^*\)</span> は <span class="math display">\[
 T^* = \frac{Q^*}{d} = \frac{71}{50} = 1.42 \text{ 週間}
 \]</span> となる．</p>
-<div id="c1104ae9" class="cell" data-execution_count="5">
+<div id="7402b20e" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
