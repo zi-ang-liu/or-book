@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>15&nbsp; 待ち行列モデルの基礎 – オペレーションズ・リサーチ</title>
+<title>15&nbsp; 基礎概念 – オペレーションズ・リサーチ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -105,7 +125,7 @@ window.Quarto = {
 };
 </script>
 
-<meta name="twitter:title" content="15&nbsp; 待ち行列モデルの基礎 – オペレーションズ・リサーチ">
+<meta name="twitter:title" content="15&nbsp; 基礎概念 – オペレーションズ・リサーチ">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://zi-ang-liu.github.io/or-book/queuing/images/typical-queueing.png">
 <meta name="twitter:image-height" content="724">
@@ -284,7 +304,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../queuing/intro.html">待ち行列理論</a></li><li class="breadcrumb-item"><a href="../queuing/intro.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">待ち行列モデルの基礎</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../queuing/intro.html">待ち行列理論</a></li><li class="breadcrumb-item"><a href="../queuing/intro.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">基礎概念</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
@@ -493,7 +513,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../queuing/intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">待ち行列モデルの基礎</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">基礎概念</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -624,16 +644,13 @@ window.Quarto = {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#待ち行列モデル" id="toc-待ち行列モデル" class="nav-link active" data-scroll-target="#待ち行列モデル"><span class="header-section-number">15.1</span> 待ち行列モデル</a></li>
-  <li><a href="#ケンドールの記号" id="toc-ケンドールの記号" class="nav-link" data-scroll-target="#ケンドールの記号"><span class="header-section-number">15.2</span> ケンドールの記号</a></li>
-  <li><a href="#利用率" id="toc-利用率" class="nav-link" data-scroll-target="#利用率"><span class="header-section-number">15.3</span> 利用率</a></li>
-  <li><a href="#定常状態" id="toc-定常状態" class="nav-link" data-scroll-target="#定常状態"><span class="header-section-number">15.4</span> 定常状態</a></li>
-  <li><a href="#評価指標" id="toc-評価指標" class="nav-link" data-scroll-target="#評価指標"><span class="header-section-number">15.5</span> 評価指標</a></li>
+  <li><a href="#待ち行列とは" id="toc-待ち行列とは" class="nav-link active" data-scroll-target="#待ち行列とは"><span class="header-section-number">15.1</span> 待ち行列とは</a></li>
+  <li><a href="#待ち行列モデル" id="toc-待ち行列モデル" class="nav-link" data-scroll-target="#待ち行列モデル"><span class="header-section-number">15.2</span> 待ち行列モデル</a></li>
+  <li><a href="#ケンドールの記号" id="toc-ケンドールの記号" class="nav-link" data-scroll-target="#ケンドールの記号"><span class="header-section-number">15.3</span> ケンドールの記号</a></li>
+  <li><a href="#利用率" id="toc-利用率" class="nav-link" data-scroll-target="#利用率"><span class="header-section-number">15.4</span> 利用率</a></li>
+  <li><a href="#定常状態" id="toc-定常状態" class="nav-link" data-scroll-target="#定常状態"><span class="header-section-number">15.5</span> 定常状態</a></li>
   <li><a href="#リトルの法則" id="toc-リトルの法則" class="nav-link" data-scroll-target="#リトルの法則"><span class="header-section-number">15.6</span> リトルの法則</a></li>
-  <li><a href="#gg1ggc-待ち行列" id="toc-gg1ggc-待ち行列" class="nav-link" data-scroll-target="#gg1ggc-待ち行列"><span class="header-section-number">15.7</span> <span class="math inline">\(G/G/1\)</span>，<span class="math inline">\(G/G/c\)</span> 待ち行列</a>
-  <ul class="collapse">
-  <li><a href="#lwl_qw_q-の関係" id="toc-lwl_qw_q-の関係" class="nav-link" data-scroll-target="#lwl_qw_q-の関係"><span class="header-section-number">15.7.1</span> <span class="math inline">\(L\)</span>，<span class="math inline">\(W\)</span>，<span class="math inline">\(L_q\)</span>，<span class="math inline">\(W_q\)</span> の関係</a></li>
-  </ul></li>
+  <li><a href="#gg1ggc" id="toc-gg1ggc" class="nav-link" data-scroll-target="#gg1ggc"><span class="header-section-number">15.7</span> <span class="math inline">\(G/G/1\)</span>，<span class="math inline">\(G/G/c\)</span></a></li>
   <li><a href="#用語集" id="toc-用語集" class="nav-link" data-scroll-target="#用語集"><span class="header-section-number">15.8</span> 用語集</a></li>
   <li><a href="#演習問題" id="toc-演習問題" class="nav-link" data-scroll-target="#演習問題"><span class="header-section-number">15.9</span> 演習問題</a></li>
   </ul>
@@ -643,9 +660,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../queuing/intro.html">待ち行列理論</a></li><li class="breadcrumb-item"><a href="../queuing/intro.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">待ち行列モデルの基礎</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../queuing/intro.html">待ち行列理論</a></li><li class="breadcrumb-item"><a href="../queuing/intro.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">基礎概念</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">待ち行列モデルの基礎</span></h1>
+<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">基礎概念</span></h1>
 </div>
 
 
@@ -681,6 +698,8 @@ window.Quarto = {
 </ul>
 </div>
 </div>
+<section id="待ち行列とは" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="待ち行列とは"><span class="header-section-number">15.1</span> 待ち行列とは</h2>
 <p><strong>客</strong>（customer）がシステムに<strong>到着</strong>（arrival）し，<strong>待ち行列</strong>（queue）に並び，サービスを受け，最後にシステムを<strong>退出</strong>（departure）する．<a href="#fig-typical-queueing-system" class="quarto-xref">図&nbsp;<span>15.1</span></a> は，典型的な待ち行列システムを示している．</p>
 <div id="fig-typical-queueing-system" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -693,8 +712,9 @@ window.Quarto = {
 </figure>
 </div>
 <p>待ち行列システムは待ち行列とサーバから構成される．これ以降は，待ち行列システムを単に<strong>システム</strong>と呼ぶことにする．</p>
-<section id="待ち行列モデル" class="level2" data-number="15.1">
-<h2 data-number="15.1" class="anchored" data-anchor-id="待ち行列モデル"><span class="header-section-number">15.1</span> 待ち行列モデル</h2>
+</section>
+<section id="待ち行列モデル" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="待ち行列モデル"><span class="header-section-number">15.2</span> 待ち行列モデル</h2>
 <p>一般に，待ち行列モデルは，次の5つの要素で特徴付けられる．</p>
 <ol type="1">
 <li>客の到着過程</li>
@@ -704,8 +724,8 @@ window.Quarto = {
 <li>サービス規律</li>
 </ol>
 </section>
-<section id="ケンドールの記号" class="level2" data-number="15.2">
-<h2 data-number="15.2" class="anchored" data-anchor-id="ケンドールの記号"><span class="header-section-number">15.2</span> ケンドールの記号</h2>
+<section id="ケンドールの記号" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="ケンドールの記号"><span class="header-section-number">15.3</span> ケンドールの記号</h2>
 <p>待ち行列モデルは，<strong>ケンドールの記号</strong>（Kendall’s notation）により表現する．通常以下の形式で表される．</p>
 <p><span class="math display">\[
 A/B/X
@@ -761,9 +781,56 @@ A/B/X
 </div>
 </div>
 </section>
-<section id="利用率" class="level2" data-number="15.3">
-<h2 data-number="15.3" class="anchored" data-anchor-id="利用率"><span class="header-section-number">15.3</span> 利用率</h2>
-<p><span class="math inline">\(G/G/c\)</span> 待ち行列モデルを考える．時刻 <span class="math inline">\(t\)</span> までに累積到着客数を <span class="math inline">\(A(t)\)</span> とする．時間区間 <span class="math inline">\([0,t]\)</span> における単位時間あたりの到着客数の平均は <span class="math display">\[
+<section id="利用率" class="level2" data-number="15.4">
+<h2 data-number="15.4" class="anchored" data-anchor-id="利用率"><span class="header-section-number">15.4</span> 利用率</h2>
+<p><span class="math inline">\(G/G/c\)</span> 待ち行列モデルを考える．記号のまとめを以下に示す．</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>記号</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\lambda\)</span></td>
+<td>平均到着率，単位時間あたりの到着客数の平均</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(L\)</span></td>
+<td>系内客数</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(W\)</span></td>
+<td>滞在時間</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(L_q\)</span></td>
+<td>待ち行列長</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(W_q\)</span></td>
+<td>待ち時間</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(S\)</span></td>
+<td>サービス時間</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mu\)</span></td>
+<td>平均サービス率，単位時間あたりに処理できる客数の平均</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(c\)</span></td>
+<td>サーバ数</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\rho\)</span></td>
+<td>利用率</td>
+</tr>
+</tbody>
+</table>
+<p>時刻 <span class="math inline">\(t\)</span> までに累積到着客数を <span class="math inline">\(A(t)\)</span> とする．時間区間 <span class="math inline">\([0,t]\)</span> における単位時間あたりの到着客数の平均は <span class="math display">\[
 \bar{A}(t) = \frac{A(t)}{t}
 \]</span> で与えられる．以下の極限 <span class="math display">\[
 \lambda = \lim_{t \to \infty} \bar{A}(t)
@@ -810,153 +877,126 @@ c &gt; \frac{\lambda}{\mu} = 5
 \]</span></p>
 <p>したがって，最小でオーペレーター6人が必要である．</p>
 </div>
-</section>
-<section id="定常状態" class="level2" data-number="15.4">
-<h2 data-number="15.4" class="anchored" data-anchor-id="定常状態"><span class="header-section-number">15.4</span> 定常状態</h2>
-<p>十分時間が経過した後，システムの状態は初期状態の影響を受けなくなる．このとき，システムは<strong>定常状態</strong>（steady state）にあるという．</p>
-<p><span class="math inline">\(N(t)\)</span> を時刻 <span class="math inline">\(t\)</span> における系内客数とする．<span class="math inline">\(\mathbb{P}(N(t) = n)\)</span> を時刻 <span class="math inline">\(t\)</span> における系内客数が <span class="math inline">\(n\)</span> である確率とする．<span class="math inline">\(\rho &lt; 1\)</span> のとき，<span class="math inline">\(n = 0, 1, 2, \ldots\)</span> に対して，</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">警告</span>利用率
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><span class="math display">\[
-\pi_n = \lim_{t \to \infty} P(N(t) = n)
+\rho = \frac{\lambda}{c \mu}
 \]</span></p>
-<p>が存在し，<span class="math inline">\(\pi_n\)</span> は系内客数が <span class="math inline">\(n\)</span> である確率を表す．もう一つの解釈として，<span class="math inline">\(\pi_n\)</span> は系内客数が <span class="math inline">\(n\)</span> である時間の割合を表すとも言える．<span class="math inline">\(\pi_n\)</span> は時刻 <span class="math inline">\(t\)</span> に依存しないことに注意せよ．</p>
-<!-- ここまで -->
+</div>
+</div>
 </section>
-<section id="評価指標" class="level2" data-number="15.5">
-<h2 data-number="15.5" class="anchored" data-anchor-id="評価指標"><span class="header-section-number">15.5</span> 評価指標</h2>
-<p>待ち行列理論の代表的な性能評価指標を紹介する．</p>
-<p><strong>滞在時間</strong>は客がシステムに到着してサービスを受け，システムを退出するまでにかかる時間である．<strong>待ち時間</strong>は，客がシステムに到着してからサービスを受けるまでの時間である．滞在時間は待ち時間とサービス時間の和に等しい．</p>
-<p><span class="math inline">\(W^{(k)}\)</span> を客 <span class="math inline">\(k\)</span> の滞在時間，<span class="math inline">\(W_q^{(k)}\)</span> を客 <span class="math inline">\(k\)</span> の待ち時間とする．以下の極限が存在するとき，平均滞在時間 <span class="math inline">\(\mathbb{E}[W]\)</span>，平均待ち時間 <span class="math inline">\(\mathbb{E}[W_q]\)</span> は</p>
+<section id="定常状態" class="level2" data-number="15.5">
+<h2 data-number="15.5" class="anchored" data-anchor-id="定常状態"><span class="header-section-number">15.5</span> 定常状態</h2>
+<p>システムの使用を開始してから十分時間が経過していなく，システムの状態（システムにいる客数など）が初期状態の影響を受けている場合，システムは<strong>過渡状態</strong>（transient state）にあるという． 一方で，システムの使用を開始してから，十分時間が経過した後，システムの状態は初期状態の影響を受けなくなる．このとき，システムは<strong>定常状態</strong>（steady state）にあるという．</p>
+<p>過渡状態よりも定常状態の方が，解析が容易であるため，ここで紹介する待ち行列理論では定常状態におけるシステムの性能評価が主に扱われる．以下では，定常状態における記号を紹介する．</p>
+<p>システム内にいる客数のことを<strong>系内客数</strong>と呼ぶ． <span class="math inline">\(N(t)\)</span> を時刻 <span class="math inline">\(t\)</span> における系内客数とする．<span class="math inline">\(\mathbb{P}(N(t) = n)\)</span> を時刻 <span class="math inline">\(t\)</span> における系内客数が <span class="math inline">\(n\)</span> である確率とする．<span class="math inline">\(L\)</span> を定常状態における系内客数とすると，<span class="math inline">\(\rho &lt; 1\)</span> のとき，<span class="math inline">\(n = 0, 1, 2, \ldots\)</span> に対して，</p>
 <p><span class="math display">\[
-\mathbb{E}[W] = \lim_{n \to \infty} \frac{1}{n} \sum_{k=1}^n W^{(k)} , \quad \mathbb{E}[W_q] = \lim_{n \to \infty} \frac{1}{n} \sum_{k=1}^n W_q^{(k)}
-\]</span> で定義される．</p>
-<p><strong>系内客数</strong>はシステム内にいる客数である．<strong>待ち行列長</strong>は待ち行列に並ぶ客数である．</p>
-<p>客 <span class="math inline">\(k\)</span> の滞在時間を <span class="math inline">\(W^(k)\)</span> とする．<span class="math inline">\(t \to \infty\)</span> とすると，極限が存在するとき，平均到着率 <span class="math inline">\(\lambda\)</span>，平均系内客数 <span class="math inline">\(L\)</span>，平均滞在時間 <span class="math inline">\(W\)</span> はそれぞれ次の式で定義される．</p>
-<p><span class="math display">\[
-\lambda = \lim_{t \to \infty} \frac{A(t)}{t} , \quad L = \lim_{T \to \infty} \frac{1}{T} \int_0^T N(t) dt, \quad W = \lim_{k \to \infty} \frac{1}{k} \sum_{i=1}^k W^{(i)}
+\pi_n = \mathbb{P}(L = n) = \lim_{t \to \infty} \mathbb{P}(N(t) = n)
 \]</span></p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th></th>
-<th>システム</th>
-<th>待ち行列</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>客数</td>
-<td>系内客数</td>
-<td>待ち行列長</td>
-</tr>
-<tr class="even">
-<td>時間</td>
-<td>滞在時間</td>
-<td>待ち時間</td>
-</tr>
-</tbody>
-</table>
+<p>が存在し，<span class="math inline">\(\pi_n\)</span> は系内客数 <span class="math inline">\(L\)</span> が <span class="math inline">\(n\)</span> である確率を表す．もう一つの解釈として，<span class="math inline">\(\pi_n\)</span> は系内客数が <span class="math inline">\(n\)</span> である時間の割合を表すとも言える．<span class="math inline">\(\pi_n\)</span> は時刻 <span class="math inline">\(t\)</span> に依存しない．</p>
+<p><strong>滞在時間</strong>は客がシステムに到着してサービスを受け，システムを退出するまでにかかる時間である． <span class="math inline">\(W^{(k)}\)</span> を客 <span class="math inline">\(k\)</span> の滞在時間とする．<span class="math inline">\(W\)</span> を定常状態における滞在時間とすると， <span class="math inline">\(\rho &lt; 1\)</span> のとき，</p>
+<p><span class="math display">\[
+F_W(t) = \lim_{k \to \infty} \mathbb{P}(W^{(k)} \leq t)
+\]</span></p>
+<p>が存在し，<span class="math inline">\(F_W(t)\)</span> は滞在時間 <span class="math inline">\(W\)</span> が <span class="math inline">\(t\)</span> 以下である確率を表す．</p>
 </section>
 <section id="リトルの法則" class="level2" data-number="15.6">
 <h2 data-number="15.6" class="anchored" data-anchor-id="リトルの法則"><span class="header-section-number">15.6</span> リトルの法則</h2>
-<p><strong>リトルの法則</strong>（Little’s Law）は，待ち行列理論における基本的な関係式であり，平均系内客数 <span class="math inline">\(L\)</span>，平均到着率 <span class="math inline">\(\lambda\)</span>，平均滞在時間 <span class="math inline">\(W\)</span> の関係を示すものである．リトルの法則は <span class="math inline">\(L = \lambda W\)</span> と表される．すなわち，平均系内客数 <span class="math inline">\(L\)</span> は，平均到着率 <span class="math inline">\(\lambda\)</span> と平均滞在時間 <span class="math inline">\(W\)</span> の積に等しい．</p>
+<p>以上では，定常状態における系内客数と滞在時間の分布を紹介した．待ち行列システムの性能を評価するた際に，もっとも興味がある指標には，平均系内客数，平均滞在時間などがある．</p>
+<p>以下の極限が存在するならば，平均系内客数 <span class="math inline">\(\mathbb{E}[L]\)</span> と平均滞在時間 <span class="math inline">\(\mathbb{E}[W]\)</span> はそれぞれ次の式で定義される． <span class="math display">\[
+\mathbb{E}[L] = \lim_{T \to \infty} \frac{1}{T} \int_0^T N(t) dt
+\]</span></p>
+<p><span class="math display">\[
+\mathbb{E}[W] = \lim_{n \to \infty} \frac{1}{n} \sum_{k=1}^n W^{(k)}
+\]</span></p>
+<p>すなわち，平均系内客数は，長期的に見たときのシステム内の平均客数を表し，平均滞在時間は，長期的に見たときの客の平均滞在時間を表す．</p>
+<p><strong>リトルの法則</strong>（Little’s Law）は，待ち行列理論における基本的な関係式であり，平均系内客数 <span class="math inline">\(\mathbb{E}[L]\)</span>，平均滞在時間 <span class="math inline">\(\mathbb{E}[W]\)</span>，平均到着率 <span class="math inline">\(\lambda\)</span>の関係を示すものである．リトルの法則は</p>
+<p><span class="math display">\[
+\mathbb{E}[L] = \lambda \mathbb{E}[W]
+\]</span></p>
+<p>と表される．すなわち，平均系内客数 <span class="math inline">\(\mathbb{E}[L]\)</span> は，平均到着率 <span class="math inline">\(\lambda\)</span> と平均滞在時間 <span class="math inline">\(\mathbb{E}[W]\)</span> の積に等しい．</p>
+<p><span class="citation" data-cites="Little1961-bm">Little (<a href="../references.html#ref-Little1961-bm" role="doc-biblioref">1961</a>)</span> と <span class="citation" data-cites="Stidham1974-lr">Stidham (<a href="../references.html#ref-Stidham1974-lr" role="doc-biblioref">1974</a>)</span> により，リトルの法則の厳密な証明が与えられている．ここでは，例を用いて，リトルの法則を直感的に理解する．</p>
 <div id="exm-university" class="theorem example">
 <p><span class="theorem-title"><strong>例 15.3 (大学の在籍学生数)</strong></span> ある大学の経営システム系では，毎年80人の新入生が入学し，卒業までに4年間在籍する．このとき，経営システム系に在籍している学生の平均人数を求めよ．</p>
-<p>平均到着率 <span class="math inline">\(\lambda\)</span> は80人/年，平均滞在時間 <span class="math inline">\(W\)</span> は4年である．リトルの法則により，平均系内客数 <span class="math inline">\(L\)</span> は次のように求められる．</p>
+<p>平均到着率 <span class="math inline">\(\lambda\)</span> は80人/年，平均滞在時間 <span class="math inline">\(\mathbb{E}[W]\)</span> は4年である．リトルの法則により，平均系内客数 <span class="math inline">\(\mathbb{E}[L]\)</span> は次のように求められる．</p>
 <p><span class="math display">\[
-L = \lambda W = 80 \times 4 = 320 \text{ 人}
+\mathbb{E}[L] = \lambda \mathbb{E}[W] = 80 \times 4 = 320 \text{ 人}
 \]</span></p>
 <p>よって，経営システム系には320人の学生が在籍していることになる．</p>
 </div>
 <div id="exm-bank" class="theorem example">
-<p><span class="theorem-title"><strong>例 15.4</strong></span> ある銀行では，1時間に平均20人の客が来店し，各客が銀行に滞在する平均時間は12分である．このとき，この銀行には平均何人の客がいるか．</p>
-<p>平均到着率 <span class="math inline">\(\lambda\)</span> は20人/時間，平均滞在時間 <span class="math inline">\(W = 12 \text{ 分} = 12/60 \text{ 時間}\)</span> である．リトルの法則から，平均系内客数 <span class="math inline">\(L\)</span> は</p>
+<p><span class="theorem-title"><strong>例 15.4 (銀行の平均在店客数)</strong></span> ある銀行では，1時間に平均20人の客が来店し，各客が銀行に滞在する平均時間は12分である．このとき，この銀行には平均何人の客がいるか．</p>
+<p>平均到着率 <span class="math inline">\(\lambda\)</span> は20人/時間，平均滞在時間 <span class="math inline">\(\mathbb{E}[W] = 12 \text{ 分} = 12/60 \text{ 時間}\)</span> である．リトルの法則から，平均系内客数 <span class="math inline">\(\mathbb{E}[L]\)</span> は</p>
 <p><span class="math display">\[
-L = \lambda W = 20 \times \frac{12}{60} = 4 \text{ 人}
+\mathbb{E}[L] = \lambda \mathbb{E}[W] = 20 \times \frac{12}{60} = 4 \text{ 人}
 \]</span></p>
-<p>となる．すなわち，銀行内には平均して4人の客が滞在する．平均滞在時間 <span class="math inline">\(W\)</span> や平均到着率 <span class="math inline">\(\lambda\)</span> が増加すると，平均系内客数 <span class="math inline">\(L\)</span> も増加することがわかる．</p>
+<p>となる．すなわち，銀行内には平均して4人の客が滞在する．平均滞在時間 <span class="math inline">\(\mathbb{E}[W]\)</span> や平均到着率 <span class="math inline">\(\lambda\)</span> が増加すると，平均系内客数 <span class="math inline">\(\mathbb{E}[L]\)</span> も増加することがわかる．</p>
 </div>
-<!-- :::{#thm-littles-law}
-### リトルの法則
-極限 $\lambda$，$W$ が存在するならば，極限 $L$ も存在し，次の関係式が成り立つ． 
-$$
-L = \lambda W
-$$
-::: -->
-<p>これまでは，システム全体に関するリトルの法則を紹介したが，待ち行列を「システム」として考えた場合にも同様の関係が成り立つ．平均待ち行列長を <span class="math inline">\(L_q\)</span>，平均待ち時間を <span class="math inline">\(W_q\)</span>，平均到着率を <span class="math inline">\(\lambda\)</span> とすると，</p>
+<p>これまでは，システム全体に関するリトルの法則を紹介したが，待ち行列を「システム」として考えた場合にも同様の関係が成り立つ．すなわち，リトルの法則を待ち行列にも適用できる．待ち行列に関するリトルの法則を説明するために，待ち時間と待ち行列長の記号を導入する．</p>
+<p><strong>待ち時間</strong>は，客がシステムに到着してからサービスを受けるまでの時間であり，滞在時間は待ち時間とサービス時間の和に等しい．<strong>待ち行列長</strong>は，システム内にいる客数のうち，サービスを受けていない客数を表す． 待ち行列長を <span class="math inline">\(\mathbb{E}[L_q]\)</span>，平均待ち時間を <span class="math inline">\(\mathbb{E}[W_q]\)</span>，平均到着率を <span class="math inline">\(\lambda\)</span> とすると，</p>
 <p><span class="math display">\[
-L_q = \lambda W_q
+\mathbb{E}[L_q] = \lambda \mathbb{E}[W_q]
 \]</span></p>
 <p>が成り立つ．</p>
-</section>
-<section id="gg1ggc-待ち行列" class="level2" data-number="15.7">
-<h2 data-number="15.7" class="anchored" data-anchor-id="gg1ggc-待ち行列"><span class="header-section-number">15.7</span> <span class="math inline">\(G/G/1\)</span>，<span class="math inline">\(G/G/c\)</span> 待ち行列</h2>
-<p><span class="math inline">\(G/G/1\)</span> と <span class="math inline">\(G/G/c\)</span> 待ち行列における一般的な結論を説明する．記号のまとめを以下に示す．</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>記号</th>
-<th>意味</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(\lambda\)</span></td>
-<td>平均到着率，単位時間あたりの到着客数の平均</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(L\)</span></td>
-<td>平均系内客数</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(W\)</span></td>
-<td>平均滞在時間</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(L_q\)</span></td>
-<td>平均待ち行列長</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(W_q\)</span></td>
-<td>平均待ち時間</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(S\)</span></td>
-<td>サービス時間を表す確率変数</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(\mu\)</span></td>
-<td>平均サービス率，単位時間あたりに処理できる客数の平均</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(c\)</span></td>
-<td>サーバ数</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(\rho\)</span></td>
-<td>利用率</td>
-</tr>
-</tbody>
-</table>
-<section id="lwl_qw_q-の関係" class="level3" data-number="15.7.1">
-<h3 data-number="15.7.1" class="anchored" data-anchor-id="lwl_qw_q-の関係"><span class="header-section-number">15.7.1</span> <span class="math inline">\(L\)</span>，<span class="math inline">\(W\)</span>，<span class="math inline">\(L_q\)</span>，<span class="math inline">\(W_q\)</span> の関係</h3>
-<p>客がシステムに到着してから退出するまでの平均滞在時間 <span class="math inline">\(W\)</span> は，平均待ち時間 <span class="math inline">\(W_q\)</span> と平均サービス時間 <span class="math inline">\(E[S]\)</span> の和で表される．すなわち，</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">警告</span>リトルの法則
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><span class="math display">\[
-W = W_q + E[S] = W_q + \frac{1}{\mu}
+\mathbb{E}[L] = \lambda \mathbb{E}[W]
+\]</span></p>
+<p><span class="math display">\[
+\mathbb{E}[L_q] = \lambda \mathbb{E}[W_q]
+\]</span></p>
+</div>
+</div>
+</section>
+<section id="gg1ggc" class="level2" data-number="15.7">
+<h2 data-number="15.7" class="anchored" data-anchor-id="gg1ggc"><span class="header-section-number">15.7</span> <span class="math inline">\(G/G/1\)</span>，<span class="math inline">\(G/G/c\)</span></h2>
+<p><span class="math inline">\(G/G/1\)</span> と <span class="math inline">\(G/G/c\)</span> 待ち行列において，<span class="math inline">\(\mathbb{E}[L]\)</span>，<span class="math inline">\(\mathbb{E}[W]\)</span>，<span class="math inline">\(\mathbb{E}[L_q]\)</span>，<span class="math inline">\(\mathbb{E}[W_q]\)</span> の関係式を紹介する．</p>
+<p>客がシステムに到着してから退出するまでの平均滞在時間 <span class="math inline">\(\mathbb{E}[W]\)</span> は，平均待ち時間 <span class="math inline">\(\mathbb{E}[W_q]\)</span> と平均サービス時間 <span class="math inline">\(\mathbb{E}[S]\)</span> の和で表される．すなわち，</p>
+<p><span class="math display">\[
+\mathbb{E}[W] = \mathbb{E}[W_q] + \mathbb{E}[S] = \mathbb{E}[W_q] + \frac{1}{\mu}
 \]</span></p>
 <p>である．リトルの法則により，</p>
 <p><span class="math display">\[
-L = \lambda W = \lambda \left( W_q + \frac{1}{\mu} \right) =\lambda W_q + \frac{\lambda}{\mu} = L_q + \frac{\lambda}{\mu}
+\mathbb{E}[L] = \lambda \mathbb{E}[W] = \lambda \left( \mathbb{E}[W_q] + \frac{1}{\mu} \right) =\lambda \mathbb{E}[W_q] + \frac{\lambda}{\mu} = \mathbb{E}[L_q] + \frac{\lambda}{\mu}
 \]</span></p>
-<p>が成り立つ．<span class="math inline">\(L = L_q + \lambda / \mu\)</span> が成り立つから，<span class="math inline">\(\lambda/ \mu\)</span> はサービスを受けている客数の平均を表していると言える．また，<span class="math inline">\(\lambda/ \mu = L - L_q\)</span> であるから，稼働中のサーバ数の平均を表しているとも言える．</p>
+<p>が成り立つ．<span class="math inline">\(\mathbb{E}[L] = \mathbb{E}[L_q] + \lambda /\mu\)</span> が成立するから，<span class="math inline">\(\lambda / \mu\)</span> はサービスを受けている客数の平均を表していると言える．また，<span class="math inline">\(\lambda / \mu\)</span> は稼働中のサーバ数の平均を表しているとも言える．</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">警告</span><span class="math inline">\(\mathbb{E}[L]\)</span>，<span class="math inline">\(\mathbb{E}[W]\)</span>，<span class="math inline">\(\mathbb{E}[L_q]\)</span>，<span class="math inline">\(\mathbb{E}[W_q]\)</span> の関係
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>以上の関係式をまとめると，次のようになる．</p>
 <p><span class="math display">\[\begin{align*}
-L &amp; = \lambda W \\
-W &amp; = W_q + \frac{1}{\mu} \\
-L_q &amp; = \lambda W_q \\
-L &amp; = L_q + \frac{\lambda}{\mu}
+\mathbb{E}[L] &amp; = \lambda \mathbb{E}[W] \\
+\mathbb{E}[W] &amp; = \mathbb{E}[W_q] + \frac{1}{\mu} \\
+\mathbb{E}[L_q] &amp; = \lambda \mathbb{E}[W_q] \\
+\mathbb{E}[L] &amp; = \mathbb{E}[L_q] + \frac{\lambda}{\mu}
 \end{align*}\]</span></p>
-<p>これらの関係式は4つの指標 <span class="math inline">\(L\)</span>，<span class="math inline">\(W\)</span>，<span class="math inline">\(L_q\)</span>，<span class="math inline">\(W_q\)</span> のうち，1つがわかれば，他の3つを計算できることを示している．</p>
-</section>
+</div>
+</div>
+<p><span class="math inline">\(\mathbb{E}[L]\)</span>，<span class="math inline">\(\mathbb{E}[W]\)</span>，<span class="math inline">\(\mathbb{E}[L_q]\)</span>，<span class="math inline">\(\mathbb{E}[W_q]\)</span> は待ち行列における基本的な評価指標である．<span class="math inline">\(\lambda\)</span> と <span class="math inline">\(\mu\)</span> が与えられたとき，4つの指標のうち1つがわかれば，残りの3つを計算できる．</p>
 </section>
 <section id="用語集" class="level2" data-number="15.8">
 <h2 data-number="15.8" class="anchored" data-anchor-id="用語集"><span class="header-section-number">15.8</span> 用語集</h2>
@@ -1017,17 +1057,25 @@ L &amp; = L_q + \frac{\lambda}{\mu}
 <p><span class="math display">\[
 \rho = \frac{30}{1 \times 60} = 0.5
 \]</span> となる．</p>
-<p>平均サービス時間 <span class="math inline">\(E[S] = 1 \text{ 分}\)</span>，平均待ち時間 <span class="math inline">\(W_q = 5 \text{ 分}\)</span> であるから，平均滞在時間 <span class="math inline">\(W\)</span> は</p>
+<p>平均サービス時間 <span class="math inline">\(\mathbb{E}[S] = 1 \text{ 分}\)</span>，平均待ち時間 <span class="math inline">\(\mathbb{E}[W_q] = 5 \text{ 分}\)</span> であるから，平均滞在時間 <span class="math inline">\(\mathbb{E}[W]\)</span> は</p>
 <p><span class="math display">\[
-W = W_q + E[S] = 5 + 1 = 6 \text{ 分}
-\]</span> となる．リトルの法則により，平均系内客数 <span class="math inline">\(L\)</span> は <span class="math display">\[
-L = \lambda W = 30 \times \frac{6}{60} = 3 \text{ 人}
-\]</span> となる．同様に，平均待ち行列長 <span class="math inline">\(L_q\)</span> は <span class="math display">\[
-L_q = \lambda W_q = 30 \times \frac{5}{60} = 2.5 \text{ 人}
+\mathbb{E}[W] = \mathbb{E}[W_q] + \mathbb{E}[S] = 5 + 1 = 6 \text{ 分}
+\]</span> となる．リトルの法則により，平均系内客数 <span class="math inline">\(\mathbb{E}[L]\)</span> は <span class="math display">\[
+\mathbb{E}[L] = \lambda \mathbb{E}[W] = 30 \times \frac{6}{60} = 3 \text{ 人}
+\]</span> となる．同様に，平均待ち行列長 <span class="math inline">\(\mathbb{E}[L_q]\)</span> は <span class="math display">\[
+\mathbb{E}[L_q] = \lambda \mathbb{E}[W_q] = 30 \times \frac{5}{60} = 2.5 \text{ 人}
 \]</span> となる．</p>
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Little1961-bm" class="csl-entry" role="listitem">
+Little, John D C. 1961. <span>「A proof for the queuing formula: <em>L</em> = λ<em>W</em>」</span>. <em>Oper. Res.</em> 9 (3): 383–87.
+</div>
+<div id="ref-Stidham1974-lr" class="csl-entry" role="listitem">
+Stidham, Shaler, Jr. 1974. <span>「Technical note—A last word on <em>L</em> = λ<em>W</em>」</span>. <em>Oper. Res.</em> 22 (2): 417–21.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
