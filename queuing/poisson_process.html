@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>16&nbsp; ポアソン過程 – オペレーションズ・リサーチ</title>
+<title>16&nbsp; 指数分布とポアソン過程 – オペレーションズ・リサーチ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -140,7 +140,7 @@ window.Quarto = {
 };
 </script>
 
-<meta name="twitter:title" content="16&nbsp; ポアソン過程 – オペレーションズ・リサーチ">
+<meta name="twitter:title" content="16&nbsp; 指数分布とポアソン過程 – オペレーションズ・リサーチ">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://zi-ang-liu.github.io/or-book/queuing/poisson_process_files/figure-html/cell-2-output-1.png">
 <meta name="twitter:image-height" content="898">
@@ -319,7 +319,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../queuing/intro.html">待ち行列理論</a></li><li class="breadcrumb-item"><a href="../queuing/poisson_process.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ポアソン過程</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../queuing/intro.html">待ち行列理論</a></li><li class="breadcrumb-item"><a href="../queuing/poisson_process.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">指数分布とポアソン過程</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
@@ -534,7 +534,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../queuing/poisson_process.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ポアソン過程</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">指数分布とポアソン過程</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -673,9 +673,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../queuing/intro.html">待ち行列理論</a></li><li class="breadcrumb-item"><a href="../queuing/poisson_process.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ポアソン過程</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../queuing/intro.html">待ち行列理論</a></li><li class="breadcrumb-item"><a href="../queuing/poisson_process.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">指数分布とポアソン過程</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ポアソン過程</span></h1>
+<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">指数分布とポアソン過程</span></h1>
 </div>
 
 
@@ -692,7 +692,8 @@ window.Quarto = {
 </header>
 
 
-<p><span class="math inline">\(M/M/c\)</span> と <span class="math inline">\(M/M/1\)</span> 待ち行列は，待ち行列理論において最も基本的なモデルである．これらのモデルでは，到着間隔とサービス時間が指数分布に従う．</p>
+<!-- $M/M/c$ と $M/M/1$ 待ち行列は，待ち行列理論において最も基本的なモデルである．これらのモデルでは，到着間隔とサービス時間が指数分布に従う． -->
+<p>指数分布，ポアソン分布，ポアソン過程について説明する．</p>
 <section id="指数分布" class="level2" data-number="16.1">
 <h2 data-number="16.1" class="anchored" data-anchor-id="指数分布"><span class="header-section-number">16.1</span> 指数分布</h2>
 <p>連続型確率変数 <span class="math inline">\(X\)</span> が<strong>指数分布</strong>（exponential distribution）に従うとき，<span class="math inline">\(X\)</span> の確率密度関数は</p>
@@ -702,18 +703,24 @@ f_X(x) = \begin{cases}
 0 &amp; x &lt; 0
 \end{cases}
 \]</span></p>
-<p>で与えられる．ここで <span class="math inline">\(\lambda &gt; 0\)</span> は分布のパラメータである．</p>
-<p>指数分布に従う確率変数 <span class="math inline">\(X\)</span> の平均と分散は <span class="math display">\[
+<p>で与えられる．ここで <span class="math inline">\(\lambda &gt; 0\)</span> は分布のパラメータである．指数分布に従う確率変数 <span class="math inline">\(X\)</span> の平均と分散は <span class="math display">\[
 E[X] = \frac{1}{\lambda}, \quad \text{Var}(X) = \frac{1}{\lambda^2}
-\]</span> である．</p>
-<p><span class="math inline">\(X\)</span> の累積分布関数は <span class="math display">\[
+\]</span> である．<span class="math inline">\(X\)</span> の累積分布関数は <span class="math display">\[
 F_X(x) = P(X \leq x) = \begin{cases}
 1 - e^{-\lambda x} &amp; x \geq 0 \\
 0 &amp; x &lt; 0
 \end{cases}
 \]</span> である．</p>
-<p>次の図は，パラメータ <span class="math inline">\(\lambda = 0.5, 1.0, 1.5, 2.0\)</span> の場合における指数分布の確率密度関数を示している．確率密度関数 <span class="math inline">\(f_X(x)\)</span> は <span class="math inline">\(x\)</span> の増加に伴い単調減少する．</p>
-<div id="a7dc3f80" class="cell" data-execution_count="1">
+<p>指数分布に従う確率変数は，事象が起こるまでの時間を表すことが多い．例えば，機械が故障するまでの時間，事故が発生するまでの時間などが挙げられる．<span class="math inline">\(\mathbb{E}[X]\)</span> は，事象が起こるまでの平均時間を表す．<span class="math inline">\(\lambda\)</span> の値が大きくなるほど，<span class="math inline">\(\mathbb{E}[X]\)</span> は小さくなる．</p>
+<!-- $M/M/1$ と $M/M/c$ 待ち行列では，到着間隔とサービス時間が指数分布に従う． -->
+<!-- :::{#exm-exp-basic}
+パラメータ $\lambda$ の指数分布に従う到着間隔を表す確率変数 $T$ を考える．時刻 $0$ から始めて，初めての到着が起こるまでの時間を $T$ とする．ここで，$T > t$ は，時間区間 $[0, t]$ に到着が発生しないことを意味する．時刻 $t \geq 0$ までに到着が発生する確率は，累積分布関数 $F_T(t)$ で与えられる．
+$$
+F_T(t) = \mathbb{P}(T \leq t) = 1 - e^{-\lambda t}
+$$
+::: -->
+<p>次の図は，パラメータ <span class="math inline">\(\lambda = 0.5, 1.0, 1.5, 2.0\)</span> の場合における指数分布の確率密度関数を示している．図から分かるように，確率密度関数 <span class="math inline">\(f_X(x)\)</span> は <span class="math inline">\(x\)</span> の増加に伴い単調減少する．</p>
+<div id="70c78491" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -742,7 +749,6 @@ F_X(x) = P(X \leq x) = \begin{cases}
 </div>
 </div>
 </div>
-<p>指数分布に従う確率変数は，時間を表すことが多い．パラメータ <span class="math inline">\(\lambda\)</span> は，単位時間あたりの事象の発生回数の平均を表す．</p>
 <section id="到着間隔とサービス時間" class="level3" data-number="16.1.1">
 <h3 data-number="16.1.1" class="anchored" data-anchor-id="到着間隔とサービス時間"><span class="header-section-number">16.1.1</span> 到着間隔とサービス時間</h3>
 <p><span class="math inline">\(M/M/1\)</span> と <span class="math inline">\(M/M/c\)</span> 待ち行列では，到着間隔とサービス時間が指数分布に従う．確率変数 <span class="math inline">\(T\)</span> を到着間隔を表すとする．このとき，<span class="math inline">\(P(T \leq t)\)</span> は，時間 <span class="math inline">\(t\)</span> 以内に次の客が到着する確率を表す．<span class="math inline">\(E(T)\)</span> は，到着間隔の平均を表す．<span class="math inline">\(\lambda = 1/E(T)\)</span> は，単位時間あたりの到着する客数の平均を表す．この <span class="math inline">\(\lambda\)</span> は，前の章で説明した<strong>平均到着率</strong>である．</p>
@@ -760,8 +766,8 @@ E[T] = 1/\lambda = 1/12 \text{ 時間} = 5 \text{ 分}
 P(T \leq 1/30) = F_T(1/30) = 1 - e^{-12 \times (1/30)} \approx 0.3297
 \]</span> よって，2分以内に次の客が到着する確率は約0.3297である．</p>
 </div>
-<p>次の図は，<a href="#exm-exp-basic-arrival" class="quarto-xref">例&nbsp;<span>16.1</span></a> で説明した到着間隔のシミュレーション例を示している．平均到着率 <span class="math inline">\(\lambda = 12\)</span> 人/時間であるとき，15人の到着時間をシミュレーションした．横軸は時間を表し，青い線は各客の到着時間を示している．</p>
-<div id="28e27983" class="cell" data-execution_count="2">
+<p>次の図は，<a href="#exm-exp-basic-arrival" class="quarto-xref">例&nbsp;<span>16.1</span></a> で説明した到着間隔のシミュレーション例を示している．平均到着率 <span class="math inline">\(\lambda = 12\)</span> 人/時間であるとき，25人の到着時間をシミュレーションした．横軸は時間を表し，青い線は各客の到着時間を示している．</p>
+<div id="b05b35f6" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> expon</span>
@@ -770,16 +776,23 @@ P(T \leq 1/30) = F_T(1/30) = 1 - e^{-12 \times (1/30)} \approx 0.3297
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">0</span>)</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>lambda_param <span class="op">=</span> <span class="dv">12</span>  <span class="co"># 平均到着率（人/時間）</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>num_arrivals <span class="op">=</span> <span class="dv">15</span>  <span class="co"># シミュレーションする到着数</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>num_arrivals <span class="op">=</span> <span class="dv">25</span>  <span class="co"># シミュレーションする到着数</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>inter_arrival_times <span class="op">=</span> expon.rvs(scale<span class="op">=</span><span class="dv">1</span> <span class="op">/</span> lambda_param, size<span class="op">=</span>num_arrivals)</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>arrival_times <span class="op">=</span> np.cumsum(inter_arrival_times)</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">2</span>))</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>plt.eventplot(arrival_times, orientation<span class="op">=</span><span class="st">"horizontal"</span>, colors<span class="op">=</span><span class="st">"blue"</span>)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Simulated Arrival Times"</span>)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Time (hours)"</span>)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>plt.yticks([])</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, <span class="bu">max</span>(arrival_times) <span class="op">+</span> <span class="fl">0.15</span>)</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>plt.eventplot(</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    arrival_times,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    orientation<span class="op">=</span><span class="st">"horizontal"</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    colors<span class="op">=</span><span class="st">"blue"</span>,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    lineoffsets<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    linelengths<span class="op">=</span><span class="fl">0.3</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    linewidths<span class="op">=</span><span class="fl">0.8</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Simulated Arrival Times"</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Time (hours)"</span>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>plt.yticks([])</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, <span class="bu">max</span>(arrival_times) <span class="op">+</span> <span class="fl">0.15</span>)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -810,10 +823,6 @@ P(T \leq 0.05) = F_T(0.05) = 1 - e^{-6 \times 0.05} \approx 0.2592
 P(T &gt; s + t \mid T &gt; s) = P(T &gt; t), \quad (s, t \geq 0)
 \]</span> が成り立つことをいう．</p>
 </div>
-<p>確率変数 <span class="math inline">\(T\)</span>　を到着間隔とする．無記憶性とは，すでに時間 <span class="math inline">\(s\)</span> が経過している場合（<span class="math inline">\(T &gt; s\)</span>），さらに時間 <span class="math inline">\(t\)</span> 経過した後に到着が発生していない確率（<span class="math inline">\(T &gt; s + t\)</span>）が，最初から時間 <span class="math inline">\(t\)</span> 経過した後に到着が発生していない確率と等しいことを意味する．</p>
-<div id="exm-memoryless-bus" class="theorem example">
-<p><span class="theorem-title"><strong>例 16.3</strong></span> 仮に，バスの到着間隔が指数分布に従うのであれば，「すでに10分待っていたので，そろそろバスが来るだろう」という考え方は成り立たない．</p>
-</div>
 <div id="thm-exp-memoryless" class="theorem">
 <p><span class="theorem-title"><strong>定理 16.1</strong></span> 指数分布に従う確率変数は無記憶性を持つ．</p>
 </div>
@@ -827,6 +836,10 @@ P(T &gt; s + t \mid T &gt; s) &amp; = \frac{P(T &gt; s + t, T &gt; s)}{P(T &gt; 
 \end{align*}\]</span></p>
 </div>
 <p>指数分布が無記憶性を持つ唯一の連続分布である．</p>
+<p>確率変数 <span class="math inline">\(T\)</span> を到着間隔とする．無記憶性とは，すでに時間 <span class="math inline">\(s\)</span> が経過している場合（<span class="math inline">\(T &gt; s\)</span>），さらに時間 <span class="math inline">\(t\)</span> 経過した後に到着が発生していない確率（<span class="math inline">\(T &gt; s + t\)</span>）が，最初から時間 <span class="math inline">\(t\)</span> 経過した後に到着が発生していない確率と等しいことを意味する．</p>
+<div id="exm-memoryless-bus" class="theorem example">
+<p><span class="theorem-title"><strong>例 16.3</strong></span> 仮に，バスの到着間隔が指数分布に従うのであれば，「すでに10分待っていたので，そろそろバスが来るだろう」という考え方は成り立たない．</p>
+</div>
 </section>
 </section>
 <section id="ポアソン過程" class="level2" data-number="16.2">

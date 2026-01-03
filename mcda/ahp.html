@@ -551,7 +551,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../queuing/poisson_process.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ポアソン過程</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">指数分布とポアソン過程</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -1006,7 +1006,136 @@ w_3 = \frac{1}{6 + 2 + 1} = \frac{1}{9} \approx 0.11
 </ul>
 <p>正式に，評価基準の集合を <span class="math inline">\(C = \{c_1, c_2, \ldots, c_m\}\)</span> とする．</p>
 <p>例えば，旅行先の代替案を <span class="math inline">\(X = \{\text{北海道}, \text{沖縄}, \text{九州}\}\)</span> とし，評価基準 <span class="math inline">\(C = \{\text{気候}, \text{食事}, \text{費用}\}\)</span> とする．このとき，以下のような階層を考える．</p>
-<p><strong>mermaid-figure-error</strong></p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 256.00 232.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 228)">
+<title>AHP</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-228 252,-228 252,4 -4,4"></polygon>
+<!-- Goal -->
+<g id="node1" class="node">
+<title>Goal</title>
+<path fill="#e3f2fd" stroke="#333333" d="M150.01,-224C150.01,-224 97.99,-224 97.99,-224 91.99,-224 85.99,-218 85.99,-212 85.99,-212 85.99,-200 85.99,-200 85.99,-194 91.99,-188 97.99,-188 97.99,-188 150.01,-188 150.01,-188 156.01,-188 162.01,-194 162.01,-200 162.01,-200 162.01,-212 162.01,-212 162.01,-218 156.01,-224 150.01,-224"></path>
+<text text-anchor="middle" x="124" y="-202.4" font-family="Helvetica,sans-Serif" font-size="12.00">旅行先の選択</text>
+</g>
+<!-- Climate -->
+<g id="node2" class="node">
+<title>Climate</title>
+<path fill="#fffde7" stroke="#333333" d="M42,-130C42,-130 12,-130 12,-130 6,-130 0,-124 0,-118 0,-118 0,-106 0,-106 0,-100 6,-94 12,-94 12,-94 42,-94 42,-94 48,-94 54,-100 54,-106 54,-106 54,-118 54,-118 54,-124 48,-130 42,-130"></path>
+<text text-anchor="middle" x="27" y="-108.4" font-family="Helvetica,sans-Serif" font-size="12.00">気候</text>
+</g>
+<!-- Goal&#45;&gt;Climate -->
+<g id="edge1" class="edge">
+<title>Goal-&gt;Climate</title>
+<path fill="none" stroke="#555555" d="M105.76,-187.7C90.31,-173.05 68.05,-151.93 51.13,-135.89"></path>
+<polygon fill="#555555" stroke="#555555" points="52.89,-133.7 45.16,-130.23 49.04,-137.76 52.89,-133.7"></polygon>
+</g>
+<!-- Food -->
+<g id="node3" class="node">
+<title>Food</title>
+<path fill="#fffde7" stroke="#333333" d="M139,-130C139,-130 109,-130 109,-130 103,-130 97,-124 97,-118 97,-118 97,-106 97,-106 97,-100 103,-94 109,-94 109,-94 139,-94 139,-94 145,-94 151,-100 151,-106 151,-106 151,-118 151,-118 151,-124 145,-130 139,-130"></path>
+<text text-anchor="middle" x="124" y="-108.4" font-family="Helvetica,sans-Serif" font-size="12.00">食事</text>
+</g>
+<!-- Goal&#45;&gt;Food -->
+<g id="edge2" class="edge">
+<title>Goal-&gt;Food</title>
+<path fill="none" stroke="#555555" d="M124,-187.7C124,-173.82 124,-154.14 124,-138.46"></path>
+<polygon fill="#555555" stroke="#555555" points="126.8,-138.23 124,-130.23 121.2,-138.23 126.8,-138.23"></polygon>
+</g>
+<!-- Cost -->
+<g id="node4" class="node">
+<title>Cost</title>
+<path fill="#fffde7" stroke="#333333" d="M236,-130C236,-130 206,-130 206,-130 200,-130 194,-124 194,-118 194,-118 194,-106 194,-106 194,-100 200,-94 206,-94 206,-94 236,-94 236,-94 242,-94 248,-100 248,-106 248,-106 248,-118 248,-118 248,-124 242,-130 236,-130"></path>
+<text text-anchor="middle" x="221" y="-108.4" font-family="Helvetica,sans-Serif" font-size="12.00">費用</text>
+</g>
+<!-- Goal&#45;&gt;Cost -->
+<g id="edge3" class="edge">
+<title>Goal-&gt;Cost</title>
+<path fill="none" stroke="#555555" d="M142.24,-187.7C157.69,-173.05 179.95,-151.93 196.87,-135.89"></path>
+<polygon fill="#555555" stroke="#555555" points="198.96,-137.76 202.84,-130.23 195.11,-133.7 198.96,-137.76"></polygon>
+</g>
+<!-- Hokkaido -->
+<g id="node5" class="node">
+<title>Hokkaido</title>
+<path fill="#e8f5e9" stroke="#333333" d="M42,-36C42,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 42,0 42,0 48,0 54,-6 54,-12 54,-12 54,-24 54,-24 54,-30 48,-36 42,-36"></path>
+<text text-anchor="middle" x="27" y="-14.4" font-family="Helvetica,sans-Serif" font-size="12.00">北海道</text>
+</g>
+<!-- Climate&#45;&gt;Hokkaido -->
+<g id="edge4" class="edge">
+<title>Climate-&gt;Hokkaido</title>
+<path fill="none" stroke="#555555" d="M27,-93.7C27,-79.82 27,-60.14 27,-44.46"></path>
+<polygon fill="#555555" stroke="#555555" points="29.8,-44.23 27,-36.23 24.2,-44.23 29.8,-44.23"></polygon>
+</g>
+<!-- Okinawa -->
+<g id="node6" class="node">
+<title>Okinawa</title>
+<path fill="#e8f5e9" stroke="#333333" d="M139,-36C139,-36 109,-36 109,-36 103,-36 97,-30 97,-24 97,-24 97,-12 97,-12 97,-6 103,0 109,0 109,0 139,0 139,0 145,0 151,-6 151,-12 151,-12 151,-24 151,-24 151,-30 145,-36 139,-36"></path>
+<text text-anchor="middle" x="124" y="-14.4" font-family="Helvetica,sans-Serif" font-size="12.00">沖縄</text>
+</g>
+<!-- Climate&#45;&gt;Okinawa -->
+<g id="edge5" class="edge">
+<title>Climate-&gt;Okinawa</title>
+<path fill="none" stroke="#555555" d="M45.24,-93.7C60.69,-79.05 82.95,-57.93 99.87,-41.89"></path>
+<polygon fill="#555555" stroke="#555555" points="101.96,-43.76 105.84,-36.23 98.11,-39.7 101.96,-43.76"></polygon>
+</g>
+<!-- Kyushu -->
+<g id="node7" class="node">
+<title>Kyushu</title>
+<path fill="#e8f5e9" stroke="#333333" d="M236,-36C236,-36 206,-36 206,-36 200,-36 194,-30 194,-24 194,-24 194,-12 194,-12 194,-6 200,0 206,0 206,0 236,0 236,0 242,0 248,-6 248,-12 248,-12 248,-24 248,-24 248,-30 242,-36 236,-36"></path>
+<text text-anchor="middle" x="221" y="-14.4" font-family="Helvetica,sans-Serif" font-size="12.00">九州</text>
+</g>
+<!-- Climate&#45;&gt;Kyushu -->
+<g id="edge6" class="edge">
+<title>Climate-&gt;Kyushu</title>
+<path fill="none" stroke="#555555" d="M54.38,-98.01C89.05,-81.58 148.78,-53.25 186.52,-35.35"></path>
+<polygon fill="#555555" stroke="#555555" points="187.73,-37.88 193.76,-31.92 185.33,-32.82 187.73,-37.88"></polygon>
+</g>
+<!-- Food&#45;&gt;Hokkaido -->
+<g id="edge7" class="edge">
+<title>Food-&gt;Hokkaido</title>
+<path fill="none" stroke="#555555" d="M105.76,-93.7C90.31,-79.05 68.05,-57.93 51.13,-41.89"></path>
+<polygon fill="#555555" stroke="#555555" points="52.89,-39.7 45.16,-36.23 49.04,-43.76 52.89,-39.7"></polygon>
+</g>
+<!-- Food&#45;&gt;Okinawa -->
+<g id="edge8" class="edge">
+<title>Food-&gt;Okinawa</title>
+<path fill="none" stroke="#555555" d="M124,-93.7C124,-79.82 124,-60.14 124,-44.46"></path>
+<polygon fill="#555555" stroke="#555555" points="126.8,-44.23 124,-36.23 121.2,-44.23 126.8,-44.23"></polygon>
+</g>
+<!-- Food&#45;&gt;Kyushu -->
+<g id="edge9" class="edge">
+<title>Food-&gt;Kyushu</title>
+<path fill="none" stroke="#555555" d="M142.24,-93.7C157.69,-79.05 179.95,-57.93 196.87,-41.89"></path>
+<polygon fill="#555555" stroke="#555555" points="198.96,-43.76 202.84,-36.23 195.11,-39.7 198.96,-43.76"></polygon>
+</g>
+<!-- Cost&#45;&gt;Hokkaido -->
+<g id="edge10" class="edge">
+<title>Cost-&gt;Hokkaido</title>
+<path fill="none" stroke="#555555" d="M193.62,-98.01C158.95,-81.58 99.22,-53.25 61.48,-35.35"></path>
+<polygon fill="#555555" stroke="#555555" points="62.67,-32.82 54.24,-31.92 60.27,-37.88 62.67,-32.82"></polygon>
+</g>
+<!-- Cost&#45;&gt;Okinawa -->
+<g id="edge11" class="edge">
+<title>Cost-&gt;Okinawa</title>
+<path fill="none" stroke="#555555" d="M202.76,-93.7C187.31,-79.05 165.05,-57.93 148.13,-41.89"></path>
+<polygon fill="#555555" stroke="#555555" points="149.89,-39.7 142.16,-36.23 146.04,-43.76 149.89,-39.7"></polygon>
+</g>
+<!-- Cost&#45;&gt;Kyushu -->
+<g id="edge12" class="edge">
+<title>Cost-&gt;Kyushu</title>
+<path fill="none" stroke="#555555" d="M221,-93.7C221,-79.82 221,-60.14 221,-44.46"></path>
+<polygon fill="#555555" stroke="#555555" points="223.8,-44.23 221,-36.23 218.2,-44.23 223.8,-44.23"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 <p>このような階層構造を用いることで，評価基準に基づいて代替案を評価することができる．各評価基準 <span class="math inline">\(c_k \in C\)</span> を用いて，代替案の一対比較行列 <span class="math inline">\(\mathbf{A}^{(k)}\)</span> を構築する．</p>
 <p>例えば，<span class="math inline">\(A^{(1)}\)</span>，<span class="math inline">\(A^{(2)}\)</span>，<span class="math inline">\(A^{(3)}\)</span> をそれぞれ評価基準 <span class="math inline">\(c_1\)</span>，<span class="math inline">\(c_2\)</span>，<span class="math inline">\(c_3\)</span> に対応する一対比較行列とする．</p>
 <p><span class="math display">\[
@@ -1121,7 +1250,7 @@ w_3 = \frac{1}{6 + 2 + 1} = \frac{1}{9} \approx 0.11
 0.16 \\
 \end{bmatrix}
 \]</span></p>
-<div id="8a67c8ba" class="cell" data-execution_count="1">
+<div id="80a1ceb7" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1406,7 +1535,7 @@ w_2 = \frac{(1/3 \times 1 \times 2)^{1/3}}{(1 \times 3 \times 5)^{1/3} + (1/3 \t
 <p><span class="math display">\[
 w_3 = \frac{(1/5 \times 1/2 \times 1)^{1/3}}{(1 \times 3 \times 5)^{1/3} + (1/3 \times 1 \times 2)^{1/3} + (1/5 \times 1/2 \times 1)^{1/3}}  \approx 0.12
 \]</span></p>
-<div id="73103d28" class="cell" data-execution_count="2">
+<div id="a0dc88c9" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1517,7 +1646,7 @@ w_3 = \frac{(1/5 \times 1/2 \times 1)^{1/3}}{(1 \times 3 \times 5)^{1/3} + (1/3 
 0.20 \\
 \end{bmatrix}
 \]</span></p>
-<div id="842f4d09" class="cell" data-execution_count="3">
+<div id="abb27340" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
