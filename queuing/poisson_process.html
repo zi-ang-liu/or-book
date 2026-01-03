@@ -144,7 +144,7 @@ window.Quarto = {
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://zi-ang-liu.github.io/or-book/queuing/poisson_process_files/figure-html/cell-2-output-1.png">
 <meta name="twitter:image-height" content="898">
-<meta name="twitter:image-width" content="1188">
+<meta name="twitter:image-width" content="1201">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -664,8 +664,12 @@ window.Quarto = {
   <li><a href="#到着間隔とサービス時間" id="toc-到着間隔とサービス時間" class="nav-link" data-scroll-target="#到着間隔とサービス時間"><span class="header-section-number">16.1.1</span> 到着間隔とサービス時間</a></li>
   <li><a href="#無記憶性" id="toc-無記憶性" class="nav-link" data-scroll-target="#無記憶性"><span class="header-section-number">16.1.2</span> 無記憶性</a></li>
   </ul></li>
-  <li><a href="#ポアソン過程" id="toc-ポアソン過程" class="nav-link" data-scroll-target="#ポアソン過程"><span class="header-section-number">16.2</span> ポアソン過程</a></li>
-  <li><a href="#ポアソン過程の到着間隔" id="toc-ポアソン過程の到着間隔" class="nav-link" data-scroll-target="#ポアソン過程の到着間隔"><span class="header-section-number">16.3</span> ポアソン過程の到着間隔</a></li>
+  <li><a href="#ポアソン分布" id="toc-ポアソン分布" class="nav-link" data-scroll-target="#ポアソン分布"><span class="header-section-number">16.2</span> ポアソン分布</a>
+  <ul class="collapse">
+  <li><a href="#指数分布とポアソン分布の関係" id="toc-指数分布とポアソン分布の関係" class="nav-link" data-scroll-target="#指数分布とポアソン分布の関係"><span class="header-section-number">16.2.1</span> 指数分布とポアソン分布の関係</a></li>
+  </ul></li>
+  <li><a href="#ポアソン過程" id="toc-ポアソン過程" class="nav-link" data-scroll-target="#ポアソン過程"><span class="header-section-number">16.3</span> ポアソン過程</a></li>
+  <li><a href="#ポアソン過程の到着間隔" id="toc-ポアソン過程の到着間隔" class="nav-link" data-scroll-target="#ポアソン過程の到着間隔"><span class="header-section-number">16.4</span> ポアソン過程の到着間隔</a></li>
   </ul>
 </nav>
     </div>
@@ -704,14 +708,17 @@ f_X(x) = \begin{cases}
 \end{cases}
 \]</span></p>
 <p>で与えられる．ここで <span class="math inline">\(\lambda &gt; 0\)</span> は分布のパラメータである．指数分布に従う確率変数 <span class="math inline">\(X\)</span> の平均と分散は <span class="math display">\[
-E[X] = \frac{1}{\lambda}, \quad \text{Var}(X) = \frac{1}{\lambda^2}
+\mathbb{E}[X] = \frac{1}{\lambda}, \quad \text{Var}(X) = \frac{1}{\lambda^2}
 \]</span> である．<span class="math inline">\(X\)</span> の累積分布関数は <span class="math display">\[
-F_X(x) = P(X \leq x) = \begin{cases}
+F_X(x) = \mathbb{P}(X \leq x) = \begin{cases}
 1 - e^{-\lambda x} &amp; x \geq 0 \\
 0 &amp; x &lt; 0
 \end{cases}
 \]</span> である．</p>
-<p>指数分布に従う確率変数は，事象が起こるまでの時間を表すことが多い．例えば，機械が故障するまでの時間，事故が発生するまでの時間などが挙げられる．<span class="math inline">\(\mathbb{E}[X]\)</span> は，事象が起こるまでの平均時間を表す．<span class="math inline">\(\lambda\)</span> の値が大きくなるほど，<span class="math inline">\(\mathbb{E}[X]\)</span> は小さくなる．</p>
+<p>指数分布に従う確率変数は，事象が起こるまでの時間を表すことが多い．例えば，機械が故障するまでの時間，事故が発生するまでの時間などが挙げられる．このとき，<span class="math inline">\(\mathbb{E}[X]\)</span> は，事象が起こるまでの平均時間を表す．<span class="math inline">\(\lambda\)</span> の値が大きくなるほど，<span class="math inline">\(\mathbb{E}[X]\)</span> は小さくなる．</p>
+<!-- :::{#exm-exp-basic}
+$X$ をパラメータ $\lambda$ の指数分布に従う確率変数とする．$X$ は客の到着間隔を表すとき，$\mathbb{E}[X]$ は平均到着間隔を表し，$\lambda$ は単位時間あたりの到着する客数の平均を表す．すなわち，$\lambda$ は到着率である．$\mathbb{P}(X \leq t)$ は，時間 $t$ 以内に次の客が到着する確率を表す．
+::: -->
 <!-- $M/M/1$ と $M/M/c$ 待ち行列では，到着間隔とサービス時間が指数分布に従う． -->
 <!-- :::{#exm-exp-basic}
 パラメータ $\lambda$ の指数分布に従う到着間隔を表す確率変数 $T$ を考える．時刻 $0$ から始めて，初めての到着が起こるまでの時間を $T$ とする．ここで，$T > t$ は，時間区間 $[0, t]$ に到着が発生しないことを意味する．時刻 $t \geq 0$ までに到着が発生する確率は，累積分布関数 $F_T(t)$ で与えられる．
@@ -720,7 +727,7 @@ F_T(t) = \mathbb{P}(T \leq t) = 1 - e^{-\lambda t}
 $$
 ::: -->
 <p>次の図は，パラメータ <span class="math inline">\(\lambda = 0.5, 1.0, 1.5, 2.0\)</span> の場合における指数分布の確率密度関数を示している．図から分かるように，確率密度関数 <span class="math inline">\(f_X(x)\)</span> は <span class="math inline">\(x\)</span> の増加に伴い単調減少する．</p>
-<div id="70c78491" class="cell" data-execution_count="1">
+<div id="1b0b5029" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -728,30 +735,32 @@ $$
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> expon</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">8</span>, <span class="dv">100</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>lambda_params <span class="op">=</span> [<span class="fl">0.5</span>, <span class="fl">1.0</span>, <span class="fl">1.5</span>, <span class="fl">2.0</span>]</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> lam <span class="kw">in</span> lambda_params:</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    pdf <span class="op">=</span> expon.pdf(x, scale<span class="op">=</span><span class="dv">1</span> <span class="op">/</span> lam)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    plt.plot(x, pdf, label<span class="op">=</span><span class="ss">f"λ=</span><span class="sc">{</span>lam<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Exponential Distribution PDF"</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"x"</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"$f_X(x)$"</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, <span class="dv">8</span>)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="fl">2.5</span>)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>lambda_params <span class="op">=</span> [<span class="fl">1.0</span>, <span class="fl">1.5</span>, <span class="fl">2.0</span>]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>line_styles <span class="op">=</span> [<span class="st">"-"</span>, <span class="st">"--"</span>, <span class="st">":"</span>]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> lam, ls <span class="kw">in</span> <span class="bu">zip</span>(lambda_params, line_styles):</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    pdf <span class="op">=</span> expon.pdf(x, scale<span class="op">=</span><span class="dv">1</span> <span class="op">/</span> lam)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    plt.plot(x, pdf, label<span class="op">=</span><span class="ss">f"λ=</span><span class="sc">{</span>lam<span class="sc">}</span><span class="ss">"</span>, linestyle<span class="op">=</span>ls)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Exponential Distribution PDF"</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"x"</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"$f_X(x)$"</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, <span class="dv">4</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="fl">2.5</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="poisson_process_files/figure-html/cell-2-output-1.png" width="594" height="449" class="figure-img"></p>
+<p><img src="poisson_process_files/figure-html/cell-2-output-1.png" width="601" height="449" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <section id="到着間隔とサービス時間" class="level3" data-number="16.1.1">
 <h3 data-number="16.1.1" class="anchored" data-anchor-id="到着間隔とサービス時間"><span class="header-section-number">16.1.1</span> 到着間隔とサービス時間</h3>
-<p><span class="math inline">\(M/M/1\)</span> と <span class="math inline">\(M/M/c\)</span> 待ち行列では，到着間隔とサービス時間が指数分布に従う．確率変数 <span class="math inline">\(T\)</span> を到着間隔を表すとする．このとき，<span class="math inline">\(P(T \leq t)\)</span> は，時間 <span class="math inline">\(t\)</span> 以内に次の客が到着する確率を表す．<span class="math inline">\(E(T)\)</span> は，到着間隔の平均を表す．<span class="math inline">\(\lambda = 1/E(T)\)</span> は，単位時間あたりの到着する客数の平均を表す．この <span class="math inline">\(\lambda\)</span> は，前の章で説明した<strong>平均到着率</strong>である．</p>
+<p><span class="math inline">\(M/M/1\)</span> と <span class="math inline">\(M/M/c\)</span> 待ち行列では，到着間隔とサービス時間が指数分布に従う．確率変数 <span class="math inline">\(T\)</span> が到着間隔を表すとき，<span class="math inline">\(\mathbb{P}(T \leq t)\)</span> は，時間 <span class="math inline">\(t\)</span> 以内に次の客が到着する確率を表す．<span class="math inline">\(\mathbb{P}(T &gt; t)\)</span> は，時間 <span class="math inline">\(t\)</span> 以内に次の客が到着しない確率を表す．</p>
+<p><span class="math inline">\(\mathbb{E}[T]\)</span> は，到着間隔の平均を表す．<span class="math inline">\(\lambda = 1/\mathbb{E}[T]\)</span> は，単位時間あたりの到着する客数の平均を表す．この <span class="math inline">\(\lambda\)</span> は，前の章で説明した平均到着率である．</p>
 <div id="exm-exp-basic-arrival" class="theorem example">
 <p><span class="theorem-title"><strong>例 16.1</strong></span> ある店舗では，1時間あたり平均12人の客が来店する．到着間隔 <span class="math inline">\(T\)</span> が指数分布に従うと仮定する．次の問いに答えよ．</p>
 <ol type="1">
@@ -767,7 +776,7 @@ P(T \leq 1/30) = F_T(1/30) = 1 - e^{-12 \times (1/30)} \approx 0.3297
 \]</span> よって，2分以内に次の客が到着する確率は約0.3297である．</p>
 </div>
 <p>次の図は，<a href="#exm-exp-basic-arrival" class="quarto-xref">例&nbsp;<span>16.1</span></a> で説明した到着間隔のシミュレーション例を示している．平均到着率 <span class="math inline">\(\lambda = 12\)</span> 人/時間であるとき，25人の到着時間をシミュレーションした．横軸は時間を表し，青い線は各客の到着時間を示している．</p>
-<div id="b05b35f6" class="cell" data-execution_count="2">
+<div id="b3f6ff95" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>コード</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> expon</span>
@@ -783,7 +792,7 @@ P(T \leq 1/30) = F_T(1/30) = 1 - e^{-12 \times (1/30)} \approx 0.3297
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>plt.eventplot(</span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    arrival_times,</span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    orientation<span class="op">=</span><span class="st">"horizontal"</span>,</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    colors<span class="op">=</span><span class="st">"blue"</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    colors<span class="op">=</span><span class="st">"black"</span>,</span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    lineoffsets<span class="op">=</span><span class="fl">0.5</span>,</span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    linelengths<span class="op">=</span><span class="fl">0.3</span>,</span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    linewidths<span class="op">=</span><span class="fl">0.8</span>,</span>
@@ -818,11 +827,13 @@ P(T \leq 0.05) = F_T(0.05) = 1 - e^{-6 \times 0.05} \approx 0.2592
 </section>
 <section id="無記憶性" class="level3" data-number="16.1.2">
 <h3 data-number="16.1.2" class="anchored" data-anchor-id="無記憶性"><span class="header-section-number">16.1.2</span> 無記憶性</h3>
+<p>指数分布が無記憶性を持つ唯一の連続分布である．</p>
 <div id="def-memoryless" class="theorem definition">
 <p><span class="theorem-title"><strong>定義 16.1</strong></span> 確率変数 <span class="math inline">\(T\)</span> が<strong>無記憶性</strong>（memoryless）を持つとは，任意の非負実数 <span class="math inline">\(s, t\)</span> に対して <span class="math display">\[
 P(T &gt; s + t \mid T &gt; s) = P(T &gt; t), \quad (s, t \geq 0)
 \]</span> が成り立つことをいう．</p>
 </div>
+<p>確率変数 <span class="math inline">\(T\)</span> を到着間隔とする．無記憶性とは，すでに時間 <span class="math inline">\(s\)</span> が経過している場合（<span class="math inline">\(T &gt; s\)</span>），さらに時間 <span class="math inline">\(t\)</span> 経過した後に到着が発生していない確率（<span class="math inline">\(T &gt; s + t\)</span>）が，最初から時間 <span class="math inline">\(t\)</span> 経過した後に到着が発生していない確率と等しいことを意味する．</p>
 <div id="thm-exp-memoryless" class="theorem">
 <p><span class="theorem-title"><strong>定理 16.1</strong></span> 指数分布に従う確率変数は無記憶性を持つ．</p>
 </div>
@@ -835,15 +846,52 @@ P(T &gt; s + t \mid T &gt; s) &amp; = \frac{P(T &gt; s + t, T &gt; s)}{P(T &gt; 
 &amp; = P(T &gt; t)
 \end{align*}\]</span></p>
 </div>
-<p>指数分布が無記憶性を持つ唯一の連続分布である．</p>
-<p>確率変数 <span class="math inline">\(T\)</span> を到着間隔とする．無記憶性とは，すでに時間 <span class="math inline">\(s\)</span> が経過している場合（<span class="math inline">\(T &gt; s\)</span>），さらに時間 <span class="math inline">\(t\)</span> 経過した後に到着が発生していない確率（<span class="math inline">\(T &gt; s + t\)</span>）が，最初から時間 <span class="math inline">\(t\)</span> 経過した後に到着が発生していない確率と等しいことを意味する．</p>
 <div id="exm-memoryless-bus" class="theorem example">
 <p><span class="theorem-title"><strong>例 16.3</strong></span> 仮に，バスの到着間隔が指数分布に従うのであれば，「すでに10分待っていたので，そろそろバスが来るだろう」という考え方は成り立たない．</p>
 </div>
+<div id="exm-memoryless-arrival" class="theorem example">
+<p><span class="theorem-title"><strong>例 16.4</strong></span> ある店舗での客の到着間隔が指数分布に従うとする．到着率は <span class="math inline">\(\lambda = 2\)</span> 人/時間である．すでに30分待っているとき，さらに15分待った後に客が到着していない確率を求めよ．</p>
+<p>到着間隔 <span class="math inline">\(T\)</span> はパラメータ <span class="math inline">\(\lambda = 2\)</span> の指数分布に従う．無記憶性より， <span class="math display">\[
+P(T &gt; 0.75 \mid T &gt; 0.5) = P(T &gt; 0.25) = e^{-2 \times 0.25} \approx 0.607
+\]</span> よって，さらに15分待った後に客が到着していない確率は約0.607である．</p>
+</div>
 </section>
 </section>
-<section id="ポアソン過程" class="level2" data-number="16.2">
-<h2 data-number="16.2" class="anchored" data-anchor-id="ポアソン過程"><span class="header-section-number">16.2</span> ポアソン過程</h2>
+<section id="ポアソン分布" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="ポアソン分布"><span class="header-section-number">16.2</span> ポアソン分布</h2>
+<p>離散型確率変数 <span class="math inline">\(X\)</span> が<strong>ポアソン分布</strong>（Poisson distribution）に従うとは，次の確率質量関数を持つことをいう．</p>
+<p><span class="math display">\[
+p_X(n) = \mathbb{P}(X = n) = e^{-\lambda} \frac{\lambda^n}{n!}, \quad n = 0, 1, 2, \ldots
+\]</span></p>
+<p>ここで，<span class="math inline">\(\lambda &gt; 0\)</span> は分布のパラメータである．ポアソン分布の平均と分散は <span class="math display">\[
+\mathbb{E}[X] = \lambda, \quad \text{Var}(X) = \lambda
+\]</span> である．</p>
+<section id="指数分布とポアソン分布の関係" class="level3" data-number="16.2.1">
+<h3 data-number="16.2.1" class="anchored" data-anchor-id="指数分布とポアソン分布の関係"><span class="header-section-number">16.2.1</span> 指数分布とポアソン分布の関係</h3>
+<p><span class="math inline">\(N(t)\)</span> を時刻 <span class="math inline">\(t\)</span> までに発生した事象の回数を表す確率変数とする．<span class="math inline">\(N(t)\)</span> がパラメータ <span class="math inline">\(\lambda t\)</span> のポアソン分布に従うとき，確率質量関数，期待値，分散はそれぞれ <span class="math display">\[
+\mathbb{P}(N(t) = n) = e^{-\lambda t} \frac{(\lambda t)^n}{n!}, \quad n = 0, 1, 2, \ldots
+\]</span> <span class="math display">\[
+\mathbb{E}[N(t)] = \lambda t, \quad \text{Var}(N(t)) = \lambda t
+\]</span> で与えられる．</p>
+<p>確率変数 <span class="math inline">\(T\)</span> はパラメータ <span class="math inline">\(\lambda\)</span> の指数分布に従うとする．確率密度関数，期待値，分散はそれぞれ <span class="math display">\[
+f_T(t) = \begin{cases}
+\lambda e^{-\lambda t} &amp; t \geq 0 \\
+0 &amp; t &lt; 0
+\end{cases}
+\]</span> <span class="math display">\[
+\mathbb{E}[T] = \frac{1}{\lambda}, \quad \text{Var}(T) = \frac{1}{\lambda^2}
+\]</span> で与えられる．</p>
+<p>例えば，<span class="math inline">\(n = 0\)</span> のとき， <span class="math display">\[
+\mathbb{P}(N(t) = 0) = e^{-\lambda t}
+\]</span> であり，これは時間 <span class="math inline">\(t\)</span> 以内に事象が発生しない確率を表す．これは <span class="math inline">\(\mathbb{P}(T &gt; t)\)</span> と等しい．すなわち，</p>
+<p><span class="math display">\[
+\mathbb{P}(T &gt; t) = 1 - F_T(t) = e^{-\lambda t} = \mathbb{P}(N(t) = 0)
+\]</span> である．</p>
+<p>客の到着間隔が指数分布に従うとき，単位時間あたりの平均到着率が <span class="math inline">\(\lambda\)</span> であるとする．このとき，時刻 <span class="math inline">\(t\)</span> までに到着した客数 <span class="math inline">\(N(t)\)</span> はパラメータ <span class="math inline">\(\lambda t\)</span> のポアソン分布に従う．また，<span class="math inline">\(\lambda\)</span> は到着率であるから，時刻 <span class="math inline">\(t\)</span> までに到着した客数の期待値は <span class="math inline">\(\mathbb{E}[N(t)] = \lambda t\)</span> であることが分かる．</p>
+</section>
+</section>
+<section id="ポアソン過程" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="ポアソン過程"><span class="header-section-number">16.3</span> ポアソン過程</h2>
 <p>確率過程 <span class="math inline">\(\{N(t), t \geq 0\}\)</span> とは，時間 <span class="math inline">\(t\)</span> とともに変化する確率変数 <span class="math inline">\(N(t)\)</span> の集まりである．</p>
 <p><strong>計数過程</strong>（counting process）とは，次の条件を満たす確率過程 <span class="math inline">\(\{N(t), t \geq 0\}\)</span> である．</p>
 <ol type="1">
@@ -859,14 +907,14 @@ N(t_2) - N(t_1), N(t_3) - N(t_2), \ldots, N(t_n) - N(t_{n-1})
 </div>
 <p>計数過程では，<span class="math inline">\(N(t_i) - N(t_{i-1})\)</span> は時間区間 <span class="math inline">\((t_{i-1}, t_i]\)</span> に発生した事象の回数を表す．計数過程が独立増分を持つとは，重なりのない時間区間における事象の発生回数が互いに独立であることを意味する．</p>
 <div id="exm-independent-increments" class="theorem example">
-<p><span class="theorem-title"><strong>例 16.4</strong></span> ある店舗での客の到着数を表す計数過程 <span class="math inline">\(\{N(t), t \geq 0\}\)</span> を考える．この計数過程が独立増分を持つとは，例えば，時間区間 <span class="math inline">\((0, 1]\)</span> に到着した客数と時間区間 <span class="math inline">\((3, 6]\)</span> に到着した客数が独立であることを意味する．</p>
+<p><span class="theorem-title"><strong>例 16.5</strong></span> ある店舗での客の到着数を表す計数過程 <span class="math inline">\(\{N(t), t \geq 0\}\)</span> を考える．この計数過程が独立増分を持つとは，例えば，時間区間 <span class="math inline">\((0, 1]\)</span> に到着した客数と時間区間 <span class="math inline">\((3, 6]\)</span> に到着した客数が独立であることを意味する．</p>
 </div>
 <div id="def-stationary-increments" class="theorem definition">
 <p><span class="theorem-title"><strong>定義 16.3</strong></span> 確率過程 <span class="math inline">\(\{N(t), t \geq 0\}\)</span> が<strong>定常増分</strong>（stationary increments）を持つとは，任意の <span class="math inline">\(t &gt; s \geq 0\)</span> と <span class="math inline">\(h \geq 0\)</span> に対して，<span class="math inline">\(N(t) - N(s)\)</span> と <span class="math inline">\(N(t + h) - N(s + h)\)</span> が同一の分布に従うことをいう．</p>
 </div>
 <p>計数過程が定常増分を持つとは，事象の発生回数は時間区間の長さのみに依存し，時間の位置には依存しないことを意味する．</p>
 <div id="exm-stationary-increments" class="theorem example">
-<p><span class="theorem-title"><strong>例 16.5</strong></span> ある店舗での客の到着数を表す計数過程 <span class="math inline">\(\{N(t), t \geq 0\}\)</span> を考える．この計数過程が定常増分を持つとは，例えば，12時から13時の間に到着した客数と、14時から15時の間に到着した客数が同じ分布に従うことを意味する．</p>
+<p><span class="theorem-title"><strong>例 16.6</strong></span> ある店舗での客の到着数を表す計数過程 <span class="math inline">\(\{N(t), t \geq 0\}\)</span> を考える．この計数過程が定常増分を持つとは，例えば，12時から13時の間に到着した客数と、14時から15時の間に到着した客数が同じ分布に従うことを意味する．</p>
 </div>
 <div id="def-poisson-process" class="theorem definition">
 <p><span class="theorem-title"><strong>定義 16.4</strong></span> 以下の性質を満たす計数過程 <span class="math inline">\(\{N(t), t \geq 0\}\)</span> を パラメータ <span class="math inline">\(\lambda &gt; 0\)</span> の<strong>ポアソン過程</strong>（Poisson process）という．</p>
@@ -901,7 +949,7 @@ P(N(t) = k) = e^{-\lambda t} \frac{(\lambda t)^k}{k!}, \quad k = 0, 1, 2, \ldots
 <p><span class="proof-title"><em>証明</em>. </span>省略する．</p>
 </div>
 <div id="exm-poisson-process-arrival" class="theorem example">
-<p><span class="theorem-title"><strong>例 16.6</strong></span> ある店舗での客の到着数を表すポアソン過程 <span class="math inline">\(\{N(t), t \geq 0\}\)</span> を考える．平均到着率は <span class="math inline">\(\lambda = 5\)</span> 人/分である．営業時間は10:00から18:00までの8時間である．次の問いに答えよ．</p>
+<p><span class="theorem-title"><strong>例 16.7</strong></span> ある店舗での客の到着数を表すポアソン過程 <span class="math inline">\(\{N(t), t \geq 0\}\)</span> を考える．平均到着率は <span class="math inline">\(\lambda = 5\)</span> 人/分である．営業時間は10:00から18:00までの8時間である．次の問いに答えよ．</p>
 <ol type="1">
 <li>10:00から10:03までの3分間に到着する客数の分布を求めよ．</li>
 <li>11:00から11:03までの3分間に2人の客が到着する確率を求めよ．</li>
@@ -915,8 +963,8 @@ P(N(3) = 2) = e^{-5 \cdot 3} \frac{(5 \cdot 3)^2}{2!}
 \]</span></p>
 </div>
 </section>
-<section id="ポアソン過程の到着間隔" class="level2" data-number="16.3">
-<h2 data-number="16.3" class="anchored" data-anchor-id="ポアソン過程の到着間隔"><span class="header-section-number">16.3</span> ポアソン過程の到着間隔</h2>
+<section id="ポアソン過程の到着間隔" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="ポアソン過程の到着間隔"><span class="header-section-number">16.4</span> ポアソン過程の到着間隔</h2>
 <p><span class="math inline">\(Y_k\)</span> を <span class="math inline">\(k\)</span> 回目の事象が発生するまでの時間とし，<span class="math inline">\(T_k\)</span> は <span class="math inline">\((k-1)\)</span> 回目から <span class="math inline">\(k\)</span> 回目の事象が起こるまでの時間とする．<span class="math inline">\(k = 1, 2, \ldots\)</span> に対して， <span class="math display">\[
 T_1 = Y_1, \quad T_k = Y_k - Y_{k-1} \quad (k = 2, 3, \ldots)
 \]</span> と定義する．また， <span class="math display">\[
@@ -937,7 +985,7 @@ Y_k = \sum_{i=1}^k T_i = T_1 + T_2 + \cdots + T_k
 f_{Y_k}(y) = \frac{\lambda^k y^{k-1} e^{-\lambda y}}{(k-1)!}, \quad y \geq 0
 \]</span> である．これのとき，<span class="math inline">\(Y_k\)</span> は<strong>アーラン分布</strong>（Erlang distribution）に従う．</p>
 <div id="exm-Erlang-arrival" class="theorem example">
-<p><span class="theorem-title"><strong>例 16.7</strong></span> あるコールセンターではの電話の到着はポアソン過程に従うとする．田中さんが電話したとき，<span class="math inline">\(11\)</span> 人の客が すでに待っていた．オペレーターが1人で，平均サービス率は <span class="math inline">\(\mu = 2\)</span> 人/分であるとする．田中さんがサービスを受け始めるまでの待ち時間の期待値を求めよ．</p>
+<p><span class="theorem-title"><strong>例 16.8</strong></span> あるコールセンターではの電話の到着はポアソン過程に従うとする．田中さんが電話したとき，<span class="math inline">\(11\)</span> 人の客が すでに待っていた．オペレーターが1人で，平均サービス率は <span class="math inline">\(\mu = 2\)</span> 人/分であるとする．田中さんがサービスを受け始めるまでの待ち時間の期待値を求めよ．</p>
 <p>サービスを受けている客のサービス時間もパラメータ <span class="math inline">\(\mu\)</span> の指数分布に従う． <span class="math display">\[
 \mathbb{E}[Y] = \frac{12}{\lambda} = \frac{12}{2} = 6 \text{ 分}
 \]</span></p>
